@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API for kjøretøy på vei</title>
+    <meta name="description" content="Tolletatens API for kjøretøy på vei">
+    <meta name="author" content="Tolleataten">
+
+    <style>
+        html {
+            font: "Roboto, Arial, sans-serif";
+        }
+
+        img {
+            max-width: 95%;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        h2, h3, h4, h5, h6, h7, h8, h9 {
+            color: #12404F;
+        }
+
+        header {
+          background-color: #007682;
+          padding: 6px;
+        }
+
+        footer {
+            background-color: #007682;
+            padding: 6px;
+            text-align: center;
+            color: white;
+            clear: both;
+            float: none;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #12404F;
+          color: white;
+        }
+
+        .column {
+           float: left;
+        }
+        .left {
+            width: 5%;
+        }
+        .middle {
+            width: 70%;
+        }
+        .right {
+            width: 25%;
+            font-size: 14px;
+            float: right;
+        }
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 100%;
+          }
+        }
+
+        .boxed {
+          border: 1px solid #EFEFEF;
+          border-radius: 12px;
+          padding: 10px;
+          color:white;
+        }
+
+        .center {
+            text-align: center;
+        }
+  </style>
+
+
+</head>
+<body>
+
+
+<header>
+    <h1>API for kjøretøy på vei</h1>
+</header>
+
+
+<main>
+    <div class="column left">
+        <br/>
+    </div>
+
+    <div class="column middle">
+        <h2 id="omtjenesten">Om tjenesten</h2>
+        <p>API-et støtter innsending av opplysninger knyttet til melde og
+            opplysningsplikten for kjøretøy på vei og ferge i henhold til forskrift
+            om inn- og utførsel av varer, § 2-3. API-et er delt i 2 forskjellige
+            meldinger, en for innsending av opplysninger knyttet til transport og en
+            for innsending av opplysninger knyttet til forsendelser. Meldingene
+            sendes inn hver for seg og uavhengig av hverandre med tanke på både
+            rekkefølge og avsender. Melding om transport skal inneholde en liste med
+            sporingsnummer til alle forsendelsene som skal være med på transporten.
+            Forsendelse knyttes til transport ved hjelp av at sporingsnummeret også
+            oppgis i melding om forsendelse.</p>
+        <p>For å kunne bruke tjenesten må scope for autentisering mot
+            Maskinporten settes til <strong>toll: movement.road.api/</strong></p>
+        <p><img src="media/kpv-transp_last.jpg" /></p>
+        <p><em>Figur: Illustrasjonen viser på et overordnet nivå hvilken
+            informasjon knyttet til transport og last som skal sendes inn.</em></p>
+        <p><img src="media/kpv-digiflyt.png" /></p>
+        <p><em>Figur: Tjenesten støtter opp under Tolletatens konsept for
+            digital og automatisert vareførsel over grensen</em></p>
+
+        <h2 id="data">Data</h2>
+        <p>Tabellene under gir en oversikt over sentrale dataelementer knyttet
+            til transport og vare. De detaljerte informasjonsmodellene for transport
+            og forsendelse vil publiseres så snart de er klare. Det er også
+            synliggjort hvilke dataelementer som vil inngå i NCTS fase 5 og hvorvidt
+            de vil være obligatoriske, betingede eller frivillige der.</p>
+
+        <h3 id="dtransport">Dataelementer knyttet til transport</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th>Dataelement</th>
+                <th>Obligatorisk</th>
+                <th>Betinget</th>
+                <th>Frivillig</th>
+                <th>NCTS5</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Avsender</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Mottaker</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Transportør</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Andre AEO-er</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Fraktbrev</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>F</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Samlet bruttovekt</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Aktivt transportmiddel</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Fører</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Transportutstyr</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Tollsted/tid for ankomst</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reiserute</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Passivt transportmiddel</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Mannskap</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Lastested</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>F</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Lossested</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 id="dforsendelse">Dataelementer knyttet til forsendelse</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th>Dataelement</th>
+                <th>Obligatorisk</th>
+                <th>Betinget</th>
+                <th>Frivillig</th>
+                <th>NCTS 5</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Avsender</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Mottaker</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Andre AEO-er</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Fraktbrev</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Relevante dokumenter</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Fraktkostnader</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Samlet fakturert verdi</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Bruttovekt</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Passivt transportmiddel</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Transportutstyr</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Lastested</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Lossested</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Reiserute</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 id="dvare">Dataelementer knyttet til vare</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th>Dataelement</th>
+                <th>Obligatorisk</th>
+                <th>Betinget</th>
+                <th>Frivillig</th>
+                <th>NCTS5</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><strong>Andre AOE-er</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Relevante dokumenter</strong></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td class="center"><strong>O</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Fakturert verdi</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Varebeskrivelse og nummer</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Brutto- og nettovekt</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>F+B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Emballasje og antall kolli</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>O+B</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Opprinnelsesland</strong></td>
+                <td class="center"><strong>X</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Passivt transportmiddel</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Transportutstyr</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>-</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Farlig gods</strong></td>
+                <td></td>
+                <td></td>
+                <td class="center"><strong>X</strong></td>
+                <td class="center"><strong>X</strong></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="mtransport">Melding om transport</h2>
+        <p>Oppsummering av innhold</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th>Område</th>
+                <th>Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Melde transport</td>
+                <td>Informasjon om transport og referanse til alle forsendelsene om bord
+                    i transporten</td>
+            </tr>
+            <tr>
+                <td>Avgiver av informasjon</td>
+                <td>Speditør/Transportør/Vareeier/Fullmektig</td>
+            </tr>
+            <tr>
+                <td>Mottaker av informasjon</td>
+                <td>Tolletaten</td>
+            </tr>
+            <tr>
+                <td>Er informasjon obligatorisk?</td>
+                <td>Ja</td>
+            </tr>
+            <tr>
+                <td>Når ønskes informasjon hos Tolletaten?</td>
+                <td>Så tidlig som mulig, dog senest ved grensepassering for
+                    transport</td>
+            </tr>
+            <tr>
+                <td>Når ønskes oppdatering av informasjonen?</td>
+                <td>Informasjon må oppdateres når viktige deler av informasjonen endres.
+                    Typisk ved endring av kjennemerker, sjåfør, tid/sted for
+                    grensepassering, ved endringer i listen av forsendelser (flere
+                    forsendelser/færre forsendelser enn i foregående melding)</td>
+            </tr>
+            <tr>
+                <td>Frist for innsending</td>
+                <td>Senest ved grensepassering</td>
+            </tr>
+            <tr>
+                <td>Viktige informasjonselementer</td>
+                <td>Kjennemerke(r) på aktivt og passivt transportmiddel, informasjon om
+                    fører, tid/sted for grensepassering, sporingsnummer til alle
+                    forsendelsene i transporten</td>
+            </tr>
+            <tr>
+                <td>Spesielt om oppdatering av melding om transport</td>
+                <td>Ved oppdatering og kansellering er MRN mottatt i opprinnelig melding
+                    den nøkkelen som skal brukes for å identifisere riktig transport</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h2 id="mforsendelse">Melding om forsendelse</h2>
+        <p>Oppsummering av innhold</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th>Område</th>
+                <th>Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Melde forsendelse</td>
+                <td>Informasjon om forsendelse.</td>
+            </tr>
+            <tr>
+                <td>Avgiver av informasjon</td>
+                <td>Speditør/Transportør/Vareeier/Fullmektig</td>
+            </tr>
+            <tr>
+                <td>Mottaker av informasjon</td>
+                <td>Tolletaten</td>
+            </tr>
+            <tr>
+                <td>Er informasjon obligatorisk?</td>
+                <td>Ja</td>
+            </tr>
+            <tr>
+                <td>Når ønskes informasjon hos Tolletaten?</td>
+                <td>Så tidlig som mulig, dog senest ved grensepassering for
+                    forsendelse</td>
+            </tr>
+            <tr>
+                <td>Når ønskes oppdatering av informasjonen?</td>
+                <td>Informasjon ønsker oppdatert når viktige deler av informasjonen
+                    endres</td>
+            </tr>
+            <tr>
+                <td>Frist for innsending</td>
+                <td>Senest ved grensepassering</td>
+            </tr>
+            <tr>
+                <td>Viktige informasjonselementer</td>
+                <td>Sporingsnummer, Tollprosedyre, Referanse til import og eksport
+                    deklarasjoner, Referanse til NCTS transittering(er),
+                    Varebeskrivelser/vekt/verdi, Avsender, Mottaker</td>
+            </tr>
+            <tr>
+                <td>Spesielt om oppdatering av melding om transport</td>
+                <td>Ved oppdatering og kansellering er MRN mottatt i opprinnelig melding
+                    nøkkelen som skal brukes for å identifisere riktig forsendelse.</td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 id="grensesnittbeskrivelse">Grensesnittbeskrivelse
+            <a id="grensesnitt"></a></h2>
+        <p>Tjenestene vil gjøres tilgjengelige som REST-tjenester over HTTP, med
+            data på JSON-format.</p>
+
+        <h2 id="eksempler">Aktuelle eksempler</h2>
+        <ul>
+            <li><p>Forsendelse direktefortolling med prosedyre ut av EU =
+                eksport</p>
+                <ul>
+                    <li>Eksempelet viser en forsendelse som skal direktefortolles på grensen
+                        og hvor prosedyren ut av EU er en svensk eksport av typen UGE. Under
+                        ImportProcedure ligger deklarasjonsId'en til den allerede innsendte
+                        fortollingen i TVINN. Under ExportFormEU ligger eksporttype, her en UGE,
+                        og i feltet ExportId legges MRN-en til den ferdigekspederte
+                        eksporten.</li>
+                </ul></li>
+            <li><p>Forsendelse transittering som kun skal grensepasseres i NCTS</p>
+                <ul>
+                    <li>Eksempelet viser en forsendelse som er under transittering og som
+                        skal fullføres ved ankomst til bestemmelsessted. Her skal
+                        PreviousDocuments fylles ut med TypeOfReference = N820 og i feltet
+                        Reference fyller man ut MR-'en til transitteringen fra NCTS</li>
+                </ul></li>
+            <li><p>Oppdatere transport</p>
+                <ul>
+                    <li>Eksempelet viser en oppdatert melding om transport. Den opprinnelige
+                        meldingen inneholdt en liste med 2 forsendelser og den oppdaterte
+                        meldingen inneholder en liste med de samme 2 forsendelsene pluss en ny
+                        forsendelse, til sammen 3 forsendelser</li>
+                </ul></li>
+        </ul>
+        <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
+        <p>Maskinporten og Altinn er nasjonale felleskomponenter utviklet og
+            driftet av Digitaliseringsdirektoratet som sammen skal gjøre det enklere
+            å dele og bruke data på tvers av systemer. Løsningene sørger for
+            verifisering av identiteten til virksomheter og gi disse riktig tilgang
+            til data som offentlige virksomheter tilbyr via grensesnitt.</p>
+        <p><strong>Maskinporten:</strong> Løsning for tilgangsstyring for
+            virksomheter som utveksler data. Garanterer identitet mellom
+            virksomheter og sørger for maskin-til-maskin autentisering.</p>
+        <p><strong>Fremtidig mulighet, men ikke innført: Altinn
+            (autorisasjon):</strong> Mulighet for delegering av rettigheter til
+            andre organisasjoner eller personer. Baserer seg på registrerte roller i
+            Enhetsregisteret.</p>
+        <p>Forutsetninger for å benytte Maskinporten og Altinn:</p>
+        <ul>
+            <li>Organisasjonen er registrert i Enhetsregisteret med norsk
+                organisasjonsnummer</li>
+        </ul>
+        <p>Virksomhetsautorisering og tilgangsstyring i forbindelse med
+            innsending av informasjon via API gjøres gjennom Maskinporten hos
+            Digitaliseringsdirektoratet. Maskinporten sørger for sikker
+            autentisering og tilgangskontroll for datautveksling mellom
+            virksomheter. Løsningen garanterer identiteten mellom virksomheter og
+            gjør det mulig å binde sammen systemer og utvikle nye tjenester på en
+            effektiv måte. Løsningen skal ha en oppetid på 99,9% og ved avvik har
+            den sjelden nedetid på lengre enn 5 minutter. Vi anbefaler derfor at
+            våre klienter implementerer en retry-mekanisme slik at man prøver på
+            nytt dersom meldinger blir avvist uten forklarlige feilmeldinger.</p>
+        <ul>
+            <li><p>Vi anbefaler våre klienter å følge med på planlagt og
+                ikke-planlagt driftsavvik</p>
+                <ul>
+                    <li><a
+                            href="https://status.digdir.no/history?filter=nthvr1xysxs7">Digitaliseringsdirektoratet
+                        Status - Historikk (digdir.no)</a></li>
+                </ul></li>
+        </ul>
+        <p>Det er også mulig å verifisere om Maskinporten er oppe ved å benytte
+            linkene under:</p>
+        <ul>
+            <li><p><a href="https://oidc.difi.no/idporten-oidc-provider/health"
+                      class="uri">https://oidc.difi.no/idporten-oidc-provider/health</a></p></li>
+            <li><p><a href="https://maskinporten.no/health"
+                      class="uri">https://maskinporten.no/health</a></p></li>
+        </ul>
+        <p>Maskinporten har også laget en side med feilsøkingsforslag på <a
+                href="https://difi.github.io/felleslosninger/maskinporten_feilsoking.html"
+                class="uri">https://difi.github.io/felleslosninger/maskinporten_feilsoking.html</a>.</p>
+        <h4 id="hvordan-komme-i-gang-med-maskinporten">Hvordan komme i gang med
+            Maskinporten? <a id="maskinporten"></a></h4>
+        <ul>
+            <li><p>Tolletatens guide for oppsett av Maskinporten: <a
+                    href="https://www.toll.no/no/bedrift/ekspressklarering/teknisk-informasjon/endringer-ustabilitet-feilmeldinger/autentisering-og-tilgang/maskin-til-maskin/">Maskinporten
+                - Tolletaten</a></p></li>
+            <li><p>Digitaliseringsdirektoratets guide for hvordan kommer i gang med
+                Maskinporten: <a
+                        href="https://samarbeid.difi.no/felleslosninger/maskinporten/ta-i-bruk-maskinporten/1-planlegge-og-akseptere-bruksvilkar"
+                        class="uri">https://samarbeid.difi.no/felleslosninger/maskinporten/ta-i-bruk-maskinporten/1-planlegge-og-akseptere-bruksvilkar</a></p></li>
+        </ul>
+        <p>Når virksomheten har gått gjennom søknadsprosessen til
+            Digitaliseringsdirektoratet vil Tolletaten godkjenne og gi tilgang til
+            grensesnitt/scopes.</p>
+        <p>Dersom man benytter en (system)leverandør for å utveksle informasjon
+            med Tolletaten må rettigheter delegeres via Altinn: <a
+                    href="https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/"
+                    class="uri">https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/</a>.</p>
+        <p>Om du ønsker å finne ut hva rollene gir tilgang til, logg inn i
+            Altinn og se under <em>Skjema og tjenester du har rettighet til</em>,
+            der får du oversikt over rollene du har for den aktøren du
+            representerer. Til høyre for hver rolle finner du et spørsmålstegn,
+            klikk der og du vil se hvilke tilganger rollen gir deg.</p>
+    </div>
+
+    <div class="column right">
+        <h2 id="innhold">Innhold</h2>
+        <ul>
+            <li><p><a href="#omtjenesten">Om tjenesten</a></p></li>
+            <li><p><a href="#data">Data</a></p>
+                <ul>
+                    <li><p><a href="#dtransport">Dataelementer knyttet til
+                        transport</a></p></li>
+                    <li><p><a href="#dforsendelse">Dataelementer knyttet til
+                        forsendelse</a></p></li>
+                    <li><p><a href="#dvare">Dataelementer knyttet til vare</a></p></li>
+                </ul></li>
+            <li><p><a href="#mtransport">Melding om transport</a></p></li>
+            <li><p><a href="#mforsendelse">Melding om forsendelse</a></p></li>
+            <li><p><a href="#eksempler">Aktuelle eksempler</a></p></li>
+            <li><p><a href="#aut">Autentisering – Datautveksling mellom næringslivet
+                og Tolletaten</a></p>
+                <ul>
+                    <li><a href="#maskinporten">Hvordan komme i gang med
+                        Maskinporten?</a></li>
+                </ul></li>
+        </ul>
+    </div>
+
+
+</main>
+
+<footer>
+    Tolletaten, 2022
+</footer>
+
+</body>
+</html>
