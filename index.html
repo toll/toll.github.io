@@ -4,25 +4,128 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Toll data og API dokumentasjon</title>
-  <meta name="description" content="Toll data og API dokumentasjon">
+  <title>Tolletatens data- og API-dokumentasjon</title>
+  <meta name="description" content="Tolletatens data- og API-dokumentasjon">
   <meta name="author" content="Toll">
 
   <style>
-  	html { 
-		  width:100%; 
-   		  height:100%; 
-		  background-image: url('toll.png');
-		  background-repeat: no-repeat;
-		  background-attachment: fixed;
-		  background-position: center center; 
-		  background-color: #45515C;		  
-		}
-	</style>  
+  <style>
+        html {
+            font: "Roboto, Arial, sans-serif";
+        }
+
+        img {
+            max-width: 95%;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        h2, h3, h4, h5, h6, h7, h8, h9 {
+            color: #12404F;
+        }
+
+        header {
+          background-color: #007682;
+          padding: 6px;
+        }
+
+        footer {
+            background-color: #007682;
+            padding: 6px;
+            text-align: center;
+            color: white;
+            clear: both;
+            float: none;
+        }
+
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+
+        tr:nth-child(even){background-color: #f2f2f2;}
+
+        tr:hover {background-color: #ddd;}
+
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #12404F;
+          color: white;
+        }
+
+        .column {
+           float: left;
+        }
+        .left {
+            width: 5%;
+        }
+        .middle {
+            width: 70%;
+        }
+        .right {
+            width: 25%;
+            font-size: 14px;
+            float: right;
+        }
+        @media screen and (max-width: 600px) {
+          .column {
+            width: 100%;
+          }
+        }
+
+        .boxed {
+          border: 1px solid #EFEFEF;
+          border-radius: 12px;
+          padding: 10px;
+          color:white;
+        }
+
+        .center {
+            text-align: center;
+        }
+  </style>
 
 </head>
 
-<body>  
-  
+<body>
+
+
+<header>
+  <h1>Tolletatens data- og API-dokumentasjon</h1>
+</header>
+
+
+<main>
+  <div class="column left">
+    <br/>
+  </div>
+
+  <div class="column middle">
+    <h2 id="api">API</h2>
+    <a href="api/kjoretoy-pa-vei/kjoretoy-pa-vei.html">Kjøretøy på vei</a>
+
+  </div>
+
+  <div class="column right">
+    <h2 id="innhold">Innhold</h2>
+    <ul>
+      <li><p><a href="#api">API</a></p></li>
+    </ul>
+  </div>
+
+
+</main>
+<footer>
+  Tolletaten, 2022
+</footer>
 </body>
 </html>
