@@ -12,20 +12,33 @@ h1 {
 
 h2, h3, h4, h5, h6, h7, h8, h9 {
     color: #12404F;
+    margin-top: 48px;
+    margin-bottom: 20px;
+}
+
+
+
+a, a:link, a:visited, a:hover, a:active {
+  color: #007682;
 }
 
 header {
   background-color: #007682;
-  padding: 6px;
+  padding: 16px 6px 6px 16px;
+  margin-top: 5px;
 }
 
 footer {
-    background-color: #007682;
-    padding: 6px;
-    color: white;
+    background-color: #E6F1F3;
+    padding: 24px;
+    color: black;
     clear: both;
     float: none;
     font-size: 11px;
+}
+
+.footerLink {
+    color: black !important;
 }
 
 table {
@@ -50,8 +63,12 @@ th {
   color: white;
 }
 
-.white {
-  color: white;
+table caption {
+    text-align: left;
+}
+
+figcaption {
+    font-style: italic;
 }
 
 .column {
@@ -92,17 +109,28 @@ th {
     font-size: 90%;
     margin-bottom: 1em;
     padding: 20px;
+    padding-right: 24px;
     width: auto;
     margin: 8px;
+    float: right;
 }
 
 .toc_title {
     font-weight: bold;
     color: #12404F;
     text-align: center;
-    font-size: 200%;
+    font-size: 150%;
+    margin-top: 0px;
 }
 
 #toc_container li, #toc_container ul, #toc_container ul li{
     list-style: outside none none !important;
+}
+
+#toc_container li a {
+    text-decoration: none;
+}
+
+#toc_container li a:hover {
+    text-decoration: underline;
 }
