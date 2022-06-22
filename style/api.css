@@ -6,8 +6,11 @@ img {
     max-width: 95%;
 }
 
-h1 {
+header h1 {
     color: white;
+    background-color: #007682;
+    padding: 3px;
+    padding-left: 6px;
 }
 
 h2, h3, h4, h5, h6, h7, h8, h9 {
@@ -16,14 +19,11 @@ h2, h3, h4, h5, h6, h7, h8, h9 {
     margin-bottom: 20px;
 }
 
-
-
 a, a:link, a:visited, a:hover, a:active {
   color: #007682;
 }
 
 header {
-  background-color: #007682;
   padding: 16px 6px 6px 16px;
   margin-top: 5px;
 }
