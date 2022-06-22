@@ -49,7 +49,7 @@
             <title>Toll logo -- link to Toll homepage</title>
         </svg>
     </a>
-    <h1>API for kjøretøy på vei</h1>
+    <h1>Maskinporten</h1>
 </header>
 
 
@@ -87,8 +87,6 @@
     </div>
 
     <div class="column middle">
-        <h2 id="maskinporten">Maskinporten</h2>
-
         <p>
             Virksomhetsautorisering og tilgangsstyring i forbindelse med
             innsending av data via API foregår ved bruk av Maskinporten som er en
@@ -100,7 +98,7 @@
                 href="https://www.toll.no/no/bedrift/ekspressklarering/teknisk-informasjon/endringer-ustabilitet-feilmeldinger/autentisering-og-tilgang/maskin-til-maskin/">
             den som benyttes for manifester</a>, men den er</em> ikke <em>identisk</em>.</p>
 
-        <h3 id="hva-er-maskinporten">Hva er Maskinporten?</h3>
+        <h2 id="hva-er-maskinporten">Hva er Maskinporten?</h2>
         <p>
             Maskinporten sørger for sikker autentisering og tilgangskontroll for
             datautveksling mellom virksomheter. Løsningen garanterer identiteten
@@ -108,14 +106,14 @@
             nye tjenester på en effektiv måte.
         </p>
 
-        <h3 id="hva-skal-til-for-a-bruke-maskinporten">Hva skal til for å bruke Maskinporten?</h3>
+        <h2 id="hva-skal-til-for-a-bruke-maskinporten">Hva skal til for å bruke Maskinporten?</h2>
         <p>
             Denne guiden er basert på Maskinportens egen dokumentasjon.
             <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">
                 https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument</a>
         </p>
 
-        <h4 id="anskaffe-virksomhetssertifikat">1) Anskaffe virksomhetssertifikat for test og prod</h4>
+        <h3 id="anskaffe-virksomhetssertifikat">1) Anskaffe virksomhetssertifikat for test og prod</h3>
         <p>
             Digdir vil validere din signatur mot ditt virksomhetssertifikat som
             er utstedt av en kjent sertifikattilbyder.
@@ -133,27 +131,27 @@
             </p></li>
         </ul></p>
 
-        <h4 id="bli-kunde-hos-digdir">2) Bli kunde hos Digdir for tilgang til samarbeidsportalen</h4>
+        <h3 id="bli-kunde-hos-digdir">2) Bli kunde hos Digdir for tilgang til samarbeidsportalen</h3>
         <p>Ta kontakt med Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
 
-        <h4 id="bli-api-kunde">3) Bli API-kunde hos Tolletaten</h4>
+        <h3 id="bli-api-kunde">3) Bli API-kunde hos Tolletaten</h3>
         <p>Send en mail til <a href="mailto:brukerdialog@toll.no">brukerdialog@toll.no</a></p>
         <p>Tolletaten gir tilgang til scopet <strong>toll:movement/road</strong> i Maskinporten.</p>
 
-        <h4 id="lag-en-integrasjon">4) Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)</h4>
+        <h3 id="lag-en-integrasjon">4) Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)</h3>
         <p>Link: <a href="https://minside-samarbeid.difi.no/">https://minside-samarbeid.difi.no/</a></p>
 
-        <h5 id="integrasjon-i-ver2">4a) Opprett en integrasjon i Ver2 miljøet hos Digdir</h5>
+        <h4 id="integrasjon-i-ver2">4a) Opprett en integrasjon i Ver2 miljøet hos Digdir</h4>
         <blockquote>
             <img src="media/maskp-ver2.png" />
         </blockquote>
 
-        <h5 id="integrasjon-i-prod">4b) Opprett en integrasjon i PRODUKSJON hos Difi</h5>
+        <h4 id="integrasjon-i-prod">4b) Opprett en integrasjon i PRODUKSJON hos Difi</h4>
         <blockquote>
             <img src="media/maskp-prod.png" />
         </blockquote>
 
-        <h5 id="ny-integrasjon">4c) Ny integrasjon</h5>
+        <h4 id="ny-integrasjon">4c) Ny integrasjon</h4>
         <blockquote>
             <p><img src="media/maskp-nyintegrasjon.png" /></p>
             <p><img src="media/maskp-opprettny.png" /></p>
@@ -173,7 +171,7 @@
                 dette kan endre seg på sikt.</p></li>
         </ul>
 
-        <h4 id="klientintegrasjon">5) Klientintegrasjon</h4>
+        <h3 id="klientintegrasjon">5) Klientintegrasjon</h3>
         <p>
             Konsumenter av dette API-et må selv utvikle en applikasjon/system som
             henter access token fra Maskinporten og veksler disse inn mot
@@ -190,9 +188,9 @@
             et nytt Toll token før (f.eks 1 minutt før) levetiden til det foregående
             utgår.</p>
 
-        <h3 id="test-tilgang">Test tilgang til API-et for Kjøretøy på vei</h3>
+        <h2 id="test-tilgang">Test tilgang til API-et for Kjøretøy på vei</h2>
 
-        <h4 id="hent-maskinporten-token">1) Hent Maskinporten access token</h4>
+        <h3 id="hent-maskinporten-token">1) Hent Maskinporten access token</h3>
         <p>Se Maskinportens egen <a
                 href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">dokumentasjon</a>
             på hvordan hente ut et access token.</p>
@@ -201,9 +199,9 @@
             demonstrer hvordan en kan hente ut access token fra Difis tjenester,
             deriblant Maskinporten.</p>
 
-        <h4 id="veksle-token">2) Veksle Maskinporten access token med et Toll-signert access token</h4>
+        <h3 id="veksle-token">2) Veksle Maskinporten access token med et Toll-signert access token</h3>
 
-        <h5 id="http-request">HTTP Request</h5>
+        <h4 id="http-request">HTTP Request</h4>
         <p>Method: <strong>POST</strong></p>
         <p>URL:
         <table>
@@ -267,7 +265,7 @@
             </tbody>
         </table></p>
 
-        <h5 id="eksempel-http-response">Eksempel: HTTP Response</h5>
+        <h4 id="eksempel-http-response">Eksempel: HTTP Response</h4>
         <p><strong>Maskinporten Access Token - Response</strong></p>
         <pre>
 {
@@ -278,10 +276,10 @@
 }
         </pre>
 
-        <h4 id="teste-tilgang-til-api">3) Teste tilgang til API-et</h4>
+        <h3 id="teste-tilgang-til-api">3) Teste tilgang til API-et</h3>
         <p>Dette eksempelet gjelder for API-et for kjøretøy på vei.</p>
 
-        <h5 id="http-request-1">HTTP Request</h5>
+        <h4 id="http-request-1">HTTP Request</h4>
         <p>Method: <strong>GET</strong></p>
         <p>URL:
         <table>
