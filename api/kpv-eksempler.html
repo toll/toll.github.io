@@ -65,6 +65,7 @@
                         <li><p><a href="#eks4">Transittering som skal startes på grensa</a></p>
                     </ul>
                 </li>
+                <li><p><a href="#testdata">Testdata</a></p></li>
             </ul>
         </div>
     </div>
@@ -172,6 +173,41 @@
   }
 }
 		</pre>
+
+		<p><br/></p>
+		<h3 id="testdata">Testdata</h3>
+		<p>
+			Valideringen av innsendte meldinger inneholder blant annet en kontroll mot at oppgitte deklarasjoner
+			i TVINN og NCTS eksisterer og har forventet status. I playground-miljøet har vi ikke integrasjon mot
+			disse fagsystemene, så innholdet valideres mot en statisk liste som inneholder noen få deklarasjoner.
+		</p>
+		<p>
+			For TVINN-deklarasjoner er det disse som kan brukes:
+			<table>
+				<tbody>
+					<tr>
+						<th>declarant_number</th>
+						<th>declaration_date</th>
+						<th>sequence_number</th>
+					</tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>1</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>2</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>3</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>4</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>5</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>6</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>7</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>8</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>9</td></tr>
+					<tr><td>123456789</td><td>2022-08-10</td><td>10</td></tr>
+				</tbody>
+			</table>
+		</p>
+		<p>
+			For transitteringsdeklarasjoner (NCTS) er det enda enklere validering i Playground. 
+			Her validerer vi bare at feltet inneholder 18 alfanumeriske tegn som regnes som OK. 
+			Dersom feltet har teksten «INVALID» i seg feilvalideres den.
+		</p>
 
     </div>
 
