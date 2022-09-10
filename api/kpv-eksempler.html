@@ -118,18 +118,24 @@
         <h3 id="eks2">Eksempel 2 - Direktefortolling og transittering som skal fullføres på grensa</h3>
 		<pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "N820",
-        "referenceNumber": "22FR98765273876523"
-      }
-    ],
-    "importProcedure": {
-      "outgoingProcedure": "TRA",
-      "importProcedure": "TRANSIT_IMPORT"
-    }
-  }
+  "consignmentHouseLevel": {
+    "previousDocuments": [
+      {
+        "typeOfReference": "N820",
+        "referenceNumber": "22FR98765273876523"
+      },
+      {
+        "typeOfReference": "CUDE",
+        "declarantNumber": "913144929",
+        "declarationDate": "2022-03-01",
+        "sequenceNumber": "13881"
+      }
+    ],
+    "importProcedure": {
+      "outgoingProcedure": "TRA",
+      "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+    }
+  }
 }		</pre>
 
         <h3 id="eks3">Eksempel 3 - Transittering som bare skal grensepasseres</h3>
