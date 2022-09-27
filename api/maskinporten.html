@@ -158,8 +158,15 @@
         </blockquote>
         <ul>
             <li><p>Difi-tjeneste = Maskinporten</p></li>
-            <li><p>Legg til scopes → <strong>toll:movement/road</strong> (Denne er
-                avhengig av tildelt tilgang til dette scopet fra Tolletaten)</p></li>
+            <li><p>
+				Legg til scopes &ndash;  (Denne er
+                avhengig av tildelt tilgang til dette scopet fra Tolletaten):
+				<dl>
+					<dt>movement-road-api:</dt><dd><strong>toll:movement/road</strong></dd>
+					<dt>Dokumentopplasting:</dt><dd><strong>toll:goodsdeclaration/document.write</strong></dd>
+				</dl>
+				</p>
+				</li>
             <li><p>Integrasjonens identifikator: Dette er det som skal være satt i
                 "iss"-feltet av din JWT som sendes til Difi</p></li>
             <li><p>Navn på integrasjonen: Her står du fritt selv til å velge hva
