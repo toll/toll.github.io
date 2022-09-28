@@ -119,7 +119,7 @@
             er utstedt av en kjent sertifikattilbyder.
         </p>
         <p>
-            Her er noen alternativer for anskaffelse av virksomhetssertifikat:
+            Her er noen alternativer for anskaffelse av virksomhetssertifikat:</p>
         <ul>
             <li><p><a
                     href="https://www.commfides.com/commfides-virksomhetssertifikat/">
@@ -129,7 +129,7 @@
                     href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl">
                 https://www.buypass.no/produkter/virksomhetssertifikat-esegl</a>
             </p></li>
-        </ul></p>
+        </ul>
 
         <h3 id="bli-kunde-hos-digdir">2) Bli kunde hos Digdir for tilgang til samarbeidsportalen</h3>
         <p>Ta kontakt med Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
@@ -158,14 +158,13 @@
         </blockquote>
         <ul>
             <li><p>Difi-tjeneste = Maskinporten</p></li>
-            <li><p>
+            <li>
 				Legg til scopes &ndash;  (Denne er
                 avhengig av tildelt tilgang til dette scopet fra Tolletaten):
 				<dl>
 					<dt>movement-road-api:</dt><dd><strong>toll:movement/road</strong></dd>
 					<dt>Dokumentopplasting:</dt><dd><strong>toll:goodsdeclaration/document.write</strong></dd>
 				</dl>
-				</p>
 				</li>
             <li><p>Integrasjonens identifikator: Dette er det som skal være satt i
                 "iss"-feltet av din JWT som sendes til Difi</p></li>
@@ -210,7 +209,7 @@
 
         <h4 id="http-request">HTTP Request</h4>
         <p>Method: <strong>POST</strong></p>
-        <p>URL:
+        <p>URL:</p>
         <table>
             <thead>
                 <tr>
@@ -230,9 +229,9 @@
                     https://api.toll.no/api/access/external/oauth/token</a></td>
             </tr>
             </tbody>
-        </table></p>
+        </table>
 
-        <p>HEADER:
+        <p>HEADER:</p>
         <table>
             <thead>
             <tr>
@@ -246,9 +245,9 @@
                 <td>application/x-www-form-urlencoded</td>
             </tr>
             </tbody>
-        </table></p>
+        </table>
 
-        <p>BODY:
+        <p>BODY:</p>
         <table>
             <thead>
             <tr>
@@ -270,7 +269,7 @@
                 <td>&lt;MASKINPORTEN ACCESS TOKEN HER&gt;</td>
             </tr>
             </tbody>
-        </table></p>
+        </table>
 
         <h4 id="eksempel-http-response">Eksempel: HTTP Response</h4>
         <p><strong>Maskinporten Access Token - Response</strong></p>
@@ -288,7 +287,7 @@
 
         <h4 id="http-request-1">HTTP Request</h4>
         <p>Method: <strong>GET</strong></p>
-        <p>URL:
+        <p>URL:</p>
         <table>
             <thead>
             <tr>
@@ -310,8 +309,9 @@
                 </td>
             </tr>
             </tbody>
-        </table></p>
-        <p>HEADER:
+        </table>
+
+        <p>HEADER:</p>
         <table>
             <thead>
             <tr>
@@ -325,7 +325,7 @@
                 <td>Bearer &lt;TOLL ACCESS TOKEN&gt;</td>
             </tr>
             </tbody>
-        </table></p>
+        </table>
         <p>Forventet resultat er <strong>200 OK</strong>.</p>
 
     </div>
