@@ -59,6 +59,7 @@
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
                 <li><p><a href="#hva-er-maskinporten">Hva er Maskinporten</a></p></li>
+                <li><p><a href="#drift">Drift og overvåking</a></p></li>
                 <li><p><a href="#hva-skal-til-for-a-bruke-maskinporten">Hva skal til for å bruke</a></p>
                     <ol>
                         <li><p><a href="#anskaffe-virksomhetssertifikat">Anskaffe virksomhetssertifikat</a></p></li>
@@ -78,6 +79,7 @@
                         <li><p><a href="#veksle-token">Veksle access token</a></p></li>
                         <li><p><a href="#teste-tilgang-til-api">Teste tilgang</a></p></li>
                     </ol></li>
+                <li><p><a href="#scopes">Våre scopes</a></p></li>
             </ul>
         </div>
     </div>
@@ -91,12 +93,8 @@
             Virksomhetsautorisering og tilgangsstyring i forbindelse med
             innsending av data via API foregår ved bruk av Maskinporten som er en
             tjeneste for autentisering og autorisering av maskinelle klienter som
-            tilbys av <a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25">Digdir</a>.
+            tilbys av <a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25" target="_blank">Digdir</a>.
         </p>
-
-        <p><strong>Merk: </strong> <em>Denne oppskriften</em> ligner <em>på <a
-                href="https://www.toll.no/no/bedrift/ekspressklarering/teknisk-informasjon/endringer-ustabilitet-feilmeldinger/autentisering-og-tilgang/maskin-til-maskin/">
-            den som benyttes for manifester</a>, men den er</em> ikke <em>identisk</em>.</p>
 
         <h2 id="hva-er-maskinporten">Hva er Maskinporten?</h2>
         <p>
@@ -105,13 +103,38 @@
             mellom virksomheter og gjør det mulig å binde sammen systemer og utvikle
             nye tjenester på en effektiv måte.
         </p>
+		
+		<h2 id="drift">Drift og overvåking</h2>
+		<p>Vi anbefaler våre klienter å følge med på planlagt og ikke-planlagt driftsavvik:</p>
+			<ul>
+				<li><a href="https://status.digdir.no/history?filter=nthvr1xysxs7" target="_blank">Digitaliseringsdirektoratet Status - Historikk (digdir.no)</a></li>
+			</ul>
+        <p>Det er også mulig å verifisere om Maskinporten er oppe ved å benytte linkene under:</p>
+        <ul>
+            <li><p><a href="https://oidc.difi.no/idporten-oidc-provider/health"
+                      class="uri" target="_blank">https://oidc.difi.no/idporten-oidc-provider/health</a></p></li>
+            <li><p><a href="https://maskinporten.no/health"
+                      class="uri" target="_blank">https://maskinporten.no/health</a></p></li>
+        </ul>
+        <p>Maskinporten har også laget en side med feilsøkingsforslag på <a
+                href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking"
+                class="uri" target="_blank">https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking</a>.
+		</p>
 
         <h2 id="hva-skal-til-for-a-bruke-maskinporten">Hva skal til for å bruke Maskinporten?</h2>
         <p>
-            Denne guiden er basert på Maskinportens egen dokumentasjon.
-            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">
-                https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument</a>
+            Det er en forutsetning for bruk av Maskinporten at man er registrert i Enhetsregisteret
+			med et norsk organisasjonsnummer.<br/>
+			Guiden under er basert på Maskinportens egen dokumentasjon,
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">
+                https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument</a>.
+			Se også Digdirs guide for hvordan komme i gang med Maskinporten:
+			<a href="https://samarbeid.digdir.no/maskinporten/konsument/119" class="uri" target="_blank">https://samarbeid.digdir.no/maskinporten/konsument/119</a>
         </p>
+        <p><strong>Merk: </strong> <em>Denne oppskriften</em> ligner <em>på <a
+                href="https://www.toll.no/no/bedrift/ekspressklarering/teknisk-informasjon/endringer-ustabilitet-feilmeldinger/autentisering-og-tilgang/maskin-til-maskin/" target="_blank">
+            den som benyttes for manifester</a>, men den er</em> ikke <em>identisk</em>.</p>
+
 
         <h3 id="anskaffe-virksomhetssertifikat">1) Anskaffe virksomhetssertifikat for test og prod</h3>
         <p>
@@ -122,11 +145,11 @@
             Her er noen alternativer for anskaffelse av virksomhetssertifikat:</p>
         <ul>
             <li><p><a
-                    href="https://www.commfides.com/commfides-virksomhetssertifikat/">
+                    href="https://www.commfides.com/commfides-virksomhetssertifikat/" target="_blank">
                 https://www.commfides.com/commfides-virksomhetssertifikat/</a>
             </p></li>
             <li><p><a
-                    href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl">
+                    href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl" target="_blank">
                 https://www.buypass.no/produkter/virksomhetssertifikat-esegl</a>
             </p></li>
         </ul>
@@ -135,11 +158,15 @@
         <p>Ta kontakt med Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
 
         <h3 id="bli-api-kunde">3) Bli API-kunde hos Tolletaten</h3>
-        <p>Send en mail til <a href="mailto:brukerdialog@toll.no">brukerdialog@toll.no</a></p>
-        <p>Tolletaten gir tilgang til scopet <strong>toll:movement/road</strong> i Maskinporten.</p>
+        <p>Send en mail til</p>
+		<ul>
+		<li>for ICS2: <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></li>
+		<li>for andre API-er: <a href="mailto:brukerdialog@toll.no">brukerdialog@toll.no</a></li>
+		</ul>
+        <p>Tolletaten gir tilgang til det/de scopene som trengs for aktuell integrasjon.
 
         <h3 id="lag-en-integrasjon">4) Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)</h3>
-        <p>Link: <a href="https://minside-samarbeid.difi.no/">https://minside-samarbeid.difi.no/</a></p>
+        <p>Logg deg inn på <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen (digdir.no)</a></p>
 
         <h4 id="integrasjon-i-ver2">4a) Opprett en integrasjon i Ver2 miljøet hos Digdir</h4>
         <blockquote>
@@ -159,12 +186,7 @@
         <ul>
             <li><p>Difi-tjeneste = Maskinporten</p></li>
             <li>
-				Legg til scopes &ndash;  (Denne er
-                avhengig av tildelt tilgang til dette scopet fra Tolletaten):
-				<dl>
-					<dt>movement-road-api:</dt><dd><strong>toll:movement/road</strong></dd>
-					<dt>Dokumentopplasting:</dt><dd><strong>toll:goodsdeclaration/document.write</strong></dd>
-				</dl>
+				Legg til scopes &ndash;  se <a href="#scopes">oversikt over våre scopes under</a>.
 				</li>
             <li><p>Integrasjonens identifikator: Dette er det som skal være satt i
                 "iss"-feltet av din JWT som sendes til Difi</p></li>
@@ -182,7 +204,7 @@
             Konsumenter av dette API-et må selv utvikle en applikasjon/system som
             henter access token fra Maskinporten og veksler disse inn mot
             Toll-signerte access tokens.
-            Se Maskinportens egen <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">
+            Se Maskinportens egen <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">
             dokumentasjon</a> på hvordan man kan hente ut et access token. Hvordan man utveksler et
             access token fra Maskinporten mot et Toll-signert access token er
             beskrevet under avsnittet <a href="#test-tilgang">Test tilgang til API-et for Kjøretøy på vei</a>
@@ -198,12 +220,20 @@
 
         <h3 id="hent-maskinporten-token">1) Hent Maskinporten access token</h3>
         <p>Se Maskinportens egen <a
-                href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">dokumentasjon</a>
-            på hvordan hente ut et access token.</p>
+                href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">dokumentasjon</a> på hvordan hente ut et access token.</p>
         <p><strong>TIPS:</strong><br/>
             Difi har publisert et repository på github (jwt-grant-generator) som
             demonstrer hvordan en kan hente ut access token fra Difis tjenester,
             deriblant Maskinporten.</p>
+		<p>Dersom man benytter en (system)leverandør for å utveksle informasjon
+            med Tolletaten må rettigheter delegeres via Altinn: <a
+                    href="https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/"
+                    class="uri" target="_blank">https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/</a>.</p>
+        <p>Om du ønsker å finne ut hva rollene gir tilgang til, logg inn i
+            Altinn og se under <em>Skjema og tjenester du har rettighet til</em>,
+            der får du oversikt over rollene du har for den aktøren du
+            representerer. Til høyre for hver rolle finner du et spørsmålstegn,
+            klikk der og du vil se hvilke tilganger rollen gir deg.</p>
 
         <h3 id="veksle-token">2) Veksle Maskinporten access token med et Toll-signert access token</h3>
 
@@ -327,6 +357,15 @@
             </tbody>
         </table>
         <p>Forventet resultat er <strong>200 OK</strong>.</p>
+		
+		<h2 id="scopes">Våre scopes</h2>
+		<p>Hvilke(t) scope du skal bruke avhenger av hvilke tjenester du skal ta i bruk, og krever tildelt tilgang til dette scopet fra Tolletaten:
+				<dl>
+					<dt>movement-road-api:</dt><dd><strong>toll:movement/road</strong></dd>
+					<dt>ICS2: movement/presentation &amp; movement/routing</dt><dd><strong>toll:movement/entry</strong></dd>
+					<dt>Dokumentopplasting:</dt><dd><strong>toll:goodsdeclaration/document.write</strong></dd>
+				</dl>
+		</p>
 
     </div>
 
