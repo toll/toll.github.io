@@ -114,6 +114,12 @@ figcaption {
     margin: 8px;
     float: right;
 }
+@media print
+{
+	#toc_container {
+		display: none !important;
+	}
+}
 
 .toc_title {
     font-weight: bold;
