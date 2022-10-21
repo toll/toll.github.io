@@ -75,10 +75,7 @@
                     </ul>
                 </li>
                 <li><p><a href="#eksempler">Eksempler</a></p></li>
-                <li><p><a href="#aut">Autentisering</a></p>
-                    <ul>
-                        <li><a href="#maskinporten">Komme i gang med Maskinporten</a></li>
-                    </ul></li>
+                <li><p><a href="#aut">Autentisering</a></p></li>
             </ul>
         </div>
     </div>
@@ -99,8 +96,6 @@
             sporingsnummer til alle forsendelsene som skal være med på transporten.
             Forsendelse knyttes til transport ved hjelp av at sporingsnummeret også
             oppgis i melding om forsendelse.</p>
-        <p>For å kunne bruke tjenesten må scope for autentisering mot
-            Maskinporten settes til <strong>toll:movement/road/</strong></p>
         <figure>
             <img src="media/kpv-transp_last.jpg" alt="Se figurtekst" />
             <figcaption>Figur: Illustrasjonen viser på et overordnet nivå hvilken
@@ -563,54 +558,20 @@
 		</p>
 
         <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
-        <p>Maskinporten og Altinn er nasjonale felleskomponenter utviklet og
-            driftet av Digitaliseringsdirektoratet som sammen skal gjøre det enklere
-            å dele og bruke data på tvers av systemer. Løsningene sørger for
-            verifisering av identiteten til virksomheter og gi disse riktig tilgang
-            til data som offentlige virksomheter tilbyr via grensesnitt.</p>
-        <p><strong>Maskinporten:</strong> Løsning for tilgangsstyring for
-            virksomheter som utveksler data. Garanterer identitet mellom
-            virksomheter og sørger for maskin-til-maskin autentisering.</p>
-        <p><strong>Fremtidig mulighet, men ikke innført: Altinn
-            (autorisasjon):</strong> Mulighet for delegering av rettigheter til
-            andre organisasjoner eller personer. Baserer seg på registrerte roller i
-            Enhetsregisteret.</p>
-        <p>En forutsetninger for å benytte Maskinporten og Altinn er at organisasjonen
-			er registrert i Enhetsregisteret med norsk organisasjonsnummer.</p>
-        <p>Virksomhetsautorisering og tilgangsstyring i forbindelse med
-            innsending av informasjon via API gjøres gjennom Maskinporten hos
-            Digitaliseringsdirektoratet. Maskinporten sørger for sikker
-            autentisering og tilgangskontroll for datautveksling mellom
-            virksomheter. Løsningen garanterer identiteten mellom virksomheter og
-            gjør det mulig å binde sammen systemer og utvikle nye tjenester på en
-            effektiv måte. Løsningen skal ha en oppetid på 99,9% og ved avvik har
-            den sjelden nedetid på lengre enn 5 minutter. Vi anbefaler derfor at
-            våre klienter implementerer en retry-mekanisme slik at man prøver på
-            nytt dersom meldinger blir avvist uten forklarlige feilmeldinger.</p>
 		<p>
-		   Les mer om feilsøking og drift på <a href="maskinporten.html">Maskinporten - Tolletaten</a>.
+			Våre API-er benytter Maskinporten for identitets- og tilgangsstyring. 
+			På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+			<ul>
+				<li>
+					hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
+					inkludert registreringsskjema for tilgang hos Tolletaten
+				</li>
+				<li>tilgangsstyring for våre API-er</li>
+				<li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+				<li>drift og overvåking/feilsøking.</li>
+			</ul>
+			Scopet som benyttes for dette API-et er <strong>toll:movement/road</strong>.
 		</p>
-
-        <h3 id="maskinporten">Hvordan komme i gang med Maskinporten?</h3>
-        <ul>
-            <li><p>Vår guide for oppsett av Maskinporten: <a
-                    href="maskinporten.html">Maskinporten - Tolletaten</a></p></li>
-            <li><p>Digitaliseringsdirektoratets guide for hvordan komme i gang med Maskinporten: <a
-                        href="https://samarbeid.difi.no/felleslosninger/maskinporten/ta-i-bruk-maskinporten/1-planlegge-og-akseptere-bruksvilkar"
-                        class="uri">https://samarbeid.difi.no/felleslosninger/maskinporten/ta-i-bruk-maskinporten/1-planlegge-og-akseptere-bruksvilkar</a></p></li>
-        </ul>
-        <p>Når virksomheten har gått gjennom søknadsprosessen til
-            Digitaliseringsdirektoratet vil Tolletaten godkjenne og gi tilgang til
-            grensesnitt/scopes.</p>
-        <p>Dersom man benytter en (system)leverandør for å utveksle informasjon
-            med Tolletaten må rettigheter delegeres via Altinn: <a
-                    href="https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/"
-                    class="uri">https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/</a>.</p>
-        <p>Om du ønsker å finne ut hva rollene gir tilgang til, logg inn i
-            Altinn og se under <em>Skjema og tjenester du har rettighet til</em>,
-            der får du oversikt over rollene du har for den aktøren du
-            representerer. Til høyre for hver rolle finner du et spørsmålstegn,
-            klikk der og du vil se hvilke tilganger rollen gir deg.</p>
     </div>
 
 

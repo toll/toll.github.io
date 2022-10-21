@@ -93,11 +93,27 @@ figcaption {
 }
 
 .boxed {
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 20px;
   border: 1px solid #EFEFEF;
-  border-radius: 12px;
-  padding: 10px;
-  color:white;
 }
+
+
+.tips_box {
+  border-radius: 18px;
+  background: #E6F1F3;
+  padding: 20px;
+  border: 1px solid #EFEFEF;
+}
+
+.warning_box {
+  border-radius: 18px;
+  background: #ffe4e1;
+  padding: 20px;
+  border: 1px solid #EFEFEF;
+}
+
 
 .center {
     text-align: center;
@@ -146,4 +162,8 @@ figcaption {
 
 #toc_container li a:hover {
     text-decoration: underline;
+}
+
+pre {
+	font-size: large;
 }
