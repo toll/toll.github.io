@@ -104,7 +104,7 @@
 		</p>
         <p>
 			<strong>Maskinporten</strong> er en løsning hos
-            Digitaliseringsdirektoratet (<a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25" 
+            Digitaliseringsdirektoratet (<a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25"
 			target="_blank">Digdir</a>) for tilgangsstyring for
             virksomheter som utveksler data. Løsningen garanterer identitet mellom
             virksomheter og sørger for autentisering ved kommunikasjon maskin-til-maskin.
@@ -124,7 +124,7 @@
             mellom virksomheter og gjør det mulig å binde sammen systemer og utvikle
             nye tjenester på en effektiv måte.
         </p>
-		
+
 		<h2 id="drift">Drift og overvåking</h2>
 		<p>
 			Maskinporten skal ha en oppetid på 99,9% og ved avvik har den sjelden nedetid
@@ -167,7 +167,7 @@
 			Det er en forutsetning for bruk av Maskinporten at man er registrert i Enhetsregisteret
 			med et norsk organisasjonsnummer.
 		</p>
-		
+
         <h3 id="anskaffe-virksomhetssertifikat">1. Anskaffe virksomhetssertifikat for test og prod</h3>
         <p>
             Digdir vil validere din signatur mot ditt virksomhetssertifikat som
@@ -191,7 +191,7 @@
 
         <h3 id="bli-api-kunde">3. Registrer deg for tilgang hos Tolletaten</h3>
         <p>
-			Skjema for innmelding finner du her: <a target="_blank" 
+			Skjema for innmelding finner du her: <a target="_blank"
 			href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">Registrering: digital samhandler med Tolletaten</a>
 		</p>
         <p>Tolletaten gir tilgang til det/de scopene som trengs for aktuell integrasjon, se
@@ -226,7 +226,7 @@
             <li>Legg til scopes &ndash;  se <a href="#scopes">oversikt over våre scopes under</a></li>
             <li>
 				<em>Integrasjonens identifikator:</em> Dette er det som skal være satt i
-                "iss"-feltet av din JWT som sendes til Difi (jf. 
+                "iss"-feltet av din JWT som sendes til Difi (jf.
 				<a href="#hent-maskinporten-token">avsnitt under</a>).
 			</li>
             <li>
@@ -236,7 +236,7 @@
                 Tolletaten, siden vi har flere ulike API-er.
 			</li>
             <li>
-				<em>Grant-types</em>: 
+				<em>Grant-types</em>:
 				Vi bruker <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> nå,
                 dette kan endre seg på sikt.
 			</li>
@@ -246,7 +246,7 @@
         <p>
             API-konsumenter må selv utvikle en applikasjon/system som
             henter access token fra Maskinporten og veksler disse inn mot
-            Toll-signerte access tokens.			
+            Toll-signerte access tokens.
         </p>
         <p class="tips_box">
 			<strong>TIPS:</strong><br/>
@@ -258,7 +258,7 @@
 		</p>
         <p class="warning_box">
 			<strong>NB:</strong><br/>
-			Foreløpig gjelder <strong>IKKE</strong> denne oppskriften for API-et for 
+			Foreløpig gjelder <strong>IKKE</strong> denne oppskriften for API-et for
 			<em>dokumentopplasting</em> (og heller ikke gammel ekspressfortolling) &ndash;
 			bruk oppskriften i <a href="#gammelklient">kapittel 6</a> i stedet
 		</p>
@@ -269,7 +269,7 @@
 				target="_blank">dokumentasjon</a> på hvordan hente ut et access token.</p>
         <p class="tips_box">
 			<strong>TIPS:</strong><br/>
-            Difi har publisert et <a href="https://github.com/difi/jwt-grant-generator" 
+            Difi har publisert et <a href="https://github.com/difi/jwt-grant-generator"
 			target="_blank">repository på github (jwt-grant-generator)</a> som
             demonstrer hvordan en kan hente ut access token fra Difis tjenester,
             deriblant Maskinporten.
@@ -416,14 +416,14 @@
         <h3 id="gammelklient">6. Gammel klientintegrasjon</h3>
         <p class="warning_box">
 			<strong>NB:</strong><br/>
-			Denne oppskriften brukes inntil videre for API-et for 
+			Denne oppskriften brukes inntil videre for API-et for
 			<em>dokumentopplasting</em> &ndash;
-			bruk oppskriften i <a href="#klientintegrasjon">kapittel 5</a> 
+			bruk oppskriften i <a href="#klientintegrasjon">kapittel 5</a>
 			for alle andre API-er.
 		</p>
 		<div class ="warning_box">
 			<p>Kall Maskinporten som følger:</p>
-			<h4 id="http-request-2">HTTP Request</h5>
+			<h4 id="http-request-2">HTTP Request</h4>
 			<p>Method: <strong>POST</strong></p>
 			<p>URL:</p>
 			<table>
@@ -464,17 +464,17 @@
 				</tr>
 				</tbody>
 			</table>
-			
+
 			<p>BODY:</p>
 			<pre>grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&amp;assertion=&lt;JWT&gt;</pre>
 			<p>
 				Her er &lt;JWT&gt; din interne genererte JWT som er spesifisert under.
-				JWT-en skal signeres av innsenders virksomhetssertifikat. Dette vil da 
+				JWT-en skal signeres av innsenders virksomhetssertifikat. Dette vil da
 				bli validert mot virksomhetssertifikat-utsteder via Maskinporten.
 				Signering med virksomhetsertifikat utføres med den private delen av sertifikatet
 				(som har en private og en public del).<br/>
-				Husk at privat-nøkkelen er sensitiv og aldri skal deles!</br>
-				Maskinporten vil validere mot public-delen som befinner seg hos utsteder av sertifikatet.			
+				Husk at privat-nøkkelen er sensitiv og aldri skal deles!<br />
+				Maskinporten vil validere mot public-delen som befinner seg hos utsteder av sertifikatet.
 			</p>
 			<h4 id="jwt">JWT (Json Web Token) til Maskinporten</h4>
 			<p>Dette er et eksempel, du må tilpasse URL, scope osv</p>
@@ -492,14 +492,14 @@
 				hentes fra dine sider i selvbetjeningsportalen</li>
 				<li><em>scope</em>: toll:goodsdeclaration/document.write (for dokumentopplasting)</li>
 				<li><em>jti</em>: Generert <a href=
-				"https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)" 
+				"https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)"
 				target="_blank">UUID v4</a>. Denne genererer du selv og den må være unik.</li>
 				<li><em>iat</em>: numerisk verdi (UTC timestamp) som sier når denne JWT-en er utstedt</li>
 				<li><em>exp</em>: numerisk verdi (UTC timestamp) som sier når denne JWT-en utløper</li>
 			</ul>
-			
+
 			<h4 id="kall-api-direkte">Kall Tolletatens API med access_token</h4>
-			
+
 			<p>
 				Eksempel på kall:
 			</p>
@@ -513,8 +513,8 @@ Content-Type: multipart/form-data
 { ... }
 			</pre>
 		</div>
-		
-		
+
+
 		<h2 id="scopes">Våre scopes</h2>
 		<p>Hvilke(t) scope du skal bruke avhenger av hvilke tjenester du skal ta i bruk, og krever tildelt tilgang til dette scopet fra Tolletaten:
 				<dl>
