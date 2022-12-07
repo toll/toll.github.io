@@ -78,7 +78,6 @@
 								<li><p><a href="#veksle-token">5.3 Veksle token</a></p></li>
 								<li><p><a href="#teste-tilgang-til-api">5.4 Teste tilgang</a></p></li>
                             </ol></li>
-                        <li><p><a href="#gammelklient">6. Gammel klientintegrasjon</a></p></li>
                     </ol></li>
 
 
@@ -256,12 +255,6 @@
             et nytt Toll token før (f.eks 1 minutt før) levetiden til det foregående
             utgår.
 		</p>
-        <p class="warning_box">
-			<strong>NB:</strong><br/>
-			Foreløpig gjelder <strong>IKKE</strong> denne oppskriften for API-et for
-			<em>dokumentopplasting</em> (og heller ikke gammel ekspressfortolling) &ndash;
-			bruk oppskriften i <a href="#gammelklient">kapittel 6</a> i stedet
-		</p>
 
         <h4 id="hent-maskinporten-token">5.1 Hent access token fra Maskinporten</h4>
         <p>Se Maskinportens egen <a
@@ -413,106 +406,6 @@
         </table>
         <p>Forventet resultat er <strong>200 OK</strong>.</p>
 
-        <h3 id="gammelklient">6. Gammel klientintegrasjon</h3>
-        <p class="warning_box">
-			<strong>NB:</strong><br/>
-			Denne oppskriften brukes inntil videre for API-et for
-			<em>dokumentopplasting</em> &ndash;
-			bruk oppskriften i <a href="#klientintegrasjon">kapittel 5</a>
-			for alle andre API-er.
-		</p>
-		<div class ="warning_box">
-			<p>Kall Maskinporten som følger:</p>
-			<h4 id="http-request-2">HTTP Request</h4>
-			<p>Method: <strong>POST</strong></p>
-			<p>URL:</p>
-			<table>
-				<thead>
-				<tr>
-					<th>Miljø</th>
-					<th>URL</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>Test</td>
-					<td><a href="https://ver2.maskinporten.no/token">https://ver2.maskinporten.no/token</a></td>
-				</tr>
-				<tr>
-					<td>Produksjon</td>
-					<td><a href="https://maskinporten.no/token">https://maskinporten.no/token</a></td>
-				</tr>
-				</tbody>
-			</table>
-
-			<p>HEADER:</p>
-			<table>
-				<thead>
-				<tr>
-					<th>Header</th>
-					<th>Value</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>Content-Type</td>
-					<td>application/x-www-form-urlencoded</td>
-				</tr>
-				<tr>
-					<td>User-Agent</td>
-					<td>Toll test-klient (Her kan du ha ditt foretaksnavn som da er innsender av data)</td>
-				</tr>
-				</tbody>
-			</table>
-
-			<p>BODY:</p>
-			<pre>grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&amp;assertion=&lt;JWT&gt;</pre>
-			<p>
-				Her er &lt;JWT&gt; din interne genererte JWT som er spesifisert under.
-				JWT-en skal signeres av innsenders virksomhetssertifikat. Dette vil da
-				bli validert mot virksomhetssertifikat-utsteder via Maskinporten.
-				Signering med virksomhetsertifikat utføres med den private delen av sertifikatet
-				(som har en private og en public del).<br/>
-				Husk at privat-nøkkelen er sensitiv og aldri skal deles!<br />
-				Maskinporten vil validere mot public-delen som befinner seg hos utsteder av sertifikatet.
-			</p>
-			<h4 id="jwt">JWT (Json Web Token) til Maskinporten</h4>
-			<p>Dette er et eksempel, du må tilpasse URL, scope osv</p>
-			<pre>{
-   "aud": "https://maskinporten.no/",
-   "iss": "7a2ef1a1-a291-4478-8eb3-8112e2bf92a9",
-   "scope": "toll:goodsdeclaration/document.write",
-   "jti": "4eb1cd81-ea19-4e93-babd-3f34f1743133",
-   "iat": 1580222516,
-   "exp": 1580222636
-}
-			</pre>
-			<ul>
-				<li><em>iss</em>: Din integrasjonsidentifikator. Denne ID-en kan
-				hentes fra dine sider i selvbetjeningsportalen</li>
-				<li><em>scope</em>: toll:goodsdeclaration/document.write (for dokumentopplasting)</li>
-				<li><em>jti</em>: Generert <a href=
-				"https://en.wikipedia.org/wiki/Universally_unique_identifier#Version_4_(random)"
-				target="_blank">UUID v4</a>. Denne genererer du selv og den må være unik.</li>
-				<li><em>iat</em>: numerisk verdi (UTC timestamp) som sier når denne JWT-en er utstedt</li>
-				<li><em>exp</em>: numerisk verdi (UTC timestamp) som sier når denne JWT-en utløper</li>
-			</ul>
-
-			<h4 id="kall-api-direkte">Kall Tolletatens API med access_token</h4>
-
-			<p>
-				Eksempel på kall:
-			</p>
-			<pre>
-POST https://api.toll.no/api/goodsdeclaration/document/v1/declaration-id/f33ec8eb-...d2ea/document
-
-Headers:
-Authorization: Bearer &lt;Difi Access_JWT&gt;
-Content-Type: multipart/form-data
-
-{ ... }
-			</pre>
-		</div>
 
 
 		<h2 id="scopes">Våre scopes</h2>
