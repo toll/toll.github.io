@@ -67,8 +67,9 @@
                         <li><p><a href="#bli-api-kunde">3. Registrer deg hos Tolletaten</a></p></li>
                         <li><p><a href="#lag-en-integrasjon">4. Integrasjon hos Digdir</a></p>
                             <ol>
-                                <li><p><a href="#integrasjon-i-ver2">4.1 Opprett i ver2</a></p></li>
-                                <li><p><a href="#integrasjon-i-prod">4.2 Opprett i prod</a></p></li>
+                                <li><p><a href="#integrasjon-selvbetjening">4.1 Selvbetjening</a></p></li>
+                                <li><p><a href="#integrasjon-i-ver2">4.2 Opprett i ver2</a></p></li>
+                                <li><p><a href="#integrasjon-i-prod">4.3 Opprett i prod</a></p></li>
                                 <li><p><a href="#ny-integrasjon">4.3 Ny integrasjon</a></p></li>
                             </ol></li>
                         <li><p><a href="#klientintegrasjon">5. Klientintegrasjon</a></p>
@@ -172,7 +173,9 @@
         <h3 id="anskaffe-virksomhetssertifikat">1. Anskaffe virksomhetssertifikat for test og prod</h3>
         <p>
             Digdir vil validere din signatur mot ditt virksomhetssertifikat som
-            er utstedt av en kjent sertifikattilbyder.
+            er utstedt av en kjent sertifikattilbyder. Finn mer dokumentasjon <a 
+			href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat" 
+			target="_blank">hos Digdir</a>.
         </p>
         <p>
             Her er noen alternativer for anskaffelse av virksomhetssertifikat:</p>
@@ -201,19 +204,34 @@
         <h3 id="lag-en-integrasjon">4. Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)</h3>
         <p>Logg deg inn på <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen (digdir.no)</a></p>
 
-        <h4 id="integrasjon-i-ver2">4.1 Opprett en integrasjon i Ver2-miljøet hos Digdir</h4>
+        <h4 id="integrasjon-selvbetjening">4.1 Gå til selvbetjening av integrasjoner</h4>
+        <figure>
+            <img src="media/maskp-selvbetjening.png" alt="Se figurtekst"/>
+            <figcaption>Figur: Gå til selvbetjening</figcaption>
+        </figure>
+
+        <figure>
+            <img src="media/maskp-integrasjoner.png" alt="Se figurtekst"/>
+            <figcaption>Figur: Velg miljø</figcaption>
+        </figure>
+		<p>
+			For å administrere integrasjoner for testing: Velg "Integrasjoner" under <i>overskriften "Ver 2"</i><br/>
+			For å administrere integrasjoner for produksjon: Velg "Integrasjoner" under <i>overskriften "Produksjon"</i>
+		</p>
+
+        <h4 id="integrasjon-i-ver2">4.2 Opprett en integrasjon i Ver2-miljøet hos Digdir</h4>
         <figure>
             <img src="media/maskp-ver2.png" alt="Se figurtekst"/>
             <figcaption>Figur: Gå til integrasjoner</figcaption>
         </figure>
 
-        <h4 id="integrasjon-i-prod">4.2 Opprett en integrasjon i PRODUKSJON hos Difi</h4>
+        <h4 id="integrasjon-i-prod">4.3 Opprett en integrasjon i PRODUKSJON hos Difi</h4>
         <figure>
             <img src="media/maskp-prod.png" alt="Se figurtekst"/>
             <figcaption>Figur: Gå til integrasjoner</figcaption>
         </figure>
 
-        <h4 id="ny-integrasjon">4.3 Ny integrasjon</h4>
+        <h4 id="ny-integrasjon">4.4 Ny integrasjon</h4>
         <figure>
             <img src="media/maskp-nyintegrasjon.png" alt="Se figurtekst"/>
             <figcaption>Figur: Trykk Ny integrasjon.</figcaption>
