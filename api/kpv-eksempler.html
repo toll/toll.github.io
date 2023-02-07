@@ -63,6 +63,7 @@
                         <li><p><a href="#eks2">Direktefortolling og transittering som skal fullføres på grensa</a></p>
                         <li><p><a href="#eks3">Transittering som bare skal grensepasseres</a></p>
                         <li><p><a href="#eks4">Transittering som skal startes på grensa</a></p>
+                        <li><p><a href="#eks5">Direktefortolling der eksportene er avsluttet i avgangslandet</a></p>
                     </ul>
                 </li>
                 <li><p><a href="#testdata">Testdata</a></p></li>
@@ -177,6 +178,26 @@
       "importProcedure": "TRANSIT_RELEASE"
     }
   }
+}
+		</pre>
+
+        <h3 id="eks5">Eksempel 5 - Direktefortolling der eksportene er avsluttet i avgangslandet - Bil på ferge</h3>
+		<pre>
+{
+  "consignmentHouseLevel": {
+    "previousDocuments": [
+      {
+        "typeOfReference": "CUDE",
+        "declarantNumber": "913144929",
+        "declarationDate": "2022-03-01",
+        "sequenceNumber": "13881"
+      }
+    ],
+    "importProcedure": {
+      "hasOutgoingProcedure": "FALSE",
+      "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+    }
+  }
 }
 		</pre>
 
