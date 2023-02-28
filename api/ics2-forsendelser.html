@@ -87,8 +87,9 @@
 
 		<p>Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten. Foreløpig
 		skal den kun benyttes for sendinger som er forhåndsmeldt til EU i
-		ICS2-løsningen. Per mars 2023 vil det omfatte alle sendinger som skal fraktes
-		med fly fra tredjeland. Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
+		ICS2-løsningen. Fra mars 2023 omfatter det alle sendinger som skal fraktes med fly fra 
+		tredjeland, fra mars 2024 vil kravet også omfatte sendinger over sjø, vei og tog.
+		Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
 		og Norge unntatt Svalbard). Fremlegging kan gjøres ved å fremlegge en hel
 		forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger. Dersom en
 		postsekk eller en forflytningsdeklarasjon fremlegges, vil alle enkeltsendingene
@@ -108,8 +109,8 @@
 		sende med requestId på alle kall vil du som konsument kunne sikre at en
 		forsendelse kun fremlegges én gang. Gjenbruk av samme requestId vil medføre
 		valideringsfeil. Dette er kun en teknisk identifikasjon av hver enkelt
-		tjenestekall. Status på alle requestkall kan hentes ut ved å bruke
-		validation-statustjenesten for aktuell request.</p>
+		tjenestekall. Status på alle requester kan hentes ut ved å bruke 
+		validation-statustjenesten.</p>
 
 		<p>Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
 		fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
@@ -121,18 +122,14 @@
 
 		<h2 id="Grensesnitt">Grensesnittbeskrivelse</h2>
 
-		<p>Tjenestene vil gjøres tilgjengelige som REST-tjenester over HTTPS, med autentisering
-		via Maskinporten.</p>
+		<p>Tjenestene er tilgjengelige over HTTPS, med autentisering via Maskinporten.</p>
 
 		<pre>
      POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
-     GET https://&lt;env&gt;/api/movement/presentation/v1/house-consignment/validation-status
-
      POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
-     GET https://&lt;env&gt;/api/movement/presentation/v1/receptacle/validation-status
-
      POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
-     GET https://&lt;env&gt;/api/movement/presentation/v1/entrysummarydeclaration/validation-status
+
+     GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
      GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
 		</pre>
 
@@ -143,13 +140,13 @@
 		</ul>
 
 
-		<p>API-et er under utvikling. Det må påregnes at det blir endringer frem til
-		ICS2 fase 2 går i produksjon fra 1. mars 2023. Det vil også endres for å dekke
-		behov som kommer i  ICS2 fase 3 og andre nødvendige endringer. Bakoverkompatible
-		endringer legges til uten versjonsoppdatering eller varsling.
-		Ikke bakoverkompatible endringer vil varsles og eventuelt versjoneres for å
-		unngå feil ved bruken av tjenestene. Frem til februar 2023 vil ikke endringer
-		medføre versjonering.</p>
+		<p>
+			API-et vil endres ved behov fra toll eller brukerne. Blant annet regner vi 
+			med at innføringen av ICS2 fase 3 (sjø, vei og tog) vil medføre endringer. 
+			Bakoverkompatible endringer legges til uten versjonsoppdatering eller varsling. 
+			Ikke bakoverkompatible endringer vil varsles her og ev. via epost til 
+			registrerte brukere ved behov.
+		</p>
 
 		<h3 id="APIdok">API-dokumentasjon</h3>
 		<ul>
