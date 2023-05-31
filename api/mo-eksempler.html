@@ -81,22 +81,22 @@
 
         <h2 id="eksempler">Eksempler</h2>
 
-		<p class="warning_box">Under arbeid</p>
+        <p class="warning_box">Under arbeid</p>
 
         <p>
             Vi har laget noen eksempler på hvordan meldingsinnholdet kan se ut basert
-			på hvilken tollprosedyre som benyttes.
-			For å holde det så kort som mulig er kun innholdet som er forskjellig for de ulike prosedyrene vist,
-			det vil si  følgende objekter:
+            på hvilken tollprosedyre som benyttes.
+            For å holde det så kort som mulig er kun innholdet som er forskjellig for de ulike prosedyrene vist,
+            det vil si  følgende objekter:
         </p>
-			<ul>
-				<li>houseConsignment.consignmentHouseLevel.ExportFromEU</li>
-				<li>houseConsignment.consignmentHouseLevel.ImportProcedure</li>
-				<li>houseConsignment.consignmentHouseLevel.PreviousDocuments</li>
-			</ul>
+            <ul>
+                <li>houseConsignment.consignmentHouseLevel.ExportFromEU</li>
+                <li>houseConsignment.consignmentHouseLevel.ImportProcedure</li>
+                <li>houseConsignment.consignmentHouseLevel.PreviousDocuments</li>
+            </ul>
 
         <h3 id="eks1">Eksempel 1 - Tolldeklarasjon  og svensk/EU eksport</h3>
-		<pre>
+        <pre>
 {
   "consignmentHouseLevel": {
     "previousDocuments": [
@@ -118,10 +118,10 @@
       "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
     }
   }
-}  		</pre>
+}       </pre>
 
         <h3 id="eks2">Eksempel 2 - Tolldeklarasjon og transittering som skal fullføres på grensa</h3>
-		<pre>
+        <pre>
 {
   "consignmentHouseLevel": {
     "previousDocuments": [
@@ -141,10 +141,10 @@
       "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
     }
   }
-}		</pre>
+}       </pre>
 
         <h3 id="eks3">Eksempel 3 - Transittering som bare skal grensepasseres</h3>
-		<pre>
+        <pre>
 {
   "consignmentHouseLevel": {
     "previousDocuments": [
@@ -158,10 +158,10 @@
       "importProcedure": "TRANSIT_IMPORT"
     }
   }
-}		</pre>
+}       </pre>
 
         <h3 id="eks4">Eksempel 4 - Transittering som skal startes på grensa</h3>
-		<pre>
+        <pre>
 {
   "consignmentHouseLevel": {
     "previousDocuments": [
@@ -181,10 +181,10 @@
       "importProcedure": "TRANSIT_RELEASE"
     }
   }
-}		</pre>
+}       </pre>
 
         <h3 id="eks5">Eksempel 5 - Tolldeklarasjon der eksportene er avsluttet i avgangslandet</h3>
-		<pre>
+        <pre>
 {
   "consignmentHouseLevel": {
     "previousDocuments": [
@@ -200,52 +200,52 @@
       "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
     }
   }
-}		</pre>
+}       </pre>
 
         <h3 id="eks6">Eksempel 6 - VOEC-forsendelse</h3>
-		<pre>
-		?
-		</pre>
+        <pre>
+        ?
+        </pre>
 
         <h3 id="eks7">Eksempel 7 - Postforsendelse</h3>
-		<pre>
-		?
-		</pre>
+        <pre>
+        ?
+        </pre>
 
-		<p><br/></p>
-		<h3 id="testdata">Testdata</h3>
-		<p>
-			Valideringen av innsendte meldinger inneholder blant annet en kontroll mot at oppgitte deklarasjoner
-			i TVINN og NCTS eksisterer og har forventet status. I playground-miljøet har vi ikke integrasjon mot
-			disse fagsystemene, så innholdet valideres mot en statisk liste som inneholder noen få deklarasjoner.
-		</p>
-		<p>
-			For TVINN-deklarasjoner er det disse som kan brukes:
+        <p><br/></p>
+        <h3 id="testdata">Testdata</h3>
+        <p>
+            Valideringen av innsendte meldinger inneholder blant annet en kontroll mot at oppgitte deklarasjoner
+            i TVINN og NCTS eksisterer og har forventet status. I playground-miljøet har vi ikke integrasjon mot
+            disse fagsystemene, så innholdet valideres mot en statisk liste som inneholder noen få deklarasjoner.
         </p>
-			<table>
-				<tbody>
-					<tr>
-						<th>declarant_number</th>
-						<th>declaration_date</th>
-						<th>sequence_number</th>
-					</tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>1</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>2</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>3</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>4</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>5</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>6</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>7</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>8</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>9</td></tr>
-					<tr><td>123456789</td><td>2022-08-10</td><td>10</td></tr>
-				</tbody>
-			</table>
-		<p>
-			For transitteringsdeklarasjoner (NCTS) er det enda enklere validering i Playground.
-			Her validerer vi bare at feltet inneholder 18 alfanumeriske tegn som regnes som OK.
-			Dersom feltet har teksten «INVALID» i seg feilvalideres den.
-		</p>
+        <p>
+            For TVINN-deklarasjoner er det disse som kan brukes:
+        </p>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>declarant_number</th>
+                        <th>declaration_date</th>
+                        <th>sequence_number</th>
+                    </tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>1</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>2</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>3</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>4</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>5</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>6</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>7</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>8</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>9</td></tr>
+                    <tr><td>123456789</td><td>2022-08-10</td><td>10</td></tr>
+                </tbody>
+            </table>
+        <p>
+            For transitteringsdeklarasjoner (NCTS) er det enda enklere validering i Playground.
+            Her validerer vi bare at feltet inneholder 18 alfanumeriske tegn som regnes som OK.
+            Dersom feltet har teksten «INVALID» i seg feilvalideres den.
+        </p>
 
     </div>
 

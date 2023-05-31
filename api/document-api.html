@@ -59,7 +59,7 @@
             <ul>
                 <li><p><a href="#omtjenesten">Om tjenesten</a></p></li>
                 <li><p><a href="#grensesnitt">Grensesnittbeskrivelse</a></p>
-				<li><p><a href="#EksempelPostman">Eksempel i Postman</a></p>
+                <li><p><a href="#EksempelPostman">Eksempel i Postman</a></p>
                 <li><p><a href="#aut">Autentisering</a></p>
             </ul>
         </div>
@@ -80,86 +80,86 @@
         <p>Tjenesten  gjøres tilgjengelig som en REST-tjeneste over HTTPS, med data på JSON-format.</p>
 
 
-		<h3 id="HTTPRequest">HTTP Request</h3>
+        <h3 id="HTTPRequest">HTTP Request</h3>
 
-		<h4 id="MetodePOST">Metode: POST</h4>
+        <h4 id="MetodePOST">Metode: POST</h4>
 
-		<p><strong>URL:</strong> https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document</p>
+        <p><strong>URL:</strong> https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document</p>
 
-		<h4 id="Headers">Headers</h4>
-		<ul>
-		 <li><strong>Authorization</strong>: Bearer Token</li>
-		</ul>
-		<p>Token som kreves er en Maskinporten JWT med scopet <strong>toll:goodsdeclaration/document.write</strong></p>
+        <h4 id="Headers">Headers</h4>
+        <ul>
+         <li><strong>Authorization</strong>: Bearer Token</li>
+        </ul>
+        <p>Token som kreves er en Maskinporten JWT med scopet <strong>toll:goodsdeclaration/document.write</strong></p>
 
-		<h4 id="Body">Body</h4>
+        <h4 id="Body">Body</h4>
 
-		<ul>
-		 <li><strong>Media Type</strong>: Form Data</li>
-		 <li><strong>Innhold</strong>:
-			<ul>
-				<li><strong>metadata</strong>:
-						{&quot;declarationId&quot;: &quot;Sett inn deklarasjons-id her&quot;,
-						&quot;documentType&quot;: &quot;Sett inn dokumenttype her&quot;}</li>
-				<li><strong>file</strong>: Ditt dokument</li>
+        <ul>
+         <li><strong>Media Type</strong>: Form Data</li>
+         <li><strong>Innhold</strong>:
+            <ul>
+                <li><strong>metadata</strong>:
+                        {&quot;declarationId&quot;: &quot;Sett inn deklarasjons-id her&quot;,
+                        &quot;documentType&quot;: &quot;Sett inn dokumenttype her&quot;}</li>
+                <li><strong>file</strong>: Ditt dokument</li>
             </ul>
          </li>
          <li>Dokumenttype må være en av
-				<ul>
-					<li>faktura</li>
-					<li>tillatelser</li>
-					<li>fraktregning</li>
-					<li>opprinnelsesdokumentasjon</li>
-					<li>fraktbrev</li>
-				</ul>
-			</li>
-			<li>
-				Filtype må være en av
-				<ul>
-					<li>pdf</li>
-					<li>jpg</li>
-					<li>png</li>
-					<li>txt</li>
-					<li>doc</li>
-					<li>docx</li>
-					<li>xls</li>
-					<li>xlsx</li>
-				</ul>
-			</li>
-			<li>
-				Maks 10MB i filstørrelse per vedlegg.
-				Dersom vedlegget er større, må du dele denne opp i flere deler som hver er mindre enn 10MB.
-			</li>
-			<li>
-				NB!&nbsp;Rekkefølgen på feltene i innholdet må være samme som oppgitt over
-			</li>
-		</ul>
+                <ul>
+                    <li>faktura</li>
+                    <li>tillatelser</li>
+                    <li>fraktregning</li>
+                    <li>opprinnelsesdokumentasjon</li>
+                    <li>fraktbrev</li>
+                </ul>
+            </li>
+            <li>
+                Filtype må være en av
+                <ul>
+                    <li>pdf</li>
+                    <li>jpg</li>
+                    <li>png</li>
+                    <li>txt</li>
+                    <li>doc</li>
+                    <li>docx</li>
+                    <li>xls</li>
+                    <li>xlsx</li>
+                </ul>
+            </li>
+            <li>
+                Maks 10MB i filstørrelse per vedlegg.
+                Dersom vedlegget er større, må du dele denne opp i flere deler som hver er mindre enn 10MB.
+            </li>
+            <li>
+                NB!&nbsp;Rekkefølgen på feltene i innholdet må være samme som oppgitt over
+            </li>
+        </ul>
 
-		<h3 id="EksempelPostman">Eksempel i Postman</h3>
+        <h3 id="EksempelPostman">Eksempel i Postman</h3>
 
-		<h4 id="pmBody">Body</h4>
-		<img src="media/document-postman-body.png" alt="Skjermbilde fra Postman" />
+        <h4 id="pmBody">Body</h4>
+        <img src="media/document-postman-body.png" alt="Skjermbilde fra Postman" />
 
-		<h4 id="pmAuth">Auth</h4>
-		<img src="media/document-postman-auth.png" alt="Skjermbilde fra Postman" />
+        <h4 id="pmAuth">Auth</h4>
+        <img src="media/document-postman-auth.png" alt="Skjermbilde fra Postman" />
 
 
 
         <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
-		<p>
-			Våre API-er benytter Maskinporten for identitets- og tilgangsstyring. 
-			På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
-			<ul>
-				<li>
-					hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
-					inkludert registreringsskjema for tilgang hos Tolletaten
-				</li>
-				<li>tilgangsstyring for våre API-er</li>
-				<li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
-				<li>drift og overvåking/feilsøking.</li>
-			</ul>
-			Scopet som benyttes for dette API-et er <b>toll:goodsdeclaration/document.write</b>.
-		</p>
+        <p>
+            Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
+            På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+            <ul>
+                <li>
+                    hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
+                    inkludert registreringsskjema for tilgang hos Tolletaten
+                </li>
+                <li>tilgangsstyring for våre API-er</li>
+                <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+                <li>drift og overvåking/feilsøking.</li>
+            </ul>
+            Scopet som benyttes for dette API-et er <b>toll:goodsdeclaration/document.write</b>.
+        </p>
     </div>
 
 

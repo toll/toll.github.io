@@ -68,12 +68,12 @@
                 <li>
                     <p><a href="#Kodeverk">Kodeverk</a></p>
                     <ul>
-						<li><a href="#Tollsteder">Tollsteder</a></li>
-						<li><a href="#CL754">Transportdokumenttype CL754</a></li>
+                        <li><a href="#Tollsteder">Tollsteder</a></li>
+                        <li><a href="#CL754">Transportdokumenttype CL754</a></li>
                     </ul>
                 </li>
                 <li><p><a href="#aut">Autentisering</a></p></li>
-				<li><a href="#Tilbakemeldinger">Tilbakemeldinger og kontakt</a></li>
+                <li><a href="#Tilbakemeldinger">Tilbakemeldinger og kontakt</a></li>
             </ul>
         </div>
     </div>
@@ -83,196 +83,196 @@
     </div>
 
     <div class="column middle">
-		<h2 id="Omtjenesten">Om tjenesten</h2>
+        <h2 id="Omtjenesten">Om tjenesten</h2>
 
-		<p>Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten. Foreløpig
-		skal den kun benyttes for sendinger som er forhåndsmeldt til EU i
-		ICS2-løsningen. Fra mars 2023 omfatter det alle sendinger som skal fraktes med fly fra 
-		tredjeland, fra mars 2024 vil kravet også omfatte sendinger over sjø, vei og tog.
-		Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
-		og Norge unntatt Svalbard). Fremlegging kan gjøres ved å fremlegge en hel
-		forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger. Dersom en
-		postsekk eller en forflytningsdeklarasjon fremlegges, vil alle enkeltsendingene
-		under denne bli fremlagt. Videre skal den som har fremlagt sendingene også bruke tjenesten for kontrolldirigering,
-		og basert på resultatet fra sistnevnte plukke ut sendingene som skal kontrolleres.
-		Disse sendingene skal snarest overleveres avtalt kontrollsted.</p>
+        <p>Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten. Foreløpig
+        skal den kun benyttes for sendinger som er forhåndsmeldt til EU i
+        ICS2-løsningen. Fra mars 2023 omfatter det alle sendinger som skal fraktes med fly fra
+        tredjeland, fra mars 2024 vil kravet også omfatte sendinger over sjø, vei og tog.
+        Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
+        og Norge unntatt Svalbard). Fremlegging kan gjøres ved å fremlegge en hel
+        forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger. Dersom en
+        postsekk eller en forflytningsdeklarasjon fremlegges, vil alle enkeltsendingene
+        under denne bli fremlagt. Videre skal den som har fremlagt sendingene også bruke tjenesten for kontrolldirigering,
+        og basert på resultatet fra sistnevnte plukke ut sendingene som skal kontrolleres.
+        Disse sendingene skal snarest overleveres avtalt kontrollsted.</p>
 
-		<p>Mer bakgrunnsinformasjon om ICS2:</p>
-		<ul>
-		 <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/" target="_blank">ICS2 på toll.no</a></li>
-		 <li><a href="https://circabc.europa.eu/ui/group/ea5f882b-9153-4fc1-9394-54ac8fe9149a/library/53a32862-d881-4061-b6a7-55894dc4c13f?p=1&amp;n=10&amp;sort=modified_DESC" target="_blank">Guidancedokumenter fra EU</a></li>
-		</ul>
+        <p>Mer bakgrunnsinformasjon om ICS2:</p>
+        <ul>
+         <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/" target="_blank">ICS2 på toll.no</a></li>
+         <li><a href="https://circabc.europa.eu/ui/group/ea5f882b-9153-4fc1-9394-54ac8fe9149a/library/53a32862-d881-4061-b6a7-55894dc4c13f?p=1&amp;n=10&amp;sort=modified_DESC" target="_blank">Guidancedokumenter fra EU</a></li>
+        </ul>
 
-		<h2 id="Bruksflyt">Bruksflyt</h2>
+        <h2 id="Bruksflyt">Bruksflyt</h2>
 
-		<p>Fremleggingstjenestene skal kalles så fort forsendelsen er ankommet. Ved å
-		sende med requestId på alle kall vil du som konsument kunne sikre at en
-		forsendelse kun fremlegges én gang. Gjenbruk av samme requestId vil medføre
-		valideringsfeil. Dette er kun en teknisk identifikasjon av hver enkelt
-		tjenestekall. Status på alle requester kan hentes ut ved å bruke 
-		validation-statustjenesten.</p>
+        <p>Fremleggingstjenestene skal kalles så fort forsendelsen er ankommet. Ved å
+        sende med requestId på alle kall vil du som konsument kunne sikre at en
+        forsendelse kun fremlegges én gang. Gjenbruk av samme requestId vil medføre
+        valideringsfeil. Dette er kun en teknisk identifikasjon av hver enkelt
+        tjenestekall. Status på alle requester kan hentes ut ved å bruke
+        validation-statustjenesten.</p>
 
-		<p>Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
-		fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
-		kontroll eller at den kan innpassere og utleveres til mottaker. Kontrolldirigering
-		gjøres kun på enkeltsendings-nivå (house-consignment), men fremlegging på
-		postsekk- eller ENS-nivå (Entry Summary Declaration) vil  medføre at
-		resultat hentes for alle enkeltsendinger som er forhåndsmeldt i den
-		aktuelle postsekk eller ENS.</p>
+        <p>Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
+        fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
+        kontroll eller at den kan innpassere og utleveres til mottaker. Kontrolldirigering
+        gjøres kun på enkeltsendings-nivå (house-consignment), men fremlegging på
+        postsekk- eller ENS-nivå (Entry Summary Declaration) vil  medføre at
+        resultat hentes for alle enkeltsendinger som er forhåndsmeldt i den
+        aktuelle postsekk eller ENS.</p>
 
-		<h2 id="Grensesnitt">Grensesnittbeskrivelse</h2>
+        <h2 id="Grensesnitt">Grensesnittbeskrivelse</h2>
 
-		<p>Tjenestene er tilgjengelige over HTTPS, med autentisering via Maskinporten.</p>
+        <p>Tjenestene er tilgjengelige over HTTPS, med autentisering via Maskinporten.</p>
 
-		<pre>
+        <pre>
      POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
      POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
      POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
 
      GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
      GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
-		</pre>
+        </pre>
 
-		<p>der <em>&lt;env&gt;</em> er</p>
-		<ul>
-		<li><em>api.toll.no</em> for produksjon</li>
-		<li><em>api<b>-test</b>.toll.no</em> for playground (testmiljø)</li>
-		</ul>
-
-
-		<p>
-			API-et vil endres ved behov fra toll eller brukerne. Blant annet regner vi 
-			med at innføringen av ICS2 fase 3 (sjø, vei og tog) vil medføre endringer. 
-			Bakoverkompatible endringer legges til uten versjonsoppdatering eller varsling. 
-			Ikke bakoverkompatible endringer vil varsles her og ev. via epost til 
-			aktive brukere ved behov.
-		</p>
-
-		<h3 id="APIdok">API-dokumentasjon</h3>
-		<ul>
-		<li><a href="movement-presentation-api.html">Movement - Presentation</a></li>
-		<li><a href="movement-routing-api.html">Movement - Routing</a></li>
-		</ul>
+        <p>der <em>&lt;env&gt;</em> er</p>
+        <ul>
+        <li><em>api.toll.no</em> for produksjon</li>
+        <li><em>api<b>-test</b>.toll.no</em> for playground (testmiljø)</li>
+        </ul>
 
 
-		<h2 id="Kodeverk">Kodeverk</h2>
+        <p>
+            API-et vil endres ved behov fra toll eller brukerne. Blant annet regner vi
+            med at innføringen av ICS2 fase 3 (sjø, vei og tog) vil medføre endringer.
+            Bakoverkompatible endringer legges til uten versjonsoppdatering eller varsling.
+            Ikke bakoverkompatible endringer vil varsles her og ev. via epost til
+            aktive brukere ved behov.
+        </p>
 
-		<h3 id="Tollsteder">Tollsteder - Customs Office of presentation CL141</h3>
+        <h3 id="APIdok">API-dokumentasjon</h3>
+        <ul>
+        <li><a href="movement-presentation-api.html">Movement - Presentation</a></li>
+        <li><a href="movement-routing-api.html">Movement - Routing</a></li>
+        </ul>
 
-		<p>Customs Office of Presentation skal hentes fra kodeverk for kontrollsteder: <a
-		href="https://www.toll.no/no/verktoy/regelverk/nytt-fra-tolletaten/nye-tollstedskoder-i-ncts/"
-		target="_blank">Nye
-		tollstedskoder i NCTS - Tolletaten</a></p>
 
-		<h3 id="CL754">Transportdokumenttype CL754</h3>
+        <h2 id="Kodeverk">Kodeverk</h2>
 
-		<table>
-		 <tr>
-		  <td colspan=3><p><strong>CL754 &nbsp;&nbsp; Transport document type</strong></p></td>
-		 </tr>
-		 <tr>
-		  <th>Kode</th>
-		  <th>Beskrivelse engelsk</th>
-		  <th>Beskrivelse norsk</th>
-		 </tr>
-		 <tr>
-		  <td><p><strong>C624</strong></p></td>
-		  <td><p>Form 302 - Movement of military goods</p></td>
-		  <td><p>Form 302 - Forflytning av forsvarsmateriell</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>C625</strong></p></td>
-		  <td><p>Rhine Manifest</p></td>
-		  <td><p>Rhine manifest</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>C664</strong></p></td>
-		  <td><p>CN22 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
-		  <td><p>CN22 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>C665</strong></p></td>
-		  <td><p>CN23 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
-		  <td><p>CN23 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N703</strong></p></td>
-		  <td><p>House waybill</p></td>
-		  <td><p>Underfraktbrev (samlesending)</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N704</strong></p></td>
-		  <td><p>Master bill of lading</p></td>
-		  <td><p>Hovedkonossement</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N705</strong></p></td>
-		  <td><p>Bill of lading</p></td>
-		  <td><p>Konossoment</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N714</strong></p></td>
-		  <td><p>House bill of lading</p></td>
-		  <td><p>Underkonnossement (samlesending)</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N720</strong></p></td>
-		  <td><p>Consignment note CIM</p></td>
-		  <td><p>Fraktbrev CIM</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N722</strong></p></td>
-		  <td><p>Road list - SMGS</p></td>
-		  <td><p>SMGS-vegfraktbrev</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N730</strong></p></td>
-		  <td><p>Road consignment note</p></td>
-		  <td><p>Vegfraktbrev</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N740</strong></p></td>
-		  <td><p>Air waybill</p></td>
-		  <td><p>Flyfraktbrev</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N741</strong></p></td>
-		  <td><p>Master airwaybill</p></td>
-		  <td><p>Hovedflyfraktbrev</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N750</strong></p></td>
-		  <td><p>Movement by post including parcel post</p></td>
-		  <td><p>Forflytning med post inkludert pakkepost</p></td>
-		 </tr>
-		 <tr>
-		  <td><p><strong>N760</strong></p></td>
-		  <td><p>Multimodal / combined transport document</p></td>
-		  <td><p>Dokument for kombinert transport</p></td>
-		 </tr>
-		</table>
+        <h3 id="Tollsteder">Tollsteder - Customs Office of presentation CL141</h3>
+
+        <p>Customs Office of Presentation skal hentes fra kodeverk for kontrollsteder: <a
+        href="https://www.toll.no/no/verktoy/regelverk/nytt-fra-tolletaten/nye-tollstedskoder-i-ncts/"
+        target="_blank">Nye
+        tollstedskoder i NCTS - Tolletaten</a></p>
+
+        <h3 id="CL754">Transportdokumenttype CL754</h3>
+
+        <table>
+         <tr>
+          <td colspan=3><p><strong>CL754 &nbsp;&nbsp; Transport document type</strong></p></td>
+         </tr>
+         <tr>
+          <th>Kode</th>
+          <th>Beskrivelse engelsk</th>
+          <th>Beskrivelse norsk</th>
+         </tr>
+         <tr>
+          <td><p><strong>C624</strong></p></td>
+          <td><p>Form 302 - Movement of military goods</p></td>
+          <td><p>Form 302 - Forflytning av forsvarsmateriell</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C625</strong></p></td>
+          <td><p>Rhine Manifest</p></td>
+          <td><p>Rhine manifest</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C664</strong></p></td>
+          <td><p>CN22 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
+          <td><p>CN22 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C665</strong></p></td>
+          <td><p>CN23 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
+          <td><p>CN23 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N703</strong></p></td>
+          <td><p>House waybill</p></td>
+          <td><p>Underfraktbrev (samlesending)</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N704</strong></p></td>
+          <td><p>Master bill of lading</p></td>
+          <td><p>Hovedkonossement</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N705</strong></p></td>
+          <td><p>Bill of lading</p></td>
+          <td><p>Konossoment</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N714</strong></p></td>
+          <td><p>House bill of lading</p></td>
+          <td><p>Underkonnossement (samlesending)</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N720</strong></p></td>
+          <td><p>Consignment note CIM</p></td>
+          <td><p>Fraktbrev CIM</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N722</strong></p></td>
+          <td><p>Road list - SMGS</p></td>
+          <td><p>SMGS-vegfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N730</strong></p></td>
+          <td><p>Road consignment note</p></td>
+          <td><p>Vegfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N740</strong></p></td>
+          <td><p>Air waybill</p></td>
+          <td><p>Flyfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N741</strong></p></td>
+          <td><p>Master airwaybill</p></td>
+          <td><p>Hovedflyfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N750</strong></p></td>
+          <td><p>Movement by post including parcel post</p></td>
+          <td><p>Forflytning med post inkludert pakkepost</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N760</strong></p></td>
+          <td><p>Multimodal / combined transport document</p></td>
+          <td><p>Dokument for kombinert transport</p></td>
+         </tr>
+        </table>
 
        <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
-		<p>
-			Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
-			På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
-			<ul>
-				<li>
-					hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
-					inkludert registreringsskjema for tilgang hos Tolletaten
-				</li>
-				<li>tilgangsstyring for våre API-er</li>
-				<li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
-				<li>drift og overvåking/feilsøking.</li>
-			</ul>
-			Scopet som benyttes for dette API-et er <b>toll:movement/entry</b>.
-		</p>
+        <p>
+            Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
+            På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+            <ul>
+                <li>
+                    hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
+                    inkludert registreringsskjema for tilgang hos Tolletaten
+                </li>
+                <li>tilgangsstyring for våre API-er</li>
+                <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+                <li>drift og overvåking/feilsøking.</li>
+            </ul>
+            Scopet som benyttes for dette API-et er <b>toll:movement/entry</b>.
+        </p>
 
 
-		<h3 id="Tilbakemeldinger">Tilbakemeldinger og kontakt</h3>
+        <h3 id="Tilbakemeldinger">Tilbakemeldinger og kontakt</h3>
 
-		<p>Har du spørsmål eller innspill til API-et, hører vi gjerne fra dere på epost
-		<a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
+        <p>Har du spørsmål eller innspill til API-et, hører vi gjerne fra dere på epost
+        <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
     </div>
 
 
