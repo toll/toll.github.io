@@ -2,8 +2,8 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Kodeverk i API for kjøretøy på vei</title>
-    <meta name="description" content="Kodeverk i Tolletatens API for kjøretøy på vei">
+    <title>Kodeverk i API for melde og opplysning</title>
+    <meta name="description" content="Kodeverk i Tolletatens API for Melde og opplysning">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -48,7 +48,7 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>Kodeverk i API for kjøretøy på vei</h1>
+    <h1>Kodeverk i API for melde og opplysning</h1>
 </header>
 
 
@@ -57,13 +57,15 @@
         <div id="toc_container">
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
-				<li><p><a href="#cl017">CL017 Package type</a></p>
-				<li><p><a href="#cl018">CL018 Mode of transport</a></p>
+				<li><p><a href="#cl094">CL094 Representative status</a></p>
 				<li><p><a href="#cl116">CL116 Transport charges</a></p>
 				<li><p><a href="#cl228">CL228 Previous Document type</a></p>
 				<li><p><a href="#cl704">CL704 Additional Supply Chain Actor</a></p>
+				<li><p><a href="#cl707">CL707 Communication means type</a></p>
 				<li><p><a href="#cl708">CL708 Container</a></p>
-				<li><p><a href="#cl729">CL729 Type of Person</a></p>
+				<li><p><a href="#cl709">CL709 Container packed status</a></p>
+				<li><p><a href="#cl710">CL710 Container size / type</a></p>
+				<li><p><a href="#cl711">CL711 Container supplier type</a></p>
 				<li><p><a href="#cl749">CL749 Type of Goods</a></p>
 				<li><p><a href="#cl750">CL750 Type of Identification</a></p>
 				<li><p><a href="#cl751">CL751 Type of Means</a></p>
@@ -85,16 +87,21 @@
     <div class="column middle">
 
         <h2 id="kodeverk">Kodeverk</h2>
+
+		<p class="warning_box">Under arbeid: Må utvides med alle kodeverkene som er i bruk.</p>
+
         <p>
-            Under følger en samlet oversikt over de ulike kodeverkene
-            meldingsinnholdet valideres mot. Det er to sett av kodeverk som
-            benyttes, det ene settet er EUs kodeverk og det andre settet er
-            nasjonale kodeverk som har vært nødvendig å etablere for å understøtte
-            Tolletatens forretningsprosesser. Ettersom de nasjonale kodeverkene ikke
-            er kjent for næringslivet i andre sammenhenger, er det for disse lagt
-            til en beskrivelse av hvordan kodene skal brukes.
-            I skjemaene på <a href="movement-road-api.html">movement-road-api</a> vil
-            det være angitt hvilke kodeverk datafeltene blir validert mot.</p>
+			Under følger en samlet oversikt over de ulike kodeverkene meldingsinnholdet
+			i API-et valideres mot. Det er to sett av kodeverk som benyttes, det ene settet
+			er EUs kodeverk og det andre settet er nasjonale kodeverk som har vært
+			nødvendig å etablere for å understøtte Tolletatens forretningsprosesser.
+			Ettersom de nasjonale kodeverkene ikke er kjent for næringslivet i andre
+			sammenhenger, er det for disse lagt til en beskrivelse av hvordan kodene skal
+			brukes. I skjemaene på <a
+			href="https://toll.github.io/api/movement-air-api.html">movement-air-api</a> og
+			<a href="https://toll.github.io/api/movement-road-api-v2.html">movement-road-api-v2</a>
+			vil det være angitt hvilke kodeverk datafeltene blir validert mot.
+		</p>
 
         <h3 id="eu-kodeverk">EU kodeverk</h3>
 
@@ -108,881 +115,1936 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>AE</td>
-                <td>Aerosol</td>
-                <td>Aerosol-forpakning (spray)</td>
-            </tr>
-            <tr>
-                <td>AM</td>
-                <td>Ampoule, non-protected</td>
-                <td>Ampulle, ubeskyttet</td>
-            </tr>
-            <tr>
-                <td>AP</td>
-                <td>Ampoule, protected</td>
-                <td>Ampulle, beskyttet</td>
-            </tr>
-            <tr>
-                <td>AT</td>
-                <td>Atomizer</td>
-                <td>Spray, forstøver (atomizer)</td>
-            </tr>
-            <tr>
-                <td>AV</td>
-                <td>Capsule</td>
-                <td>Kapsel</td>
-            </tr>
-            <tr>
-                <td>BA</td>
-                <td>Barrel</td>
-                <td>Tønne, liten</td>
-            </tr>
-            <tr>
-                <td>BB</td>
-                <td>Bobbin</td>
-                <td>Spole</td>
-            </tr>
-            <tr>
-                <td>BC</td>
-                <td>Bottlecrate / bottlerack</td>
-                <td>Flaskekasse, flaskestativ</td>
-            </tr>
-            <tr>
-                <td>BD</td>
-                <td>Board</td>
-                <td>Bord, planke, brett</td>
-            </tr>
-            <tr>
-                <td>BE</td>
-                <td>Bundle</td>
-                <td>Bunt, bylt</td>
-            </tr>
-            <tr>
-                <td>BF</td>
-                <td>Balloon, non-protected</td>
-                <td>Ballong, ubeskyttet</td>
-            </tr>
-            <tr>
-                <td>BG</td>
-                <td>Bag</td>
-                <td>Pose, brev, sekk</td>
-            </tr>
-            <tr>
-                <td>BH</td>
-                <td>Bunch</td>
-                <td>Bunt, knippe</td>
-            </tr>
-            <tr>
-                <td>BI</td>
-                <td>Bin</td>
-                <td>Bøtte, kasse, beholder</td>
-            </tr>
-            <tr>
-                <td>BJ</td>
-                <td>Bucket</td>
-                <td>Bøtte, spann</td>
-            </tr>
-            <tr>
-                <td>BK</td>
-                <td>Basket</td>
-                <td>Kurv</td>
-            </tr>
-            <tr>
-                <td>BL</td>
-                <td>Bale, compressed</td>
-                <td>Balle, komprimert</td>
-            </tr>
-            <tr>
-                <td>BM</td>
-                <td>Basin</td>
-                <td>Vannfat, balje</td>
-            </tr>
-            <tr>
-                <td>BN</td>
-                <td>Bale, non-compressed</td>
-                <td>Balle, ikke-komprimert</td>
-            </tr>
-            <tr>
-                <td>BO</td>
-                <td>Bottle, non-protected, cylindrical</td>
-                <td>Flaske, ubeskyttet, sylindrisk</td>
-            </tr>
-            <tr>
-                <td>BP</td>
-                <td>Balloon, protected</td>
-                <td>Ballong, beskyttet</td>
-            </tr>
-            <tr>
-                <td>BQ</td>
-                <td>Bottle, protected cylindrical</td>
-                <td>Flaske, beskyttet, sylindrisk</td>
-            </tr>
-            <tr>
-                <td>BR</td>
-                <td>Bar</td>
-                <td>Stang</td>
-            </tr>
-            <tr>
-                <td>BS</td>
-                <td>Bottle, non-protected, bulbous</td>
-                <td>Flaske, ubeskyttet, kuleformet</td>
-            </tr>
-            <tr>
-                <td>BT</td>
-                <td>Bolt</td>
-                <td>Bolt</td>
-            </tr>
-            <tr>
-                <td>BU</td>
-                <td>Butt</td>
-                <td>Fat, stort</td>
-            </tr>
-            <tr>
-                <td>BV</td>
-                <td>Bottle, protected bulbous</td>
-                <td>Flaske, beskyttet, kuleformet</td>
-            </tr>
-            <tr>
-                <td>BW</td>
-                <td>Box, for liquids</td>
-                <td>Boks, for væsker</td>
-            </tr>
-            <tr>
-                <td>BX</td>
-                <td>Box</td>
-                <td>Boks</td>
-            </tr>
-            <tr>
-                <td>BY</td>
-                <td>Board, in bundle/bunch/truss</td>
-                <td>Bor, planker, brett i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>BZ</td>
-                <td>Bars, in bundle/bunch/truss</td>
-                <td>Stenger, i bunter/knippe</td>
-            </tr>
-            <tr>
-                <td>CA</td>
-                <td>Can, rectangular</td>
-                <td>Kanne, rektangulær</td>
-            </tr>
-            <tr>
-                <td>CB</td>
-                <td>Crate, beer</td>
-                <td>Kasse, øl</td>
-            </tr>
-            <tr>
-                <td>CC</td>
-                <td>Churn</td>
-                <td>Kjerne, kinn</td>
-            </tr>
-            <tr>
-                <td>CD</td>
-                <td>Can, with handle and spout</td>
-                <td>Kanne, med håndtak og tut</td>
-            </tr>
-            <tr>
-                <td>CE</td>
-                <td>Creel</td>
-                <td>Kurv, flettet</td>
-            </tr>
-            <tr>
-                <td>CF</td>
-                <td>Coffer</td>
-                <td>Kiste, skrin, kasse</td>
-            </tr>
-            <tr>
-                <td>CG</td>
-                <td>Cage</td>
-                <td>Bur</td>
-            </tr>
-            <tr>
-                <td>CH</td>
-                <td>Chest</td>
-                <td>Kiste</td>
-            </tr>
-            <tr>
-                <td>CI</td>
-                <td>Canister</td>
-                <td>Sylinder, trommel, boks</td>
-            </tr>
-            <tr>
-                <td>CJ</td>
-                <td>Coffin</td>
-                <td>Kiste (-lik)</td>
-            </tr>
-            <tr>
-                <td>CK</td>
-                <td>Cask</td>
-                <td>Fat, tønne</td>
-            </tr>
-            <tr>
-                <td>CL</td>
-                <td>Coil</td>
-                <td>Kveil, spole, rull</td>
-            </tr>
-            <tr>
-                <td>CM</td>
-                <td>Card</td>
-                <td>Kort (Card)</td>
-            </tr>
-            <tr>
-                <td>CN</td>
-                <td>Container, not otherwise specified as transport equipment</td>
-                <td>Container, ikke spesifisert som transportutstyr annetsteds</td>
-            </tr>
-            <tr>
-                <td>CO</td>
-                <td>Carboy, non-protected</td>
-                <td>Glassballong, ubeskyttet</td>
-            </tr>
-            <tr>
-                <td>CP</td>
-                <td>Carboy, protected</td>
-                <td>Glassballong, beskyttet</td>
-            </tr>
-            <tr>
-                <td>CQ</td>
-                <td>Cartridge</td>
-                <td>Patron</td>
-            </tr>
-            <tr>
-                <td>CR</td>
-                <td>Crate</td>
-                <td>Kasse</td>
-            </tr>
-            <tr>
-                <td>CS</td>
-                <td>Case</td>
-                <td>Kasse</td>
-            </tr>
-            <tr>
-                <td>CT</td>
-                <td>Carton</td>
-                <td>Kartong</td>
-            </tr>
-            <tr>
-                <td>CU</td>
-                <td>Cup</td>
-                <td>Kopp, beger</td>
-            </tr>
-            <tr>
-                <td>CV</td>
-                <td>Cover</td>
-                <td>Deksel, omslag, etui</td>
-            </tr>
-            <tr>
-                <td>CW</td>
-                <td>Cage, roll</td>
-                <td>Bur, rull</td>
-            </tr>
-            <tr>
-                <td>CX</td>
-                <td>Can, cylindrical</td>
-                <td>Kanne, sylindrisk</td>
-            </tr>
-            <tr>
-                <td>CY</td>
-                <td>Cylinder</td>
-                <td>Sylinder</td>
-            </tr>
-            <tr>
-                <td>CZ</td>
-                <td>Canvas</td>
-                <td>Seilduk, presenning</td>
-            </tr>
-            <tr>
-                <td>DJ</td>
-                <td>Demijohn, non-protected</td>
-                <td>Glassballong, ubeskyttet</td>
-            </tr>
-            <tr>
-                <td>DP</td>
-                <td>Demijohn, protected</td>
-                <td>Glassballong, beskyttet, (stor kurvflaske)</td>
-            </tr>
-            <tr>
-                <td>DR</td>
-                <td>Drum</td>
-                <td>Fat, trommel, tønne</td>
-            </tr>
-            <tr>
-                <td>EC</td>
-                <td>Bag, plastic</td>
-                <td>Pose, sekk, av plast</td>
-            </tr>
-            <tr>
-                <td>EN</td>
-                <td>Envelope</td>
-                <td>Konvolutt</td>
-            </tr>
-            <tr>
-                <td>FC</td>
-                <td>Crate, fruit</td>
-                <td>Kasse, frukt</td>
-            </tr>
-            <tr>
-                <td>FD</td>
-                <td>Crate, framed</td>
-                <td>Kasse, (framed)</td>
-            </tr>
-            <tr>
-                <td>FI</td>
-                <td>Firkin</td>
-                <td>Dunk, kagge, fjerding (liten tønne)</td>
-            </tr>
-            <tr>
-                <td>FL</td>
-                <td>Flask</td>
-                <td>Flaske, kolbe</td>
-            </tr>
-            <tr>
-                <td>FO</td>
-                <td>Footlocker</td>
-                <td>Kiste, kasse (står ved fotenden av sengen)</td>
-            </tr>
-            <tr>
-                <td>FP</td>
-                <td>Filmpack</td>
-                <td>Planfilm pakke</td>
-            </tr>
-            <tr>
-                <td>FR</td>
-                <td>Frame</td>
-                <td>Ramme, stativ</td>
-            </tr>
-            <tr>
-                <td>FT</td>
-                <td>Foodtainer</td>
-                <td>Beholder for næringsmidler (foodtainer)</td>
-            </tr>
-            <tr>
-                <td>GB</td>
-                <td>Bottle, gas</td>
-                <td>Flaske, gass</td>
-            </tr>
-            <tr>
-                <td>GI</td>
-                <td>Girder</td>
-                <td>Bærebjelke, drager</td>
-            </tr>
-            <tr>
-                <td>GZ</td>
-                <td>Girders, in bundle/bunch/truss</td>
-                <td>Bærebjelke, drager, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>HA</td>
-                <td>Basket, with handle, plastic</td>
-                <td>Kurv, av plast, med håndtak</td>
-            </tr>
-            <tr>
-                <td>HB</td>
-                <td>Basket, with handle, wooden</td>
-                <td>Kurv, av tre, med håndtak</td>
-            </tr>
-            <tr>
-                <td>HC</td>
-                <td>Basket, with handle, cardboard</td>
-                <td>Kurv, av papp, med håndtak</td>
-            </tr>
-            <tr>
-                <td>HG</td>
-                <td>Hogshead</td>
-                <td>Fat, tønne</td>
-            </tr>
-            <tr>
-                <td>HR</td>
-                <td>Hamper</td>
-                <td>Kurv (ofte m/lokk)</td>
-            </tr>
-            <tr>
-                <td>IN</td>
-                <td>Ingot</td>
-                <td>Blokk, barre</td>
-            </tr>
-            <tr>
-                <td>IZ</td>
-                <td>Ingots, in bundle/bunch/truss</td>
-                <td>Blokk, barre i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>JC</td>
-                <td>Jerrican, rectangular</td>
-                <td>Jerrykanne, rektangulær</td>
-            </tr>
-            <tr>
-                <td>JG</td>
-                <td>Jug</td>
-                <td>Kanne, mugge</td>
-            </tr>
-            <tr>
-                <td>JR</td>
-                <td>Jar</td>
-                <td>Krukke</td>
-            </tr>
-            <tr>
-                <td>JT</td>
-                <td>Jutebag</td>
-                <td>Jutesekk</td>
-            </tr>
-            <tr>
-                <td>JY</td>
-                <td>Jerrican, cylindrical</td>
-                <td>Jerrykanne, sylindrisk</td>
-            </tr>
-            <tr>
-                <td>KG</td>
-                <td>Keg</td>
-                <td>Tønne (liten), fat (lite), kagge</td>
-            </tr>
-            <tr>
-                <td>LG</td>
-                <td>Log</td>
-                <td>Tømmerstokk</td>
-            </tr>
-            <tr>
-                <td>LZ</td>
-                <td>Logs, in bundle/bunch/truss</td>
-                <td>Tømmerstokker, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>MB</td>
-                <td>Bag, multiply</td>
-                <td>Pose, sekk som består av flere lag</td>
-            </tr>
-            <tr>
-                <td>MC</td>
-                <td>Crate, milk</td>
-                <td>Kasse, melk</td>
-            </tr>
-            <tr>
-                <td>MR</td>
-                <td>Receptacle, metal</td>
-                <td>Beholder, av metall</td>
-            </tr>
-            <tr>
-                <td>MS</td>
-                <td>Sack, multi-wall</td>
-                <td>Sekk, som består av flere lag</td>
-            </tr>
-            <tr>
-                <td>MT</td>
-                <td>Mat</td>
-                <td>Matte</td>
-            </tr>
-            <tr>
-                <td>MW</td>
-                <td>Receptacle, plastic wrapped</td>
-                <td>Beholder, pakket i plast</td>
-            </tr>
-            <tr>
-                <td>MX</td>
-                <td>Matchbox</td>
-                <td>Fyrstikkeske</td>
-            </tr>
-            <tr>
-                <td>NE</td>
-                <td>Unpacked or unpackaged</td>
-                <td>Uemballert eller uinnpakket</td>
-            </tr>
-            <tr>
-                <td>NF</td>
-                <td>Unpacked or unpackaged, single unit</td>
-                <td>Uemballert eller uinnpakket, én enhet</td>
-            </tr>
-            <tr>
-                <td>NG</td>
-                <td>Unpacked or unpackaged, multiple units</td>
-                <td>Uemballert eller uinnpakket, flere enheter</td>
-            </tr>
-            <tr>
-                <td>NS</td>
-                <td>Nest</td>
-                <td>Nest</td>
-            </tr>
-            <tr>
-                <td>NT</td>
-                <td>Net</td>
-                <td>Nett</td>
-            </tr>
-            <tr>
-                <td>NU</td>
-                <td>Net, tube, plastic</td>
-                <td>Nett, tube, av plast</td>
-            </tr>
-            <tr>
-                <td>NV</td>
-                <td>Net, tube, textile</td>
-                <td>Nett, tube, av tekstil</td>
-            </tr>
-            <tr>
-                <td>PA</td>
-                <td>Packet</td>
-                <td>Pakke, eske</td>
-            </tr>
-            <tr>
-                <td>PB</td>
-                <td>Pallet, box Combined open-ended box and pallet</td>
-                <td>Pallboks</td>
-            </tr>
-            <tr>
-                <td>PC</td>
-                <td>Parcel</td>
-                <td>Pakke, eske</td>
-            </tr>
-            <tr>
-                <td>PD</td>
-                <td>Pallet, modular, collars 80cm * 100cm</td>
-                <td>Pall, modul, ramme 80cm * 100 cm</td>
-            </tr>
-            <tr>
-                <td>PE</td>
-                <td>Pallet, modular, collars 80cm * 120cm</td>
-                <td>Pall, modul, ramme 80 cm * 120 cm</td>
-            </tr>
-            <tr>
-                <td>PF</td>
-                <td>Pen</td>
-                <td>Pen</td>
-            </tr>
-            <tr>
-                <td>PG</td>
-                <td>Plate</td>
-                <td>Plate</td>
-            </tr>
-            <tr>
-                <td>PH</td>
-                <td>Pitcher</td>
-                <td>Kanne, mugge</td>
-            </tr>
-            <tr>
-                <td>PI</td>
-                <td>Pipe</td>
-                <td>Rør (-ledning)</td>
-            </tr>
-            <tr>
-                <td>PJ</td>
-                <td>Punnet</td>
-                <td>Sponkurv, bærkurv</td>
-            </tr>
-            <tr>
-                <td>PK</td>
-                <td>Package</td>
-                <td>Pakke</td>
-            </tr>
-            <tr>
-                <td>PL</td>
-                <td>Pail</td>
-                <td>Spann, tønne</td>
-            </tr>
-            <tr>
-                <td>PN</td>
-                <td>Plank</td>
-                <td>Planke</td>
-            </tr>
-            <tr>
-                <td>PO</td>
-                <td>Pouch</td>
-                <td>Pung, pose, veske</td>
-            </tr>
-            <tr>
-                <td>PR</td>
-                <td>Receptacle, plastic</td>
-                <td>Beholder, av plast</td>
-            </tr>
-            <tr>
-                <td>PT</td>
-                <td>Pot</td>
-                <td>Potte, krukke</td>
-            </tr>
-            <tr>
-                <td>PU</td>
-                <td>Tray</td>
-                <td>Brett</td>
-            </tr>
-            <tr>
-                <td>PV</td>
-                <td>Pipes, in bundle/bunch/truss</td>
-                <td>Rør, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>PX</td>
-                <td>Pallet</td>
-                <td>Pall</td>
-            </tr>
-            <tr>
-                <td>PY</td>
-                <td>Plates, in bundle/bunch/truss</td>
-                <td>Plate, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>PZ</td>
-                <td>Planks, in bundle/bunch/truss</td>
-                <td>Planke, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>RD</td>
-                <td>Rod</td>
-                <td>Stang</td>
-            </tr>
-            <tr>
-                <td>RG</td>
-                <td>Ring</td>
-                <td>Ring</td>
-            </tr>
-            <tr>
-                <td>RJ</td>
-                <td>Rack, clothing hanger</td>
-                <td>Stativ, for kleshenger</td>
-            </tr>
-            <tr>
-                <td>RK</td>
-                <td>Rack</td>
-                <td>Stativ, hylle, reol</td>
-            </tr>
-            <tr>
-                <td>RL</td>
-                <td>Reel</td>
-                <td>Spole, snelle, hespe</td>
-            </tr>
-            <tr>
-                <td>RO</td>
-                <td>Roll</td>
-                <td>Rulle</td>
-            </tr>
-            <tr>
-                <td>RT</td>
-                <td>Rednet</td>
-                <td>Fruktnett</td>
-            </tr>
-            <tr>
-                <td>RZ</td>
-                <td>Rods, in bundle/bunch/truss</td>
-                <td>Stenger, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>SA</td>
-                <td>Sack</td>
-                <td>Sekk</td>
-            </tr>
-            <tr>
-                <td>SB</td>
-                <td>Slab</td>
-                <td>Blokk (flat), plate,</td>
-            </tr>
-            <tr>
-                <td>SC</td>
-                <td>Crate, shallow</td>
-                <td>Kasse, grunn</td>
-            </tr>
-            <tr>
-                <td>SD</td>
-                <td>Spindle</td>
-                <td>Spindel</td>
-            </tr>
-            <tr>
-                <td>SE</td>
-                <td>Sea-chest</td>
-                <td>Skipskiste</td>
-            </tr>
-            <tr>
-                <td>SH</td>
-                <td>Sachet</td>
-                <td>Pose, liten</td>
-            </tr>
-            <tr>
-                <td>SI</td>
-                <td>Skid</td>
-                <td>Lastebord, sliske, planke</td>
-            </tr>
-            <tr>
-                <td>SK</td>
-                <td>Case, skeleton</td>
-                <td>Kasse, (sprinkel-)</td>
-            </tr>
-            <tr>
-                <td>SL</td>
-                <td>Slipsheet</td>
-                <td>Glideplate (slipsheet)</td>
-            </tr>
-            <tr>
-                <td>SM</td>
-                <td>Sheetmetal</td>
-                <td>Platemetall</td>
-            </tr>
-            <tr>
-                <td>SO</td>
-                <td>Spool</td>
-                <td>Spole, rulle, snelle</td>
-            </tr>
-            <tr>
-                <td>SP</td>
-                <td>Sheet, plastic wrapping</td>
-                <td>Ark, plate, pakket i plast</td>
-            </tr>
-            <tr>
-                <td>SS</td>
-                <td>Case, steel</td>
-                <td>Kasse, stål</td>
-            </tr>
-            <tr>
-                <td>ST</td>
-                <td>Sheet</td>
-                <td>Ark, plate</td>
-            </tr>
-            <tr>
-                <td>SU</td>
-                <td>Suitcase</td>
-                <td>Koffert (hånd-), veske</td>
-            </tr>
-            <tr>
-                <td>SV</td>
-                <td>Envelope, steel</td>
-                <td>Konvolutt, stål</td>
-            </tr>
-            <tr>
-                <td>SW</td>
-                <td>Shrinkwrapped</td>
-                <td>Krympepakket</td>
-            </tr>
-            <tr>
-                <td>SX</td>
-                <td>Set</td>
-                <td>Sats(Set)</td>
-            </tr>
-            <tr>
-                <td>SY</td>
-                <td>Sleeve</td>
-                <td>Konvolutt (Sleeve)</td>
-            </tr>
-            <tr>
-                <td>SZ</td>
-                <td>Sheets, in bundle/bunch/truss</td>
-                <td>Ark, plater, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>TB</td>
-                <td>Tub</td>
-                <td>Rør, slange</td>
-            </tr>
-            <tr>
-                <td>TC</td>
-                <td>Tea-chest</td>
-                <td>Tekiste</td>
-            </tr>
-            <tr>
-                <td>TD</td>
-                <td>Tube, collapsible</td>
-                <td>Rør, sammenleggbart</td>
-            </tr>
-            <tr>
-                <td>TK</td>
-                <td>Tank, rectangular</td>
-                <td>Tank, rektangulær</td>
-            </tr>
-            <tr>
-                <td>TL</td>
-                <td>Tub, with lid</td>
-                <td>Rør, slange, med lokk</td>
-            </tr>
-            <tr>
-                <td>TN</td>
-                <td>Tin</td>
-                <td>Hermetikkboks, blikkboks</td>
-            </tr>
-            <tr>
-                <td>TO</td>
-                <td>Tun</td>
-                <td>Kar, tønne</td>
-            </tr>
-            <tr>
-                <td>TR</td>
-                <td>Trunk</td>
-                <td>Koffert, stor</td>
-            </tr>
-            <tr>
-                <td>TS</td>
-                <td>Truss</td>
-                <td>Bunt, knippe</td>
-            </tr>
-            <tr>
-                <td>TU</td>
-                <td>Tube</td>
-                <td>Rør, slange</td>
-            </tr>
-            <tr>
-                <td>TV</td>
-                <td>Tube, with nozzle</td>
-                <td>Rør, med munnstykke/tut</td>
-            </tr>
-            <tr>
-                <td>TY</td>
-                <td>Tank, cylindrical</td>
-                <td>Tank, sylindrisk</td>
-            </tr>
-            <tr>
-                <td>TZ</td>
-                <td>Tubes, in bundle/bunch/truss</td>
-                <td>Rør, i bunt/knippe</td>
-            </tr>
-            <tr>
-                <td>VA</td>
-                <td>Vat</td>
-                <td>Beholder, fat, kar, stamp, tank</td>
-            </tr>
-            <tr>
-                <td>VG</td>
-                <td>Bulk, gas (at 1031 mbar and 15°C)</td>
-                <td>Bulk, gass (ved 1031 mbar og 15°C)</td>
-            </tr>
-            <tr>
-                <td>VI</td>
-                <td>Vial</td>
-                <td>Medisinflaske, liten</td>
-            </tr>
-            <tr>
-                <td>VL</td>
-                <td>Bulk, liquid</td>
-                <td>Bulk, væske</td>
-            </tr>
-            <tr>
-                <td>VO</td>
-                <td>Bulk, solid, large particles ("nodules")</td>
-                <td>Bulk, fast stoff, store partikler ("klumper")</td>
-            </tr>
-            <tr>
-                <td>VP</td>
-                <td>Vacuum-packed</td>
-                <td>Vakuumpakket</td>
-            </tr>
-            <tr>
-                <td>VQ</td>
-                <td>Bulk, liquefied gas (at abnormal temperature/pressure)</td>
-                <td>Bulk, flytende gass (under abnorm temperatur/trykk)</td>
-            </tr>
-            <tr>
-                <td>VR</td>
-                <td>Bulk, solid, granular particles ("grains")</td>
-                <td>Bulk, fast stoff, granulat ("korn")</td>
-            </tr>
-            <tr>
-                <td>VY</td>
-                <td>Bulk, solid, fine particles ("powders")</td>
-                <td>Bulk, fast stoff, små partikler ("pulver")</td>
-            </tr>
-            <tr>
-                <td>WB</td>
-                <td>Wickerbottle</td>
-                <td>Kurvflaske</td>
-            </tr>
-            <tr>
-                <td>ZB</td>
-                <td>Bag, large</td>
-                <td>Pose, sekk, stor</td>
-            </tr>
+				<tr>
+				  <td>
+					AE
+				  </td>
+				  <td>
+					Aerosol
+				  </td>
+				  <td>
+					Aerosol-forpakning (spray)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					AM
+				  </td>
+				  <td>
+					Ampoule, non-protected
+				  </td>
+				  <td>
+					Ampulle, ubeskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					AP
+				  </td>
+				  <td>
+					Ampoule, protected
+				  </td>
+				  <td>
+					Ampulle, beskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					AT
+				  </td>
+				  <td>
+					Atomizer
+				  </td>
+				  <td>
+					Spray, forstøver (atomizer)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					AV
+				  </td>
+				  <td>
+					Capsule
+				  </td>
+				  <td>
+					Kapsel
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BA
+				  </td>
+				  <td>
+					Barrel
+				  </td>
+				  <td>
+					Tønne, liten
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BB
+				  </td>
+				  <td>
+					Bobbin
+				  </td>
+				  <td>
+					Spole
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BC
+				  </td>
+				  <td>
+					Bottlecrate / bottlerack
+				  </td>
+				  <td>
+					Flaskekasse, flaskestativ
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BD
+				  </td>
+				  <td>
+					Board
+				  </td>
+				  <td>
+					Bord, planke, brett
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BE
+				  </td>
+				  <td>
+					Bundle
+				  </td>
+				  <td>
+					Bunt, bylt
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BF
+				  </td>
+				  <td>
+					Balloon, non-protected
+				  </td>
+				  <td>
+					Ballong, ubeskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BG
+				  </td>
+				  <td>
+					Bag
+				  </td>
+				  <td>
+					Pose, brev, sekk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BH
+				  </td>
+				  <td>
+					Bunch
+				  </td>
+				  <td>
+					Bunt, knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BI
+				  </td>
+				  <td>
+					Bin
+				  </td>
+				  <td>
+					Bøtte, kasse, beholder
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BJ
+				  </td>
+				  <td>
+					Bucket
+				  </td>
+				  <td>
+					Bøtte, spann
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BK
+				  </td>
+				  <td>
+					Basket
+				  </td>
+				  <td>
+					Kurv
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BL
+				  </td>
+				  <td>
+					Bale, compressed
+				  </td>
+				  <td>
+					Balle, komprimert
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BM
+				  </td>
+				  <td>
+					Basin
+				  </td>
+				  <td>
+					Vannfat, balje
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BN
+				  </td>
+				  <td>
+					Bale, non-compressed
+				  </td>
+				  <td>
+					Balle, ikke-komprimert
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BO
+				  </td>
+				  <td>
+					Bottle, non-protected, cylindrical
+				  </td>
+				  <td>
+					Flaske, ubeskyttet, sylindrisk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BP
+				  </td>
+				  <td>
+					Balloon, protected
+				  </td>
+				  <td>
+					Ballong, beskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BQ
+				  </td>
+				  <td>
+					Bottle, protected cylindrical
+				  </td>
+				  <td>
+					Flaske, beskyttet, sylindrisk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BR
+				  </td>
+				  <td>
+					Bar
+				  </td>
+				  <td>
+					Stang
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BS
+				  </td>
+				  <td>
+					Bottle, non-protected, bulbous
+				  </td>
+				  <td>
+					Flaske, ubeskyttet, kuleformet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BT
+				  </td>
+				  <td>
+					Bolt
+				  </td>
+				  <td>
+					Bolt
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BU
+				  </td>
+				  <td>
+					Butt
+				  </td>
+				  <td>
+					Fat, stort
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BV
+				  </td>
+				  <td>
+					Bottle, protected bulbous
+				  </td>
+				  <td>
+					Flaske, beskyttet, kuleformet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BW
+				  </td>
+				  <td>
+					Box, for liquids
+				  </td>
+				  <td>
+					Boks, for væsker
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BX
+				  </td>
+				  <td>
+					Box
+				  </td>
+				  <td>
+					Boks
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BY
+				  </td>
+				  <td>
+					Board, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Bor, planker, brett i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					BZ
+				  </td>
+				  <td>
+					Bars, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Stenger, i bunter/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CA
+				  </td>
+				  <td>
+					Can, rectangular
+				  </td>
+				  <td>
+					Kanne, rektangulær
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CB
+				  </td>
+				  <td>
+					Crate, beer
+				  </td>
+				  <td>
+					Kasse, øl
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CC
+				  </td>
+				  <td>
+					Churn
+				  </td>
+				  <td>
+					Kjerne, kinn
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CD
+				  </td>
+				  <td>
+					Can, with handle and spout
+				  </td>
+				  <td>
+					Kanne, med håndtak og tut
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CE
+				  </td>
+				  <td>
+					Creel
+				  </td>
+				  <td>
+					Kurv, flettet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CF
+				  </td>
+				  <td>
+					Coffer
+				  </td>
+				  <td>
+					Kiste, skrin, kasse
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CG
+				  </td>
+				  <td>
+					Cage
+				  </td>
+				  <td>
+					Bur
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CH
+				  </td>
+				  <td>
+					Chest
+				  </td>
+				  <td>
+					Kiste
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CI
+				  </td>
+				  <td>
+					Canister
+				  </td>
+				  <td>
+					Sylinder, trommel, boks
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CJ
+				  </td>
+				  <td>
+					Coffin
+				  </td>
+				  <td>
+					Kiste (-lik)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CK
+				  </td>
+				  <td>
+					Cask
+				  </td>
+				  <td>
+					Fat, tønne
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CL
+				  </td>
+				  <td>
+					Coil
+				  </td>
+				  <td>
+					Kveil, spole, rull
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CM
+				  </td>
+				  <td>
+					Card
+				  </td>
+				  <td>
+					Kort (Card)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CN
+				  </td>
+				  <td>
+					Container, not otherwise specified as
+					  transport equipment
+				  </td>
+				  <td>
+					Container, ikke spesifisert som transportutstyr annetsteds
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CO
+				  </td>
+				  <td>
+					Carboy, non-protected
+				  </td>
+				  <td>
+					Glassballong, ubeskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CP
+				  </td>
+				  <td>
+					Carboy, protected
+				  </td>
+				  <td>
+					Glassballong, beskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CQ
+				  </td>
+				  <td>
+					Cartridge
+				  </td>
+				  <td>
+					Patron
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CR
+				  </td>
+				  <td>
+					Crate
+				  </td>
+				  <td>
+					Kasse
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CS
+				  </td>
+				  <td>
+					Case
+				  </td>
+				  <td>
+					Kasse
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CT
+				  </td>
+				  <td>
+					Carton
+				  </td>
+				  <td>
+					Kartong
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CU
+				  </td>
+				  <td>
+					Cup
+				  </td>
+				  <td>
+					Kopp, beger
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CV
+				  </td>
+				  <td>
+					Cover
+				  </td>
+				  <td>
+					Deksel, omslag, etui
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CW
+				  </td>
+				  <td>
+					Cage, roll
+				  </td>
+				  <td>
+					Bur, rull
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CX
+				  </td>
+				  <td>
+					Can, cylindrical
+				  </td>
+				  <td>
+					Kanne, sylindrisk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CY
+				  </td>
+				  <td>
+					Cylinder
+				  </td>
+				  <td>
+					Sylinder
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					CZ
+				  </td>
+				  <td>
+					Canvas
+				  </td>
+				  <td>
+					Seilduk, presenning
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					DJ
+				  </td>
+				  <td>
+					Demijohn, non-protected
+				  </td>
+				  <td>
+					Glassballong, ubeskyttet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					DP
+				  </td>
+				  <td>
+					Demijohn, protected
+				  </td>
+				  <td>
+					Glassballong, beskyttet, (stor kurvflaske)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					DR
+				  </td>
+				  <td>
+					Drum
+				  </td>
+				  <td>
+					Fat, trommel, tønne
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					EC
+				  </td>
+				  <td>
+					Bag, plastic
+				  </td>
+				  <td>
+					Pose, sekk, av plast
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					EN
+				  </td>
+				  <td>
+					Envelope
+				  </td>
+				  <td>
+					Konvolutt
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FC
+				  </td>
+				  <td>
+					Crate, fruit
+				  </td>
+				  <td>
+					Kasse, frukt
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FD
+				  </td>
+				  <td>
+					Crate, framed
+				  </td>
+				  <td>
+					Kasse, (framed)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FI
+				  </td>
+				  <td>
+					Firkin
+				  </td>
+				  <td>
+					Dunk, kagge, fjerding (liten tønne)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FL
+				  </td>
+				  <td>
+					Flask
+				  </td>
+				  <td>
+					Flaske, kolbe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FO
+				  </td>
+				  <td>
+					Footlocker
+				  </td>
+				  <td>
+					Kiste, kasse (står ved fotenden av sengen)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FP
+				  </td>
+				  <td>
+					Filmpack
+				  </td>
+				  <td>
+					Planfilm pakke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FR
+				  </td>
+				  <td>
+					Frame
+				  </td>
+				  <td>
+					Ramme, stativ
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					FT
+				  </td>
+				  <td>
+					Foodtainer
+				  </td>
+				  <td>
+					Beholder for næringsmidler (foodtainer)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					GB
+				  </td>
+				  <td>
+					Bottle, gas
+				  </td>
+				  <td>
+					Flaske, gass
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					GI
+				  </td>
+				  <td>
+					Girder
+				  </td>
+				  <td>
+					Bærebjelke, drager
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					GZ
+				  </td>
+				  <td>
+					Girders, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Bærebjelke, drager, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					HA
+				  </td>
+				  <td>
+					Basket, with handle, plastic
+				  </td>
+				  <td>
+					Kurv, av plast, med håndtak
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					HB
+				  </td>
+				  <td>
+					Basket, with handle, wooden
+				  </td>
+				  <td>
+					Kurv, av tre, med håndtak
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					HC
+				  </td>
+				  <td>
+					Basket, with handle, cardboard
+				  </td>
+				  <td>
+					Kurv, av papp, med håndtak
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					HG
+				  </td>
+				  <td>
+					Hogshead
+				  </td>
+				  <td>
+					Fat, tønne
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					HR
+				  </td>
+				  <td>
+					Hamper
+				  </td>
+				  <td>
+					Kurv (ofte m/lokk)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					IN
+				  </td>
+				  <td>
+					Ingot
+				  </td>
+				  <td>
+					Blokk, barre
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					IZ
+				  </td>
+				  <td>
+					Ingots, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Blokk, barre i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					JC
+				  </td>
+				  <td>
+					Jerrican, rectangular
+				  </td>
+				  <td>
+					Jerrykanne, rektangulær
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					JG
+				  </td>
+				  <td>
+					Jug
+				  </td>
+				  <td>
+					Kanne, mugge
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					JR
+				  </td>
+				  <td>
+					Jar
+				  </td>
+				  <td>
+					Krukke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					JT
+				  </td>
+				  <td>
+					Jutebag
+				  </td>
+				  <td>
+					Jutesekk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					JY
+				  </td>
+				  <td>
+					Jerrican, cylindrical
+				  </td>
+				  <td>
+					Jerrykanne, sylindrisk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					KG
+				  </td>
+				  <td>
+					Keg
+				  </td>
+				  <td>
+					Tønne (liten), fat (lite), kagge
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					LG
+				  </td>
+				  <td>
+					Log
+				  </td>
+				  <td>
+					Tømmerstokk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					LZ
+				  </td>
+				  <td>
+					Logs, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Tømmerstokker, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MB
+				  </td>
+				  <td>
+					Bag, multiply
+				  </td>
+				  <td>
+					Pose, sekk som består av flere lag
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MC
+				  </td>
+				  <td>
+					Crate, milk
+				  </td>
+				  <td>
+					Kasse, melk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MR
+				  </td>
+				  <td>
+					Receptacle, metal
+				  </td>
+				  <td>
+					Beholder, av metall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MS
+				  </td>
+				  <td>
+					Sack, multi-wall
+				  </td>
+				  <td>
+					Sekk, som består av flere lag
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MT
+				  </td>
+				  <td>
+					Mat
+				  </td>
+				  <td>
+					Matte
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MW
+				  </td>
+				  <td>
+					Receptacle, plastic wrapped
+				  </td>
+				  <td>
+					Beholder, pakket i plast
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					MX
+				  </td>
+				  <td>
+					Matchbox
+				  </td>
+				  <td>
+					Fyrstikkeske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NE
+				  </td>
+				  <td>
+					Unpacked or unpackaged
+				  </td>
+				  <td>
+					Uemballert eller uinnpakket
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NF
+				  </td>
+				  <td>
+					Unpacked or unpackaged, single unit
+				  </td>
+				  <td>
+					Uemballert eller uinnpakket, én enhet
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NG
+				  </td>
+				  <td>
+					Unpacked or unpackaged, multiple units
+				  </td>
+				  <td>
+					Uemballert eller uinnpakket, flere enheter
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NS
+				  </td>
+				  <td>
+					Nest
+				  </td>
+				  <td>
+					Nest
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NT
+				  </td>
+				  <td>
+					Net
+				  </td>
+				  <td>
+					Nett
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NU
+				  </td>
+				  <td>
+					Net, tube, plastic
+				  </td>
+				  <td>
+					Nett, tube, av plast
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					NV
+				  </td>
+				  <td>
+					Net, tube, textile
+				  </td>
+				  <td>
+					Nett, tube, av tekstil
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PA
+				  </td>
+				  <td>
+					Packet
+				  </td>
+				  <td>
+					Pakke, eske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PB
+				  </td>
+				  <td>
+					Pallet, box Combined open-ended box and
+					  pallet
+				  </td>
+				  <td>
+					Pallboks
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PC
+				  </td>
+				  <td>
+					Parcel
+				  </td>
+				  <td>
+					Pakke, eske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PD
+				  </td>
+				  <td>
+					Pallet, modular, collars 80cm * 100cm
+				  </td>
+				  <td>
+					Pall, modul, ramme 80cm * 100 cm
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PE
+				  </td>
+				  <td>
+					Pallet, modular, collars 80cm * 120cm
+				  </td>
+				  <td>
+					Pall, modul, ramme 80 cm * 120 cm
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PF
+				  </td>
+				  <td>
+					Pen
+				  </td>
+				  <td>
+					Pen
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PG
+				  </td>
+				  <td>
+					Plate
+				  </td>
+				  <td>
+					Plate
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PH
+				  </td>
+				  <td>
+					Pitcher
+				  </td>
+				  <td>
+					Kanne, mugge
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PI
+				  </td>
+				  <td>
+					Pipe
+				  </td>
+				  <td>
+					Rør (-ledning)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PJ
+				  </td>
+				  <td>
+					Punnet
+				  </td>
+				  <td>
+					Sponkurv, bærkurv
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PK
+				  </td>
+				  <td>
+					Package
+				  </td>
+				  <td>
+					Pakke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PL
+				  </td>
+				  <td>
+					Pail
+				  </td>
+				  <td>
+					Spann, tønne
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PN
+				  </td>
+				  <td>
+					Plank
+				  </td>
+				  <td>
+					Planke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PO
+				  </td>
+				  <td>
+					Pouch
+				  </td>
+				  <td>
+					Pung, pose, veske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PR
+				  </td>
+				  <td>
+					Receptacle, plastic
+				  </td>
+				  <td>
+					Beholder, av plast
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PT
+				  </td>
+				  <td>
+					Pot
+				  </td>
+				  <td>
+					Potte, krukke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PU
+				  </td>
+				  <td>
+					Tray
+				  </td>
+				  <td>
+					Brett
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PV
+				  </td>
+				  <td>
+					Pipes, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Rør, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PX
+				  </td>
+				  <td>
+					Pallet
+				  </td>
+				  <td>
+					Pall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PY
+				  </td>
+				  <td>
+					Plates, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Plate, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					PZ
+				  </td>
+				  <td>
+					Planks, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Planke, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RD
+				  </td>
+				  <td>
+					Rod
+				  </td>
+				  <td>
+					Stang
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RG
+				  </td>
+				  <td>
+					Ring
+				  </td>
+				  <td>
+					Ring
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RJ
+				  </td>
+				  <td>
+					Rack, clothing hanger
+				  </td>
+				  <td>
+					Stativ, for kleshenger
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RK
+				  </td>
+				  <td>
+					Rack
+				  </td>
+				  <td>
+					Stativ, hylle, reol
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RL
+				  </td>
+				  <td>
+					Reel
+				  </td>
+				  <td>
+					Spole, snelle, hespe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RO
+				  </td>
+				  <td>
+					Roll
+				  </td>
+				  <td>
+					Rulle
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RT
+				  </td>
+				  <td>
+					Rednet
+				  </td>
+				  <td>
+					Fruktnett
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					RZ
+				  </td>
+				  <td>
+					Rods, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Stenger, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SA
+				  </td>
+				  <td>
+					Sack
+				  </td>
+				  <td>
+					Sekk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SB
+				  </td>
+				  <td>
+					Slab
+				  </td>
+				  <td>
+					Blokk (flat), plate,
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SC
+				  </td>
+				  <td>
+					Crate, shallow
+				  </td>
+				  <td>
+					Kasse, grunn
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SD
+				  </td>
+				  <td>
+					Spindle
+				  </td>
+				  <td>
+					Spindel
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SE
+				  </td>
+				  <td>
+					Sea-chest
+				  </td>
+				  <td>
+					Skipskiste
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SH
+				  </td>
+				  <td>
+					Sachet
+				  </td>
+				  <td>
+					Pose, liten
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SI
+				  </td>
+				  <td>
+					Skid
+				  </td>
+				  <td>
+					Lastebord, sliske, planke
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SK
+				  </td>
+				  <td>
+					Case, skeleton
+				  </td>
+				  <td>
+					Kasse, (sprinkel-)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SL
+				  </td>
+				  <td>
+					Slipsheet
+				  </td>
+				  <td>
+					Glideplate (slipsheet)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SM
+				  </td>
+				  <td>
+					Sheetmetal
+				  </td>
+				  <td>
+					Platemetall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SO
+				  </td>
+				  <td>
+					Spool
+				  </td>
+				  <td>
+					Spole, rulle, snelle
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SP
+				  </td>
+				  <td>
+					Sheet, plastic wrapping
+				  </td>
+				  <td>
+					Ark, plate, pakket i plast
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SS
+				  </td>
+				  <td>
+					Case, steel
+				  </td>
+				  <td>
+					Kasse, stål
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					ST
+				  </td>
+				  <td>
+					Sheet
+				  </td>
+				  <td>
+					Ark, plate
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SU
+				  </td>
+				  <td>
+					Suitcase
+				  </td>
+				  <td>
+					Koffert (hånd-), veske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SV
+				  </td>
+				  <td>
+					Envelope, steel
+				  </td>
+				  <td>
+					Konvolutt, stål
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SW
+				  </td>
+				  <td>
+					Shrinkwrapped
+				  </td>
+				  <td>
+					Krympepakket
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SX
+				  </td>
+				  <td>
+					Set
+				  </td>
+				  <td>
+					Sats(Set)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SY
+				  </td>
+				  <td>
+					Sleeve
+				  </td>
+				  <td>
+					Konvolutt (Sleeve)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					SZ
+				  </td>
+				  <td>
+					Sheets, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Ark, plater, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TB
+				  </td>
+				  <td>
+					Tub
+				  </td>
+				  <td>
+					Rør, slange
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TC
+				  </td>
+				  <td>
+					Tea-chest
+				  </td>
+				  <td>
+					Tekiste
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TD
+				  </td>
+				  <td>
+					Tube, collapsible
+				  </td>
+				  <td>
+					Rør, sammenleggbart
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TK
+				  </td>
+				  <td>
+					Tank, rectangular
+				  </td>
+				  <td>
+					Tank, rektangulær
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TL
+				  </td>
+				  <td>
+					Tub, with lid
+				  </td>
+				  <td>
+					Rør, slange, med lokk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TN
+				  </td>
+				  <td>
+					Tin
+				  </td>
+				  <td>
+					Hermetikkboks, blikkboks
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TO
+				  </td>
+				  <td>
+					Tun
+				  </td>
+				  <td>
+					Kar, tønne
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TR
+				  </td>
+				  <td>
+					Trunk
+				  </td>
+				  <td>
+					Koffert, stor
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TS
+				  </td>
+				  <td>
+					Truss
+				  </td>
+				  <td>
+					Bunt, knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TU
+				  </td>
+				  <td>
+					Tube
+				  </td>
+				  <td>
+					Rør, slange
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TV
+				  </td>
+				  <td>
+					Tube, with nozzle
+				  </td>
+				  <td>
+					Rør, med munnstykke/tut
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TY
+				  </td>
+				  <td>
+					Tank, cylindrical
+				  </td>
+				  <td>
+					Tank, sylindrisk
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TZ
+				  </td>
+				  <td>
+					Tubes, in bundle/bunch/truss
+				  </td>
+				  <td>
+					Rør, i bunt/knippe
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VA
+				  </td>
+				  <td>
+					Vat
+				  </td>
+				  <td>
+					Beholder, fat, kar, stamp, tank
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VG
+				  </td>
+				  <td>
+					Bulk, gas (at 1031 mbar and 15°C)
+				  </td>
+				  <td>
+					Bulk, gass (ved 1031 mbar og 15°C)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VI
+				  </td>
+				  <td>
+					Vial
+				  </td>
+				  <td>
+					Medisinflaske, liten
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VL
+				  </td>
+				  <td>
+					Bulk, liquid
+				  </td>
+				  <td>
+					Bulk, væske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VO
+				  </td>
+				  <td>
+					Bulk, solid, large particles
+					  (&quot;nodules&quot;)
+				  </td>
+				  <td>
+					Bulk, fast stoff, store partikler (&quot;klumper&quot;)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VP
+				  </td>
+				  <td>
+					Vacuum-packed
+				  </td>
+				  <td>
+					Vakuumpakket
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VQ
+				  </td>
+				  <td>
+					Bulk, liquefied gas (at abnormal temperature/pressure)
+				  </td>
+				  <td>
+					Bulk, flytende gass (under abnorm temperatur/trykk)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VR
+				  </td>
+				  <td>
+					Bulk, solid, granular particles
+					  (&quot;grains&quot;)
+				  </td>
+				  <td>
+					Bulk, fast stoff, granulat (&quot;korn&quot;)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					VY
+				  </td>
+				  <td>
+					Bulk, solid, fine particles
+					  (&quot;powders&quot;)
+				  </td>
+				  <td>
+					Bulk, fast stoff, små partikler (&quot;pulver&quot;)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					WB
+				  </td>
+				  <td>
+					Wickerbottle
+				  </td>
+				  <td>
+					Kurvflaske
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					ZB
+				  </td>
+				  <td>
+					Bag, large
+				  </td>
+				  <td>
+					Pose, sekk, stor
+				  </td>
+				</tr>
             </tbody>
         </table>
 
@@ -1038,7 +2100,42 @@
             </tr>
             </tbody>
         </table>
-
+		
+        <h4 id="cl094">CL094 Representative status</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Kode</th>
+                <th>EU betegnelse</th>
+                <th>Norsk betegnelse</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr>
+				  <td>
+					2
+				  </td>
+				  <td>
+					Direct
+				  </td>
+				  <td>
+					Direkte
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					3
+				  </td>
+				  <td>
+					Indirect
+				  </td>
+				  <td>
+					Indirekte
+				  </td>
+				</tr>
+            </tbody>
+        </table>
+		
         <h4 id="cl116">CL116 Transport charges method of payment</h4>
         <table>
             <thead>
@@ -1317,6 +2414,41 @@
             </tbody>
         </table>
 
+        <h4 id="cl707">CL707 Communication means type</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Kode</th>
+                <th>EU betegnelse</th>
+                <th>Norsk betegnelse</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr>
+				  <td>
+					EM
+				  </td>
+				  <td>
+					Electronic mail
+				  </td>
+				  <td>
+					E-post
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					TE
+				  </td>
+				  <td>
+					Telephone
+				  </td>
+				  <td>
+					Telefon
+				  </td>
+				</tr>
+            </tbody>
+        </table>
+
         <h4 id="cl708">CL708 Container</h4>
         <table>
             <thead>
@@ -1337,6 +2469,543 @@
                 <td>Goods transported in containers</td>
                 <td>Varer transportert i containere</td>
             </tr>
+            </tbody>
+        </table>
+		
+       <h4 id="cl709">CL709 Container packed status</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Kode</th>
+                <th>EU betegnelse</th>
+                <th>Norsk betegnelse</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr>
+				  <td>
+					A
+				  </td>
+				  <td>
+					Empty
+				  </td>
+				  <td>
+					Tom<
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					B
+				  </td>
+				  <td>
+					Not empty
+				  </td>
+				  <td>
+					Ikke tom
+				  </td>
+				</tr>
+            </tbody>
+        </table>
+
+       <h4 id="cl710">CL710 Container size and type identification ("Transport equipment")</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Kode</th>
+                <th>EU betegnelse</th>
+                <th>Norsk betegnelse</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr>
+				  <td>
+					1
+				  </td>
+				  <td>
+					Dime coated tank
+				  </td>
+				  <td>
+					Dimebelagt tank
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					2
+				  </td>
+				  <td>
+					Epoxy coated tank
+				  </td>
+				  <td>
+					Epoksybelagt tank
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					6
+				  </td>
+				  <td>
+					Pressurised tank
+				  </td>
+				  <td>
+					Trykksatt tank
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					7
+				  </td>
+				  <td>
+					Refrigerated tank
+				  </td>
+				  <td>
+					Kjøletank
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					9
+				  </td>
+				  <td>
+					Stainless steel tank
+				  </td>
+				  <td>
+					Tank i rustfritt stål
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					10
+				  </td>
+				  <td>
+					Non-working reefer container 40 feet
+				  </td>
+				  <td>
+					Kjølecontainer 40 fot - ute av drift
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					12
+				  </td>
+				  <td>
+					Europallet - 80 x 120 cm
+				  </td>
+				  <td>
+					Europall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					13
+				  </td>
+				  <td>
+					Scandinavian pallet - 100 x 120 cm
+				  </td>
+				  <td>
+					Skandinavisk pall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					14
+				  </td>
+				  <td>
+					Trailer
+				  </td>
+				  <td>
+					Tilhenger
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					15
+				  </td>
+				  <td>
+					Non-working reefer container 20 feet
+				  </td>
+				  <td>
+					Kjølecontainer 20 fot - ute av drift
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					16
+				  </td>
+				  <td>
+					Exchangeable pallet
+				  </td>
+				  <td>
+					Utskiftbar pall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					17
+				  </td>
+				  <td>
+					Semi-trailer
+				  </td>
+				  <td>
+					Semitrailer
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					18
+				  </td>
+				  <td>
+					Tank container 20 feet
+				  </td>
+				  <td>
+					Tank container 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					19
+				  </td>
+				  <td>
+					Tank container 30 feet
+				  </td>
+				  <td>
+					Tank container 30 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					20
+				  </td>
+				  <td>
+					Tank container 40 feet
+				  </td>
+				  <td>
+					Tank container 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					21
+				  </td>
+				  <td>
+					Container IC 20 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Container IC 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					22
+				  </td>
+				  <td>
+					Container IC 30 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Container IC 30 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					23
+				  </td>
+				  <td>
+					Container IC 40 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Container IC 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					24
+				  </td>
+				  <td>
+					Refrigerated tank 20 feet
+				  </td>
+				  <td>
+					Kjøletank 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					25
+				  </td>
+				  <td>
+					Refrigerated tank 30 feet
+				  </td>
+				  <td>
+					Kjøletank 30 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					26
+				  </td>
+				  <td>
+					Refrigerated tank 40 feet
+				  </td>
+				  <td>
+					Kjøletank 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					27
+				  </td>
+				  <td>
+					Tank container IC 20 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Tank container IC 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					28
+				  </td>
+				  <td>
+					Tank container IC 30 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Tank container IC 30 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					29
+				  </td>
+				  <td>
+					Tank container IC 40 feet, owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Tank container IC 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					30
+				  </td>
+				  <td>
+					Refrigerated tank 20 feet,&nbsp;owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Kjøletank IC 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					31
+				  </td>
+				  <td>
+					Temperature controlled container 30 feet
+				  </td>
+				  <td>
+					Temperaturregulert container 30 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					32
+				  </td>
+				  <td>
+					Refrigerated tank 40 feet,&nbsp;owned by
+					  InterContainer, a European railway subsidiary
+				  </td>
+				  <td>
+					Kjøletank IC 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					33
+				  </td>
+				  <td>
+					A moveable case with a length less than
+					  6,15 metres.
+				  </td>
+				  <td>
+					Flyttbar beholder mindre enn 6,15 meter
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					34
+				  </td>
+				  <td>
+					A moveable case with a length between
+					  6,15 metres and 7,82 metres
+				  </td>
+				  <td>
+					Flyttbar beholder 6,15m - 7,82m
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					35
+				  </td>
+				  <td>
+					A moveable case with a length
+					  between&nbsp;7,82&nbsp;metres and 9,15 metres
+				  </td>
+				  <td>
+					Flyttbar beholder 7.82m - 9,15m
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					36
+				  </td>
+				  <td>
+					A moveable case with a length
+					  between&nbsp;9,15&nbsp;metres and 10,90 metres
+				  </td>
+				  <td>
+					Flyttbar beholder&nbsp; 9,15m - 10,9m
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					37
+				  </td>
+				  <td>
+					A moveable case with a length
+					  between&nbsp;10,90&nbsp;metres and 13,75 metres
+				  </td>
+				  <td>
+					Flyttbar beholder 10,9m - 13,75m
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					38
+				  </td>
+				  <td>
+					Totebin
+				  </td>
+				  <td>
+					Bokspall
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					39
+				  </td>
+				  <td>
+					Temperature controlled container 20 feet
+				  </td>
+				  <td>
+					Temperaturkontrollert container 20 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					40
+				  </td>
+				  <td>
+					Temperature controlled container 40 feet
+				  </td>
+				  <td>
+					Temperaturkontrollert container 40 fot
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					41
+				  </td>
+				  <td>
+					Non working refrigerated (reefer)
+					  container 30 feet
+				  </td>
+				  <td>
+					Kjølecontainer 30 fot - ute av drift
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					42
+				  </td>
+				  <td>
+					Dual trailers
+				  </td>
+				  <td>
+					Dobbel tilhenger
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					43
+				  </td>
+				  <td>
+					20 feet IL container ( open top)
+				  </td>
+				  <td>
+					20 fot IL container (åpent tak)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					44
+				  </td>
+				  <td>
+					20 feet IL container (close top)
+				  </td>
+				  <td>
+					20 fot IL container (lukket tak)
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					45
+				  </td>
+				  <td>
+					40 feet IL container ( open top)
+				  </td>
+				  <td>
+					40 fot IL container (åpent tak)
+				  </td>
+				</tr>
+            </tbody>
+        </table>
+
+        <h4 id="cl711">CL711 Container supplier type code</h4>
+        <table>
+            <thead>
+            <tr>
+                <th>Kode</th>
+                <th>EU betegnelse</th>
+                <th>Norsk betegnelse</th>
+            </tr>
+            </thead>
+            <tbody>
+				<tr>
+				  <td>
+					1
+				  </td>
+				  <td>
+					Shipper supplied
+				  </td>
+				  <td>
+					Levert av avsender
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					2
+				  </td>
+				  <td>
+					Carrier supplied
+				  </td>
+				  <td>
+					Levert av transportør
+				  </td>
+				</tr>
             </tbody>
         </table>
 
@@ -2488,6 +4157,7 @@
         </table>
 
         <h3 id="ovrige-internasjonale">Øvrige internasjonale kodeverk</h3>
+
 		<h4 id="landkoder">Landkoder</h4>
 		<a href="https://www.iso.org/iso-3166-country-codes.html">ISO-3166</a> &ndash; vi benytter Alpha-2-kodene
 		
