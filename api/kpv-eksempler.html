@@ -54,7 +54,7 @@
 
 <main>
     <div class="column right">
-        <div id="toc_container">
+        <div id="toc_container" aria-hidden="true">
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
                 <li><p><a href="#eksempler">Eksempler</a></p>
@@ -214,9 +214,9 @@
             <table>
                 <tbody>
                     <tr>
-                        <th>declarant_number</th>
-                        <th>declaration_date</th>
-                        <th>sequence_number</th>
+                        <th scope="column">declarant_number</th>
+                        <th scope="column">declaration_date</th>
+                        <th scope="column">sequence_number</th>
                     </tr>
                     <tr><td>123456789</td><td>2022-08-10</td><td>1</td></tr>
                     <tr><td>123456789</td><td>2022-08-10</td><td>2</td></tr>

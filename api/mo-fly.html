@@ -54,7 +54,7 @@
 
 <main>
     <div class="column right">
-        <div id="toc_container">
+        <div id="toc_container" aria-hidden="true">
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
                 <li><p><a href="#omtjenesten">Om tjenesten</a></p>
@@ -111,9 +111,9 @@
         <table>
             <thead>
             <tr class="header">
-                <th>Begrep</th>
-                <th>Engelsk navn</th>
-                <th>Beskrivelse</th>
+                <th scope="column">Begrep</th>
+                <th scope="column">Engelsk navn</th>
+                <th scope="column">Beskrivelse</th>
             </tr>
             </thead>
             <tbody>
@@ -318,7 +318,7 @@
         <ul>
          <li>
             ved hjelp av at fraktbrevnummer til hovedforsendelsen oppgis i melding om forsendelse
-n           (skal brukes av alle andre enn post-operatører)</li>
+            (skal brukes av alle andre enn post-operatører)</li>
         </ul>
         <p><img src="media/MO-nokler.png" alt="Sammenheng mellom nøkler" style="max-width: 60%"></p>
         <p>eller</p>
@@ -333,7 +333,7 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <p>
             For alle meldinger vil det være et sett med data som kun er relatert til
             meldingen og innsending av denne.
-            I disse data inngår informasjon om innsender, tollrepresentant og
+            I disse data inngår informasjon om tollrepresentant og
             identifikasjon av melding (referanser til selve meldingen).
         </p>
 
@@ -341,49 +341,39 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Dataelement</th>
-                <th>Obligatorisk</th>
-                <th>Betinget</th>
-                <th>Frivillig</th>
+                <th scope="column">Dataelement</th>
+                <th scope="column" class="center">Obligatorisk</th>
+                <th scope="column" class="center">Betinget</th>
+                <th scope="column" class="center">Frivillig</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                  <td>
-                    <strong>TRANSPORTØR</strong>
-                  </td>
+                  <th scope="row">Transportør</th>
                   <td class="center">X</td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>AKTIVT TRANSPORTMIDDEL</strong>
-                  </td>
+                  <th scope="row">Aktivt transportmiddel</th>
                   <td class="center">X</td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>FØRER</strong>
-                  </td>
+                  <th scope="row">Fører</th>
                   <td class="center">X</td>
                   <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>TRANSPORTUTSTYR</strong>
-                  </td>
+                  <th scope="row">Transportutstyr</th>
                   <td></td>
                   <td class="center">X</td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>TOLLSTED/TID FOR ANKOMST</strong>
-                  </td>
+                  <th scope="row">Tollsted / tid for ankomst</th>
                   <td class="center">X</td>
                   <td></td>
                   <td></td>
@@ -395,73 +385,57 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Dataelement</th>
-                <th>Obligatorisk</th>
-                <th>Betinget</th>
-                <th>Frivillig</th>
+                <th scope="column">Dataelement</th>
+                <th scope="column" class="center">Obligatorisk</th>
+                <th scope="column" class="center">Betinget</th>
+                <th scope="column" class="center">Frivillig</th>
             </tr>
             </thead>
             <tbody>
              <tr>
-               <td>
-                 <strong>AVSENDER</strong>
-               </td>
+               <th scope="row">Avsender</th>
                <td class="center">X</td>
                <td></td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>MOTTAKER</strong>
-               </td>
+               <th scope="row">Mottaker</th>
                <td class="center">X</td>
                <td></td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>FRAKTBREV</strong>
-               </td>
+               <th scope="row">Fraktbrev</th>
                <td class="center">X</td>
                <td></td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>RELEVANTE DOKUMENTER</strong>
-               </td>
+               <th scope="row">Relevante dokumenter</th>
                <td></td>
                <td class="center">X</td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>BRUTTOVEKT</strong>
-               </td>
+               <th scope="row">Bruttovekt</th>
                <td class="center">X</td>
                <td></td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>TRANSPORTUTSTYR</strong>
-               </td>
+               <th scope="row">Transportutstyr</th>
                <td></td>
                <td class="center">X</td>
                <td></td>
              </tr>
              <tr>
-               <td>
-                 <strong>LASTESTED</strong>
-               </td>
+               <th scope="row">Lastested</th>
                <td></td>
                <td></td>
                <td class="center">X</td>
              </tr>
              <tr>
-               <td>
-                 <strong>LOSSESTED</strong>
-               </td>
+               <th scope="row">Lossested</th>
                <td></td>
                <td></td>
                <td class="center">X</td>
@@ -473,85 +447,67 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Dataelement</th>
-                <th>Obligatorisk</th>
-                <th>Betinget</th>
-                <th>Frivillig</th>
+                <th scope="column">Dataelement</th>
+                <th scope="column" class="center">Obligatorisk</th>
+                <th scope="column" class="center">Betinget</th>
+                <th scope="column" class="center">Frivillig</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td>
-                    <strong>AVSENDER</strong>
-                  </td>
-                  <td class="center">X</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>MOTTAKER</strong>
-                  </td>
-                  <td class="center">X</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>FRAKTBREV</strong>
-                  </td>
-                  <td class="center">X</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>RELEVANTE DOKUMENTER</strong>
-                  </td>
-                  <td></td>
-                  <td class="center">X</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>FRAKTKOSTNADER</strong>
-                  </td>
-                  <td class="center">X</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>BRUTTOVEKT</strong>
-                  </td>
-                  <td class="center">X</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>TRANSPORTUTSTYR</strong>
-                  </td>
-                  <td></td>
-                  <td class="center">X</td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>LASTESTED</strong>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td class="center">X</td>
-                </tr>
-                <tr>
-                  <td>
-                    <strong>LOSSESTED</strong>
-                  </td>
-                  <td></td>
-                  <td></td>
-                  <td class="center">X</td>
-                </tr>
+            <tr>
+              <th scope="row">Avsender</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Mottaker</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Fraktbrev</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Relevante dokumenter</th>
+              <td></td>
+              <td class="center">X</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Fraktkostnader</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Bruttovekt</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Transportutstyr</th>
+              <td></td>
+              <td class="center">X</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Lastested</th>
+              <td></td>
+              <td></td>
+              <td class="center">X</td>
+            </tr>
+            <tr>
+              <th scope="row">Lossested</th>
+              <td></td>
+              <td></td>
+              <td class="center">X</td>
+            </tr>
             </tbody>
         </table>
 
@@ -559,41 +515,33 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Dataelement</th>
-                <th>Obligatorisk</th>
-                <th>Betinget</th>
-                <th>Frivillig</th>
+                <th scope="column">Dataelement</th>
+                <th scope="column" class="center">Obligatorisk</th>
+                <th scope="column" class="center">Betinget</th>
+                <th scope="column" class="center">Frivillig</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                  <td>
-                    <strong>FAKTURERT VERDI</strong>
-                  </td>
+                  <th scope="row">Fakturert verdi</th>
                   <td></td>
                   <td></td>
                   <td class="center">X</td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>VARENUMMER</strong>
-                  </td>
+                  <th scope="row">Varenummer</th>
                   <td></td>
                   <td></td>
                   <td class="center">X</td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>ANTALL KOLLI</strong>
-                  </td>
+                  <th scope="row">Antall kolli</th>
                   <td></td>
                   <td></td>
                   <td class="center">X</td>
                 </tr>
                 <tr>
-                  <td>
-                    <strong>VOEC NUMMER</strong>
-                  </td>
+                  <th scope="row">VOEC-nummer</th>
                   <td class="center">X</td>
                   <td></td>
                   <td></td>
@@ -605,8 +553,8 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Område</th>
-                <th>Beskrivelse</th>
+                <th scope="column">Område</th>
+                <th scope="column">Beskrivelse</th>
             </tr>
             </thead>
             <tbody>
@@ -709,8 +657,8 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Område</th>
-                <th>Beskrivelse</th>
+                <th scope="column">Område</th>
+                <th scope="column">Beskrivelse</th>
             </tr>
             </thead>
             <tbody>
@@ -808,8 +756,8 @@ n           (skal brukes av alle andre enn post-operatører)</li>
         <table>
             <thead>
             <tr class="header">
-                <th>Område</th>
-                <th>Beskrivelse</th>
+                <th scope="column">Område</th>
+                <th scope="column">Beskrivelse</th>
             </tr>
             </thead>
             <tbody>
