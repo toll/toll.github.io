@@ -156,6 +156,10 @@ figcaption {
     margin-top: 0px;
 }
 
+#toc_container ol > li {
+    list-style-type: decimal !important;
+}
+
 #toc_container li a {
     text-decoration: none;
 }
