@@ -4162,7 +4162,12 @@
         <a href="https://www.iso.org/iso-3166-country-codes.html">ISO-3166</a> &ndash; vi benytter Alpha-2-kodene
 
         <h3 id="nasjonale-kodeverk">Nasjonale kodeverk</h3>
+		
         <h4 id="importprocedure">Import Procedure</h4>
+		<p>
+			Disse kodene skal brukes i melding om forsendelse for å angi hvilken tollprosedyre 
+			forsendelsen skal underlegges i forbindelse med innpassering til norsk tollområde.
+		</p>
         <table>
             <thead>
             <tr>
@@ -4197,6 +4202,13 @@
         </table>
 
         <h4 id="outgoingprocedure">Outgoing Procedure</h4>
+		<p>
+			Disse kodene skal brukes i melding om forsendelse for å fortelle om hvilken tollprosedyre 
+			forsendelsen er underlagt ut av EU/fram til Norge-grensen. Denne opplysningen er nødvendig 
+			å avgi når grensekryssingen skjer på landeveisgrensen mellom Norge/Sverige eller Norge/Finland, 
+			og skyldes grensetoll-samarbeidsavtalene med Sverige og Finland. Når grensekryssingen skjer på 
+			annen måte er det ikke nødvendig å gi denne opplysningen.
+		</p>
         <table>
             <thead>
             <tr>
@@ -4231,6 +4243,13 @@
         </table>
 
         <h4 id="additionalpreviousdocumenttype">Additional Previous Document Type</h4>
+		<p>
+			Disse kodene er etablert som et tillegg til CL228 PreviousDocumentsType og kodene brukes
+			sammen med de øvrige kodene fra PreviousDocumentType. De skal benyttes i melding om forsendelse
+			når forsendelsen skal knyttes til en tolldeklarasjon eller en transittering som skal startes opp
+			på grensen. Eks: Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er Overgang til fri
+			disponering, må dette objektet alltid fylles ut med kode = CUDE.
+		</p>
         <table>
             <thead>
             <tr>
@@ -4258,6 +4277,12 @@
         </table>
 
         <h4 id="tb_eksporttype">TB_EKSPORTTYPE</h4>
+		<p>
+			Disse kodene skal brukes i melding om forsendelse når forsendelsen er deklarert for
+			eksport ut av EU. Kodene understøtter de ulike eksport-typene. Eks: Dersom valgt
+			utgående tollprosedyre (se kodeverk OutgoingProcedure) er eksport, må dette objektet
+			fylles ut med riktig kode fra tabellen under.
+		</p>
         <table>
             <thead>
             <tr>
