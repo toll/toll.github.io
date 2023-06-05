@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for presentation of goods and control direction of ICS2 consignments</title>
+    <meta name="description"
+          content="Norwegian Customs' API for presentation of goods and control direction of ICS2 consignments">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../style/api.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#37424A"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+
+<header role="banner">
+    <a href="https://toll.github.io/index-EN.html">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="260px" height="64px" viewBox="0 0 260 64" xml:space="preserve" fill="#000000"><g><g><path d="M17.75,8.23v23.61h-6.8V8.23H3.46V2.86h21.76v5.38H17.75z"></path><path
+                d="M42.15,32.35c-8.61,0-15.38-5.59-15.38-14.95c0-9.37,6.76-15,15.38-15s15.38,5.63,15.38,15 C57.52,26.76,50.76,32.35,42.15,32.35z M42.15,8.19c-4.83,0-8.49,3.49-8.49,9.03c0,5.54,3.65,9.07,8.49,9.07s8.49-3.53,8.49-9.07 C50.63,11.72,46.98,8.19,42.15,8.19z"></path><path
+                d="M63.44,31.84V2.86h6.76v23.36h10.04v5.63H63.44z"></path><path
+                d="M85.41,31.84V2.86h6.76v23.36h10.04v5.63H85.41z"></path><path
+                d="M107.37,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H107.37z"></path><path
+                d="M144.63,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H144.63z"></path><path
+                d="M172.77,31.84L170.71,26h-10.33l-2.06,5.84h-7.06l10.92-29.03h7.06l10.92,29.03H172.77z M165.54,10.29 l-3.61,10.42h7.23L165.54,10.29z"></path><path
+                d="M193.18,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H193.18z"></path><path
+                d="M205.57,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H205.57z"></path><path
+                d="M250.26,31.84l-12.73-19.66c0,0,0.13,3.49,0.13,6.55v13.11h-6.64V2.86h7.27l12.43,19.49 c0,0-0.13-3.28-0.13-6.34V2.86h6.64v28.99H250.26z"></path></g><g><path d="M13.12,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H4.76V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H13.12z"></path>
+            <path d="M23.24,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S26.53,60.93,23.24,60.93z M23.24,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C27.6,51.98,25.63,50.26,23.24,50.26z"></path>
+            <path d="M37.69,60.73l-3.06-5.05h-1.26v5.05h-1.65V49h3.31c2.09,0,3.96,0.97,3.96,3.3c0,2.06-1.43,2.97-2.67,3.21 l3.35,5.22H37.69z M36.55,50.77c-0.53-0.39-1.16-0.42-1.97-0.42h-1.21v3.98h1.21c0.82,0,1.45-0.03,1.97-0.41 c0.53-0.39,0.75-0.87,0.75-1.58C37.29,51.64,37.07,51.14,36.55,50.77z"></path>
+            <path d="M52.61,60.75H51l-2.82-9.48l-2.81,9.48h-1.61L40.37,49h1.73l2.53,9.25l2.7-9.25h1.68l2.7,9.25L54.26,49h1.73 L52.61,60.75z"></path>
+            <path d="M58.22,60.73V49h6.87v1.38h-5.22v3.5h4.93v1.39h-4.93v4.06h5.35v1.39H58.22z"></path>
+            <path d="M73.08,60.93c-3.35,0-5.98-2.41-5.98-6.07s2.63-6.03,5.97-6.03c3.01,0,4.3,1.58,4.74,2.04l-1.12,1.04 c-0.7-0.82-1.79-1.67-3.62-1.67c-2.41,0-4.27,1.73-4.27,4.62s1.92,4.62,4.37,4.62c2.43,0,3.3-1.07,3.3-1.07v-2.6H73.3v-1.34h4.76 v4.55C77.84,59.25,76.41,60.93,73.08,60.93z"></path>
+            <path d="M80.8,60.73V49h1.65v11.73H80.8z"></path>
+            <path d="M93.78,60.73l-1.21-3.06h-5.03l-1.21,3.06h-1.73l4.78-11.76h1.44l4.79,11.76H93.78z M90.06,51.02l-2.06,5.27 h4.11L90.06,51.02z"></path>
+            <path d="M106.16,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H97.8V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H106.16z"></path>
+            <path d="M120.78,60.93c-3.42,0-5.98-2.4-5.98-6.05c0-3.65,2.63-6.05,6-6.05c2.19,0,3.52,0.92,4.17,1.55l-0.7,1.33 c-0.46-0.58-1.77-1.43-3.4-1.43c-2.53,0-4.37,1.82-4.37,4.57c0,2.75,1.85,4.57,4.37,4.57c1.55,0,2.74-0.59,3.5-1.43l0.71,1.21 C124.35,60.02,123.01,60.93,120.78,60.93z"></path>
+            <path d="M135.18,59.51c-0.8,0.92-1.97,1.43-3.52,1.43c-1.56,0-2.74-0.51-3.52-1.43c-0.82-0.95-0.95-2.11-0.95-3.57 V49h1.67v6.78c0,0.99,0.02,1.94,0.54,2.63c0.48,0.65,1.24,1.04,2.26,1.04c1.02,0,1.77-0.39,2.26-1.04 c0.53-0.7,0.54-1.67,0.54-2.63V49h1.65v6.93C136.11,57.4,135.98,58.55,135.18,59.51z"></path>
+            <path d="M142.11,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C146.21,59.74,144.17,60.93,142.11,60.93z"></path>
+            <path d="M152.93,50.38v10.35h-1.65V50.38h-3.31V49h8.26v1.38H152.93z"></path>
+            <path d="M162.79,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S166.08,60.93,162.79,60.93z M162.79,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C167.15,51.98,165.18,50.26,162.79,50.26z"></path>
+            <path d="M181.76,60.73l-0.77-9.26h-0.05l-3.59,9.37h-0.93l-3.59-9.37h-0.05l-0.75,9.26h-1.63L171.46,49h2.04 l3.38,9.06h0.03L180.3,49h2.02l1.07,11.73H181.76z"></path>
+            <path d="M189.12,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C193.22,59.74,191.18,60.93,189.12,60.93z"></path></g></g>
+            <title>Toll logo -- link to Toll github homepage</title>
+        </svg>
+    </a>
+    <h1>API for presentation of goods and control direction of ICS2 consignments</h1>
+</header>
+
+
+<main>
+    <div class="column right">
+        <div id="toc_container" role="navigation" aria-hidden="true">
+        <div id="toc_container"  role="navigation" aria-hidden="true">
+            <h2 id="innhold" class="toc_title">Content</h2>
+            <ul>
+                <li><p><a href="#Omtjenesten">About the service</a></p></li>
+                <li><p><a href="#Bruksflyt">Workflow</a></p></li>
+                <li>
+                    <p><a href="#Grensesnitt">Interface description</a></p>
+                    <ul>
+                        <li><p><a href="#APIdok">APIs</a></p></li>
+                    </ul>
+                </li>
+                <li>
+                    <p><a href="#Kodeverk">Code sets</a></p>
+                    <ul>
+                        <li><a href="#Tollsteder">Customs offices</a></li>
+                        <li><a href="#CL754">Transport document type CL754</a></li>
+                    </ul>
+                </li>
+                <li><p><a href="#aut">Authentication</a></p></li>
+                <li><a href="#Tilbakemeldinger">Feedback and contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="column left">
+        <br/>
+    </div>
+
+    <div class="column middle" role="main">
+        <h2 id="Omtjenesten">About the service</h2>
+
+        <p>
+            The service is used for the digital fulfillment of the obligation to present goods
+            at the border. Currently, it should only be used for consignments that have a pre-arrival
+            notification submitted to the EU in the ICS2 solution.
+            From March 2023, this includes all consignments to be transported by air from third countries.
+            From March 2024, the requirement will also include consignments by sea, road, and rail.
+
+            Third countries refer to countries outside the security zone of the EU, Switzerland,
+            and Norway (excluding Svalbard).
+            Presentation can be done by presenting a complete movement declaration (ENS), a mailbag,
+            or individual consignments. If a mailbag or a movement declaration is submitted, all
+            individual consignments within it will be presented. Furthermore, the entity that presented
+            the consignments should also use the service for control direction and, based on the
+            outcome, select the consignments that need to be inspected.
+            These consignments should be promptly delivered to the agreed control location.
+        </p>
+
+        <p>More background information on ICS2:</p>
+        <ul>
+         <li><a href=" https://toll.no/en/corporate/transport-and-customs-warehouse/prenotification/advance-cargo-information--import-control-system-2-ics2/"
+         target="_blank">ICS2 at toll.no</a></li>
+         <li><a href= "https://circabc.europa.eu/ui/group/ea5f882b-9153-4fc1-9394-54ac8fe9149a/library/53a32862-d881-4061-b6a7-55894dc4c13f?p=1&amp;n=10&amp;sort=modified_DESC"
+         target="_blank">Guidance documents from the EU</a></li>
+        </ul>
+
+        <h2 id="Bruksflyt">Workflow</h2>
+
+        <p>
+            The presentation services should be called as soon as the consignment has arrived.
+            By including the requestId in every call, you as the consumer can ensure
+            that a consignment is presented only once. Reusing the same requestId will
+            result in validation errors. This is only a technical identification of each
+            service call. The status of all requests can be retrieved by using the
+            validation-status service.
+        </p>
+
+        <p>
+            Once a consignment has been correctly presented, the control direction signal
+            can be retrieved from the routing service. This signal provides information on
+            whether the consignment needs to be delivered for inspection or if it can be
+            cleared and released to the recipient. Control direction is performed at the
+            individual consignment level (house consignment). When presenting at the
+            mailbag or ENS (Entry Summary Declaration) level, the result for all individual
+            consignments pre-notified within the respective mailbag or ENS will be retrieved.
+        </p>
+
+        <h2 id="Grensesnitt">Interface Description</h2>
+
+        <p>The services are made available over HTTPS, with authentication via Maskinporten.</p>
+
+        <pre>
+     POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
+     POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
+     POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
+
+     GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
+     GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
+        </pre>
+
+        <p>where <em>&lt;env&gt;</em> is</p>
+        <ul>
+        <li><em>api.toll.no</em> for production</li>
+        <li><em>api<b>-test</b>.toll.no</em> for playground (testing environment)</li>
+        </ul>
+
+
+        <p>
+            The API will be subject to changes as required by Norwegian Customs or end users.
+            We anticipate that the introduction of ICS2 Phase 3 (sea, road, and rail) will
+            result in changes. Backward-compatible changes will be added without version
+            updates or notifications.
+            Non-backward-compatible changes will be notified here and via email to
+            active users if necessary.
+        </p>
+
+        <h3 id="APIdok">API-documentation</h3>
+        <ul>
+        <li><a href="movement-presentation-api.html">Movement - Presentation</a></li>
+        <li><a href="movement-routing-api.html">Movement - Routing</a></li>
+        </ul>
+
+
+        <h2 id="Kodeverk">Code sets</h2>
+
+        <h3 id="Tollsteder">Customs Office of presentation CL141</h3>
+
+        <p>Customs Office of Presentation should be retrieved from the code set for control locations: <a
+        href="https://www.toll.no/en/services/regulations/news-from-norwegian-customs/new-customs-office-codes-for-ncts/"
+        target="_blank">New Custom offices codes in NCTS – Norwegian Customs</a></p>
+
+        <h3 id="CL754">Transport document type CL754</h3>
+
+        <table>
+         <tr>
+          <td colspan=3><p><strong>CL754 &nbsp;&nbsp; Transport document type</strong></p></td>
+         </tr>
+         <tr>
+          <th scope="column">Code</th>
+          <th scope="column">Description English</th>
+          <th scope="column">Description Norwegian</th>
+         </tr>
+         <tr>
+          <td><p><strong>C624</strong></p></td>
+          <td><p>Form 302 - Movement of military goods</p></td>
+          <td><p>Form 302 - Forflytning av forsvarsmateriell</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C625</strong></p></td>
+          <td><p>Rhine Manifest</p></td>
+          <td><p>Rhine manifest</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C664</strong></p></td>
+          <td><p>CN22 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
+          <td><p>CN22 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>C665</strong></p></td>
+          <td><p>CN23 declaration according to Article 237 of the Regulation (ECC) No 2454/93</p></td>
+          <td><p>CN23 deklarasjon i henhold til Article 237 of the Regulation (ECC) No 2454/93</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N703</strong></p></td>
+          <td><p>House waybill</p></td>
+          <td><p>Underfraktbrev (samlesending)</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N704</strong></p></td>
+          <td><p>Master bill of lading</p></td>
+          <td><p>Hovedkonossement</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N705</strong></p></td>
+          <td><p>Bill of lading</p></td>
+          <td><p>Konossoment</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N714</strong></p></td>
+          <td><p>House bill of lading</p></td>
+          <td><p>Underkonnossement (samlesending)</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N720</strong></p></td>
+          <td><p>Consignment note CIM</p></td>
+          <td><p>Fraktbrev CIM</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N722</strong></p></td>
+          <td><p>Road list - SMGS</p></td>
+          <td><p>SMGS-vegfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N730</strong></p></td>
+          <td><p>Road consignment note</p></td>
+          <td><p>Vegfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N740</strong></p></td>
+          <td><p>Air waybill</p></td>
+          <td><p>Flyfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N741</strong></p></td>
+          <td><p>Master airwaybill</p></td>
+          <td><p>Hovedflyfraktbrev</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N750</strong></p></td>
+          <td><p>Movement by post including parcel post</p></td>
+          <td><p>Forflytning med post inkludert pakkepost</p></td>
+         </tr>
+         <tr>
+          <td><p><strong>N760</strong></p></td>
+          <td><p>Multimodal / combined transport document</p></td>
+          <td><p>Dokument for kombinert transport</p></td>
+         </tr>
+        </table>
+
+       <h2 id="aut">Authentication &ndash;
+         Data exchange between the business sector and Norwegian Customs</h2>
+        <p>
+            Our APIs use "Maskinporten" for identity and access management. On the page
+            <strong><a href="maskinporten-EN.html">Maskinporten -
+            Norwegian Customs</a></strong>you will find information on
+        </p>
+        <ul>
+         <li>how to get started with integration via Maskinporten
+         including a registration form for access to Norwegian Customs</li>
+         <li>access management for our APIs</li>
+         <li>setting up a client for authentication via Maskinporten</li>
+         <li>operations and monitoring/troubleshooting</li>
+        </ul>
+
+        <p> The scope used for this API is <b>toll:movement/entry</b>.</p>
+
+
+        <h3 id="Tilbakemeldinger">Feedback and contact</h3>
+
+        <p>If you have questions or suggestions regarding the API, please email us at
+        <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
+    </div>
+
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2023 |
+    <a href="https://www.toll.no/en/about-norwegian-customs/contact-us/"
+    class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>API for TBD</title>
-    <meta name="description" content="Tolletatens API for TBD">
+    <title>API for uploading documents</title>
+    <meta name="description" content="Norwegian Customs' API for uploading documents">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -19,7 +19,7 @@
 
 
 <header role="banner">
-    <a href="https://toll.github.io/">
+    <a href="https://toll.github.io/index-EN.html">
         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="260px" height="64px" viewBox="0 0 260 64" xml:space="preserve" fill="#000000"><g><g><path d="M17.75,8.23v23.61h-6.8V8.23H3.46V2.86h21.76v5.38H17.75z"></path><path
                 d="M42.15,32.35c-8.61,0-15.38-5.59-15.38-14.95c0-9.37,6.76-15,15.38-15s15.38,5.63,15.38,15 C57.52,26.76,50.76,32.35,42.15,32.35z M42.15,8.19c-4.83,0-8.49,3.49-8.49,9.03c0,5.54,3.65,9.07,8.49,9.07s8.49-3.53,8.49-9.07 C50.63,11.72,46.98,8.19,42.15,8.19z"></path><path
                 d="M63.44,31.84V2.86h6.76v23.36h10.04v5.63H63.44z"></path><path
@@ -48,71 +48,136 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>API for TBD</h1>
+    <h1>API for uploading documents</h1>
 </header>
 
 
 <main>
-    <div class="column left">
-        <br/>
-    </div>
-
     <div class="column right">
-        <div id="toc_container"  role="navigation" aria-hidden="true" role="navigation">
-            <h2 id="innhold" class="toc_title">Innhold</h2>
+        <div id="toc_container"  role="navigation" aria-hidden="true">
+            <h2 id="innhold" class="toc_title">Content</h2>
             <ul>
-                <li><p><a href="#omtjenesten">Om tjenesten</a></p></li>
-                <li><p><a href="#data">Data</a></p>
-                <li><p><a href="#grensesnittbeskrivelse">Grensesnittbeskrivelse</a></p>
-                <li><p><a href="#eksempler">Eksempler</a></p></li>
-                <li><p><a href="#aut">Autentisering</a></p></li>
+                <li><p><a href="#omtjenesten">About the service</a></p></li>
+                <li><p><a href="#grensesnitt">Interface description</a></p>
+                <li><p><a href="#EksempelPostman">Postman Example</a></p>
+                <li><p><a href="#aut">Authentication</a></p>
             </ul>
         </div>
     </div>
 
-    <div class="column middle" role="main" role="main">
-        <h2 id="omtjenesten">Om tjenesten</h2>
+    <div class="column left">
+        <br/>
+    </div>
 
-        <h2 id="data">Data</h2>
+    <div class="column middle" role="main">
+        <h2 id="omtjenesten">About the service</h2>
+        <p>
+           The API supports the submission of documents.
+            To use the service, the scope for authentication in Maskinporten must be set to
+            <strong>toll:goodsdeclaration/document.write</strong>
+        </p>
 
-        <h2 id="grensesnittbeskrivelse">Grensesnittbeskrivelse</h2>
-        <p>Tjenestene vil gjøres tilgjengelige som REST-tjenester over HTTP, med
-            data på JSON-format.</p>
 
-        <h3 id="APIdok">API-dokumentasjon</h3>
+        <h2 id="grensesnitt">Interface description</h2>
+        <p>The services are made available as REST services over HTTPS, with data in JSON format.</p>
+
+
+        <h3 id="HTTPRequest">HTTP Request</h3>
+
+        <h4 id="MetodePOST">Mehod: POST</h4>
+
+        <p><strong>URL:</strong> https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document</p>
+
+        <h4 id="Headers">Headers</h4>
         <ul>
-        <li><a href="TBD.html">TBD</a></li>
-        <li><a href="TBD.html">TBD</a></li>
+         <li><strong>Authorization</strong>: Bearer Token</li>
+        </ul>
+        <p>The required token is a Maskinporten JWT with the specified scope
+           <strong>toll:goodsdeclaration/document.write</strong></p>
+
+        <h4 id="Body">Body</h4>
+
+        <ul>
+         <li><strong>Media Type</strong>: Form Data</li>
+         <li><strong>Content</strong>:
+            <ul>
+                <li><strong>metadata</strong>:
+                        {&quot;declarationId&quot;: &quot;Insert declaration-id here&quot;,
+                        &quot;documentType&quot;: &quot;Insert document type here&quot;}</li>
+                <li><strong>file</strong>: Your document</li>
+            </ul>
+         </li>
+         <li>The document type must be one of the following
+                <ul>
+                    <li>faktura</li>
+                    <li>tillatelser</li>
+                    <li>fraktregning</li>
+                    <li>opprinnelsesdokumentasjon</li>
+                    <li>fraktbrev</li>
+                </ul>
+            </li>
+            <li>
+                The file type must be one of following
+                <ul>
+                    <li>pdf</li>
+                    <li>jpg</li>
+                    <li>png</li>
+                    <li>txt</li>
+                    <li>doc</li>
+                    <li>docx</li>
+                    <li>xls</li>
+                    <li>xlsx</li>
+                </ul>
+            </li>
+            <li>
+                The maximum file size per attachment is 10MB. If the attachment exceeds
+                this limit, you will need to split it into multiple parts, with each part
+                being smaller than 10MB.
+            </li>
+            <li>
+                Note!&nbsp; The order of the fields in the content must be the same as specified above
+            </li>
         </ul>
 
-        <h2 id="eksempler">Aktuelle eksempler</h2>
-        <p>
-            &nbsp;
-        </p>
+        <h3 id="EksempelPostman">Postman Example</h3>
 
-        <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
+        <h4 id="pmBody">Body</h4>
+        <img src="media/document-postman-body.png" alt="Screenshot from Postman" />
+
+        <h4 id="pmAuth">Auth</h4>
+        <img src="media/document-postman-auth.png" alt="Screenshot from Postman" />
+
+
+
+
+        <h2 id="aut">Authentication &ndash; Data exchange between the business
+           sector and Norwegian Customs</h2>
         <p>
-            Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
-            På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+           Our APIs use Maskinporten for identity and access management.
+           On the page <b><a href="maskinporten.html">Maskinporten - Norwegian
+           Customs</a></b> you will find information on
         </p>
             <ul>
-                <li>
-                    hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
-                    inkludert registreringsskjema for tilgang hos Tolletaten
+                <li>how to get started with integration via Maskinporten including a
+                   registration form for access to Norwegian Customs
                 </li>
-                <li>tilgangsstyring for våre API-er</li>
-                <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
-                <li>drift og overvåking/feilsøking.</li>
+                <li>Access management for our APIs</li>
+                <li>Setting up a client for authentication via Maskinporten</li>
+                <li>Operations and monitoring/troubleshooting.</li>
             </ul>
         <p>
-            Scopet som benyttes for dette API-et er <strong>TBD</strong>.
+            The scope used for this API is
+            <b>toll:goodsdeclaration/document.write</b>.
         </p>
     </div>
+
 
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2023 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="white">Kontakt oss</a>
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2023 |
+    <a href="https://www.toll.no/en/about-norwegian-customs/contact-us/"
+    class="footerLink">Contact us</a>
 </footer>
 
 </body>
