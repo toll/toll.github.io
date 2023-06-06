@@ -4178,9 +4178,12 @@
             <tbody>
             <tr>
                 <td>IMMEDIATE_RELEASE_IMPORT</td>
-                <td>Direktefortolling</td>
-                <td>Direktefortolling med svensk/EU eksport og/eller transittering som
-                    skal avsluttes mot direktefortolling
+                <td>Overgang til fri disponering</td>
+                <td>
+					Forsendelser hvor det på forhånd er innlevert en tolldeklarasjon som skal ekspederes i forbindelse
+					med grensekryssingen. Dette inkluderer deklarasjon for overgang til fri disponering, foreløpig
+					deklarasjon og midlertidig innførsel. Det inkluderer ikke forenklet deklarasjon for innlegg på
+					tollager. Denne har en egen ImportProcedure.
                 </td>
             </tr>
             <tr>
@@ -4197,7 +4200,6 @@
                     ifm at transporten ankommer grensen
                 </td>
             </tr>
-			<!--
             <tr>
                 <td>IMMEDIATE_RELEASE_VOEC</td>
                 <td>VOEC-sendinger</td>
@@ -4212,9 +4214,8 @@
             <tr>
                 <td>WAREHOUSE_RELEASE</td>
                 <td>Innlegg på tollager</td>
-                <td>Forsendelser hvor det på forhånd er innlevert en forenklet deklarasjon for innlegg på tollager</td>
+                <td>Forsendelser hvor det på forhånd er innlevert en deklarasjon for innlegg på tollager</td>
             </tr>
-			-->
             </tbody>
         </table>
 
@@ -4264,8 +4265,8 @@
 			Disse kodene er etablert som et tillegg til CL228 PreviousDocumentsType og kodene brukes
 			sammen med de øvrige kodene fra PreviousDocumentType. De skal benyttes i melding om forsendelse
 			når forsendelsen skal knyttes til en tolldeklarasjon eller en transittering som skal startes opp
-			på grensen. Eks: Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er Overgang til fri
-			disponering, må dette objektet alltid fylles ut med kode = CUDE.
+			på grensen. Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er <i>Overgang til fri
+			disponering</i> eller <i>Innlegg på tollager</i>, må dette objektet alltid fylles ut med kode = CUDE.
 		</p>
         <table>
             <thead>
@@ -4359,7 +4360,7 @@
             </tr>
             </tbody>
         </table>
-                <p><br/></p>
+        <p><br/></p>
     </div>
 
 
