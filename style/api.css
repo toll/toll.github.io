@@ -145,7 +145,7 @@ figcaption {
 .toc_title {
     font-weight: bold;
     color: #12404F;
-    text-align: center;
+    text-align: left;
     font-size: 150%;
     margin-top: 0px;
 }
@@ -166,6 +166,15 @@ figcaption {
 
 #toc_container li a:hover {
     text-decoration: underline;
+}
+
+.lang_nav {
+    font-weight: lighter;
+    color: #12404F;
+    text-align: center;
+    font-size: small;
+    margin-top: 0px;
+	align: center;
 }
 
 pre {
