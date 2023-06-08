@@ -2,8 +2,8 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>Aktuelle eksempler - melding om forsendelse (House Consignment)</title>
-    <meta name="description" content="Aktuelle eksempler - melding om forsendelse (House Consignment)">
+    <title>Examples – Notification of House Consignment</title>
+    <meta name="description" content="Examples – Notification of House Consignment">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -48,7 +48,7 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>Aktuelle eksempler - melding om forsendelse (House Consignment) v2</h1>
+    <h1>Examples &ndash; Notification of House Consignment v2</h1>
 </header>
 
 
@@ -56,21 +56,21 @@
     <div class="column right" role="navigation">
          <div class="lang_nav"><a href="mo-eksempler.html"><img src="media/NO.png" alt="Norwegian flag"/>&nbsp;Norsk</a></div>
          <div id="toc_container"  aria-hidden="true">
-            <h2 id="innhold" class="toc_title">Innhold</h2>
+            <h2 id="innhold" class="toc_title">Content</h2>
             <ul>
-                <li><p><a href="#eksempler">Eksempler</a></p>
+                 <li><p><a href="#eksempler">Examples</a></p>
                     <ol>
-                        <li><p><a href="#eks1">Tolldekl + svensk/EU</a></p>
-                        <li><p><a href="#eks2">Tolldekl + transittering </a></p>
-                        <li><p><a href="#eks3">Transittering grensepasseres</a></p>
-                        <li><p><a href="#eks4">Transittering startes på grensa</a></p>
-                        <li><p><a href="#eks5">Tolldekl avsluttet i avgangslandet</a></p>
-                        <li><p><a href="#eks6">VOEC-forsendelse</a></p>
-                        <li><p><a href="#eks7">Postforsendelse</a></p>
+                        <li><p><a href="#eks1">Customs declaration + Swedish/EU</a></p>
+                        <li><p><a href="#eks2">Customs declaration + Transit </a></p>
+                        <li><p><a href="#eks3">Transit border crossing</a></p>
+                        <li><p><a href="#eks4">Transit starting at the border</a></p>
+                        <li><p><a href="#eks5">Customs declaration completed in country of origin</a></p>
+                        <li><p><a href="#eks6">VOEC consignment</a></p>
+                        <li><p><a href="#eks7">Postal consignment</a></p>
                     </ol>
                 </li>
-                <li><p><a href="#testdata">Testdata</a></p></li>
-            </ul>
+                <li><p><a href="#testdata">Test data</a></p></li>
+           </ul>
         </div>
     </div>
 
@@ -83,10 +83,9 @@
         <h2 id="eksempler">Eksempler</h2>
 
         <p>
-            Vi har laget noen eksempler på hvordan meldingsinnholdet kan se ut basert
-            på hvilken tollprosedyre som benyttes.
-            For å holde det så kort som mulig er kun innholdet som er forskjellig for de ulike prosedyrene vist,
-            det vil si  følgende objekter:
+            We have created some examples of how the message content may look based on the
+			customs procedure used. To keep it as concise as possible, only the content that
+			differs for the different procedures is shown, which includes the following objects:
         </p>
             <ul>
                 <li>houseConsignment.consignmentHouseLevel.ExportFromEU</li>
@@ -94,7 +93,7 @@
                 <li>houseConsignment.consignmentHouseLevel.PreviousDocuments</li>
             </ul>
 
-        <h3 id="eks1">Eksempel 1 - Tolldeklarasjon  og svensk/EU eksport</h3>
+        <h3 id="eks1">Example  1 &ndash; Customs declaration and Swedish/EU Export</h3>
         <pre>
 {
   "consignmentHouseLevel": {
@@ -119,7 +118,7 @@
   }
 }       </pre>
 
-        <h3 id="eks2">Eksempel 2 - Tolldeklarasjon og transittering som skal fullføres på grensa</h3>
+        <h3 id="eks2">Example 2 &ndash; Customs declaration and transit to be completed at the border</h3>
         <pre>
 {
   "consignmentHouseLevel": {
@@ -142,7 +141,7 @@
   }
 }       </pre>
 
-        <h3 id="eks3">Eksempel 3 - Transittering som bare skal grensepasseres</h3>
+        <h3 id="eks3">Example 3 &ndash; Transit for border crossing only</h3>
         <pre>
 {
   "consignmentHouseLevel": {
@@ -159,7 +158,7 @@
   }
 }       </pre>
 
-        <h3 id="eks4">Eksempel 4 - Transittering som skal startes på grensa</h3>
+        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border</h3>
         <pre>
 {
   "consignmentHouseLevel": {
@@ -182,7 +181,7 @@
   }
 }       </pre>
 
-        <h3 id="eks5">Eksempel 5 - Tolldeklarasjon der eksportene er avsluttet i avgangslandet</h3>
+        <h3 id="eks5">Example 5 &ndash; Customs declaration where the exports are completed in the country of origin</h3>
         <pre>
 {
   "consignmentHouseLevel": {
@@ -201,25 +200,26 @@
   }
 }       </pre>
 
-        <h3 id="eks6">Eksempel 6 - VOEC-forsendelse</h3>
+        <h3 id="eks6">Example 6 &ndash; VOEC-consignment</h3>
         <pre>
         ?
         </pre>
 
-        <h3 id="eks7">Eksempel 7 - Postforsendelse</h3>
+        <h3 id="eks7">Example 7 &ndash; Postal consignment</h3>
         <pre>
         ?
         </pre>
 
         <p><br/></p>
-        <h3 id="testdata">Testdata</h3>
+        <h3 id="testdata">Test data</h3>
         <p>
-            Valideringen av innsendte meldinger inneholder blant annet en kontroll mot at oppgitte deklarasjoner
-            i TVINN og NCTS eksisterer og har forventet status. I playground-miljøet har vi ikke integrasjon mot
-            disse fagsystemene, så innholdet valideres mot en statisk liste som inneholder noen få deklarasjoner.
+            Validation of a submitted notification includes a check to ensure that the
+			submitted declarations in TVINN and NCTS exist and have the expected status.
+			In the playground environment, we do not have integration with these systems,
+			so the content is validated against a static list that contains a few declarations.
         </p>
         <p>
-            For TVINN-deklarasjoner er det disse som kan brukes:
+            For TVINN-declarations, the declarations in the table below may be used:
         </p>
             <table>
                 <tbody>
@@ -241,9 +241,10 @@
                 </tbody>
             </table>
         <p>
-            For transitteringsdeklarasjoner (NCTS) er det enda enklere validering i Playground.
-            Her validerer vi bare at feltet inneholder 18 alfanumeriske tegn som regnes som OK.
-            Dersom feltet har teksten «INVALID» i seg feilvalideres den.
+            For transit declarations (NCTS), there is an even simpler validation in the
+			playground environment, we only check if the field contains 
+			18 alphanumerical characters, which is then validated as OK. 
+			If the field has the text "INVALID", the validation will fail.
         </p>
 
     </div>
