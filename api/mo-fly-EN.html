@@ -240,7 +240,7 @@
                   </td>
                   <td>
                     In the context of digital notification and disclosure of information
-                    obligations, a container is a way to define transport equipment.
+                    obligations, a Container is a way to define transport equipment.
                     Please refer to the definition of transport equipment.
                   </td>
                 </tr>
@@ -272,7 +272,7 @@
         </p>
 
         <p>
-          The submitter of a notification has the ability to submit a notification early,
+          The submitter of a notification can submit a notification early,
           update the notification, and withdraw the notification if necessary (post, put, delete).
           <br/>
           The submitter can also request the status of the notification (get).
@@ -298,7 +298,7 @@
         <figure>
             <img src="media/MO-begreper.png" alt="See caption">
             <figcaption>Figure: The illustration provides an overview of the information related
-            to transport and cargo that needs to be submitted.</figcaption>
+            to transport and cargo that needs to be submitted (English text in italics).</figcaption>
         </figure>
 
         <h3 id="infomld">Information and notifications</h3>
@@ -314,7 +314,7 @@
         <ol>
          <li>an API for the submission of information related to Transport </li>
          <li>an API for the submission of information related to Master Consignments</li>
-         <li>an API for the submission of information related to House Consignments </li>
+         <li>an API for the submission of information related to House Consignments.</li>
         </ol>
 
         <p>
@@ -578,7 +578,7 @@
                 </tr>
                 <tr>
                   <td>
-                    Responsible for the information.
+                    Responsible for the information
                   </td>
                   <td>
                     Operator of the transport, in reference to the
@@ -654,7 +654,7 @@
                     Regarding updating the transport notification
                   </td>
                   <td>
-                    When updating and canceling, the MRN (Movement Reference Number)
+                    When updating and cancelling, the MRN (Movement Reference Number)
                     received in the original notification is the key that should be used
                     to identify the correct transport.
                   </td>
@@ -753,7 +753,7 @@
                     Regarding the updating the master consignment notification
                   </td>
                   <td>
-                    When updating and canceling, the MRN (Movement Reference Number)
+                    When updating and cancelling, the MRN (Movement Reference Number)
                     received in the original notification is the key that should be
                     used to identify the correct master consignment.
                   </td>
@@ -855,7 +855,7 @@
                     Regarding the updating the house consignment notification
                     </td>
                   <td>
-                    When updating and canceling, the MRN (Movement Reference Number)
+                    When updating and cancelling, the MRN (Movement Reference Number)
                     received in the original notification is the key that should be used
                     to identify the correct house consignment.
                   </td>
@@ -877,7 +877,7 @@
             The inquiry is made to the <code>/validation-status</code> endpoint, which will
             return the MRN upon success and a list of validation errors if any exist.<br/>
             The permanent reference is called a Master Reference Number, MRN for short.
-            The MRN is used when notifications need to be updated or canceled (put/delete)
+            The MRN is used when notifications need to be updated or cancelled (put/delete)
             to refer to previously submitted messages.
         </p>
 
@@ -918,8 +918,8 @@
 
         <h2 id="eksempler">Examples</h2>
         <p>
-            We have created a brief overview of how the notification content for consignments may
-            look based on the customs procedure used.
+            We have created a brief overview of how the notification content for consignments 
+			can be, based on the customs procedure used.
             <a href="mo-eksempler-EN.html">Examples can be found here</a>.<br/>
             On the same page, there is also information about test data related to customs declarations
             that can be used for testing the interface.
@@ -930,14 +930,14 @@
         <p>
             Our APIs use Maskinporten for identity and access management.
             On the page <strong><a href="maskinporten-EN.html">Maskinporten</a></strong>
-			you will find information on
+			you will find information on:
         </p>
         <ul>
          <li>how to get started with integration via Maskinporten including a registration form
              for access to Norwegian Customs</li>
          <li>access management for our APIs</li>
          <li>setting up a client for authentication via Maskinporten</li>
-         <li>operations and monitoring/troubleshooting</li>
+         <li>operations and monitoring/troubleshooting.</li>
         </ul>
 
         <p> The scope used for the APIs is documented for each individual API.</p>
