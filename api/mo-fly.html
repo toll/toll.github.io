@@ -73,11 +73,15 @@
                     <li><p><a href="#masterConsignment">Melding om hovedforsendelse</a></p></li>
                     <li><p><a href="#houseConsignment">Melding om forsendelse</a></p></li>
                     <li><p><a href="#sekvens">Sekvens for innsending</a></p></li>
+                    <li><p><a href="#kontrolldir">Fremlegging og kontrolldir.</a></p></li>
+                    <li><p><a href="#tjenestefremlegging">Tjeneste for fremlegging/kontrolldir.</a></p></li>
                   </ul></li>
                 <li><p><a href="#kodeverk">Kodeverk</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">Grensesnittbeskrivelse</a></p>
                   <ul>
                     <li><p><a href="#movement-air-api">API: movement-air-api</a></p></li>
+                    <li><p><a href="#movement-presentation-api">API: movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">API: movement-routing-api</a></p></li>
                     <li><p><a href="#dokumentinnsending">API: Dokumentinnsending</a></p></li>
                   </ul></li>
                 <li><p><a href="#eksempler">Aktuelle eksempler</a></p></li>
@@ -105,8 +109,8 @@
             <figcaption>Figur: Tjenesten støtter opp under Tolletatens konsept for
                 digital og automatisert vareførsel over grensen</figcaption>
         </figure>
-		
-		<div class="boxed"><p>Se også: <a href="mo-vei.html">API for vei/ferge</a></p></div>
+        
+        <div class="boxed"><p>Se også: <a href="mo-vei.html">API for vei/ferge</a></p></div>
 
         <h3 id="definisjoner">Definisjoner</h3>
         <table>
@@ -872,6 +876,63 @@
             referere til tidligere innsendte meldinger.
         </p>
 
+        <h3 id="kontrolldir">Fremlegging og kontrolldirigering</h2>
+
+        <p>
+           Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
+           grensepassering. Dersom automatisk ankomst blir detektert vil Tolletaten
+           gjennomføre en automatisk digital fremlegging av alle forventede forsendelser
+           på den ankommende transport.<br/>
+           Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt API for de
+           forventede forsendelsene. Aktører som er koblet til de fremlagte
+           forsendelser vil kunne hente ut kontrolldirigering på API.
+           De aktører som automatisk er slik koblet er den aktøren som sendte inn
+           informasjon om forsendelsen i Tolletatens API (autentisert i Maskinporten) og
+           eventuell tollrepresentant nevnt i melding om forsendelse, hovedforsendelse
+           eller transport.
+        </p>
+
+        <h3 id="tjenestefremlegging">Tjeneste for fremlegging og kontrolldirigering</h3>
+
+        <p>
+           Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
+           (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
+           Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
+           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU 
+           i ICS2-løsningen</strong>.
+        </p>
+
+        <p>
+           Fremlegging (<strong>API: movement-presentation</strong>) kan meldes for
+           forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
+           si de forsendelser som er forventet fremlagt.
+        </p>
+
+        <p>
+           Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
+           eller en postsekk innsendt for melde og opplysningsplikten.
+           Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
+           under denne bli fremlagt.
+           En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
+           koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
+           kontrolldirigeringer for de samme forsendelsene.
+        </p>
+
+        <p>
+           For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
+           forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
+           Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
+           enkeltsendingene under denne bli fremlagt.<br/>
+           Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen
+           fremlegging, skal bruke tjenesten for kontrolldirigering 
+           (<strong>API: movement-routing</strong>).
+           Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene
+           som skal fysisk kontrolleres.
+           Disse sendingene skal snarest overleveres avtalt kontrollsted.
+        </p>
+
+
+
         <h2 id="kodeverk">Kodeverk</h2>
         <p>
             En oversikt over de ulike kodeverkene meldingsinnholdet valideres mot er å
@@ -897,6 +958,12 @@
             Se <strong><a href="movement-air-api.html">
             API-dokumentasjon her</a></strong>.
         </p>
+
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>Se <strong><a href="movement-presentation-api.html">API-dokumentasjon her</a></strong>.</p>
+
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
 
         <h3 id="dokumentinnsending">API: Dokumentinnsending</h3>
         <p>

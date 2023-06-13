@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+,<!DOCTYPE html>
 <html lang="no">
 <head>
     <meta charset="UTF-8">
@@ -74,12 +74,16 @@
                     <li><p><a href="#masterConsignment">Notification of Master Consignment</a></p></li>
                     <li><p><a href="#houseConsignment">Notification of House Consignment</a></p></li>
                     <li><p><a href="#sekvens">Sequence for submission</a></p></li>
+                    <li><p><a href="#kontrolldir">Fremlegging og kontrolldir.</a></p></li>
+                    <li><p><a href="#tjenestefremlegging">API for fremlegging/kontrolldir.</a></p></li>
                   </ul></li>
                 <li><p><a href="#kodeverk">Code sets</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">API descriptions</a></p>
                   <ul>
                     <li><p><a href="#movement-road-api-v2">API: movement-road-api-v2</a></p></li>
-                    <li><p><a href="#dokumentinnsending">API: Document upload</a></p></li>
+                     <li><p><a href="#movement-presentation-api">API: movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">API: movement-routing-api</a></p></li>
+                   <li><p><a href="#dokumentinnsending">API: Document upload</a></p></li>
                   </ul></li>
                 <li><p><a href="#eksempler">Examples</a></p></li>
                 <li><p><a href="#autentisering">Authentication</a></p></li>
@@ -881,6 +885,61 @@
             to refer to previously submitted messages.
         </p>
 
+        <h3 id="kontrolldir">Fremlegging og kontrolldirigering</h2>
+
+        <p>
+           Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
+           grensepassering. Dersom automatisk ankomst blir detektert vil Tolletaten
+           gjennomføre en automatisk digital fremlegging av alle forventede forsendelser
+           på den ankommende transport.<br/>
+           Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt API for de
+           forventede forsendelsene. Aktører som er koblet til de fremlagte
+           forsendelser vil kunne hente ut kontrolldirigering på API.
+           De aktører som automatisk er slik koblet er den aktøren som sendte inn
+           informasjon om forsendelsen i Tolletatens API (autentisert i Maskinporten) og
+           eventuell tollrepresentant nevnt i melding om forsendelse, hovedforsendelse
+           eller transport.
+        </p>
+
+        <h3 id="tjenestefremlegging">Tjeneste for fremlegging og kontrolldirigering</h3>
+
+        <p>
+           Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
+           (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
+           Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
+           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
+           i ICS2-løsningen</strong>.
+        </p>
+
+        <p>
+           Fremlegging (<strong>API: movement-presentation</strong>) kan meldes for
+           forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
+           si de forsendelser som er forventet fremlagt.
+        </p>
+
+        <p>
+           Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
+           eller en postsekk innsendt for melde og opplysningsplikten.
+           Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
+           under denne bli fremlagt.
+           En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
+           koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
+           kontrolldirigeringer for de samme forsendelsene.
+        </p>
+
+        <p>
+           For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
+           forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
+           Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
+           enkeltsendingene under denne bli fremlagt.<br/>
+           Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen
+           fremlegging, skal bruke tjenesten for kontrolldirigering
+           (<strong>API: movement-routing</strong>).
+           Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene
+           som skal fysisk kontrolleres.
+           Disse sendingene skal snarest overleveres avtalt kontrollsted.
+        </p>
+
         <h2 id="kodeverk">Code sets</h2>
         <p>
             An overview of the various code sets against which the notification content is
@@ -908,6 +967,12 @@
             See <strong><a href="movement-road-api-v2.html">API-documentation here</a></strong>.
         </p>
 
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>See <strong><a href="movement-presentation-api.html">API-documentation here</a></strong>.</p>
+
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>See <strong><a href="movement-routing-api.html">API-documentation here</a></strong>.</p>
+
         <h3 id="dokumentinnsending">API: Document upload</h3>
         <p>
             In addition to the information about consignments provided through the movement APIs,
@@ -918,7 +983,7 @@
 
         <h2 id="eksempler">Examples</h2>
         <p>
-            We have created a brief overview of how the notification content for consignments 
+            We have created a brief overview of how the notification content for consignments
 			can be, based on the customs procedure used.
             <a href="mo-eksempler-EN.html">Examples can be found here</a>.<br/>
             On the same page, there is also information about test data related to customs declarations
