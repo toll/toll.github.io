@@ -4157,7 +4157,7 @@
 
         <h4 id="importprocedure">Import Procedure</h4>
         <p>
-            These codes should be used in the consignment notification to indicate which customs procedure the consignment should be subject to upon entry into the Norwegian customs territory. 
+            These codes should be used in the consignment notification to indicate which customs procedure the consignment should be subject to upon entry into the Norwegian customs territory.
         </p>
         <table>
             <thead>
@@ -4173,65 +4173,65 @@
                 <td>Overgang til fri disponering</td>
                 <td>
                     Consignments for which a customs declaration has been submitted in
-					advance to be processed in connection with the border crossing.
-					This includes declarations for immediate release import, provisional
-					declaration, and temporary import. It does not include simplified
-					declaration for placement in a customs warehouse, 
-					which has its own ImportProcedure.
+                    advance to be processed in connection with the border crossing.
+                    This includes declarations for immediate release import, provisional
+                    declaration, and temporary import. It does not include simplified
+                    declaration for placement in a customs warehouse,
+                    which has its own ImportProcedure.
                 </td>
             </tr>
             <tr>
                 <td>TRANSIT_IMPORT</td>
                 <td>Transittering</td>
                 <td>
-				   Transit import that should only be submitted for border crossing in NCTS,
-				   and be completed by authorized recipient at the location of unloading.
+                   Transit import that should only be submitted for border crossing in NCTS,
+                   and be completed by authorized recipient at the location of unloading.
                 </td>
             </tr>
             <tr>
                 <td>TRANSIT_RELEASE</td>
                 <td>Oppstart transittering</td>
                 <td>
-				    Transit which is to be initiated by Norwegian Customs in Norwegian or
-					Swedish NCTS when the transport arrives at the border.
+                    Transit which is to be initiated by Norwegian Customs in Norwegian or
+                    Swedish NCTS when the transport arrives at the border.
                 </td>
             </tr>
             <tr>
                 <td>IMMEDIATE_RELEASE_VOEC</td>
                 <td>VOEC-sendinger</td>
                 <td>
-				   Consignments which are exempt from declaration, and are 
-				   released immediately after crossing the border.
-			   </td>
+                   Consignments which are exempt from declaration, and are
+                   released immediately after crossing the border.
+               </td>
             </tr>
             <tr>
                 <td>WAREHOUSE_RELEASE_RELAXATIONS</td>
                 <td>Samlefortolling</td>
                 <td>
-				   Goods that are to be collectively customs cleared upon unloading. 
-				   Declaration has not been submitted at the time of border crossing
-				</td>
+                   Goods that are to be collectively customs cleared upon unloading.
+                   Declaration has not been submitted at the time of border crossing
+                </td>
             </tr>
             <tr>
                 <td>WAREHOUSE_RELEASE</td>
                 <td>Innlegg på tollager</td>
                 <td>
-				   Consignments for which a declaration for placement in 
-				   a customs warehouse has been submitted in advance
-			   </td>
+                   Consignments for which a declaration for placement in
+                   a customs warehouse has been submitted in advance
+               </td>
             </tr>
             </tbody>
         </table>
 
         <h4 id="outgoingprocedure">Outgoing Procedure</h4>
         <p>
-           These codes should be used in the consignment notification to indicate 
-		   which customs procedure the consignment is subject to outside the EU
-		   and up to the Norwegian border. This information is necessary to provide
-		   when the border crossing occurs at the road border between Norway/Sweden
-		   or Norway/Finland, due to the border customs cooperation agreements with
-		   Sweden and Finland. When the border crossing occurs in any other way,
-		   it is not necessary to provide this information. 
+           These codes should be used in the consignment notification to indicate
+           which customs procedure the consignment is subject to outside the EU
+           and up to the Norwegian border. This information is necessary to provide
+           when the border crossing occurs at the road border between Norway/Sweden
+           or Norway/Finland, due to the border customs cooperation agreements with
+           Sweden and Finland. When the border crossing occurs in any other way,
+           it is not necessary to provide this information.
         </p>
         <table>
             <thead>
@@ -4246,24 +4246,24 @@
                 <td>TRA</td>
                 <td>Transittering</td>
                 <td>
-  				   The code used when the selected customs procedure is direct clearance
-				   to indicate whether the procedure up to the border is transit
+                   The code used when the selected customs procedure is direct clearance
+                   to indicate whether the procedure up to the border is transit
                </td>
             </tr>
             <tr>
                 <td>EXP</td>
                 <td>Eksport</td>
-                <td> 
-				   The code used when the selected customs procedure is direct clearance
-				   to indicate whether the procedure up to the border is export
+                <td>
+                   The code used when the selected customs procedure is direct clearance
+                   to indicate whether the procedure up to the border is export
                 </td>
             </tr>
             <tr>
                 <td>TRE</td>
                 <td>Transittering og Eksport</td>
-                <td> 
-				   The code used when the selected customs procedure is direct clearance 
-				   to indicate whether the procedure up to the border is transit AND export
+                <td>
+                   The code used when the selected customs procedure is direct clearance
+                   to indicate whether the procedure up to the border is transit AND export
                 </td>
             </tr>
             </tbody>
@@ -4272,12 +4272,12 @@
         <h4 id="additionalpreviousdocumenttype">Additional Previous Document Type</h4>
         <p>
             These codes are established as an addition to CL228 PreviousDocumentsType,
-			and they are used together with the other codes from PreviousDocumentType. 
-			They should be used in the consignment notification when the consignment
-			is to be linked to a customs declaration or a transit procedure to be
-			initiated at the border. If the selected customs procedure (see code set
-			ImportProcedure) is <i>Immediate release import</i> or 
-			<i>Warehouse release</i>, this object must always contain the code = CUDE.
+            and they are used together with the other codes from PreviousDocumentType.
+            They should be used in the consignment notification when the consignment
+            is to be linked to a customs declaration or a transit procedure to be
+            initiated at the border. If the selected customs procedure (see code set
+            ImportProcedure) is <i>Immediate release import</i> or
+            <i>Warehouse release</i>, this object must always contain the code = CUDE.
         </p>
         <table>
             <thead>
@@ -4292,17 +4292,17 @@
                 <td>CUDE</td>
                 <td>Tolldeklarasjon</td>
                 <td>
-				   Code to be used if DeclarationID, and not typeOfReference, 
-				   is to be used in the previousDocuments-object
+                   Code to be used if DeclarationID, and not typeOfReference,
+                   is to be used in the previousDocuments-object
                 </td>
             </tr>
             <tr>
                 <td>RETR</td>
                 <td>Oppstart transittering</td>
                 <td>
-				   Code to be used if there is an LRN to transit-declaration to be filled
-				   out as the referenceNumber in the previousDocuments-object
-			    </td>
+                   Code to be used if there is an LRN to transit-declaration to be filled
+                   out as the referenceNumber in the previousDocuments-object
+                </td>
             </tr>
             </tbody>
         </table>
@@ -4310,10 +4310,11 @@
         <h4 id="tb_eksporttype">TB_EXPORTTYPE</h4>
         <p>
             These codes should be used in the consignment notification when the
-			consignment is declared for export outside of the EU. The codes support 
-			different types of export. For example, if the selected outgoing customs
-			procedure (see code set OutgoingProcedure) is <i>export</i>, this object
-			must contain the correct code from the table below.
+            consignment is declared for export outside of the EU. The codes should be placed
+            in the typeOfExport-attribute. They support  different types of export.
+            For example, if the selected outgoing customs
+            procedure (see code set OutgoingProcedure) is <i>export</i>, this object
+            must contain the correct code from the table below.
         </p>
         <table>
             <thead>
@@ -4321,6 +4322,7 @@
                 <th scope="column">Code</th>
                 <th scope="column">Norwegian designation</th>
                 <th scope="column">Description</th>
+                <th scope="column">"exportID" requirements</th>
             </tr>
             </thead>
             <tbody>
@@ -4328,60 +4330,92 @@
                 <td>UGE_EXPORT</td>
                 <td>UGE</td>
                 <td>
-				   Export from Sweden that has been pre-cleared for export by
-				   Swedish Customs (Tullverket). Upon arrival at the border,
-				   an automatic arrival and export confirmation is sent to 
-				   Swedish Customs. This does not require manual processing 
-				   at the border.
+                   Export from Sweden that has been pre-cleared for export by
+                   Swedish Customs (Tullverket). Upon arrival at the border,
+                   an automatic arrival and export confirmation is sent to
+                   Swedish Customs. This does not require manual processing
+                   at the border.
+                </td>
+                <td>
+                  <ul>
+                   <li>18 characters</li>
+                   <li>the two first characters must be digits</li>
+                   <li>the next three must be the letters SEE</li>
+                  </ul>
+                  <p>Example: <strong>23SEE0123456789QWE</strong></p>
                 </td>
             </tr>
             <tr>
                 <td>EUEIR_EXPORT</td>
                 <td>EUEIR</td>
                 <td>
-				   Export from Sweden. No further follow-up required by Norwegian
-				   Customs upon arrival at the border and entry into Norway.
-				   This does not require manual processing at the border. 
+                   Export from Sweden. No further follow-up required by Norwegian
+                   Customs upon arrival at the border and entry into Norway.
+                   This does not require manual processing at the border.
+                </td>
+                <td>
+                  <ul>
+                   <li>up to 35 characters</li>
+                  </ul>
+                  <p>Example: <strong>SE009251-20230602-24</strong></p>
                 </td>
             </tr>
             <tr>
                 <td>ALE_EXPORT</td>
                 <td>ALE</td>
                 <td>
-				   Export from Sweden. No further follow-up required by Norwegian
-				   Customs upon arrival at the border and entry into Norway. 
-				   This does not require manual processing at the border.                
-          		</td>
+                   Export from Sweden. No further follow-up required by Norwegian
+                   Customs upon arrival at the border and entry into Norway.
+                   This does not require manual processing at the border.
+                </td>
+                <td>
+                  <ul>
+                   <li>18 characters</li>
+                  </ul>
+                  <p>Example: <strong>23SEALEATD3OAW6MG1</strong></p>
+                </td>
             </tr>
             <tr>
                 <td>UNU_EXPORT</td>
                 <td>UNU</td>
                 <td>
-  				   Export from Sweden. This is what Swedish Customs refers to as a
-				   standard customs declaration (Standardtulldeklaration), and it
-				   must always be processed by an export customs office (Exporttullkontor)
-				   before the goods can be taken out of Sweden. 
-				   Due to the border customs cooperation, for example, No SVD/No Ørje
-				   function as the export customs office when the export is destined for
-				   Norway. This means that the Norwegian customs officer must process
-				   the export declaration in the Swedish system. Processing may also 
-				   involve manual handling equivalent to risk assessment in Tvinn.
-				   After the declaration is processed, it must be confirmed for export
-				   in the same way as a UGE. This requires manual processing at the border.
+                   Export from Sweden. This is what Swedish Customs refers to as a
+                   standard customs declaration (Standardtulldeklaration), and it
+                   must always be processed by an export customs office (Exporttullkontor)
+                   before the goods can be taken out of Sweden.
+                   Due to the border customs cooperation, for example, No SVD/No Ørje
+                   function as the export customs office when the export is destined for
+                   Norway. This means that the Norwegian customs officer must process
+                   the export declaration in the Swedish system. Processing may also
+                   involve manual handling equivalent to risk assessment in Tvinn.
+                   After the declaration is processed, it must be confirmed for export
+                   in the same way as a UGE. This requires manual processing at the border.
+                </td>
+                <td>
+                  <ul>
+                   <li>10 characters</li>
+                  </ul>
+                  <p>Example: <strong>FKR0116862</strong></p>
                 </td>
             </tr>
             <tr>
                 <td>ECS_EXPORT</td>
                 <td>ECS</td>
-                <td> 
-				   Export from the EU. The processing procedure involves a customs officer
-				   confirming the export in the Export Control System (ECS). 
-				   This requires manual processing at the border. 
+                <td>
+                   Export from the EU. The processing procedure involves a customs officer
+                   confirming the export in the Export Control System (ECS).
+                   This requires manual processing at the border.
+                </td>
+                <td>
+                  <ul>
+                   <li>18 characters</li>
+                  </ul>
+                  <p>Example: <strong>23FIMHFG8987345TY7</strong></p>
                 </td>
             </tr>
             </tbody>
         </table>
- 
+
         <p><br/></p>
     </div>
 

@@ -4161,12 +4161,12 @@
         <a href="https://www.iso.org/iso-3166-country-codes.html">ISO-3166</a> &ndash; vi benytter Alpha-2-kodene
 
         <h3 id="nasjonale-kodeverk">Nasjonale kodeverk</h3>
-		
+
         <h4 id="importprocedure">Import Procedure</h4>
-		<p>
-			Disse kodene skal brukes i melding om forsendelse for å angi hvilken tollprosedyre 
-			forsendelsen skal underlegges i forbindelse med innpassering til norsk tollområde.
-		</p>
+        <p>
+            Disse kodene skal brukes i melding om forsendelse for å angi hvilken tollprosedyre
+            forsendelsen skal underlegges i forbindelse med innpassering til norsk tollområde.
+        </p>
         <table>
             <thead>
             <tr>
@@ -4180,10 +4180,10 @@
                 <td>IMMEDIATE_RELEASE_IMPORT</td>
                 <td>Overgang til fri disponering</td>
                 <td>
-					Forsendelser hvor det på forhånd er innlevert en tolldeklarasjon som skal ekspederes i forbindelse
-					med grensekryssingen. Dette inkluderer deklarasjon for overgang til fri disponering, foreløpig
-					deklarasjon og midlertidig innførsel. Det inkluderer ikke forenklet deklarasjon for innlegg på
-					tollager. Denne har en egen ImportProcedure.
+                    Forsendelser hvor det på forhånd er innlevert en tolldeklarasjon som skal ekspederes i forbindelse
+                    med grensekryssingen. Dette inkluderer deklarasjon for overgang til fri disponering, foreløpig
+                    deklarasjon og midlertidig innførsel. Det inkluderer ikke forenklet deklarasjon for innlegg på
+                    tollager. Denne har en egen ImportProcedure.
                 </td>
             </tr>
             <tr>
@@ -4208,8 +4208,8 @@
             <tr>
                 <td>WAREHOUSE_RELEASE_RELAXATIONS</td>
                 <td>Samlefortolling</td>
-                <td>Varer som skal samlefortolles i forbindelse med lossing. 
-				Deklarasjon er ikke innlevert på tidspunktet for grensekryssingen.</td>
+                <td>Varer som skal samlefortolles i forbindelse med lossing.
+                Deklarasjon er ikke innlevert på tidspunktet for grensekryssingen.</td>
             </tr>
             <tr>
                 <td>WAREHOUSE_RELEASE</td>
@@ -4220,13 +4220,13 @@
         </table>
 
         <h4 id="outgoingprocedure">Outgoing Procedure</h4>
-		<p>
-			Disse kodene skal brukes i melding om forsendelse for å fortelle om hvilken tollprosedyre 
-			forsendelsen er underlagt ut av EU/fram til Norge-grensen. Denne opplysningen er nødvendig 
-			å avgi når grensekryssingen skjer på landeveisgrensen mellom Norge/Sverige eller Norge/Finland, 
-			og skyldes grensetoll-samarbeidsavtalene med Sverige og Finland. Når grensekryssingen skjer på 
-			annen måte er det ikke nødvendig å gi denne opplysningen.
-		</p>
+        <p>
+            Disse kodene skal brukes i melding om forsendelse for å fortelle om hvilken tollprosedyre
+            forsendelsen er underlagt ut av EU/fram til Norge-grensen. Denne opplysningen er nødvendig
+            å avgi når grensekryssingen skjer på landeveisgrensen mellom Norge/Sverige eller Norge/Finland,
+            og skyldes grensetoll-samarbeidsavtalene med Sverige og Finland. Når grensekryssingen skjer på
+            annen måte er det ikke nødvendig å gi denne opplysningen.
+        </p>
         <table>
             <thead>
             <tr>
@@ -4261,13 +4261,13 @@
         </table>
 
         <h4 id="additionalpreviousdocumenttype">Additional Previous Document Type</h4>
-		<p>
-			Disse kodene er etablert som et tillegg til CL228 PreviousDocumentsType og kodene brukes
-			sammen med de øvrige kodene fra PreviousDocumentType. De skal benyttes i melding om forsendelse
-			når forsendelsen skal knyttes til en tolldeklarasjon eller en transittering som skal startes opp
-			på grensen. Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er <i>Overgang til fri
-			disponering</i> eller <i>Innlegg på tollager</i>, må dette objektet alltid fylles ut med kode = CUDE.
-		</p>
+        <p>
+            Disse kodene er etablert som et tillegg til CL228 PreviousDocumentsType og kodene brukes
+            sammen med de øvrige kodene fra PreviousDocumentType. De skal benyttes i melding om forsendelse
+            når forsendelsen skal knyttes til en tolldeklarasjon eller en transittering som skal startes opp
+            på grensen. Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er <i>Overgang til fri
+            disponering</i> eller <i>Innlegg på tollager</i>, må dette objektet alltid fylles ut med kode = CUDE.
+        </p>
         <table>
             <thead>
             <tr>
@@ -4295,18 +4295,20 @@
         </table>
 
         <h4 id="tb_eksporttype">TB_EKSPORTTYPE</h4>
-		<p>
-			Disse kodene skal brukes i melding om forsendelse når forsendelsen er deklarert for
-			eksport ut av EU. Kodene understøtter de ulike eksport-typene. Eks: Dersom valgt
-			utgående tollprosedyre (se kodeverk OutgoingProcedure) er eksport, må dette objektet
-			fylles ut med riktig kode fra tabellen under.
-		</p>
+        <p>
+            Disse kodene skal brukes i melding om forsendelse når forsendelsen er deklarert for
+            eksport ut av EU.
+            Kodene skal angis i feltet "typeOfExport", og understøtter de ulike eksport-typene.
+            Eks: Dersom valgt utgående tollprosedyre (se kodeverk OutgoingProcedure) er eksport,
+            må dette objektet fylles ut med riktig kode fra tabellen under.
+        </p>
         <table>
             <thead>
             <tr>
                 <th scope="column">Kode</th>
                 <th scope="column">Norsk betegnelse</th>
                 <th scope="column">Beskrivelse</th>
+                <th scope="column">Krav til innhold i feltet "exportID"</th>
             </tr>
             </thead>
             <tbody>
@@ -4318,6 +4320,14 @@
                     ankomst- og utførselsbekreftelse til Tullverket. Medfører ikke behov for
                     manuell ekspedisjon på grensen.
                 </td>
+                <td>
+                  <ul>
+                   <li>18 tegn</li>
+                   <li>de to første tegnene skal være siffer</li>
+                   <li>de tre neste skal være bokstavene SEE</li>
+                  </ul>
+                  <p>Eksempel: <strong>23SEE0123456789QWE</strong></p>
+                </td>
             </tr>
             <tr>
                 <td>EUEIR_EXPORT</td>
@@ -4326,6 +4336,12 @@
                     ankomst og innpassering. Medfører ikke behov for manuell ekspedisjon på
                     grensen.
                 </td>
+                <td>
+                  <ul>
+                   <li>inntil 35 tegn</li>
+                  </ul>
+                  <p>Eksempel: <strong>SE009251-20230602-24</strong></p>
+                </td>
             </tr>
             <tr>
                 <td>ALE_EXPORT</td>
@@ -4333,6 +4349,12 @@
                 <td>Eksport fra Sverige. Ingen videre oppfølging for Tolletaten ifm
                     ankomst og innpassering. Medfører ikke behov for manuell ekspedisjon på
                     grensen.
+                </td>
+                <td>
+                  <ul>
+                   <li>18 tegn</li>
+                  </ul>
+                  <p>Eksempel: <strong>23SEALEATD3OAW6MG1</strong></p>
                 </td>
             </tr>
             <tr>
@@ -4349,6 +4371,12 @@
                     ekspedert, må den utførselsbekreftes på samme måte som en UGE. Medfører
                     behov for manuell ekspedisjon på grensen.
                 </td>
+                <td>
+                  <ul>
+                   <li>10 tegn</li>
+                  </ul>
+                  <p>Eksempel: <strong>FKR0116862</strong></p>
+                </td>
             </tr>
             <tr>
                 <td>ECS_EXPORT</td>
@@ -4356,6 +4384,12 @@
                 <td>Eksport fra EU. Ekspedisjonsprosessen innebærer at toller
                     utførselsbekrefter eksporten i eksportkontrollsystemet (ECS). Medfører
                     behov for manuell ekspedisjon på grensen.
+                </td>
+                <td>
+                  <ul>
+                   <li>18 tegn</li>
+                  </ul>
+                  <p>Eksempel: <strong>23FIMHFG8987345TY7</strong></p>
                 </td>
             </tr>
             </tbody>
