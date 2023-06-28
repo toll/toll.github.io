@@ -106,7 +106,7 @@
           href="https://lovdata.no/dokument/SFE/forskrift/2022-10-27-1901"> associated regulations</a>.
         </p>
         <figure>
-            <img src="media/kpv-digiflyt.png" alt="See caption"/>
+            <img src="media/mo-digiflyt-EN.png" alt="See caption"/>
             <figcaption> Figure: The service supports the Norwegian Customs' concept of digital
             and automated cross-border goods supply. </figcaption>
         </figure>
@@ -333,13 +333,13 @@
             the house consignment. (To be used by all parties other than postal operators)
          </li>
         </ul>
-        <p><img src="media/MO-nokler.png" alt="Relationship of keys" style="max-width: 60%"></p>
+        <p><img src="media/MO-nokler-EN.png" alt="Relationship of keys" style="max-width: 60%"></p>
         <p>or</p>
         <ul>
          <li>by referencing the post bag ID in both the house consignment and the master
              consignment. (Only used by postal operators)</li>
         </ul>
-        <p><img src="media/MO-nokler-postsekk.png"
+        <p><img src="media/MO-nokler-postsekk-EN.png"
                 alt=" Relationship between keys using post bag ID" style="max-width: 60%"></p>
 
         <p>&nbsp;</p>
@@ -884,144 +884,147 @@
             to refer to previously submitted messages.
         </p>
 
-        <h3 id="kontrolldir">Fremlegging og kontrolldirigering</h2>
+        <h3 id="kontrolldir">Presentation and control routing</h2>
 
         <p>
-           Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
-           grensepassering. Dersom automatisk ankomst blir detektert vil Tolletaten
-           gjennomføre en automatisk digital fremlegging av alle forventede forsendelser
-           på den ankommende transport.<br/>
-           Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt API for de
-           forventede forsendelsene. Aktører som er koblet til de fremlagte
-           forsendelser vil kunne hente ut kontrolldirigering på API.
-           De aktører som automatisk er slik koblet er den aktøren som sendte inn
-           informasjon om forsendelsen i Tolletatens API (autentisert i Maskinporten) og
-           eventuell tollrepresentant nevnt i melding om forsendelse, hovedforsendelse
-           eller transport.
-        </p>
+          Norwegian Customs will attempt to automatically detect the arrival of a transport
+          at the border. If automatic arrival is detected, Norwegian Customs will carry out
+          an automatic digital presentation of all expected consignments on the incoming
+          transport.<br/>
+          Subsequently, Norwegian Customs will make routing available in our API for the
+          expected consignments. Entities connected to the presented consignments will be
+          able to retrieve control routing via the API. The entities automatically connected
+          are those who submitted information about the consignment in the Norwegian Customs
+          API (authenticated in Maskinporten) and customs representatives mentioned in the
+          house consignment, master consignment, or transport.
+         </p>
 
-        <h4 id="tjenestefremlegging">Tjeneste for fremlegging</h4>
+        <h4 id="tjenestefremlegging">Presentation service</h4>
 
         <p>
-           Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
-           (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
-           Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
-           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU 
-           i ICS2-løsningen</strong>.
+           The service is used for the digital fulfillment of the presentation obligation
+           (Movement of Goods Act § 2-3 &ndash; Presentation of goods for control).
+           The service can be used jointly for consignments subject to <strong>notification
+           and disclosure of information obligations</strong> and/or <strong>pre-notified
+           to the EU in the ICS2 solution</strong>.
            <br/>
-           Fremlegging (<strong><a href="movement-presentation-api-EN.html">API: movement-presentation</a></strong>) 
-           kan meldes for
-           forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
-           si de forsendelser som er forventet fremlagt.
+           Presentation (<strong><a href="movement-presentation-api-EN.html">API:
+           movement-presentation</a></strong>)  can be reported for consignments that have
+           been pre-notified through the two mentioned obligations, i.e., consignments
+           expected to be presented.
         </p>
 
         <p>
-           Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
-           eller en postsekk innsendt for melde og opplysningsplikten.
-           Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
-           under denne bli fremlagt.
-           En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
-           koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
-           kontrolldirigeringer for de samme forsendelsene.
+           Presentation can be made by presenting a master consignment, house
+           consignment, or a post bag submitted for the notification and disclosure
+           of information obligation. If a post bag or a master consignment is presented,
+           all consignments under it will be presented. An entity that presents consignments
+           (through the aforementioned API), and has not previously been connected to the
+           consignments, will then be connected and can therefore retrieve control routing
+           for the same consignments.
+       </p>
+
+        <p>
+           For pre-notification (ICS2), presentation can be made for an entire movement
+           declaration (ENS), a post bag, or individual consignments.
+           If a post bag or a movement declaration is presented, all individual
+           consignments under it will be presented.
+        </p>
+
+        <h4 id="kontrollrespons">Control routing &ndash; response</h4>
+
+        <p>
+           The entity that has presented the consignments, automatically by the
+           Norwegian Customs or by their own presentation, should use the control
+           routing service (<strong><a href="movement-routing-api-EN.html">API:
+           movement-routing</a></strong>).
+           Based on the result of the control routing, the entity should select the
+           consignments that need to be physically inspected. These consignments should
+           be promptly delivered to the agreed control location.
         </p>
 
         <p>
-           For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
-           forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
-           Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
-           enkeltsendingene under denne bli fremlagt.
-        </p>
-
-        <h4 id="kontrollrespons">Kontrolldirigering &ndash; respons</h4>
-           
-        <p>
-           Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen
-           fremlegging, skal bruke tjenesten for kontrolldirigering 
-           (<strong><a href="movement-routing-api-EN|.html">API: movement-routing</a></strong>).
-           Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene
-           som skal fysisk kontrolleres.
-           Disse sendingene skal snarest overleveres avtalt kontrollsted.
-        </p>
-
-        <p>
-            Når en aktør ber om dirigering gjennom å bruke tjenesten for
-            kontrolldirigering (<strong><a href="movement-routing-api-EN.html">API: 
-            movement-routing</a></strong>) vil Tolletaten
-            svare med én dirigering per forsendelse (House Consignment).
+            When an entity requests routing by using the control routing service
+            (<strong><a href="movement-routing-api-EN.html">API: movement-routing</a></strong>),
+            Norwegian Customs will respond with one routing per House Consignment.
             <br/>
-            Dersom forsendelsen er meldt inn gjennom forhåndsvarsel (ICS2), det vil si
-            gods fra tredjeland (utenfor EUs sikkerhetssone), vil det medfølge informasjon
-            om ENS MRN og postsekker (receptacle) dere det er relevant.<br/>
-            Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse
-            dataelementene være tomme.
+            If the consignment has been reported through pre-arrival notification (ICS2),
+            i.e., goods from countries outside the EU security zone, information
+            about ENS MRN and post bags (receptacle) will be included if relevant.<br/>
+            If the consignment has not been reported through pre-arrival notification,
+            these data elements will be empty.
         </p>
 
         <p>
-            For øvrig vil responsen inneholde referanse til nøkkel for forsendelsen, her
-            kalt <i>transportDocumentHouseLevel</i>, med dataelementene
-            <i>referenceNumber</i> og <i>type</i>.<br/>
-            Dette refererer til den nøkkelen som aktøren selv bruker for forsendelsen og
-            har oppgitt til Tolletaten, ofte referert til som fraktbrevnummer,
-            sporingsnummer, kollinummer etc av aktørene.
+            Furthermore, the response will contain a reference to the key for the
+            consignment, referred to as <i>transportDocumentHouseLevel</i>, with the
+            data elements <i>referenceNumber</i> and <i>type</i>.<br/>
+            This refers to the key that the entity itself uses for the consignment
+            and have provided to Norwegian Customs, often referred to as the consignment
+            note number, tracking number, package number, etc., by the entities.
         </p>
 
         <p>
-            Selve dirigeringen av forsendelsen er angitt av routingResult der:
+            The actual routing of the consignment is indicated by routingResult where:
         </p>
         <ul>
             <li>
-                <strong>routing</strong> = informasjon om forsendelsen skal til kontroll og
-                eventuelt hvilken type kontroll som ønskes
+                <strong>routing</strong> = information about whether the consignment
+                should undergo control and possibly the type of control desired.
             </li>
             <li>
-                <strong>placeOfControl</strong> = informasjon om forsendelsen skal kontrolleres på
-                grensepasseringsstedet, eller om kontrollen kan foretas etter grensepassering,
-                for eksempel på aktørens terminal
+                <strong>placeOfControl</strong> = information about whether the
+                consignment should be controlled at the border crossing point or if the
+                control can be carried out after the border crossing, for example,
+                at the entity’s terminal.
             </li>
         </ul>
 
-        <p>Responsen i disse to dataelementene er kodet som følger:</p>
+        <p> The response in these two data elements is coded as follows:</p>
         <dl>
         <dt><strong>routing</strong></dt>
         <dd>
             <table>
                 <thead>
                      <tr>
-                      <th scope="column">Resultatkode </th>
-                      <th scope="column">Beskrivelse</th>
+                      <th scope="column">Result code </th>
+                      <th scope="column">Description</th>
                      </tr>
                  </thead>
                  <tbody>
                      <tr>
                       <td>TO_ENTRY</td>
                       <td>
-                          Forsendelsen er fristilt og
-                          kan videreformidles til mottaker etter grensepassering
+                          The consignment has been cleared and can be forwarded,
+                          to the recipient after crossing the border.
                       </td>
                      </tr>
                      <tr>
                       <td>TO_CONTROL</td>
                       <td>
-                          Forsendelsen skal leveres til Tolletaten for kontroll
+                          The consignment is to be delivered to the Norwegian
+                          Customs for control.
                       </td>
                      </tr>
                      <tr>
                       <td>TO_CONTROL_PRIORITY</td>
                       <td>
-                          Forsendelsen skal leveres til
-                          Tolletaten for kontroll, forsendelsen skal leveres separat fra ordinære
-                          kontroller (de som har respons TO_CONTROL)
+                          The consignment is to be delivered to the Norwegian
+                          Customs for control, separately from regular controls
+                          (those with the response TO_CONTROL).
                       </td>
                      </tr>
                      <tr>
                       <td>TO_CONTROL_DOCUMENTATION</td>
                       <td>
-                          Forsendelsen skal ikke leveres
-                          Tolletaten, men kan ikke videreformidles til mottaker før korrekt
-                          dokumentasjon er overlevert Tolletaten. <br/>
-                          Når dokumentasjonskrav er oppfylt vil Tolletaten tilgjengeliggjøre et nytt
-                          dirigeringssignal for denne forsendelsen, det vil si at den kan tas ut til
-                          fysisk kontroll.
+                          The consignment should not be delivered to the Norwegian
+                          Customs but cannot be forwarded to the recipient until the
+                          correct documentation has been handed over to the Norwegian
+                          Customs.
+                          Once the documentation requirements are fulfilled, the
+                          Norwegian Customs will provide a new routing signal for
+                          this consignment, which means the consignment may still
+                          be subject to physical control.
                       </td>
                      </tr>
                  </tbody>
@@ -1033,34 +1036,34 @@
             <table>
                 <thead>
                      <tr>
-                      <th scope="column">Resultatkode</th>
-                      <th scope="column">Beskrivelse</th>
+                      <th scope="column">Result code</th>
+                      <th scope="column">Description</th>
                      </tr>
                  </thead>
                  <tbody>
                      <tr>
                           <td>AT_BORDER</td>
                           <td>
-                             Forsendelsen skal overleveres Tolletaten på
-                             grensepasseringsstedet. For vei vil dette medføre rød lys og stopp på
-                             tollstedet.
-                             For fly vil dette bety at forsendelsen ikke kan
-                             videreformidles til aktørens terminal hvis den ikke er på lokalisert på
-                             tollstedet.
+                             The consignment is to be handed over to Norwegian
+                             Customs at the border crossing point. For road transport,
+                             this will involve red lights and a stop at the customs
+                             checkpoint. For air transport, this means that the consignment
+                             cannot be forwarded to a terminal unless it is located
+                             at the customs checkpoint.
                       </td>
                      </tr>
                      <tr>
                           <td>AFTER_BORDER</td>
                           <td>
-                            Forsendelsen kan passere grensen uten stopp. Forsendelsen
-                            skal, der det er aktuelt, sorteres ut og overleveres Tolletaten for kontroll
-                            på avtalt tollsted.
+                            The consignment can cross the border without stopping.
+                            Where applicable, the consignment should be sorted out
+                            and handed over to Norwegian Customs for inspection at
+                            the agreed customs location.
                           </td>
                      </tr>
                  </tbody>
             </table>
         <dd>
-        </dl>  
 
 
         <h2 id="kodeverk">Code sets</h2>
