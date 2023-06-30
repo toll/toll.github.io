@@ -80,135 +80,245 @@
 
     <div class="column middle" role="main">
 
-        <h2 id="eksempler">Eksempler</h2>
+        <h2 id="eksempler">Examples</h2>
 
         <p>
-            We have created some examples of how the message content may look based on the
-			customs procedure used. To keep it as concise as possible, only the content that
+            We have created some examples of how the message content for a House Consigment may 
+			look based on the customs procedure used. 
+			The examples are also illustrated with a Master Consignment reference, to show how
+			postal consigments are a little different.
+			To keep it as concise as possible, only the content that
 			differs for the different procedures is shown, which includes the following objects:
         </p>
             <ul>
-                <li>houseConsignment.consignmentHouseLevel.ExportFromEU</li>
-                <li>houseConsignment.consignmentHouseLevel.ImportProcedure</li>
-                <li>houseConsignment.consignmentHouseLevel.PreviousDocuments</li>
+                <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
+                <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
+                <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
+                <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
+                <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
             </ul>
 
-        <h3 id="eks1">Example  1 &ndash; Customs declaration and Swedish/EU Export</h3>
+        <h3 id="eks1">Example 1 &ndash; Customs declaration and Swedish/EU Export (road only)</h3>
         <pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "CUDE",
-        "declarantNumber": "913144929",
-        "declarationDate": "2022-03-01",
-        "sequenceNumber": "13881"
-      }
-    ],
-    "exportFromEU": [
-      {
-        "typeOfExport": "UGE_EXPORT",
-        "exportId": "22SEEVO1CT5UAP2BT3"
-      }
-    ],
-    "importProcedure": {
-      "outgoingProcedure": "EXP",
-      "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "CUDE",
+                "declarantNumber": "913144929",
+                "declarationDate": "2022-03-01",
+                "sequenceNumber": "13881"
+            }
+        ],
+        "exportFromEU": [
+            {
+                "typeOfExport": "UGE_EXPORT",
+                "exportId": "22SEEVO1CT5UAP2BT3"
+            }
+        ],
+        "importProcedure": {
+            "outgoingProcedure": "EXP",
+            "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+        }
     }
-  }
-}       </pre>
+}
+       </pre>
 
-        <h3 id="eks2">Example 2 &ndash; Customs declaration and transit to be completed at the border</h3>
+        <h3 id="eks2">Example 2 &ndash; Transit to be completed by customs declaration at the border</h3>
         <pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "N820",
-        "referenceNumber": "22FR98765273876523"
-      },
-      {
-        "typeOfReference": "CUDE",
-        "declarantNumber": "913144929",
-        "declarationDate": "2022-03-01",
-        "sequenceNumber": "13881"
-      }
-    ],
-    "importProcedure": {
-      "outgoingProcedure": "TRA",
-      "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "N820",
+                "referenceNumber": "22FR98765273876523"
+            },
+            {
+                "typeOfReference": "CUDE",
+                "declarantNumber": "913144929",
+                "declarationDate": "2022-03-01",
+                "sequenceNumber": "13881"
+            }
+        ],
+        "importProcedure": {
+            "outgoingProcedure": "TRA",
+            "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+        }
     }
-  }
-}       </pre>
+}
+        </pre>
 
-        <h3 id="eks3">Example 3 &ndash; Transit for border crossing only</h3>
+        <h3 id="eks3">Example 3 &ndash; Transit started outside Norway for border crossing only</h3>
         <pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "N820",
-        "referenceNumber": "22FR98765273876523"
-      }
-    ],
-    "importProcedure": {
-      "outgoingProcedure": "TRA",
-      "importProcedure": "TRANSIT_IMPORT"
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "N820",
+                "referenceNumber": "22FR98765273876523"
+            }
+        ],
+        "importProcedure": {
+            "outgoingProcedure": "TRA",
+            "importProcedure": "TRANSIT_IMPORT"
+        }
     }
-  }
-}       </pre>
+}
+        </pre>
 
-        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border</h3>
+        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border, 
+		preceding procedure is Swedish export</h3>
         <pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "RETR",
-        "referenceNumber": "SE2298081234598765"
-      }
-    ],
-    "exportFromEU": [
-      {
-        "typeOfExport": "UGE_EXPORT",
-        "exportId": "22SEEEO1CT5UAP2BT3"
-      }
-    ],
-    "importProcedure": {
-      "outgoingProcedure": "EXP",
-      "importProcedure": "TRANSIT_RELEASE"
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "RETR",
+                "referenceNumber": "SE2298081234598765"
+            }
+        ],
+        "exportFromEU": [
+            {
+                "typeOfExport": "UGE_EXPORT",
+                "exportId": "22SEEEO1CT5UAP2BT3"
+            }
+        ],
+        "importProcedure": {
+            "outgoingProcedure": "EXP",
+            "importProcedure": "TRANSIT_RELEASE"
+        }
     }
-  }
-}       </pre>
+}
+        </pre>
 
         <h3 id="eks5">Example 5 &ndash; Customs declaration where the exports are completed in the country of origin</h3>
         <pre>
 {
-  "consignmentHouseLevel": {
-    "previousDocuments": [
-      {
-        "typeOfReference": "CUDE",
-        "declarantNumber": "913144929",
-        "declarationDate": "2022-03-01",
-        "sequenceNumber": "13881"
-      }
-    ],
-    "importProcedure": {
-      "hasOutgoingProcedure": false,
-      "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "CUDE",
+                "declarantNumber": "913144929",
+                "declarationDate": "2022-03-01",
+                "sequenceNumber": "13881"
+            }
+        ],
+        "importProcedure": {
+            "hasOutgoingProcedure": false,
+            "importProcedure": "IMMEDIATE_RELEASE_IMPORT"
+        }
     }
-  }
-}       </pre>
+}
+        </pre>
 
         <h3 id="eks6">Example 6 &ndash; VOEC-consignment</h3>
         <pre>
-        ?
+{
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "importProcedure": {
+            "importProcedure": "IMMEDIATE_RELEASE_VOEC",
+            "hasOutgoingProcedure": false
+        },
+        "goodsItem": [
+            {
+                "additionalFiscalReferences": {
+                    "vatIdentificationNumber": "589403",
+                    "role": "FR5"
+                },
+                "itemAmountInvoicedVOEC": {
+                    "value": 400.50,
+                    "numberOfItems": 11
+                },
+                "commodityCodeVOEC": {
+                    "harmonizedSystemSubHeadingCode": "551100"
+                }
+            }
+        ]
+    }
+}
         </pre>
 
         <h3 id="eks7">Example 7 &ndash; Postal consignment</h3>
         <pre>
-        ?
-        </pre>
+{
+    "consignmentHouseLevel": {
+        "receptacleIdentificationNumber": "4j3i24ji3o24ji23",
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "importProcedure": {
+            "importProcedure": "WAREHOUSE_RELEASE_RELAXATIONS",
+            "hasOutgoingProcedure": false
+        }
+    }
+}        </pre>
 
         <p><br/></p>
         <h3 id="testdata">Test data</h3>
@@ -245,6 +355,9 @@
 			playground environment, we only check if the field contains 
 			18 alphanumerical characters, which is then validated as OK. 
 			If the field has the text "INVALID", the validation will fail.
+        </p>
+        <p>
+            TODO: VOEC that validates OK
         </p>
 
     </div>
