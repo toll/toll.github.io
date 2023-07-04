@@ -73,9 +73,10 @@
                         <li><a href="#CL754">Transportdokumenttype CL754</a></li>
                     </ul>
                 </li>
-                <li><p><a href="#aut">Autentisering</a></p></li>
+                <li><<a href="#aut">Autentisering</a></li>
+                <li><a href="#testing">Testing</a></li>
                 <li><a href="#Tilbakemeldinger">Tilbakemeldinger og kontakt</a></li>
-            </ul>
+             </ul>
         </div>
     </div>
 
@@ -269,11 +270,78 @@
             </ul>
         <p>Scopet som benyttes for dette API-et er <b>toll:movement/entry</b>.</p>
 
+        <h2 id="testing">Testing</h2>
 
-        <h3 id="Tilbakemeldinger">Tilbakemeldinger og kontakt</h3>
+        <p>For test kan <em>playground</em>-miljøet brukes.</p>
+
+        <p>
+          Valideringen av innsendte meldinger inneholder blant annet en
+          kontroll mot at oppgitte referanser til &quot;Entry Summary
+          Declaration&quot;, postsekk og fraktbrev eksisterer.
+          I playground-miljøet har vi ikke integrasjon mot disse
+          fagsystemene, så innholdet valideres mot en statisk liste som
+          inneholder noen få verdier.
+        </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Entry Summary Declaration MRN</th>
+                <th>Receptacle ID</th>
+                <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
+                <th>TransportDocumentHouseLevel &ndash; type</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>23NO00000000000001</td>
+              <td>GBASFZMLBKONAUN30001001019999</td>
+              <td>NO100000001MU </td>
+              <td>N750</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000002</td>
+              <td>GBASFZMLBKONAUN30001001019999</td>
+              <td>NO100000002MU</td>
+              <td>N750</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000003</td>
+              <td>&ndash;</td>
+              <td>HC001</td>
+              <td>N740</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000003</td>
+              <td>&ndash;</td>
+              <td>HC002</td>
+              <td>N740</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000004</td>
+              <td>&ndash;</td>
+              <td>HC001</td>
+              <td>N703</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000004</td>
+              <td>&ndash;</td>
+              <td>HC002</td>
+              <td>N703</td>
+            </tr>
+          </table>
+
+        <p>
+          Dirigeringssignaler som man får hentet ut i playground-miljøet
+          er også en statisk liste og vil være basert på de samme verdiene.
+          Øvrige verdier vil gi valideringsfeil ved innsending.
+        </p>
+
+        <h2 id="Tilbakemeldinger">Tilbakemeldinger og kontakt</h2>
 
         <p>Har du spørsmål eller innspill til API-et, hører vi gjerne fra dere på epost
         <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
+
     </div>
 
 

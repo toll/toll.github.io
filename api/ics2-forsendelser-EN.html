@@ -74,7 +74,8 @@
                         <li><a href="#CL754">Transport document type CL754</a></li>
                     </ul>
                 </li>
-                <li><p><a href="#aut">Authentication</a></p></li>
+                <li><a href="#aut">Authentication</a></li>
+                <li><a href="#testing">Testing</a></li>
                 <li><a href="#Tilbakemeldinger">Feedback and contact</a></li>
             </ul>
         </div>
@@ -90,11 +91,11 @@
         <p>
             The service is used for the digital fulfillment of the obligation to present goods
             at the border. Currently, it should only be used for consignments that have a 
-			pre-arrival notification submitted to the EU in the ICS2 solution, which concerns 
-			transports from outside of the EU / Norway (excluding Svalbard) / Switzerland. 
-			From March 2023, this includes all consignments from these areas to be transported 
-			by air. From March 2024, the requirement will also include consignments by sea, 
-			road, and rail.
+            pre-arrival notification submitted to the EU in the ICS2 solution, which concerns 
+            transports from outside of the EU / Norway (excluding Svalbard) / Switzerland. 
+            From March 2023, this includes all consignments from these areas to be transported 
+            by air. From March 2024, the requirement will also include consignments by sea, 
+            road, and rail.
             Presentation can be done by presenting a complete movement declaration (ENS), a mailbag,
             or individual consignments. If a mailbag or a movement declaration is submitted, all
             individual consignments within it will be presented. Furthermore, the entity that presented
@@ -269,7 +270,7 @@
         <p>
             Our APIs use "Maskinporten" for identity and access management. On the page
             <strong><a href="maskinporten-EN.html">Maskinporten</a></strong>
-			you will find information on
+            you will find information on
         </p>
         <ul>
          <li>how to get started with integration via Maskinporten
@@ -281,8 +282,73 @@
 
         <p> The scope used for this API is <b>toll:movement/entry</b>.</p>
 
+        <h2 id="testing">Testing</h2>
 
-        <h3 id="Tilbakemeldinger">Feedback and contact</h3>
+        <p>For testing purposes, the <em>playground</em> environment can be used.</p>
+
+        <p>
+          The validation of submitted messages includes, among other things, a check
+          to ensure that the specified references to Entry Summary Declaration, 
+          receptacle, and transport document number exist.
+          The playground invironment is not integraded with other systems, so the
+          content is validated against a static dataset that contains a few values.
+        </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Entry Summary Declaration MRN</th>
+                <th>Receptacle ID</th>
+                <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
+                <th>TransportDocumentHouseLevel &ndash; type</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>23NO00000000000001</td>
+              <td>GBASFZMLBKONAUN30001001019999</td>
+              <td>NO100000001MU </td>
+              <td>N750</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000002</td>
+              <td>GBASFZMLBKONAUN30001001019999</td>
+              <td>NO100000002MU</td>
+              <td>N750</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000003</td>
+              <td>&ndash;</td>
+              <td>HC001</td>
+              <td>N740</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000003</td>
+              <td>&ndash;</td>
+              <td>HC002</td>
+              <td>N740</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000004</td>
+              <td>&ndash;</td>
+              <td>HC001</td>
+              <td>N703</td>
+            </tr>
+            <tr>
+              <td>23NO00000000000004</td>
+              <td>&ndash;</td>
+              <td>HC002</td>
+              <td>N703</td>
+            </tr>
+          </table>
+
+        <p>
+          Both presentation and routing services will give responses based on these existing data.
+          Other input values will result in validation errors upon submission.
+        </p>
+
+
+        <h2 id="Tilbakemeldinger">Feedback and contact</h2>
 
         <p>If you have questions or suggestions regarding the API, please email us at
         <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
