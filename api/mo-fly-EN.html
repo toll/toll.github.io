@@ -79,10 +79,11 @@
                 <li><p><a href="#kodeverk">Code sets</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">Interface description</a></p>
                   <ul>
-                    <li><p><a href="#movement-air-api">API: movement-air-api</a></p></li>
-                    <li><p><a href="#movement-presentation-api">API: movement-presentation-api</a></p></li>
-                    <li><p><a href="#movement-routing-api">API: movement-routing-api</a></p></li>
-                    <li><p><a href="#dokumentinnsending">API: Document upload</a></p></li>
+                    <li><p><a href="#movement-air-api">movement-air-api</a></p></li>
+                    <li><p><a href="#movement-air-query-api">movement-air-query-api</a></p></li>
+                    <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
+                    <li><p><a href="#dokumentinnsending">Document upload</a></p></li>
                   </ul></li>
                 <li><p><a href="#eksempler">Examples</a></p></li>
                 <li><p><a href="#autentisering">Authentication</a></p></li>
@@ -1079,8 +1080,33 @@
         <p>
            The services are made available as REST services over HTTPS, with data in JSON format.
         </p>
+        <pre class="boxed">
+POST https://&lt;env&gt;/api/movement/air/v1/transport
+POST https://&lt;env&gt;/api/movement/air/v1/master-consignment
+POST https://&lt;env&gt;/api/movement/air/v1/house-consignment
 
-        <h3 id="movement-air-api">API: movement-air-api-v2</h3>
+PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/air/status/v1/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/air/status/v1/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-status/{requestId}
+        </pre>
+        <p>
+           where &lt;env&gt; is
+		</p>
+        <ul>
+           <li>api.toll.no for production</li>
+           <li><b>api-test</b>.toll.no for playground (test environment)</li>
+         </ul>
+		 <p>
+		    and<br/>
+		    <em>{requestId}</em> is substituted by the reference returned from POST/PUT/DELETE-invocations</br>
+            <em>{MRN}</em> is substituted by the reference returned from ".../validation-status..."-end points.
+         </p>
+
+        <h3 id="movement-air-api">API: movement-air-api</h3>
         <p>
             There may still be changes to this API due to legal or functional requirements.
         </p>
@@ -1091,6 +1117,19 @@
         </p>
         <p>
             See <strong><a href="movement-air-api.html">API-documentation here</a></strong>.
+        </p>
+
+        <h3 id="movement-air-query-api">API: movement-air-query-api</h3>
+        <p>
+            There may still be changes to this API due to legal or functional requirements.
+        </p>
+        <p>
+            In order to use the service, the scope for authentication against Maskinporten
+            must be set to
+            <strong>toll:movement/air</strong>
+        </p>
+        <p>
+            See <strong><a href="movement-air-query-api.html">API-documentation here</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>

@@ -78,20 +78,34 @@
 
 
         <h2 id="grensesnitt">Grensesnittbeskrivelse</h2>
-        <p>Tjenesten  gjøres tilgjengelig som en REST-tjeneste over HTTPS, med data på JSON-format.</p>
+        <p>Tjenestene gjøres tilgjengelige som en REST-tjenester over HTTPS, med data på JSON-format.</p>
+        <pre class="boxed">POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document</pre>
+        <p>
+           der &lt;env&gt; er
+		</p>
+        <ul>
+           <li>api.toll.no for produksjon</li>
+           <li><b>api-test</b>.toll.no for playground (testmiljø)</li>
+         </ul>
+		 <p>
+		    og <em>{DeklarasjonsID}</em> byttes ut med TVINN deklarasjons-ID.
+         </p>
 
 
         <h3 id="HTTPRequest">HTTP Request</h3>
-
-        <h4 id="MetodePOST">Metode: POST</h4>
-
-        <p><strong>URL:</strong> https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document</p>
+		<p>
+			<b>Metode</b>: POST<br/>
+			<b>Endepunkt</b>: /goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document
+		</p>
 
         <h4 id="Headers">Headers</h4>
         <ul>
-         <li><strong>Authorization</strong>: Bearer Token</li>
+         <li><strong>Authorization</strong>: Bearer Token
+           <br/>
+		   Tokenet som kreves er et Toll-signert JWT med scopet <strong>toll:goodsdeclaration/document.write</strong>
+		   fra Maskinporten (se beskrivelse av autentisering lenger ned på siden).
+          </li>
         </ul>
-        <p>Token som kreves er en Maskinporten JWT med scopet <strong>toll:goodsdeclaration/document.write</strong></p>
 
         <h4 id="Body">Body</h4>
 

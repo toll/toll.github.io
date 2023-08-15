@@ -81,20 +81,33 @@
 
         <h2 id="grensesnitt">Interface description</h2>
         <p>The services are made available as REST services over HTTPS, with data in JSON format.</p>
+        <pre class="boxed">POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document</pre>
+        <p>
+           where &lt;env&gt; is
+		</p>
+        <ul>
+           <li>api.toll.no for production</li>
+           <li><b>api-test</b>.toll.no for playground (test environment)</li>
+         </ul>
+		 <p>
+		    og <em>{DeclarationID}</em> is substituted with TVINN declaration ID.
+         </p>
 
 
         <h3 id="HTTPRequest">HTTP Request</h3>
-
-        <h4 id="MetodePOST">Mehod: POST</h4>
-
-        <p><strong>URL:</strong> https://api.toll.no/api/goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document</p>
+		<p>
+			<b>Method</b>: POST<br/>
+			<b>End point</b>: /goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document
+		</p>
 
         <h4 id="Headers">Headers</h4>
         <ul>
-         <li><strong>Authorization</strong>: Bearer Token</li>
+         <li><strong>Authorization</strong>: Bearer Token<br/>
+		   The required token must be a JWT signed by Toll with the Maskinporten scope
+		   <strong>toll:goodsdeclaration/document.write</strong>
+		   (more on authentication below).
+		   </li>
         </ul>
-        <p>The required token is a Maskinporten JWT with the specified scope
-           <strong>toll:goodsdeclaration/document.write</strong></p>
 
         <h4 id="Body">Body</h4>
 

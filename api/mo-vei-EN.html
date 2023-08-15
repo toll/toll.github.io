@@ -79,10 +79,11 @@
                 <li><p><a href="#kodeverk">Code sets</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">API descriptions</a></p>
                   <ul>
-                    <li><p><a href="#movement-road-api-v2">API: movement-road-api-v2</a></p></li>
-                     <li><p><a href="#movement-presentation-api">API: movement-presentation-api</a></p></li>
-                    <li><p><a href="#movement-routing-api">API: movement-routing-api</a></p></li>
-                   <li><p><a href="#dokumentinnsending">API: Document upload</a></p></li>
+                    <li><p><a href="#movement-road-api-v2">movement-road-api-v2</a></p></li>
+                    <li><p><a href="#movement-road-query-api-v2">movement-road-query-api-v2</a></p></li>
+                    <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
+                    <li><p><a href="#dokumentinnsending">Document upload</a></p></li>
                   </ul></li>
                 <li><p><a href="#eksempler">Examples</a></p></li>
                 <li><p><a href="#autentisering">Authentication</a></p></li>
@@ -1079,6 +1080,31 @@
         <p>
            The services are made available as REST services over HTTPS, with data in JSON format.
         </p>
+        <pre class="boxed">
+POST https://&lt;env&gt;/api/movement/road/v2/transport
+POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
+POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
+
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
+        </pre>
+        <p>
+           where &lt;env&gt; is
+		</p>
+        <ul>
+           <li>api.toll.no for production</li>
+           <li><b>api-test</b>.toll.no for playground (test environment)</li>
+         </ul>
+		 <p>
+		    and<br/>
+		    <em>{requestId}</em> is substituted by the reference returned from POST/PUT/DELETE-invocations</br>
+            <em>{MRN}</em> is substituted by the reference returned from ".../validation-status..."-end points.
+         </p>
 
         <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
         <p>
@@ -1091,6 +1117,19 @@
         </p>
         <p>
             See <strong><a href="movement-road-api-v2.html">API-documentation here</a></strong>.
+        </p>
+
+        <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
+        <p>
+            There may still be changes to this API due to legal or functional requirements.
+        </p>
+        <p>
+            In order to use the service, the scope for authentication against Maskinporten
+            must be set to
+            <strong>toll:movement/road</strong>
+        </p>
+        <p>
+            See <strong><a href="movement-road-query-api-v2.html">API-documentation here</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>

@@ -78,10 +78,11 @@
                 <li><p><a href="#kodeverk">Kodeverk</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">Grensesnittbeskrivelse</a></p>
                   <ul>
-                    <li><p><a href="#movement-road-api-v2">API: movement-road-api-v2</a></p></li>
-                    <li><p><a href="#movement-presentation-api">API: movement-presentation-api</a></p></li>
-                    <li><p><a href="#movement-routing-api">API: movement-routing-api</a></p></li>
-                    <li><p><a href="#dokumentinnsending">API: Dokumentinnsending</a></p></li>
+                    <li><p><a href="#movement-road-api-v2">movement-road-api-v2</a></p></li>
+                    <li><p><a href="#movement-road-query-api-v2">movement-road-query-api-v2</a></p></li>
+                    <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
+                    <li><p><a href="#dokumentinnsending">Dokumentinnsending</a></p></li>
                   </ul></li>
                 <li><p><a href="#eksempler">Aktuelle eksempler</a></p></li>
                 <li><p><a href="#autentisering">Autentisering</a></p></li>
@@ -1070,6 +1071,31 @@
         <p>
             Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
         </p>
+        <pre class="boxed">
+POST https://&lt;env&gt;/api/movement/road/v2/transport
+POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
+POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
+
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
+        </pre>
+        <p>
+           der &lt;env&gt; er
+		</p>
+        <ul>
+           <li>api.toll.no for produksjon</li>
+           <li><b>api-test</b>.toll.no for playground (testmiljø)</li>
+         </ul>
+		 <p>
+		    og<br/>
+		    <em>{requestId}</em> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall</br>
+            <em>{MRN}</em> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+         </p>
 
         <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
         <p>
@@ -1081,6 +1107,18 @@
         </p>
         <p>
             Se <strong><a href="movement-road-api-v2.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
+        <p>
+            Det kan fortsatt bli endringer i dette grensesnittet som en følge av juridiske eller funksjonelle behov.
+        </p>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/road</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-road-query-api-v2.html">API-dokumentasjon her</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
