@@ -77,6 +77,7 @@
                 <li><p><a href="#outgoingprocedure">Outgoing Procedure</a></p>
                 <li><p><a href="#additionalpreviousdocumenttype">Additional Previous Document Type</a></p>
                 <li><p><a href="#tb_eksporttype">Eksporttype</a></p>
+                <li><p><a href="#incompleteDocumentationReason">Incomplete documentation reason</a></p>
             </ul>
         </div>
     </div>
@@ -4206,7 +4207,7 @@
                 <td>Sendinger som er unntatt deklareringsplikt og som kan disponeres fritt etter innpassering</td>
             </tr>
             <tr>
-                <td>WAREHOUSE_RELEASE_RELAXATIONS</td>
+                <td>COLLECTIVE_RELEASE</td>
                 <td>Samlefortolling</td>
                 <td>Varer som skal samlefortolles i forbindelse med lossing.
                 Deklarasjon er ikke innlevert på tidspunktet for grensekryssingen.</td>
@@ -4392,6 +4393,62 @@
                   <p>Eksempel: <strong>23FIMHFG8987345TY7</strong></p>
                 </td>
             </tr>
+            </tbody>
+        </table>
+        <p><br/></p>
+
+        <h4 id="incompleteDocumentationReason">IncompleteDocumentationReason</h4>
+        <p>
+            Disse kodene kan returneres i valideringen av melding om forsendelse når en eller flere opplysninger
+            mangler for at meldingen skal være fullstendig. De manglende opplysningene må være sendt inn senest
+            ved ankomst til grensen.
+        </p>
+        <table>
+            <thead>
+            <tr>
+                <th scope="column">Kode</th>
+                <th scope="column">Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td>INCOMPLETE_CUDE_DOCUMENTATION</td>
+                  <td>
+                     When customs declaration ID is not given in the PreviousDocuments listen and
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure is either
+                     IMMEDIATE_RELEASE_IMPORT or WAREHOUSE_RELEASE.
+                  </td>
+               </tr>
+               <tr>
+                  <td>INCOMPLETE_EXP_DOCUMENTATION</td>
+                  <td>
+                     When export type and/or export ID is not given in the ExportFromEu list and
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is EXP.
+                  </td>
+               </tr>
+               <tr>
+                  <td>INCOMPLETE_TRA_DOCUMENTATION</td>
+                  <td>
+                     When the MRN of the transit declaration is not given in the PreviousDocuments list and
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure is
+                     TRANSIT_IMPORT or
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is TRA/TRE.
+                  </td>
+               </tr>
+               <tr>
+                  <td>INCOMPLETE_VOEC_DOCUMENTATION</td>
+                  <td>
+                      When ConsignmentHouseLevel&rarr;GoodsItem is incomplete
+                      and ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure
+                      is IMMEDIATE_RELEASE_VOEC.
+                  </td>
+               </tr>
+               <tr>
+                  <td>INCOMPLETE_DOCUMENTATION</td>
+                  <td>
+                     Skyldes at det er mer enn 1 IncompleteDocumentationReason.
+                 </td>
+               </tr>
             </tbody>
         </table>
         <p><br/></p>

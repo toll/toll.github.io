@@ -83,12 +83,12 @@
         <h2 id="eksempler">Examples</h2>
 
         <p>
-            We have created some examples of how the message content for a House Consigment may 
-			look based on the customs procedure used. 
-			The examples are also illustrated with a Master Consignment reference, to show how
-			postal consigments are a little different.
-			To keep it as concise as possible, only the content that
-			differs for the different procedures is shown, which includes the following objects:
+            We have created some examples of how the message content for a House Consigment may
+            look based on the customs procedure used.
+            The examples are also illustrated with a Master Consignment reference, to show how
+            postal consigments are a little different.
+            To keep it as concise as possible, only the content that
+            differs for the different procedures is shown, which includes the following objects:
         </p>
             <ul>
                 <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
@@ -170,8 +170,8 @@
 }
         </pre>
 
-        <h3 id="eks3">Example 3 &ndash; Example 3 – Transit started outside Norway, 
-		upon arrival at the border: border crossing only</h3>
+        <h3 id="eks3">Example 3 &ndash; Example 3 – Transit started outside Norway,
+        upon arrival at the border: border crossing only</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -200,8 +200,8 @@
 }
         </pre>
 
-        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border, 
-		preceding procedure is Swedish export</h3>
+        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border,
+        preceding procedure is Swedish export</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -305,7 +305,7 @@
 }
         </pre>
 
-        <h3 id="eks7">Example 7 &ndash; Postal consignment</h3>
+        <h3 id="eks7">Example 7 &ndash; Postal consignment for collective customs clearance</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -325,9 +325,9 @@
         <h3 id="testdata">Test data</h3>
         <p>
             Validation of a submitted notification includes a check to ensure that the
-			submitted declarations in TVINN and NCTS exist and have the expected status.
-			In the playground environment, we do not have integration with these systems,
-			so the content is validated against a static list that contains a few declarations.
+            submitted declarations in TVINN and NCTS exist and have the expected status.
+            In the playground environment, we do not have integration with these systems,
+            so the content is validated against a static list that contains a few declarations.
         </p>
         <p>
             For TVINN-declarations, the declarations in the table below may be used:
@@ -353,9 +353,9 @@
             </table>
         <p>
             For transit declarations (NCTS), there is an even simpler validation in the
-			playground environment, we only check if the field contains 
-			18 alphanumerical characters, which is then validated as OK. 
-			If the field has the text "INVALID", the validation will fail.
+            playground environment, we only check if the field contains
+            18 alphanumerical characters, which is then validated as OK.
+            If the field has the text "INVALID", the validation will fail.
         </p>
         <p>
             TODO: VOEC that validates OK
