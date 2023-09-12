@@ -4414,39 +4414,43 @@
                <tr>
                   <td>INCOMPLETE_CUDE_DOCUMENTATION</td>
                   <td>
-                     When customs declaration ID is not given in the PreviousDocuments listen and
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure is either
-                     IMMEDIATE_RELEASE_IMPORT or WAREHOUSE_RELEASE.
+
+                     Skyldes at tolldeklarasjons-id ikke er oppgitt i PreviousDocuments-listen når
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure er satt til
+                     IMMEDIATE_RELEASE_IMPORT eller WAREHOUSE_RELEASE.
                   </td>
                </tr>
                <tr>
                   <td>INCOMPLETE_EXP_DOCUMENTATION</td>
                   <td>
-                     When export type and/or export ID is not given in the ExportFromEu list and
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is EXP.
+                     Skyldes at eksportype og/eller eksportID ikke er oppgitt i ExportFromEu-listen når
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure er satt til EXP.
                   </td>
                </tr>
                <tr>
                   <td>INCOMPLETE_TRA_DOCUMENTATION</td>
                   <td>
-                     When the MRN of the transit declaration is not given in the PreviousDocuments list and
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure is
-                     TRANSIT_IMPORT or
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is TRA/TRE.
+                     Skyldes at MRN til transitteringsdeklarasjon ikke er oppgitt
+                     i PreviousDocuments-listen når
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure er satt til
+                     TRANSIT_IMPORT eller når
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure er satt til
+                     TRA/TRE.
                   </td>
                </tr>
                <tr>
                   <td>INCOMPLETE_VOEC_DOCUMENTATION</td>
                   <td>
-                      When ConsignmentHouseLevel&rarr;GoodsItem is incomplete
-                      and ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure
-                      is IMMEDIATE_RELEASE_VOEC.
+                      Skyldes at ConsignmentHouseLevel&rarr;GoodsItem er ufullstendig
+                      når ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure
+                      er satt til IMMEDIATE_RELEASE_VOEC.
                   </td>
                </tr>
                <tr>
                   <td>INCOMPLETE_DOCUMENTATION</td>
                   <td>
-                     Skyldes at det er mer enn 1 IncompleteDocumentationReason.
+                     Skyldes at det mangler annen informasjon enn det som var mulig å identifisere
+                     vha de øvrige 4 kodene.
                  </td>
                </tr>
             </tbody>
