@@ -84,29 +84,32 @@
         <pre class="boxed">POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document</pre>
         <p>
            where &lt;env&gt; is
-		</p>
+        </p>
         <ul>
            <li>api.toll.no for production</li>
            <li><b>api-test</b>.toll.no for playground (test environment)</li>
          </ul>
-		 <p>
-		    og <em>{DeclarationID}</em> is substituted with TVINN declaration ID.
+         <p>
+            og <em>{DeclarationID}</em> is substituted with TVINN declaration ID
+            in the following format: "123456789-01092023-1" where the first part is
+            the declarant number, the second the declaration date (format ddmmyyyy),
+            and the third part is the sequence number.
          </p>
 
 
         <h3 id="HTTPRequest">HTTP Request</h3>
-		<p>
-			<b>Method</b>: POST<br/>
-			<b>End point</b>: /goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document
-		</p>
+        <p>
+            <b>Method</b>: POST<br/>
+            <b>End point</b>: /goodsdeclaration/document/v2/declaration-id/{DeclarationID}/document
+        </p>
 
         <h4 id="Headers">Headers</h4>
         <ul>
          <li><strong>Authorization</strong>: Bearer Token<br/>
-		   The required token must be a JWT signed by Toll with the Maskinporten scope
-		   <strong>toll:goodsdeclaration/document.write</strong>
-		   (more on authentication below).
-		   </li>
+           The required token must be a JWT signed by Toll with the Maskinporten scope
+           <strong>toll:goodsdeclaration/document.write</strong>
+           (more on authentication below).
+           </li>
         </ul>
 
         <h4 id="Body">Body</h4>
@@ -169,7 +172,7 @@
         <p>
            Our APIs use Maskinporten for identity and access management.
            On the page <b><a href="maskinporten-EN.html">Maskinporten</a></b>
-		   you will find information on
+           you will find information on
         </p>
             <ul>
                 <li>how to get started with integration via Maskinporten including a

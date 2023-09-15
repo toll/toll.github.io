@@ -82,28 +82,30 @@
         <pre class="boxed">POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document</pre>
         <p>
            der &lt;env&gt; er
-		</p>
+        </p>
         <ul>
            <li>api.toll.no for produksjon</li>
            <li><b>api-test</b>.toll.no for playground (testmiljø)</li>
          </ul>
-		 <p>
-		    og <em>{DeklarasjonsID}</em> byttes ut med TVINN deklarasjons-ID.
+         <p>
+            og <em>{DeklarasjonsID}</em> byttes ut med TVINN deklarasjons-ID som angis på følgende format: 
+            "123456789-01092023-1" der første del er deklarantnummer, andre del deklarasjonsdato på format 
+            ddmmyyyy og tredje del sekvensnummer.
          </p>
 
 
         <h3 id="HTTPRequest">HTTP Request</h3>
-		<p>
-			<b>Metode</b>: POST<br/>
-			<b>Endepunkt</b>: /goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document
-		</p>
+        <p>
+            <b>Metode</b>: POST<br/>
+            <b>Endepunkt</b>: /goodsdeclaration/document/v2/declaration-id/{DeklarasjonsID}/document
+        </p>
 
         <h4 id="Headers">Headers</h4>
         <ul>
          <li><strong>Authorization</strong>: Bearer Token
            <br/>
-		   Tokenet som kreves er et Toll-signert JWT med scopet <strong>toll:goodsdeclaration/document.write</strong>
-		   fra Maskinporten (se beskrivelse av autentisering lenger ned på siden).
+           Tokenet som kreves er et Toll-signert JWT med scopet <strong>toll:goodsdeclaration/document.write</strong>
+           fra Maskinporten (se beskrivelse av autentisering lenger ned på siden).
           </li>
         </ul>
 
