@@ -67,7 +67,7 @@
                         <li><p><a href="#eks5">Customs declaration completed in country of origin</a></p>
                         <li><p><a href="#eks6">VOEC consignment</a></p>
                         <li><p><a href="#eks7">Postal consignment</a></p>
-                        <li><p><a href="#eks8">Innlegg på tollager</a></p>
+                        <li><p><a href="#eks8">Warehouse release</a></p>
                     </ol>
                 </li>
                 <li><p><a href="#testdata">Test data</a></p></li>
@@ -99,7 +99,7 @@
                 <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
             </ul>
 
-        <h3 id="eks1">Example 1 &ndash; Customs declaration for overgang til fri disponering and Swedish/EU Export (road only)</h3>
+        <h3 id="eks1">Example 1 &ndash; Customs declaration for immediate release import and Swedish/EU Export (road only)</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -136,7 +136,7 @@
 }
        </pre>
 
-        <h3 id="eks2">Example 2 &ndash; Customs declaration for overgang til fri disponering and transit to be completed at the border</h3>
+        <h3 id="eks2">Example 2 &ndash; Customs declaration for immediate release import and transit to be completed at the border</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -171,8 +171,7 @@
 }
         </pre>
 
-        <h3 id="eks3">Example 3 &ndash; Example 3 – Transit started outside Norway,
-        upon arrival at the border: border crossing only</h3>
+        <h3 id="eks3">Example 3 &ndash; Example 3 – Transit started outside Norway, upon arrival at the border: border crossing only</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -201,8 +200,7 @@
 }
         </pre>
 
-        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border,
-        preceding procedure is Swedish export</h3>
+        <h3 id="eks4">Example 4 &ndash; Transit which is to be initiated at the border, preceding procedure is Swedish export</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -237,7 +235,7 @@
 }
         </pre>
 
-        <h3 id="eks5">Example 5 &ndash; Customs declaration for overgang til fri disponering where the exports are completed in the country of origin</h3>
+        <h3 id="eks5">Example 5 &ndash; Customs declaration for immediate release import where the exports are completed in the country of origin</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -322,7 +320,7 @@
     }
 }        </pre>
 
-        <h3 id="eks8">Example 8 &ndash; Customs declaration for innlegg på tollager uten informasjon om prosedyre fram til grensa</h3>
+        <h3 id="eks8">Example 8 &ndash; Customs declaration for warehouse release, without information about customs procedure before border crossing</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -390,7 +388,7 @@
             If the field has the text "INVALID", the validation will fail.
         </p>
         <p>
-            VOEC tillatelsesnummer that validates ok: <strong>2056550</strong>
+            VOEC-number that validates ok: <strong>2056550</strong>
         </p>
 
     </div>
