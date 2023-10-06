@@ -67,6 +67,7 @@
                         <li><p><a href="#eks5">Tolldekl avsluttet i avgangslandet</a></p>
                         <li><p><a href="#eks6">VOEC-forsendelse</a></p>
                         <li><p><a href="#eks7">Postforsendelse</a></p>
+                        <li><p><a href="#eks8">Innlegg på tollager</a></p>
                     </ol>
                 </li>
                 <li><p><a href="#testdata">Testdata</a></p></li>
@@ -98,7 +99,7 @@
                 <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
             </ul>
 
-        <h3 id="eks1">Eksempel 1 &ndash; Tolldeklarasjon og svensk/EU eksport (kun relevant på vei)</h3>
+        <h3 id="eks1">Eksempel 1 &ndash; Tolldeklarasjon for overgang til fri disponering og svensk/EU eksport (kun relevant på vei)</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -135,7 +136,7 @@
 }
        </pre>
 
-        <h3 id="eks2">Eksempel 2 &ndash; Transittering som skal fullføres mot tolldeklarasjon ved grensepassering</h3>
+        <h3 id="eks2">Eksempel 2 &ndash; Tolldeklarasjon for overgang til fri disponering og transittering som skal fullføres ved grensepassering</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -236,7 +237,7 @@
 }
         </pre>
 
-        <h3 id="eks5">Eksempel 5 &ndash; Tolldeklarasjon der eksportene er avsluttet i avgangslandet</h3>
+        <h3 id="eks5">Eksempel 5 &ndash; Tolldeklarasjon for overgang til fri disponering der eksportene er avsluttet i avgangslandet</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -315,8 +316,39 @@
             "type": "N750"
         },
         "importProcedure": {
-            "importProcedure": "WAREHOUSE_RELEASE_RELAXATIONS",
+            "importProcedure": "COLLECTIVE_RELEASE",
             "hasOutgoingProcedure": false
+        }
+    }
+}
+        </pre>
+
+        <h3 id="eks8">Eksempel 8 &ndash; Tolldeklarasjon for innlegg på tollager uten informasjon om prosedyre fram til grensa</h3>
+        <pre>
+{
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "CUDE",
+                "declarantNumber": "913144929",
+                "declarationDate": "2022-03-01",
+                "sequenceNumber": "13881"
+            }
+        ],
+        "importProcedure": {
+            "hasOutgoingProcedure": false,
+            "importProcedure": "WAREHOUSE_RELEASE"
         }
     }
 }
@@ -357,7 +389,7 @@
             Dersom feltet har teksten "INVALID" i seg feilvalideres den.
         </p>
         <p>
-            TODO: VOEC that validates OK
+            VOEC tillatelsesnummer som validerer ok: <strong>2056550</strong>
         </p>
 
     </div>

@@ -67,6 +67,7 @@
                         <li><p><a href="#eks5">Customs declaration completed in country of origin</a></p>
                         <li><p><a href="#eks6">VOEC consignment</a></p>
                         <li><p><a href="#eks7">Postal consignment</a></p>
+                        <li><p><a href="#eks8">Innlegg på tollager</a></p>
                     </ol>
                 </li>
                 <li><p><a href="#testdata">Test data</a></p></li>
@@ -98,7 +99,7 @@
                 <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
             </ul>
 
-        <h3 id="eks1">Example 1 &ndash; Customs declaration and Swedish/EU Export (road only)</h3>
+        <h3 id="eks1">Example 1 &ndash; Customs declaration for overgang til fri disponering and Swedish/EU Export (road only)</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -135,7 +136,7 @@
 }
        </pre>
 
-        <h3 id="eks2">Example 2 &ndash; Transit to be completed by customs declaration at the border</h3>
+        <h3 id="eks2">Example 2 &ndash; Customs declaration for overgang til fri disponering and transit to be completed at the border</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -236,7 +237,7 @@
 }
         </pre>
 
-        <h3 id="eks5">Example 5 &ndash; Customs declaration where the exports are completed in the country of origin</h3>
+        <h3 id="eks5">Example 5 &ndash; Customs declaration for overgang til fri disponering where the exports are completed in the country of origin</h3>
         <pre>
 {
     "consignmentHouseLevel": {
@@ -315,11 +316,42 @@
             "type": "N750"
         },
         "importProcedure": {
-            "importProcedure": "WAREHOUSE_RELEASE_RELAXATIONS",
+            "importProcedure": "COLLECTIVE_RELEASE",
             "hasOutgoingProcedure": false
         }
     }
 }        </pre>
+
+        <h3 id="eks8">Example 8 &ndash; Customs declaration for innlegg på tollager uten informasjon om prosedyre fram til grensa</h3>
+        <pre>
+{
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "CUDE",
+                "declarantNumber": "913144929",
+                "declarationDate": "2022-03-01",
+                "sequenceNumber": "13881"
+            }
+        ],
+        "importProcedure": {
+            "hasOutgoingProcedure": false,
+            "importProcedure": "WAREHOUSE_RELEASE"
+        }
+    }
+}
+        </pre>
 
         <p><br/></p>
         <h3 id="testdata">Test data</h3>
@@ -358,7 +390,7 @@
             If the field has the text "INVALID", the validation will fail.
         </p>
         <p>
-            TODO: VOEC that validates OK
+            VOEC tillatelsesnummer that validates ok: <strong>2056550</strong>
         </p>
 
     </div>
