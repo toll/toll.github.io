@@ -97,7 +97,11 @@ figcaption {
   }
 }
 
-.boxed {
+blockquote {
+   font-style: italic;
+}
+
+.boxed, blockquote {
   border-radius: 18px;
   background: #ffffff;
   padding: 20px;
