@@ -109,7 +109,7 @@
             <figcaption>Figur: Tjenesten støtter opp under Tolletatens konsept for
                 digital og automatisert vareførsel over grensen</figcaption>
         </figure>
-        
+
         <div class="boxed"><p>Se også: <a href="mo-vei.html">API for vei/ferge</a></p></div>
 
         <h3 id="definisjoner">Definisjoner</h3>
@@ -2721,6 +2721,10 @@
            eventuell tollrepresentant nevnt i melding om forsendelse, hovedforsendelse
            eller transport.
         </p>
+        <p>
+          Les mer om <a href="mo-vei-fly-forklaring.html">
+            fremlegging og kontrolldirigering her</a> (med eksempler).
+        </p>
 
         <h4 id="tjenestefremlegging">Tjeneste for fremlegging</h4>
 
@@ -2728,10 +2732,10 @@
            Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
            (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
            Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
-           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU 
+           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
            i ICS2-løsningen</strong>.
            <br/>
-           Fremlegging (<strong><a href="movement-presentation-api.html">API: movement-presentation</a></strong>) 
+           Fremlegging (<strong><a href="movement-presentation-api.html">API: movement-presentation</a></strong>)
            kan meldes for
            forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
            si de forsendelser som er forventet fremlagt.
@@ -2755,10 +2759,10 @@
         </p>
 
         <h4 id="kontrollrespons">Kontrolldirigering &ndash; respons</h4>
-           
+
         <p>
            Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen
-           fremlegging, skal bruke tjenesten for kontrolldirigering 
+           fremlegging, skal bruke tjenesten for kontrolldirigering
            (<strong><a href="movement-routing-api.html">API: movement-routing</a></strong>).
            Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene
            som skal fysisk kontrolleres.
@@ -2767,7 +2771,7 @@
 
         <p>
             Når en aktør ber om dirigering gjennom å bruke tjenesten for
-            kontrolldirigering (<strong><a href="movement-routing-api.html">API: 
+            kontrolldirigering (<strong><a href="movement-routing-api.html">API:
             movement-routing</a></strong>) vil Tolletaten
             svare med én dirigering per forsendelse (House Consignment).
             <br/>
@@ -2809,7 +2813,7 @@
             <table>
                 <thead>
                      <tr>
-                      <th scope="column">Resultatkode </th>
+                       <th scope="column">Resultatkode </th>
                       <th scope="column">Beskrivelse</th>
                      </tr>
                  </thead>
@@ -2882,7 +2886,7 @@
                  </tbody>
             </table>
         <dd>
-        </dl>  
+        </dl>
 
         <h2 id="kodeverk">Kodeverk</h2>
         <p>
@@ -2911,14 +2915,14 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
         </pre>
         <p>
            der &lt;env&gt; er
-		</p>
+                </p>
         <ul>
            <li>api.toll.no for produksjon</li>
            <li><b>api-test</b>.toll.no for playground (testmiljø)</li>
          </ul>
-		 <p>
-		    og<br/>
-		    <em>{requestId}</em> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall</br>
+                 <p>
+                    og<br/>
+                    <em>{requestId}</em> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall</br>
             <em>{MRN}</em> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
          </p>
 

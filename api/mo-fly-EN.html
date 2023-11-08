@@ -2659,7 +2659,11 @@
           are those who submitted information about the consignment in the Norwegian Customs
           API (authenticated in Maskinporten) and customs representatives mentioned in the
           house consignment, master consignment, or transport.
-         </p>
+        </p>
+        <p>
+          Read more about <a href="mo-vei-fly-forklaring-EN.html">
+            presentation and control routing here</a> (with examples).
+        </p>
 
         <h4 id="tjenestefremlegging">Presentation service</h4>
 
@@ -2856,14 +2860,14 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
         </pre>
         <p>
            where &lt;env&gt; is
-		</p>
+  </p>
         <ul>
            <li>api.toll.no for production</li>
            <li><b>api-test</b>.toll.no for playground (test environment)</li>
          </ul>
-		 <p>
-		    and<br/>
-		    <em>{requestId}</em> is substituted by the reference returned from POST/PUT/DELETE-invocations</br>
+   <p>
+      and<br/>
+      <em>{requestId}</em> is substituted by the reference returned from POST/PUT/DELETE-invocations</br>
             <em>{MRN}</em> is substituted by the reference returned from ".../validation-status..."-end points.
          </p>
 
