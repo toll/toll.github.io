@@ -2,8 +2,8 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>API for melde- og opplysning, fly</title>
-    <meta name="description" content="Tolletatens API for melde- og opplysning, fly">
+    <title>API for melde- og opplysning, jernbane</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, jernbane">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -48,13 +48,13 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>API for melde- og opplysning, fly</h1>
+    <h1>API for melde- og opplysning, jernbane</h1>
 </header>
 
 
 <main>
     <div class="column right" role="navigation">
-         <div class="lang_nav"><a href="mo-fly-EN.html"><img src="media/UK.png" alt="UK flag"/>&nbsp;English</a></div>
+         <div class="lang_nav"><a href="mo-jernbane-EN.html"><img src="media/UK.png" alt="UK flag"/>&nbsp;English</a></div>
          <div id="toc_container"  aria-hidden="true">
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
@@ -78,8 +78,8 @@
                 <li><p><a href="#kodeverk">Kodeverk</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">Grensesnittbeskrivelse</a></p>
                   <ul>
-                    <li><p><a href="#movement-air-api">movement-air-api</a></p></li>
-                    <li><p><a href="#movement-air-query-api">movement-air-query-api</a></p></li>
+                    <li><p><a href="#movement-rail-api">movement-rail-api</a></p></li>
+                    <li><p><a href="#movement-rail-query-api">movement-rail-query-api</a></p></li>
                     <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
                     <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
                     <li><p><a href="#dokumentinnsending">Dokumentinnsending</a></p></li>
@@ -2892,17 +2892,17 @@
             Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
         </p>
         <pre class="boxed">
-POST https://&lt;env&gt;/api/movement/air/v1/transport
-POST https://&lt;env&gt;/api/movement/air/v1/master-consignment
-POST https://&lt;env&gt;/api/movement/air/v1/house-consignment
+POST https://&lt;env&gt;/api/movement/rail/v1/transport
+POST https://&lt;env&gt;/api/movement/rail/v1/master-consignment
+POST https://&lt;env&gt;/api/movement/rail/v1/house-consignment
 
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/transport/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/master-consignment/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/house-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/house-consignment/{MRN}
 
-GET https://&lt;env&gt;/api/movement/air/status/v1/transport/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/master-consignment/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
         </pre>
         <p>
            der &lt;env&gt; er
@@ -2917,29 +2917,29 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
             <em>{MRN}</em> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
          </p>
 
-        <h3 id="movement-air-api">API: movement-air-api</h3>
+        <h3 id="movement-rail-api">API: movement-rail-api</h3>
         <p>
             Det kan fortsatt bli endringer i dette grensesnittet som en følge av juridiske eller funksjonelle behov.
         </p>
         <p>
             For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
-            settes til <strong>toll:movement/air</strong>
+            settes til <strong>toll:movement/rail</strong>
         </p>
         <p>
-            Se <strong><a href="movement-air-api.html">
+            Se <strong><a href="movement-rail-api.html">
             API-dokumentasjon her</a></strong>.
         </p>
 
-        <h3 id="movement-air-query-api">API: movement-air-query-api</h3>
+        <h3 id="movement-rail-query-api">API: movement-rail-query-api</h3>
         <p>
             Det kan fortsatt bli endringer i dette grensesnittet som en følge av juridiske eller funksjonelle behov.
         </p>
         <p>
             For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
-            settes til <strong>toll:movement/air</strong>
+            settes til <strong>toll:movement/rail</strong>
         </p>
         <p>
-            Se <strong><a href="movement-air-query-api.html">API-dokumentasjon her</a></strong>.
+            Se <strong><a href="movement-rail-query-api.html">API-dokumentasjon her</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
