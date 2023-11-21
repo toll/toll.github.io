@@ -186,6 +186,6 @@ blockquote {
 	align: center;
 }
 
-pre {
+pre, code {
 	font-size: large;
 }
