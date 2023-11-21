@@ -2891,6 +2891,40 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3 id="movement-routing-api">API: movement-routing-api</h3>
         <p>See <strong><a href="movement-routing-api.html">API-documentation here</a></strong>.</p>
+        <p>
+            The API for control routing works by contiously publishing a routing signal for
+            forsendelser som er fremlagt.
+            Normally, presentation will happen automatically when the transport arrives at the border, but it may also
+            be triggered by a call to the presentation API
+            (<a href="#movement-presentation-api">movement-presentation-api</a>).
+        </p>
+        <ul>
+            <li>
+                Each call to the API returns a list of up to 1000 availablke routing signals
+                for the organisation authenticated via Maskinporten.
+            </li>
+            <li>
+                Parameter <code>marker</code> denotes the ID of the last routing signal you read.
+            </li>
+            <li>
+                <em>The very first time</em> you call the API, <em>no </em><code>marker</code> is used.
+                You will then get a list of the <em>first</em> routing signals.
+            </li>
+            <li>
+                Each time one set of signals has been processed, store the value of
+                <code>routingResult.id</code> from the last item in the list.<br/>
+                For the next API call, use that value as the <code>marker</code>, you will then get the
+                next routing signals.
+            </li>
+            <li>
+                Keep doing this until an empty list is returned. Then there are currently no more available
+                routing signals for your organisation.
+            </li>
+        </ul>
+        <p>
+            Hang on to the last read id, and use that as the <code>marker</code> the next time you start
+            a call sequence, then you will not have to scan past the routing signals for previous transports.
+        </p>
 
         <h3 id="dokumentinnsending">API: Document upload</h3>
         <p>

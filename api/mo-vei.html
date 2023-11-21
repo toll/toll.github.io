@@ -2951,6 +2951,42 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3 id="movement-routing-api">API: movement-routing-api</h3>
         <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
+        <p>
+            API-et for kontrolldirigering fungerer ved at det kontinuerlig publiseres dirigeringssignal for
+            forsendelser som er fremlagt.
+            Som regel vil fremleggingen skje automatisk ved ankomst av transportmiddel, men kan også bli
+            trigget av kall til API for fremlegging (<a href="#movement-presentation-api">movement-presentation-api</a>).
+        </p>
+        <ul>
+            <li>
+                Hvert kall til API-et returnerer en liste med opptil 1000 dirigeringssignal
+                som er tilgjengelige for den organisasjonen som har autentisert seg med
+                Maskinporten.
+            </li>
+            <li>
+                Parameter <code>marker</code> brukes for å si hvilket dirigeringssignal du leste sist.
+            </li>
+            <li>
+                <em>Aller første gang</em> du kaller API-et skal du <em>ikke</em> sende med noen <code>marker</code>.
+                Du vil da få en liste med de første dirigeringssignalene.
+            </li>
+            <li>
+                Hver gang du har behandlet et sett av dirigeringssignaler  henter du ut verdien
+                til feltet <code>routingResult.id</code> fra det siste dirigeringssignalet i listen og
+                tar vare på dette.<br/>
+                Neste gang du kaller API-et bruker du verdien du tok vare på som <code>marker</code> og vil
+                da få de neste dirigeringssignalene.
+            </li>
+            <li>
+                Fortsett å gjøre dette frem til du får en tom liste.
+                Da er det ingen flere dirigeringssignal tilgjengelig for din organisasjon.
+            </li>
+        </ul>
+        <p>
+            Ta vare på den siste ID-en du leste. For å få dirigeringssignal for forsendelser på neste transport
+            bruker du denne som <code>marker</code>.
+            Da slipper du å lese gjennom alle dirigeringssignalene for den forrige transporten på nytt.
+        </p>
 
         <h3 id="dokumentinnsending">API: Dokumentinnsending</h3>
         <p>
