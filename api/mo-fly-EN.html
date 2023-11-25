@@ -2924,14 +2924,14 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
             </li>
         </ul>
         <p>
-            Hang on to the last read id, and use that as the <code>marker</code> the next time you start
-            a call sequence, then you will not have to scan past the routing signals for previous transports.
+            Store the last read id, and use that as the <code>marker</code> the next time you start
+            a call sequence, then you won't have to scan past the routing signals for previous transports.
         </p>
 
         <h3 id="dokumentinnsending">API: Document upload</h3>
         <p>
             In addition to the information about consignments provided through the movement APIs,
-            it is also possible to upload invoices for consignments where customs declarations
+            it is also possible to upload invoices and other documentation for consignments where customs declarations
             have already been submitted. Documentation for this API can be found here:
             <a href="document-api-EN.html">Document upload API</a>.
         </p>
@@ -2939,7 +2939,7 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
         <h2 id="eksempler">Examples</h2>
         <p>
             We have created a brief overview of how the notification content for consignments
-            can be, based on the customs procedure used.
+            can look, based on the customs procedure used.
             <a href="mo-eksempler-EN.html">Examples can be found here</a>.<br/>
             On the same page, there is also information about test data related to customs declarations
             that can be used for testing the interface.
