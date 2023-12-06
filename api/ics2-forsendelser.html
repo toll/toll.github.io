@@ -87,17 +87,24 @@
     <div class="column middle" role="main">
         <h2 id="Omtjenesten">Om tjenesten</h2>
 
-        <p>Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten. Foreløpig
-        skal den kun benyttes for sendinger som er forhåndsmeldt til EU i
-        ICS2-løsningen. Fra mars 2023 omfatter det alle sendinger som skal fraktes med fly fra
-        tredjeland, fra mars 2024 vil kravet også omfatte sendinger over sjø, vei og tog.
-        Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
-        og Norge unntatt Svalbard). Fremlegging kan gjøres ved å fremlegge en hel
-        forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger. Dersom en
-        postsekk eller en forflytningsdeklarasjon fremlegges, vil alle enkeltsendingene
-        under denne bli fremlagt. Videre skal den som har fremlagt sendingene også bruke tjenesten for kontrolldirigering,
-        og basert på resultatet fra sistnevnte plukke ut sendingene som skal kontrolleres.
-        Disse sendingene skal snarest overleveres avtalt kontrollsted.</p>
+        <p>
+          Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten. Foreløpig
+          skal den kun benyttes for sendinger som er forhåndsmeldt til EU i
+          ICS2-løsningen. Fra mars 2023 omfatter det alle sendinger som skal fraktes med fly fra
+          tredjeland, fra mars 2024 vil kravet også omfatte sendinger over sjø, vei og tog.
+          Med tredjeland  menes land utenfor EUs sikkerhetssone (EU, Sveits
+          og Norge unntatt Svalbard). Etterhvert vil den samme tjenesten
+          kunne brukes for felles fremlegging iht. forhåndsvarsling og
+          melde- og opplysningplikten. Fremlegging kan gjøres ved å fremlegge en hel
+          forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger. Dersom en
+          postsekk eller en forflytningsdeklarasjon fremlegges, vil alle enkeltsendingene
+          under denne bli fremlagt. Videre skal den som har fremlagt sendingene også bruke
+          tjenesten for kontrolldirigering (routing). Dersom det kun er fremlegging av
+          ICS2-sendinger er det kun routing av forsendelser (house consignment) som er relevant
+          (For enkelte aktører vil tjenesten for routing på transportnivå bli aktuelt ifm.
+          Melde- og opplysningsplikten). Basert på resultatet fra dirigeringen skal sendingene
+          som skal kontrolleres snarest overleveres avtalt kontrollsted.
+        </p>
 
         <p>Mer bakgrunnsinformasjon om ICS2:</p>
         <ul>
@@ -114,13 +121,16 @@
         tjenestekall. Status på alle requester kan hentes ut ved å bruke
         validation-statustjenesten.</p>
 
-        <p>Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
-        fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
-        kontroll eller at den kan innpassere og utleveres til mottaker. Kontrolldirigering
-        gjøres kun på enkeltsendings-nivå (house-consignment), men fremlegging på
-        postsekk- eller ENS-nivå (Entry Summary Declaration) vil  medføre at
-        resultat hentes for alle enkeltsendinger som er forhåndsmeldt i den
-        aktuelle postsekk eller ENS.</p>
+        <p>
+          Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
+          fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
+          kontroll eller at den kan innpassere og utleveres til mottaker. Kontrolldirigering
+          gjøres kun på enkeltsendings-nivå (house-consignment), men fremlegging på
+          postsekk- eller ENS-nivå (Entry Summary Declaration) vil  medføre at
+          resultat hentes for alle enkeltsendinger som er forhåndsmeldt i den
+          aktuelle postsekk eller ENS. Ved å bruke marker som input kan du enkelt hente ut
+          endringer siden forrige uthenting.
+        </p>
 
         <h2 id="Grensesnitt">Grensesnittbeskrivelse</h2>
 
@@ -143,11 +153,12 @@
 
 
         <p>
-            API-et vil endres ved behov fra toll eller brukerne. Blant annet regner vi
-            med at innføringen av ICS2 fase 3 (sjø, vei og tog) vil medføre endringer.
-            Bakoverkompatible endringer legges til uten versjonsoppdatering eller varsling.
-            Ikke bakoverkompatible endringer vil varsles her og ev. via epost til
-            aktive brukere ved behov.
+          API-et er under utvikling i takt med behov i Tolletatens digitaliseringsprogram
+          slik at vi på sikt har en komplett fremleggingstjeneste for alle plikter ved
+          varers ankomst. Vi vil i størst mulig grad gjøre endringer bakoverkompatible,
+          men dersom det skulle skje ikke-kompatible endringer vil tjenesten versjoneres
+          og endringen formidles til konsumentene. Bakoverkompatible endringer legges til
+          uten versjonsoppdatering eller varsling.
         </p>
 
         <h3 id="APIdok">API-dokumentasjon</h3>
@@ -161,10 +172,9 @@
 
         <h3 id="Tollsteder">Tollsteder - Customs Office of presentation CL141</h3>
 
-        <p>Customs Office of Presentation skal hentes fra kodeverk for kontrollsteder: <a
-        href="https://www.toll.no/no/verktoy/regelverk/nytt-fra-tolletaten/nye-tollstedskoder-i-ncts/"
-        target="_blank">Nye
-        tollstedskoder i NCTS - Tolletaten</a></p>
+        <p>Customs Office of Presentation valideres etter EU-kodeverk <a
+        href="https://ec.europa.eu/taxation_customs/dds2/rd/rd_home.jsp?Lang=en"
+        target="_blank">Reference Data &amp; Customs Offices List (europa.eu)</a></p>
 
         <h3 id="CL754">Transportdokumenttype CL754</h3>
 

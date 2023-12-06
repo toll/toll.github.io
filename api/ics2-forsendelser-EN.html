@@ -90,11 +90,11 @@
 
         <p>
             The service is used for the digital fulfillment of the obligation to present goods
-            at the border. Currently, it should only be used for consignments that have a 
-            pre-arrival notification submitted to the EU in the ICS2 solution, which concerns 
-            transports from outside of the EU / Norway (excluding Svalbard) / Switzerland. 
-            From March 2023, this includes all consignments from these areas to be transported 
-            by air. From March 2024, the requirement will also include consignments by sea, 
+            at the border. Currently, it should only be used for consignments that have a
+            pre-arrival notification submitted to the EU in the ICS2 solution, which concerns
+            transports from outside of the EU / Norway (excluding Svalbard) / Switzerland.
+            From March 2023, this includes all consignments from these areas to be transported
+            by air. From March 2024, the requirement will also include consignments by sea,
             road, and rail.
             Presentation can be done by presenting a complete movement declaration (ENS), a receptacle,
             or individual consignments. If a receptacle or a movement declaration is submitted, all
@@ -131,6 +131,8 @@
             individual consignment level (house consignment). When presenting at the
             receptacle or ENS (Entry Summary Declaration) level, the result for all individual
             consignments pre-notified within the respective receptacle or ENS will be retrieved.
+            By using a marker as input, you can easily retrieve changes
+            since the last call.
         </p>
 
         <h2 id="Grensesnitt">Interface Description</h2>
@@ -154,18 +156,19 @@
 
 
         <p>
-            The API will be subject to changes as required by Norwegian Customs or end users.
-            We anticipate that the introduction of ICS2 Phase 3 (sea, road, and rail) will
-            result in changes. Backward-compatible changes will be added without version
-            updates or notifications.
-            Non-backward-compatible changes will be notified here and via email to
-            active users if necessary.
+          The API will be subject to changes as required by Norwegian
+          Customs for the end goal of having a complete presentation
+          service for all obligations when goods arrive.
+          We will, as far as possible, make backwards compatible
+          changes, but if breaking changes must be, the service will be
+          versioned and users notified. Backwards compatible changes
+          will be added without version updates or notifications.
         </p>
 
         <h3 id="APIdok">API-documentation</h3>
         <ul>
-        <li><a href="movement-presentation-api.html">Movement - Presentation</a></li>
-        <li><a href="movement-routing-api.html">Movement - Routing</a></li>
+        <li><a href="movement-presentation-api.html">Movement &ndash; Presentation</a></li>
+        <li><a href="movement-routing-api.html">Movement &ndash; Routing</a></li>
         </ul>
 
 
@@ -173,9 +176,9 @@
 
         <h3 id="Tollsteder">Customs Office of presentation CL141</h3>
 
-        <p>Customs Office of Presentation should be retrieved from the code set for control locations: <a
-        href="https://www.toll.no/en/services/regulations/news-from-norwegian-customs/new-customs-office-codes-for-ncts/"
-        target="_blank">New Custom offices codes in NCTS – Norwegian Customs</a></p>
+        <p>Customs Office of Presentation is  validated against the EU code set <a
+        href="https://ec.europa.eu/taxation_customs/dds2/rd/rd_home.jsp?Lang=en"
+        target="_blank">Reference Data &amp; Customs Offices List (europa.eu)</a></p>
 
         <h3 id="CL754">Transport document type CL754</h3>
 
@@ -288,7 +291,7 @@
 
         <p>
           The validation of submitted messages includes, among other things, a check
-          to ensure that the specified references to Entry Summary Declaration, 
+          to ensure that the specified references to Entry Summary Declaration,
           receptacle, and transport document number exist.
           The playground invironment is not integraded with other systems, so the
           content is validated against a static dataset that contains a few values.
