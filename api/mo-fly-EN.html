@@ -2695,139 +2695,203 @@
            consignments under it will be presented.
         </p>
 
-        <h4 id="kontrollrespons">Control routing &ndash; response</h4>
+        <h4 id="kontrollrespons">Common routing of house consignments</h4>
+        <p>for ICS2 and Notification and Disclosure of Information</p>
 
         <p>
-           The entity that has presented the consignments, automatically by the
-           Norwegian Customs or by their own presentation, should use the control
-           routing service (<strong><a href="movement-routing-api-EN.html">API:
-           movement-routing</a></strong>).
-           Based on the result of the control routing, the entity should select the
-           consignments that need to be physically inspected. These consignments should
-           be promptly delivered to the agreed control location.
+          House consignments that are digitally fulfilled for ICS2 and notification
+          and disclosure of information will get a common routing. When the transport
+          that the house consignment is transported by has arrived in the customs area,
+          routing will automatically be made available.
         </p>
 
-        <p>
-            When an entity requests routing by using the control routing service
-            (<strong><a href="movement-routing-api-EN.html">API: movement-routing</a></strong>),
-            Norwegian Customs will respond with one routing per House Consignment.
-            <br/>
-            If the consignment has been reported through pre-arrival notification (ICS2),
-            i.e., goods from countries outside the EU security zone, information
-            about ENS MRN and post bags (receptacle) will be included if relevant.<br/>
-            If the consignment has not been reported through pre-arrival notification,
-            these data elements will be empty.
-        </p>
+        <h5>Who can ask for routing?</h5>
 
         <p>
-            Furthermore, the response will contain a reference to the key for the
-            consignment, referred to as <i>transportDocumentHouseLevel</i>, with the
-            data elements <i>referenceNumber</i> and <i>type</i>.<br/>
-            This refers to the key that the entity itself uses for the consignment
-            and have provided to Norwegian Customs, often referred to as the consignment
-            note number, tracking number, package number, etc., by the entities.
+          The parties that have been involved in the digital fulfillment for the house
+          consignment can ask for a list of routings for all the house consignments they
+          are involved with.
         </p>
 
-        <p>
-            The actual routing of the consignment is indicated by routingResult where:
-        </p>
         <ul>
-            <li>
-                <strong>routing</strong> = information about whether the consignment
-                should undergo control and possibly the type of control desired.
-            </li>
-            <li>
-                <strong>placeOfControl</strong> = information about whether the
-                consignment should be controlled at the border crossing point or if the
-                control can be carried out after the border crossing, for example,
-                at the entity’s terminal.
-            </li>
+          <li>
+            The party that fulfilled or is an agent for the transport
+            information can get routing for all house consignment that is transported
+            by the transport
+          </li>
+          <li>
+            The party that fulfilled or is an agent for the master
+            consignment information can get routing for all house consignment that is
+            contained within the master consignment
+          </li>
+          <li>
+            The party that fulfilled, is an agent for, or has
+            digitally presented the house consignment can get routing for the house
+            consignment
+          </li>
         </ul>
 
-        <p> The response in these two data elements is coded as follows:</p>
-        <dl>
-        <dt><strong>routing</strong></dt>
-        <dd>
-            <table>
-                <thead>
-                     <tr>
-                      <th scope="column">Result code </th>
-                      <th scope="column">Description</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                      <td>TO_ENTRY</td>
-                      <td>
-                          The consignment has been cleared and can be forwarded,
-                          to the recipient after crossing the border.
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL</td>
-                      <td>
-                          The consignment is to be delivered to the Norwegian
-                          Customs for control.
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL_PRIORITY</td>
-                      <td>
-                          The consignment is to be delivered to the Norwegian
-                          Customs for control, separately from regular controls
-                          (those with the response TO_CONTROL).
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL_DOCUMENTATION</td>
-                      <td>
-                          The consignment should not be delivered to the Norwegian
-                          Customs but cannot be forwarded to the recipient until the
-                          correct documentation has been handed over to the Norwegian
-                          Customs.
-                          Once the documentation requirements are fulfilled, the
-                          Norwegian Customs will provide a new routing signal for
-                          this consignment, which means the consignment may still
-                          be subject to physical control.
-                      </td>
-                     </tr>
-                 </tbody>
-            </table>
-        </dd>
+        <h5>How to obtain routing?</h5>
 
-        <dt><strong>placeOfControl</strong></dt>
-        <dd>
-            <table>
-                <thead>
-                     <tr>
-                      <th scope="column">Result code</th>
-                      <th scope="column">Description</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                          <td>AT_BORDER</td>
-                          <td>
-                             The consignment is to be handed over to Norwegian
-                             Customs at the border crossing point. For road transport,
-                             this will involve red lights and a stop at the customs
-                             checkpoint. For air transport, this means that the consignment
-                             cannot be forwarded to a terminal unless it is located
-                             at the customs checkpoint.
-                      </td>
-                     </tr>
-                     <tr>
-                          <td>AFTER_BORDER</td>
-                          <td>
-                            The consignment can cross the border without stopping.
-                            Where applicable, the consignment should be sorted out
-                            and handed over to Norwegian Customs for inspection at
-                            the agreed customs location.
-                          </td>
-                     </tr>
-                 </tbody>
-            </table>
-        <dd>
+        <p>
+          To obtain routing for house consignments, the party concerned must call an
+          API at Norwegian Customs (<a href="movement-routing-api.html">movement
+          routing API</a>). This API is independent from the type
+          of transport. All routing results for all types of transportation will be
+          returned. Our APIs <a href="maskinporten-EN.html">use
+          Maskinporten</a> for identity and access management. It is the Norwegian
+          organization number for the party accessing the API that determines which
+          routings are made available.
+        </p>
+
+        <p>
+          URLs for house consignments routings are:
+        </p>
+        <dl>
+            <dt>PLAYGROUND:</dt>
+            <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
+            </dd>
+          <dt>PRODUCTION:</dt>
+          <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">https://api.toll.no/api/movement/routing/v1/house-consignment</a>
+          </dd>
+        </dl>
+
+        <h5>Inputparameter (API)</h5>
+
+        <p>
+          API input parameter is defined as a marker:
+        </p>
+        <pre>marker string($uuid)</pre>
+
+        <p>
+          This marker defines where in the feed of routings (for the party) the
+          response will start. The response will deliver a list of routing from the
+          position of the marker and forward (newer routings).<br/>
+          The API will return a list of a maximum of 1000 routings at a time. When there
+          are more routings, the API must be called repeatedly until the list is empty.
+          The very first time this API is called, no marker should be used, to make sure
+          the list starts at the beginning.
+        </p>
+
+        <h5>Response (API)</h5>
+
+        <p>
+          The response from the API consists of data elements that identifies the
+          house consignment, a routing signal and an identifier. The identifier from the
+          last fetched routing is used as the marker for the next call on the API.
+        </p>
+
+        <h5>Identifying data elements</h5>
+
+        <p>
+          The identifying data elements for the house consignments are:
+        </p>
+        <dl>
+          <dt><code>referenceNumber</code></dt>
+          <dd>
+            This is the transport document number used as the identifier for the house
+            consignment.
+          </dd>
+          <dt><code>type</code></dt>
+          <dd>
+            The type transport document number used (<a
+            href="mo-kodeverk-EN.html#cl754">code set CL754</a>)
+          </dd>
+        </dl>
+
+        <p>
+          Additionally there can be two more identifying
+          data elements:
+        </p>
+        <dl>
+          <dt><code>entrySummaryDeclarationMRN</code></dt>
+          <dd>MRN from ICS2</dd>
+          <dt><code>receptacleId</code></dt>
+          <dd>Identifier for receptacle for postal house consignment</dd>
+        </dl>
+
+        <h5>Routing</h5>
+
+        <p>
+          For the house consignment there will be one routing:
+        </p>
+        <pre>routing</pre>
+        <p>
+          and, if any further actions should be performed when or after border
+          crossing:
+        </p>
+        <pre>routingControlLocation</pre>
+
+        <p>
+          The <strong>routing</strong> can have the following values:
+        </p>
+        <dl>
+          <dt><strong>TO_ENTRY</strong></dt>
+          <dd>
+            This code signifies that the house consignment has been released to
+            the next customs procedure.
+          </dd>
+          <dt><strong>TO_CONTROL</strong></dt>
+          <dd>
+            This code signifies that Norwegian Customs requires a physical
+            control of the house consignment.
+          </dd>
+          <dt><strong>ENTRY_PENDING</strong></dt>
+          <dd>
+            This code signifies that the house consignment does not meet the requirements
+            for release to the next customs procedure. The responsible party must rectify
+            the discrepancy as soon as possible, to make it possible to issue a new
+            routing. The house consignment cannot be delivered to the consignee.
+          </dd>
+          <dt><strong>ENTRY_DENIED</strong></dt>
+          <dd>
+            This code signifies that the house consignment is seized by the Norwegian
+            Customs.
+          </dd>
+        </dl>
+
+        <p>
+          The data element <strong>routingControlLocation</strong> describes at which
+          location the house consignment should be processed (either at the place of
+          entry or a place after entry). If the house consignment has a routing that
+          require further processing (<strong>TO_CONTROL</strong> or
+          <strong>ENTRY_PENDING</strong>), the
+          <strong>routingControlLocation</strong> will specify whether this
+          processing must be performed at the point of entry or if the house
+          consignment may be transferred to another location, such as the
+          party's terminal or sorting facility for processing.
+        </p>
+
+        <p>
+          The data element <strong>routingControlLocation</strong> may have the
+          following values:
+        </p>
+        <dl>
+          <dt><strong>ON_ENTRY</strong></dt>
+          <dd>
+            Further processing for the house consignment must be conducted at
+            the place of entry. This might be at a customs border crossing
+            (road), at an airport (air freight, ground handler), in a harbour
+            (port agent) or at a rail terminal (rail operator).
+          </dd>
+          <dt><strong>AFTER_ENTRY</strong></dt>
+          <dd>
+            Further processing for the house consignment may be transferred to another
+            location, such as the party's terminal or sorting facility for
+            processing.
+          </dd>
+        </dl>
+        <p>
+          If a house consignment should receive multiple routings, it is always
+          the <em>latest</em> routing that is applicable. For example, it is
+          possible for a house consignment to get routing
+          <strong>ENTRY_PENDING</strong>, and then later receive routing
+          <strong>TO_CONTROL </strong>or <strong>TO_ENTRY</strong>. If a party
+          does not receive routing for a house consignment that is digitally
+          fulfilled, this is normally caused by Norwegian Customs not having had
+          the required time to process the house consignment. The party must
+          then withhold the house consignment until a valid routing is obtained.
+        </p>
 
 
         <h2 id="kodeverk">Code sets</h2>

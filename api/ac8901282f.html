@@ -2749,135 +2749,225 @@
            enkeltsendingene under denne bli fremlagt.
         </p>
 
-        <h4 id="kontrollrespons">Kontrolldirigering &ndash; respons</h4>
+        <h4 id="kontrolldir">Dirigering (routing) for forsendelser</h4>
+        <p>felles for forhåndsvarsling og melde- og opplysning</p>
 
         <p>
-           Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen
-           fremlegging, skal bruke tjenesten for kontrolldirigering
-           (<strong><a href="movement-routing-api.html">API: movement-routing</a></strong>).
-           Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene
-           som skal fysisk kontrolleres.
-           Disse sendingene skal snarest overleveres avtalt kontrollsted.
+          Forsendelser innmeldt i løsningene for forhåndsvarsling (ICS2) og/eller
+          melde- og opplysning (MO-løsningen) får en felles dirigering.<br/>
+          Når transporten som forsendelsen er meldt på har ankommet tollområdet, blir
+          dirigering blir gjort tilgjengelig for næringslivet.
         </p>
 
-        <p>
-            Når en aktør ber om dirigering gjennom å bruke tjenesten for
-            kontrolldirigering (<strong><a href="movement-routing-api.html">API:
-            movement-routing</a></strong>) vil Tolletaten
-            svare med én dirigering per forsendelse (House Consignment).
-            <br/>
-            Dersom forsendelsen er meldt inn gjennom forhåndsvarsel (ICS2), det vil si
-            gods fra tredjeland (utenfor EUs sikkerhetssone), vil det medfølge informasjon
-            om ENS MRN og postsekker (receptacle) dere det er relevant.<br/>
-            Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse
-            dataelementene være tomme.
-        </p>
+        <h5>Hvem kan be om dirigering?</h5>
 
         <p>
-            For øvrig vil responsen inneholde referanse til nøkkel for forsendelsen, her
-            kalt <i>transportDocumentHouseLevel</i>, med dataelementene
-            <i>referenceNumber</i> og <i>type</i>.<br/>
-            Dette refererer til den nøkkelen som aktøren selv bruker for forsendelsen og
-            har oppgitt til Tolletaten, ofte referert til som fraktbrevnummer,
-            sporingsnummer, kollinummer etc av aktørene.
+          Næringslivsaktørene som har vært involvert i innsendingen av meldinger
+          knyttet til forsendelsen kan da be om å få en liste med dirigeringer for alle
+          forsendelser som de er involvert part i.
         </p>
 
-        <p>
-            Selve dirigeringen av forsendelsen er angitt av routingResult der:
-        </p>
         <ul>
-            <li>
-                <strong>routing</strong> = informasjon om forsendelsen skal til kontroll og
-                eventuelt hvilken type kontroll som ønskes
-            </li>
-            <li>
-                <strong>placeOfControl</strong> = informasjon om forsendelsen skal kontrolleres på
-                grensepasseringsstedet, eller om kontrollen kan foretas etter grensepassering,
-                for eksempel på aktørens terminal
-            </li>
+          <li>
+            Den som har sendt inn eller er nevnt som tollrepresentant
+             for transport kan få dirigering for alle forsendelser meldt på transporten
+            (fører, i praksis transportør, er juridisk ansvarlig)
+          </li>
+          <li>
+            Den som har sendt inn eller er nevnt som
+             tollrepresentant for hovedforsendelse (master consignment) kan få
+            dirigering for alle forsendelser meldt for hovedforsendelsen
+          </li>
+          <li>
+            Den som har sendt inn, er nevnt som tollrepresentant for,
+             eller har fremlagt digitalt forsendelse (house consignment), kan få
+            dirigering for forsendelsen
+          </li>
         </ul>
 
-        <p>Responsen i disse to dataelementene er kodet som følger:</p>
-        <dl>
-        <dt><strong>routing</strong></dt>
-        <dd>
-            <table>
-                <thead>
-                     <tr>
-                       <th scope="column">Resultatkode </th>
-                      <th scope="column">Beskrivelse</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                      <td>TO_ENTRY</td>
-                      <td>
-                          Forsendelsen er fristilt og
-                          kan videreformidles til mottaker etter grensepassering
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL</td>
-                      <td>
-                          Forsendelsen skal leveres til Tolletaten for kontroll
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL_PRIORITY</td>
-                      <td>
-                          Forsendelsen skal leveres til
-                          Tolletaten for kontroll, forsendelsen skal leveres separat fra ordinære
-                          kontroller (de som har respons TO_CONTROL)
-                      </td>
-                     </tr>
-                     <tr>
-                      <td>TO_CONTROL_DOCUMENTATION</td>
-                      <td>
-                          Forsendelsen skal ikke leveres
-                          Tolletaten, men kan ikke videreformidles til mottaker før korrekt
-                          dokumentasjon er overlevert Tolletaten. <br/>
-                          Når dokumentasjonskrav er oppfylt vil Tolletaten tilgjengeliggjøre et nytt
-                          dirigeringssignal for denne forsendelsen, det vil si at den kan tas ut til
-                          fysisk kontroll.
-                      </td>
-                     </tr>
-                 </tbody>
-            </table>
-        </dd>
+        <h5>Hvordan får man dirigering?</h5>
 
-        <dt><strong>placeOfControl</strong></dt>
-        <dd>
-            <table>
-                <thead>
-                     <tr>
-                      <th scope="column">Resultatkode</th>
-                      <th scope="column">Beskrivelse</th>
-                     </tr>
-                 </thead>
-                 <tbody>
-                     <tr>
-                          <td>AT_BORDER</td>
-                          <td>
-                             Forsendelsen skal overleveres Tolletaten på
-                             grensepasseringsstedet. For vei vil dette medføre rød lys og stopp på
-                             tollstedet.
-                             For fly vil dette bety at forsendelsen ikke kan
-                             videreformidles til aktørens terminal hvis den ikke er på lokalisert på
-                             tollstedet.
-                      </td>
-                     </tr>
-                     <tr>
-                          <td>AFTER_BORDER</td>
-                          <td>
-                            Forsendelsen kan passere grensen uten stopp. Forsendelsen
-                            skal, der det er aktuelt, sorteres ut og overleveres Tolletaten for kontroll
-                            på avtalt tollsted.
-                          </td>
-                     </tr>
-                 </tbody>
-            </table>
-        <dd>
+        <p>
+          Når næringslivet ber om å få dirigeringssignal for aktuelle forsendelser,
+          skjer dette gjennom et kall til et grensesnitt (API) hos Tolletaten
+          (<a href="movement-routing-api.html">Movement routing API</a>).
+          Dette grensesnittet er uavhengig av transportmåte og vil gi dirigeringer for
+          alle forsendelser som er meldt på alle transporter som har ankommet tollområdet
+          og som er under behandling eller ferdig behandlet hos Tolletaten.<br/>
+          Næringslivsaktøren som skal benytte dette grensesnittet må
+          <a href="maskinporten.html">identifisere seg via Maskinporten</a>.
+          Det er organisasjonsnummeret til næringslivsaktøren som bestemmer hvilke
+          dirigeringer som gjøres tilgjengelige ved et kall.
+        </p>
+
+        <p>
+          URL-en til routing for forsendelse er:
+        </p>
+        <dl>
+          <dt>PLAYGROUND</dt>
+          <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+              https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
+          </dd>
+          <dt>PROD</dt>
+          <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+              https://api.toll.no/api/movement/routing/v1/house-consignment</a>
+          </dd>
         </dl>
+
+        <h5>Inngangsparameter for bruk av API</h5>
+
+        <p>
+          Grensesnittets (API) inngangsparameter består av en markør, definert som:
+        </p>
+        <pre>marker string($uuid)</pre>
+
+        <p>
+          Denne markøren bestemmer fra hvilket sted i listen (av dirigeringer som
+          finnes for næringslivsaktøren) responsen skal begynne fra. Responsen fra
+          grensesnittet vil da levere en liste med dirigeringer fra og med det stedet
+          markøren viser og de som er nyere. Grensesnittet vil vise maksimalt 1000
+          dirigeringer per kall. Ved flere dirigeringer må grensesnittet kalles
+          flere ganger. Første gang man kaller API-et skal det kalles uten markør (for å
+          begynne på begynnelsen), deretter skal alltid markør brukes.
+        </p>
+
+        <h5>Respons (API)</h5>
+
+        <p>
+          Responsen i grensesnittet består av dataelementer som identifiserer
+          forsendelsen, et dirigeringssignal og en identifikator. Identifikatoren
+          fra den sist hentede dirigeringen er det som benyttes som markør for neste kall
+          på grensesnittet.
+        </p>
+
+        <h5>Identifiserende dataelementer</h5>
+
+        <p>
+          De viktigste identifiserende dataelementene for forsendelsen er:
+        </p>
+
+        <dl>
+          <dt><code>referenceNumber</code></dt>
+          <dd>Dette referer til det transportdokumentnummeret som er innsendt som
+            identifikator for forsendelsen. Typisk kalt fraktbrevnummer, kollinummer
+            eller sporingsnummer.
+          </dd>
+          <dt><code>type</code></dt>
+          <dd>
+            Hvilken type transportdokumentnummer som er benyttet (se
+            <a href="mo-kodeverk.html#cl754">kodeverk CL754</a>)
+          </dd>
+        </dl>
+
+        <p>
+          I tillegg kan det returneres to andre identifiserende dataelementer,
+          avhengig av hvilken innsending som er gjort:
+        </p>
+
+        <dl>
+          <dt><code>entrySummaryDeclarationMRN</code></dt>
+          <dd>MRN for innsendt forhåndsvarsel i ICS2</dd>
+          <dt><code>receptacleId</code></dt>
+          <dd>
+            Identifikator for receptacle (&quot;postsekk&quot;) dersom forsendelsen
+            er innmeldt som post
+          </dd>
+        </dl>
+
+        <h4>Dirigeringssignal</h4>
+
+        <p>
+          For en forsendelse vil det gis et dirigeringssignal:
+        </p>
+        <pre>routing</pre>
+        <p>
+          og om eventuell videre behandling skal skje på eller etter
+          grensepasseringssted:
+        </p>
+        <pre>routingControlLocation</pre>
+        <p>
+          sammen med identifikator som beskrevet over.
+        </p>
+
+        <p>
+          Dirigeringssignalet (<strong>routing</strong>) vil kunne ha følgende
+          verdier:
+        </p>
+        <dl>
+          <dt><strong>TO_ENTRY</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er gitt overgang til neste tollprosedyre.
+            Det kan for eksempel være til fri disponering eller innlegg på
+            tollager.
+          </dd>
+          <dt><strong>TO_CONTROL</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er tatt ut til fysisk kontroll av
+            Tolletaten, og skal overleveres for kontroll så snart som mulig.
+          </dd>
+          <dt><strong>ENTRY_PENDING</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen har mangler som er nødvendig for
+            overgang til neste tollprosedyre.<br/>
+            Den ansvarlige næringslivsaktøren må straks sørge for å rette de avvik som
+            finnes, slik at ny dirigering kan gis. Forsendelsen kan ikke gis ut til
+            mottaker.
+          </dd>
+          <dt><strong>ENTRY_DENIED</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er beslaglagt av Tolletaten og
+            ikke vil bli utlevert.
+          </dd>
+        </dl>
+
+        <p>
+          Dataelementet <code>routingControlLocation</code>
+          angir hvor videre behandling av forsendelsen skal utføres.
+          Dette elementet angir om forsendelsen må behandles på grensepasseringsstedet,
+          eller om forsendelsen tillates å fraktes til et annet sted for behandling.
+        </p>
+
+        <p>
+          Dersom forsendelsen har dirigeringssignal som innebærer videre behandling,
+          det vil si <strong>TO_CONTROL </strong>eller <strong>ENTRY_PENDING</strong>,
+          vil <code>routingControlLocation </code>angi om
+          denne behandlingen skal foregå på grensepasseringsstedet eller om forsendelsen
+          kan fraktes til et annet sted (for eksempel aktørens sorteringsanlegg) for
+          behandling.
+        </p>
+
+        <p>
+          Hvor videre behandling av forsendelsen skal utføres
+          (<code>routingControlLocation</code>) vil kunne ha følgende verdier:
+        </p>
+        <dl>
+          <dt><strong>ON_ENTRY</strong></dt>
+          <dd>
+            Behandling av forsendelsen må foregå på grensepasseringsstedet. Dette
+            kan være på et tollsted (på vei) eller på dertil egnet sted på en flyplass
+            (bakketjenesteselskap), i en havn (havneagent) eller jernbaneterminal
+            (togoperatør).
+          </dd>
+          <dt><strong>AFTER_ENTRY</strong></dt>
+          <dd>
+            Behandling av forsendelsen kan foregå på et sted etter grensepassering,
+            typisk i aktørens lokaler. Eksempel på dette kan være aktørens
+            sorteringsanlegg.
+          </dd>
+        </dl>
+
+        <p>
+          Dersom en forsendelse skulle få dirigeringssignaler flere ganger, er
+          det det <em>siste</em> dirigeringssignalet som gjelder. For eksempel
+          er det mulig for en forsendelse å først
+          få <strong>ENTRY_PENDING </strong>for i neste omgang å
+          få <strong>TO_CONTROL</strong>. Dersom en forsendelse man har meldt
+          ikke får dirigeringssignal når man forventer, betyr det som regel at
+          Tolletaten ikke har hatt tilstrekkelig tid til å behandle meldingen om
+          forsendelse. Aktøren må da holde tilbake forsendelsene til man får et
+          dirigeringssignal for den.
+        </p>
+
 
         <h2 id="kodeverk">Kodeverk</h2>
         <p>
