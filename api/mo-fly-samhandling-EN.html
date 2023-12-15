@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Veiledning for å ta i bruk MO-fly og samhandling mellom aktørene</title>
-    <meta name="description" content="Veiledning til Tolletatens API for melde- og opplysning, fly">
+    <title>Guidelines for implementing Digital Notification and Disclosure of Information, Air and collaboration among stakeholders</title>
+    <meta name="description" content=" Guidelines to Norwegian Customs's API for Digital Notification and Disclosure of Information, Air ">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -48,7 +48,7 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>Veiledning for å ta i bruk MO-fly og samhandling mellom aktørene</h1>
+    <h1>Guidelines for implementing Digital Notification and Disclosure of Information, Air and collaboration among stakeholders</h1>
 </header>
 
 
@@ -62,10 +62,10 @@
          <div id="toc_container"  aria-hidden="true">
             <h2 id="innhold" class="toc_title">Content</h2>
             <ul>
-                <li><p><a href="#aktorer">Aktører</a></p></li>
-                <li><p><a href="#begreper">Begreper</a></p></li>
-                <li><p><a href="#ansvar">Ansvar</a></p></li>
-                <li><p><a href="#tidsplan">Tidsplan</a></p></li>
+                <li><p><a href="#aktorer">Stakeholders</a></p></li>
+                <li><p><a href="#begreper">Terms</a></p></li>
+                <li><p><a href="#ansvar">Responsibilities</a></p></li>
+                <li><p><a href="#tidsplan">Timeline</a></p></li>
                 <li><p><a href="#scenario1">Scenario 1</a></p></li>
                 <li><p><a href="#scenario2">Scenario 2</a></p></li>
                 <li><p><a href="#scenario3">Scenario 3</a></p></li>
@@ -77,553 +77,601 @@
     </div>
 
     <div class="column middle" role="main" role="main">
-      <h2 id="innledning">Innledning</h2>
+      <h2 id="innledning">Introduction</h2>
 
       <p>
-        Denne veiledningen skal gi råd om hvordan aktørene i næringslivet kan
-        forholde seg i forhold til spørsmålet om &quot;hvem gjør hva&quot; for
-        oppfylling av melde og opplysningsplikten
-      </p>
+        This guide provides advice on how businesses can navigate the question
+        of 'who does what' in fulfilling the digital notification and disclosure
+        of information obligation.
+     </p>
 
-      <h2 id="aktorer">Aktører</h2>
+      <h2 id="aktorer">Stakeholders</h2>
 
-      <p>For gods som ankommer med transportmåte fly er vi kjent med at det kan være
-        aktører med mange forskjellig roller involvert.
-        Vi har identifisert noen av de som kan være aktuelle i prosessen for digital
-        oppfylling av melde og opplysningsplikten.
-        Vi vil her liste opp noen av disse og gjøre en vurdering av
-        deres involvering.
+      <p>
+        For goods arriving by air, we are aware that there can be multiple
+        stakeholders with various roles involved. We have identified some of
+        those roles, which may be relevant in the process of digitally fulfilling
+        the notification and disclosure of information obligation. Here, we will
+        list some of them and describe their involvement.
       </p>
 
       <table>
         <thead>
           <tr>
-            <th>Aktørrolle</th>
-            <th>Beskrivelse</th>
-            <th>Hvordan involvert i digital melde og opplysning</th>
+            <th>Stakeholder Role</th>
+            <th>Description</th>
+            <th>Involvement in digital notification &amp; disclosure</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Fører</td>
+            <td>Operator</td>
             <td>
               <p>
-                Fører av flyet<br>
-                § 2-3.Melde- og opplysningsplikt om ankomst til bestemmelsessted i
-                tollområdet<br>
-                (1) Føreren av fartøy og luftfartøy skal melde fra til tollmyndighetene om
-                ankomst til bestemmelsessted i tollområdet. I meldingen skal det gis
-                opplysninger om transportmiddelet, besetningen og varer som bringes med som
-                last.
+                Operator of the Aircraft<br/>
+                § 2-3. The notification and disclosure of information obligation regarding
+                arrival at the destination within the customs territory.<br/>
+                (1) The master of a vessel or aircraft shall report to the customs authorities
+                upon arrival at the destination within the customs territory.
+                The report shall include information about the means of transport, the crew,
+                and the goods being brought as cargo.
+            </p>
+            </td>
+            <td>
+              <p>
+                Formally, it is the operator of the means of transport who is responsible for
+                fulfilling the notification and disclosure of information obligation.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>Transporter</td>
+            <td>
+              <p>This is the airline or carrier</p>
+            </td>
+            <td>
+              <p>
+                In practice, it will be the transporter or a customs representative
+                who carries out the necessary processes to fulfill the notification
+                and disclosure of information obligation.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>Customs Representative</td>
+            <td>
+              <p>
+                § 7-21. Customs Representative<br/>
+                (1) Anyone who has rights or obligations with respect to the customs authorities
+                has the right to be assisted or represented by a customs representative. <br/>
+                The customs representative acts on behalf of the represented party and
+                in the name of the represented party.
               </p>
             </td>
             <td>
-              <p>Formelt er det fører av transportmiddelet som har ansvaret
-                for å oppfylle melde- og opplysningsplikten</p>
+              <p>
+                A customs representative can represent the party obligated to fulfill all or parts
+                of the digital notification and disclosure of information obligation.
+              </p>
+              <p>
+                It is possible to have a customs representative digitally fulfill the obligation
+                for a house consignment, a master consignment, or a transport, or any combination
+                of these.
+              </p>
             </td>
           </tr>
           <tr>
-            <td>Transportør</td>
+            <td>Freight Forwarder</td>
             <td>
-              <p>Dette er flyselskapet&nbsp;</p>
+              <p>
+                A freight forwarder is an individual or a company that organizes the consignment
+                of goods and cargo from one source to another.
+              </p>
             </td>
             <td>
-              <p>I praksis vil det være transportøren eller en
-                tollrepresentant som gjennomfører de nødvendige prosesser for å oppfylle
-                melde- og opplysningsplikten</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Tollrepresentant</td>
-            <td>
-              <p>§ 7-21.Tollrepresentant<br>
-                (1) Enhver som har rettigheter eller plikter overfor tollmyndighetene, har
-                rett til å la seg bistå eller representere av en tollrepresentant. <br>
-                Tollrepresentanten handler på vegne av den representerte og i den
-                representertes navn.</p>
-            </td>
-            <td>
-              <p>En tollrepresentant kan representere den som har plikten for oppfylle hele
-                eller deler av digital melde og opplysningsplikten</p>
-              <p>Det er mulig å la en tollrepresentant digitalt oppfyller plikten for en
-                forsendelse, eller en hovedforsendelse eller en transport, eller enhver
-                kombinasjon av disse.</p>
+              <p>
+                A freight forwarder can act as a customs representative on behalf of the carrier.
+              </p>
+              <p>
+                Typically, the freight forwarder will digitally fulfill the information part of the
+                obligation by submitting details about consignments and master consignments.<br/>
+                Additionally, a freight forwarder can also ensure compliance with the declaration
+                obligation on behalf of the cargo owner.
+                </p>
             </td>
           </tr>
           <tr>
-            <td>Speditør</td>
+            <td>Road transporter</td>
             <td>
-              <p>En speditør er en person eller et selskap som organiserer forsendelsen av
-                varer og last fra en kilde til en annen.</p>
+              <p>
+                A transportation company that transports goods by road from the airport (border
+                crossing point) to a location where a freight forwarder or another party can
+                handle the cargo.<br/>
+                Typically, this is from the airport to, for example, the sorting facility
+                of a freight forwarder.
+              </p>
             </td>
             <td>
-              <p>En speditør kan opptre som tollrepresentant på vegne av
-                transportøren.</p>
-              <p>Typisk vil speditøren digitalt oppfylle opplysningsdelen av plikten ved å
-                sende inn opplysninger om forsendelser og hovedforsendelser<br>
-                En speditør kan også sørge for å oppfylle deklarasjonsplikten på vegne av
-                vareeier.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Biltransportør</td>
-            <td>
-              <p>Et transportselskap som transporterer gods fra flyplass
-                (grensepasseringssted) til et sted der speditør eller annen aktør kan
-                håndtere godset.&nbsp;<br>
-                Typisk er dette fra flyplass til, for eksempel, sorteringsanlegget til en
-                speditør.</p>
-            </td>
-            <td>
-              <p>Kun indirekte involvert i melde- og opplysningsplikten, men
-                kan være viktig at denne aktøren er digitalt involvert for å kunne hente ut
-                gods på flyplassen for eksempel</p>
+              <p>
+                Only indirectly involved in the notification and disclosure of information obligation,
+                but it may be important for this stakeholder to be digitally involved, for example
+                in order to retrieve goods at the airport.
+              </p>
             </td>
           </tr>
           <tr>
-            <td>Innenlands distributør</td>
+            <td>Domestic distributer</td>
             <td>
-              <p>Aktør som på vegne av speditør foretar distribusjon av
-                gods innenlands</p>
+              <p>
+                The domestic distributer handles the distribution of goods domestically,
+                on behalf of a freight forwarder.
+              </p>
             </td>
             <td>
-              <p>Kan være involvert i sortering og dirigering til kontroll
-                på vegne av speditør.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>Ekspresselskap</td>
-            <td>
-              <p>Et selskap som håndterer ekspressendinger. Disse kan
-                typisk ha helintegrerte løsninger som dekker noen eller alle av de andre
-                aktørenes roller</p>
-            </td>
-            <td>
-              <p>Kan være involvert i alle deler av digital melde- og
-                opplysning.</p>
+              <p>
+                The domestic distributer may be involved in sorting and directing for
+                inspection on behalf of the freight forwarder.
+              </p>
             </td>
           </tr>
           <tr>
-            <td>Bakketjenesteselskap<br>(Ground handler)</td>
+            <td>Express shipping companies</td>
             <td>
-              <p>Et selskap som håndterer gods som kommer inn på
-                flyplassen. Typisk lagrer selskapet gods på sitt tollager inntil speditør eller
-                mottaker kan fristille godset</p>
+              <p>
+                A company that handles express consignments.
+                These can typically have fully integrated solutions that cover some or all
+                of the roles of the other stakeholders.
+              </p>
             </td>
             <td>
-              <p>Kan opptre som tollrepresentant for transportør. Vi
-                har behov for å håndtere opplysninger om transport, hovedforsendelser og
-                forsendelser.</p>
+              <p>It may be involved in all aspects of the digital notification and disclosure of information.</p>
+            </td>
+          </tr>
+          <tr>
+            <td>Ground handler</td>
+            <td>
+              <p>
+                A company that handles goods arriving at the airport. Typically, the ground
+                handler stores the goods in its customs warehouse until the freight forwarder
+                or recipient can clear the goods.
+              </p>
+            </td>
+            <td>
+              <p>
+                The ground handler can act as a customs representative for the carrier.
+                May need to handle information about transport, master consignments, and consignments.
+              </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Vareeier</p>
+              <p>Cargo owner</p>
             </td>
             <td>
-              <p>Den som er ansvarlig for deklarasjon av varen i henhold til deklarasjonsplikten.</p>
+              <p>
+                The party responsible for the declaration of the goods in accordance
+                with the declaration obligation.
+              </p>
             </td>
             <td>
-              <p>Vareeier kan selv oppfylle deklarasjonsplikten (Tvinn)
-                eller overlate dette til en tollrepresentant. En referanse til
-                deklarasjon kan være den angitte overgangen til neste tollprosedyre i digital
-                melde- og opplysning.</p>
+              <p>
+                The cargo owner can fulfill the declaration obligation themselves in Tvinn
+                or delegate the task to a customs representative. A reference to the
+                declaration can be the specified transition to the next customs
+                procedure in digital notification and disclosure of information.
+              </p>
             </td>
           </tr>
           </tbody>
       </table>
 
-      <h2 id="begreper">Begreper</h2>
+      <h2 id="begreper">Terms</h2>
 
       <table>
         <thead>
           <tr>
-            <th>Begrep</th>
-            <th>Forklaring</th>
+            <th>Term</th>
+            <th>Explanation</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>AWB</td>
-            <td>Airway bill &ndash; Fraktbrev for lufttransport.</td>
+            <td>Airway bill</td>
           </tr>
           <tr>
             <td>MAWB</td>
             <td>
-              <p>Master airway bill &ndash; Hovedfraktbrev for lufttransport.</p>
+              <p>Master airway bill</p>
             </td>
           </tr>
           <tr>
-            <td>Deklarasjon</td>
+            <td>Declaration</td>
             <td>
-              <p>Tolldeklarasjon for en gitt tollprosedyre, for eksempel
-                til fri disponering eller innlegg på tollager.</p>
+              <p>Customs declaration for a specific customs procedure, such as immediate release import or warehouse release.</p>
             </td>
           </tr>
           <tr>
-            <td>Forsendelse</td>
+            <td>House Consignment</td>
             <td>
-              <p>En fysisk forsendelse som beskrevet på et fraktbrev,
-                AWB. Fra avsender i utlandet til mottaker i Norge.</p>
+              <p>A physical consignment as described on a waybill (AWB), from a sender abroad to a recipient in Norway.</p>
             </td>
           </tr>
           <tr>
-            <td>Hovedforsendelse</td>
+            <td>Master Consignment </td>
             <td>
-              <p>En samling forsendelser som beskrevet på et
-                hovedfraktbrev, MAWB. Fra speditør i utlandet til speditør i Norge.</p>
+              <p>
+                A collection of house consignments as described on a master air waybill (MAWB),
+                from a foreign freight forwarder to a freight forwarder in Norway.
+                </p>
             </td>
           </tr>
           <tr>
             <td>Transport</td>
             <td>
-              <p>Beskrivelse av transportmiddelet, her et fly og når det
-                ankommer. Flightnummer, ankomsttid.</p>
+              <p>
+                Description of the means of transport, in this case, an aircraft,
+                and its arrival details. This includes the flight number and arrival time.
+              </p>
             </td>
           </tr>
           <tr>
             <td>TVINN</td>
             <td>
-              <p>Tolletatens system for tolldeklarasjon.</p>
+              <p>Norwegian Customs system for customs declaration.</p>
             </td>
           </tr>
           <tr>
             <td>MO</td>
             <td>
-              <p>melde- og opplysningsplikten. Brukes også om
-                systemstøtten for melde- og opplysningsplikten.</p>
+              <p>
+                Notification and disclosure of information obligation.
+                Also used to refer to the system support for the notification
+                and disclosure of information obligation.
+              </p>
             </td>
           </tr>
           <tr>
-            <td>Ankomst</td>
+            <td>Arrival</td>
             <td>
-              <p>Angir transportmiddelets ankomst til tollområdet (Norge).</p>
+              <p>Indicates the arrival of the means of transport in the customs territory (Norway).</p>
             </td>
           </tr>
           <tr>
-            <td>Fremstilling</td>
+            <td>Presentation</td>
             <td>
-              <p>Angir i denne konteksten digital fremvisning av
-                forsendelsen (&quot;jeg har forsendelsen her, nå&quot;).</p>
+              <p>
+                In this context, it refers to the digital presentation of the consignment
+                (&quot;I have the consignment here, now&quot;).
+              </p>
             </td>
           </tr>
           <tr>
             <td>
-              <p>Dirigering</p>
+              <p>Routing</p>
             </td>
             <td>
-              <p>Tolletatens melding om hvordan pliktsubjektet skal
-                forholde seg med hensyn til en forsendelse eller transport.
-                I praksis et signal om forsendelsen kan frigis eller må holdes tilbake.</p>
+              <p>
+                Norwegian Customs direction on how the obligated party should proceed
+                regarding a consignment or transport. In practice, it is a signal indicating
+                whether the consignment can be released or must be withheld (for control).
+              </p>
             </td>
           </tr>
           </tbody>
       </table>
 
-      <h2 id="ansvar">Ansvar for oppfylling av melde- og opplysningsplikten</h2>
+      <h2 id="ansvar">
+        Responsibility for fulfilling the notification and disclosure of
+        information obligation.
+      </h2>
 
       <p>
-        I henhold til lov og forskrift er det fører, i vanligvis representert ved
-        transportøren, som har ansvaret for å oppfylle melde- og opplysningsplikten.<br>
-        Det betyr at det i de fleste tilfeller vil være transportøren, eller deres
-        tollrepresentant, som bør ta ansvaret for å sende inn melding om transport og
-        sørge for at melding om hovedforsendelse og forsendelse blir
-        sendt inn.
+        In accordance with the law and regulations, it is the operator, typically represented
+        by the <strong>carrier</strong> (airline), who is responsible for fulfilling the notification
+        and disclosure of information obligation.<br/>
+        This means that in most cases, it will be the<strong>carrier</strong> (airline) or
+        their customs representative who should take responsibility for submitting the transport
+        notification and ensure that the notification of master consignment and house consignment
+        is submitted.
       </p>
 
-      <h2 id="tidsplan">Tidsplan</h2>
+      <h2 id="tidsplan">Timeline</h2>
 
       <p>
-        Ordningen med direktekjøring avvikles som kjent 1. april 2025.<br/>
-        Den eksisterende kurermanifestløsningen forventest å avvikles 1. januar 2025.</br>
-        Systemstøtte for innsending av opplysninger for å innfri melde- og
-        opplysningsplikten digitalt er allerede på plass i Digitoll.
-      </p>
-
-      <p>
-        Det er betydelig gevinst ved å innføre digital oppfylling av næringslivets
-        plikter overfor Tolletaten så raskt som mulig.
-        Det er derfor viktig at næringslivets aktører planlegger og gjennomfører tiltak
-        for digital samhandling slik at disse pliktene kan oppfylles på en god og
-        effektiv måte.
-      </p>
-
-      <h3 id="overgangsperioden">Overgangsperioden</h3>
-
-      <p>
-        I perioden fra Digitoll er tilgjengelig fra Tolletaten til alle aktører har
-        fullt ut tatt det i bruk vil det være behov for å løse
-        prosessene rundt melde- og opplysningsplikten med midlertidige ordninger
-        for digital samhandling.
-        Det kan innebære at en aktør utfører handlinger som normalt ville vært gjort av
-        andre, eller at utveksling av informasjon skjer ved hjelp av manuelle eller
-        halvautomatiske kanaler, for eksempel e-post.
-        Digitoll-programmet bistår gjerne med å komme frem til slike løsninger.
+        The direct transport scheme will be discontinued on April 1, 2025.
+        The existing courier manifest solution (Treff) is expected to be
+        discontinued on January 1, 2025. System support for submitting information
+        to fulfill the notification and disclosure of information obligation
+        digitally is already in place in Digitoll.
       </p>
 
       <p>
-        Eksemplene under baserer seg på at alle aktørene som deltar har full ut
-        implementert løsninger for å oppfylle melde- og opplysningsplikten, og har
-        løsninger for digital samhandling seg i mellom.<br/>
-        I disse veiledningene er scenarioer der forsendelser har forhåndsvarselplikt
-        (ICS2) holdt utenfor.
+        There is a significant gain for businesses in starting early with adaption for digital
+        fulfillment of obligations to Norwegian Customs. Business stakeholders should plan
+        and implement measures for digital collaboration so that these obligations can be
+        fulfilled in a correct and efficient manner.
       </p>
 
-      <h2>Scenarioer for arbeidsfordeling mellom aktørene</h2>
-      <p>(når Digitoll er fullt implementert hos aktørene)</p>
+      <h3 id="overgangsperioden">Transition period</h3>
+
+      <p>
+        In the period between when Digitoll is made available from Norwegian Customs,
+        until all stakeholders have fully adopted it, there will be a need to manage
+        the processes around notification and disclosure of information obligations
+        with temporary arrangements for digital collaboration. This may involve one
+        stakeholder performing actions that would normally be done by others, or the
+        exchange of information occurring through manual or semi-automated channels,
+        such as email. The Digitoll program is happy to assist the stakeholders
+        in arriving at such solutions.
+      </p>
+
+      <p>
+        The examples below are based on the assumption that all participating stakeholders
+        have fully implemented solutions to fulfill notification and disclosure of
+        information obligations and have digital collaboration solutions among themselves.
+        Scenarios where consignments have a pre-notification obligation (ICS2) are excluded.
+      </p>
+
+      <h2> Scenarios for task distribution among the stakeholders</h2>
+      <p>(when Digitoll is fully implemented by the stakeholders)</p>
 
       <h3 id="scenario1">Scenario 1</h3>
 
       <p>
-        <em>Ekspresselskap som har en helintegrert løsning</em>:</br>
-        Vanligvis vil et slikt selskap opptre som tollrepresentant for fører og
-        håndtere alle deler av den digital oppfyllingen av melde- og
-        opplysningsplikten.
+        <em>Express company with a fully integrated solution:</em><br/>
+        Typically, such a company will act as a customs representative for the
+        operator and handle all aspects of the digital fulfillment of the
+        notification and disclosure of information obligation.
       </p>
 
       <figure>
-        <a href="media/scenario1fly.png"><img src="media/scenario1fly.png"
-           width="400px" alt="Ekspresselskap som har en helintegrert løsning"/></a>
+        <a href="media/scenario1fly-EN.png"><img src="media/scenario1fly-EN.png"
+           width="400px" alt="Express company with a fully integrated solution"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
 
       <h3 id="scenario2">Scenario 2</h3>
 
       <p>
-        <em>Bakketjenesteselskap er tollrepresentant og håndterer transport på vegne av transportør.</br>
-        Speditør håndterer hovedforsendelse, forsendelse og neste tollprosedyre (deklarasjon)</em>
-        </p>
-
-      <p>
-        Her vil <strong>bakketjenesteselskap </strong>melde inn transport til
-        Digitoll på vegne av <strong>transportør</strong> (flyselskapet).
-        Meldingen om transport skal inneholde en liste av nøkler til alle
-        hovedforsendelser.<br/>
+        <em>The <strong>ground handler</strong> is the customs representative and handles
+        transportation on behalf of the carrier(airline)<br/>
+        A <strong>freight forwarder</strong> handles the master consignment,
+        house consignment, and the next customs procedure (declaration).</em>
       </p>
 
       <p>
-        <strong>Bakketjenesteselskap</strong> må da sørge for å få nøkkelopplysninger
-        om alle hovedforsendelser (Master consignment, typisk MAWB) som skal være
-        ombord i flyet fra <strong>speditør</strong>, slik at knytning
-        kan opprettes.
+        Here, the <strong>ground handler</strong> will report the transport to Digitoll
+        on behalf of the <strong>transporter</strong> (airline). The notification of
+        transport should include a list of keys to all master consignments.
       </p>
 
       <p>
-        <strong>Speditør</strong> sender inn deklarasjon i Tvinn for fri disponering
-        (eller annen relevant tollprosedyre).<br/>
-        <strong>Speditør</strong> sender inn meldinger om forsendelser,
-        inkludert link til deklarasjon i Tvinn, og hovedforsendelser til
-        Digitoll.
+        The <strong>ground handler</strong> must then make sure to obtain key information
+        about all master consignments (typically MAWB) to be included on the transport
+        from the <strong>freight forwarder</strong>, so that links can be established.
       </p>
 
       <p>
-        <strong>Bakketjenesteselskap</strong> vil ha behov for å kunne hente
-        dirigeringssignal for forsendelser fra Digitoll, slik at de kan frigi
-        hovedforsendelser og forsendelser til speditør, og ikke trenger å legge inn
-        godset på tollager.
-        Minner her på at innlegg på tollager vil kreve en deklarasjon
-        (fra 1. april 2025).
+        The <strong>freight forwarder</strong> submits a declaration in Tvinn for
+        immediate release import (or other relevant customs procedure).<br/>
+        The <strong>freight forwarder</strong> submits notifications of house
+        consignments, including a link to the declaration in Tvinn,
+        and notifications of master consignments to Digitoll.
+      </p>
+
+      <p>
+       The <strong>ground handler</strong> will need to retrieve routing signals for
+       consignments from Digitoll so that they can release master consignments and
+       house consignments to the <strong>freight forwarder</strong>, then there
+       is no need to place the goods in a customs warehouse.
+       Keep in mind that placing goods in a customs warehouse will require a
+       declaration (from April 1, 2025).
       </p>
 
       <figure>
-        <a href="media/scenario2fly.png"><img src="media/scenario2fly.png"
-           width="400px" alt="MO-fly samhandling"/></a>
+        <a href="media/scenario2fly-EN.png"><img src="media/scenario2fly-EN.png"
+           width="400px" alt="MO-fly collaboration"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
 
 
-      <h4>Digital samhandling</h4>
+      <h4>Digital collaboration</h4>
       <p>
-        For å kunne komplettere innsending av opplysninger slik at melde- og
-        opplysningsplikten er oppfylt i dette scenarioet,
-        må <strong>bakketjenesteselskapet</strong>
-        og <strong>speditør</strong>
-        utveksle data.
-        <strong>Bakketjenesteselskapet</strong> må tilegne seg nøklene til alle
-        hovedforsendelser (MAWB) som skal ankomme med flyet fra
-        <strong>speditør</strong>.
+        To complete the submission of information and fulfill the notification and
+        disclosure of information obligation in this scenario, the <strong>ground handler</strong>
+        and <strong>freight forwarder</strong> must exchange data.
+        The <strong>ground handler</strong> needs to obtain the keys to all master
+        consignments (MAWB) that will arrive with the aircraft from the
+        <strong>freight forwarder</strong>
       </p>
 
       <p>
-        Vi anbefaler at <strong>bakketjenesteselskap</strong> tilgjengeliggjør
-        digitale tjenester slik at <strong>speditør</strong> kan gi fra seg denne
-        informasjonen på en sikker og effektiv måte.
-        <strong>Bakketjenesteselskapet</strong> kan da sende inn melding om transport
-        med listen over hovedforsendelser (MAWB-nummer).
+        We recommend that the <strong>ground handler</strong> makes digital services
+        available so that the <strong>freight forwarder</strong> can provide this
+        information in a secure and efficient manner.
+        The <strong>ground handler</strong> can then submit the notification of
+        transport with the list of master consignments (MAWB numbers).
       </p>
 
-      <h4>Ankomst, fremlegging og dirigering</h4>
+      <h4>Arrival, presentation, and routing </h4>
 
       <p>
-        Digitoll vil automatisk digitalt fremlegge forsendelser for de aktørene som
-        har sendt inn opplysninger om transport, hovedforsendelser og forsendelser.
-        Det betyr at dirigering for forsendelser vil være tilgjengelig i et hierarki,
-        der den som har sendt inn transportmelding har adgang på alle forsendelser som
-        er meldt på transporten,
-        den som har sendt inn informasjon om hovedforsendelsen har adgang på alle
-        forsendelser innunder denne hovedforsendelsen. En aktør som kun har sendt
-        inn informasjon om forsendelse(r) har kun tilgang til
-        forsendelsens dirigering.
-      </p>
-
-      <p>Ved uthenting av dirigering vil <strong>bakketjenesteselskapet</strong> få
-        informasjon som viser om forsendelser på transporten er tatt ut til kontroll på
-        flyplassen (grensepasseringsstedet).
-        Vanligvis vil ikke forsendelser tas ut til kontroll på grensepasseringsstedet
-        og <strong>bakketjenesteselskapet</strong> vet da at forsendelsene er fristilt
-        til speditøren.
-        Dermed unngås innlegg på tollager hos <strong>bakketjenesteselskapet</strong> og
-        <strong>speditør</strong> kan hente forsendelsene uten videre behandling
-        hos <strong>bakketjenesteselskapet</strong>.</p>
-
-      <p>
-        <strong>Speditør</strong> vil hente ut dirigering fra Digitoll for de
-        forsendelser som <strong>speditør</strong> har meldt inn. <strong>Speditør</strong> kan
-        hente forsendelsene hos <strong>bakketjenesteselskapet</strong>.
-        Dersom det er forsendelser som <strong>speditør</strong> har fått beskjed om
-        skal til kontroll, så har <strong>speditør</strong> ansvar for at denne blir
-        levert til avtalt tollsted så snart som mulig.
+        Digitoll will automatically present consignments digitally to the stakeholders
+        who have submitted information about transport, master consignments, and
+        house consignments. This means that routing for consignments will be available
+        in a hierarchy, where the stakeholder that submitted the notification of
+        transport has access to all consignments reported on that transport, the one
+        that submitted information about the master consignment has access to all
+        house consignments under that master consignment. A stakeholder who has only
+        submitted information about house consignment(s) only has access to the routing
+        for those consignments.
       </p>
 
       <p>
-        Gitt at forsendelsen er fristilt til neste tollprosedyre, for eksempel fri
-        disponering, kan <strong>speditør</strong> gjennomføre neste steg i sin
-        logistikkprosess.
+        When retrieving routing information, the <strong>ground handler</strong> will
+        receive information indicating whether consignments on the transport have been
+        selected for inspection at the airport (border crossing point). Typically,
+        consignments will not undergo inspection at the border crossing point, and
+        the <strong>ground handler</strong> will then know that the consignments have
+        been released to the <strong>freight forwarder</strong>. This avoids placing
+        goods in the <strong>ground handlers</strong> customs warehouse, and the
+        <strong>freight forwarder</strong> can retrieve the consignments without
+        further processing.
+      </p>
+
+      <p>
+        The <strong>freight forwarder</strong> will retrieve routing information
+        from Digitoll for the consignments that the <strong>freight forwarder</strong>
+        has reported. The <strong>freight forwarder</strong> can then pick up
+        the consignments from the <strong>ground handler</strong>. If there are
+        consignments that the <strong>freight forwarder</strong> has been informed
+        will undergo inspection, the <strong>freight forwarder</strong> is responsible
+        for delivering them to the agreed customs location as soon as possible.
+      </p>
+
+      <p>
+        If the consignment has been released for the next customs procedure, such as
+        immediate release import, the <strong>freight forwarder</strong> can proceed
+        to the next step in their logistics process.
       </p>
 
       <h3 id="scenario3">Scenario 3</h3>
 
       <p>
         <em>
-          Transportør sender inn melding om transport<br/>
-          Speditør håndterer hovedforsendelse og forsendelse<br/>
-          Bakketjenesteselskap mottar gods på flyplass
+          The <strong>carrier</strong> (airline) submits the notification of transport.<br/>
+          The <strong>freight forwarder</strong> handles master consignments and house consignments.<br/>
+          The <strong>ground handler</strong> receives goods at the airport.
         </em>
       </p>
 
       <p>
-        Her vil transportør (flyselskap) melde inn transport til Digitoll.
-        Meldingen om transport skal inneholde en liste av nøkler til alle
-        hovedforsendelser.
+        In this case the <strong>carrier</strong> (airline) will report the transport
+        to Digitoll. The notification of transport should include a list of keys to
+        all master consignments.
       </p>
 
       <p>
-        Transportør må da sørge for å få nøkkelopplysninger om alle
-        hovedforsendelser (Master consignment, typisk MAWB) som skal være ombord i
-        flyet fra speditør(er), slik at knytning kan opprettes.<br/>
-        Speditør(er) vil sende inn meldinger om forsendelser og hovedforsendelser
-        til Digitoll.<br/>
-        Bakketjenesteselskap vil ha behov for å kunne hente dirigeringssignal for
-        forsendelser fra Digitoll, slik at de kan frigi hovedforsendelser og
-        forsendelser til speditør, og ikke trenger å legge inn godset på tollager.
-        Minner her på at innlegg på tollager vil kreve en deklarasjon
-        (fra 1. april 2025).
+        The <strong>carrier</strong> (airline) must ensure they obtain key information
+        about all master consignments (typically MAWB) that will be on board the
+        aircraft from the <strong>freight forwarder(s)</strong>, so that links can be
+        established. <br/> The <strong>freight forwarder(s)</strong> will submit
+        notifications of house consignments and master consignments to Digitoll.<br/>
+        The <strong>ground handler</strong> will need to retrieve routing signals for
+        consignments from Digitoll so that they can release master consignments and
+        house consignments to the <strong>freight forwarder</strong>, then there
+        is no need to place the goods in a customs warehouse. Keep in mind that
+        placing goods in a customs warehouse will require a declaration
+        (from April 1, 2025).
       </p>
 
       <figure>
-        <a href="media/scenario3fly.png"><img src="media/scenario3fly.png"
+        <a href="media/scenario3fly-EN.png"><img src="media/scenario3fly-EN.png"
            width="400px" alt="Scenario 3"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
 
-      <h4>Digital samhandling</h4>
+      <h4>Digital collaboration</h4>
 
       <p>
-        For å kunne komplettere innsending av opplysninger slik at melde- og
-        opplysningsplikten er oppfylt i dette scenarioet, må transportør og speditør
-        utveksle data.
-        Transportør må tilegne seg nøklene til alle hovedforsendelser (MAWB) som skal
-        ankomme med flyet fra speditøren(e).
+        To complete the submission of information and fulfill the notification and
+        disclosure of information obligation in this scenario, the
+        <strong>carrier</strong> (airline) and <strong>freight forwarder</strong>
+        must exchange data. The <strong>carrier</strong> (airline) must obtain
+        the keys to all master consignments (MAWB) that will arrive with the aircraft
+        from the <strong>freight forwarder(s)</strong>.
       </p>
 
       <p>
-        Vi anbefaler at transportør i slike tilfeller tilgjengeliggjør digitale
-        tjenester slik at speditør kan gi fra seg denne informasjonen på en sikker og
-        effektiv måte.
-        Transportør kan da sende inn melding om transport med listen over
-        hovedforsendelser (MAWB-nummer).
+        We recommend that the <strong>carrier</strong> (airline) makes digital services
+        available so that the <strong>freight forwarder</strong> can provide this
+        information in a secure and efficient manner. The <strong>carrier</strong>
+        (airline) can then submit the notification of transport with the list of master
+        consignments (MAWB numbers).
       </p>
 
       <p>
-        For at bakketjenesteselskapet skal kunne frigi forsendelser til speditørene
-        vil det i dette tilfellet være flere informasjonselementer de er avhengig av å
-        ha tilgjengelig.
-        Fra transportøren må de få, som et minimum, MRN til transportmeldingen.
-        I tillegg trenger de alle MAWB-nummer som er meldt å være i forventet last på
-        flyet. Det kan de få fra transportør, som har det for sin
-        transport-melding, eller de kan får denne informasjonen fra speditørene. Når de har denne
-        informasjonen (MRN til transportmelding + MAWB) kan de digitalt fremlegge til
-        Digitoll.
-        Det at de har fremlagt digitalt, gjør at de kan hente dirigering for
-        forsendelsene når flyet ankommer.
+        In this case there are several information elements the
+        <strong>ground handler</strong> need in order to release consignments to the
+        <strong>freight forwarder(s)</strong>. From the <strong>carrier</strong>
+        (airline), they need the MRN for the notification of transport. Additionally,
+        they need all MAWB numbers for the cargo that is expected to be on the aircraft.
+        They can obtain this information from the <strong>carrier</strong> (airline),
+        which submitted the notification of transport, or they can get the information
+        from the <strong>freight forwarder(s)</strong>. Once they have this information
+        (MRN for the notification of transport + MAWB), they can digitally present it
+        in Digitoll. The fact that they have presented it digitally allows them to retrieve
+        routing for the consignments when the aircraft arrives.
       </p>
 
-      <h4>Ankomst, fremlegging og dirigering</h4>
+      <h4>Arrival, presentation, and routing</h4>
 
       <p>
-        Digitoll vil automatisk digitalt fremlegge forsendelser for de aktørene som
-        har sendt inn opplysninger om transport, hovedforsendelser og forsendelser.
-        Det betyr at dirigering for forsendelser vil være tilgjengelig i et hierarki,
-        der den som har sendt inn transportmelding har adgang på alle forsendelser som
-        er meldt på transporten,
-        den som har sendt inn informasjon om hovedforsendelsen har adgang på alle
-        forsendelser innunder denne hovedforsendelsen. En aktør som kun har sendt
-        inn informasjon om forsendelse(r) har kun tilgang til forsendelsens dirigering.
-        Bakketjenesteselskapet vil i dette eksempelet få dirigeringssignal fordi de
-        selv digitalt fremla forsendelser på grunnlag av den informasjonen de har fått
-        fra transportør og speditør.
+        Digitoll will automatically present consignments digitally to the stakeholders
+        who have submitted information about transport, master consignments, and house
+        consignments. This means that routing for consignments will be available in a
+        hierarchy, where the stakeholder that submitted the notification of transport
+        has access to all consignments reported on that transport, the one that submitted
+        information about the master consignment has access to all house consignments
+        under that master consignment. A stakeholder who has only submitted information
+        about consignment(s) has access only to the routing of the consignment(s).
       </p>
 
       <p>
-        Alternativet er at transportør henter dirigering og videreformidler dette
-        til bakketjenesteselskapet.
+        When retrieving routing information, the <strong>ground handler</strong> will
+        receive information indicating whether consignments on the transport have been
+        selected for inspection at the airport (border crossing point). Typically,
+        consignments will not undergo inspection at the border crossing point, and the
+        <strong>ground handler</strong> will then know that the consignments have been
+        released to the <strong>freight forwarder</strong>. This avoids placing goods in
+        the <strong>ground handlers</strong> customs warehouse, and the
+        <strong>freight forwarder</strong> can retrieve the consignments without further
+        processing.
       </p>
 
       <p>
-        Ved uthenting av dirigering vil bakketjenesteselskapet få informasjon som
-        viser om forsendelser på transporten er tatt ut til kontroll på flyplassen
-        (grensepasseringsstedet).
-        Vanligvis vil ikke forsendelser tas ut til kontroll på grensepasseringsstedet
-        og bakketjenesteselskapet vet da at forsendelsene er fristilt til speditøren.
-        Dermed unngås innlegg på tollager hos bakketjenesteselskapet og speditør kan
-        hente forsendelsene uten videre behandling hos bakketjenesteselskapet.<br/>
-        Speditør vil hente ut dirigering og få dette for de forsendelser som
-        speditøren har meldt inn. Speditøren kan hente forsendelsene hos
-        bakketjenesteselskapet.
-        Dersom det er forsendelser som speditøren har fått beskjed om skal til
-        kontroll, så har speditøren ansvar for at denne blir levert til avtalt tollsted
-        så snart som mulig.
+        The <strong>freight forwarder</strong> will retrieve routing information from
+        Digitoll for the consignments that the <strong>freight forwarder</strong> has
+        reported. The <strong>freight forwarder</strong> can then pick up the consignments
+        from the <strong>ground handler</strong>. If there are consignments that the
+        <strong>freight forwarder</strong> has been informed will undergo inspection, the
+        <strong>freight forwarder</strong> is responsible for delivering them to the agreed
+        customs location as soon as possible.
       </p>
 
       <p>
-        Gitt at forsendelsen er fristilt til neste tollprosedyre, for eksempel fri
-        disponering, kan speditør gjennomføre neste steg i sin logistikkprosess.
+        If the consignment has been released for the next customs procedure, such as immediate
+        release import, the <strong>freight forwarder</strong> can proceed to the next
+        step in their logistics process.
       </p>
 
       <h3 id="scenario4">Scenario 4</h3>
 
       <p>
         <em>
-          Bakketjenesteselskap er tollrepresentant og håndterer transport på vegne av transportør<br/>
-          Speditør håndterer hovedforsendelse og forsendelse<br/>
-          Biltransportør henter hos bakketjenesteselskap på vegne av
-          speditør<br/>
+          The <strong>ground handler</strong> is a customs representative and handles
+          transportation on behalf of the <strong>carrier</strong> (airline).<br/>
+          The <strong>freight forwarder</strong> handles the master consignment and
+          house consignment.<br/>
+          A road transporter picks up the goods up from the <strong>ground handler</strong>
+          on behalf of the <strong>freight forwarder</strong>.<br/>
         </em>
-        Dette er det samme som <a href="#scenario2">scenario 2</a>, men her er det en tredjepart
-        biltransportør som henter forsendelsene hos
-        bakketjenesteselskapet.
+        This is the same as <a href="#scenario2">scenario 2</a>, but here, there is
+        a third-party road transporter picking up the consignments from the 
+        <strong>ground handler</strong>.
       </p>
 
       <p>
-        I dette tilfellet vil det være behov for digital samhandling mellom speditør
-        og biltransportøren, slik at biltransportøren kan effektivt få listen over
-        MAWB-er som skal plukkes opp hos bakketjenesteselskapet.<br/>
-
-        Andre steg bør være likt <a href="scenario2">scenario 2</a>.
+        In this case, there will be a need for digital collaboration between the 
+        <strong>freight forwarder</strong> and the road transporter, so that the road 
+        transporter can efficiently obtain the list of MAWBs to be picked up from the 
+        <strong>ground handler</strong>.<br/>
+        The other steps should be similar to <a href="scenario2">scenario 2</a>.
       </p>
 
       <figure>
-        <a href="media/scenario4fly.png"><img src="media/scenario4fly.png"
+        <a href="media/scenario4fly-EN.png"><img src="media/scenario4fly-EN.png"
            width="400px" alt="Scenario 4"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
@@ -632,182 +680,182 @@
 
       <p>
         <em>
-          Transportør utsteder MAWB og sender inn melding om transport og hovedforsendelse<br/>
-          Speditør håndterer forsendelse<br/>
-          Bakketjenesteselskap mottar gods på flyplass
-        </em>
+         <strong>carrier</strong> (airline)issues MAWB and submits notification of
+         transport and master consignment(s).<br/>
+         The <strong>freight forwarder</strong> handles the house consignment(s).<br/>
+         The <strong>ground handler</strong> receives goods at the airport.
+       </em>
       </p>
 
 
       <p>
-        Her vil transportør (flyselskap) melde inn transport til Digitoll.
-        Meldingen om transport skal inneholde en liste av nøkler til alle
-        hovedforsendelser.
-        Transportør sender inn melding om hovedforsendelser og knytter disse til
-        transport i transportmeldingen.
+        The <strong>carrier</strong> (airline) will report the transport to Digitoll. 
+        The notification of transport should include a list of keys to all master 
+        consignments. The <strong>carrier</strong> (airline) submits notification
+        of master consignment(s) and links them to the transport in the notification
+        of transport.
       </p>
 
       <p>
-        Dette er ut fra en hypotese om at det er flyselskapet som utsteder MAWB (det
-        vil si hovedforsendelse) og gir nøkkel for MAWB-nummer til
-        speditør.<br/>
-        Speditør(er) vil sende inn meldinger om forsendelser og hovedforsendelser
-        til Digitoll.
+        This is based on the hypothesis that the <strong>carrier</strong> (airline)
+        issues the MAWB (master consignment) and provides the key for the MAWB number
+        to the <strong>freight forwarder</strong>. 
+        The <strong>freight forwarder(s)</strong> submits notification of house 
+        consignments and master consignments to Digitoll.
       </p>
 
       <p>
-        Bakketjenesteselskap vil ha behov for å kunne hente dirigeringssignal for
-        forsendelser fra Digitoll, slik at de kan frigi hovedforsendelser og
-        forsendelser til speditør, og ikke trenger å legge inn godset på tollager.
-        Minner her på at innlegg på tollager vil kreve en deklarasjon
-        (fra 1. april 2025).
+        The <strong>ground handler</strong> will need to retrieve routing signals 
+        for consignments from Digitoll so that they can release master consignments 
+        and house consignments to the <strong>freight forwarder</strong>, then 
+        there is no need to place the goods in a customs warehouse. Keep in mind 
+        that placing goods in a customs warehouse will require a declaration
+        (from April 1, 2025).
       </p>
 
       <figure>
-        <a href="media/scenario5fly.png"><img src="media/scenario5fly.png"
+        <a href="media/scenario5fly-EN.png"><img src="media/scenario5fly-EN.png"
            width="400px" alt="Scenario 5"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
 
-      <h4>Digital samhandling</h4>
+      <h4>Digital collaboration</h4>
 
       <p>
-        For å kunne komplettere innsending av opplysninger slik at melde- og
-        opplysningsplikten er oppfylt i dette scenarioet, må transportør og speditør
-        utveksle data.
-        Transportør må gi fra seg nøklene til alle hovedforsendelser (MAWB) som skal
-        ankomme med flyet til speditøren(e).<br/>
-
-        For digital samhandling må transportøren gjøre MAWB tilgjengelig for
-        speditøren, for eksempel gjennom en digital tjeneste.
-        Speditøren må få de riktige nøklene (MAWB-nummer) til de hovedforsendelser de
-        skal referere til i sine forsendelser (house consignment) når de sendes inn til
-        Digitoll.
+        To complete the submission of information and fulfill the notification and 
+        disclosure of information obligation in this scenario, the 
+        <strong>carrier</strong> (airline) and <strong>freight forwarder</strong>
+        must exchange data. The <strong>carrier</strong> (airline)must provide the keys 
+        to all master consignments (MAWB) that will arrive with the aircraft to 
+        the freight forwarder(s).<br/>
+        For digital collaboration, the <strong>carrier</strong> (airline) must
+        make the MAWBs available to the freight forwarder, for example, through 
+        a digital service. The <strong>freight forwarder</strong> must receive the 
+        correct keys (MAWB numbers) for the master consignments they are referring
+        to in their house consignments when submitting them to Digitoll.
       </p>
 
       <p>
-        For at bakketjenesteselskapet skal kunne frigi forsendelser til speditørene
-        vil det i dette tilfellet være flere informasjonselementer de er avhengig av å
-        ha tilgjengelig.
-        Fra transportøren må de få, som et minimum, MRN til transportmeldingen.
-        I tillegg trenger bakketjenesteselskapet alle MAWB-nummer som er meldt å være i
-        forventet last på flyet. Det kan de få fra transportør.
-        Når de har denne informasjonen (MRN til transportmelding + MAWB) kan de
-        digitalt fremlegge til Digitoll.
-        Det at de har fremlagt digitalt, gjør at de kan hente dirigering for
-        forsendelsene når flyet ankommer.
+        For the ground handler to release consignments to the freight forwarders in 
+        this case, there are several information elements they depend on having 
+        available. From the <strong>carrier</strong> (airline), they need, at a minimum,
+        the MRN for the notification of transport. Additionally, the ground handler 
+        needs all MAWB numbers that are reported to be in the expected load on the
+        aircraft. They can obtain this information from the carrier. Once they have 
+        this information (MRN for the notification of transport + MAWB), they can 
+        digitally present it to Digitoll. The fact that they have presented it 
+        digitally allows them to retrieve routing for the consignments when the 
+        aircraft arrives.
       </p>
 
-      <h4>Ankomst, fremlegging og dirigering</h4>
-      <p>Se <a href="#scenario3">scenario 3</a>.</p>
+      <h4>Arrival presentation and routing</h4>
+      <p>See <a href="#scenario3">scenario 3</a>.</p>
 
 
       <h3 id="scenario6">Scenario 6</h3>
 
       <p>
         <em>
-          Bakketjenesteselskap er tollrepresentant og håndterer transport på vegne av transportør<br/>
-          Speditør håndterer hovedforsendelse, forsendelse<br/>
-          Vareeier håndterer neste tollprosedyre (deklarasjon)
+          Ground handler is a customs representative and handles transportation on behalf of the carrier.<br/>
+          Freight forwarder handles the master consignment and house consignment.<br/>
+          Cargo owner handles the next customs procedure (declaration).
         </em>
       </p>
 
       <p>
-        Her vil <strong>bakketjenesteselskap</strong> melde inn transport til
-        Digitoll på vegne av <strong>transportør</strong> (flyselskapet).<br/>
-        Meldingen om transport skal inneholde en liste av nøkler til alle
-        hovedforsendelser.<br/>
-        Dersom flyet det gjelder kommer fra et land utenfor EUs sikkerhetssone må
-        det sendes in forhåndsvarsling gjennom ICS2.<br/>
-        <strong>Bakketjenesteselskap</strong> må da sørge for å få nøkkelopplysninger
-        om alle hovedforsendelser (Master consignment, typisk MAWB) som skal være
-        ombord i flyet fra <strong>speditør</strong>, slik at knytning
-        kan opprettes.
+        Here, the <strong>ground handler</strong> will report the transport to 
+        Digitoll on behalf of the <strong>carrier</strong> (airline). The notification of 
+        transport should include a list of keys to all master consignments. If the 
+        aircraft in question comes from a country outside the EU security zone, a 
+        pre-notification must be sent through ICS2. The <strong>ground handler</strong> 
+        must then ensure to obtain key information about all master consignments 
+        (typically MAWB) that will be on board the aircraft from the 
+        <strong>freight forwarder</strong>, so that linkage can be established.
       </p>
 
       <p>
-        <strong>Vareeier</strong> sender inn deklarasjon i TVINN for fri disponering
-        (eller annen relevant tollprosedyre).
+        <strong>The cargo owner</strong> submits a declaration in TVINN for free 
+        disposition (or other relevant customs procedure).
       </p>
 
       <p>
-        <strong>Speditør</strong> sender inn meldinger om forsendelser,
-        inkludert link til deklarasjon i TVINN, og hovedforsendelser til
-        Digitoll.
+        The <strong>freight forwarder</strong> sends messages about house consignments, 
+        including a link to the declaration in TVINN, and master consignments to Digitoll.
       </p>
 
       <p>
-        <strong>Bakketjenesteselskap</strong> vil ha behov for å kunne hente
-        dirigeringssignal for forsendelser fra Digitoll, slik at de kan frigi
-        hovedforsendelser og forsendelser til speditør, og ikke trenger å legge inn
-        godset på tollager. Minner her på at innlegg på tollager vil
-        kreve en deklarasjon (fra 1. april 2025).
+        The <strong>ground handler</strong> will need to retrieve routing signals 
+        for consignments from Digitoll so that they can release master consignments 
+        and house consignments to the <strong>freight forwarder</strong>, then there 
+        is no need to place the goods in a customs warehouse. Keep in mind that placing 
+        goods in a customs warehouse will require a declaration (from April 1, 2025).
       </p>
 
       <figure>
-        <a href="media/scenario6fly.png"><img src="media/scenario6fly.png"
+        <a href="media/scenario6fly-EN.png"><img src="media/scenario6fly-EN.png"
            width="400px" alt="Scenario 6"/></a>
         <figcaption>Click for larger picture</figcaption>
       </figure>
 
-      <h4>Digital samhandling</h4>
+      <h4>Digital collaboration</h4>
 
       <p>
-        For at <strong>speditør</strong> skal kunne sende inn komplett
-        melding om forsendelse, må <strong>vareeier</strong> formidle
-        nøkkel til deklarasjon til <strong>speditør</strong>.
-        For å kunne komplettere innsending av opplysninger slik at melde- og
-        opplysningsplikten er oppfylt i dette scenarioet, må
-        <strong>bakketjenesteselskapet</strong> og <strong>speditør</strong> utveksle data.
-        <strong>Bakketjenesteselskapet</strong> må tilegne seg nøklene til alle
-        hovedforsendelser (MAWB) som skal ankomme med flyet fra <strong>speditør</strong>.<br/>
-
-        Vi anbefaler at <strong>bakketjenesteselskap</strong> tilgjengeliggjør
-        digitale tjenester slik at <strong>speditør</strong> kan gi fra seg denne
-        informasjonen på en sikker og effektiv måte.
-        <strong>Bakketjenesteselskapet</strong> kan da sende inn melding om transport
-        med listen over hovedforsendelser (MAWB-nummer).
+        For the <strong>freight forwarder</strong> to be able to submit a 
+        complete notification of consignments, the <strong>cargo owner</strong> must 
+        convey the key to the declaration to the <strong>freight forwarder</strong>. 
+        To complete the submission of information and fulfill the notification and 
+        disclosure of information obligation in this scenario, the <strong>ground 
+        handler</strong> and <strong>freight forwarder</strong> must exchange data. 
+        The <strong>ground handler</strong> must acquire the keys to all master 
+        consignments (MAWB) that will arrive with the aircraft from the 
+        <strong>freight forwarder</strong>.<br/>
+        We recommend that the <strong>ground handler</strong> makes digital services 
+        available so that the <strong>freight forwarder</strong> can provide this 
+        information in a secure and efficient manner. The <strong>ground 
+        handler</strong> can then submit a notification of transport with the list 
+        of master consignments (MAWB numbers).
       </p>
 
-      <h4>Ankomst, fremlegging og dirigering</h4>
+      <h4>Arrival, presentation, and routing </h4>
 
       <p>
-        Digitoll vil automatisk digitalt fremlegge forsendelser for de aktørene som
-        har sendt inn opplysninger om transport, hovedforsendelser og forsendelser.
-        Det betyr at dirigering for forsendelser vil være tilgjengelig i et hierarki,
-        der den som har sendt inn transportmelding har adgang på alle forsendelser som
-        er meldt på transporten, den som har sendt inn informasjon om
-        hovedforsendelsen har adgang på alle forsendelser innunder denne
-        hovedforsendelsen. En aktør som kun har sendt inn informasjon om
-        forsendelse(r) har kun tilgang til forsendelsens dirigering.
-      </p>
-
-      <p>
-        Ved uthenting av dirigering vil <strong>bakketjenesteselskapet</strong> få
-        informasjon som viser om forsendelser på transporten er tatt ut til kontroll på
-        flyplassen (grensepasseringsstedet).
-        Vanligvis vil ikke forsendelser tas ut til kontroll på grensepasseringsstedet
-        og <strong>bakketjenesteselskapet</strong> vet da at forsendelsene er fristilt
-        til speditøren.
-        Dermed unngås innlegg på tollager hos <strong>bakketjenesteselskapet</strong> og
-        <strong>speditør</strong> kan hente forsendelsene uten videre
-        behandling hos <strong>bakketjenesteselskapet</strong>.
+        Digitoll will automatically present consignments digitally to the stakeholders 
+        who have submitted information about transport, master consignments, and house 
+        consignments. This means that routing for consignments will be available in a 
+        hierarchy, where the stakeholder that submitted the notification of transport 
+        has access to all consignments reported on that transport, the one that 
+        submitted information about the master consignment has access to all house 
+        consignments under that master consignment. A stakeholder which has only 
+        submitted information about house consignment(s) has access only to the routing 
+        of the house consignment(s).
       </p>
 
       <p>
-        <strong>Speditør</strong> vil hente ut dirigering fra Digitoll for de
-        forsendelser som <strong>speditør</strong> har meldt inn.
-        <strong>Speditør</strong> kan hente forsendelsene hos
-        <strong>bakketjenesteselskapet</strong>.
-        Dersom det er forsendelser som <strong>speditør</strong> har fått beskjed om
-        skal til kontroll, har <strong>speditør</strong> ansvar for at denne blir
-        levert til avtalt tollsted så snart som mulig.
+        When retrieving routing information, the <strong>ground handler</strong> 
+        will receive information indicating whether consignments on the transport 
+        have been selected for inspection at the airport (border crossing point). 
+        Typically, consignments will not undergo inspection at the border crossing 
+        point, and the <strong>ground handler</strong> will then know that the 
+        consignments have been released to the freight forwarder. This avoids 
+        placing goods in the <strong>ground handlers</strong> customs warehouse, 
+        and the <strong>freight forwarder</strong> can retrieve the consignments 
+        without further processing.
       </p>
 
       <p>
-        Gitt at forsendelsen er fristilt til neste tollprosedyre, for eksempel fri
-        disponering, kan <strong>speditør</strong> gjennomføre neste steg i sin
-        logistikkprosess, her utlevering til <strong>vareeier</strong>.
+        The <strong>freight forwarder</strong> will retrieve routing information from 
+        Digitoll for the consignments that the <strong>freight forwarder</strong> has 
+        reported. The <strong>freight forwarder</strong> can then pick up the consignments 
+        from the <strong>ground handler</strong>. If there are consignments that the 
+        <strong>freight forwarder</strong> has been informed will undergo inspection, 
+        the <strong>freight forwarder</strong> is responsible for delivering them to 
+        the agreed customs location as soon as possible.
+      </p>
+
+      <p>
+        If the consignment has been released for the next customs procedure, 
+        such as immediate release import, the <strong>freight forwarder</strong> 
+        can proceed to the next step in their logistics process.
       </p>
     </div>
 
