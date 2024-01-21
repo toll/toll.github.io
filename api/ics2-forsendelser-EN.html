@@ -89,19 +89,25 @@
         <h2 id="Omtjenesten">About the service</h2>
 
         <p>
-            The service is used for the digital fulfillment of the obligation to present goods
-            at the border. Currently, it should only be used for consignments that have a
-            pre-arrival notification submitted to the EU in the ICS2 solution, which concerns
-            transports from outside of the EU / Norway (excluding Svalbard) / Switzerland.
-            From March 2023, this includes all consignments from these areas to be transported
-            by air. From June 2024, the requirement will also include consignments by sea,
-            road, and rail.
-            Presentation can be done by presenting a complete movement declaration (ENS), a receptacle,
-            or individual consignments. If a receptacle or a movement declaration is submitted, all
-            individual consignments within it will be presented. Furthermore, the entity that presented
-            the consignments should also use the service to get control routing, and promptly 
-            deliver the consignments that have been selected for inspection to the 
-            agreed control location.
+            This service is used for the digital fulfillment of presentation obligations.
+            All goods that have been filed in ICS2 must be presented through this API.
+            From March 2023, this includes all goods transported by air from third countries,
+            and from June 3, 2024, it will also apply to goods transported by other means of
+            transport. Third countries refer to nations outside the European security zone
+            (EU, Switzerland, Liechtenstein, and Norway excluding Svalbard).
+            Eventually, the same service can be used for national duties as well.
+            Presentation can be made by submitting an entire entry summary declaration (ENS),
+            a receptacle or individual house consignments. If a receptacle or an entry summary
+            declaration is presented, all individual consignments under it will be presented
+            as well.
+            Furthermore, the operator presenting the consignments should also use the routing
+            service to receive control routing before the goods can be released.
+            When presenting ICS2 consignments, routing will be at House Consignment-level
+            (for certain operators, the routing service at the transport level may be relevant
+            in regard to other national obligations). Based on the routing response, the
+            consignments should be promptly delivered to the agreed location if the signal
+            TO_CONTROL is received.
+            The consignments should not be released until the signal TO_ENTRY is received
         </p>
 
         <p>More background information on ICS2:</p>
