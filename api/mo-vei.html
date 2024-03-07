@@ -72,6 +72,7 @@
                     <li><p><a href="#mldtransport">Melding om transport</a></p></li>
                     <li><p><a href="#masterConsignment">Melding om hovedforsendelse</a></p></li>
                     <li><p><a href="#houseConsignment">Melding om forsendelse</a></p></li>
+                    <li><p><a href="#utfyllingForsend">Valg av prosedyre</a></p></li>
                     <li><p><a href="#sekvens">Sekvens for innsending</a></p></li>
                     <li><p><a href="#kontrolldir">Fremlegging og kontrolldir.</a></p></li>
                   </ul></li>
@@ -857,13 +858,13 @@
             </tbody>
         </table>
 
-        <h4 id="utfyllingForsend">Utfylling av melding om forsendelse</h4>
+        <h3 id="utfyllingForsend">Valg av tollprosedyre og utfylling av foregående prosedyre i melding om forsendelse</h3>
 
-        <p>Tabellen under gir en fullstendig oversikt over hvordan man skal
+        <p>Tabellene under gir en fullstendig oversikt over hvordan man skal
         fylle ut melding om forsendelse ut fra hvilken tollprosedyre man ønsker
         å benytte i forbindelse med at varene krysser grensen.</p>
 
-        <p>Den gir også en forklaring til hvordan man skal angi prosedyre fram til
+        <p>De gir også en forklaring til hvordan man skal angi prosedyre fram til
         grensen når det er nødvendig. Generelt gjelder at dersom grensekryssingen skjer
         på landevei fra Sverige er det nødvendig å oppgi prosedyre fram til
         grensen, ellers ikke.</p>
@@ -901,6 +902,13 @@
            <p>Transittering er foregående prosedyre og skal fullføres ved
            grensepassering.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Fly, tog, bil på ferge</td>
+            <td>Bil på vei</td>
+            <td colspan='2'>Bil på vei</td>
+            <td colspan='2'>Tog, bil på vei, bil på ferge</td>
           </tr>
           <tr>
            <th>Felt</th>
@@ -1205,10 +1213,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -1268,6 +1276,11 @@
            <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
            grensepassering</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på vei/ferge, tog</td>
+            <td>Bil på vei</td>
           </tr>
           <tr>
            <th>Felt</th>
@@ -1457,7 +1470,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
          </tr>
          <tr>
@@ -1514,6 +1527,13 @@
            <p>Transittering er foregående prosedyre og skal fullføres ved
            grensepassering.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på vei/ferge, tog, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
           </tr>
           <tr>
            <th>Felt</th>
@@ -1777,10 +1797,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -2011,6 +2031,13 @@
            <p>Transittering er foregående prosedyre og skal fullføres ved
            grensepassering.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td colspan='2'>Bil på vei</td>
+            <td colspan='2'>Bil på vei/ferge, tog</td>
           </tr>
           <tr>
            <th>Felt</th>
@@ -2315,10 +2342,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -2389,6 +2416,13 @@
            <p>Transittering er foregående prosedyre og skal fullføres ved
            grensepassering.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
           </tr>
           <tr>
            <th>Felt</th>
@@ -2645,10 +2679,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -2683,6 +2717,337 @@
          </tr>
         </table>
 
+        <p>&nbsp;</p>
+
+        <h5>DOCUMENTS_NOT_OBLIGED_RELEASE</h5>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+           før ferge til Larvik)</p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>Transittering <strong>og</strong> EU/svensk-eksport er foregående
+           prosedyre. Transittering skal fullføres og eksport klareres ved
+           grensepassering</p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 19</th>
+           <th>Variant 20</th>
+           <th>Variant 21</th>
+           <th>Variant 22</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a><a
+          href="mo-kodeverk.html#importprocedure">&nbsp;</a></p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td>
+          <p>TRE</p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>,&nbsp;<a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          </td>
+          <td>
+          <p>må være en av [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6"></td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
 
         <h3 id="sekvens">Sekvens for innsending av meldinger</h3>
 

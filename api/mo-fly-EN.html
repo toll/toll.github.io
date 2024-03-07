@@ -73,6 +73,7 @@
                     <li><p><a href="#mldtransport">Notification of transport</a></p></li>
                     <li><p><a href="#masterConsignment">Notification of Master Consignment</a></p></li>
                     <li><p><a href="#houseConsignment">Notification of House Consignment</a></p></li>
+                    <li><p><a href="#utfyllingForsend">Valg av prosedyre</a></p></li><!-- TODO -->
                     <li><p><a href="#sekvens">Sequence for submission</a></p></li>
                     <li><p><a href="#kontrolldir">Presentation/routing</a></p></li>
                   </ul></li>
@@ -876,11 +877,15 @@
             </tbody>
         </table>
 
-        <h4 id="utfyllingForsend">Filling out a consignment notification</h4>
+        <h3 id="utfyllingForsend">Valg av tollprosedyre og utfylling av foregående prosedyre i melding om forsendelse</h3><!-- TODO --><h4 id="utfyllingForsend">Filling out a consignment notification</h4>
 
-        <p>The table below provides a complete overview of how to fill out a consignment notification based on the customs procedure you wish to use when your goods cross the border.</p>
+        <p>The tables below provides a complete overview of how to fill out a consignment notification based on the customs procedure you wish to use when your goods cross the border.</p>
 
-        <p>It also provides an explanation of how to indicate the procedure up to the border when necessary. In general, if the border crossing occurs by road from Sweden, it is necessary to specify the procedure up to the border; otherwise, it is not required.</p>
+        <p>They also provide an explanation of how to indicate the
+        procedure up to the border when necessary. In general, if the
+        border crossing occurs by road from Sweden, it is necessary to
+        specify the procedure up to the border; otherwise, it is not
+        required.</p>
 
         <h5>IMMEDIATE_RELEASE_IMPORT</h5>
 
@@ -907,6 +912,13 @@
            <p>A declaration for transitioning to immediate release import has been submitted in advance.</p>
            <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Air, rail, vehicle on ferry</td>
+            <td>Vehicle on road</td>
+            <td colspan='2'>Vehicle on road</td>
+            <td colspan='2'>Rail, vehicle on road/ferry</td>
           </tr>
           <tr>
            <th>Field</th>
@@ -1203,10 +1215,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -1260,6 +1272,11 @@
            <p>Transit should be initiated at the border.</p>
            <p>EU/Swedish export is the previous procedure and should be cleared upon border crossing.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on road/ferry, rail</td>
+            <td>Vehicle on road</td>
           </tr>
           <tr>
            <th>Field</th>
@@ -1446,7 +1463,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
          </tr>
          <tr>
@@ -1495,6 +1512,13 @@
            <p>VOEC-consignment.</p>
            <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on road/ferry, rail, air</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
@@ -1755,10 +1779,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -1981,6 +2005,13 @@
            <p>A declaration for warehouse release has been submitted in advance.</p>
            <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on ferry, air</td>
+            <td>Vehicle on road</td>
+            <td colspan='2'>Vehicle on road</td>
+            <td colspan='2'>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
@@ -2277,10 +2308,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -2343,6 +2374,13 @@
            <p>Consignment for procedure Collective Release after border crossing.</p>
            <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on ferry, air</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
@@ -2554,12 +2592,10 @@
           <p><strong>-</strong></p>
           </td>
           <td style='background:#CCFFFF;'>
-          <p><strong>liste må ha MINST ett
-          innslag av type:</strong></p>
+          <p><strong>The list must include AT LEAST one item of type:</strong></p></td>
           </td>
           <td style='background:#CCFFFF;'>
-          <p><strong>liste må ha MINST ett
-          innslag av type:</strong></p>
+          <p><strong>The list must include AT LEAST one item of type:</strong></p></td>
           </td>
           <td style='background:#CCFFFF;'>
           <p><strong>-</strong></p>
@@ -2597,10 +2633,328 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Possible validation messages if the information is not complete. We assume that the missing information will be submitted no later than upon arrival at the border.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p><a
+          href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6"></td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'
+          data-highlight-colour="#ffebe6">
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h5>DOCUMENTS_NOT_OBLIGED_RELEASE</h5>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+           </td>
+           <td>
+           <p>Consignment for procedure Collective Release after border crossing.</p>
+           <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik).</p>
+           </td>
+           <td>
+           <p>Consignment for procedure Collective Release after border crossing.</p>
+           <p>EU/Swedish export is the previous procedure and should be cleared upon border crossing.</p>
+           </td>
+           <td>
+           <p>Consignment for procedure Collective Release after border crossing.</p>
+           <p>Transit <strong>and</strong> EU/Swedish export is the previous procedure. Transit should be completed, and export cleared upon border crossing.</p>
+           </td>
+           <td>
+           <p>Consignment for procedure Collective Release after border crossing.</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on ferry, air</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road</td>
+            <td>Vehicle on road/ferry, rail</td>
+          </tr>
+          <tr>
+           <th>Field</th>
+           <th>Code sets</th>
+           <th>Variant 15</th>
+           <th>Variant 16</th>
+           <th>Variant 17</th>
+           <th>Variant 18</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a><a
+          href="mo-kodeverk-EN.html#importprocedure">&nbsp;</a></p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td>
+          <p>TRE</p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>AND the list must include an item of type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>AND the list must include an item of type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk-EN.html#cl228">CL228</a>,&nbsp;<a
+          href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>must be = N820</p>
+          </td>
+          <td>
+          <p>must be = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>The list must include AT LEAST one item of type:</strong></p></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>The list must include AT LEAST one item of type:</strong></p></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          </td>
+          <td>
+          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, KVALITETSSEKRAD_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
