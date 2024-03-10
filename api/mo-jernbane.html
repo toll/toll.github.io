@@ -73,7 +73,7 @@
                     <li><p><a href="#masterConsignment">Melding om hovedforsendelse</a></p></li>
                     <li><p><a href="#houseConsignment">Melding om forsendelse</a></p></li>
                     <li><p><a href="#utfyllingForsend">Valg av prosedyre</a></p></li>
-                    <li><p><a href="#sekvens">Sekvens for innsending</a></p></li>
+                    <li><p><a href="#hvordanSende">Hvordan sende inn meldinger</a></p></li>
                     <li><p><a href="#kontrolldir">Fremlegging og kontrolldir.</a></p></li>
                   </ul></li>
                 <li><p><a href="#kodeverk">Kodeverk</a></p></li>
@@ -820,7 +820,7 @@
                     Når ønskes oppdatering av informasjonen?
                   </td>
                   <td>
-                    Informasjon ønsker oppdatert når viktige deler av informasjonen endres
+                    Informasjon ønskes oppdatert når viktige deler av informasjonen endres
                   </td>
                 </tr>
                 <tr>
@@ -840,7 +840,7 @@
                     <p>Referanse til valgt tollprosedyre der det er aktuelt</p>
                     <p>Referanse til import og eksport deklarasjoner</p>
                     <p>Referanse til NCTS transittering(er)</p>
-                    <p>Grov varebeskrivelser/vekt</p>
+                    <p>Grov varebeskrivelse/vekt</p>
                     <p>Avsender</p>
                     <p>Mottaker</p>
                   </td>
@@ -869,7 +869,7 @@
         på landevei fra Sverige er det nødvendig å oppgi prosedyre fram til
         grensen, ellers ikke.</p>
 
-        <h5>IMMEDIATE_RELEASE_IMPORT</h5>
+        <h4>IMMEDIATE_RELEASE_IMPORT</h4>
 
         <table>
           <tr>
@@ -1258,7 +1258,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>TRANSIT_IMPORT / TRANSIT_RELEASE</h5>
+        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
 
         <table>
           <tr>
@@ -1498,7 +1498,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>IMMEDIATE_RELEASE_VOEC</h5>
+        <h4>IMMEDIATE_RELEASE_VOEC</h4>
 
         <table>
           <tr>
@@ -2002,7 +2002,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>WAREHOUSE_RELEASE</h5>
+        <h4>WAREHOUSE_RELEASE</h4>
 
         <table>
           <tr>
@@ -2387,7 +2387,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>COLLECTIVE_RELEASE</h5>
+        <h4>COLLECTIVE_RELEASE</h4>
 
         <table>
           <tr>
@@ -2719,7 +2719,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>DOCUMENTS_NOT_OBLIGED_RELEASE</h5>
+        <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
 
         <table>
           <tr>
@@ -3049,23 +3049,99 @@
          </tr>
         </table>
 
-        <h3 id="sekvens">Sekvens for innsending av meldinger</h3>
+        <h3 id="hvordanSende">Hvordan sender man inn meldinger om transport, hovedforsendelse og forsendelse</h3>
+
+        <h4 id="sekvens">Sekvens for innsending av meldinger</h4>
 
         <p>
-            Generelt fungerer innsending av informasjon slik at aktøren sender inn en
-            melding (post) og mottar en referanse (requestId).
-            Ved å bruke den mottatte referansen kan aktøren spørre (get) om resultat av
-            innsendingen og ved suksess motta en permanent referanse til meldingen, utstedt
-            av Tolletaten.
-            Dette gjøres på et eget spørre-API (query API) linket til lengre nede på denne
-            siden. Disse tjenestene er asynkrone og man må derfor spørre inntil man får
-            svar.
-            Spørring gjøres på <code>/validation-status</code>-endepunktet, som vil returnere MRN ved
-            suksess og en liste med valideringsfeil hvis de finnes.<br/>
-            Den permanente referansen blir kalt et Master Reference Number, eller MRN for
-            kort.
-            MRN brukes når meldinger skal oppdateres eller kanselleres (put/delete) for å
-            referere til tidligere innsendte meldinger.
+            Generelt fungerer innsending av informasjon slik at aktøren
+            sender inn en melding (POST) og mottar en referanse
+            (requestId). Ved å bruke den mottatte referansen kan aktøren
+            spørre (GET) om resultat av innsendingen og ved suksess
+            motta en permanent referanse til meldingen, utstedt av
+            Tolletaten. Dette gjøres på et eget endepunkt
+            (<code>/validation-status</code>) i spørre-API-et (query
+            API) linket til lengre nede på denne siden. Disse tjenestene
+            er asynkrone og man må derfor spørre inntil man får
+            svar. Valideringsrespons vil vanligvis være tilgjengelig i
+            løpet 1 til 2 sekunder, men det kan ta lenger tid i
+            enkelttilfeller. Spørring gjøres
+            på <code>/validation-status</code>-endepunktet, som vil
+            returnere MRN ved suksess og en liste med valideringsfeil
+            hvis de finnes.<br/>
+            Den permanente referansen blir kalt et Master Reference
+            Number, forkortet MRN. MRN brukes når meldinger skal
+            oppdateres eller kanselleres (put/delete) for å referere til
+            tidligere innsendte meldinger.<br/>
+            Valideringsendepunktet vil også kunne returnere en liste med
+            dokumentstatuser for å indikere manglende opplysninger, se
+            tabellene over.
+        </p>
+        <p>
+          Anbefalt metode for innsending er at aktøren sender inn alle
+          meldinger for oppretting (POST) som er aktuelle, og så venter
+          1-2 sekunder før spørring om validering (query API).</br>
+          For eksempel: om man har 500 forsendelser for en
+          hovedforsendelse på en transport, så sender man inn (POST)
+          alle 500 meldingene om forsendelse, venter et par sekunder,
+          ber om validering og får tilbake MRN og status for alle de 500
+          meldingene.<br/>
+          Dersom man får status 404 ved kall til valideringsendepunktet må man
+          vente litt og spørre igjen. Det anbefales å lage en algoritme
+          som gjør gjentatte forsøk, inntil valideringsrespons mottas.
+        </p>
+        <p>
+          Se API-dokumentasjon lenket til under for detaljer om endepunktene.
+        </p>
+
+        <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
+
+        <p>
+          På samme måte som for innsending (POST), skal man ved
+          oppdatering (PUT) sende inn melding og motta en referanse
+          (requestid), for så å spørre om validering. PUT er en
+          fullstendig erstatning av tidligere innsending og må referere
+          til mottatt MRN for meldingen som nøkkel. I tillegg til å
+          måtte referere til MRN, må nøkkelinformasjon for meldingen
+          være uendret ved oppdatering:
+        </p>
+        <ul>
+          <li>
+            For <strong>transport</strong> kan <em>ikke</em> identifikatoren
+            (kjennemerke og registreringsnummer: <code>identificationNumber +
+            typeOfIdentification</code>), rutenummer
+            (<code>conveyanceReferenceNumber</code>) (kun fly) og
+            opprinnelig ankomsttid
+            (<code>scheduledDateAndTimeOfArrival</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>hovedforsendelse</strong> (master consignment)
+            kan <em>ikke</em> hovedfraktbrevnummer (<code>documentNumber
+            + type</code>) og transportøridentifikator
+            (<code>carrierId</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>forsendelse</strong> (house consignment)
+            kan <em>ikke</em> fraktbrevnummer (<code>documentNumber +
+            type</code>) oppdateres.
+          </li>
+        </ul>
+        <p>
+          Ellers følger oppdatering (PUT) samme mønster som innsending
+          (POST). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
+        </p>
+
+        <h4 id="sletteMeldingDelete">Sletting/kansellering av melding (DELETE)</h4>
+        <p>
+          På samme måte som for innsending (POST) og oppdatering (PUT),
+          skal man ved sletting (DELETE) sende inn melding og motta en
+          referanse (requestid), for så å spørre om validering. DELETE
+          kansellerer tidligere innsendt melding og må referere til
+          mottatt MRN for meldingen som nøkkel. Ellers følger sletting
+          (DELETE) samme mønster som innsending (POST) og oppdatering
+          (PUT). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
         </p>
 
         <h3 id="kontrolldir">Fremlegging og kontrolldirigering</h2>

@@ -74,7 +74,7 @@
                     <li><p><a href="#masterConsignment">Notification of Master Consignment</a></p></li>
                     <li><p><a href="#houseConsignment">Notification of House Consignment</a></p></li>
                     <li><p><a href="#utfyllingForsend">Select import procedure</a></p></li>
-                    <li><p><a href="#sekvens">Sequence for submission</a></p></li>
+                    <li><p><a href="#hvordanSende">How to submit notifications</a></p></li>
                     <li><p><a href="#kontrolldir">Presentation/routing</a></p></li>
                   </ul></li>
                 <li><p><a href="#kodeverk">Code sets</a></p></li>
@@ -879,7 +879,7 @@
         specify the procedure up to the border; otherwise, it is not
         required.</p>
 
-        <h5>IMMEDIATE_RELEASE_IMPORT</h5>
+        <h4>IMMEDIATE_RELEASE_IMPORT</h4>
 
         <table>
           <tr>
@@ -1250,7 +1250,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>TRANSIT_IMPORT / TRANSIT_RELEASE</h5>
+        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
 
         <table>
           <tr>
@@ -1481,7 +1481,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>IMMEDIATE_RELEASE_VOEC</h5>
+        <h4>IMMEDIATE_RELEASE_VOEC</h4>
 
         <table>
           <tr>
@@ -1974,7 +1974,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>WAREHOUSE_RELEASE</h5>
+        <h4>WAREHOUSE_RELEASE</h4>
 
         <table>
           <tr>
@@ -2343,7 +2343,7 @@
 
         <p>&nbsp;</p>
 
-        <h5>COLLECTIVE_RELEASE</h5>
+        <h4>COLLECTIVE_RELEASE</h4>
 
         <table>
           <tr>
@@ -2660,7 +2660,7 @@
         </table>
         <p>&nbsp;</p>
 
-        <h5>DOCUMENTS_NOT_OBLIGED_RELEASE</h5>
+        <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
 
         <table>
           <tr>
@@ -2978,37 +2978,119 @@
         </table>
 
 
-        <h3 id="sekvens">Sequence for submitting notifications</h3>
+        <h3 id="hvordanSende">How to submit notifications of transports,
+        master consignments and house consignments</h3>
+
+        <h4 id="sekvens">Sequence for submitting notifications</h4>
 
         <p>
-            Generally, the submission of information works in such a way that the
-            entity submits a notification (post) and receives a reference (requestId).
-            By using the received reference, the entity can inquire (get) about the
-            result of the submission and, upon success, receive a permanent reference
-            to the notification issued by Norwegian Customs.
-            This is done in a separate query API linked further down on this page.
-            These services are asynchronous, so queries must be sent until a response
-            is received.
-            The inquiry is made to the <code>/validation-status</code> endpoint, which will
-            return the MRN upon success and a list of validation errors if any exist.<br/>
-            The permanent reference is called a Master Reference Number, MRN for short.
-            The MRN is used when notifications need to be updated or cancelled (put/delete)
-            to refer to previously submitted messages.
+            Generelt fungerer innsending av informasjon slik at aktøren
+            sender inn en melding (POST) og mottar en referanse
+            (requestId). Ved å bruke den mottatte referansen kan aktøren
+            spørre (GET) om resultat av innsendingen og ved suksess
+            motta en permanent referanse til meldingen, utstedt av
+            Tolletaten. Dette gjøres på et eget endepunkt
+            (<code>/validation-status</code>) i spørre-API-et (query
+            API) linket til lengre nede på denne siden. Disse tjenestene
+            er asynkrone og man må derfor spørre inntil man får
+            svar. Valideringsrespons vil vanligvis være tilgjengelig i
+            løpet 1 til 2 sekunder, men det kan ta lenger tid i
+            enkelttilfeller. Spørring gjøres
+            på <code>/validation-status</code>-endepunktet, som vil
+            returnere MRN ved suksess og en liste med valideringsfeil
+            hvis de finnes.<br/>
+            Den permanente referansen blir kalt et Master Reference
+            Number, forkortet MRN. MRN brukes når meldinger skal
+            oppdateres eller kanselleres (put/delete) for å referere til
+            tidligere innsendte meldinger.<br/>
+            Valideringsendepunktet vil også kunne returnere en liste med
+            dokumentstatuser for å indikere manglende opplysninger, se
+            tabellene over.
         </p>
+        <p>
+          Anbefalt metode for innsending er at aktøren sender inn alle
+          meldinger for oppretting (POST) som er aktuelle, og så venter
+          1-2 sekunder før spørring om validering (query API).</br>
+          For eksempel: om man har 500 forsendelser for en
+          hovedforsendelse på en transport, så sender man inn (POST)
+          alle 500 meldingene om forsendelse, venter et par sekunder,
+          ber om validering og får tilbake MRN og status for alle de 500
+          meldingene.<br/>
+          Dersom man får status 404 ved kall til valideringsendepunktet må man
+          vente litt og spørre igjen. Det anbefales å lage en algoritme
+          som gjør gjentatte forsøk, inntil valideringsrespons mottas.
+        </p>
+        <p>
+          Se API-dokumentasjon lenket til under for detaljer om endepunktene.
+        </p>
+
+        <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
+
+        <p>
+          På samme måte som for innsending (POST), skal man ved
+          oppdatering (PUT) sende inn melding og motta en referanse
+          (requestid), for så å spørre om validering. PUT er en
+          fullstendig erstatning av tidligere innsending og må referere
+          til mottatt MRN for meldingen som nøkkel. I tillegg til å
+          måtte referere til MRN, må nøkkelinformasjon for meldingen
+          være uendret ved oppdatering:
+        </p>
+        <ul>
+          <li>
+            For <strong>transport</strong> kan <em>ikke</em> identifikatoren
+            (kjennemerke og registreringsnummer: <code>identificationNumber +
+            typeOfIdentification</code>), rutenummer
+            (<code>conveyanceReferenceNumber</code>) (kun fly) og
+            opprinnelig ankomsttid
+            (<code>scheduledDateAndTimeOfArrival</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>hovedforsendelse</strong> (master consignment)
+            kan <em>ikke</em> hovedfraktbrevnummer (<code>documentNumber
+            + type</code>) og transportøridentifikator
+            (<code>carrierId</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>forsendelse</strong> (house consignment)
+            kan <em>ikke</em> fraktbrevnummer (<code>documentNumber +
+            type</code>) oppdateres.
+          </li>
+        </ul>
+        <p>
+          Ellers følger oppdatering (PUT) samme mønster som innsending
+          (POST). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
+        </p>
+
+        <h4 id="sletteMeldingDelete">Sletting/kansellering av melding (DELETE)</h4>
+        <p>
+          På samme måte som for innsending (POST) og oppdatering (PUT),
+          skal man ved sletting (DELETE) sende inn melding og motta en
+          referanse (requestid), for så å spørre om validering. DELETE
+          kansellerer tidligere innsendt melding og må referere til
+          mottatt MRN for meldingen som nøkkel. Ellers følger sletting
+          (DELETE) samme mønster som innsending (POST) og oppdatering
+          (PUT). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
+        </p>
+
 
         <h3 id="kontrolldir">Presentation and control routing</h2>
 
         <p>
-          Norwegian Customs will attempt to automatically detect the arrival of a transport
-          at the border. If automatic arrival is detected, Norwegian Customs will carry out
-          an automatic digital presentation of all expected consignments on the incoming
-          transport.<br/>
-          Subsequently, Norwegian Customs will make routing available in our API for the
-          expected consignments. Entities connected to the presented consignments will be
-          able to retrieve control routing via the API. The entities automatically connected
-          are those who submitted information about the consignment in the Norwegian Customs
-          API (authenticated in Maskinporten) and customs representatives mentioned in the
-          house consignment, master consignment, or transport.
+          Norwegian Customs will attempt to automatically detect the
+          arrival of a transport at the border. If automatic arrival is
+          detected, Norwegian Customs will carry out an automatic
+          digital presentation of all expected consignments on the
+          incoming transport.<br/>
+          Subsequently, Norwegian Customs will make routing available in
+          our API for the expected consignments. Entities connected to
+          the presented consignments will be able to retrieve control
+          routing via the API. The entities automatically connected are
+          those who submitted information about the consignment in the
+          Norwegian Customs API (authenticated in Maskinporten) and
+          customs representatives mentioned in the house consignment,
+          master consignment, or transport.
         </p>
         <p>
           Read more about <a href="mo-vei-fly-forklaring-EN.html">
@@ -3018,16 +3100,19 @@
         <h4 id="tjenestefremlegging">Presentation service</h4>
 
         <p>
-           The service is used for the digital fulfillment of the presentation obligation
-           (Movement of Goods Act § 2-3 &ndash; Presentation of goods for control).
-           The service can be used jointly for consignments subject to <strong>notification
-           and disclosure of information obligations</strong> and/or <strong>pre-notified
-           to the EU in the ICS2 solution</strong>.
+           The service is used for the digital fulfillment of the
+           presentation obligation (Movement of Goods Act § 2-3 &ndash;
+           Presentation of goods for control).
+           The service can be used jointly for consignments subject
+           to <strong>notification and disclosure of information
+           obligations</strong> and/or <strong>pre-notified to the EU in
+           the ICS2 solution</strong>.
            <br/>
            Presentation (<strong><a href="movement-presentation-api.html">API:
-           movement-presentation</a></strong>)  can be reported for consignments that have
-           been pre-notified through the two mentioned obligations, i.e., consignments
-           expected to be presented.
+           movement-presentation</a></strong>)  can be reported for
+           consignments that have been pre-notified through the two
+           mentioned obligations, i.e., consignments expected to be
+           presented.
         </p>
 
         <p>
