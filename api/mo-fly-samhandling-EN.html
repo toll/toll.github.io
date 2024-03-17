@@ -76,7 +76,7 @@
         </div>
     </div>
 
-    <div class="column middle" role="main" role="main">
+    <div class="column middle" role="main">
       <h2 id="innledning">Introduction</h2>
 
       <p>
@@ -658,16 +658,16 @@
           on behalf of the <strong>freight forwarder</strong>.<br/>
         </em>
         This is the same as <a href="#scenario2">scenario 2</a>, but here, there is
-        a third-party road transporter picking up the consignments from the 
+        a third-party road transporter picking up the consignments from the
         <strong>ground handler</strong>.
       </p>
 
       <p>
-        In this case, there will be a need for digital collaboration between the 
-        <strong>freight forwarder</strong> and the road transporter, so that the road 
-        transporter can efficiently obtain the list of MAWBs to be picked up from the 
+        In this case, there will be a need for digital collaboration between the
+        <strong>freight forwarder</strong> and the road transporter, so that the road
+        transporter can efficiently obtain the list of MAWBs to be picked up from the
         <strong>ground handler</strong>.<br/>
-        The other steps should be similar to <a href="scenario2">scenario 2</a>.
+        The other steps should be similar to <a href="#scenario2">scenario 2</a>.
       </p>
 
       <figure>
@@ -689,8 +689,8 @@
 
 
       <p>
-        The <strong>carrier</strong> (airline) will report the transport to Digitoll. 
-        The notification of transport should include a list of keys to all master 
+        The <strong>carrier</strong> (airline) will report the transport to Digitoll.
+        The notification of transport should include a list of keys to all master
         consignments. The <strong>carrier</strong> (airline) submits notification
         of master consignment(s) and links them to the transport in the notification
         of transport.
@@ -699,16 +699,16 @@
       <p>
         This is based on the hypothesis that the <strong>carrier</strong> (airline)
         issues the MAWB (master consignment) and provides the key for the MAWB number
-        to the <strong>freight forwarder</strong>. 
-        The <strong>freight forwarder(s)</strong> submits notification of house 
+        to the <strong>freight forwarder</strong>.
+        The <strong>freight forwarder(s)</strong> submits notification of house
         consignments and master consignments to Digitoll.
       </p>
 
       <p>
-        The <strong>ground handler</strong> will need to retrieve routing signals 
-        for consignments from Digitoll so that they can release master consignments 
-        and house consignments to the <strong>freight forwarder</strong>, then 
-        there is no need to place the goods in a customs warehouse. Keep in mind 
+        The <strong>ground handler</strong> will need to retrieve routing signals
+        for consignments from Digitoll so that they can release master consignments
+        and house consignments to the <strong>freight forwarder</strong>, then
+        there is no need to place the goods in a customs warehouse. Keep in mind
         that placing goods in a customs warehouse will require a declaration
         (from April 1, 2025).
       </p>
@@ -722,29 +722,29 @@
       <h4>Digital collaboration</h4>
 
       <p>
-        To complete the submission of information and fulfill the notification and 
-        disclosure of information obligation in this scenario, the 
+        To complete the submission of information and fulfill the notification and
+        disclosure of information obligation in this scenario, the
         <strong>carrier</strong> (airline) and <strong>freight forwarder</strong>
-        must exchange data. The <strong>carrier</strong> (airline)must provide the keys 
-        to all master consignments (MAWB) that will arrive with the aircraft to 
+        must exchange data. The <strong>carrier</strong> (airline)must provide the keys
+        to all master consignments (MAWB) that will arrive with the aircraft to
         the freight forwarder(s).<br/>
         For digital collaboration, the <strong>carrier</strong> (airline) must
-        make the MAWBs available to the freight forwarder, for example, through 
-        a digital service. The <strong>freight forwarder</strong> must receive the 
+        make the MAWBs available to the freight forwarder, for example, through
+        a digital service. The <strong>freight forwarder</strong> must receive the
         correct keys (MAWB numbers) for the master consignments they are referring
         to in their house consignments when submitting them to Digitoll.
       </p>
 
       <p>
-        For the ground handler to release consignments to the freight forwarders in 
-        this case, there are several information elements they depend on having 
+        For the ground handler to release consignments to the freight forwarders in
+        this case, there are several information elements they depend on having
         available. From the <strong>carrier</strong> (airline), they need, at a minimum,
-        the MRN for the notification of transport. Additionally, the ground handler 
+        the MRN for the notification of transport. Additionally, the ground handler
         needs all MAWB numbers that are reported to be in the expected load on the
-        aircraft. They can obtain this information from the carrier. Once they have 
-        this information (MRN for the notification of transport + MAWB), they can 
-        digitally present it to Digitoll. The fact that they have presented it 
-        digitally allows them to retrieve routing for the consignments when the 
+        aircraft. They can obtain this information from the carrier. Once they have
+        this information (MRN for the notification of transport + MAWB), they can
+        digitally present it to Digitoll. The fact that they have presented it
+        digitally allows them to retrieve routing for the consignments when the
         aircraft arrives.
       </p>
 
@@ -763,31 +763,31 @@
       </p>
 
       <p>
-        Here, the <strong>ground handler</strong> will report the transport to 
-        Digitoll on behalf of the <strong>carrier</strong> (airline). The notification of 
-        transport should include a list of keys to all master consignments. If the 
-        aircraft in question comes from a country outside the EU security zone, a 
-        pre-notification must be sent through ICS2. The <strong>ground handler</strong> 
-        must then ensure to obtain key information about all master consignments 
-        (typically MAWB) that will be on board the aircraft from the 
+        Here, the <strong>ground handler</strong> will report the transport to
+        Digitoll on behalf of the <strong>carrier</strong> (airline). The notification of
+        transport should include a list of keys to all master consignments. If the
+        aircraft in question comes from a country outside the EU security zone, a
+        pre-notification must be sent through ICS2. The <strong>ground handler</strong>
+        must then ensure to obtain key information about all master consignments
+        (typically MAWB) that will be on board the aircraft from the
         <strong>freight forwarder</strong>, so that linkage can be established.
       </p>
 
       <p>
-        The <strong>cargo owner</strong> submits a declaration in TVINN for immdiate release 
+        The <strong>cargo owner</strong> submits a declaration in TVINN for immdiate release
         import (or other relevant customs procedure).
       </p>
 
       <p>
-        The <strong>freight forwarder</strong> sends messages about house consignments, 
+        The <strong>freight forwarder</strong> sends messages about house consignments,
         including a link to the declaration in TVINN, and master consignments to Digitoll.
       </p>
 
       <p>
-        The <strong>ground handler</strong> will need to retrieve routing signals 
-        for consignments from Digitoll so that they can release master consignments 
-        and house consignments to the <strong>freight forwarder</strong>, then there 
-        is no need to place the goods in a customs warehouse. Keep in mind that placing 
+        The <strong>ground handler</strong> will need to retrieve routing signals
+        for consignments from Digitoll so that they can release master consignments
+        and house consignments to the <strong>freight forwarder</strong>, then there
+        is no need to place the goods in a customs warehouse. Keep in mind that placing
         goods in a customs warehouse will require a declaration (from April 1, 2025).
       </p>
 
@@ -800,61 +800,61 @@
       <h4>Digital collaboration</h4>
 
       <p>
-        For the <strong>freight forwarder</strong> to be able to submit a 
-        complete notification of consignments, the <strong>cargo owner</strong> must 
-        convey the key to the declaration to the <strong>freight forwarder</strong>. 
-        To complete the submission of information and fulfill the notification and 
-        disclosure of information obligation in this scenario, the <strong>ground 
-        handler</strong> and <strong>freight forwarder</strong> must exchange data. 
-        The <strong>ground handler</strong> must acquire the keys to all master 
-        consignments (MAWB) that will arrive with the aircraft from the 
+        For the <strong>freight forwarder</strong> to be able to submit a
+        complete notification of consignments, the <strong>cargo owner</strong> must
+        convey the key to the declaration to the <strong>freight forwarder</strong>.
+        To complete the submission of information and fulfill the notification and
+        disclosure of information obligation in this scenario, the <strong>ground
+        handler</strong> and <strong>freight forwarder</strong> must exchange data.
+        The <strong>ground handler</strong> must acquire the keys to all master
+        consignments (MAWB) that will arrive with the aircraft from the
         <strong>freight forwarder</strong>.<br/>
-        We recommend that the <strong>ground handler</strong> makes digital services 
-        available so that the <strong>freight forwarder</strong> can provide this 
-        information in a secure and efficient manner. The <strong>ground 
-        handler</strong> can then submit a notification of transport with the list 
+        We recommend that the <strong>ground handler</strong> makes digital services
+        available so that the <strong>freight forwarder</strong> can provide this
+        information in a secure and efficient manner. The <strong>ground
+        handler</strong> can then submit a notification of transport with the list
         of master consignments (MAWB numbers).
       </p>
 
       <h4>Arrival, presentation, and routing </h4>
 
       <p>
-        Digitoll will automatically present consignments digitally to the stakeholders 
-        who have submitted information about transport, master consignments, and house 
-        consignments. This means that routing for consignments will be available in a 
-        hierarchy, where the stakeholder that submitted the notification of transport 
-        has access to all consignments reported on that transport, the one that 
-        submitted information about the master consignment has access to all house 
-        consignments under that master consignment. A stakeholder which has only 
-        submitted information about house consignment(s) has access only to the routing 
+        Digitoll will automatically present consignments digitally to the stakeholders
+        who have submitted information about transport, master consignments, and house
+        consignments. This means that routing for consignments will be available in a
+        hierarchy, where the stakeholder that submitted the notification of transport
+        has access to all consignments reported on that transport, the one that
+        submitted information about the master consignment has access to all house
+        consignments under that master consignment. A stakeholder which has only
+        submitted information about house consignment(s) has access only to the routing
         of the house consignment(s).
       </p>
 
       <p>
-        When retrieving routing information, the <strong>ground handler</strong> 
-        will receive information indicating whether consignments on the transport 
-        have been selected for inspection at the airport (border crossing point). 
-        Typically, consignments will not undergo inspection at the border crossing 
-        point, and the <strong>ground handler</strong> will then know that the 
-        consignments have been released to the freight forwarder. This avoids 
-        placing goods in the <strong>ground handlers</strong> customs warehouse, 
-        and the <strong>freight forwarder</strong> can retrieve the consignments 
+        When retrieving routing information, the <strong>ground handler</strong>
+        will receive information indicating whether consignments on the transport
+        have been selected for inspection at the airport (border crossing point).
+        Typically, consignments will not undergo inspection at the border crossing
+        point, and the <strong>ground handler</strong> will then know that the
+        consignments have been released to the freight forwarder. This avoids
+        placing goods in the <strong>ground handlers</strong> customs warehouse,
+        and the <strong>freight forwarder</strong> can retrieve the consignments
         without further processing.
       </p>
 
       <p>
-        The <strong>freight forwarder</strong> will retrieve routing information from 
-        Digitoll for the consignments that the <strong>freight forwarder</strong> has 
-        reported. The <strong>freight forwarder</strong> can then pick up the consignments 
-        from the <strong>ground handler</strong>. If there are consignments that the 
-        <strong>freight forwarder</strong> has been informed will undergo inspection, 
-        the <strong>freight forwarder</strong> is responsible for delivering them to 
+        The <strong>freight forwarder</strong> will retrieve routing information from
+        Digitoll for the consignments that the <strong>freight forwarder</strong> has
+        reported. The <strong>freight forwarder</strong> can then pick up the consignments
+        from the <strong>ground handler</strong>. If there are consignments that the
+        <strong>freight forwarder</strong> has been informed will undergo inspection,
+        the <strong>freight forwarder</strong> is responsible for delivering them to
         the agreed customs location as soon as possible.
       </p>
 
       <p>
-        If the consignment has been released for the next customs procedure, 
-        such as immediate release import, the <strong>freight forwarder</strong> 
+        If the consignment has been released for the next customs procedure,
+        such as immediate release import, the <strong>freight forwarder</strong>
         can proceed to the next step in their logistics process.
       </p>
     </div>

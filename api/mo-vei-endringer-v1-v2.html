@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <div class="column middle" role="main" role="main">
+    <div class="column middle" role="main">
         <h2 id="bakgrunn">Bakgrunn</h2>
         <p>
             Det har vært omfattende endringer mellom versjon 1 og versjon 2
@@ -97,67 +97,70 @@
           </p>
 
           <ul>
-            <li>Struktur endret fra to meldinger til tre meldinger:</li>
-            <ul>
-              <li>Melding om transport (ROAD001) splittet opp i to meldinger</li>
-              <ul>
-                <li>melding om transport</li>
-                <li>melding om hovedforsendelse (Master Consignment)</li>
+            <li>Struktur endret fra to meldinger til tre meldinger:
+                <ul>
+                  <li>Melding om transport (ROAD001) splittet opp i to meldinger
+                     <ul>
+                        <li>melding om transport</li>
+                        <li>melding om hovedforsendelse (Master Consignment)</li>
+                     </ul>
+                  </li>
+                  <li>Melding om forsendelse</li>
               </ul>
-              <li>Melding om forsendelse</li>
-            </ul>
-            <li>Nøkler og koblinger mellom nivåene er endret:</li>
+            </li>
+            <li>Nøkler og koblinger mellom nivåene er endret:
             <ul>
               <li>Melding om forsendelse er identifisert med
                 <strong>fraktbrevnummer</strong> og har to forskjellige
                 konsepter for kobling fra forsendelse til
-                hovedforsendelse, et for post og et for alle andre:</li>
-              <ul>
-                <li>
-                  Melding om forsendelse skal, senest når transport
-                  ankommer grensen, inneholde nøkkel til melding om hovedforsendelse
-                  (ikke post) &ndash; nøkkel
-                  er <strong>hovedfraktbrevnummer</strong>
-                </li>
-                <li>
-                  Melding om forsendelse skal, senest når transport ankommer
-                  grensen, inneholde nøkkel til receptacle (&quot;postsekk&quot;,
-                  kun postsendinger) &ndash; nøkkel er
-                  <strong>postsekknummer</strong>
-                </li>
-              </ul>
+                hovedforsendelse, et for post og et for alle andre:
+                  <ul>
+                    <li>
+                      Melding om forsendelse skal, senest når transport
+                      ankommer grensen, inneholde nøkkel til melding om hovedforsendelse
+                      (ikke post) &ndash; nøkkel
+                      er <strong>hovedfraktbrevnummer</strong>
+                    </li>
+                    <li>
+                      Melding om forsendelse skal, senest når transport ankommer
+                      grensen, inneholde nøkkel til receptacle (&quot;postsekk&quot;,
+                      kun postsendinger) &ndash; nøkkel er
+                      <strong>postsekknummer</strong>
+                    </li>
+                  </ul>
+              </li>
               <li>
                 Melding om hovedforsendelse er identifisert av et
                 <strong>hovedfraktbrevnummer</strong>
+                  <ul>
+                    <li>Melding om hovedforsendelse kan ha en liste med
+                      <em>postsekknummer </em>(kun post)</li>
+                  </ul>
               </li>
-              <ul>
-                <li>Melding om hovedforsendelse kan ha en liste med
-                  <em>postsekknummer </em>(kun post)</li>
-              </ul>
               <li>Melding transport identifiseres med
                 <strong>registreringsnummer og estimert ankomsttid </strong>
+                  <ul>
+                    <li>
+                      Melding om transport skal, senest når transport ankommer
+                      grensen, inneholde en liste av <strong>hovedfraktbrevnummer</strong>
+                      <br/>
+                      <table>
+                         <tbody>
+                            <tr class="noborder">
+                               <td class="noborder"><strong>Knytning av meldinger ved hjelp av fraktbrev</strong></td>
+                               <td class="noborder">&nbsp;</td>
+                               <td class="noborder"><strong>Knytning av meldinger ved hjelp av postsekk-id (kun posten)</strong></td>
+                            </tr>
+                            <tr class="noborder">
+                               <td class="noborder"><img src="media/MO-nokler.png" alt="Sammenheng mellom nøkler" /></td>
+                               <td class="noborder">&nbsp;</td>
+                               <td class="noborder"><img src="media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" /></td>
+                            </tr>
+                        </tbody>
+                      </table>
+                      <p></p>
+                  </ul>
               </li>
-              <ul>
-                <li>
-                  Melding om transport skal, senest når transport ankommer
-                  grensen, inneholde en liste av <strong>hovedfraktbrevnummer</strong>
-                  <br/>
-                  <table>
-                     <tbody>
-                        <tr class="noborder">
-                           <td class="noborder"><strong>Knytning av meldinger ved hjelp av fraktbrev</strong></td>
-                           <td class="noborder">&nbsp;</td>
-                           <td class="noborder"><strong>Knytning av meldinger ved hjelp av postsekk-id (kun posten)</strong></td>
-                        </tr>
-                        <tr class="noborder">
-                           <td class="noborder"><img src="media/MO-nokler.png" alt="Sammenheng mellom nøkler" /></td>
-                           <td class="noborder">&nbsp;</td>
-                           <td class="noborder"><img src="media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" /></td>
-                        </tr>
-                    </tbody>
-                  </table>
-                  <p></p>
-              </ul>
             </ul>
             <li>
               Både forsendelse og hovedforsendelse skal, senest når
