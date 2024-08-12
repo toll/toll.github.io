@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oversikt over valideringsfeil for API i MO</title>
+    <meta name="description" content="Oversikt valideringsfeil for API i MO">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../style/api.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+<body>
+
+
+<header role="banner">
+    <a href="https://toll.github.io/">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="260px" height="64px" viewBox="0 0 260 64" xml:space="preserve" fill="#000000"><g><g><path d="M17.75,8.23v23.61h-6.8V8.23H3.46V2.86h21.76v5.38H17.75z"></path><path
+                d="M42.15,32.35c-8.61,0-15.38-5.59-15.38-14.95c0-9.37,6.76-15,15.38-15s15.38,5.63,15.38,15 C57.52,26.76,50.76,32.35,42.15,32.35z M42.15,8.19c-4.83,0-8.49,3.49-8.49,9.03c0,5.54,3.65,9.07,8.49,9.07s8.49-3.53,8.49-9.07 C50.63,11.72,46.98,8.19,42.15,8.19z"></path><path
+                d="M63.44,31.84V2.86h6.76v23.36h10.04v5.63H63.44z"></path><path
+                d="M85.41,31.84V2.86h6.76v23.36h10.04v5.63H85.41z"></path><path
+                d="M107.37,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H107.37z"></path><path
+                d="M144.63,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H144.63z"></path><path
+                d="M172.77,31.84L170.71,26h-10.33l-2.06,5.84h-7.06l10.92-29.03h7.06l10.92,29.03H172.77z M165.54,10.29 l-3.61,10.42h7.23L165.54,10.29z"></path><path
+                d="M193.18,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H193.18z"></path><path
+                d="M205.57,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H205.57z"></path><path
+                d="M250.26,31.84l-12.73-19.66c0,0,0.13,3.49,0.13,6.55v13.11h-6.64V2.86h7.27l12.43,19.49 c0,0-0.13-3.28-0.13-6.34V2.86h6.64v28.99H250.26z"></path></g><g><path d="M13.12,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H4.76V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H13.12z"></path>
+            <path d="M23.24,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S26.53,60.93,23.24,60.93z M23.24,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C27.6,51.98,25.63,50.26,23.24,50.26z"></path>
+            <path d="M37.69,60.73l-3.06-5.05h-1.26v5.05h-1.65V49h3.31c2.09,0,3.96,0.97,3.96,3.3c0,2.06-1.43,2.97-2.67,3.21 l3.35,5.22H37.69z M36.55,50.77c-0.53-0.39-1.16-0.42-1.97-0.42h-1.21v3.98h1.21c0.82,0,1.45-0.03,1.97-0.41 c0.53-0.39,0.75-0.87,0.75-1.58C37.29,51.64,37.07,51.14,36.55,50.77z"></path>
+            <path d="M52.61,60.75H51l-2.82-9.48l-2.81,9.48h-1.61L40.37,49h1.73l2.53,9.25l2.7-9.25h1.68l2.7,9.25L54.26,49h1.73 L52.61,60.75z"></path>
+            <path d="M58.22,60.73V49h6.87v1.38h-5.22v3.5h4.93v1.39h-4.93v4.06h5.35v1.39H58.22z"></path>
+            <path d="M73.08,60.93c-3.35,0-5.98-2.41-5.98-6.07s2.63-6.03,5.97-6.03c3.01,0,4.3,1.58,4.74,2.04l-1.12,1.04 c-0.7-0.82-1.79-1.67-3.62-1.67c-2.41,0-4.27,1.73-4.27,4.62s1.92,4.62,4.37,4.62c2.43,0,3.3-1.07,3.3-1.07v-2.6H73.3v-1.34h4.76 v4.55C77.84,59.25,76.41,60.93,73.08,60.93z"></path>
+            <path d="M80.8,60.73V49h1.65v11.73H80.8z"></path>
+            <path d="M93.78,60.73l-1.21-3.06h-5.03l-1.21,3.06h-1.73l4.78-11.76h1.44l4.79,11.76H93.78z M90.06,51.02l-2.06,5.27 h4.11L90.06,51.02z"></path>
+            <path d="M106.16,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H97.8V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H106.16z"></path>
+            <path d="M120.78,60.93c-3.42,0-5.98-2.4-5.98-6.05c0-3.65,2.63-6.05,6-6.05c2.19,0,3.52,0.92,4.17,1.55l-0.7,1.33 c-0.46-0.58-1.77-1.43-3.4-1.43c-2.53,0-4.37,1.82-4.37,4.57c0,2.75,1.85,4.57,4.37,4.57c1.55,0,2.74-0.59,3.5-1.43l0.71,1.21 C124.35,60.02,123.01,60.93,120.78,60.93z"></path>
+            <path d="M135.18,59.51c-0.8,0.92-1.97,1.43-3.52,1.43c-1.56,0-2.74-0.51-3.52-1.43c-0.82-0.95-0.95-2.11-0.95-3.57 V49h1.67v6.78c0,0.99,0.02,1.94,0.54,2.63c0.48,0.65,1.24,1.04,2.26,1.04c1.02,0,1.77-0.39,2.26-1.04 c0.53-0.7,0.54-1.67,0.54-2.63V49h1.65v6.93C136.11,57.4,135.98,58.55,135.18,59.51z"></path>
+            <path d="M142.11,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C146.21,59.74,144.17,60.93,142.11,60.93z"></path>
+            <path d="M152.93,50.38v10.35h-1.65V50.38h-3.31V49h8.26v1.38H152.93z"></path>
+            <path d="M162.79,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S166.08,60.93,162.79,60.93z M162.79,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C167.15,51.98,165.18,50.26,162.79,50.26z"></path>
+            <path d="M181.76,60.73l-0.77-9.26h-0.05l-3.59,9.37h-0.93l-3.59-9.37h-0.05l-0.75,9.26h-1.63L171.46,49h2.04 l3.38,9.06h0.03L180.3,49h2.02l1.07,11.73H181.76z"></path>
+            <path d="M189.12,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C193.22,59.74,191.18,60.93,189.12,60.93z"></path></g></g>
+            <title>Toll logo -- link to Toll github homepage</title>
+        </svg>
+    </a>
+    <h1>Oversikt over valideringsfeil for API i MO</h1>
+</header>
+
+
+<main>
+    <div class="column left">
+        <br/>
+    </div>
+
+    <div class="column right" role="navigation">
+         <div class="lang_nav"><a href="mo-valideringsfeil-EN.html"><img src="media/NO.png" alt="Norwegian flag"/>&nbsp;Norsk</a></div>
+         <div id="toc_container"  aria-hidden="true">
+            <h2 id="innhold" class="toc_title">Innhold</h2>
+            <ul>
+<li>·TODO </li>
+<!--
+<a href="#Sekven">Sekvens for innsending - synkron og asynkron respons</a></li>
+<li>·
+<a href="#Synkro">Synkrone valideringsfeil</a> </li>
+<li>o
+<a href="#Innhol">Innholdsformat på synkrone valideringsfeil</a></li>
+<li>o
+<a href="#Mangle">Manglende eller blanke (&quot;&quot;) påkrevde felt</a></li>
+<li>o
+<a href="#Feilfo">Feil format på dato/tid:</a></li>
+<li>o
+<a href="#Feilfe">Feil feltstørrelse - tall</a></li>
+<li>o
+<a href="#Feilfe">Feil feltstørrelse - streng (tekst)</a></li>
+<li>o
+<a href="#Minste">Minst ett av feltene må være oppgitt</a></li>
+<li>o
+<a href="#Måhaen">Må ha en påkrevde verdier</a></li>
+<li>·
+<a href="#Asynkr">Asynkrone valideringsfeil</a> </li>
+<li>o<a href="#Innhol">Innholdsformat på asynkrone valideringsfeil</a></li>
+<li>o
+<a href="#Feltet">Feltet skal ha en verdi angitt av kodeverk</a></li>
+<li>o
+<a href="#Landko">Landkode ikke gyldig</a></li>
+<li>o
+<a href="#Format">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></li>
+<li>o
+<a href="#Format">Format på oppgitt MRN har ikke korrekt lengde for identifikator av eksport med type ECS_EXPORT</a></li>
+<li>o
+<a href="#Kunvei">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></li>
+<li>o
+<a href="#Dersom">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></li>
+<li>o
+<a href="#Dersom">Dersom man har angitt en verdi i et felt som benytter FNs stedskoder (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for CL144 UNLOCODE</a></li>
+<li>o
+<a href="#Kanikk">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></li>
+<li>o
+<a href="#Dersom">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></li>
+<li>o
+<a href="#Refera">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></li>
+<li>o
+<a href="#VOECva">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a></li>
+<li>o
+<a href="#Ingent">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></li>
+<li>o
+<a href="#Kanikk">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
+<li>o
+<a href="#Kodefo">Kode for Tollkontor det refereres til er ugyldig</a></li>
+<li>o
+<a href="#Feltet">Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd for meldingen for transport</a></li>
+<li>o
+<a href="#Feltet">Feltet for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke være satt til mer enn ett år frem i tid</a></li>
+<li>o
+<a href="#Feltet">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</a></li>
+<li>o
+<a href="#Kanikk">Kan ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som er i fortiden</a></li>
+<li>o
+<a href="#Tidspu">Tidspunkt oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i tid</a></li>
+<li>o
+<a href="#Kunroa">Kun road og rail: Kan ikke oppgi conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</a></li>
+<li>o
+<a href="#Kunroa">Kun road og rail: Når modeOfTransportCode er av angitt verdi så må typeOfIdentification være bestemt verdi</a></li>
+<li>o
+<a href="#Kunvei">Kun veitransport (road-API): Kan ikke finne det norske kjøretøyets registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</a></li>
+<li>o
+<a href="#Finner">Finner ikke tolldeklarasjon blant gyldige deklarasjoner angitt i våre systemer.</a></li>
+<li>o
+<a href="#Tollde">Tolldeklarasjon angitt har en ugyldig status i våre systemer.</a></li>
+<li>o
+<a href="#Spesif">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</a></li>
+<li>o
+<a href="#Feltka">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;), dersom man har angitt
+prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
+(&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</a></li>
+<li>o
+<a href="#Nårref">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</a></li>
+<li>o
+<a href="#Dersom">Dersom manangitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</a></li>
+<li>o
+<a href="#Mankan">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
+<li>o
+<a href="#Dersom">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet.</a></li>
+<li>·
+<a href="#Ufulls">Ufullstendig dokumentasjon / Incomplete documentation</a> </li>
+<li>o
+<a href="#Format">Format på dokumentstatus</a></li>
+<li>o
+<a href="#Dokume">Dokument status INCOMPLETE</a></li>
+-->
+</ul>
+        </div>
+    </div>
+
+    <div class="column middle" role="main">
+
+        <h2
+        id="Sekvensforinnsending-synkronogasynkronrespons">Sekvens
+        for innsending - synkron og asynkron respons</h2>
+
+        <p>Se også dokumentasjon her: <a
+        href="https://toll.github.io/api/mo-vei.html#hvordanSende">https://toll.github.io/api/mo-vei.html#hvordanSende</a>,
+        dette er likt for alle transportformer.</p>
+
+        <p>Generelt fungerer innsending av informasjon slik at aktøren sender inn en
+        melding (POST) og mottar en referanse (requestId). Ved å bruke den
+        mottatte referansen kan aktøren spørre (GET) om resultat av innsendingen og ved
+        suksess motta en permanent referanse til meldingen, utstedt av
+        Tolletaten. Dette gjøres på et eget endepunkt (/validation-status) i
+        spørre-API-et (query API) linket til lengre nede på denne siden. Disse
+        tjenestene er asynkrone og man må derfor spørre inntil man får svar. Valideringsrespons
+        vil vanligvis være tilgjengelig i løpet 1 til 2 sekunder, men det kan ta lenger
+        tid i enkelttilfeller.<br>
+        Spørring gjøres på /validation-status-endepunktet, som vil returnere den
+        permanente referansen, et Master Reference Number, forkortet MRN ved suksess og
+        en liste med valideringsfeil hvis de finnes.</p>
+
+        <p>Eksempel på innsendingssekvens for forsendelse (house consignment).
+        Mønsteret er det samme for de andre meldingene, hovedforsendelse (master
+        consignment) og transport.</p>
+
+        <figure>
+            <img src="media/mo-valideringsfeil.png" alt="Se figurtekst"/>
+            <figcaption>Figur: sekvens for innsending av melding om
+            forsendelse (house consignment)</figcaption>
+        </figure>
+
+        <p>&nbsp;</p>
+
+        <p>MRN brukes når meldinger skal oppdateres eller kanselleres (put/delete) for
+        å referere til tidligere innsendte meldinger. Valideringsendepunktet vil
+        også kunne returnere en liste med dokumentstatuser for å indikere manglende
+        opplysninger, se <a
+        href="https://toll.github.io/api/mo-kodeverk.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk.html#incompleteDocumentationReason</a>. Anbefalt
+        metode for innsending er at aktøren sender inn alle meldinger for oppretting
+        (POST) som er aktuelle, og så venter 1-2 sekunder før spørring om validering
+        (query API).</p>
+
+        <p>For eksempel: om man har 500 forsendelser for en hovedforsendelse på en
+        transport, så sender man inn (POST) alle 500 meldingene om forsendelse, venter
+        et par sekunder, ber om validering og får tilbake MRN og status for alle de 500
+        meldingene. Dersom man får status 404 ved kall til valideringsendepunktet
+        må man vente litt og spørre igjen. Det anbefales å lage en algoritme som gjør
+        gjentatte forsøk, inntil valideringsrespons mottas.</p>
+
+        <h2 id="Synkronevalideringsfeil">Synkrone
+        valideringsfeil</h2>
+
+        <p>Synkrone (via HTTP) valideringsfeil oppgis som svar med statuskode 400 på
+        innsendelse mot API-et. Årsaken til valideringsfeilen returneres som
+        innhold (body) i svaret. Når man får synkrone valideringsfeil blir innsendingen
+        avvist umiddelbart og ikke behandlet videre før feilen(e) er rettet og det
+        sendes inn på nytt. Dersom det <em>ikke</em> er noen synkrone
+        valideringsfeil, vil svaret ha statuskode 202 og inneholde et felt
+        &quot;requestId&quot; som benyttes for så å se om det avdekkes&nbsp;<em>asynkrone
+        valideringsfeil</em> under videre behandling. </p>
+
+        <h3
+        id="Innholdsformatpåsynkronevalideringsfeil">Innholdsformat
+        på synkrone valideringsfeil</h3>
+
+        <p>Valideringsfeilene returneres som en eller flere objekter i en liste
+        &quot;validationErrors&quot;. Innholdet i listen er et eller flere objekter som
+        peker på hvilke felter som forårsaket valideringsfeilen angitt i feltet
+        &quot;field&quot;, og årsaken til feilen angitt i feltet &quot;error&quot;.</p>
+
+        <pre>
+        {
+          "validationErrors": [
+            {
+              "field": "${fieldWithErrorOne}",
+              "error": "${validationErrorCauseOne}"
+            },
+            {
+              "field": "${fieldWithErrorTwo}",
+              "error": "${validationErrorCauseTwo}"
+            }
+          ]
+        }</pre>
+
+        <h3 id="Manglendeellerblanke(&quot;&quot;)påkrevdefelt">Manglende
+        eller blanke (&quot;&quot;) påkrevde felt</h3>
+
+        <h4 id="Svar">Svar</h4>
+
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "must not be null"
+    },
+    {
+      "field": "${fieldname}",
+      "error": "must not be blank"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak">Årsak</h4>
+
+        <p>Felter som er påkrevd mangler eller har tomme verdier. Felter som ikke kan
+        ha tomme verdier vil gi &quot;must not be blank&quot; enten de mangler eller er
+        tomme. Alle andre påkrevde felter vil gi &quot;must not be null&quot; om de
+        mangler.</p>
+
+        <h4 id="Rettelse">Rettelse</h4>
+
+        <p>Feltet må være med (&quot;must not be null&quot;) eller må være med <em>og</em>
+        ha en verdi (&quot;must not be blank&quot;).</p>
+
+        <h3 id="Feilformatpådato/tid:">Feil format på
+        dato/tid:</h3>
+
+        <h4 id="Svar.1">Svar</h4>
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "invalid ISO-8601 instant in UTC (yyyy-MM-ddTHH:mm:ssZ)"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.1">Årsak</h4>
+
+        <p>Dato og tidspunkt felter har feil format. De må følge ISO-8601 standarden.
+        Det vil si være i formatet: yyyy-MM-ddTHH:mm:ssZ</p>
+
+        <h4 id="Rettelse.1">Rettelse</h4>
+
+        <p>Endre formatet til å følge ISO-8601 standarden i formatet
+        yyyy-MM-ddTHH:mm:ssZ.</p>
+
+        <h3 id="Feilfeltstørrelse-tall">Feil
+        feltstørrelse - tall</h3>
+
+        <h4 id="Svar.2">Svar</h4>
+
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "numeric value out of bounds (&lt;${maxInteger} digits&gt;.&lt;${maxDecimalNumber} digits&gt; expected)"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.2">Årsak</h4>
+
+        <p>Man har angitt et tall som overskrider maksimalt antall siffer før
+        elleretter desimalskille (&quot;.&quot;). Der det er kun heltall som er
+        tillat vil tallet etter desimalskille (&quot;.&quot;, det vil si
+        maxDecimalNumber) være 0.</p>
+
+        <h4 id="Rettelse.2">Rettelse</h4>
+
+        <p>Endre tallet til å være et siffer innenfor maksimalt heltall
+        (maxInteger-verdien) og maksimalt antall desimalsiffer
+        (maxDecimalNumber-verdien).</p>
+
+        <h3 id="Feilfeltstørrelse-streng(tekst)">Feil
+        feltstørrelse - streng (tekst)</h3>
+
+        <h4 id="Svar.3">Svar</h4>
+
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "size must be between ${minLength} and ${maxLength}"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.3">Årsak</h4>
+
+        <p>Innholdet i feltet har overskredet maksimalt antall tegn eller har færre enn
+        minimum antall tegn.</p>
+
+        <h4 id="Rettelse.3">Rettelse</h4>
+
+        <p>Endre innholdet til å være innenfor minimum og maksimum størrelse.</p>
+
+        <p>&nbsp;</p>
+
+        <h3 id="Minstettavfeltenemåværeoppgitt">Minst
+        ett av feltene må være oppgitt</h3>
+
+        <h4 id="Svar.4">Svar</h4>
+
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "At least one of the following fields should be non null: [${fieldOne}, ${fieldTwo}]"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.4">Årsak</h4>
+
+        <p>I noen tilfeller må minst et av flere felter være oppgitt. Objektet
+        angitt (fieldname), må minst inneholde verdi i minst ett av de angitte feltene.</p>
+
+        <h4 id="Rettelse.4">Rettelse</h4>
+
+        <p>Påse at minst ett av de oppgitte feltene er oppgitt og har gyldig verdi på
+        objektet.</p>
+
+        <h3 id="Måhaenpåkrevdverdier">Må ha en påkrevd
+        verdier</h3>
+
+        <h4 id="Svar.5">Svar</h4>
+
+        <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "Must be one of [${valueOne}, ${valueTwo}]"
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.5">Årsak</h4>
+
+        <p>Feltet (fieldname) kan kun ha en av de angitte verdiene og må sendes inn med
+        én av dem.</p>
+
+        <h4 id="Rettelse.5">Rettelse</h4>
+
+        <p>Endre feltets verdi slik at det har en av de fastsatte verdiene (valueOne,
+        ValueTwo ...) som er påkrevd.</p>
+
+        <h2 id="Asynkronevalideringsfeil">Asynkrone
+        valideringsfeil</h2>
+
+        <p>Dersom en innsending ikke hadde noen valideringsfeil som førte til <em>umiddelbar</em>
+        avvisning (synkrone valideringsfeil) blir innsendingen behandlet
+        videre. Det kan fortsatt oppstå valideringsfeil <em>senere -</em> under
+        den videre behandlingen. Disse vil man da få som svar på kall mot det
+        korresponderende &quot;/validation-status&quot; endepunktet når behandlingen er
+        fullført. Valideringsfeil blir knyttet til &quot;requestId&quot; verdien
+        man får i retur på den originale innsendingen, og returnert som asynkrone
+        valideringsfeil.</p>
+
+        <h3
+        id="Innholdsformatpåasynkronevalideringsfeil">Innholdsformat
+        på asynkrone valideringsfeil</h3>
+
+        <p>Dersom det <strong>er valideringsfeil</strong> funnet når asynkron
+        validering er ferdig vil svaret mot &quot;/validation-status&quot; endepunktet
+        returnere HTTP kode 202 med innhold der feltet &quot;status&quot; har verdien
+        &quot;<strong>FAILURE</strong>&quot;.<br>
+        Valideringsfeilene returneres som ett eller flere objekter i en liste,
+        &quot;validationErrorList&quot;. Innholdet i listen er objekt(er) som
+        peker på sti til felt(er) som forårsaket valideringsfeilen angitt i feltet
+        &quot;pointer.messageElementPath&quot; og årsaken til feilen angitt i feltet
+        &quot;description&quot;.</p>
+
+        <p>Frem til behandling er ferdig vil svaret på endepunktet gi HTTP kode
+        404. </p>
+
+        <p>Dersom det <em><b>ikke</b></em><strong> er noen valderingsfeil</strong>, og
+        innnsending er <em>vellykket</em>&nbsp;, vil feltet &quot;status&quot; ha
+        verdien &quot;<strong>SUCCESS</strong>&quot;</p>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "${validationErrorCauseOne}",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithErrorOne}"
+      }
+    },
+    {
+      "description":  "${validationErrorCauseTwo}",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithErrorTwo}"
+      }
+    }
+  ]
+}</pre>
+
+        <h3 id="Feltetskalhaenverdiangittavkodeverk">Feltet
+        skal ha en verdi angitt av kodeverk&nbsp;</h3>
+
+        <h4 id="Svar.6">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Invalid code. Expected codes are one of [${codeOne}, ${codeTwo}]",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.6">Årsak</h4>
+
+        <p>Feltet angitt på &quot;messageElementPath&quot; hadde en verdi som ikke ble
+        funnet i kodeverket (tabell over lovlige verdier). En av kodeverkets
+        verdier, som angitt i [&quot;codeOne&quot;, &quot;codeTwo&quot;...], er påkrevd
+        for feltet.</p>
+
+        <h4 id="Rettelse.6">Rettelse</h4>
+
+        <p>Endre feltet til å ha en verdi tilsvarende en gyldig kodeverkskode som
+        påkrevd for feltet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
+        får i retur for ny innsendelse og verifiser&nbsp;at asynkron validering for
+        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3 id="Landkodeikkegyldig">Landkode ikke gyldig</h3>
+
+        <h4 id="Svar.7">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Country is invalid",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.7">Årsak</h4>
+
+        <p>Feltet angitt på &quot;messageElementPath&quot; har en landkode som ikke ble
+        funnet blant gyldige ISO-3166 Alpha-2 koder.</p>
+
+        <h4 id="Rettelse.7">Rettelse</h4>
+
+        <p>Endre feltet til å benytte en gyldig ISO-3166 Alpha-2 kode. Send inn på
+        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <p>&nbsp;</p>
+
+        <h3
+        id="FormatpåoppgittMRNerugyldigforeksportavangitteksporttype">Format
+        på oppgitt MRN er ugyldig for eksport av angitt eksporttype</h3>
+
+        <h4 id="Svar.8">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Invalid MRN format for export of type ${typeOfExport}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.8">Årsak</h4>
+
+        <p>MRN for feltet &quot;exportId&quot; angitt på &quot;messageElementPath&quot;
+        er oppgitt med et format som ikke er gyldig for angitt eksporttype
+        (&quot;typeOfExport&quot;).</p>
+
+        <h4 id="Rettelse.8">Rettelse</h4>
+
+        <p>Endre feltets verdi til å benytte et gyldig format for MRN. Send inn på
+        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <p>&nbsp;</p>
+
+        <h3
+        id="FormatpåoppgittMRNharikkekorrektlengdeforidentifikatoraveksportmedtypeECS_EXPORT">Format
+        på oppgitt MRN har ikke korrekt lengde for identifikator av eksport med type
+        ECS_EXPORT</h3>
+
+        <h4 id="Svar.9">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Invalid MRN format for export of type ECS_EXPORT, must be 18 characters long.",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.9">Årsak</h4>
+
+        <p>MRN for &quot;exportId&quot; angitt på &quot;messageElementPath&quot; er
+        angitt med lengde som ikke er gyldig for angitt typeOfExport - ECS_EXPORT.</p>
+
+        <h4 id="Rettelse.9">Rettelse</h4>
+
+        <p>Verifiser at MRN er korrekt og har korrekt lengde påkrevd for typen eksport.
+<br>
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Kunveitransport(road-API):EksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun
+        veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</h3>
+
+        <h4 id="Svar.10">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Export of type AES_EXPORT is not found or has wrong status in AES.",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.10">Årsak</h4>
+
+        <p>Eksporten er av type AES_EXPORT men exportId ble ikke funnet, eller har feil
+        status i AES. I tillegg til at det ikke finnes en eksportdeklarasjon med angitt
+        iD, kan årsaken være:</p>
+
+        <ul type=disc>
+         <li>eksportdeklarasjonen finnes, men er ikke frigitt fra
+             avgangstollsted</li>
+         <li>eksportdeklarasjonen finnes, men er allerede
+             utførselsregistrert</li>
+        </ul>
+
+        <h4 id="Rettelse.10">Rettelse</h4>
+
+        <p>Verifiser og eventuelt endre slik at exportId er korrekt og har riktig
+        status i AES.<br>
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="DersomverdisomangirprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge(&quot;outgoingprocedure&quot;),erangitt,måverdienværeenavkodenetillattikodeverket">Dersom
+        verdi som angir prosedyren som forsendelsen var underlagt frem til
+        grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må
+        verdien være en av kodene tillatt i kodeverket</h3>
+
+        <h4 id="Svar.11">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "When field is provided, it has to be one of ${outgoingProcedureCodes}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.importProcedure.outgoingProcedure"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.11">Årsak</h4>
+
+        <p>Verdi for feltet outgoingProcedure ble ikke funnet blant de gyldige kodene
+        som finnes i OutgoingProcedure kodeverket <a
+        href="https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure">https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure</a>.</p>
+
+        <h4 id="Rettelse.11">Rettelse</h4>
+
+        <p>Endre verdien til en av verdiene som finnes i OutgoingProcedure kodeverket.
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="DersommanharangittenverdiietfeltsombenytterFNsstedskoder(&quot;UNLOCODE&quot;)mådetteværeenavverdienesomfinnesikodeverketforCL144UNLOCODE">Dersom
+        man har angitt en verdi i et felt som benytter FNs stedskoder
+        (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for
+        CL144 UNLOCODE</h3>
+
+        <h4 id="Svar.12">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}", 
+  "validationErrorList": [
+    {
+      "description": "Invalid code. Expected valid UNLOCODE",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.12">Årsak</h4>
+
+        <p>Det er flere felter i meldingene der verdien som skal oppgis er basert på FN
+        sine stedskoder, &quot;UNLOCODE&quot;. Feltet angitt på
+        &quot;messageElementPath&quot; har en innsendt verdi som ikke ble funnet i
+        kodeverket for CL144 UNLOCODE. &nbsp;</p>
+
+        <h4 id="Rettelse.12">Rettelse</h4>
+
+        <p>Endre verdien til en av verdiene som finnes i CL144 UNLOCODE
+        kodeverket. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
+        retur for ny innsendelse og verifiser&nbsp;at asynkron validering for denne
+        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3
+        id="KanikkesendeinnexportFromEUlistedersomprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge(&quot;outgoingprocedure&quot;)erTransittering(TRA)">Kan
+        ikke sende inn exportFromEU liste dersom&nbsp;prosedyren som forsendelsen var
+        underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;)
+        er Transittering (TRA)&nbsp;</h3>
+
+        <h4 id="Svar.13">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field cannot have values when consignmentHouseLevel.importProcedure.outgoingProcedure is TRA",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.13">Årsak</h4>
+
+        <p>Dersom prosedyren som forsendelsen var underlagt frem til grensepassering
+        inn i Norge (i feltet outgoingProcedure ) har verdien TRA (for transittering)
+        kan man ikke sende inn referanse til eksport fra EU (exportFromEU).</p>
+
+        <h4 id="Rettelse.13">Rettelse</h4>
+
+        <p>Fjern exportFromEU fra importprosedyren eller endre
+        outgoingProcedure. Send inn på nytt.<br>
+        Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Dersomverkenadresseellerlokasjonerspesifisert,erFNstedskode(&quot;UNLOCODE&quot;)påkrevd">Dersom
+        verken adresse eller lokasjon er spesifisert, er FN stedskode
+        (&quot;UNLOCODE&quot;) påkrevd</h3>
+
+        <h4 id="Svar.14">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}", 
+  "validationErrorList": [
+    {
+      "description": "If location AND address is not provided, then unloCode is required",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.placeOfDelivery.unloCode"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.14">Årsak</h4>
+
+        <p>Objektet angitt på &quot;messageElementPath&quot; har verken oppgitt adresse
+        (&quot;address&quot;) eller lokasjon (&quot;location&quot;). Da må feltet
+        &quot;unloCode&quot; være oppgitt og ha en verdi for dette objektet.<br>
+        Dette gjelder for lastested (&quot;placeOfLoading&quot;), lossested
+        (&quot;placeOfUnloading&quot;), akseptansested (&quot;placeOfAcceptance&quot;)
+        og leveringssted (&quot;placeOfDelivery&quot;).</p>
+
+        <h4 id="Rettelse.14">Rettelse</h4>
+
+        <p>Legg til gyldig &quot;unloCode&quot;, eventuelt legg til &quot;address&quot;
+        og/eller &quot;location&quot; på objektet. Send inn på nytt. Bruk ny
+        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser&nbsp;at
+        asynkron validering for denne returner feltet &quot;status&quot; med verdien
+        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Referansetiltransittering(&quot;typeOfReference&quot;lik&quot;N820&quot;)refererertiltransitteringsomikkehargyldigstatus">Referanse
+        til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer
+        til transittering som ikke har gyldig status</h3>
+
+        <h4 id="Svar.15">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Document with typeOfReference N820 contains a referenceNumber in wrong state",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.15">Årsak</h4>
+
+        <p>Det er oppgitt en referanse til en transittering der typen referanse er
+        &quot;N820&quot; (&quot;typeOfReference&quot; lik &quot;N820&quot;). Denne
+        transitteringen er ikke i riktig status. Kravet til riktig status i denne
+        konteksten er at det er deklarert NO grensepasseringstollsted og NO
+        destinasjonstollsted i transitteringsdeklarasjonen samt at transitteringen er
+        frigitt fra avgangstollstedet. </p>
+
+        <p>Dokument av type N820 angitt på &quot;messageElementPath&quot; har feil
+        status i transittsystemet.</p>
+
+        <h4 id="Rettelse.15">Rettelse</h4>
+
+        <p>Kontroller at transitterings-deklarasjonen er i samsvar med beskrivelsen
+        over.</p>
+
+        <p>Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="VOECvarelinje(&quot;goodsItem&quot;)harangittenverdisomeroverNOK3.000,derformåimportdeklarasjonbenyttesistedet">VOEC
+        varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000,
+        derfor må importdeklarasjon benyttes i stedet</h3>
+
+        <h4 id="Svar.16">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "When item value exeedes NOK 3000, a regular import-declaration have to be submitted",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.16">Årsak</h4>
+
+        <p>VOEC har en maksimal verdi pr vare på NOK 3.000. Varelinje
+        (&quot;goodsItem&quot;) med angitt VOEC-nummer
+        (&quot;vatIdentificationNumber&quot;) har en angitt verdi per vare (&quot;itemAmountInvoicedVOEC&quot;) over maksgrense på
+        3000 kroner. </p>
+
+        <h4 id="Rettelse.16">Rettelse</h4>
+
+        <p>Opprett vanlig importdeklarasjon for varen(e) og bruk denne. Vær
+        oppmerksom på at hvis en eller flere av varene mottaker har kjøpt har en verdi
+        over 3000 NOK, vil alle varene måtte bli fortollet på vanlig måte. Se <a
+        href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen(&quot;goodsItem&quot;)">Ingen
+        tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen
+        (&quot;goodsItem&quot;)</h3>
+
+        <h4 id="Svar.17">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Unknown vatIdentificationNumber",
+      "pointer": {
+        "messageElementPath": "${pathToFieldWithError}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.17">Årsak</h4>
+
+        <p>Finner ingen gyldig VOEC tillatelser for VOEC-nummereret
+        (&quot;vatIdentificationNumber&quot;) som er angitt på VOEC-varelinjen
+        (&quot;goodsItem&quot;). Det er oppgitt et VOEC-nummer som vi ikke kan
+        verifisere at er gyldig. Det kan være feil VOEC-nummer, eller
+        VOEC-nummerets gyldighet har utløpt.</p>
+
+        <h4 id="Rettelse.17">Rettelse</h4>
+
+        <p>Endre VOEC-nummer til et gyldig nummer. Hvis ikke gyldig VOEC-nummer
+        kan fremskaffes må varene deklareres med vanlig importdeklarasjon.<br>
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="KanikkesendelistemedVOECvarelinjer(&quot;goodsItem&quot;)dersomvalgttollprosedyre(&quot;importProcedure&quot;)forforsendelsenikkeerVOEC(&quot;IMMEDIATE_RELEASE_VOEC&quot;)">Kan
+        ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt
+        tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC
+        (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
+
+        <h4 id="Svar.18">Svar</h4>
+
+        <div>
+
+        <div>
+
+        <p><b>If consignmentHouseLevel.importProcedure.importProcedure
+        is not IMMEDATE_RELEASE_VOEC, should not be provided.</b>
+        </p>
+
+        </div>
+
+        <div><pre
+        data-syntaxhighlighter-params="brush: js; gutter: false; theme: Eclipse; collapse: true"
+        data-theme=Eclipse>{
+  &quot;status&quot;: &quot;FAILURE&quot;,
+  &quot;requestId&quot;: &quot;${requestIdForSubmission}&quot;,
+  &quot;notificationDate&quot;: &quot;${dateTimeResultWasReady}&quot; 
+  &quot;validationErrorList&quot;: [
+    {
+      &quot;description&quot;: &quot;If consignmentHouseLevel.importProcedure.importProcedure is not IMMEDATE_RELEASE_VOEC, should not be provided.&quot;,
+      &quot;pointer&quot;: {
+        &quot;messageElementPath&quot;: &quot;consignmentHouseLevel.goodsItem&quot;
+      }
+    }
+  ]
+}</pre></div>
+
+        </div>
+
+        <h4 id="Årsak.18">Årsak</h4>
+
+        <p>Man kan ikke sende inn VOEC varelinjer (&quot;goodsItem&quot; liste) med
+        mindre man har oppgitt at tollprosedyren for forsendelsen
+        (&quot;importProcedure&quot;) er VOEC (har verdien
+        &quot;IMMEDIATE_RELEASE_VOEC&quot;)</p>
+
+        <h4 id="Rettelse.18">Rettelse</h4>
+
+        <p>Fjern &quot;goodsItem&quot; liste, eller angi &quot;importProcedure&quot;
+        som &quot;IMMEDLATE_RELEASE_VOEC&quot;. Send inn på nytt. Bruk ny
+        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
+        asynkron validering for denne returner feltet &quot;status&quot; med verdien
+        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="KodeforTollkontordetrefererestilerugyldig">Kode
+        for Tollkontor det refereres til er ugyldig</h3>
+
+        <h4 id="Svar.19">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Must be a valid customs office",
+      "pointer": {
+        "messageElementPath": "customsOfficeOfFirstEntry.referenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.19">Årsak</h4>
+
+        <p>Referansenummeret oppgitt for &quot;customsOfficeOfFirstEntry&quot;
+        refererer ikke til et gyldig tollkontor. Bruk CL141 Customs office reference
+        number fra kodeverk <a href="https://toll.github.io/api/mo-kodeverk.html#cl141">https://toll.github.io/api/mo-kodeverk.html#cl141</a></p>
+
+        <h4 id="Rettelse.19">Rettelse</h4>
+
+        <p>Oppgi et gyldig referansenummer til et tollkontor. Send inn på nytt. Bruk ny
+        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser&nbsp;at
+        asynkron validering for denne returner feltet &quot;status&quot; med verdien
+        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Feltetopprinneligankomsttid(&quot;scheduledDateAndTimeOfArrival&quot;)erpåkrevdformeldingenfortransport">Feltet
+        opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd
+        for meldingen for transport</h3>
+
+        <h4 id="Svar.20">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "scheduledDateAndTimeOfArrival should be present",
+      "pointer": {
+        "messageElementPath": "transport.scheduledDateAndTimeOfArrival"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.20">Årsak</h4>
+
+        <p>Feltet for opprinnelig ankomsttid
+        (&quot;scheduledDateAndTimeOfArrival&quot;) må alltid være med på transport
+        objektet.</p>
+
+        <h4 id="Rettelse.20">Rettelse</h4>
+
+        <p>Legg til feltet &quot;scheduledDateAndTimeOfArrival&quot; med gyldig verdi
+        på transport objektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
+        får i retur for ny innsendelse og verifiser&nbsp;at asynkron validering for
+        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3
+        id="Feltetforopprinneligankomsttid(&quot;scheduledDateAndTimeOfArrival&quot;)kanikkeværesatttilmerennettårfremitid">Feltet
+        for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke
+        være satt til mer enn ett år frem i tid</h3>
+
+        <h4 id="Svar.21">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "scheduledDateAndTimeOfArrival cannot be more than one year into the future",
+      "pointer": {
+        "messageElementPath": "transport.scheduledDateAndTimeOfArrival"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.21">Årsak</h4>
+
+        <p>Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;)
+        kan ikke være mer enn ett år frem i tid.</p>
+
+        <h4 id="Rettelse.21">Rettelse</h4>
+
+        <p>Endre feltet &quot;scheduledDateAndTimeOfArrival&quot; til en dato som er
+        mindre enn ett år frem i tid. Send inn på nytt. Bruk ny
+        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser&nbsp;at
+        asynkron validering for denne returner feltet &quot;status&quot; med verdien
+        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Feltetforestimertankomsttid(&quot;estimatedDateAndTimeOfArrival&quot;)erpåkrevdpåmeldingomtransport">Feltet
+        for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd
+        på melding om transport</h3>
+
+        <h4 id="Svar.22">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "estimatedDateAndTimeOfArrival should be present",
+      "pointer": {
+        "messageElementPath": "transport.estimatedDateAndTimeOfArrival"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.22">Årsak</h4>
+
+        <p>Feltet for estimert ankomsttid &quot;estimatedDateAndTimeOfArrival&quot; må
+        alltid være med på transportobjektet.</p>
+
+        <h4 id="Rettelse.22">Rettelse</h4>
+
+        <p>Legg til feltet &quot;estimatedDateAndTimeOfArrival&quot; med gyldig verdi
+        på transportobjektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
+        retur for ny innsendelse og verifiser&nbsp;at asynkron validering for denne
+        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3
+        id="Kanikkeoppgiestimertankomsttid(&quot;estimatedDateAndTimeOfArrival&quot;)somerifortiden">Kan
+        ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som
+        er i fortiden</h3>
+
+        <h4 id="Svar.23">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "estimatedDateAndTimeOfArrival has already passed",
+      "pointer": {
+        "messageElementPath": "transport.estimatedDateAndTimeOfArrival"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.23">Årsak</h4>
+
+        <p>Tidspunkt oppgitt for estimert ankomsttid
+        (&quot;estimatedDateAndTimeOfArrival&quot;) må være frem i tid.</p>
+
+        <h4 id="Rettelse.23">Rettelse</h4>
+
+        <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; til et tidspunkt frem i
+        tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for
+        ny innsendelse og verifiser&nbsp;at asynkron validering for denne returner
+        feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er
+        ferdig.</p>
+
+        <h3
+        id="Tidspunktoppgittforestimertankomsttid(&quot;estimatedDateAndTimeOfArrival&quot;)kanikkeværemerennettårfremitid">Tidspunkt
+        oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan
+        ikke være mer enn ett år frem i tid</h3>
+
+        <h4 id="Svar.24">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "estimatedDateAndTimeOfArrival cannot be more than one year into the future",
+      "pointer": {
+        "messageElementPath": "transport.estimatedDateAndTimeOfArrival"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.24">Årsak</h4>
+
+        <p>Tidspunkt oppgitt for estimert ankomsttid
+        (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i
+        tid.</p>
+
+        <h4 id="Rettelse.24">Rettelse</h4>
+
+        <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; tidspunkt som er mindre enn
+        ett år frem i tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får
+        i retur for ny innsendelse og verifiser&nbsp;at asynkron validering for denne
+        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3
+        id="Kunroadograil:KanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Kun road og rail: Kan ikke oppgi
+        conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</h3>
+
+        <h4 id="Svar.25">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "transport.activeBorderTransportMeans.modeOfTransportCode is ${value}, then this field should not be provided",
+      "pointer": {
+        "messageElementPath": "transport.activeBorderTransportMeans.conveyanceReferenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.25">Årsak</h4>
+
+        <p>Med koden angitt for modeOfTransportCode er det ikke tillatt å sende med en
+        verdi for conveyanceReferenceNumber.</p>
+
+        <h4 id="Rettelse.25">Rettelse</h4>
+
+        <p>Fjern conveyanceReferenceNumber eller endre angitt modeOfTransportCode. Send
+        inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
+        og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+          id="Kunroadograil:NårmodeOfTransportCodeeravangittverdisåmåtypeOfIdentificationværebestemtverdi">Kun
+        road og rail: Når modeOfTransportCode er av
+        angitt verdi så må typeOfIdentification være bestemt verdi</h3>
+
+        <h4 id="Svar.26">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "transport.activeBorderTransportMeans.modeOfTransportCode is ${value}, then this field should have value ${requiredValue}",
+      "pointer": {
+        "messageElementPath": "transport.activeBorderTransportMeans.typeOfIdentification"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.26">Årsak</h4>
+
+        <p>Med koden angitt for modeOfTransportCode må typeOfIdentification være denne
+        bestemte verdien (&quot;requiredValue&quot;).</p>
+
+        <h4 id="Rettelse.26">Rettelse</h4>
+
+        <p>Endre typeOfIdentification feltet til verdien oppgitt som påkrevd i
+        valideringsfeilen (&quot;requiredValue&quot;). Send inn på nytt. Bruk ny
+        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser&nbsp;at
+        asynkron validering for denne returner feltet &quot;status&quot; med verdien
+        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Kunveitransport(road-API):Kanikkefinnedetnorskekjøretøyetsregistreringsnummer(&quot;identificationNumber&quot;)ikjøretøyregisteret">Kun
+        veitransport (road-API): Kan ikke finne det norske&nbsp;kjøretøyets
+        registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</h3>
+
+        <h4 id="Svar.27">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Could not find identificationNumber in Norwegian Public Roads Administration’s register of motor vehicles",
+      "pointer": {
+        "messageElementPath": "transport.activeBorderTransportMeans.identificationNumber"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.27">Årsak</h4>
+
+        <p>Man har sendt inn at kjøretøyet er norsk (countryCode er &quot;NO&quot;),
+        men registreringsnummeret (&quot;identificationNumber&quot;) finnes ikke i
+        veivesenets kjøretøyregister.</p>
+
+        <h4 id="Rettelse.27">Rettelse</h4>
+
+        <p>Dersom kjøretøy er norsk, verifiser at identificationNumber er korrekt i
+        henhold til det som er registrert i veivesenets kjøretøyregister. Send inn
+        på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivåresystemer.">Finner ikke tolldeklarasjon blant gyldige
+        deklarasjoner angitt i våre systemer.</h3>
+
+        <h4 id="Svar.28">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Customs declaration is not valid",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}]"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.28">Årsak</h4>
+
+        <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
+        &quot;declarationDate&quot; og &quot;sequenceNumber&quot; kan ikke knyttes til
+        House Consignment. For at den refererte tolldeklarasjonen skal kunne valideres
+        OK må den være sendt inn mot en definert ekspedisjonsenhet i TVINN. P.t er
+        dette kun ekspedisjonsenhet&nbsp;<em>441001</em>.</p>
+
+        <h4 id="Rettelse.28">Rettelse</h4>
+
+        <p>Verifiser at informasjonen om deklarasjonen er korrekt registrert. Send
+        inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
+        og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Tolldeklarasjonangittharenugyldigstatusivåresystemer.">Tolldeklarasjon
+        angitt har en ugyldig status i våre systemer.</h3>
+
+        <h4 id="Svar.29">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Customs declaration is in wrong state",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}]"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.29">Årsak</h4>
+
+        <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
+        &quot;declarationDate&quot; og &quot;sequenceNumber&quot; ble funnet i våre
+        systemer, men har feil status. Dette betyr som regel at deklarasjonen allerede
+        er avsluttet.</p>
+
+        <h4 id="Rettelse.29">Rettelse</h4>
+
+        <p>Påse at deklarasjonen er behandlet og har en gyldig status. Send inn på
+        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Spesifisertfeltkanikkehaenverdinårmanharoppgittspesifiserttollprosedyre(&quot;importProcedure&quot;erX)">Spesifisert felt kan ikke ha en verdi når man har
+        oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</h3>
+
+        <h4 id="Svar.30">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Field cannot be filled out when consignmentHouseLevel.importProcedure is ${importProcedureType}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldName}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.30">Årsak</h4>
+
+        <p>Dersom man har angitt at tollprosedyre (&quot;importProcedure&quot;) er
+        angitt verdi, kan man ikke fylle ut dette feltet, det vil si feltet som er
+        angitt i &quot;messageElementPath&quot;. Denne feilen kommer når angitt
+        tollprosedyre er forskjellig fra &quot;IMMEDIATE_RELEASE_IMPORT&quot; samtidig
+        som man angir verdier i feltene som skal fortelle om referansen til
+        tolldeklarasjonen.
+        (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;, og/eller
+        &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot; og/eller
+        &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;)</p>
+
+        <h4 id="Rettelse.30">Rettelse</h4>
+
+        <p>Enten endre importProcedure eller fjern verdien i dette feltet. Send inn på
+        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Feltkanikkehaenverdifortransittering(&quot;N820&quot;),dersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge(&quot;outgoingprocedure&quot;),someksport(&quot;EXP&quot;)">Felt
+        kan ikke ha en verdi for transittering (&quot;N820&quot;), dersom man har
+        angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i
+        Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</h3>
+
+        <h4 id="Svar.31">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Field cannot have value N820 out when consignmentHouseLevel.outgoingProcedure is EXP",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].typeOfReference"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.31">Årsak</h4>
+
+        <p>Dersom man har angitt at prosedyren som forsendelsen var underlagt frem til
+        grensepassering inn i Norge (&quot;outgoingProcedure&quot;) er eksport (med
+        verdi &quot;EXP&quot;),&nbsp;kan man ikke oppgi verdien &quot;N820&quot; i
+        dette feltet. Dette gjelder referanser til tidligere tollprosedyrer som
+        varene har vært underlagt. Dersom man oppgir at tidligere tollprosedyre er
+        eksport, så kan man ikke henvise til en referanse til transittering.<br>
+        Se valg av tollprosedyre&nbsp;<a
+        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
+
+        <h4 id="Rettelse.31">Rettelse</h4>
+
+        <p>Enten endre verdien i feltet eller outgoingProcedure. Send inn på nytt.
+        Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Nårreferertdokument(&quot;typeReference&quot;)ertolldeklarasjon(&quot;CUDE&quot;)såerdetspesifisertefeltetobligatorisk">Når
+        referert dokument (&quot;typeReference&quot;)&nbsp;er tolldeklarasjon
+        (&quot;CUDE&quot;) så er det spesifiserte feltet obligatorisk</h3>
+
+        <h4 id="Svar.32">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Required field when typeReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldRequired}"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.32">Årsak</h4>
+
+        <p>Man har angitt at referert dokument er tolldeklarasjon
+        (&quot;typeReference&quot; med verdi &quot;CUDE&quot;), da må man også oppgi
+        verdi i det spesifisert feltet (feltet er spesifisert i feilmeldingen).</p>
+
+        <h4 id="Rettelse.32">Rettelse</h4>
+
+        <p>Enten endre typeReference eller oppgi verdi for feltet. Send inn på
+        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+        verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Dersommanangittenellerfleredokumentreferanser(&quot;previousDocument&quot;)måtollprosedyre(feltet&quot;importProcedure&quot;)væreoppgitt">Dersom
+        man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må
+        tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</h3>
+
+        <h4 id="Svar.33">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "importProcedure is required when any consignmentHouseLevel.previousDocuments[] is provided",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.importProcedure"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.33">Årsak</h4>
+
+        <p>Man har sendt inn ett eller flere referanser til dokumenter (objekter i
+        &quot;previousDocuments&quot; listen), men ikke oppgitt en tollprosedyre (verdi
+        i &quot;importProcedure&quot; feltet).</p>
+
+        <h4 id="Rettelse.33">Rettelse</h4>
+
+        <p>Enten oppgi en verdi for importProcedure feltet eller fjern alle objekter i
+        previousDocuments listen. Send inn på nytt. Bruk ny &quot;requestId&quot;
+        man får i retur for ny innsendelse og verifiser&nbsp;at asynkron validering for
+        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h3
+        id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjon(etobjekti&quot;previousDocuments&quot;listen)avtypetolldeklarasjon(med&quot;typeOfReference&quot;=&quot;CUDE&quot;)">Man
+        kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i
+        &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med
+        &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+
+        <h4 id="Svar.34">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "PreviousDocuments can only contain one document of type CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.34">Årsak</h4>
+
+        <p>Man har sendt mer enn en tolldeklarasjon (objekt i
+        &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
+        &quot;typeOfReference&quot;.<br>
+        Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
+
+        <h4 id="Rettelse.34">Rettelse</h4>
+
+        <p>Påse at man kun har ett objekt med typeOfReference verdien &quot;CUDE&quot;
+        i previousDocuments-listen.<br>
+        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+        innsendelse og verifiser&nbsp;at asynkron validering for denne returner feltet
+        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+
+        <h3
+        id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjon(&quot;typeOfReference&quot;&lt;&gt;&quot;CUDE&quot;)måreferansenoppgisifeltet&quot;referenceNumber&quot;i&quot;previousDocuments&quot;objektet.">Dersom
+        dokumentreferanse er noe annet enn til en tolldeklarasjon
+        (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må&nbsp;referansen
+        oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot;
+        objektet. </h3>
+
+        <h4 id="Svar.35">Svar</h4>
+
+        <pre>
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}" 
+  "validationErrorList": [
+    {
+      "description": "Field should have value unless typeOfReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+        <h4 id="Årsak.35">Årsak</h4>
+
+        <p>Når det angis referanse til andre typer dokumenter enn tolldeklarasjon skal
+        feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; benyttes for
+        å oppgi denne referansen (typisk MRN eller lignende).<br>
+        Man har sendt inn et objekt i &quot;previousDocuments&quot;-listen med en verdi
+        som <em>ikke</em>&nbsp; er &quot;CUDE&quot; i feltet
+        &quot;typeOfReference&quot;, samtidig som man <em>ikke</em> har angitt en verdi
+        i feltet &quot;referenceNumber&quot;.<br>
+        Det er påkrevd at dette feltet er angitt med en verdi med mindre
+        &quot;typeOfReference&quot; har verdien &quot;CUDE&quot;.</p>
+
+        <h4 id="Rettelse.35">Rettelse</h4>
+
+        <p>Endre objektet til å ha til å ha verdien &quot;CUDE&quot; i
+        typeOfReference-feltet, eller legg inn gyldig verdi i
+        referenceNumber-feltet. Send inn på nytt. Bruk ny &quot;requestId&quot;
+        man får i retur for ny innsendelse og verifiser&nbsp;at asynkron validering for
+        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+        behandling er ferdig.</p>
+
+        <h2
+        id="Ufullstendingdokumentasjon/Incompletedocumentation">Ufullstendig
+        dokumentasjon / Incomplete documentation</h2>
+
+        <p>I visse tilfeller kan informasjonen som er sendt inn ikke være nok til å
+        fullføre behandling. På endepunktet
+        &quot;/house-consignment/validation-status/{requestIds}&quot; vil man da få en
+        liste med årsakskoder under &quot;incompleteDocumentationReasonList&quot;. Det
+        er også mulig å spørre på endepunktene
+        &quot;/house-consignment/transport-document/status&quot; eller
+        &quot;/master-consignment/transport-document/status&quot; for å få denne
+        informasjonen.</p>
+
+        <h3 id="Formatpådokumentstatus">Format på
+        dokumentstatus</h3>
+
+        <p>Dersom innsendingen er fullstendig vil feltet &quot;documentStatus&quot; ha
+        verdien &quot;SUCCESS&quot;, hvis ikke vil den ha &quot;INCOMPLETE&quot;.
+        Dersom status er &quot;INCOMPLETE&quot; vil det sendes med en
+        &quot;incompleteDocumentationReasonList&quot; liste som lister opp årsakskoder
+        for hvorfor innsendingen ble vurdert ufullstendig. Eksempler på verdier
+        som kan komme som årsakskoder finner man her: <a
+        href="https://toll.github.io/api/mo-kodeverk.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk.html#incompleteDocumentationReason</a></p>
+
+        <pre>
+{
+  "documentNumber": "${documentNumber}",
+  "type": "${documentType}",
+  "documentStatus": "${documentProccessingStatus}",
+  "incompleteDocumentationReasonList": [
+    "${reasonsIfStatusIsIncomplete}"
+  ]
+}</pre>
+
+        <h3 id="DokumentstatusINCOMPLETE">Dokument
+        status INCOMPLETE</h3>
+
+        <h4 id="Svar.36">Svar</h4>
+
+        <pre>
+{
+  "documentNumber": "${documentNumber}",
+  "type": "${documentType}",
+  "documentStatus": "INCOMPLETE",
+  "incompleteDocumentationReasonList": [
+    "${reasonsIfStatusIsIncomplete}"
+  ]
+}</pre>
+
+        <h4 id="Årsak.36">Årsak</h4>
+
+        <p>Man har en innsendelse som ikke oppfyller kravene for en fullstendig
+        innsending for valgt tollprosedyre. Se: <a
+        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
+
+        <h4 id="Rettelse.36">Rettelse</h4>
+
+        <p>Endre innsending slik at den oppfyller kravene for valgt tollprosedyre. Se: <a
+        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>. Send
+        inn oppdatert innsending med endringene (HTTP PUT). Verifiser at&nbsp;
+        &quot;/transport-document/status&quot; etter ny behandling etter hvert
+        returnerer med status &quot;SUCCESS&quot;</p>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2024 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="white">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
