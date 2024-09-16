@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Oversikt valideringsfeil for API i MO</title>
-    <meta name="description" content="Oversikt valideringsfeil for API i MO">
+    <title>Validation errors in MO APIs</title>
+    <meta name="description" content="Validation errors for MO APIs">
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
@@ -48,13 +48,13 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>Oversikt over valideringsfeil for API i MO</h1>
+    <h1>Validation errors in MO APIs</h1>
 </header>
 
 
 <main>
     <div class="column left">
-	    <br/>
+       <br/>
     </div>
 
     <div class="column right" role="navigation">
@@ -160,74 +160,96 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
     <div class="column middle" role="main">
 
         <h2
-        id="Sekvensforinnsending-synkronogasynkronrespons">Sekvens
-        for innsending - synkron og asynkron respons</h2>
+        id="Sekvensforinnsending-synkronogasynkronrespons">Sequence for
+        Submission - Synchronous and Asynchronous Responses</h2>
 
-        <p>Se også dokumentasjon her: <a
-        href="https://toll.github.io/api/mo-vei-EN.html#hvordanSende">https://toll.github.io/api/mo-vei.html#hvordanSende</a>,
-        dette er likt for alle transportformer.</p>
+        <p>Also review this documentation: <a
+        href="https://toll.github.io/api/mo-vei-EN.html#hvordanSende">https://toll.github.io/api/mo-vei-EN.html#hvordanSende</a>,
+        this applies to all modes of transport.</p>
 
-        <p>Generelt fungerer innsending av informasjon slik at aktøren sender inn en
-        melding (POST) og mottar en referanse (requestId). Ved å bruke den
-        mottatte referansen kan aktøren spørre (GET) om resultat av innsendingen og ved
-        suksess motta en permanent referanse til meldingen, utstedt av
-        Tolletaten. Dette gjøres på et eget endepunkt (/validation-status) i
-        spørre-API-et (query API) linket til lengre nede på denne siden. Disse
-        tjenestene er asynkrone og man må derfor spørre inntil man får svar. Valideringsrespons
-        vil vanligvis være tilgjengelig i løpet 1 til 2 sekunder, men det kan ta lenger
-        tid i enkelttilfeller.<br>
-        Spørring gjøres på /validation-status-endepunktet, som vil returnere den
-        permanente referansen, et Master Reference Number, forkortet MRN ved suksess og
-        en liste med valideringsfeil hvis de finnes.</p>
+        <p>
+          In general, the submission of information works like this: a
+          party sends a notification (POST) and receives a reference
+          (requestId). By using the received reference, the party can
+          query (GET) the result of the submission and, upon success,
+          receive a permanent reference to the notification issued by
+          Norwegian Customs. This is done at a separate endpoint
+          (/validation-status) in the query API linked further down on
+          this page. These services are asynchronous, so one must query
+          repeatedly until a response is received. The validation
+          response is usually available within 1 to 2 seconds, but it
+          may take longer in some cases.
+          <br/>
+          The query is made to the /validation-status endpoint, which
+          will return the permanent reference, a Master Reference Number
+          (MRN), upon success, along with a list of validation errors if
+          they exist.
+        </p>
 
-        <p>Eksempel på innsendingssekvens for forsendelse (house consignment).
-        Mønsteret er det samme for de andre meldingene, hovedforsendelse (master
-        consignment) og transport.</p>
+        <p>
+          Example of a submission sequence for consignment (house
+          consignment). The pattern is the same for other notifications,
+          such as the master consignment and transport.
+        </p>
 
         <figure>
-            <img src="media/mo-valideringsfeil.png" alt="Se figurtekst"/>
-            <figcaption>Figur: sekvens for innsending av melding om
-            forsendelse (house consignment)</figcaption>
+            <img src="media/mo-valideringsfeil-EN.png" alt="See caption"/>
+            <figcaption>Figure: Sequence for submission of a
+            notification for a house consignment</figcaption>
         </figure>
 
         <p>&nbsp;</p>
 
-        <p>MRN brukes når meldinger skal oppdateres eller kanselleres (put/delete) for
-        å referere til tidligere innsendte meldinger. Valideringsendepunktet vil
-        også kunne returnere en liste med dokumentstatuser for å indikere manglende
-        opplysninger, se <a
-        href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a>. Anbefalt
-        metode for innsending er at aktøren sender inn alle meldinger for oppretting
-        (POST) som er aktuelle, og så venter 1-2 sekunder før spørring om validering
-        (query API).</p>
+        <p>
+          The MRN is used when notifications need to be updated or
+          canceled (put/delete) to refer to previously submitted
+          notifications. The validation endpoint can also return a list
+          of document statuses to indicate missing information;
+          see <a href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a>.
+          The recommended method for submission is for the party to send
+          all notifications for creation (POST) that are relevant and
+          then wait 1-2 seconds before querying for validation (query
+          API).
+        </p>
 
-        <p>For eksempel: om man har 500 forsendelser for en hovedforsendelse på en
-        transport, så sender man inn (POST) alle 500 meldingene om forsendelse, venter
-        et par sekunder, ber om validering og får tilbake MRN og status for alle de 500
-        meldingene. Dersom man får status 404 ved kall til valideringsendepunktet
-        må man vente litt og spørre igjen. Det anbefales å lage en algoritme som gjør
-        gjentatte forsøk, inntil valideringsrespons mottas.</p>
+        <p>
+          For example: If there are 500 house consignments for a master
+          consignment in a transport, submit all 500 consignment
+          notifications (POST), wait a couple of seconds, then request
+          validation, the MRN and status for all 500 notifications is
+          returned. If a status 404 is received when calling the
+          validation endpoint, wait a little longer and query again. It
+          is recommended to create an algorithm that makes repeated
+          attempts until the validation response is received.
+        </p>
 
-        <h2 id="Synkronevalideringsfeil">Synkrone
-        valideringsfeil</h2>
+        <h2 id="Synkronevalideringsfeil">Synchronous Validation Errors</h2>
 
-        <p>Synkrone (via HTTP) valideringsfeil oppgis som svar med statuskode 400 på
-        innsendelse mot API-et. Årsaken til valideringsfeilen returneres som
-        innhold (body) i svaret. Når man får synkrone valideringsfeil blir innsendingen
-        avvist umiddelbart og ikke behandlet videre før feilen(e) er rettet og det
-        sendes inn på nytt. Dersom det <em>ikke</em> er noen synkrone
-        valideringsfeil, vil svaret ha statuskode 202 og inneholde et felt
-        &quot;requestId&quot; som benyttes for så å se om det avdekkes&nbsp;<em>asynkrone
-        valideringsfeil</em> under videre behandling. </p>
+        <p>
+          Synchronous validation errors (via HTTP) are returned as a
+          response with status code 400 from the API. The reason for the
+          validation error is returned as the content (body) of the
+          response. When synchronous validation errors occur, the
+          submission is immediately rejected and not processed further
+          until the error(s) are corrected and resubmitted.
+          If there are <em>no</em> synchronous validation errors, the
+          response will have a status code 202 and contain a "requestId"
+          field, which is then used to check for asynchronous validation
+          errors during further processing.
+        </p>
 
         <h3
-        id="Innholdsformatpåsynkronevalideringsfeil">Innholdsformat
-        på synkrone valideringsfeil</h3>
+        id="Innholdsformatpåsynkronevalideringsfeil">Content Format of
+        Synchronous Validation Errors</h3>
 
-        <p>Valideringsfeilene returneres som en eller flere objekter i en liste
-        &quot;validationErrors&quot;. Innholdet i listen er et eller flere objekter som
-        peker på hvilke felter som forårsaket valideringsfeilen angitt i feltet
-        &quot;field&quot;, og årsaken til feilen angitt i feltet &quot;error&quot;.</p>
+        <p>
+          Validation errors are returned as one or more objects in a
+          &quot;validationErrors&quot; list. The content of the list
+          consists of one or more objects that indicate which fields
+          caused the validation error, specified in the
+          &quot;field&quot; field, and the reason for the error,
+          specified in the &quot;error&quot; field.
+        </p>
 
         <pre>
         {
@@ -243,10 +265,9 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
           ]
         }</pre>
 
-        <h3 id="Manglendeellerblanke(&quot;&quot;)påkrevdefelt">Manglende
-        eller blanke (&quot;&quot;) påkrevde felt</h3>
+        <h3 id="Manglendeellerblanke(&quot;&quot;)påkrevdefelt">Missing or Blank  (&quot;&quot;) Required Fields</h3>
 
-        <h4 id="Svar">Svar</h4>
+        <h4 id="Svar">Response</h4>
 
         <pre>
 {
@@ -262,22 +283,26 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak">Årsak</h4>
+        <h4 id="Årsak">Cause</h4>
 
-        <p>Felter som er påkrevd mangler eller har tomme verdier. Felter som ikke kan
-        ha tomme verdier vil gi &quot;must not be blank&quot; enten de mangler eller er
-        tomme. Alle andre påkrevde felter vil gi &quot;must not be null&quot; om de
-        mangler.</p>
+        <p>
+          Fields that are required are missing or contain empty
+          values. Fields that cannot have empty values will return
+          &quot;must not be blank&quot; whether they are missing or
+          empty. All other required fields will return &quot;must not be
+          null&quot; if they are missing.
+        </p>
 
-        <h4 id="Rettelse">Rettelse</h4>
+        <h4 id="Rettelse">Correction</h4>
 
-        <p>Feltet må være med (&quot;must not be null&quot;) eller må være med <em>og</em>
-        ha en verdi (&quot;must not be blank&quot;).</p>
+        <p>
+          The field is required (&quot;must not be null&quot;), or must
+          be present and have a value (&quot;must not be blank&quot;).
+        </p>
 
-        <h3 id="Feilformatpådato/tid:">Feil format på
-        dato/tid:</h3>
+        <h3 id="Feilformatpådatotid:">Incorrect date/time format:</h3>
 
-        <h4 id="Svar.1">Svar</h4>
+        <h4 id="Svar.1">Response</h4>
         <pre>
 {
   "validationErrors": [
@@ -288,20 +313,25 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.1">Årsak</h4>
+        <h4 id="Årsak.1">Cause</h4>
 
-        <p>Dato og tidspunkt felter har feil format. De må følge ISO-8601 standarden.
-        Det vil si være i formatet: yyyy-MM-ddTHH:mm:ssZ</p>
+        <p>
+          Date and time fields are in the wrong format. They must follow
+          the ISO-8601 standard, which means they should be in the
+          format: yyyy-MM-ddTHH:mm:ssZ.
+        </p>
 
-        <h4 id="Rettelse.1">Rettelse</h4>
+        <h4 id="Rettelse.1">Correction</h4>
 
-        <p>Endre formatet til å følge ISO-8601 standarden i formatet
-        yyyy-MM-ddTHH:mm:ssZ.</p>
+        <p>
+          Change the format to follow the ISO-8601 standard in the
+          format yyyy-MM-ddTHH:mm:ssZ.
+        </p>
 
-        <h3 id="Feilfeltstørrelse-tall">Feil
-        feltstørrelse - tall</h3>
+        <h3 id="Feilfeltstørrelse-tall">Incorrect Field Size &ndash;
+        Numeric Values</h3>
 
-        <h4 id="Svar.2">Svar</h4>
+        <h4 id="Svar.2">Response</h4>
 
         <pre>
 {
@@ -313,23 +343,28 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.2">Årsak</h4>
+        <h4 id="Årsak.2">Cause</h4>
 
-        <p>Man har angitt et tall som overskrider maksimalt antall siffer før
-        elleretter desimalskille (&quot;.&quot;). Der det er kun heltall som er
-        tillat vil tallet etter desimalskille (&quot;.&quot;, det vil si
-        maxDecimalNumber) være 0.</p>
+        <p>
+          A numeric value has been provided that exceeds the maximum
+          number of digits allowed before or after the decimal point
+          (&quot;.&quot;). If only integers are allowed, the number of
+          digits after the decimal point (&quot;.&quot;, i.e.,
+          maxDecimalNumber) should be 0.
+        </p>
 
-        <h4 id="Rettelse.2">Rettelse</h4>
+        <h4 id="Rettelse.2">Correction</h4>
 
-        <p>Endre tallet til å være et siffer innenfor maksimalt heltall
-        (maxInteger-verdien) og maksimalt antall desimalsiffer
-        (maxDecimalNumber-verdien).</p>
+        <p>
+          Adjust the number to be within the maximum number of integer
+          digits (maxInteger value) and the maximum number of decimal
+          digits (maxDecimalNumber value).
+        </p>
 
-        <h3 id="Feilfeltstørrelse-streng(tekst)">Feil
-        feltstørrelse - streng (tekst)</h3>
+        <h3 id="Feilfeltstørrelse-streng(tekst)">Incorrect Field Size &ndash;
+        String (Text)</h3>
 
-        <h4 id="Svar.3">Svar</h4>
+        <h4 id="Svar.3">Response</h4>
 
         <pre>
 {
@@ -341,12 +376,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.3">Årsak</h4>
+        <h4 id="Årsak.3">Cause</h4>
 
         <p>Innholdet i feltet har overskredet maksimalt antall tegn eller har færre enn
         minimum antall tegn.</p>
 
-        <h4 id="Rettelse.3">Rettelse</h4>
+        <h4 id="Rettelse.3">Correction</h4>
 
         <p>Endre innholdet til å være innenfor minimum og maksimum størrelse.</p>
 
@@ -355,7 +390,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <h3 id="Minstettavfeltenemåværeoppgitt">Minst
         ett av feltene må være oppgitt</h3>
 
-        <h4 id="Svar.4">Svar</h4>
+        <h4 id="Svar.4">Response</h4>
 
         <pre>
 {
@@ -367,12 +402,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.4">Årsak</h4>
+        <h4 id="Årsak.4">Cause</h4>
 
         <p>I noen tilfeller må minst et av flere felter være oppgitt. Objektet
         angitt (fieldname), må minst inneholde verdi i minst ett av de angitte feltene.</p>
 
-        <h4 id="Rettelse.4">Rettelse</h4>
+        <h4 id="Rettelse.4">Correction</h4>
 
         <p>Påse at minst ett av de oppgitte feltene er oppgitt og har gyldig verdi på
         objektet.</p>
@@ -380,7 +415,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <h3 id="Måhaenpåkrevdverdier">Må ha en påkrevd
         verdier</h3>
 
-        <h4 id="Svar.5">Svar</h4>
+        <h4 id="Svar.5">Response</h4>
 
         <pre>
 {
@@ -392,12 +427,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.5">Årsak</h4>
+        <h4 id="Årsak.5">Cause</h4>
 
         <p>Feltet (fieldname) kan kun ha en av de angitte verdiene og må sendes inn med
         én av dem.</p>
 
-        <h4 id="Rettelse.5">Rettelse</h4>
+        <h4 id="Rettelse.5">Correction</h4>
 
         <p>Endre feltets verdi slik at det har en av de fastsatte verdiene (valueOne,
         ValueTwo ...) som er påkrevd.</p>
@@ -459,7 +494,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <h3 id="Feltetskalhaenverdiangittavkodeverk">Feltet
         skal ha en verdi angitt av kodeverk&nbsp;</h3>
 
-        <h4 id="Svar.6">Svar</h4>
+        <h4 id="Svar.6">Response</h4>
 
         <pre>
 {
@@ -476,14 +511,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.6">Årsak</h4>
+        <h4 id="Årsak.6">Cause</h4>
 
         <p>Feltet angitt på &quot;messageElementPath&quot; hadde en verdi som ikke ble
         funnet i kodeverket (tabell over lovlige verdier). En av kodeverkets
         verdier, som angitt i [&quot;codeOne&quot;, &quot;codeTwo&quot;...], er påkrevd
         for feltet.</p>
 
-        <h4 id="Rettelse.6">Rettelse</h4>
+        <h4 id="Rettelse.6">Correction</h4>
 
         <p>Endre feltet til å ha en verdi tilsvarende en gyldig kodeverkskode som
         påkrevd for feltet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
@@ -493,13 +528,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h3 id="Landkodeikkegyldig">Landkode ikke gyldig</h3>
 
-        <h4 id="Svar.7">Svar</h4>
+        <h4 id="Svar.7">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Country is invalid",
@@ -510,12 +545,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.7">Årsak</h4>
+        <h4 id="Årsak.7">Cause</h4>
 
         <p>Feltet angitt på &quot;messageElementPath&quot; har en landkode som ikke ble
         funnet blant gyldige ISO-3166 Alpha-2 koder.</p>
 
-        <h4 id="Rettelse.7">Rettelse</h4>
+        <h4 id="Rettelse.7">Correction</h4>
 
         <p>Endre feltet til å benytte en gyldig ISO-3166 Alpha-2 kode. Send inn på
         nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -528,7 +563,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="FormatpåoppgittMRNerugyldigforeksportavangitteksporttype">Format
         på oppgitt MRN er ugyldig for eksport av angitt eksporttype</h3>
 
-        <h4 id="Svar.8">Svar</h4>
+        <h4 id="Svar.8">Response</h4>
 
         <pre>
 {
@@ -545,13 +580,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.8">Årsak</h4>
+        <h4 id="Årsak.8">Cause</h4>
 
         <p>MRN for feltet &quot;exportId&quot; angitt på &quot;messageElementPath&quot;
         er oppgitt med et format som ikke er gyldig for angitt eksporttype
         (&quot;typeOfExport&quot;).</p>
 
-        <h4 id="Rettelse.8">Rettelse</h4>
+        <h4 id="Rettelse.8">Correction</h4>
 
         <p>Endre feltets verdi til å benytte et gyldig format for MRN. Send inn på
         nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -565,7 +600,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         på oppgitt MRN har ikke korrekt lengde for identifikator av eksport med type
         ECS_EXPORT</h3>
 
-        <h4 id="Svar.9">Svar</h4>
+        <h4 id="Svar.9">Response</h4>
 
         <pre>
 {
@@ -582,12 +617,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.9">Årsak</h4>
+        <h4 id="Årsak.9">Cause</h4>
 
         <p>MRN for &quot;exportId&quot; angitt på &quot;messageElementPath&quot; er
         angitt med lengde som ikke er gyldig for angitt typeOfExport - ECS_EXPORT.</p>
 
-        <h4 id="Rettelse.9">Rettelse</h4>
+        <h4 id="Rettelse.9">Correction</h4>
 
         <p>Verifiser at MRN er korrekt og har korrekt lengde påkrevd for typen eksport.
 <br>
@@ -599,7 +634,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="Kunveitransport(road-API):EksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun
         veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</h3>
 
-        <h4 id="Svar.10">Svar</h4>
+        <h4 id="Svar.10">Response</h4>
 
         <pre>
 {
@@ -616,7 +651,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.10">Årsak</h4>
+        <h4 id="Årsak.10">Cause</h4>
 
         <p>Eksporten er av type AES_EXPORT men exportId ble ikke funnet, eller har feil
         status i AES. I tillegg til at det ikke finnes en eksportdeklarasjon med angitt
@@ -629,7 +664,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
              utførselsregistrert</li>
         </ul>
 
-        <h4 id="Rettelse.10">Rettelse</h4>
+        <h4 id="Rettelse.10">Correction</h4>
 
         <p>Verifiser og eventuelt endre slik at exportId er korrekt og har riktig
         status i AES.<br>
@@ -643,7 +678,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må
         verdien være en av kodene tillatt i kodeverket</h3>
 
-        <h4 id="Svar.11">Svar</h4>
+        <h4 id="Svar.11">Response</h4>
 
         <pre>
 {
@@ -660,13 +695,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.11">Årsak</h4>
+        <h4 id="Årsak.11">Cause</h4>
 
         <p>Verdi for feltet outgoingProcedure ble ikke funnet blant de gyldige kodene
         som finnes i OutgoingProcedure kodeverket <a
         href="https://toll.github.io/api/mo-kodeverk-EN.html#outgoingprocedure">https://toll.github.io/api/mo-kodeverk-EN.html#outgoingprocedure</a>.</p>
 
-        <h4 id="Rettelse.11">Rettelse</h4>
+        <h4 id="Rettelse.11">Correction</h4>
 
         <p>Endre verdien til en av verdiene som finnes i OutgoingProcedure kodeverket.
         Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
@@ -679,12 +714,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for
         CL144 UNLOCODE</h3>
 
-        <h4 id="Svar.12">Svar</h4>
+        <h4 id="Svar.12">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
-  "requestId": "${requestIdForSubmission}", 
+  "requestId": "${requestIdForSubmission}",
   "validationErrorList": [
     {
       "description": "Invalid code. Expected valid UNLOCODE",
@@ -695,14 +730,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.12">Årsak</h4>
+        <h4 id="Årsak.12">Cause</h4>
 
         <p>Det er flere felter i meldingene der verdien som skal oppgis er basert på FN
         sine stedskoder, &quot;UNLOCODE&quot;. Feltet angitt på
         &quot;messageElementPath&quot; har en innsendt verdi som ikke ble funnet i
         kodeverket for CL144 UNLOCODE. &nbsp;</p>
 
-        <h4 id="Rettelse.12">Rettelse</h4>
+        <h4 id="Rettelse.12">Correction</h4>
 
         <p>Endre verdien til en av verdiene som finnes i CL144 UNLOCODE
         kodeverket. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
@@ -716,7 +751,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;)
         er Transittering (TRA)&nbsp;</h3>
 
-        <h4 id="Svar.13">Svar</h4>
+        <h4 id="Svar.13">Response</h4>
 
         <pre>
 {
@@ -733,13 +768,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.13">Årsak</h4>
+        <h4 id="Årsak.13">Cause</h4>
 
         <p>Dersom prosedyren som forsendelsen var underlagt frem til grensepassering
         inn i Norge (i feltet outgoingProcedure ) har verdien TRA (for transittering)
         kan man ikke sende inn referanse til eksport fra EU (exportFromEU).</p>
 
-        <h4 id="Rettelse.13">Rettelse</h4>
+        <h4 id="Rettelse.13">Correction</h4>
 
         <p>Fjern exportFromEU fra importprosedyren eller endre
         outgoingProcedure. Send inn på nytt.<br>
@@ -752,12 +787,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         verken adresse eller lokasjon er spesifisert, er FN stedskode
         (&quot;UNLOCODE&quot;) påkrevd</h3>
 
-        <h4 id="Svar.14">Svar</h4>
+        <h4 id="Svar.14">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
-  "requestId": "${requestIdForSubmission}", 
+  "requestId": "${requestIdForSubmission}",
   "validationErrorList": [
     {
       "description": "If location AND address is not provided, then unloCode is required",
@@ -768,7 +803,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.14">Årsak</h4>
+        <h4 id="Årsak.14">Cause</h4>
 
         <p>Objektet angitt på &quot;messageElementPath&quot; har verken oppgitt adresse
         (&quot;address&quot;) eller lokasjon (&quot;location&quot;). Da må feltet
@@ -777,7 +812,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         (&quot;placeOfUnloading&quot;), akseptansested (&quot;placeOfAcceptance&quot;)
         og leveringssted (&quot;placeOfDelivery&quot;).</p>
 
-        <h4 id="Rettelse.14">Rettelse</h4>
+        <h4 id="Rettelse.14">Correction</h4>
 
         <p>Legg til gyldig &quot;unloCode&quot;, eventuelt legg til &quot;address&quot;
         og/eller &quot;location&quot; på objektet. Send inn på nytt. Bruk ny
@@ -790,13 +825,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer
         til transittering som ikke har gyldig status</h3>
 
-        <h4 id="Svar.15">Svar</h4>
+        <h4 id="Svar.15">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Document with typeOfReference N820 contains a referenceNumber in wrong state",
@@ -807,7 +842,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.15">Årsak</h4>
+        <h4 id="Årsak.15">Cause</h4>
 
         <p>Det er oppgitt en referanse til en transittering der typen referanse er
         &quot;N820&quot; (&quot;typeOfReference&quot; lik &quot;N820&quot;). Denne
@@ -819,7 +854,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <p>Dokument av type N820 angitt på &quot;messageElementPath&quot; har feil
         status i transittsystemet.</p>
 
-        <h4 id="Rettelse.15">Rettelse</h4>
+        <h4 id="Rettelse.15">Correction</h4>
 
         <p>Kontroller at transitterings-deklarasjonen er i samsvar med beskrivelsen
         over.</p>
@@ -833,13 +868,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000,
         derfor må importdeklarasjon benyttes i stedet</h3>
 
-        <h4 id="Svar.16">Svar</h4>
+        <h4 id="Svar.16">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "When item value exeedes NOK 3000, a regular import-declaration have to be submitted",
@@ -850,14 +885,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.16">Årsak</h4>
+        <h4 id="Årsak.16">Cause</h4>
 
         <p>VOEC har en maksimal verdi pr vare på NOK 3.000. Varelinje
         (&quot;goodsItem&quot;) med angitt VOEC-nummer
         (&quot;vatIdentificationNumber&quot;) har en angitt verdi per vare (&quot;itemAmountInvoicedVOEC&quot;) over maksgrense på
         3000 kroner. </p>
 
-        <h4 id="Rettelse.16">Rettelse</h4>
+        <h4 id="Rettelse.16">Correction</h4>
 
         <p>Opprett vanlig importdeklarasjon for varen(e) og bruk denne. Vær
         oppmerksom på at hvis en eller flere av varene mottaker har kjøpt har en verdi
@@ -872,13 +907,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen
         (&quot;goodsItem&quot;)</h3>
 
-        <h4 id="Svar.17">Svar</h4>
+        <h4 id="Svar.17">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Unknown vatIdentificationNumber",
@@ -889,7 +924,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.17">Årsak</h4>
+        <h4 id="Årsak.17">Cause</h4>
 
         <p>Finner ingen gyldig VOEC tillatelser for VOEC-nummereret
         (&quot;vatIdentificationNumber&quot;) som er angitt på VOEC-varelinjen
@@ -897,7 +932,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         verifisere at er gyldig. Det kan være feil VOEC-nummer, eller
         VOEC-nummerets gyldighet har utløpt.</p>
 
-        <h4 id="Rettelse.17">Rettelse</h4>
+        <h4 id="Rettelse.17">Correction</h4>
 
         <p>Endre VOEC-nummer til et gyldig nummer. Hvis ikke gyldig VOEC-nummer
         kan fremskaffes må varene deklareres med vanlig importdeklarasjon.<br>
@@ -911,7 +946,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC
         (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
 
-        <h4 id="Svar.18">Svar</h4>
+        <h4 id="Svar.18">Response</h4>
 
         <div>
 
@@ -928,7 +963,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         data-theme=Eclipse>{
   &quot;status&quot;: &quot;FAILURE&quot;,
   &quot;requestId&quot;: &quot;${requestIdForSubmission}&quot;,
-  &quot;notificationDate&quot;: &quot;${dateTimeResultWasReady}&quot; 
+  &quot;notificationDate&quot;: &quot;${dateTimeResultWasReady}&quot;
   &quot;validationErrorList&quot;: [
     {
       &quot;description&quot;: &quot;If consignmentHouseLevel.importProcedure.importProcedure is not IMMEDATE_RELEASE_VOEC, should not be provided.&quot;,
@@ -941,14 +976,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         </div>
 
-        <h4 id="Årsak.18">Årsak</h4>
+        <h4 id="Årsak.18">Cause</h4>
 
         <p>Man kan ikke sende inn VOEC varelinjer (&quot;goodsItem&quot; liste) med
         mindre man har oppgitt at tollprosedyren for forsendelsen
         (&quot;importProcedure&quot;) er VOEC (har verdien
         &quot;IMMEDIATE_RELEASE_VOEC&quot;)</p>
 
-        <h4 id="Rettelse.18">Rettelse</h4>
+        <h4 id="Rettelse.18">Correction</h4>
 
         <p>Fjern &quot;goodsItem&quot; liste, eller angi &quot;importProcedure&quot;
         som &quot;IMMEDLATE_RELEASE_VOEC&quot;. Send inn på nytt. Bruk ny
@@ -960,13 +995,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="KodeforTollkontordetrefererestilerugyldig">Kode
         for Tollkontor det refereres til er ugyldig</h3>
 
-        <h4 id="Svar.19">Svar</h4>
+        <h4 id="Svar.19">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Must be a valid customs office",
@@ -977,13 +1012,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.19">Årsak</h4>
+        <h4 id="Årsak.19">Cause</h4>
 
         <p>Referansenummeret oppgitt for &quot;customsOfficeOfFirstEntry&quot;
         refererer ikke til et gyldig tollkontor. Bruk CL141 Customs office reference
         number fra kodeverk <a href="https://toll.github.io/api/mo-kodeverk-EN.html#cl141">https://toll.github.io/api/mo-kodeverk-EN.html#cl141</a></p>
 
-        <h4 id="Rettelse.19">Rettelse</h4>
+        <h4 id="Rettelse.19">Correction</h4>
 
         <p>Oppgi et gyldig referansenummer til et tollkontor. Send inn på nytt. Bruk ny
         &quot;requestId&quot; man får i retur for ny innsendelse og verifiser&nbsp;at
@@ -995,13 +1030,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd
         for meldingen for transport</h3>
 
-        <h4 id="Svar.20">Svar</h4>
+        <h4 id="Svar.20">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "scheduledDateAndTimeOfArrival should be present",
@@ -1012,13 +1047,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.20">Årsak</h4>
+        <h4 id="Årsak.20">Cause</h4>
 
         <p>Feltet for opprinnelig ankomsttid
         (&quot;scheduledDateAndTimeOfArrival&quot;) må alltid være med på transport
         objektet.</p>
 
-        <h4 id="Rettelse.20">Rettelse</h4>
+        <h4 id="Rettelse.20">Correction</h4>
 
         <p>Legg til feltet &quot;scheduledDateAndTimeOfArrival&quot; med gyldig verdi
         på transport objektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
@@ -1031,13 +1066,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke
         være satt til mer enn ett år frem i tid</h3>
 
-        <h4 id="Svar.21">Svar</h4>
+        <h4 id="Svar.21">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "scheduledDateAndTimeOfArrival cannot be more than one year into the future",
@@ -1048,12 +1083,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.21">Årsak</h4>
+        <h4 id="Årsak.21">Cause</h4>
 
         <p>Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;)
         kan ikke være mer enn ett år frem i tid.</p>
 
-        <h4 id="Rettelse.21">Rettelse</h4>
+        <h4 id="Rettelse.21">Correction</h4>
 
         <p>Endre feltet &quot;scheduledDateAndTimeOfArrival&quot; til en dato som er
         mindre enn ett år frem i tid. Send inn på nytt. Bruk ny
@@ -1066,13 +1101,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd
         på melding om transport</h3>
 
-        <h4 id="Svar.22">Svar</h4>
+        <h4 id="Svar.22">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "estimatedDateAndTimeOfArrival should be present",
@@ -1083,12 +1118,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.22">Årsak</h4>
+        <h4 id="Årsak.22">Cause</h4>
 
         <p>Feltet for estimert ankomsttid &quot;estimatedDateAndTimeOfArrival&quot; må
         alltid være med på transportobjektet.</p>
 
-        <h4 id="Rettelse.22">Rettelse</h4>
+        <h4 id="Rettelse.22">Correction</h4>
 
         <p>Legg til feltet &quot;estimatedDateAndTimeOfArrival&quot; med gyldig verdi
         på transportobjektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
@@ -1101,13 +1136,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som
         er i fortiden</h3>
 
-        <h4 id="Svar.23">Svar</h4>
+        <h4 id="Svar.23">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "estimatedDateAndTimeOfArrival has already passed",
@@ -1118,12 +1153,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.23">Årsak</h4>
+        <h4 id="Årsak.23">Cause</h4>
 
         <p>Tidspunkt oppgitt for estimert ankomsttid
         (&quot;estimatedDateAndTimeOfArrival&quot;) må være frem i tid.</p>
 
-        <h4 id="Rettelse.23">Rettelse</h4>
+        <h4 id="Rettelse.23">Correction</h4>
 
         <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; til et tidspunkt frem i
         tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for
@@ -1136,13 +1171,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan
         ikke være mer enn ett år frem i tid</h3>
 
-        <h4 id="Svar.24">Svar</h4>
+        <h4 id="Svar.24">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "estimatedDateAndTimeOfArrival cannot be more than one year into the future",
@@ -1153,13 +1188,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.24">Årsak</h4>
+        <h4 id="Årsak.24">Cause</h4>
 
         <p>Tidspunkt oppgitt for estimert ankomsttid
         (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i
         tid.</p>
 
-        <h4 id="Rettelse.24">Rettelse</h4>
+        <h4 id="Rettelse.24">Correction</h4>
 
         <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; tidspunkt som er mindre enn
         ett år frem i tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får
@@ -1171,13 +1206,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="Kunroadograil:KanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Kun road og rail: Kan ikke oppgi
         conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</h3>
 
-        <h4 id="Svar.25">Svar</h4>
+        <h4 id="Svar.25">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "transport.activeBorderTransportMeans.modeOfTransportCode is ${value}, then this field should not be provided",
@@ -1188,12 +1223,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.25">Årsak</h4>
+        <h4 id="Årsak.25">Cause</h4>
 
         <p>Med koden angitt for modeOfTransportCode er det ikke tillatt å sende med en
         verdi for conveyanceReferenceNumber.</p>
 
-        <h4 id="Rettelse.25">Rettelse</h4>
+        <h4 id="Rettelse.25">Correction</h4>
 
         <p>Fjern conveyanceReferenceNumber eller endre angitt modeOfTransportCode. Send
         inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
@@ -1205,13 +1240,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         road og rail: Når modeOfTransportCode er av
         angitt verdi så må typeOfIdentification være bestemt verdi</h3>
 
-        <h4 id="Svar.26">Svar</h4>
+        <h4 id="Svar.26">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "transport.activeBorderTransportMeans.modeOfTransportCode is ${value}, then this field should have value ${requiredValue}",
@@ -1222,12 +1257,12 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.26">Årsak</h4>
+        <h4 id="Årsak.26">Cause</h4>
 
         <p>Med koden angitt for modeOfTransportCode må typeOfIdentification være denne
         bestemte verdien (&quot;requiredValue&quot;).</p>
 
-        <h4 id="Rettelse.26">Rettelse</h4>
+        <h4 id="Rettelse.26">Correction</h4>
 
         <p>Endre typeOfIdentification feltet til verdien oppgitt som påkrevd i
         valideringsfeilen (&quot;requiredValue&quot;). Send inn på nytt. Bruk ny
@@ -1240,13 +1275,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         veitransport (road-API): Kan ikke finne det norske&nbsp;kjøretøyets
         registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</h3>
 
-        <h4 id="Svar.27">Svar</h4>
+        <h4 id="Svar.27">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Could not find identificationNumber in Norwegian Public Roads Administration’s register of motor vehicles",
@@ -1257,13 +1292,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.27">Årsak</h4>
+        <h4 id="Årsak.27">Cause</h4>
 
         <p>Man har sendt inn at kjøretøyet er norsk (countryCode er &quot;NO&quot;),
         men registreringsnummeret (&quot;identificationNumber&quot;) finnes ikke i
         veivesenets kjøretøyregister.</p>
 
-        <h4 id="Rettelse.27">Rettelse</h4>
+        <h4 id="Rettelse.27">Correction</h4>
 
         <p>Dersom kjøretøy er norsk, verifiser at identificationNumber er korrekt i
         henhold til det som er registrert i veivesenets kjøretøyregister. Send inn
@@ -1275,13 +1310,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivåresystemer.">Finner ikke tolldeklarasjon blant gyldige
         deklarasjoner angitt i våre systemer.</h3>
 
-        <h4 id="Svar.28">Svar</h4>
+        <h4 id="Svar.28">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Customs declaration is not valid",
@@ -1292,7 +1327,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.28">Årsak</h4>
+        <h4 id="Årsak.28">Cause</h4>
 
         <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
         &quot;declarationDate&quot; og &quot;sequenceNumber&quot; kan ikke knyttes til
@@ -1300,7 +1335,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         OK må den være sendt inn mot en definert ekspedisjonsenhet i TVINN. P.t er
         dette kun ekspedisjonsenhet&nbsp;<em>441001</em>.</p>
 
-        <h4 id="Rettelse.28">Rettelse</h4>
+        <h4 id="Rettelse.28">Correction</h4>
 
         <p>Verifiser at informasjonen om deklarasjonen er korrekt registrert. Send
         inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
@@ -1311,13 +1346,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="Tolldeklarasjonangittharenugyldigstatusivåresystemer.">Tolldeklarasjon
         angitt har en ugyldig status i våre systemer.</h3>
 
-        <h4 id="Svar.29">Svar</h4>
+        <h4 id="Svar.29">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Customs declaration is in wrong state",
@@ -1328,14 +1363,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.29">Årsak</h4>
+        <h4 id="Årsak.29">Cause</h4>
 
         <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
         &quot;declarationDate&quot; og &quot;sequenceNumber&quot; ble funnet i våre
         systemer, men har feil status. Dette betyr som regel at deklarasjonen allerede
         er avsluttet.</p>
 
-        <h4 id="Rettelse.29">Rettelse</h4>
+        <h4 id="Rettelse.29">Correction</h4>
 
         <p>Påse at deklarasjonen er behandlet og har en gyldig status. Send inn på
         nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -1346,13 +1381,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         id="Spesifisertfeltkanikkehaenverdinårmanharoppgittspesifiserttollprosedyre(&quot;importProcedure&quot;erX)">Spesifisert felt kan ikke ha en verdi når man har
         oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</h3>
 
-        <h4 id="Svar.30">Svar</h4>
+        <h4 id="Svar.30">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Field cannot be filled out when consignmentHouseLevel.importProcedure is ${importProcedureType}",
@@ -1363,7 +1398,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.30">Årsak</h4>
+        <h4 id="Årsak.30">Cause</h4>
 
         <p>Dersom man har angitt at tollprosedyre (&quot;importProcedure&quot;) er
         angitt verdi, kan man ikke fylle ut dette feltet, det vil si feltet som er
@@ -1375,7 +1410,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot; og/eller
         &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;)</p>
 
-        <h4 id="Rettelse.30">Rettelse</h4>
+        <h4 id="Rettelse.30">Correction</h4>
 
         <p>Enten endre importProcedure eller fjern verdien i dette feltet. Send inn på
         nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -1388,13 +1423,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i
         Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</h3>
 
-        <h4 id="Svar.31">Svar</h4>
+        <h4 id="Svar.31">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Field cannot have value N820 out when consignmentHouseLevel.outgoingProcedure is EXP",
@@ -1405,7 +1440,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.31">Årsak</h4>
+        <h4 id="Årsak.31">Cause</h4>
 
         <p>Dersom man har angitt at prosedyren som forsendelsen var underlagt frem til
         grensepassering inn i Norge (&quot;outgoingProcedure&quot;) er eksport (med
@@ -1416,7 +1451,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         Se valg av tollprosedyre&nbsp;<a
         href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
 
-        <h4 id="Rettelse.31">Rettelse</h4>
+        <h4 id="Rettelse.31">Correction</h4>
 
         <p>Enten endre verdien i feltet eller outgoingProcedure. Send inn på nytt.
         Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -1428,13 +1463,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         referert dokument (&quot;typeReference&quot;)&nbsp;er tolldeklarasjon
         (&quot;CUDE&quot;) så er det spesifiserte feltet obligatorisk</h3>
 
-        <h4 id="Svar.32">Svar</h4>
+        <h4 id="Svar.32">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Required field when typeReference is CUDE",
@@ -1445,13 +1480,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.32">Årsak</h4>
+        <h4 id="Årsak.32">Cause</h4>
 
         <p>Man har angitt at referert dokument er tolldeklarasjon
         (&quot;typeReference&quot; med verdi &quot;CUDE&quot;), da må man også oppgi
         verdi i det spesifisert feltet (feltet er spesifisert i feilmeldingen).</p>
 
-        <h4 id="Rettelse.32">Rettelse</h4>
+        <h4 id="Rettelse.32">Correction</h4>
 
         <p>Enten endre typeReference eller oppgi verdi for feltet. Send inn på
         nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
@@ -1463,13 +1498,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må
         tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</h3>
 
-        <h4 id="Svar.33">Svar</h4>
+        <h4 id="Svar.33">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "importProcedure is required when any consignmentHouseLevel.previousDocuments[] is provided",
@@ -1480,13 +1515,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.33">Årsak</h4>
+        <h4 id="Årsak.33">Cause</h4>
 
         <p>Man har sendt inn ett eller flere referanser til dokumenter (objekter i
         &quot;previousDocuments&quot; listen), men ikke oppgitt en tollprosedyre (verdi
         i &quot;importProcedure&quot; feltet).</p>
 
-        <h4 id="Rettelse.33">Rettelse</h4>
+        <h4 id="Rettelse.33">Correction</h4>
 
         <p>Enten oppgi en verdi for importProcedure feltet eller fjern alle objekter i
         previousDocuments listen. Send inn på nytt. Bruk ny &quot;requestId&quot;
@@ -1500,13 +1535,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med
         &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
-        <h4 id="Svar.34">Svar</h4>
+        <h4 id="Svar.34">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "PreviousDocuments can only contain one document of type CUDE",
@@ -1517,14 +1552,14 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.34">Årsak</h4>
+        <h4 id="Årsak.34">Cause</h4>
 
         <p>Man har sendt mer enn en tolldeklarasjon (objekt i
         &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
         &quot;typeOfReference&quot;.<br>
         Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
 
-        <h4 id="Rettelse.34">Rettelse</h4>
+        <h4 id="Rettelse.34">Correction</h4>
 
         <p>Påse at man kun har ett objekt med typeOfReference verdien &quot;CUDE&quot;
         i previousDocuments-listen.<br>
@@ -1539,13 +1574,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot;
         objektet. </h3>
 
-        <h4 id="Svar.35">Svar</h4>
+        <h4 id="Svar.35">Response</h4>
 
         <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}" 
+  "notificationDate": "${dateTimeResultWasReady}"
   "validationErrorList": [
     {
       "description": "Field should have value unless typeOfReference is CUDE",
@@ -1556,7 +1591,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.35">Årsak</h4>
+        <h4 id="Årsak.35">Cause</h4>
 
         <p>Når det angis referanse til andre typer dokumenter enn tolldeklarasjon skal
         feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; benyttes for
@@ -1568,7 +1603,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         Det er påkrevd at dette feltet er angitt med en verdi med mindre
         &quot;typeOfReference&quot; har verdien &quot;CUDE&quot;.</p>
 
-        <h4 id="Rettelse.35">Rettelse</h4>
+        <h4 id="Rettelse.35">Correction</h4>
 
         <p>Endre objektet til å ha til å ha verdien &quot;CUDE&quot; i
         typeOfReference-feltet, eller legg inn gyldig verdi i
@@ -1614,7 +1649,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <h3 id="DokumentstatusINCOMPLETE">Dokument
         status INCOMPLETE</h3>
 
-        <h4 id="Svar.36">Svar</h4>
+        <h4 id="Svar.36">Response</h4>
 
         <pre>
 {
@@ -1626,13 +1661,13 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h4 id="Årsak.36">Årsak</h4>
+        <h4 id="Årsak.36">Cause</h4>
 
         <p>Man har en innsendelse som ikke oppfyller kravene for en fullstendig
         innsending for valgt tollprosedyre. Se: <a
         href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
 
-        <h4 id="Rettelse.36">Rettelse</h4>
+        <h4 id="Rettelse.36">Correction</h4>
 
         <p>Endre innsending slik at den oppfyller kravene for valgt tollprosedyre. Se: <a
         href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>. Send
