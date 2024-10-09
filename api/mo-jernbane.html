@@ -295,7 +295,7 @@
           dens hovedforsendelser og forsendelser.
         </p>
 
-        <p>Informasjon sendes inn på tre nivåer:</p>
+        <p>Informasjon kan sendes inn på tre nivåer:</p>
         <ul>
             <li>Transport, som inneholder
                 <ul>
@@ -312,6 +312,11 @@
             knyttet til transport og last som skal sendes inn</figcaption>
         </figure>
 
+        <p>
+            Det er også mulig å sende inn transport og forsendelser, uten å sende inn hovedforsendelse.
+            Transport kobles da til forsendelser.
+        </p>
+
         <h3 id="infomld">Informasjon og meldinger</h3>
         <p>
             API-ene støtter innsending av opplysninger knyttet til melde og
@@ -322,28 +327,38 @@
 
         <p>API-ene for innsending er delt i 3 forskjellige meldinger:</p>
         <ol>
-         <li>en for innsending av opplysninger knyttet til transport</li>
-         <li>en for innsending av opplysninger knyttet til hovedforsendelse</li>
-         <li>en for innsending av opplysninger knyttet til forsendelser</li>
+         <li>en for innsending av opplysninger om transport</li>
+         <li>en for innsending av opplysninger om hovedforsendelse</li>
+         <li>en for innsending av opplysninger om forsendelser</li>
         </ol>
 
         <p>
             Meldingene sendes inn hver for seg og uavhengig av hverandre med tanke på
             både rekkefølge og avsender.
             Melding om transport skal, ved grensepassering, inneholde en liste med
-            sporingsnummer til alle hovedforsendelsene som skal være med på transporten<br/>
-            Forsendelse knyttes til hovedforsendelsen på to forskjellige måter:
+            sporingsnummer til alle hovedforsendelsene og/eller forsendelsene som skal
+            være med på transporten.
+            Merk at det både kan knyttes forsendelser til transport direkte eller
+            via hovedforsendelse på samme transport.<br/>
+            Forsendelse knyttes til hovedforsendelsen eller til transporten:
         </p>
         <ul>
-         <li>
+          <li>
             ved hjelp av at fraktbrevnummer til hovedforsendelsen oppgis i melding om forsendelse
-            (skal brukes av alle andre enn post-operatører)</li>
+            (kan brukes av alle andre enn post-operatører)
+          </li>
+          <li>
+            ved at transporten inneholder en liste av forsendelser
+            (kan brukes av alle andre enn post-operatører)
+          </li>
         </ul>
         <p><img src="media/MO-nokler.png" alt="Sammenheng mellom nøkler" style="max-width: 60%"></p>
-        <p>eller</p>
+        <p>For post-operatører gjelder egne koblinger via postbeholder:</p>
         <ul>
-         <li>ved hjelp av at postsekk-id er referert både i forsendelse
-             og i hovedforsendelse (kun i bruk for post-operatører)</li>
+            <li>
+                ved hjelp av at postbeholder-id er referert både i forsendelse og i hovedforsendelse
+                (kun i bruk for post-operatører)
+            </li>
         </ul>
         <p><img src="media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" style="max-width: 60%"></p>
 
@@ -354,6 +369,12 @@
             meldingen og innsending av denne.
             I disse data inngår informasjon om tollrepresentant og
             identifikasjon av melding (referanser til selve meldingen).
+            Se avsnittet <a href="#koblingAvMeldinger">Kobling av meldinger</a> for en detaljert beskrivelse.
+        </p>
+        <p>
+            Tabellene under gir en oversikt over sentrale dataelementer knyttet til transport og forsendelser.
+            De detaljerte informasjonsmodellene for transport, hovedforsendelser og forsendelser er publisert
+            i <a href="#Grensesnittbeskrivelse">API-definisjonene</a>.
         </p>
 
         <h3 id="datatransp">Dataelementer knyttet til transport</h3>
@@ -421,12 +442,6 @@
                <th scope="row">Fraktbrev</th>
                <td class="center">X</td>
                <td></td>
-               <td></td>
-             </tr>
-             <tr>
-               <th scope="row">Relevante dokumenter</th>
-               <td></td>
-               <td class="center">X</td>
                <td></td>
              </tr>
              <tr>
@@ -579,7 +594,7 @@
                     Ansvarlig for informasjonen
                   </td>
                   <td>
-                    Fører av transport, ref vareførselsloven § 2-3
+                    Fører av transport, i henhold til vareførselsloven § 2-3
                   </td>
                 </tr>
                 <tr>
@@ -587,7 +602,7 @@
                     Avgiver av informasjon
                   </td>
                   <td>
-                    Speditør/Transportør/Vareeier/Tollrepresentant
+                    Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier
                   </td>
                 </tr>
                 <tr>
@@ -642,7 +657,7 @@
                     <p>Informasjon om fører</p>
                     <p>Tid/sted for grensepassering</p>
                     <p>Referansenummer/fraktbrevnummer for alle hovedforsendelser (Master
-                      Consignment) som skal være med transporten</p>
+                      Consignment) og/eller forsendelser (House Consignment) som skal være med transporten</p>
                   </td>
                 </tr>
                 <tr>
@@ -682,7 +697,7 @@
                     Ansvarlig for informasjonen
                   </td>
                   <td>
-                    Fører av transport, ref vareførselsloven § 2-3
+                    Fører av transport, i henhold til vareførselsloven § 2-3
                   </td>
                 </tr>
                 <tr>
@@ -690,7 +705,7 @@
                     Avgiver av informasjon
                   </td>
                   <td>
-                    Speditør/Transportør/Vareeier/Fullmektig
+                    Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier
                   </td>
                 </tr>
                 <tr>
@@ -781,7 +796,7 @@
                     Ansvarlig for informasjonen
                   </td>
                   <td>
-                    Fører av transport, ref vareførselsloven § 2-3
+                    Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier
                   </td>
                 </tr>
                 <tr>
@@ -844,6 +859,7 @@
                     <p>Grov varebeskrivelse/vekt</p>
                     <p>Avsender</p>
                     <p>Mottaker</p>
+                    <p>Referanse til transportør</p>
                   </td>
                 </tr>
                 <tr>
@@ -2250,7 +2266,7 @@
 
         <h3 id="hvordanSende">Hvordan sender man inn meldinger om transport, hovedforsendelse og forsendelse</h3>
 
-        <h4 id="sekvens">Sekvens for innsending av meldinger</h4>
+        <h4 id="sekvens">Sekvens for innsending av meldinger (POST)</h4>
 
         <p>
             Generelt fungerer innsending av informasjon slik at aktøren
@@ -2290,13 +2306,59 @@
           som gjør gjentatte forsøk, inntil valideringsrespons mottas.
         </p>
         <p>
-          Se API-dokumentasjon lenket til under for detaljer om endepunktene.
+          Se API-dokumentasjon <a href="#Grensesnittbeskrivelse">lenket til under</a> for detaljer om endepunktene.
+        </p>
+
+
+        <h4 id="koblingAvMeldinger">Kobling av meldinger</h4>
+        <p>Generelt kobles meldingene i melde- og opplysning gjennom nøkler som oppgis av innsender.</p>
+
+        <h5>Kobling mellom transport og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om hovedforsendelser.
+            I den listen oppgis nøkkelen til en hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme i melding om hovedforsendelse
+            (<code>carrier.IdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om forsendelser.
+            I den listen oppgis nøkkelen til en melding om forsendelse, som består av fraktbrevnummer
+            (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>tranportLevel.carrierIdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).<br/>
+            I melding om forsendelse må et flagg settes for at dette er en forsendelse som kobles direkte
+            til en transport: <code>"directConsignment": true</code>.
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til melding om hovedforsendelse.
+            I den referansen oppgis nøkkelen til en melding om hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+            og melding om hovedforsendelse (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til en postbeholder (receptacle).
+            I den referansen i melding om forsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).<br/>
+            Melding om hovedforsendelse inneholder en liste med nøkkelreferanser til postbeholdere.
+            I disse referansene i melding om hovedforsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).
         </p>
 
         <h4 id="valideringMeldinger">Valideringsfeil</h4>
         <p>
           Se <a href="mo-valideringsfeil.html">denne siden</a> for
-          oversikt over de vanligste vailderingsfeilene man kan få med
+          oversikt over de vanligste valderingsfeilene man kan få med
           mulige årsaker / korreksjoner for disse.
         </p>
 
@@ -2368,7 +2430,8 @@
            på den ankommende transport.<br/>
            Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt API for de
            forventede forsendelsene. Aktører som er koblet til de fremlagte
-           forsendelser vil kunne hente ut kontrolldirigering på API.
+           forsendelser vil kunne hente ut kontrolldirigering på API
+           (<a href="#movement-routing-api">movement-routing-api</a>).
            De aktører som automatisk er slik koblet er den aktøren som sendte inn
            informasjon om forsendelsen i Tolletatens API (autentisert i Maskinporten) og
            eventuell tollrepresentant nevnt i melding om forsendelse, hovedforsendelse
@@ -2388,7 +2451,7 @@
            og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
            i ICS2-løsningen</strong>.
            <br/>
-           Fremlegging (<strong><a href="movement-presentation-api.html">API: movement-presentation</a></strong>)
+           Fremlegging (<a href="¤movement-presentation-api">movement-presentation-api</a>)
            kan meldes for
            forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
            si de forsendelser som er forventet fremlagt.
@@ -2412,13 +2475,20 @@
         </p>
 
         <h4 id="kontrollrespons">Dirigering (routing) for forsendelser</h4>
-        <p>felles for forhåndsvarsling og melde- og opplysning</p>
 
         <p>
-          Forsendelser innmeldt i løsningene for forhåndsvarsling (ICS2) og/eller
-          melde- og opplysning (MO-løsningen) får en felles dirigering.<br/>
-          Når transporten som forsendelsen er meldt på har ankommet tollområdet, blir
-          dirigering blir gjort tilgjengelig for næringslivet.
+          Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
+          skal bruke tjenesten for kontrolldirigering (<a href="¤movement-routing-api">movement-routing-api</a>).
+          Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene som skal fysisk kontrolleres.
+          Disse sendingene skal snarest overleveres avtalt kontrollsted.
+          Når en aktør ber om dirigering gjennom å bruke denne tjenesten vil Tolletaten svare med én dirigering
+          per forsendelse (House Consignment).
+        </p>
+        <p>
+          Dersom forsendelsen er meldt inn gjennom forhåndsvarsling (ICS2), det vil si gods fra tredjeland
+           (utenfor EUs sikkerhetssone), vil det medfølge informasjon om ENS MRN og postsekker (receptacle)
+           dere det er relevant.
+           Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse dataelementene være tomme.
         </p>
 
         <h5>Hvem kan be om dirigering?</h5>
@@ -2452,7 +2522,7 @@
         <p>
           Når næringslivet ber om å få dirigeringssignal for aktuelle forsendelser,
           skjer dette gjennom et kall til et grensesnitt (API) hos Tolletaten
-          (<a href="movement-routing-api.html">Movement routing API</a>).
+          (<a href="#movement-routing-api">Movement routing API</a>).
           Dette grensesnittet er uavhengig av transportmåte og vil gi dirigeringer for
           alle forsendelser som er meldt på alle transporter som har ankommet tollområdet
           og som er under behandling eller ferdig behandlet hos Tolletaten.<br/>
@@ -2676,9 +2746,6 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
 
         <h3 id="movement-rail-api">API: movement-rail-api</h3>
         <p>
-            Det kan fortsatt bli endringer i dette grensesnittet som en følge av juridiske eller funksjonelle behov.
-        </p>
-        <p>
             For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
             settes til <strong>toll:movement/rail</strong>
         </p>
@@ -2688,9 +2755,6 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
         </p>
 
         <h3 id="movement-rail-query-api">API: movement-rail-query-api</h3>
-        <p>
-            Det kan fortsatt bli endringer i dette grensesnittet som en følge av juridiske eller funksjonelle behov.
-        </p>
         <p>
             For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
             settes til <strong>toll:movement/rail</strong>

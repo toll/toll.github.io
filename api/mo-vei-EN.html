@@ -301,11 +301,11 @@
           transport, its master consignments, and house consignments.
         </p>
 
-        <p> Information is submitted in three levels:</p>
+        <p> Information can be submitted in three levels:</p>
         <ul>
-            <li> Transport, which contain
+            <li>Transport, which contain
                <ul>
-                    <li> Master Consignments, which contain
+                    <li>Master Consignments, which contain
                         <ul>
                             <li>House Consignments</li>
                         </ul></li>
@@ -318,6 +318,11 @@
             to transport and cargo that needs to be submitted (English text in italics).</figcaption>
         </figure>
 
+        <p>
+            It is also possible to submit transport and house consignments without submitting the master consignment.
+            Transport is then linked to house consignment.
+        </p>
+
         <h3 id="infomld">Information and notifications</h3>
         <p>
             The APIs support the submission of information related to digital notification
@@ -329,29 +334,34 @@
 
         <p> The APIs for submission are divided into three different notifications:</p>
         <ol>
-         <li>an API for the submission of information related to Transport </li>
-         <li>an API for the submission of information related to Master Consignments</li>
-         <li>an API for the submission of information related to House Consignments.</li>
+         <li>an API for the submission of information about Transport </li>
+         <li>an API for the submission of information about Master Consignments</li>
+         <li>an API for the submission of information about House Consignments.</li>
         </ol>
 
         <p>
             The notifications are submitted separately and independently of each other,
             both in terms of order and sender. The transport notification should include
-            a list of tracking numbers for all master consignments that are part of the
-            transport upon border crossing.<br/>
-            House consignments are associated with master consignments in two different ways:
+            a list of tracking numbers for all master and/or house consignments that are part of the
+            transport upon border crossing.
+            Note that house consignments can be associated both with the transport directly and via
+            a master consignment within the same transport.<br/>
+            House consignments are associated with master consignments or with the transport:
         </p>
         <ul>
          <li>
             by specifying the master consignment note number in the notification about
-            the house consignment. (To be used by all parties other than postal operators)
+            the house consignment (can be used by all parties other than postal operators)
          </li>
+         <li>
+            by referencing a list of house consignments from the transport (can be used
+            by all parties other than postal operators).
         </ul>
         <p><img src="media/MO-nokler-EN.png" alt="Relationship of keys" style="max-width: 60%"></p>
-        <p>or</p>
+        <p>For postal operators, there are separate associations through post bag ID:</p>
         <ul>
-         <li>by referencing the post bag ID in both the house consignment and the master
-             consignment. (Only used by postal operators)</li>
+         <li>by referencing the post bag ID both in the house and the master
+             consignment (only used by postal operators)</li>
         </ul>
         <p><img src="media/MO-nokler-postsekk-EN.png"
                 alt=" Relationship between keys using post bag ID" style="max-width: 60%"></p>
@@ -360,9 +370,16 @@
 
         <p>
             For all notifications, there will be a set of data specific to the notification itself and its submission. This data includes information about the customs representative and the identification of the notification (references to the notification itself).
+            See the section <a href="#koblingAvMeldinger">Linking messages</a> for a detailed description.
+        </p>
+        <p>
+            The tables below contain an overview of the central data elements associated with transports
+            and consignments.
+            The detailed information models for transport, master and house consignments are published
+            in the <a href="#Grensesnittbeskrivelse">API-definitions</a>.
         </p>
 
-        <h3 id="datatransp"> Data elements associated with transport </h3>
+        <h3 id="datatransp">Data elements associated with transport </h3>
         <table>
             <thead>
             <tr class="header">
@@ -586,7 +603,7 @@
                     Responsible for the information
                   </td>
                   <td>
-                    Operator of the transport, in reference to the
+                    Operator of the transport, according to the
                     Movement of Goods Act (Vareførselsloven) §2-3
                   </td>
                 </tr>
@@ -595,7 +612,8 @@
                     Information Provider
                   </td>
                   <td>
-                    Forwarder/Transporter/Consignor/Customs Representative
+                    Authorized representative (according to the Movement of Goods Act
+                    (Vareførselsloven) §7-21 &ndash; Forwarder/Transporter/Consignor
                   </td>
                 </tr>
                 <tr>
@@ -651,7 +669,7 @@
                     <p>Information about the operator</p>
                     <p>Time/place of border crossing</p>
                     <p>Reference number/ consignment note number for all master
-                    consignments that are on the transport</p>
+                    consignments and/or house consignments that are on the transport</p>
                   </td>
                 </tr>
                 <tr>
@@ -685,13 +703,12 @@
                     Information about the master consignment
                   </td>
                 </tr>
-                <tr>
                   <td>
                     Responsible for the information
                   </td>
                   <td>
-                    Operator of the transport, in reference to the Movement of Goods Act
-                    (Vareførselsloven) §2-3
+                    Operator of the transport, according to the
+                    Movement of Goods Act (Vareførselsloven) §2-3
                   </td>
                 </tr>
                 <tr>
@@ -699,7 +716,8 @@
                     Information Provider
                   </td>
                   <td>
-                  Forwarder/Transporter/Consignor/Authorized representative
+                    Authorized representative (according to the Movement of Goods Act
+                    (Vareførselsloven) §7-21 &ndash; Forwarder/Transporter/Consignor
                   </td>
                 </tr>
                 <tr>
@@ -789,7 +807,7 @@
                     Responsible for the information
                   </td>
                   <td>
-                    Operator of the transport, in reference to the Movement of Goods Act
+                    Operator of the transport, according to the Movement of Goods Act
                     (Vareførselsloven) §2-3
                   </td>
                 </tr>
@@ -853,6 +871,7 @@
                     <p>Rough descriptions of goods/weight</p>
                     <p>Sender</p>
                     <p>Recipient</p>
+                    <p>Reference to the transporter</p>
                   </td>
                 </tr>
                 <tr>
@@ -1216,10 +1235,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -1464,7 +1483,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
          </tr>
          <tr>
@@ -1780,10 +1799,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -2309,10 +2328,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td colspan='2'>
           <p>-</p>
@@ -2634,10 +2653,10 @@
           <p>-</p>
           </td>
           <td>
-             <p>one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+             <p>one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-            <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+            <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -2952,10 +2971,10 @@
           <p>-</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
-          <p>must be one of [ ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
+          <p>must be one of [ AES_EXPORT, ALE_EXPORT, ECS_EXPORT, EUEIR_EXPORT, UGE_EXPORT, UNU_EXPORT ]</p>
           </td>
           <td>
           <p>-</p>
@@ -2992,7 +3011,7 @@
         <h3 id="hvordanSende">How to submit notifications of transports,
         master consignments and house consignments</h3>
 
-        <h4 id="sekvens">Sequence for submitting notifications</h4>
+        <h4 id="sekvens">Sequence for submitting notifications (POST)</h4>
         <p>
             Generally, the submission of information starts with an
             entity submits a notification (POST) and receiving a
@@ -3033,6 +3052,52 @@
         <p>
           Refer to the linked API documentation below for details on the
           endpoints.
+        </p>
+
+
+        <h4 id="koblingAvMeldinger">Kobling av meldinger</h4>
+        <p>Generelt kobles meldingene i melde- og opplysning gjennom nøkler som oppgis av innsender.</p>
+
+        <h5>Kobling mellom transport og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om hovedforsendelser.
+            I den listen oppgis nøkkelen til en hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme i melding om hovedforsendelse
+            (<code>carrier.IdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om forsendelser.
+            I den listen oppgis nøkkelen til en melding om forsendelse, som består av fraktbrevnummer
+            (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>tranportLevel.carrierIdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).<br/>
+            I melding om forsendelse må et flagg settes for at dette er en forsendelse som kobles direkte
+            til en transport: <code>"directConsignment": true</code>.
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til melding om hovedforsendelse.
+            I den referansen oppgis nøkkelen til en melding om hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+            og melding om hovedforsendelse (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til en postbeholder (receptacle).
+            I den referansen i melding om forsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).<br/>
+            Melding om hovedforsendelse inneholder en liste med nøkkelreferanser til postbeholdere.
+            I disse referansene i melding om hovedforsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).
         </p>
 
         <h4 id="valideringMeldinger">Validation errors</h4>
@@ -3114,7 +3179,8 @@
           Subsequently, Norwegian Customs will make routing available in
           our API for the expected consignments. Entities connected to
           the presented consignments will be able to retrieve control
-          routing via the API. The entities automatically connected are
+          routing via the API (<a href="#movement-routing-api">movement-routing-api</a>).
+          The entities automatically connected are
           those who submitted information about the consignment in the
           Norwegian Customs API (authenticated in Maskinporten) and
           customs representatives mentioned in the house consignment,
@@ -3136,9 +3202,8 @@
            obligations</strong> and/or <strong>pre-notified to the EU in
            the ICS2 solution</strong>.
            <br/>
-           Presentation (<strong><a href="movement-presentation-api.html">API:
-           movement-presentation</a></strong>)  can be reported for
-           consignments that have been pre-notified through the two
+           Presentation (<a href="¤movement-presentation-api">movement-presentation-api</a>)
+           can be reported for consignments that have been pre-notified through the two
            mentioned obligations, i.e., consignments expected to be
            presented.
         </p>
@@ -3161,13 +3226,19 @@
         </p>
 
         <h4 id="kontrollrespons">Common routing of house consignments</h4>
-        <p>for ICS2 and Notification and Disclosure of Information</p>
-
         <p>
-          House consignments that are digitally fulfilled for ICS2 and notification
-          and disclosure of information will get a common routing. When the transport
-          that the house consignment is transported by has arrived in the customs area,
-          routing will automatically be made available.
+          Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
+          skal bruke tjenesten for kontrolldirigering (<a href="¤movement-routing-api">movement-routing-api</a>).
+          Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene som skal fysisk kontrolleres.
+          Disse sendingene skal snarest overleveres avtalt kontrollsted.
+          Når en aktør ber om dirigering gjennom å bruke denne tjenesten vil Tolletaten svare med én dirigering
+          per forsendelse (House Consignment).
+        </p>
+        <p>
+           Dersom forsendelsen er meldt inn gjennom forhåndsvarsling (ICS2), det vil si gods fra tredjeland
+           (utenfor EUs sikkerhetssone), vil det medfølge informasjon om ENS MRN og postsekker (receptacle)
+           dere det er relevant.
+           Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse dataelementene være tomme.
         </p>
 
         <h5>Who can ask for routing?</h5>
@@ -3405,9 +3476,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
         <p>
-            There may still be changes to this API due to legal or functional requirements.
-        </p>
-        <p>
             In order to use the service, the scope for authentication against Maskinporten
             must be set to
             <strong>toll:movement/road/v2</strong>
@@ -3417,9 +3485,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
         </p>
 
         <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
-        <p>
-            There may still be changes to this API due to legal or functional requirements.
-        </p>
         <p>
             In order to use the service, the scope for authentication against Maskinporten
             must be set to
