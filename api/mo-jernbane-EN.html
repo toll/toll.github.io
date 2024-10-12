@@ -337,9 +337,9 @@
 
         <p> The APIs for submission are divided into three different notifications:</p>
         <ol>
-         <li>an API for the submission of information about Transport </li>
-         <li>an API for the submission of information about Master Consignments</li>
-         <li>an API for the submission of information about House Consignments.</li>
+         <li>an API for the submission of information about the Transport </li>
+         <li>an API for the submission of information about the Master Consignments</li>
+         <li>an API for the submission of information about the House Consignments.</li>
         </ol>
 
         <p>
@@ -363,7 +363,7 @@
         <p><img src="media/MO-nokler-EN.png" alt="Relationship of keys" style="max-width: 60%"></p>
         <p>For postal operators, there are separate associations through post bag ID:</p>
         <ul>
-         <li>by referencing the post bag ID both in the house and the master
+         <li>by referencing the post bag ID in both the house and the master
              consignment (only used by postal operators)</li>
         </ul>
         <p><img src="media/MO-nokler-postsekk-EN.png"
@@ -2294,53 +2294,51 @@
           validation response is received.
         </p>
         <p>
-          Refer to the linked API documentation below for details on the
-          endpoints.
+          Refer to the linked API documentation below for details on the endpoints.
         </p>
 
+        <h4 id="koblingAvMeldinger">Linking notifications</h4>
+        <p>Generally, notifications in Digital Notification and Disclosure of Information are linked through keys provided by the sender.</p>
 
-        <h4 id="koblingAvMeldinger">Kobling av meldinger</h4>
-        <p>Generelt kobles meldingene i melde- og opplysning gjennom nøkler som oppgis av innsender.</p>
-
-        <h5>Kobling mellom transport og hovedforsendelse (master consignment)</h5>
+        <h5>Linking between transport and master consignment.</h5>
         <p>
-            Melding om transport inneholder en liste av nøkler til melding om hovedforsendelser.
-            I den listen oppgis nøkkelen til en hovedforsendelse, som består av hovedfraktbrevnummer
-            (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
-            For at koblingen skal bli korrekt må transportørens identifikator være den samme i melding om hovedforsendelse
-            (<code>carrier.IdentificationNumber</code>)
-            og melding om transport (<code>carrier.IdentificationNumber</code>).
+            The transport notification contains a list of keys to master consignment notifications. 
+            This list includes the key for a master consignment, which consists of the master waybill number 
+            (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterLevel.type</code>).
+            For the linking to be correct, the carrier's identifier must be the same 
+            in both the master consignment notification (<code>carrier.IdentificationNumber</code>) 
+            and the transport notification (<code>carrier.IdentificationNumber</code>).
         </p>
 
-        <h5>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h5>
+        <h5>Linking between transport and house consignments &ndash; without using master consignment</h5>
         <p>
-            Melding om transport inneholder en liste av nøkler til melding om forsendelser.
-            I den listen oppgis nøkkelen til en melding om forsendelse, som består av fraktbrevnummer
+            The transport notification contains a list of keys to consignment notifications.
+            This list includes the key for a house consignment, which consists of the waybill number
             (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
-            For at koblingen skal bli korrekt må transportørens identifikator være den samme
-            i melding om forsendelse (<code>tranportLevel.carrierIdentificationNumber</code>)
-            og melding om transport (<code>carrier.IdentificationNumber</code>).<br/>
-            I melding om forsendelse må et flagg settes for at dette er en forsendelse som kobles direkte
-            til en transport: <code>"directConsignment": true</code>.
+            For the linking to be correct, the carrier's identifier must be the same
+            in both the house consignment notification (<code>tranportLevel.carrierIdentificationNumber</code>)
+            and the transport notification (<code>carrier.IdentificationNumber</code>).<br/>
+            In the consignment notification, a flag must be set to indicate that this is a consignment that is linked directly
+            to a transport: <code>"directConsignment": true</code>.
         </p>
 
-        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h5>
+        <h5>Linking between house consignment and master consignment</h5>
         <p>
-            Melding om forsendelse inneholder en nøkkelreferanse til melding om hovedforsendelse.
-            I den referansen oppgis nøkkelen til en melding om hovedforsendelse, som består av hovedfraktbrevnummer
+            The house consignment notification contains a key reference to the master consignment notification.
+            The reference contains a key to the master consignment, which consists of the master waybill number
             (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
-            For at koblingen skal bli korrekt må transportørens identifikator være den samme
-            i melding om forsendelse (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
-            og melding om hovedforsendelse (<code>carrier.IdentificationNumber</code>).
+            For the linking to be correct, the carrier's identifier must be the same
+            in both the house consignment notification(<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+            and the the master consignment notification(<code>carrier.IdentificationNumber</code>).
         </p>
 
-        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h5>
+        <h5>Linking between house consignment and master consignment for postal consignments that are covered by the UPU conventions.</h5>
         <p>
-            Melding om forsendelse inneholder en nøkkelreferanse til en postbeholder (receptacle).
-            I den referansen i melding om forsendelse oppgis nøkkelen til en postbeholder
+            The house consignment notification contains a key reference to a post receptacle
+            The reference contains a key to a post receptacle, which is the receptacle ID number
             (<code>receptacleIdentificationNumber</code>).<br/>
-            Melding om hovedforsendelse inneholder en liste med nøkkelreferanser til postbeholdere.
-            I disse referansene i melding om hovedforsendelse oppgis nøkkelen til en postbeholder
+            The house consignment notification contains a list of references to post rececptacles.
+            In these references in the house consignment notification the key to the post rececptacle
             (<code>receptacleIdentificationNumber</code>).
         </p>
 
@@ -2468,18 +2466,17 @@
 
         <h4 id="kontrollrespons">Common routing of house consignments</h4>
         <p>
-          Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
-          skal bruke tjenesten for kontrolldirigering (<a href="¤movement-routing-api">movement-routing-api</a>).
-          Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene som skal fysisk kontrolleres.
-          Disse sendingene skal snarest overleveres avtalt kontrollsted.
-          Når en aktør ber om dirigering gjennom å bruke denne tjenesten vil Tolletaten svare med én dirigering
-          per forsendelse (House Consignment).
+          The one who has presented the consignments, either automatically by Norwegian Customs or by self-presentation.Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
+          must use the controul Routing service (<a href="#movement-routing-api">movement-routing-api</a>).
+          Based on the results from control routing, the consignments that are to be physically inspected are selected.
+          These consignments shall be promptly delivered to the agreed inspection site.
+          When receiving Routing requests from this service, Norwegian Customs will respond with one routing per house consignment.
         </p>
         <p>
-           Dersom forsendelsen er meldt inn gjennom forhåndsvarsling (ICS2), det vil si gods fra tredjeland
-           (utenfor EUs sikkerhetssone), vil det medfølge informasjon om ENS MRN og postsekker (receptacle)
-           dere det er relevant.
-           Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse dataelementene være tomme.
+           If the consignment has been notified through pre-arrival notification (ICS2), meaning goods from third countries
+           (outside the EU's security zone), it will include information about the ENS MRN and post bags (receptacle)
+           where relevant.
+           If the consignment is not notified through pre-arrival notification, these data elements will be empty.
         </p>
 
         <h5>Who can ask for routing?</h5>
