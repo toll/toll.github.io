@@ -159,8 +159,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
     <div class="column middle" role="main">
 
-        <h2 id="Sekvensforinnsending-synkronogasynkronrespons">Sequence for
-        Submission - Synchronous and Asynchronous Responses</h2>
+        <h2 id="Sekvensforinnsending-synkronogasynkronrespons">Sequence for Submission - Synchronous and Asynchronous Responses</h2>
 
         <p>Also review this documentation: <a
         href="https://toll.github.io/api/mo-vei-EN.html#hvordanSende">https://toll.github.io/api/mo-vei-EN.html#hvordanSende</a>,
@@ -375,16 +374,18 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.3">Cause</h4>
 
-        <p>Innholdet i feltet har overskredet maksimalt antall tegn eller har færre enn
-        minimum antall tegn.</p>
+        <p>The content of the field has exceeded the maximum number of
+        characters or contains fewer than the minimum number of
+        characters.</p>
 
         <h4 id="Rettelse.3">Correction</h4>
 
-        <p>Endre innholdet til å være innenfor minimum og maksimum størrelse.</p>
+        <p>Adjust the content to be within the minimum and maximum size
+        limits.</p>
 
         <p>&nbsp;</p>
 
-        <h3 id="Minstettavfeltenemavareoppgitt">Minst ett av feltene må være oppgitt</h3>
+        <h3 id="Minstettavfeltenemavareoppgitt">At Least One of the Fields Must Be Provided</h3>
 
         <h4 id="Svar.4">Response</h4>
 
@@ -400,15 +401,16 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.4">Cause</h4>
 
-        <p>I noen tilfeller må minst et av flere felter være oppgitt. Objektet
-        angitt (fieldname), må minst inneholde verdi i minst ett av de angitte feltene.</p>
+        <p>In some cases, at least one of several fields must be
+        provided. The object specified by in (fieldname) must contain a
+        value in at least one of the specified fields.</p>
 
         <h4 id="Rettelse.4">Correction</h4>
 
-        <p>Påse at minst ett av de oppgitte feltene er oppgitt og har gyldig verdi på
-        objektet.</p>
+        <p>Ensure that at least one of the specified fields is provided
+        and has a valid value in the object.</p>
 
-        <h3 id="Mahaenpakrevdverdier">Må ha en av påkrevd verdi</h3>
+        <h3 id="Mahaenpakrevdverdier">Must be one of (required)</h3>
 
         <h4 id="Svar.5">Response</h4>
 
@@ -424,43 +426,45 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.5">Cause</h4>
 
-        <p>Feltet (fieldname) kan kun ha en av de angitte verdiene og må sendes inn med
-        én av dem.</p>
+        <p>The field (fieldname) must be submitted and can only have one
+        of the specified values.</p>
 
         <h4 id="Rettelse.5">Correction</h4>
 
-        <p>Endre feltets verdi slik at det har en av de fastsatte verdiene (valueOne,
-        ValueTwo ...) som er påkrevd.</p>
+        <p>Submit the field with one of the required values (e.g., valueOne ...).</p>
 
-        <h2 id="Asynkronevalideringsfeil">Asynkrone valideringsfeil</h2>
+        <h2 id="Asynkronevalideringsfeil">Asynchronous Validation Errors</h2>
 
-        <p>Dersom en innsending ikke hadde noen valideringsfeil som førte til <em>umiddelbar</em>
-        avvisning (synkrone valideringsfeil) blir innsendingen behandlet
-        videre. Det kan fortsatt oppstå valideringsfeil <em>senere -</em> under
-        den videre behandlingen. Disse vil man da få som svar på kall mot det
-        korresponderende &quot;/validation-status&quot; endepunktet når behandlingen er
-        fullført. Valideringsfeil blir knyttet til &quot;requestId&quot; verdien
-        man får i retur på den originale innsendingen, og returnert som asynkrone
-        valideringsfeil.</p>
+        <p>If a submission does not have any validation errors that lead
+        to <em>immediate rejection</em> (synchronous validation errors), it will
+        be processed further. However, validation errors may still occur
+        <em>later</em>, during the processing. These errors will be returned in
+        response to a call to the corresponding
+        &quot;/validation-status&quot; endpoint once the processing is
+        complete. Validation errors will be associated with the
+        &quot;requestId&quot; value received in the original submission
+        and returned as asynchronous validation errors.</p>
 
-        <h3 id="Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone valideringsfeil</h3>
+        <h3 id="Innholdsformatpaasynkronevalideringsfeil">Content Format for Asynchronous Validation Errors</h3>
 
-        <p>Dersom det <strong>er valideringsfeil</strong> funnet når asynkron
-        validering er ferdig vil svaret mot &quot;/validation-status&quot; endepunktet
-        returnere HTTP kode 202 med innhold der feltet &quot;status&quot; har verdien
-        &quot;<strong>FAILURE</strong>&quot;.<br>
-        Valideringsfeilene returneres som ett eller flere objekter i en liste,
-        &quot;validationErrorList&quot;. Innholdet i listen er objekt(er) som
-        peker på sti til felt(er) som forårsaket valideringsfeilen angitt i feltet
-        &quot;pointer.messageElementPath&quot; og årsaken til feilen angitt i feltet
-        &quot;description&quot;.</p>
+        <p>If <strong>validation errors</strong> are found once
+        asynchronous validation is complete, the
+        &quot;/validation-status&quot; endpoint will return an HTTP code
+        202 with content where the &quot;status&quot; field has the
+        value &quot;<strong>FAILURE</strong>&quot;.<br/>
+        Validation errors are returned as one or more objects in a list
+        called &quot;validationErrorList&quot;. The content of the list
+        consists of objects that indicate the path to the field(s) that
+        caused the validation error, specified in the
+        &quot;pointer.messageElementPath&quot; field, and the cause of
+        the error is specified in the &quot;description&quot; field.</p>
 
-        <p>Frem til behandling er ferdig vil svaret på endepunktet gi HTTP kode
-        404. </p>
+        <p>Until the processing is complete, the response from the
+        endpoint will return an HTTP code 404.</p>
 
-        <p>Dersom det <em><b>ikke</b></em><strong> er noen valderingsfeil</strong>, og
-        innnsending er <em>vellykket</em>, vil feltet &quot;status&quot; ha
-        verdien &quot;<strong>SUCCESS</strong>&quot;</p>
+        <p>If there are <strong><em>no</em> validation errors</strong>
+        and the submission is successful, the &quot;status&quot; field
+        will have the value &quot;<strong>SUCCESS</strong>&quot;.</p>
 
         <pre>
 {
@@ -483,7 +487,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h3 id="Feltetskalhaenverdiangittavkodeverk">Feltet skal ha en verdi angitt av kodeverk</h3>
+        <h3 id="Feltetskalhaenverdiangittavkodeverk">The Field Must Have a Value Specified by the Code List</h3>
 
         <h4 id="Svar.6">Response</h4>
 
@@ -504,20 +508,22 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.6">Cause</h4>
 
-        <p>Feltet angitt på &quot;messageElementPath&quot; hadde en verdi som ikke ble
-        funnet i kodeverket (tabell over lovlige verdier). En av kodeverkets
-        verdier, som angitt i [&quot;codeOne&quot;, &quot;codeTwo&quot;...], er påkrevd
-        for feltet.</p>
+        <p>The field specified in &quot;messageElementPath&quot; had a
+        value not found in the code list (table of valid values). One of
+        the values from the code list, as indicated by
+        [&quot;codeOne&quot;, &quot;codeTwo&quot;, ...], is required for
+        the field.</p>
 
         <h4 id="Rettelse.6">Correction</h4>
 
-        <p>Endre feltet til å ha en verdi tilsvarende en gyldig kodeverkskode som
-        påkrevd for feltet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
-        får i retur for ny innsendelse og verifiser at asynkron validering for
-        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>Change the field to have a value that corresponds to a valid
+        code list value required for the field. Resubmit the
+        request. Use the new &quot;requestId&quot; received for the new
+        submission and verify that asynchronous validation returns the
+        &quot;status&quot; field with the value &quot;SUCCESS&quot; once
+        the new processing is complete.</p>
 
-        <h3 id="Landkodeikkegyldig">Landkode ikke gyldig</h3>
+        <h3 id="Landkodeikkegyldig">Invalid Country Code</h3>
 
         <h4 id="Svar.7">Response</h4>
 
@@ -538,19 +544,20 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.7">Cause</h4>
 
-        <p>Feltet angitt på &quot;messageElementPath&quot; har en landkode som ikke ble
-        funnet blant gyldige ISO-3166 Alpha-2 koder.</p>
+        <p>The field specified in &quot;messageElementPath&quot; has a
+        country code that was not found among the valid ISO-3166 Alpha-2
+        codes.</p>
 
         <h4 id="Rettelse.7">Correction</h4>
 
-        <p>Endre feltet til å benytte en gyldig ISO-3166 Alpha-2 kode. Send inn på
-        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Change the field to use a valid ISO-3166 Alpha-2
+        code. Resubmit the request. Use the new &quot;requestId&quot;
+        received for the new submission and verify that asynchronous
+        validation returns the &quot;status&quot; field with the value
+        &quot;SUCCESS&quot; once the new processing is complete.</p>
 
-        <p>&nbsp;</p>
 
-        <h3 id="FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</h3>
+        <h3 id="FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Invalid MRN Format for the Specified Export Type</h3>
 
         <h4 id="Svar.8">Response</h4>
 
@@ -571,20 +578,22 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.8">Cause</h4>
 
-        <p>MRN for feltet &quot;exportId&quot; angitt på &quot;messageElementPath&quot;
-        er oppgitt med et format som ikke er gyldig for angitt eksporttype
+        <p>The MRN for the &quot;exportId&quot; field specified in
+        &quot;messageElementPath&quot; is provided in a format that is
+        invalid for the specified export type
         (&quot;typeOfExport&quot;).</p>
 
         <h4 id="Rettelse.8">Correction</h4>
 
-        <p>Endre feltets verdi til å benytte et gyldig format for MRN. Send inn på
-        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Change the field's value to use a valid MRN format. Resubmit
+        the request. Use the new &quot;requestId&quot; received for the
+        new submission and verify that asynchronous validation returns
+        the &quot;status&quot; field with the value &quot;SUCCESS&quot;
+        once the new processing is complete.</p>
 
         <p>&nbsp;</p>
 
-        <h3 id="FormatpaoppgittMRNharikkekorrektlengdeforidentifikatoraveksportmedtypeECS_EXPORT">Format på oppgitt MRN har ikke korrekt lengde for identifikator av eksport med type ECS_EXPORT</h3>
+        <h3 id="FormatpaoppgittMRNharikkekorrektlengdeforidentifikatoraveksportmedtypeECS_EXPORT">The Provided MRN Has an Incorrect Length for the ECS_EXPORT Export Type Identifier</h3>
 
         <h4 id="Svar.9">Response</h4>
 
@@ -605,18 +614,20 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.9">Cause</h4>
 
-        <p>MRN for &quot;exportId&quot; angitt på &quot;messageElementPath&quot; er
-        angitt med lengde som ikke er gyldig for angitt typeOfExport - ECS_EXPORT.</p>
+        <p>The MRN for &quot;exportId&quot; specified in
+        &quot;messageElementPath&quot; is provided with a length that is
+        invalid for the specified export type, ECS_EXPORT.</p>
 
         <h4 id="Rettelse.9">Correction</h4>
 
-        <p>Verifiser at MRN er korrekt og har korrekt lengde påkrevd for typen eksport.
-<br>
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Verify that the MRN is correct and has the required length
+        for the export type. Resubmit the request. Use the new
+        &quot;requestId&quot; received for the new submission and verify
+        that asynchronous validation returns the &quot;status&quot;
+        field with the value &quot;SUCCESS&quot; once the new processing
+        is complete.</p>
 
-        <h3 id="Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</h3>
+        <h3 id="Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Road Transport Only (road-API): Export of type AES_EXPORT was not found or has incorrect status in AES</h3>
 
         <h4 id="Svar.10">Response</h4>
 
@@ -637,26 +648,28 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.10">Cause</h4>
 
-        <p>Eksporten er av type AES_EXPORT men exportId ble ikke funnet, eller har feil
-        status i AES. I tillegg til at det ikke finnes en eksportdeklarasjon med angitt
-        iD, kan årsaken være:</p>
+        <p>The export is of type AES_EXPORT, but the exportId was not
+        found or has an incorrect status in AES. In addition to there
+        being no export declaration with the specified ID, other
+        possible causes include:</p>
 
-        <ul type=disc>
-         <li>eksportdeklarasjonen finnes, men er ikke frigitt fra
-             avgangstollsted</li>
-         <li>eksportdeklarasjonen finnes, men er allerede
-             utførselsregistrert</li>
+        <ul>
+         <li>The export declaration exists but has not been released
+           from the departure customs office</li>
+         <li>The export declaration exists but has already been
+           registered for export.</li>
         </ul>
 
         <h4 id="Rettelse.10">Correction</h4>
 
-        <p>Verifiser og eventuelt endre slik at exportId er korrekt og har riktig
-        status i AES.<br>
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Verify and, if necessary, correct the exportId to ensure it
+        is correct and has the appropriate status in AES. Resubmit the
+        request. Use the new requestId received for the new submission
+        and verify that asynchronous validation returns the
+        &quot;status&quot; field with the value &quot;SUCCESS&quot; once
+        the new processing is complete.</p>
 
-        <h3 id="Dersomverdisomangirprosedyren">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</h3>
+        <h3 id="Dersomverdisomangirprosedyren">If a value indicating the procedure the consignment was subjected to before crossing the border into Norway (&quot;outgoing procedure&quot;) is specified, it must be one of the codes allowed in the code list</h3>
 
         <h4 id="Svar.11">Response</h4>
 
@@ -677,18 +690,19 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.11">Cause</h4>
 
-        <p>Verdi for feltet outgoingProcedure ble ikke funnet blant de gyldige kodene
-        som finnes i OutgoingProcedure kodeverket <a
+        <p>The value for the outgoingProcedure field was not found in the OutgoingProcedure code list: <a
         href="https://toll.github.io/api/mo-kodeverk-EN.html#outgoingprocedure">https://toll.github.io/api/mo-kodeverk-EN.html#outgoingprocedure</a>.</p>
 
         <h4 id="Rettelse.11">Correction</h4>
 
-        <p>Endre verdien til en av verdiene som finnes i OutgoingProcedure kodeverket.
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Change the value to one of the values available in the
+        OutgoingProcedure code list. Resubmit the request. Use the new
+        requestId received for the new submission and verify that
+        asynchronous validation returns the &quot;status&quot; field
+        with the value &quot;SUCCESS&quot; once the new processing is
+        complete.</p>
 
-        <h3 id="DersommanharangittenverdiietfeltsombenytterFNsstedskoder">Dersom man har angitt en verdi i et felt som benytter FNs stedskoder (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for CL144 UNLOCODE</h3>
+        <h3 id="DersommanharangittenverdiietfeltsombenytterFNsstedskoder">If a value is provided in a field using un location codes (&quot;UNLOCODE&quot;), it must be one of the values found in the CL144 UNLOCODE code list</h3>
 
         <h4 id="Svar.12">Response</h4>
 
@@ -708,21 +722,20 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.12">Cause</h4>
 
-        <p>Det er flere felter i meldingene der verdien som skal oppgis er basert på FN
-        sine stedskoder, &quot;UNLOCODE&quot;. Feltet angitt på
-        &quot;messageElementPath&quot; har en innsendt verdi som ikke ble funnet i
-        kodeverket for CL144 UNLOCODE.  </p>
+        <p>Several fields in the notifications require a value based on
+        the UN Location Codes, &quot;UNLOCODE&quot;. The field specified
+        in &quot;messageElementPath&quot; contains a submitted value
+        that was not found in the CL144 UNLOCODE code list.</p>
 
         <h4 id="Rettelse.12">Correction</h4>
 
-        <p>Endre verdien til en av verdiene som finnes i CL144 UNLOCODE
-        kodeverket. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
-        retur for ny innsendelse og verifiser at asynkron validering for denne
-        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>Change the value to one of the values available in the CL144
+        UNLOCODE code list. Resubmit the request. Use the new requestId
+        received for the new submission and verify that asynchronous
+        validation returns the &quot;status&quot; field with the value
+        &quot;SUCCESS&quot; once the new processing is complete.</p>
 
-        <h3 id="KanikkesendeinnexportFromEUlisteTRA">Kan ikke sende inn
-        exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</h3>
+        <h3 id="KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEu list if the procedure the consignment was subjected to until crossing the border into Norway (&quot;outgoing procedure&quot;) is transit (TRA)</h3>
 
         <h4 id="Svar.13">Response</h4>
 
@@ -743,19 +756,17 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.13">Cause</h4>
 
-        <p>Dersom prosedyren som forsendelsen var underlagt frem til grensepassering
-        inn i Norge (i feltet outgoingProcedure ) har verdien TRA (for transittering)
-        kan man ikke sende inn referanse til eksport fra EU (exportFromEU).</p>
+        <p>If the procedure the consignment was subjected to until crossing the border into Norway (in the outgoingProcedure field) has the value TRA (for transit), you cannot submit a reference to export from the EU (exportFromEU).</p>
 
         <h4 id="Rettelse.13">Correction</h4>
 
-        <p>Fjern exportFromEU fra importprosedyren eller endre
-        outgoingProcedure. Send inn på nytt.<br>
-        Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Remove exportFromEU from the import procedure or change the
+        outgoingProcedure. Resubmit the request. Use the new requestId
+        received for the new submission and verify that asynchronous
+        validation returns the &quot;status&quot; field with the value
+        &quot;SUCCESS&quot; once the new processing is complete.</p>
 
-        <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</h3>
+        <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, UN location code (&quot;UNLOCODE&quot;) is required</h3>
 
         <h4 id="Svar.14">Response</h4>
 
@@ -775,20 +786,21 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.14">Cause</h4>
 
-        <p>Objektet angitt på &quot;messageElementPath&quot; har verken oppgitt adresse
-        (&quot;address&quot;) eller lokasjon (&quot;location&quot;). Da må feltet
-        &quot;unloCode&quot; være oppgitt og ha en verdi for dette objektet.<br>
-        Dette gjelder for lastested (&quot;placeOfLoading&quot;), lossested
-        (&quot;placeOfUnloading&quot;), akseptansested (&quot;placeOfAcceptance&quot;)
-        og leveringssted (&quot;placeOfDelivery&quot;).</p>
+        <p>The object specified in &quot;messageElementPath&quot; has
+        neither an &quot;address&quot; nor a &quot;location&quot;
+        provided. In this case, the &quot;unloCode&quot; field must be
+        provided and have a value for this object. This applies to the
+        &quot;placeOfLoading&quot;, &quot;placeOfUnloading&quot;,
+        &quot;placeOfAcceptance&quot;, &quot;placeOfDelivery&quot;.</p>
 
         <h4 id="Rettelse.14">Correction</h4>
 
-        <p>Legg til gyldig &quot;unloCode&quot;, eventuelt legg til &quot;address&quot;
-        og/eller &quot;location&quot; på objektet. Send inn på nytt. Bruk ny
-        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
-        asynkron validering for denne returner feltet &quot;status&quot; med verdien
-        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>Add a valid &quot;unloCode&quot; or, alternatively, add an
+        &quot;address&quot; and/or &quot;location&quot; to the
+        object. Resubmit the request. Use the new &quot;requestId&quot;
+        received for the new submission and verify that asynchronous
+        validation returns the &quot;status&quot; field with the value
+        &quot;SUCCESS&quot; once the new processing is complete.</p>
 
         <h3 id="ReferansetiltransitteringtypeOfReference">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</h3>
 

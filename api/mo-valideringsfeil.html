@@ -370,7 +370,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <p>Påse at minst ett av de oppgitte feltene er oppgitt og har gyldig verdi på
         objektet.</p>
 
-        <h3 id="Mahaenpakrevdverdier">Må ha en av påkrevd verdier</h3>
+        <h3 id="Mahaenpakrevdverdier">Må ha en av angitte verdier</h3>
 
         <h4 id="Svar.5">Svar</h4>
 
@@ -386,24 +386,24 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.5">Årsak</h4>
 
-        <p>Feltet (fieldname) kan kun ha en av de angitte verdiene og må sendes inn med
-        én av dem.</p>
+        <p>Feltet (fieldname) må ha verdi og kan kun ha en av de angitte
+        verdiene.</p>
 
         <h4 id="Rettelse.5">Rettelse</h4>
 
-        <p>Endre feltets verdi slik at det har en av de fastsatte verdiene (valueOne,
-        ValueTwo ...) som er påkrevd.</p>
+        <p>Send inn feltet med en av de angitte verdiene.</p>
 
         <h2 id="Asynkronevalideringsfeil">Asynkrone valideringsfeil</h2>
 
-        <p>Dersom en innsending ikke hadde noen valideringsfeil som førte til <em>umiddelbar</em>
-        avvisning (synkrone valideringsfeil) blir innsendingen behandlet
-        videre. Det kan fortsatt oppstå valideringsfeil <em>senere -</em> under
-        den videre behandlingen. Disse vil man da få som svar på kall mot det
-        korresponderende &quot;/validation-status&quot; endepunktet når behandlingen er
-        fullført. Valideringsfeil blir knyttet til &quot;requestId&quot; verdien
-        man får i retur på den originale innsendingen, og returnert som asynkrone
-        valideringsfeil.</p>
+        <p>Dersom en innsending ikke hadde noen valideringsfeil som
+        førte til <em>umiddelbar</em> avvisning (synkrone
+        valideringsfeil) blir innsendingen behandlet videre. Det kan
+        fortsatt oppstå valideringsfeil <em>senere</em>, under den
+        videre behandlingen. Disse vil man da få som svar på kall mot
+        det korresponderende &quot;/validation-status&quot; endepunktet
+        når behandlingen er fullført. Valideringsfeil blir knyttet til
+        &quot;requestId&quot; verdien man får i retur på den originale
+        innsendingen, og returnert som asynkrone valideringsfeil.</p>
 
         <h3 id="Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone valideringsfeil</h3>
 
@@ -418,9 +418,9 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         &quot;description&quot;.</p>
 
         <p>Frem til behandling er ferdig vil svaret på endepunktet gi HTTP kode
-        404. </p>
+        404.</p>
 
-        <p>Dersom det <em><b>ikke</b></em><strong> er noen valderingsfeil</strong>, og
+        <p>Dersom det <strong><em>ikke</em> er noen valderingsfeil</strong>, og
         innnsending er <em>vellykket</em>, vil feltet &quot;status&quot; ha
         verdien &quot;<strong>SUCCESS</strong>&quot;</p>
 
@@ -603,7 +603,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         status i AES. I tillegg til at det ikke finnes en eksportdeklarasjon med angitt
         iD, kan årsaken være:</p>
 
-        <ul type=disc>
+        <ul>
          <li>eksportdeklarasjonen finnes, men er ikke frigitt fra
              avgangstollsted</li>
          <li>eksportdeklarasjonen finnes, men er allerede
@@ -673,7 +673,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         <p>Det er flere felter i meldingene der verdien som skal oppgis er basert på FN
         sine stedskoder, &quot;UNLOCODE&quot;. Feltet angitt på
         &quot;messageElementPath&quot; har en innsendt verdi som ikke ble funnet i
-        kodeverket for CL144 UNLOCODE. </p>
+        kodeverket for CL144 UNLOCODE.</p>
 
         <h4 id="Rettelse.12">Rettelse</h4>
 
