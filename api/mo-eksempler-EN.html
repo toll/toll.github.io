@@ -68,6 +68,7 @@
                         <li><p><a href="#eks6">VOEC consignment</a></p>
                         <li><p><a href="#eks7">Postal consignment</a></p>
                         <li><p><a href="#eks8">Warehouse release</a></p>
+                        <li><p><a href="#eks9">Goods reg. at the border</a></p>
                     </ol>
                 </li>
                 <li><p><a href="#testdata">Test data</a></p></li>
@@ -345,6 +346,42 @@
         ],
         "importProcedure": {
             "hasOutgoingProcedure": false,
+            "importProcedure": "WAREHOUSE_RELEASE"
+        }
+    }
+}
+        </pre>
+
+        <p><br/></p>
+        <h3 id="eks9">Example 9 &ndash; Goods registration at the border and export up to the border</h3>
+        <pre>
+{
+    "consignmentHouseLevel": {
+        "transportDocumentHouseLevel": {
+            "documentNumber": "423JI4J53IJ534I",
+            "type": "N750"
+        },
+        "consignmentMasterLevel": {
+            "carrierIdentificationNumber": "123456789",
+            "transportDocumentMasterLevel": {
+                "documentNumber": "HUH34UI5HU34I",
+                "type": "N741"
+            }
+        },
+        "previousDocuments": [
+            {
+                "typeOfReference": "GONU",
+                "referenceNumber": "123456789"
+            }
+        ],
+        "exportFromEU": [
+            {
+                "typeOfExport": "AES_EXPORT",
+                "exportId": "22SEEVO1CT5UAP2BT3"
+            }
+        ],
+        "importProcedure": {
+            "outgoingProcedure": "EXP",
             "importProcedure": "WAREHOUSE_RELEASE"
         }
     }
