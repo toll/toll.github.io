@@ -703,6 +703,7 @@
                     Information about the master consignment
                   </td>
                 </tr>
+                <tr>
                   <td>
                     Responsible for the information
                   </td>
@@ -3074,11 +3075,11 @@
 
         <h5>Linking between transport and master consignment.</h5>
         <p>
-            The transport notification contains a list of keys to master consignment notifications. 
-            This list includes the key for a master consignment, which consists of the master waybill number 
+            The transport notification contains a list of keys to master consignment notifications.
+            This list includes the key for a master consignment, which consists of the master waybill number
             (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterLevel.type</code>).
-            For the linking to be correct, the carrier's identifier must be the same 
-            in both the master consignment notification (<code>carrier.IdentificationNumber</code>) 
+            For the linking to be correct, the carrier's identifier must be the same
+            in both the master consignment notification (<code>carrier.IdentificationNumber</code>)
             and the transport notification (<code>carrier.IdentificationNumber</code>).
         </p>
 
@@ -3183,7 +3184,7 @@
 
 
         <h3 id="kontrolldir">Presentation and control routing</h3>
-        
+
         <p>
            Presentation and control routing consists of two APIs:
         </p>
@@ -3227,7 +3228,7 @@
            obligations</strong> and/or <strong>pre-notified to the EU in
            the ICS2 solution</strong>.
            <br/>
-           Presentation (<a href="¤movement-presentation-api">movement-presentation-api</a>)
+           Presentation (<a href="#movement-presentation-api">movement-presentation-api</a>)
            can be reported for consignments that have been pre-notified through the two
            mentioned obligations, i.e., consignments expected to be
            presented.
