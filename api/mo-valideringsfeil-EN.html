@@ -91,8 +91,6 @@
 <li>o
 <a href="#Format">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></li>
 <li>o
-<a href="#Format">Format på oppgitt MRN har ikke korrekt lengde for identifikator av eksport med type ECS_EXPORT</a></li>
-<li>o
 <a href="#Kunvei">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></li>
 <li>o
 <a href="#Dersom">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></li>
@@ -592,40 +590,6 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         once the new processing is complete.</p>
 
         <p>&nbsp;</p>
-
-        <h3 id="FormatpaoppgittMRNharikkekorrektlengdeforidentifikatoraveksportmedtypeECS_EXPORT">The Provided MRN Has an Incorrect Length for the ECS_EXPORT Export Type Identifier</h3>
-
-        <h4 id="Svar.9">Response</h4>
-
-        <pre>
-{
-  "status": "FAILURE",
-  "requestId": "${requestIdForSubmission}",
-  "notificationDate": "${dateTimeResultWasReady}"
-  "validationErrorList": [
-    {
-      "description": "Invalid MRN format for export of type ECS_EXPORT, must be 18 characters long.",
-      "pointer": {
-        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
-      }
-    }
-  ]
-}</pre>
-
-        <h4 id="Aarsak.9">Cause</h4>
-
-        <p>The MRN for &quot;exportId&quot; specified in
-        &quot;messageElementPath&quot; is provided with a length that is
-        invalid for the specified export type, ECS_EXPORT.</p>
-
-        <h4 id="Rettelse.9">Correction</h4>
-
-        <p>Verify that the MRN is correct and has the required length
-        for the export type. Resubmit the request. Use the new
-        &quot;requestId&quot; received for the new submission and verify
-        that asynchronous validation returns the &quot;status&quot;
-        field with the value &quot;SUCCESS&quot; once the new processing
-        is complete.</p>
 
         <h3 id="Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Road Transport Only (road-API): Export of type AES_EXPORT was not found or has incorrect status in AES</h3>
 
