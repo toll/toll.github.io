@@ -88,51 +88,65 @@
         <h2 id="Omtjenesten">Om tjenesten</h2>
 
         <p>
-          Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten.
-          Alt gods som er forhåndsmeldt skal fremlegges med melding til dette API-et.
-          Fra mars 2023 omfatter det alle sendinger som fraktes med fly fra tredjeland,
-          fra 3. juni 2024 vil det også gjelde gods på øvrige fraktmåter.
-          Med tredjeland menes land utenfor EUs sikkerhetssone (EU, Sveits, Liechtenstein
-          og Norge unntatt Svalbard).
-          Etter hvert vil den samme tjenesten kunne brukes for felles fremlegging iht.
-          forhåndsvarsling og melde- og opplysningsplikten.
-          Fremlegging kan gjøres ved å fremlegge en hel forflytningsdeklarasjon (ENS),
-          en postsekk (receptacle) eller enkeltsendinger (House Consignment).
-          Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
-          enkeltsendingene under denne bli fremlagt. Videre skal den som har fremlagt
-          sendingene også bruke tjenesten for kontrolldirigering (routing) før godset
-          kan overleveres til fri disposisjon. Når man fremlegger ICS2-sendinger er
-          det kun routing av house consignment som er relevant (for enkelte aktører kan
-          tjenesten for routing på transportnivå bli aktuelt ifm. melde- og
-          opplysningsplikten). Basert på resultatet fra dirigeringen skal sendingene
-          som skal kontrolleres snarest overleveres til avtalt kontrollsted dersom signalet
-          TO_CONTROL mottas. Sendinger skal ikke utleveres før signalet TO_ENTRY er mottatt.
+          Tjenesten brukes for digital fremlegging av sendinger. Alt
+          gods som er forhåndsmeldt er pliktig også å fremlegge med
+          melding til dette API-et. Fra mars 2023 omfatter det alle
+          sendinger som fraktes med fly fra tredjeland, fra 3. juni 2024
+          gjelder det også maritime sendinger.  Med tredjeland menes
+          land utenfor EUs sikkerhetssone (EU, Sveits, Liechtenstein og
+          Norge unntatt Svalbard). Den samme tjenesten kan brukes for
+          felles fremlegging iht. forhåndsvarsling og melde- og
+          opplysningsplikten. Fremlegging kan gjøres ved å sende en hel
+          forflytningsdeklarasjon (ENS), en postsekk (receptacle) eller
+          enkeltsendinger (House Consignment). Dersom en postsekk eller
+          en forflytningsdeklarasjon fremlegges, vil alle
+          enkeltsendingene som er forhåndsmeldt under denne bli ansett
+          som fremlagt. Videre skal den som har fremlagt sendingene også
+          bruke tjenesten for kontrolldirigering (routing) før godset
+          kan overleveres til fri disposisjon. Når man fremlegger
+          ICS2-sendinger er det kun routing av forsendelse (house
+          consignment) som er relevant (for enkelte aktører kan
+          tjenesten for routing på transportnivå bli aktuelt ifm. melde-
+          og opplysningsplikten). Basert på resultatet fra dirigeringen
+          skal sendingene som har fått signalet TO_CONTROL overleveres
+          til avtalt kontrollsted. Sendinger skal ikke utleveres før
+          signalet TO_ENTRY er mottatt.
         </p>
 
-        <p>Mer bakgrunnsinformasjon om ICS2:</p>
+        <p>Mer informasjon om ICS2:</p>
         <ul>
-         <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/" target="_blank">ICS2 på toll.no</a></li>
-         <li><a href="https://circabc.europa.eu/ui/group/ea5f882b-9153-4fc1-9394-54ac8fe9149a/library/53a32862-d881-4061-b6a7-55894dc4c13f?p=1&amp;n=10&amp;sort=modified_DESC" target="_blank">Guidancedokumenter fra EU</a></li>
+         <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/"
+         target="_blank">ICS2 på toll.no</a></li>
+         <li><a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
+                target="_blank">Guidancedokumenter fra EU</a></li>
+         <li><a href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901">Forskrift om inn- og utførsel av varer (vareførselsforskriften)</a></li>
         </ul>
 
         <h2 id="Bruksflyt">Bruksflyt</h2>
 
-        <p>Fremleggingstjenestene skal kalles så fort forsendelsen er ankommet. Ved å
-        sende med requestId på alle kall vil du som konsument kunne sikre at en
-        forsendelse kun fremlegges én gang. Gjenbruk av samme requestId vil medføre
-        valideringsfeil. Dette er kun en teknisk identifikasjon av hver enkelt
-        tjenestekall. Status på alle requester kan hentes ut ved å bruke
-        validation-statustjenesten.</p>
+        <p>
+          Fremleggingstjenestene skal kalles så fort forsendelsen er
+          ankommet. Ved å sende med requestId på alle kall vil du som
+          konsument kunne sikre at en forsendelse kun fremlegges én
+          gang. Gjenbruk av samme requestId vil medføre
+          valideringsfeil. Dette er kun en teknisk identifikasjon av
+          hver enkelt tjenestekall. Status på alle requester kan hentes
+          ut ved å bruke validation-statustjenesten.
+        </p>
 
         <p>
-          Når en forsendelse er korrekt fremlagt kan kontrolldirigeringssignal hentes
-          fra routing-tjenesten. Det vil si informasjon om hvorvidt sendingen må leveres til
-          kontroll eller at den kan innpassere og utleveres til mottaker. Kontrolldirigering
-          gjøres kun på enkeltsendings-nivå (house-consignment), men fremlegging på
-          postsekk- eller ENS-nivå (Entry Summary Declaration) vil  medføre at
-          resultat hentes for alle enkeltsendinger som er forhåndsmeldt i den
-          aktuelle postsekk eller ENS. Ved å bruke marker som input kan du enkelt hente ut
-          endringer siden forrige uthenting.
+          Når en forsendelse er korrekt fremlagt kan
+          kontrolldirigeringssignal hentes fra routing-tjenesten. Det
+          vil si informasjon om hvorvidt sendingen må leveres til
+          kontroll eller at den kan innpassere og utleveres til
+          mottaker når øvrige tollprosedyrer er
+          ferdigstilt. Kontrolldirigering gjøres kun på
+          enkeltsendings-nivå (house consignment), men fremlegging på
+          postsekk- eller ENS-nivå (Entry Summary Declaration) vil
+          medføre at resultat skal hentes for alle enkeltsendinger som
+          er forhåndsmeldt i den aktuelle postsekk eller ENS. Ved å
+          bruke marker som input kan du enkelt hente ut endringer siden
+          forrige uthenting.
         </p>
 
         <h2 id="Grensesnitt">Grensesnittbeskrivelse</h2>
@@ -156,12 +170,18 @@
 
 
         <p>
-          API-et er under utvikling i takt med behov i Tolletatens digitaliseringsprogram
-          slik at vi på sikt har en komplett fremleggingstjeneste for alle plikter ved
-          varers ankomst. Vi vil i størst mulig grad gjøre endringer bakoverkompatible,
-          men dersom det skulle skje ikke-kompatible endringer vil tjenesten versjoneres
-          og endringen formidles til konsumentene. Bakoverkompatible endringer legges til
-          uten versjonsoppdatering eller varsling.
+          API-et er under utvikling i takt med behov i Tolletatens
+          digitaliseringsprogram slik at vi på sikt har en komplett
+          fremleggingstjeneste for alle plikter ved varers ankomst. Vi
+          vil i størst mulig grad gjøre endringer bakoverkompatible, men
+          dersom det skulle skje ikke-kompatible endringer vil tjenesten
+          versjoneres og endringen formidles til
+          konsumentene. Bakoverkompatible endringer legges til uten
+          versjonsoppdatering eller varsling.
+        </p>
+        <p>
+          Har du spørsmål eller innspill til API-et, hører vi gjerne fra
+          deg på epost <a href="mailto:digitoll@toll.no">digitoll@toll.no</a>.
         </p>
 
         <h3 id="APIdok">API-dokumentasjon</h3>
@@ -272,15 +292,15 @@
             Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
             På siden <b><a href="maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
         </p>
-            <ul>
-                <li>
-                    hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
-                    inkludert registreringsskjema for tilgang hos Tolletaten
-                </li>
-                <li>tilgangsstyring for våre API-er</li>
-                <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
-                <li>drift og overvåking/feilsøking.</li>
-            </ul>
+        <ul>
+          <li>
+            hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
+            inkludert registreringsskjema for tilgang hos Tolletaten
+          </li>
+          <li>tilgangsstyring for våre API-er</li>
+          <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+          <li>drift og overvåking/feilsøking.</li>
+        </ul>
         <p>Scopet som benyttes for dette API-et er <b>toll:movement/entry</b>.</p>
 
         <h2 id="testing">Testing</h2>
@@ -296,83 +316,178 @@
           inneholder noen få verdier.
         </p>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Entry Summary Declaration MRN</th>
-                <th>Receptacle ID</th>
-                <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
-                <th>TransportDocumentHouseLevel &ndash; type</th>
-                <th>ContainerId</th>
-                <th>Routing</th>
-              </tr>
-            </thead>
-            <tbody>
+        <table>
+          <thead>
             <tr>
-              <td>23NO00000000000001</td>
-              <td>GBASFZMLBKONAUN30001001019999</td>
-              <td>NO100000001MU </td>
-              <td>N750</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
+              <th>Entry Summary Declaration MRN</th>
+              <th>Receptacle ID</th>
+              <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
+              <th>TransportDocumentHouseLevel &ndash; type</th>
+              <th>ContainerId</th>
+              <th>Routing</th>
             </tr>
-            <tr>
-              <td>23NO00000000000002</td>
-              <td>GBASFZMLBKONAUN30001001019999</td>
-              <td>NO100000002MU</td>
-              <td>N750</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000003</td>
-              <td>&ndash;</td>
-              <td>HC001</td>
-              <td>N740</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000003</td>
-              <td>&ndash;</td>
-              <td>HC002</td>
-              <td>N740</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000004</td>
-              <td>&ndash;</td>
-              <td>HC001</td>
-              <td>N703</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000004</td>
-              <td>&ndash;</td>
-              <td>HC002</td>
-              <td>N703</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000005</td>
-              <td>&ndash;</td>
-              <td>HC004</td>
-              <td>N714</td>
-              <td>JARU0000010</td>
-              <td>TO_CONTROL</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000005</td>
-              <td>&ndash;</td>
-              <td>HC004</td>
-              <td>N714</td>
-              <td>JARU0000026</td>
-              <td>TO_ENTRY</td>
-            </tr>
-          </table>
+          </thead>
+          <tr>
+            <td>
+              <p>23NO00000000000001</p>
+            </td>
+            <td>
+              <p>GBASFZMLBKONAUN30001001019999</p>
+            </td>
+            <td>
+              <p>NO100000001MU</p>
+            </td>
+            <td>
+              <p>N750</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000002</p>
+            </td>
+            <td>
+              <p>GBASFZMLBKONAUN30001001019999</p>
+            </td>
+            <td>
+              <p>NO100000002MU</p>
+            </td>
+            <td>
+              <p>N750</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000003</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC001</p>
+            </td>
+            <td>
+              <p>N740</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000003</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC002</p>
+            </td>
+            <td>
+              <p>N740</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000004</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC001</p>
+            </td>
+            <td>
+              <p>N703</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000004</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC002</p>
+            </td>
+            <td>
+              <p>N703</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000005</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC003</p>
+            </td>
+            <td>
+              <p>N714&nbsp;</p>
+            </td>
+            <td>
+              <p>JARU0000010</p>
+            </td>
+            <td>
+              <p>TO_CONTROL&nbsp; </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000005</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC004</p>
+            </td>
+            <td>
+              <p>N714&nbsp;</p>
+            </td>
+            <td>
+              <p>JARU0000026</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+        </table>
 
         <p>
           Dirigeringssignaler som man får hentet ut i playground-miljøet

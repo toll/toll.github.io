@@ -114,31 +114,42 @@
         <ul>
          <li><a href=" https://toll.no/en/corporate/transport-and-customs-warehouse/prenotification/advance-cargo-information--import-control-system-2-ics2/"
          target="_blank">ICS2 at toll.no</a></li>
-         <li><a href= "https://circabc.europa.eu/ui/group/ea5f882b-9153-4fc1-9394-54ac8fe9149a/library/53a32862-d881-4061-b6a7-55894dc4c13f?p=1&amp;n=10&amp;sort=modified_DESC"
-         target="_blank">Guidance documents from the EU</a></li>
+         <li><a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
+                target="_blank">Guidance documents from the EU</a></li>
+         <li><a href="https://lovdata.no/dokument/SFE/forskrift/2022-10-27-1901">Regulations concerning importation and exportation of goods (Movement of Goods Regulations)</a></li>
         </ul>
+        <p>
+          If you have questions or suggestions regarding the API,
+          please contact us
+          at <a href="mailto:digitoll@toll.no">digitoll@toll.no</a>
+        </p>
 
         <h2 id="Bruksflyt">Workflow</h2>
 
         <p>
-            The presentation services should be called as soon as the consignment has arrived.
-            By including the requestId in every call, you as the consumer can ensure
-            that a consignment is presented only once. Reusing the same requestId will
-            result in validation errors. This is only a technical identification of each
-            service call. The status of all requests can be retrieved by using the
-            validation-status service.
+            The presentation services should be called as soon as the
+            consignment has arrived. By including the requestId in every
+            call, you as the consumer can ensure that a consignment is
+            presented only once. Reusing the same requestId will result
+            in validation errors. This is only a technical
+            identification of each service call. The status of all
+            requests can be retrieved by using the validation-status
+            service.
         </p>
 
         <p>
-            Once a consignment has been correctly presented, the control direction signal
-            can be retrieved from the routing service. This signal provides information on
-            whether the consignment needs to be delivered for inspection or if it can be
-            cleared and released to the recipient. Control direction is performed at the
-            individual consignment level (house consignment). When presenting at the
-            receptacle or ENS (Entry Summary Declaration) level, the result for all individual
-            consignments pre-notified within the respective receptacle or ENS will be retrieved.
-            By using a marker as input, you can easily retrieve changes
-            since the last call.
+            Once a consignment has been correctly presented, the control
+            direction signal can be retrieved from the routing
+            service. This signal provides information on whether the
+            consignment needs to be delivered for inspection or if it
+            can be cleared and released to the recipient when other
+            customs procedures are fulfilled. Control direction is
+            performed at the individual consignment level (house
+            consignment). When presenting at the receptacle or ENS
+            (Entry Summary Declaration) level, the result for all
+            individual consignments pre-notified within the respective
+            receptacle or ENS must be retrieved. By using a marker as
+            input, you can easily retrieve changes since the last call.
         </p>
 
         <h2 id="Grensesnitt">Interface Description</h2>
@@ -296,101 +307,192 @@
         <p>For testing purposes, the <em>playground</em> environment can be used.</p>
 
         <p>
-          The validation of submitted messages includes, among other things, a check
-          to ensure that the specified references to Entry Summary Declaration,
-          receptacle, and transport document number exist.
-          The playground invironment is not integraded with other systems, so the
-          content is validated against a static dataset that contains a few values.
+          The validation of submitted messages includes, among other
+          things, a check to ensure that the specified references to
+          Entry Summary Declaration, receptacle, and transport document
+          number exist. The playground environment is not integrated
+          with other systems, so the content is validated against a
+          static dataset that contains a few values.
         </p>
 
-          <table>
-            <thead>
-              <tr>
-                <th>Entry Summary Declaration MRN</th>
-                <th>Receptacle ID</th>
-                <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
-                <th>TransportDocumentHouseLevel &ndash; type</th>
-                <th>ContainerId</th>
-                <th>Routing</th>
-              </tr>
-            </thead>
-            <tbody>
+        <table>
+          <thead>
             <tr>
-              <td>23NO00000000000001</td>
-              <td>GBASFZMLBKONAUN30001001019999</td>
-              <td>NO100000001MU </td>
-              <td>N750</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
+              <th>Entry Summary Declaration MRN</th>
+              <th>Receptacle ID</th>
+              <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
+              <th>TransportDocumentHouseLevel &ndash; type</th>
+              <th>ContainerId</th>
+              <th>Routing</th>
             </tr>
-            <tr>
-              <td>23NO00000000000002</td>
-              <td>GBASFZMLBKONAUN30001001019999</td>
-              <td>NO100000002MU</td>
-              <td>N750</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000003</td>
-              <td>&ndash;</td>
-              <td>HC001</td>
-              <td>N740</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000003</td>
-              <td>&ndash;</td>
-              <td>HC002</td>
-              <td>N740</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000004</td>
-              <td>&ndash;</td>
-              <td>HC001</td>
-              <td>N703</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000004</td>
-              <td>&ndash;</td>
-              <td>HC002</td>
-              <td>N703</td>
-              <td>&nbsp;</td>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000005</td>
-              <td>&ndash;</td>
-              <td>HC004</td>
-              <td>N714</td>
-              <td>JARU0000010</td>
-              <td>TO_CONTROL</td>
-            </tr>
-            <tr>
-              <td>23NO00000000000005</td>
-              <td>&ndash;</td>
-              <td>HC004</td>
-              <td>N714</td>
-              <td>JARU0000026</td>
-              <td>TO_ENTRY</td>
-            </tr>
-          </table>
+          </thead>
+          <tr>
+            <td>
+              <p>23NO00000000000001</p>
+            </td>
+            <td>
+              <p>GBASFZMLBKONAUN30001001019999</p>
+            </td>
+            <td>
+              <p>NO100000001MU</p>
+            </td>
+            <td>
+              <p>N750</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000002</p>
+            </td>
+            <td>
+              <p>GBASFZMLBKONAUN30001001019999</p>
+            </td>
+            <td>
+              <p>NO100000002MU</p>
+            </td>
+            <td>
+              <p>N750</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000003</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC001</p>
+            </td>
+            <td>
+              <p>N740</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000003</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC002</p>
+            </td>
+            <td>
+              <p>N740</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000004</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC001</p>
+            </td>
+            <td>
+              <p>N703</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_CONTROL</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000004</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC002</p>
+            </td>
+            <td>
+              <p>N703</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000005</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC003</p>
+            </td>
+            <td>
+              <p>N714&nbsp;</p>
+            </td>
+            <td>
+              <p>JARU0000010</p>
+            </td>
+            <td>
+              <p>TO_CONTROL&nbsp; </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>23NO00000000000005</p>
+            </td>
+            <td>
+              <p>&ndash;</p>
+            </td>
+            <td>
+              <p>HC004</p>
+            </td>
+            <td>
+              <p>N714&nbsp;</p>
+            </td>
+            <td>
+              <p>JARU0000026</p>
+            </td>
+            <td>
+              <p>TO_ENTRY</p>
+            </td>
+          </tr>
+        </table>
 
         <p>
-          Both presentation and routing services will give responses based on these existing data.
-          Other input values will result in validation errors upon submission.
+          Both presentation and routing services will give responses
+          based on these existing data. Other input values will result
+          in validation errors upon submission.
         </p>
-
-
-        <h2 id="Tilbakemeldinger">Feedback and contact</h2>
-
-        <p>If you have questions or suggestions regarding the API, please email us at
-        <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a></p>
     </div>
 
 
