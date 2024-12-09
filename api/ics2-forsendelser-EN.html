@@ -89,30 +89,37 @@
         <h2 id="Omtjenesten">About the service</h2>
 
         <p>
-            This service is used for the digital fulfillment of presentation obligations.
-            All goods that have been filed in ICS2 must be presented through this API.
-            From March 2023, this includes all goods transported by air from third countries,
-            and from June 3, 2024, it will also apply to goods transported by other means of
-            transport. Third countries refer to nations outside the European security zone
-            (EU, Switzerland, Liechtenstein, and Norway excluding Svalbard).
-            Eventually, the same service can be used for national duties as well.
-            Presentation can be made by submitting an entire entry summary declaration (ENS),
-            a receptacle or individual house consignments. If a receptacle or an entry summary
-            declaration is presented, all individual consignments under it will be presented
-            as well.
-            Furthermore, the operator presenting the consignments should also use the routing
-            service to receive control routing before the goods can be released.
-            When presenting ICS2 consignments, routing will be at House Consignment-level
-            (for certain operators, the routing service at the transport level may be relevant
-            in regard to other national obligations). Based on the routing response, the
-            consignments should be promptly delivered to the agreed location if the signal
-            TO_CONTROL is received.
-            The consignments should not be released until the signal TO_ENTRY is received
+          This service is used for digital presentation of
+          consignments. All goods that have been filed in ICS2 are also
+          required to be presented with a notification to this API. From
+          March 2023, this includes all consignments transported by air
+          from third countries, and from June 3, 2024, it also applies
+          to maritime consignments. Third countries in this context
+          means countries outside the EU security zone (EU, Switzerland,
+          Liechtenstein and Norway, excluding Svalbard). The same
+          service can be used for joint presentation according to
+          pre-alert (ICS2) and Notification and Disclosure of
+          Information (Melde- og opplysning) obligations.
+          Presentation can be done by sending an Entry Summary
+          Declaration (ENS), a mailbag (receptacle) or individual house
+          consignments. If a mailbag or an Entry Summary Declaration is
+          presented, all individual consignments in the ENS will be
+          considered as presented. Furthermore, the party who has
+          presented the consignments must also use the service for
+          control routing before the consignments can be released for
+          free circulation. When presenting ICS2 consignments, only
+          routing of house consignment is relevant (for some parties,
+          the service for routing at transport level may be relevant in
+          connection with the Notification and Disclosure of Information
+          obligation). Based on the result of the routing, the
+          consignments that have received the TO_CONTROL signal must be
+          delivered to the agreed control point. Consignments must not
+          be released before the TO_ENTRY signal has been received.
         </p>
 
         <p>More background information on ICS2:</p>
         <ul>
-         <li><a href=" https://toll.no/en/corporate/transport-and-customs-warehouse/prenotification/advance-cargo-information--import-control-system-2-ics2/"
+         <li><a href="https://toll.no/en/corporate/transport-and-customs-warehouse/prenotification/advance-cargo-information--import-control-system-2-ics2/"
          target="_blank">ICS2 at toll.no</a></li>
          <li><a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
                 target="_blank">Guidance documents from the EU</a></li>
