@@ -1,7 +1,5 @@
 todo
 
-* mo-vei/fly/jernbane under id="kontrollrespons" -- gjelder det fortsatt??
-* mo-vei/fly/jernbane under id="kontrollrespons" -- gjelder det fortsatt??
 * width/height på bilder??
 * litt dårlig kontrast på linkene i tabellene
 * mangler engelsk oversettelse:figur på kobling av nøkler på mo-vei/fly/jernbane

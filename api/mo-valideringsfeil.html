@@ -58,107 +58,63 @@
     </div>
 
     <div class="column right" role="navigation">
-         <div class="lang_nav"><a href="mo-valideringsfeil-EN.html"><img src="media/UK.png" alt="UK flag"/>&nbsp;English</a></div>
+      <div class="lang_nav"><a href="mo-valideringsfeil-EN.html"><img src="media/UK.png" alt="UK flag"/>&nbsp;English</a></div>
          <div id="toc_container"  aria-hidden="true">
             <h2 id="innhold" class="toc_title">Innhold</h2>
             <ul>
-<li>·TODO </li>
-<!--
-<a href="#Sekven">Sekvens for innsending - synkron og asynkron respons</a></li>
-<li>·
-<a href="#Synkro">Synkrone valideringsfeil</a> </li>
-<li>o
-<a href="#Innhol">Innholdsformat på synkrone valideringsfeil</a></li>
-<li>o
-<a href="#Mangle">Manglende eller blanke (&quot;&quot;) påkrevde felt</a></li>
-<li>o
-<a href="#Feilfo">Feil format på dato/tid:</a></li>
-<li>o
-<a href="#Feilfe">Feil feltstørrelse - tall</a></li>
-<li>o
-<a href="#Feilfe">Feil feltstørrelse - streng (tekst)</a></li>
-<li>o
-<a href="#Minste">Minst ett av feltene må være oppgitt</a></li>
-<li>o
-<a href="#Måhaen">Må ha en påkrevde verdier</a></li>
-<li>·
-<a href="#Asynkr">Asynkrone valideringsfeil</a> </li>
-<li>o<a href="#Innhol">Innholdsformat på asynkrone valideringsfeil</a></li>
-<li>o
-<a href="#Feltet">Feltet skal ha en verdi angitt av kodeverk</a></li>
-<li>o
-<a href="#Landko">Landkode ikke gyldig</a></li>
-<li>o
-<a href="#Format">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></li>
-<li>o
-<a href="#Kunvei">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></li>
-<li>o
-<a href="#Dersom">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></li>
-<li>o
-<a href="#Dersom">Dersom man har angitt en verdi i et felt som benytter FNs stedskoder (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for CL144 UNLOCODE</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></li>
-<li>o
-<a href="#Dersom">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></li>
-<li>o
-<a href="#Refera">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></li>
-<li>o
-<a href="#VOECva">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a></li>
-<li>o
-<a href="#Ingent">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
-<li>o
-<a href="#Kodefo">Kode for Tollkontor det refereres til er ugyldig</a></li>
-<li>o
-<a href="#Feltet">Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd for meldingen for transport</a></li>
-<li>o
-<a href="#Feltet">Feltet for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke være satt til mer enn ett år frem i tid</a></li>
-<li>o
-<a href="#Feltet">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som er i fortiden</a></li>
-<li>o
-<a href="#Tidspu">Tidspunkt oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i tid</a></li>
-<li>o
-<a href="#Kunroa">Kun road og rail: Kan ikke oppgi conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</a></li>
-<li>o
-<a href="#Kunroa">Kun road og rail: Når modeOfTransportCode er av angitt verdi så må typeOfIdentification være bestemt verdi</a></li>
-<li>o
-<a href="#Kunvei">Kun veitransport (road-API): Kan ikke finne det norske kjøretøyets registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</a></li>
-<li>o
-<a href="#Finner">Finner ikke tolldeklarasjon blant gyldige deklarasjoner angitt i våre systemer.</a></li>
-<li>o
-<a href="#Tollde">Tolldeklarasjon angitt har en ugyldig status i våre systemer.</a></li>
-<li>o
-<a href="#Spesif">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</a></li>
-<li>o
-<a href="#Feltka">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;), dersom man har angitt
-prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
-(&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</a></li>
-<li>o
-<a href="#Nårref">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</a></li>
-<li>o
-<a href="#Dersom">Dersom manangitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</a></li>
-<li>o
-<a href="#Mankan">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
-<li>o
-<a href="#Dersom">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet.</a></li>
-<li>·
-<a href="#Ufulls">Ufullstendig dokumentasjon / Incomplete documentation</a> </li>
-<li>o
-<a href="#Format">Format på dokumentstatus</a></li>
-<li>o
-<a href="#Dokume">Dokument status INCOMPLETE</a></li>
--->
-</ul>
+              <li><p><a href="#Sekvensforinnsending-synkronogasynkronrespons">Sekvens for innsending &ndash; synkron og asynkron respons</a></p></li>
+              <li><p><a href="#Synkronevalideringsfeil">Synkrone valideringsfeil</a></p><ul>
+                <li><p><a href="#Innholdsformatpasynkronevalideringsfeil">Innholdsformat på synkrone valideringsfeil</a></p></li>
+                <li><p><a href="#Manglendeellerblankepakrevdefelt">Manglende eller blanke (&quot;&quot;) påkrevde felt</a></p></li>
+                <li><p><a href="#Feilformatpadatotid">Feil format på dato/tid</a></p></li>
+                <li><p><a href="#Feilfeltstorrelse-tall">Feil feltstørrelse &ndash; tall</a></p></li>
+                <li><p><a href="#Feilfeltstorrelse-strengtekst">Feil feltstørrelse &ndash; streng (tekst)</a></p></li>
+                <li><p><a href="#Minstettavfeltenemavareoppgitt">Minst ett av feltene må være oppgitt</a></p></li>
+                <li><p><a href="#Mahaenpakrevdverdier">Må ha en av angitte verdier</a></p></li>
+                </ul></li>
+              <li><p><a href="#Asynkronevalideringsfeil">Asynkrone valideringsfeil</a></p><ul>
+                <li><p><a href="#Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone valideringsfeil</a></p></li>
+                <li><p><a href="#Feltetskalhaenverdiangittavkodeverk">Feltet skal ha en verdi angitt av kodeverk</a></p></li>
+                <li><p><a href="#Landkodeikkegyldig">Landkode ikke gyldig</a></p></li>
+                <li><p><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></p></li>
+                <li><p><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></p></li>
+                <li><p><a href="#Dersomverdisomangirprosedyren">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></p></li>
+                <li><p><a href="#KanikkesendeinnexportFromEUlisteTRA1">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></p></li>
+                <li><p><a href="#KanikkesendeinnexportFromEUlisteTRA">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></p></li>
+                <li><p><a href="#Dersomverkenadresseellerlokasjonerspesifisert">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></p></li>
+                <li><p><a href="#ReferansetiltransitteringtypeOfReference">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></p></li>
+                <li><p><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a></p></li>
+                <li><p><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></p></li>
+                <li><p><a href="#KanikkesendelistemedVOECvarelinjer">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></p></li>
+                <li><p><a href="#KodeforTollkontordetrefererestilerugyldig">Kode for Tollkontor det refereres til er ugyldig</a></p></li>
+                <li><p><a href="#Feltetopprinneligankomsttiderpakrevdformeldingenfortransport">Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd for meldingen for transport</a></p></li>
+                <li><p><a href="#Feltetforopprinneligankomsttidkanikkevaresatttilmerennettarfremitid">Feltet for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke være satt til mer enn ett år frem i tid</a></p></li>
+                <li><p><a href="#Feltetforestimertankomsttiderpakrevdpameldingomtransport">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</a></p></li>
+                <li><p><a href="#Kanikkeoppgiestimertankomsttidsomerifortiden">Kan ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som er i fortiden</a></p></li>
+                <li><p><a href="#Tidspunktoppgittforestimertankomsttidkanikkeværemerennettarfremitid">Tidspunkt oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i tid</a></p></li>
+                <li><p><a href="#KunroadograilKanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Kun road og rail: Kan ikke oppgi conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</a></p></li>
+                <li><p><a href="#KunroadograilNarmodeOfTransportCodeeravangittverdi">Kun road og rail: Når modeOfTransportCode er av angitt verdi må typeOfIdentification være bestemt verdi</a></p></li>
+                <li><p><a href="#KunveitransportKanikkefinnedetnorskekjoretoyetsregistreringsnummer">Kun veitransport (road-API): Kan ikke finne det norske kjøretøyets registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</a></p></li>
+                <li><p><a href="#Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivaresystemer">Finner ikke tolldeklarasjon blant gyldige deklarasjoner angitt i våre systemer</a></p></li>
+                <li><p><a href="#Tolldeklarasjonangittharenugyldigstatusivaresystemer">Tolldeklarasjon angitt har en ugyldig status i våre systemer</a></p></li>
+                <li><p><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</a></p></li>
+                <li><p><a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</a></p></li>
+                <li><p><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</a></p></li>
+                <li><p><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</a></p></li>
+                <li><p><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></p></li>
+                <li><p><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet</a></p></li>
+                </ul></li>
+              <li><p><a href="#UfullstendingdokumentasjonIncompletedocumentation">Ufullstendig dokumentasjon / Incomplete documentation</a></p><ul>
+                <li><p><a href="#Formatpadokumentstatus">Format på dokumentstatus</a></p></li>
+                <li><p><a href="#DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</a></p></li>
+                </ul></li>
+            </ul>
         </div>
     </div>
 
     <div class="column middle" role="main">
 
-        <h2 id="Sekvensforinnsending-synkronogasynkronrespons">Sekvens
-        for innsending - synkron og asynkron respons</h2>
+        <h2 id="Sekvensforinnsending-synkronogasynkronrespons">Sekvens for innsending - synkron og asynkron respons</h2>
 
         <p>Se også dokumentasjon her: <a
         href="https://toll.github.io/api/mo-vei.html#hvordanSende">https://toll.github.io/api/mo-vei.html#hvordanSende</a>,
@@ -216,8 +172,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         &quot;requestId&quot; som benyttes for så å se om det avdekkes <em>asynkrone
         valideringsfeil</em> under videre behandling. </p>
 
-        <h3 id="Innholdsformatpasynkronevalideringsfeil">Innholdsformat
-        på synkrone valideringsfeil</h3>
+        <h3 id="Innholdsformatpasynkronevalideringsfeil">Innholdsformat på synkrone valideringsfeil</h3>
 
         <p>Valideringsfeilene returneres som en eller flere objekter i en liste
         &quot;validationErrors&quot;. Innholdet i listen er et eller flere objekter som
@@ -1371,7 +1326,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
         behandling er ferdig.</p>
 
-        <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+        <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
         <h4 id="Svar.34">Response</h4>
 
