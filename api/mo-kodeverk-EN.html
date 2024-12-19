@@ -7492,14 +7492,6 @@
                    to indicate whether the procedure up to the border is export
                 </td>
             </tr>
-            <tr>
-                <td>TRE</td>
-                <td>Transittering og Eksport</td>
-                <td>
-                   The code used when the selected customs procedure is direct clearance
-                   to indicate whether the procedure up to the border is transit AND export
-                </td>
-            </tr>
             </tbody>
         </table>
 
@@ -7509,7 +7501,7 @@
             and they are used together with the other codes from PreviousDocumentType.
             They should be used in the consignment notification when the consignment
             is to be linked to a customs declaration or a transit procedure to be
-            initiated at the border. If the selected customs procedure (see code set
+            initiated at the border or to provide a goods number. If the selected customs procedure (see code set
             ImportProcedure) is <i>Immediate release import</i> or
             <i>Warehouse release</i>, this object must always contain the code = CUDE.
         </p>
@@ -7633,7 +7625,7 @@
                      When the MRN of the transit declaration is not given in the PreviousDocuments list and
                      ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure is
                      TRANSIT_IMPORT or
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is TRA/TRE.
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure is TRA.
                   </td>
                </tr>
                <tr>

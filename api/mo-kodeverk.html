@@ -7485,13 +7485,6 @@
                     angi om prosedyren fram til grensen er eksport
                 </td>
             </tr>
-            <tr>
-                <td>TRE</td>
-                <td>Transittering og Eksport</td>
-                <td>Kode som brukes når valgt Tollprosedyre er Direktefortolling for å
-                    angi om prosedyren fram til grensen er transittering OG eksport
-                </td>
-            </tr>
             </tbody>
         </table>
 
@@ -7500,7 +7493,7 @@
             Disse kodene er etablert som et tillegg til CL228 PreviousDocumentsType og kodene brukes
             sammen med de øvrige kodene fra PreviousDocumentType. De skal benyttes i melding om forsendelse
             når forsendelsen skal knyttes til en tolldeklarasjon eller en transittering som skal startes opp
-            på grensen. Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er <i>Overgang til fri
+            på grensen eller for å angi et godsnummer. Dersom valgt tollprosedyre (se kodeverk ImportProcedure) er <i>Overgang til fri
             disponering</i> eller <i>Innlegg på tollager</i>, må dette objektet alltid fylles ut med kode = CUDE.
         </p>
         <table>
@@ -7621,8 +7614,7 @@
                      i PreviousDocuments-listen når
                      ConsignmentHouseLevel&rarr;ImportProcedure&rarr;ImportProcedure er satt til
                      TRANSIT_IMPORT eller når
-                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure er satt til
-                     TRA/TRE.
+                     ConsignmentHouseLevel&rarr;ImportProcedure&rarr;OutgoingProcedure er satt til TRA.
                   </td>
                </tr>
                <tr>
