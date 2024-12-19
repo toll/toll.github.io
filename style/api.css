@@ -9,11 +9,10 @@ img {
 header h1 {
     color: white;
     background-color: #007682;
-    padding: 3px;
-    padding-left: 6px;
+    padding: 3px 3px 3px 6px;
 }
 
-h2, h3, h4, h5, h6, h7, h8, h9 {
+h2, h3, h4, h5, h6  {
     color: #12404F;
     margin-top: 48px;
     margin-bottom: 20px;
@@ -134,11 +133,9 @@ blockquote {
     border-radius: 6px;
     display: table;
     font-size: 90%;
-    margin-bottom: 1em;
-    padding: 12px;
-    padding-right: 14px;
+    padding: 12px 14px 12px 12px;
     width: auto;
-    margin: 8px;
+    margin: 8px 8px 1em;
     float: right;
 }
 @media print
@@ -183,7 +180,7 @@ blockquote {
     text-align: center;
     font-size: small;
     margin-top: 0px;
-	align: center;
+	text-align: center;
 }
 
 pre, code {

@@ -62,96 +62,53 @@
          <div id="toc_container"  aria-hidden="true">
             <h2 id="innhold" class="toc_title">Content</h2>
             <ul>
-<li>·TODO </li>
-<!--
-<a href="#Sekven">Sekvens for innsending - synkron og asynkron respons</a></li>
-<li>·
-<a href="#Synkro">Synkrone valideringsfeil</a> </li>
-<li>o
-<a href="#Innhol">Innholdsformat på synkrone valideringsfeil</a></li>
-<li>o
-<a href="#Mangle">Manglende eller blanke (&quot;&quot;) påkrevde felt</a></li>
-<li>o
-<a href="#Feilfo">Feil format på dato/tid:</a></li>
-<li>o
-<a href="#Feilfe">Feil feltstørrelse - tall</a></li>
-<li>o
-<a href="#Feilfe">Feil feltstørrelse - streng (tekst)</a></li>
-<li>o
-<a href="#Minste">Minst ett av feltene må være oppgitt</a></li>
-<li>o
-<a href="#Måhaen">Må ha en påkrevde verdier</a></li>
-<li>·
-<a href="#Asynkr">Asynkrone valideringsfeil</a> </li>
-<li>o<a href="#Innhol">Innholdsformat på asynkrone valideringsfeil</a></li>
-<li>o
-<a href="#Feltet">Feltet skal ha en verdi angitt av kodeverk</a></li>
-<li>o
-<a href="#Landko">Landkode ikke gyldig</a></li>
-<li>o
-<a href="#Format">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></li>
-<li>o
-<a href="#Kunvei">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></li>
-<li>o
-<a href="#Dersom">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></li>
-<li>o
-<a href="#Dersom">Dersom man har angitt en verdi i et felt som benytter FNs stedskoder (&quot;UNLOCODE&quot;) må dette være en av verdiene som finnes i kodeverket for CL144 UNLOCODE</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></li>
-<li>o
-<a href="#Dersom">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></li>
-<li>o
-<a href="#Refera">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></li>
-<li>o
-<a href="#VOECva">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a></li>
-<li>o
-<a href="#Ingent">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
-<li>o
-<a href="#Kodefo">Kode for Tollkontor det refereres til er ugyldig</a></li>
-<li>o
-<a href="#Feltet">Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd for meldingen for transport</a></li>
-<li>o
-<a href="#Feltet">Feltet for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke være satt til mer enn ett år frem i tid</a></li>
-<li>o
-<a href="#Feltet">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</a></li>
-<li>o
-<a href="#Kanikk">Kan ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som er i fortiden</a></li>
-<li>o
-<a href="#Tidspu">Tidspunkt oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i tid</a></li>
-<li>o
-<a href="#Kunroa">Kun road og rail: Kan ikke oppgi conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</a></li>
-<li>o
-<a href="#Kunroa">Kun road og rail: Når modeOfTransportCode er av angitt verdi så må typeOfIdentification være bestemt verdi</a></li>
-<li>o
-<a href="#Kunvei">Kun veitransport (road-API): Kan ikke finne det norske kjøretøyets registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</a></li>
-<li>o
-<a href="#Finner">Finner ikke tolldeklarasjon blant gyldige deklarasjoner angitt i våre systemer.</a></li>
-<li>o
-<a href="#Tollde">Tolldeklarasjon angitt har en ugyldig status i våre systemer.</a></li>
-<li>o
-<a href="#Spesif">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</a></li>
-<li>o
-<a href="#Feltka">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;), dersom man har angitt
-prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
-(&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</a></li>
-<li>o
-<a href="#Nårref">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</a></li>
-<li>o
-<a href="#Dersom">Dersom manangitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</a></li>
-<li>o
-<a href="#Mankan">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
-<li>o
-<a href="#Dersom">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet.</a></li>
-<li>·
-<a href="#Ufulls">Ufullstendig dokumentasjon / Incomplete documentation</a> </li>
-<li>o
-<a href="#Format">Format på dokumentstatus</a></li>
-<li>o
-<a href="#Dokume">Dokument status INCOMPLETE</a></li>
--->
-</ul>
+              <li><p><a href="#Sekvensforinnsending-synkronogasynkronrespons">Sequence for Submission - Synchronous and Asynchronous Responses</a></p></li>
+              <li><p><a href="#Synkronevalideringsfeil">Synchronous Validation Errors</a></p><ul>
+                <li><p><a href="#Innholdsformatpasynkronevalideringsfeil">Content Format of Synchronous Validation Errors</a></p></li>
+                <li><p><a href="#Manglendeellerblankepakrevdefelt">Missing or Blank (&quot;&quot;) Required Fields</a></p></li>
+                <li><p><a href="#Feilformatpadatotid">Incorrect date/time format</a></p></li>
+                <li><p><a href="#Feilfeltstorrelse-tall">Incorrect Field Size &ndash; Numeric Values</a></p></li>
+                <li><p><a href="#Feilfeltstorrelse-strengtekst">Incorrect Field Size &ndash; String (Text)</a></p></li>
+                <li><p><a href="#Minstettavfeltenemavareoppgitt">At Least One of the Fields Must Be Provided</a></p></li>
+                <li><p><a href="#Mahaenpakrevdverdier">Must be one of (required)</a></p></li>
+                </ul></li>
+              <li><p><a href="#Asynkronevalideringsfeil">Asynchronous Validation Errors</a></p><ul>
+                <li><p><a href="#Innholdsformatpaasynkronevalideringsfeil">Content Format for Asynchronous Validation Errors</a></p></li>
+                <li><p><a href="#Feltetskalhaenverdiangittavkodeverk">The Field Must Have a Value Specified by the Code List</a></p></li>
+                <li><p><a href="#Landkodeikkegyldig">Invalid Country Code</a></p></li>
+                <li><p><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Invalid MRN Format for the Specified Export Type</a></p></li>
+                <li><p><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Road Transport Only (road-API): Export of type AES_EXPORT was not found or has incorrect status in AES</a></p></li>
+                <li><p><a href="#Dersomverdisomangirprosedyren">If a value indicating the procedure the consignment was subjected to before crossing the border into Norway (&quot;outgoing procedure&quot;) is specified, it must be one of the codes allowed in the code list</a></p></li>
+                <li><p><a href="#DersommanharangittenverdiietfeltsombenytterFNsstedskoder">If a value is provided in a field using un location codes (&quot;UNLOCODE&quot;), it must be one of the values found in the CL144 UNLOCODE code list</a></p></li>
+                <li><p><a href="#KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEu list if the procedure the consignment was subjected to until crossing the border into Norway (&quot;outgoing procedure&quot;) is transit (TRA)</a></p></li>
+                <li><p><a href="#Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, UN location code (&quot;UNLOCODE&quot;) is required</a></p></li>
+                <li><p><a href="#ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot; equal to &quot;N820&quot;) refers to a transit that does not have a valid status</a></p></li>
+                <li><p><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a value over NOK 3,000, therefore an import declaration must be used instead</a></p></li>
+                <li><p><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No valid permissions found for the VOEC number specified on the VOEC &quot;goodsItem&quot;</a></p></li>
+                <li><p><a href="#KanikkesendelistemedVOECvarelinjer">Can't send a list with VOEC item lines (&quot;goodsItem&quot;) if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></p></li>
+                <li><p><a href="#KodeforTollkontordetrefererestilerugyldig">The code for the customs office referenced is invalid</a></p></li>
+                <li><p><a href="#Feltetopprinneligankomsttiderpakrevdformeldingenfortransport">The originally required field &quot;scheduledDateAndTimeOfArrival&quot; is required for the transport notification</a></p></li>
+                <li><p><a href="#Feltetforopprinneligankomsttidkanikkevaresatttilmerennettarfremitid">The &quot;scheduledDateAndTimeOfArrival&quot; field cannot be set more than one year in advance</a></p></li>
+                <li><p><a href="#Feltetforestimertankomsttiderpakrevdpameldingomtransport">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</a></p></li>
+                <li><p><a href="#Kanikkeoppgiestimertankomsttidsomerifortiden">Cannot provide an estimated arrival time (&quot;estimatedDateAndTimeOfArrival&quot;) that is in the past</a></p></li>
+                <li><p><a href="#Tidspunktoppgittforestimertankomsttidkanikkeværemerennettarfremitid">The time specified for the estimated arrival time (&quot;estimatedDateAndTimeOfArrival&quot;) cannot be more than one year in the future</a></p></li>
+                <li><p><a href="#KunroadograilKanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Road and rail only: Cannot provide a conveyanceReferenceNumber if modeOfTransportCode has a specified value</a></p></li>
+                <li><p><a href="#KunroadograilNarmodeOfTransportCodeeravangittverdi">Road and rail only: When modeOfTransportCode has a specified value, typeOfIdentification must have a specific value</a></p></li>
+                <li><p><a href="#KunveitransportKanikkefinnedetnorskekjoretoyetsregistreringsnummer">For road transport only (road-API): Cannot find the Norwegian vehicle registration number (&quot;identificationNumber&quot;) in the vehicle registry</a></p></li>
+                <li><p><a href="#Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivaresystemer">Cannot find the customs declaration among the valid declarations in our system</a></p></li>
+                <li><p><a href="#Tolldeklarasjonangittharenugyldigstatusivaresystemer">The customs declaration specified has an invalid status in our systems</a></p></li>
+                <li><p><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">The specified field cannot have a value when a specified customs procedure is provided (&quot;importProcedure&quot; is X)</a></p></li>
+                <li><p><a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">The field cannot have a value for transit (&quot;N820&quot;) if you have specified the procedure that the consignment was subject to until crossing the border into Norway (&quot;outgoing procedure&quot;) as export (&quot;EXP&quot;)</a></p></li>
+                <li><p><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</a></p></li>
+                <li><p><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) have been specified, the customs procedure (field &quot;importProcedure&quot;) must be provided</a></p></li>
+                <li><p><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></p></li>
+                <li><p><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the document reference is something other than a customs declaration (&quot;typeOfReference&quot; ≠ &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the &quot;previousDocuments&quot; object</a></p></li>
+                </ul></li>
+              <li><p><a href="#UfullstendingdokumentasjonIncompletedocumentation">Incomplete documentation</a></p><ul>
+                <li><p><a href="#Formatpadokumentstatus">Document Status Format</a></p></li>
+                <li><p><a href="#DokumentstatusINCOMPLETE">Document status INCOMPLETE</a></p></li>
+                </ul></li>
+            </ul>
         </div>
     </div>
 
@@ -234,8 +191,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
           errors during further processing.
         </p>
 
-        <h3 id="Innholdsformatpasynkronevalideringsfeil">Content Format of
-        Synchronous Validation Errors</h3>
+        <h3 id="Innholdsformatpasynkronevalideringsfeil">Content Format of Synchronous Validation Errors</h3>
 
         <p>
           Validation errors are returned as one or more objects in a
@@ -355,8 +311,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
           digits (maxDecimalNumber value).
         </p>
 
-        <h3 id="Feilfeltstorrelse-strengtekst">Incorrect Field Size &ndash;
-        String (Text)</h3>
+        <h3 id="Feilfeltstorrelse-strengtekst">Incorrect Field Size &ndash; String (Text)</h3>
 
         <h4 id="Svar.3">Response</h4>
 
@@ -766,7 +721,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
         validation returns the &quot;status&quot; field with the value
         &quot;SUCCESS&quot; once the new processing is complete.</p>
 
-        <h3 id="ReferansetiltransitteringtypeOfReference">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</h3>
+        <h3 id="ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot; equal to &quot;N820&quot;) refers to a transit that does not have a valid status</h3>
 
         <h4 id="Svar.15">Response</h4>
 
@@ -787,26 +742,34 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.15">Cause</h4>
 
-        <p>Det er oppgitt en referanse til en transittering der typen referanse er
-        &quot;N820&quot; (&quot;typeOfReference&quot; lik &quot;N820&quot;). Denne
-        transitteringen er ikke i riktig status. Kravet til riktig status i denne
-        konteksten er at det er deklarert NO grensepasseringstollsted og NO
-        destinasjonstollsted i transitteringsdeklarasjonen samt at transitteringen er
-        frigitt fra avgangstollstedet. </p>
-
-        <p>Dokument av type N820 angitt på &quot;messageElementPath&quot; har feil
-        status i transittsystemet.</p>
+        <p>
+          A reference to a transit has been provided where the type of
+          reference is &quot;N820&quot; (typeOfReference equal to
+          &quot;N820&quot;). This transit is not in the correct
+          status. The requirement for correct status in this context is
+          that the transit declaration must include a declared NO border
+          crossing customs office and NO destination customs office, and
+          the transit must be released from the departure customs
+          office.
+        </p>
+        <p>
+          The document of type N820 specified in
+          &quot;messageElementPath&quot; has the wrong status in the
+          transit system.
+        </p>
 
         <h4 id="Rettelse.15">Correction</h4>
 
-        <p>Kontroller at transitterings-deklarasjonen er i samsvar med beskrivelsen
-        over.</p>
+        <p>
+          Check that the transit declaration is in compliance with the
+          description above.<br/>
+          Resubmit the request. Use the new &quot;requestId&quot;
+          received for the new submission and verify that asynchronous
+          validation returns the &quot;status&quot; field with the value
+          &quot;SUCCESS&quot; once the new processing is complete.
+        </p>
 
-        <p>Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
-
-        <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</h3>
+        <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a value over NOK 3,000, therefore an import declaration must be used instead</h3>
 
         <h4 id="Svar.16">Response</h4>
 
@@ -827,22 +790,29 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.16">Cause</h4>
 
-        <p>VOEC har en maksimal verdi pr vare på NOK 3.000. Varelinje
-        (&quot;goodsItem&quot;) med angitt VOEC-nummer
-        (&quot;vatIdentificationNumber&quot;) har en angitt verdi per vare (&quot;itemAmountInvoicedVOEC&quot;) over maksgrense på
-        3000 kroner. </p>
+        <p>
+          VOEC has a maximum value per item of NOK 3,000. The
+          &quot;goodsItem&quot; with the specified VOEC number
+          (&quot;vatIdentificationNumber&quot;) has a stated value per
+          item (&quot;itemAmountInvoicedVOEC&quot;) exceeding the
+          maximum limit of NOK 3,000.
+        </p>
 
         <h4 id="Rettelse.16">Correction</h4>
 
-        <p>Opprett vanlig importdeklarasjon for varen(e) og bruk denne. Vær
-        oppmerksom på at hvis en eller flere av varene mottaker har kjøpt har en verdi
-        over 3000 NOK, vil alle varene måtte bli fortollet på vanlig måte. Se <a
-        href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Create a regular import declaration for the item(s) and use
+          this instead. Note that if one or more of the items purchased
+          by the recipient has a value over NOK 3,000, all items will
+          need to be cleared through customs in the usual manner. Refer
+          to the guidance at Skatteetaten on VOEC.<br/>
+          Resubmit the request. Use the new &quot;requestId&quot;
+          received for the new submission and verify that asynchronous
+          validation returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; once the new processing is complete.
+        </p>
 
-        <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</h3>
+        <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No valid permissions found for the VOEC number specified on the VOEC &quot;goodsItem&quot;</h3>
 
         <h4 id="Svar.17">Response</h4>
 
@@ -863,35 +833,34 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.17">Cause</h4>
 
-        <p>Finner ingen gyldig VOEC tillatelser for VOEC-nummereret
-        (&quot;vatIdentificationNumber&quot;) som er angitt på VOEC-varelinjen
-        (&quot;goodsItem&quot;). Det er oppgitt et VOEC-nummer som vi ikke kan
-        verifisere at er gyldig. Det kan være feil VOEC-nummer, eller
-        VOEC-nummerets gyldighet har utløpt.</p>
+        <p>
+          No valid VOEC permissions are found for the VOEC number
+          (&quot;vatIdentificationNumber&quot;) specified on the VOEC
+          goods item (&quot;goodsItem&quot;). The VOEC number provided
+          cannot be verified as valid. This may be due to an incorrect
+          VOEC number or the expiration of the VOEC number's validity.
+        </p>
 
         <h4 id="Rettelse.17">Correction</h4>
 
-        <p>Endre VOEC-nummer til et gyldig nummer. Hvis ikke gyldig VOEC-nummer
-        kan fremskaffes må varene deklareres med vanlig importdeklarasjon.<br>
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Change the VOEC number to a valid one. If a valid VOEC number
+          cannot be obtained, the goods must be declared using a
+          standard import declaration.<br/>
+          Resubmit the request. Use the new &quot;requestId&quot;
+          received for the new submission and verify that asynchronous
+          validation returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; once the new processing is complete.
+        </p>
 
-        <h3 id="KanikkesendelistemedVOECvarelinjer">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
+        <h3 id="KanikkesendelistemedVOECvarelinjer">Can't send a list with VOEC item lines (&quot;goodsItem&quot;) if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
 
         <h4 id="Svar.18">Response</h4>
-
-        <div>
-
-        <div>
 
         <p><b>If consignmentHouseLevel.importProcedure.importProcedure
         is not IMMEDATE_RELEASE_VOEC, should not be provided.</b>
         </p>
-
-        </div>
-
-        <div><pre
+        <pre
         data-syntaxhighlighter-params="brush: js; gutter: false; theme: Eclipse; collapse: true"
         data-theme=Eclipse>{
   &quot;status&quot;: &quot;FAILURE&quot;,
@@ -905,26 +874,29 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
       }
     }
   ]
-}</pre></div>
-
-        </div>
+}</pre>
 
         <h4 id="Aarsak.18">Cause</h4>
 
-        <p>Man kan ikke sende inn VOEC varelinjer (&quot;goodsItem&quot; liste) med
-        mindre man har oppgitt at tollprosedyren for forsendelsen
-        (&quot;importProcedure&quot;) er VOEC (har verdien
-        &quot;IMMEDIATE_RELEASE_VOEC&quot;)</p>
+        <p>
+          VOEC item lines (&quot;goodsItem&quot; list) cannot be
+          submitted unless the customs procedure for the consignment
+          (&quot;importProcedure&quot;) is VOEC (has the value
+          &quot;IMMEDIATE_RELEASE_VOEC&quot
+        </p>
 
         <h4 id="Rettelse.18">Correction</h4>
 
-        <p>Fjern &quot;goodsItem&quot; liste, eller angi &quot;importProcedure&quot;
-        som &quot;IMMEDLATE_RELEASE_VOEC&quot;. Send inn på nytt. Bruk ny
-        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
-        asynkron validering for denne returner feltet &quot;status&quot; med verdien
-        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Remove the &quot;goodsItem&quot; list or set
+          &quot;importProcedure&quot; to
+          &quot;IMMEDIATE_RELEASE_VOEC&quot;. Resubmit with the new
+          &quot;requestId&quot; received and verify that asynchronous
+          validation returns &quot;status&quot; with the value
+          &quot;SUCCESS&quot; once processing is complete.
+        </p>
 
-        <h3 id="KodeforTollkontordetrefererestilerugyldig">Kode for Tollkontor det refereres til er ugyldig</h3>
+        <h3 id="KodeforTollkontordetrefererestilerugyldig">The code for the customs office referenced is invalid</h3>
 
         <h4 id="Svar.19">Response</h4>
 
@@ -945,18 +917,26 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.19">Cause</h4>
 
-        <p>Referansenummeret oppgitt for &quot;customsOfficeOfFirstEntry&quot;
-        refererer ikke til et gyldig tollkontor. Bruk CL141 Customs office reference
-        number fra kodeverk <a href="https://toll.github.io/api/mo-kodeverk-EN.html#cl141">https://toll.github.io/api/mo-kodeverk-EN.html#cl141</a></p>
+        <p>
+          The reference number provided for
+          &quot;customsOfficeOfFirstEntry&quot; does not correspond to a
+          valid customs office. Use the CL141 Customs office reference
+          number from the code
+          list <a href="https://toll.github.io/api/mo-kodeverk-EN.html#cl141">https://toll.github.io/api/mo-kodeverk-EN.html#cl141</a>
+        </p>
+
 
         <h4 id="Rettelse.19">Correction</h4>
 
-        <p>Oppgi et gyldig referansenummer til et tollkontor. Send inn på nytt. Bruk ny
-        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
-        asynkron validering for denne returner feltet &quot;status&quot; med verdien
-        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Provide a valid reference number for a customs
+          office. Resubmit with the new &quot;requestId&quot; received
+          and verify that asynchronous validation returns
+          &quot;status&quot; with the value &quot;SUCCESS&quot; once
+          processing is complete.
+        </p>
 
-        <h3 id="Feltetopprinneligankomsttiderpakrevdformeldingenfortransport">Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) er påkrevd for meldingen for transport</h3>
+        <h3 id="Feltetopprinneligankomsttiderpakrevdformeldingenfortransport">The originally required field &quot;scheduledDateAndTimeOfArrival&quot; is required for the transport notification</h3>
 
         <h4 id="Svar.20">Response</h4>
 
@@ -977,19 +957,22 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.20">Cause</h4>
 
-        <p>Feltet for opprinnelig ankomsttid
-        (&quot;scheduledDateAndTimeOfArrival&quot;) må alltid være med på transport
-        objektet.</p>
+        <p>
+          The &quot;scheduledDateAndTimeOfArrival&quot; field must
+          always be included in the transport object.
+        </p>
 
         <h4 id="Rettelse.20">Correction</h4>
 
-        <p>Legg til feltet &quot;scheduledDateAndTimeOfArrival&quot; med gyldig verdi
-        på transport objektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man
-        får i retur for ny innsendelse og verifiser at asynkron validering for
-        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>
+          Add the &quot;scheduledDateAndTimeOfArrival&quot; field with a
+          valid value to the transport object. Resubmit with the new
+          &quot;requestId&quot; received and verify that asynchronous
+          validation returns &quot;status&quot; with the value
+          &quot;SUCCESS&quot; once processing is complete.
+        </p>
 
-        <h3 id="Feltetforopprinneligankomsttidkanikkevaresatttilmerennettarfremitid">Feltet for opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;) kan ikke være satt til mer enn ett år frem i tid</h3>
+        <h3 id="Feltetforopprinneligankomsttidkanikkevaresatttilmerennettarfremitid">The &quot;scheduledDateAndTimeOfArrival&quot; field cannot be set more than one year in advance</h3>
 
         <h4 id="Svar.21">Response</h4>
 
@@ -1010,16 +993,20 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.21">Cause</h4>
 
-        <p>Feltet opprinnelig ankomsttid (&quot;scheduledDateAndTimeOfArrival&quot;)
-        kan ikke være mer enn ett år frem i tid.</p>
+        <p>
+          The &quot;scheduledDateAndTimeOfArrival&quot; field cannot be
+          set more than one year in advance.
+        </p>
 
         <h4 id="Rettelse.21">Correction</h4>
 
-        <p>Endre feltet &quot;scheduledDateAndTimeOfArrival&quot; til en dato som er
-        mindre enn ett år frem i tid. Send inn på nytt. Bruk ny
-        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
-        asynkron validering for denne returner feltet &quot;status&quot; med verdien
-        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Change the &quot;scheduledDateAndTimeOfArrival&quot; field to
+          a date that is less than one year in advance. Resubmit with
+          the new &quot;requestId&quot; received and verify that
+          asynchronous validation returns &quot;status&quot; with the
+          value &quot;SUCCESS&quot; once processing is complete.
+        </p>
 
         <h3 id="Feltetforestimertankomsttiderpakrevdpameldingomtransport">Feltet for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) er påkrevd på melding om transport</h3>
 
@@ -1042,18 +1029,23 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.22">Cause</h4>
 
-        <p>Feltet for estimert ankomsttid &quot;estimatedDateAndTimeOfArrival&quot; må
-        alltid være med på transportobjektet.</p>
+        <p>
+          The field for estimated arrival time
+          &quot;estimatedDateAndTimeOfArrival&quot; must always be
+          included in the transport object.
+        </p>
 
         <h4 id="Rettelse.22">Correction</h4>
 
-        <p>Legg til feltet &quot;estimatedDateAndTimeOfArrival&quot; med gyldig verdi
-        på transportobjektet. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i
-        retur for ny innsendelse og verifiser at asynkron validering for denne
-        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>
+          Add the field &quot;estimatedDateAndTimeOfArrival&quot; with a
+          valid value to the transport object. Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
 
-        <h3 id="Kanikkeoppgiestimertankomsttidsomerifortiden">Kan ikke oppgi estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) som er i fortiden</h3>
+        <h3 id="Kanikkeoppgiestimertankomsttidsomerifortiden">Cannot provide an estimated arrival time (&quot;estimatedDateAndTimeOfArrival&quot;) that is in the past</h3>
 
         <h4 id="Svar.23">Response</h4>
 
@@ -1074,18 +1066,24 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.23">Cause</h4>
 
-        <p>Tidspunkt oppgitt for estimert ankomsttid
-        (&quot;estimatedDateAndTimeOfArrival&quot;) må være frem i tid.</p>
+        <p>
+          The time specified for the estimated arrival time
+          (&quot;estimatedDateAndTimeOfArrival&quot;) must be in the
+          future.
+        </p>
 
         <h4 id="Rettelse.23">Correction</h4>
 
-        <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; til et tidspunkt frem i
-        tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for
-        ny innsendelse og verifiser at asynkron validering for denne returner
-        feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er
-        ferdig.</p>
+        <p>
+          Change &quot;estimatedDateAndTimeOfArrival&quot; to a time in
+          the future. Resubmit. Use the new &quot;requestId&quot;
+          received in return for the new submission and verify that the
+          asynchronous validation for this returns the field
+          &quot;status&quot; with the value &quot;SUCCESS&quot; when the
+          new processing is complete.
+        </p>
 
-        <h3 id="Tidspunktoppgittforestimertankomsttidkanikkeværemerennettarfremitid">Tidspunkt oppgitt for estimert ankomsttid (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i tid</h3>
+        <h3 id="Tidspunktoppgittforestimertankomsttidkanikkeværemerennettarfremitid">The time specified for the estimated arrival time (&quot;estimatedDateAndTimeOfArrival&quot;) cannot be more than one year in the future</h3>
 
         <h4 id="Svar.24">Response</h4>
 
@@ -1106,19 +1104,24 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.24">Cause</h4>
 
-        <p>Tidspunkt oppgitt for estimert ankomsttid
-        (&quot;estimatedDateAndTimeOfArrival&quot;) kan ikke være mer enn ett år frem i
-        tid.</p>
+        <p>
+          The time specified for the estimated arrival time
+          (&quot;estimatedDateAndTimeOfArrival&quot;) cannot be more
+          than one year in the future.
+        </p>
 
         <h4 id="Rettelse.24">Correction</h4>
 
-        <p>Endre &quot;estimatedDateAndTimeOfArrival&quot; tidspunkt som er mindre enn
-        ett år frem i tid. Send inn på nytt. Bruk ny &quot;requestId&quot; man får
-        i retur for ny innsendelse og verifiser at asynkron validering for denne
-        returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>
+          Change the &quot;estimatedDateAndTimeOfArrival&quot; to a time
+          less than one year in the future. Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="KunroadograilKanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Kun road og rail: Kan ikke oppgi conveyanceReferenceNumber dersom modeOfTransportCode har angitt verdi</h3>
+        <h3 id="KunroadograilKanikkeoppgiconveyanceReferenceNumberdersommodeOfTransportCodeharangittverdi">Road and rail only: Cannot provide a conveyanceReferenceNumber if modeOfTransportCode has a specified value</h3>
 
         <h4 id="Svar.25">Response</h4>
 
@@ -1139,17 +1142,23 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.25">Cause</h4>
 
-        <p>Med koden angitt for modeOfTransportCode er det ikke tillatt å sende med en
-        verdi for conveyanceReferenceNumber.</p>
+        <p>
+          With the code specified for modeOfTransportCode, it is not
+          permitted to send a value for conveyanceReferenceNumber.
+        </p>
 
         <h4 id="Rettelse.25">Correction</h4>
 
-        <p>Fjern conveyanceReferenceNumber eller endre angitt modeOfTransportCode. Send
-        inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
-        og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Remove conveyanceReferenceNumber or change the specified
+          modeOfTransportCode. Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="KunroadograilNarmodeOfTransportCodeeravangittverdi">Kun road og rail: Når modeOfTransportCode er av angitt verdi må typeOfIdentification være bestemt verdi</h3>
+        <h3 id="KunroadograilNarmodeOfTransportCodeeravangittverdi">Road and rail only: When modeOfTransportCode has a specified value, typeOfIdentification must have a specific value</h3>
 
         <h4 id="Svar.26">Response</h4>
 
@@ -1170,18 +1179,25 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.26">Cause</h4>
 
-        <p>Med koden angitt for modeOfTransportCode må typeOfIdentification være denne
-        bestemte verdien (&quot;requiredValue&quot;).</p>
+        <p>
+          With the code specified for modeOfTransportCode,
+          typeOfIdentification must be this specific value
+          (&quot;requiredValue&quot;).
+        </p>
 
         <h4 id="Rettelse.26">Correction</h4>
 
-        <p>Endre typeOfIdentification feltet til verdien oppgitt som påkrevd i
-        valideringsfeilen (&quot;requiredValue&quot;). Send inn på nytt. Bruk ny
-        &quot;requestId&quot; man får i retur for ny innsendelse og verifiser at
-        asynkron validering for denne returner feltet &quot;status&quot; med verdien
-        &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Change the typeOfIdentification field to the value specified
+          as required in the validation error
+          (&quot;requiredValue&quot;). Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="KunveitransportKanikkefinnedetnorskekjoretoyetsregistreringsnummer">Kun veitransport (road-API): Kan ikke finne det norske kjøretøyets registreringsnummer (&quot;identificationNumber&quot;) i kjøretøyregisteret</h3>
+        <h3 id="KunveitransportKanikkefinnedetnorskekjoretoyetsregistreringsnummer">For road transport only (road-API): Cannot find the Norwegian vehicle registration number (&quot;identificationNumber&quot;) in the vehicle registry</h3>
 
         <h4 id="Svar.27">Response</h4>
 
@@ -1202,19 +1218,26 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.27">Cause</h4>
 
-        <p>Man har sendt inn at kjøretøyet er norsk (countryCode er &quot;NO&quot;),
-        men registreringsnummeret (&quot;identificationNumber&quot;) finnes ikke i
-        veivesenets kjøretøyregister.</p>
+        <p>
+          You have submitted that the vehicle is Norwegian (countryCode
+          is &quot;NO&quot;), but the registration number
+          (&quot;identificationNumber&quot;) is not found in the
+          Norwegian vehicle registry.
+        </p>
 
         <h4 id="Rettelse.27">Correction</h4>
 
-        <p>Dersom kjøretøy er norsk, verifiser at identificationNumber er korrekt i
-        henhold til det som er registrert i veivesenets kjøretøyregister. Send inn
-        på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          If the vehicle is Norwegian, verify that the
+          identificationNumber is correct according to what is
+          registered in the Norwegian vehicle registry. Resubmit. Use
+          the new &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivaresystemer">Finner ikke tolldeklarasjon blant gyldige deklarasjoner angitt i våre systemer</h3>
+        <h3 id="Finnerikketolldeklarasjonblantgyldigedeklarasjonerangittivaresystemer">Cannot find the customs declaration among the valid declarations in our system</h3>
 
         <h4 id="Svar.28">Response</h4>
 
@@ -1235,20 +1258,27 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.28">Cause</h4>
 
-        <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
-        &quot;declarationDate&quot; og &quot;sequenceNumber&quot; kan ikke knyttes til
-        House Consignment. For at den refererte tolldeklarasjonen skal kunne valideres
-        OK må den være sendt inn mot en definert ekspedisjonsenhet i TVINN. P.t er
-        dette kun ekspedisjonsenhet <em>441001</em>.</p>
+        <p>
+          The declaration specified with &quot;declarantNumber,&quot;
+          &quot;declarationDate,&quot; and &quot;sequenceNumber&quot;
+          cannot be linked to the House Consignment. For the referenced
+          customs declaration to be validated successfully, it must be
+          submitted against a defined expedition unit in
+          TVINN. Currently, this is only expedition unit <em>441001</em>.
+        </p>
 
         <h4 id="Rettelse.28">Correction</h4>
 
-        <p>Verifiser at informasjonen om deklarasjonen er korrekt registrert. Send
-        inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse
-        og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Verify that the declaration information is correctly
+          registered. Resubmit. Use the new &quot;requestId&quot;
+          received in return for the new submission and verify that the
+          asynchronous validation for this returns the field
+          &quot;status&quot; with the value &quot;SUCCESS&quot; when the
+          new processing is complete.
+        </p>
 
-        <h3 id="Tolldeklarasjonangittharenugyldigstatusivaresystemer">Tolldeklarasjon angitt har en ugyldig status i våre systemer</h3>
+        <h3 id="Tolldeklarasjonangittharenugyldigstatusivaresystemer">The customs declaration specified has an invalid status in our systems</h3>
 
         <h4 id="Svar.29">Response</h4>
 
@@ -1269,19 +1299,25 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.29">Cause</h4>
 
-        <p>Deklarasjonen angitt med &quot;declarantNumber&quot;,
-        &quot;declarationDate&quot; og &quot;sequenceNumber&quot; ble funnet i våre
-        systemer, men har feil status. Dette betyr som regel at deklarasjonen allerede
-        er avsluttet.</p>
+        <p>
+          The declaration specified with &quot;declarantNumber,&quot;
+          &quot;declarationDate,&quot; and &quot;sequenceNumber&quot;
+          was found in our systems but has an incorrect status. This
+          usually means that the declaration has already been completed.
+        </p>
 
         <h4 id="Rettelse.29">Correction</h4>
 
-        <p>Påse at deklarasjonen er behandlet og har en gyldig status. Send inn på
-        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Ensure that the declaration has been processed and has a valid
+          status. Resubmit. Use the new &quot;requestId&quot; received
+          in return for the new submission and verify that the
+          asynchronous validation for this returns the field
+          &quot;status&quot; with the value &quot;SUCCESS&quot; when the
+          new processing is complete.
+        </p>
 
-        <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</h3>
+        <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">The specified field cannot have a value when a specified customs procedure is provided (&quot;importProcedure&quot; is X)</h3>
 
         <h4 id="Svar.30">Response</h4>
 
@@ -1302,24 +1338,34 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.30">Cause</h4>
 
-        <p>Dersom man har angitt at tollprosedyre (&quot;importProcedure&quot;) er
-        angitt verdi, kan man ikke fylle ut dette feltet, det vil si feltet som er
-        angitt i &quot;messageElementPath&quot;. Denne feilen kommer når angitt
-        tollprosedyre er forskjellig fra &quot;IMMEDIATE_RELEASE_IMPORT&quot; samtidig
-        som man angir verdier i feltene som skal fortelle om referansen til
-        tolldeklarasjonen.
-        (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;, og/eller
-        &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot; og/eller
-        &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;)</p>
+        <p>
+          If you have specified that the customs procedure
+          (&quot;importProcedure&quot;) is a particular value, you
+          cannot fill out this field, i.e., the field indicated in
+          &quot;messageElementPath.&quot; This error occurs when the
+          specified customs procedure is different from
+          &quot;IMMEDIATE_RELEASE_IMPORT&quot; while values are provided
+          in the fields related to the reference of the customs
+          declaration
+          (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber,&quot;
+          and/or
+          &quot;consignmentHouseLevel.previousDocuments.declarantNumber,&quot;
+          and/or
+          &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;).
+        </p>
 
         <h4 id="Rettelse.30">Correction</h4>
 
-        <p>Enten endre importProcedure eller fjern verdien i dette feltet. Send inn på
-        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Either change the importProcedure or remove the value from
+          this field. Resubmit. Use the new &quot;requestId&quot;
+          received in return for the new submission and verify that the
+          asynchronous validation for this returns the field
+          &quot;status&quot; with the value &quot;SUCCESS&quot; when the
+          new processing is complete.
+        </p>
 
-        <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</h3>
+        <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">The field cannot have a value for transit (&quot;N820&quot;) if you have specified the procedure that the consignment was subject to until crossing the border into Norway (&quot;outgoing procedure&quot;) as export (&quot;EXP&quot;)</h3>
 
         <h4 id="Svar.31">Response</h4>
 
@@ -1340,23 +1386,31 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.31">Cause</h4>
 
-        <p>Dersom man har angitt at prosedyren som forsendelsen var underlagt frem til
-        grensepassering inn i Norge (&quot;outgoingProcedure&quot;) er eksport (med
-        verdi &quot;EXP&quot;), kan man ikke oppgi verdien &quot;N820&quot; i
-        dette feltet. Dette gjelder referanser til tidligere tollprosedyrer som
-        varene har vært underlagt. Dersom man oppgir at tidligere tollprosedyre er
-        eksport, så kan man ikke henvise til en referanse til transittering.<br>
-        Se valg av tollprosedyre <a
-        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
+        <p>
+          If you have specified that the procedure the consignment was
+          subject to until crossing the border into Norway
+          (&quot;outgoingProcedure&quot;) is export (with value
+          &quot;EXP&quot;), you cannot provide the value
+          &quot;N820&quot; in this field. This applies to references to
+          previous customs procedures that the goods have been subject
+          to. If you specify that the previous customs procedure is
+          export, you cannot refer to a transit reference.<br/>
+          See valid customs
+          procedures: <a href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>
+        </p>
 
         <h4 id="Rettelse.31">Correction</h4>
 
-        <p>Enten endre verdien i feltet eller outgoingProcedure. Send inn på nytt.
-        Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Either change the value in the field or the
+          outgoingProcedure. Resubmit. Use the new &quot;requestId&quot;
+          received in return for the new submission and verify that the
+          asynchronous validation for this returns the field
+          &quot;status&quot; with the value &quot;SUCCESS&quot; when the
+          new processing is complete.
+        </p>
 
-        <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</h3>
+        <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</h3>
 
         <h4 id="Svar.32">Response</h4>
 
@@ -1377,18 +1431,25 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.32">Cause</h4>
 
-        <p>Man har angitt at referert dokument er tolldeklarasjon
-        (&quot;typeReference&quot; med verdi &quot;CUDE&quot;), da må man også oppgi
-        verdi i det spesifisert feltet (feltet er spesifisert i feilmeldingen).</p>
+        <p>
+          You have specified that the referenced document is a customs
+          declaration (&quot;typeReference&quot; with value
+          &quot;CUDE&quot;), so you must also provide a value in the
+          specified field (the field is specified in the error message).
+        </p>
 
         <h4 id="Rettelse.32">Correction</h4>
 
-        <p>Enten endre typeReference eller oppgi verdi for feltet. Send inn på
-        nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
-        verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Either change the typeReference or provide a value for the
+          field. Resubmit. Use the new &quot;requestId&quot; received in
+          return for the new submission and verify that the asynchronous
+          validation for this returns the field &quot;status&quot; with
+          the value &quot;SUCCESS&quot; when the new processing is
+          complete.
+        </p>
 
-        <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</h3>
+        <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) have been specified, the customs procedure (field &quot;importProcedure&quot;) must be provided</h3>
 
         <h4 id="Svar.33">Response</h4>
 
@@ -1409,19 +1470,25 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.33">Cause</h4>
 
-        <p>Man har sendt inn ett eller flere referanser til dokumenter (objekter i
-        &quot;previousDocuments&quot; listen), men ikke oppgitt en tollprosedyre (verdi
-        i &quot;importProcedure&quot; feltet).</p>
+        <p>
+          You have submitted one or more document references (objects in
+          the &quot;previousDocuments&quot; list) but did not provide a
+          customs procedure (value in the &quot;importProcedure&quot;
+          field).
+        </p>
 
         <h4 id="Rettelse.33">Correction</h4>
 
-        <p>Enten oppgi en verdi for importProcedure feltet eller fjern alle objekter i
-        previousDocuments listen. Send inn på nytt. Bruk ny &quot;requestId&quot;
-        man får i retur for ny innsendelse og verifiser at asynkron validering for
-        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>
+          Either provide a value for the importProcedure field or remove
+          all objects from the previousDocuments list. Resubmit. Use the
+          new &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon ( med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+        <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
         <h4 id="Svar.34">Response</h4>
 
@@ -1442,20 +1509,27 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.34">Cause</h4>
 
-        <p>Man har sendt mer enn en tolldeklarasjon (objekt i
-        &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
-        &quot;typeOfReference&quot;.<br>
-        Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
+        <p>
+          You have submitted more than one customs declaration (object
+          in the &quot;previousDocuments&quot; list) with the value
+          &quot;CUDE&quot; in the &quot;typeOfReference&quot;
+          field. Only one customs declaration per consignment is
+          allowed.
+        </p>
 
         <h4 id="Rettelse.34">Correction</h4>
 
-        <p>Påse at man kun har ett objekt med typeOfReference verdien &quot;CUDE&quot;
-        i previousDocuments-listen.<br>
-        Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
-        innsendelse og verifiser at asynkron validering for denne returner feltet
-        &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+        <p>
+          Ensure that there is only one object with the
+          &quot;typeOfReference&quot; value &quot;CUDE&quot; in the
+          previousDocuments list. Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet.</h3>
+        <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the document reference is something other than a customs declaration (&quot;typeOfReference&quot; ≠ &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the &quot;previousDocuments&quot; object</h3>
 
         <h4 id="Svar.35">Response</h4>
 
@@ -1476,45 +1550,59 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.35">Cause</h4>
 
-        <p>Når det angis referanse til andre typer dokumenter enn tolldeklarasjon skal
-        feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; benyttes for
-        å oppgi denne referansen (typisk MRN eller lignende).<br>
-        Man har sendt inn et objekt i &quot;previousDocuments&quot;-listen med en verdi
-        som <em>ikke</em>  er &quot;CUDE&quot; i feltet
-        &quot;typeOfReference&quot;, samtidig som man <em>ikke</em> har angitt en verdi
-        i feltet &quot;referenceNumber&quot;.<br>
-        Det er påkrevd at dette feltet er angitt med en verdi med mindre
-        &quot;typeOfReference&quot; har verdien &quot;CUDE&quot;.</p>
+        <p>
+          When referring to document types other than customs
+          declarations, the &quot;referenceNumber&quot; field in the
+          &quot;previousDocuments&quot; object should be used to provide
+          this reference (typically MRN or similar).<br/>
+          You have submitted an object in the &quot;previousDocuments&quot; list
+          with a value other than &quot;CUDE&quot; in the
+          &quot;typeOfReference&quot; field, while not providing a value
+          in the &quot;referenceNumber&quot; field.
+          It is required that this field be provided with a value unless
+          &quot;typeOfReference&quot; has the value &quot;CUDE&quot;.
+        </p>
 
         <h4 id="Rettelse.35">Correction</h4>
 
-        <p>Endre objektet til å ha til å ha verdien &quot;CUDE&quot; i
-        typeOfReference-feltet, eller legg inn gyldig verdi i
-        referenceNumber-feltet. Send inn på nytt. Bruk ny &quot;requestId&quot;
-        man får i retur for ny innsendelse og verifiser at asynkron validering for
-        denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
-        behandling er ferdig.</p>
+        <p>
+          Change the object to have the value &quot;CUDE&quot; in the
+          typeOfReference field, or provide a valid value in the
+          referenceNumber field. Resubmit. Use the new
+          &quot;requestId&quot; received in return for the new
+          submission and verify that the asynchronous validation for
+          this returns the field &quot;status&quot; with the value
+          &quot;SUCCESS&quot; when the new processing is complete.
+        </p>
 
-        <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Ufullstendig dokumentasjon / Incomplete documentation</h2>
+        <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Incomplete documentation</h2>
 
-        <p>I visse tilfeller kan informasjonen som er sendt inn ikke være nok til å
-        fullføre behandling. På endepunktet
-        &quot;/house-consignment/validation-status/{requestIds}&quot; vil man da få en
-        liste med årsakskoder under &quot;incompleteDocumentationReasonList&quot;. Det
-        er også mulig å spørre på endepunktene
-        &quot;/house-consignment/transport-document/status&quot; eller
-        &quot;/master-consignment/transport-document/status&quot; for å få denne
-        informasjonen.</p>
+        <p>
+          In certain cases, the information submitted may not be
+          sufficient to complete processing. At the endpoint
+          /house-consignment/validation-status/{requestIds}, you will
+          receive a list of cause codes under
+          &quot;incompleteDocumentationReasonList&quot;. It is also
+          possible to query the endpoints
+          /house-consignment/transport-document/status or
+          /master-consignment/transport-document/status to obtain this
+          information.
+        </p>
 
-        <h3 id="Formatpadokumentstatus">Format på dokumentstatus</h3>
+        <h3 id="Formatpadokumentstatus">Document Status Format</h3>
 
-        <p>Dersom innsendingen er fullstendig vil feltet &quot;documentStatus&quot; ha
-        verdien &quot;SUCCESS&quot;, hvis ikke vil den ha &quot;INCOMPLETE&quot;.
-        Dersom status er &quot;INCOMPLETE&quot; vil det sendes med en
-        &quot;incompleteDocumentationReasonList&quot; liste som lister opp årsakskoder
-        for hvorfor innsendingen ble vurdert ufullstendig. Eksempler på verdier
-        som kan komme som årsakskoder finner man her: <a
-        href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a></p>
+        <p>
+          If the submission is complete, the field
+          &quot;documentStatus&quot; will have the value
+          &quot;SUCCESS&quot;; otherwise, it will have
+          &quot;INCOMPLETE&quot;. If the status is
+          &quot;INCOMPLETE&quot;, an
+          &quot;incompleteDocumentationReasonList&quot; will be
+          provided, listing cause codes explaining why the submission
+          was deemed incomplete. Examples of values that can appear as
+          cause codes can be found
+          here: <a href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a>
+      </p>
 
         <pre>
 {
@@ -1526,7 +1614,7 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
   ]
 }</pre>
 
-        <h3 id="DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</h3>
+        <h3 id="DokumentstatusINCOMPLETE">Document status INCOMPLETE</h3>
 
         <h4 id="Svar.36">Response</h4>
 
@@ -1542,19 +1630,20 @@ prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge
 
         <h4 id="Aarsak.36">Cause</h4>
 
-        <p>Man har en innsendelse som ikke oppfyller kravene for en fullstendig
-        innsending for valgt tollprosedyre. Se: <a
-        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a></p>
+        <p>
+          You have a submission that does not meet the requirements for a complete submission for the selected customs procedure. See: <a href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>
+        </p>
 
         <h4 id="Rettelse.36">Correction</h4>
 
-        <p>Endre innsending slik at den oppfyller kravene for valgt tollprosedyre. Se: <a
-        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>. Send
-        inn oppdatert innsending med endringene (HTTP PUT). Verifiser at
-        &quot;/transport-document/status&quot; etter ny behandling etter hvert
-        returnerer med status &quot;SUCCESS&quot;</p>
+        <p>
+          Modify the submission to meet the requirements for the selected customs procedure. See: <a
+        href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>. Submit
+        the updated submission with the changes (HTTP PUT). Verify that
+        &quot;/transport-document/status&quot; eventually returns with status
+        &quot;SUCCESS&quot; after reprocessing.
+      </p>
     </div>
-
 </main>
 
 <footer role="contentinfo">
