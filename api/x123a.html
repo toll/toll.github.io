@@ -1,0 +1,3360 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../style/api.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+    <script>
+function myFunction() {
+  document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</head>
+<body>
+
+
+<header role="banner">
+    <a href="https://toll.github.io/">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="260px" height="64px" viewBox="0 0 260 64" xml:space="preserve" fill="#000000"><g><g><path d="M17.75,8.23v23.61h-6.8V8.23H3.46V2.86h21.76v5.38H17.75z"></path><path
+                d="M42.15,32.35c-8.61,0-15.38-5.59-15.38-14.95c0-9.37,6.76-15,15.38-15s15.38,5.63,15.38,15 C57.52,26.76,50.76,32.35,42.15,32.35z M42.15,8.19c-4.83,0-8.49,3.49-8.49,9.03c0,5.54,3.65,9.07,8.49,9.07s8.49-3.53,8.49-9.07 C50.63,11.72,46.98,8.19,42.15,8.19z"></path><path
+                d="M63.44,31.84V2.86h6.76v23.36h10.04v5.63H63.44z"></path><path
+                d="M85.41,31.84V2.86h6.76v23.36h10.04v5.63H85.41z"></path><path
+                d="M107.37,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H107.37z"></path><path
+                d="M144.63,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H144.63z"></path><path
+                d="M172.77,31.84L170.71,26h-10.33l-2.06,5.84h-7.06l10.92-29.03h7.06l10.92,29.03H172.77z M165.54,10.29 l-3.61,10.42h7.23L165.54,10.29z"></path><path
+                d="M193.18,8.23v23.61h-6.8V8.23h-7.48V2.86h21.76v5.38H193.18z"></path><path
+                d="M205.57,31.84V2.86h18.78v5.42h-12.01v5.92h9.64v5.42h-9.64v6.72h12.39v5.5H205.57z"></path><path
+                d="M250.26,31.84l-12.73-19.66c0,0,0.13,3.49,0.13,6.55v13.11h-6.64V2.86h7.27l12.43,19.49 c0,0-0.13-3.28-0.13-6.34V2.86h6.64v28.99H250.26z"></path></g><g><path d="M13.12,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H4.76V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H13.12z"></path>
+            <path d="M23.24,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S26.53,60.93,23.24,60.93z M23.24,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C27.6,51.98,25.63,50.26,23.24,50.26z"></path>
+            <path d="M37.69,60.73l-3.06-5.05h-1.26v5.05h-1.65V49h3.31c2.09,0,3.96,0.97,3.96,3.3c0,2.06-1.43,2.97-2.67,3.21 l3.35,5.22H37.69z M36.55,50.77c-0.53-0.39-1.16-0.42-1.97-0.42h-1.21v3.98h1.21c0.82,0,1.45-0.03,1.97-0.41 c0.53-0.39,0.75-0.87,0.75-1.58C37.29,51.64,37.07,51.14,36.55,50.77z"></path>
+            <path d="M52.61,60.75H51l-2.82-9.48l-2.81,9.48h-1.61L40.37,49h1.73l2.53,9.25l2.7-9.25h1.68l2.7,9.25L54.26,49h1.73 L52.61,60.75z"></path>
+            <path d="M58.22,60.73V49h6.87v1.38h-5.22v3.5h4.93v1.39h-4.93v4.06h5.35v1.39H58.22z"></path>
+            <path d="M73.08,60.93c-3.35,0-5.98-2.41-5.98-6.07s2.63-6.03,5.97-6.03c3.01,0,4.3,1.58,4.74,2.04l-1.12,1.04 c-0.7-0.82-1.79-1.67-3.62-1.67c-2.41,0-4.27,1.73-4.27,4.62s1.92,4.62,4.37,4.62c2.43,0,3.3-1.07,3.3-1.07v-2.6H73.3v-1.34h4.76 v4.55C77.84,59.25,76.41,60.93,73.08,60.93z"></path>
+            <path d="M80.8,60.73V49h1.65v11.73H80.8z"></path>
+            <path d="M93.78,60.73l-1.21-3.06h-5.03l-1.21,3.06h-1.73l4.78-11.76h1.44l4.79,11.76H93.78z M90.06,51.02l-2.06,5.27 h4.11L90.06,51.02z"></path>
+            <path d="M106.16,60.73l-6.77-9.35c0,0,0.03,1.58,0.03,3.11v6.24H97.8V49h1.73l6.65,9.21c0,0-0.02-1.45-0.02-2.99V49 h1.61v11.73H106.16z"></path>
+            <path d="M120.78,60.93c-3.42,0-5.98-2.4-5.98-6.05c0-3.65,2.63-6.05,6-6.05c2.19,0,3.52,0.92,4.17,1.55l-0.7,1.33 c-0.46-0.58-1.77-1.43-3.4-1.43c-2.53,0-4.37,1.82-4.37,4.57c0,2.75,1.85,4.57,4.37,4.57c1.55,0,2.74-0.59,3.5-1.43l0.71,1.21 C124.35,60.02,123.01,60.93,120.78,60.93z"></path>
+            <path d="M135.18,59.51c-0.8,0.92-1.97,1.43-3.52,1.43c-1.56,0-2.74-0.51-3.52-1.43c-0.82-0.95-0.95-2.11-0.95-3.57 V49h1.67v6.78c0,0.99,0.02,1.94,0.54,2.63c0.48,0.65,1.24,1.04,2.26,1.04c1.02,0,1.77-0.39,2.26-1.04 c0.53-0.7,0.54-1.67,0.54-2.63V49h1.65v6.93C136.11,57.4,135.98,58.55,135.18,59.51z"></path>
+            <path d="M142.11,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C146.21,59.74,144.17,60.93,142.11,60.93z"></path>
+            <path d="M152.93,50.38v10.35h-1.65V50.38h-3.31V49h8.26v1.38H152.93z"></path>
+            <path d="M162.79,60.93c-3.3,0-6.05-2.29-6.05-6.05s2.75-6.05,6.05-6.05c3.3,0,6.05,2.29,6.05,6.05 S166.08,60.93,162.79,60.93z M162.79,50.26c-2.4,0-4.37,1.72-4.37,4.59c0,2.86,1.99,4.59,4.37,4.59c2.4,0,4.37-1.73,4.37-4.59 C167.15,51.98,165.18,50.26,162.79,50.26z"></path>
+            <path d="M181.76,60.73l-0.77-9.26h-0.05l-3.59,9.37h-0.93l-3.59-9.37h-0.05l-0.75,9.26h-1.63L171.46,49h2.04 l3.38,9.06h0.03L180.3,49h2.02l1.07,11.73H181.76z"></path>
+            <path d="M189.12,60.93c-2.06,0-3.23-1.33-3.79-1.97l0.97-1.11c0.59,0.8,1.7,1.68,2.97,1.68 c1.28,0,2.29-0.73,2.29-1.97c0-1.22-1.31-1.7-1.9-1.94c-0.61-0.24-1.43-0.56-1.87-0.78c-1.21-0.56-1.94-1.5-1.94-2.87 c0-2.09,1.9-3.13,3.77-3.13c1.92,0,3.04,1.17,3.37,1.51l-0.87,1.12c-0.58-0.61-1.43-1.26-2.58-1.26c-1.16,0-2.04,0.54-2.04,1.63 s0.8,1.5,1.51,1.79l2.16,0.9c1.21,0.56,2.04,1.53,2.04,2.92C193.22,59.74,191.18,60.93,189.12,60.93z"></path></g></g>
+            <title>Toll logo -- link to Toll github homepage</title>
+        </svg>
+    </a>
+    <h1>API for melde- og opplysning, kjøretøy på vei/ferge &ndash; versjon 2</h1>
+</header>
+
+
+<main>
+    <div class="column right" role="navigation">
+         <div class="lang_nav"><a href="mo-vei-EN.html"><img src="media/UK.png" alt="UK flag"/>&nbsp;English</a></div>
+         <div id="toc_container"  aria-hidden="true">
+            <h2 id="innhold" class="toc_title">Innhold</h2>
+            <ul>
+                <li><p><a href="#omtjenesten">Om tjenesten</a></p>
+                  <ul>
+                    <li><p><a href="#definisjoner">Definisjoner</a></p></li>
+                  </ul></li>
+                <li><p><a href="#funkbesk">Funksjonell beskrivelse</a></p>
+                  <ul>
+                    <li><p><a href="#infomld">Informasjon og meldinger</a></p></li>
+                    <li><p><a href="#datatransp">Dataelementer transport</a></p></li>
+                    <li><p><a href="#datahoved">Dataelementer hovedforsendelse</a></p></li>
+                    <li><p><a href="#dataforsend">Dataelementer forsendelse</a></p></li>
+                    <li><p><a href="#datavoec">Dataelementer VOEC-vare</a></p></li>
+                    <li><p><a href="#mldtransport">Melding om transport</a></p></li>
+                    <li><p><a href="#masterConsignment">Melding om hovedforsendelse</a></p></li>
+                    <li><p><a href="#houseConsignment">Melding om forsendelse</a></p></li>
+                    <li><p><a href="#detaljerteDatakrav">Detaljerte datakrav</a></p></li>
+                    <li><p><a href="#utfyllingForsend">Valg av prosedyre</a></p></li>
+                    <li><p><a href="#hvordanSende">Hvordan sende inn meldinger</a></p></li>
+                    <li><p><a href="#kontrolldir">Fremlegging og kontrolldir.</a></p></li>
+                  </ul></li>
+                <li><p><a href="#kodeverk">Kodeverk</a></p></li>
+                <li><p><a href="#Grensesnittbeskrivelse">Grensesnittbeskrivelse</a></p>
+                  <ul>
+                    <li><p><a href="#movement-road-api-v2">movement-road-api-v2</a></p></li>
+                    <li><p><a href="#movement-road-query-api-v2">movement-road-query-api-v2</a></p></li>
+                    <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
+                    <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
+                    <li><p><a href="#dokumentinnsending">Dokumentinnsending</a></p></li>
+                  </ul></li>
+                <li><p><a href="#eksempler">Aktuelle eksempler</a></p></li>
+                <li><p><a href="#autentisering">Autentisering</a></p></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="column left">
+        <br/>
+    </div>
+
+    <div class="column middle" role="main">
+      <p id="demo">A Paragraph.</p>
+
+      <button type="button" onclick="myFunction()">Try it</button>
+
+
+        <h2 id="omtjenesten">Om tjenesten</h2>
+
+        <p>
+            Tjenesten skal støtte å oppfylle melde- og opplysningsplikten digitalt og
+            automatisert i henhold til<a href="https://lovdata.no/lov/2022-03-11-9">
+            vareførselsloven § 2-3 </a>og tilhørende <a
+            href="https://lovdata.no/forskrift/2022-10-27-1901">forskrift</a>.
+        </p>
+        <figure>
+            <img src="media/mo-digiflyt.png" alt="Se figurtekst"/>
+            <figcaption>Figur: Tjenesten støtter opp under Tolletatens konsept for
+                digital og automatisert vareførsel over grensen</figcaption>
+        </figure>
+
+        <div class="boxed">
+            <p>
+               Se også:
+            </p>
+           <ul>
+              <li><a href="mo-obligatorisk-2024-04.html"><b>Endringer i API-ene</b>, april 2024</a></li>
+              <li><a href="mo-jernbane.html">API for jernbane</a></li>
+              <li><a href="mo-fly.html">API for fly</a></li>
+           </ul>
+        </div>
+
+        <h3 id="definisjoner">Definisjoner</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Begrep</th>
+                <th scope="col">Engelsk navn</th>
+                <th scope="col">Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    Forsendelse
+                  </td>
+                  <td>
+                    House Consignment
+                  </td>
+                  <td>
+                    En forsendelse er en samling varer som skal sendes fra en
+                      avsender til en mottaker. En forsendelse er identifisert gjennom et
+                      fraktbrevnummer utstedt av den part som avsender har en avtale med for å
+                      besørge transport til mottaker.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Hovedforsendelse
+                  </td>
+                  <td>
+                    Master Consignment
+                  </td>
+                  <td>
+                    En hovedforsendelse er en samling av forsendelser som skal
+                      sendes fra en avsender til en mottaker. En hovedforsendelse er identifisert
+                      gjennom et hovedfraktbrevnummer utstedt av den part som avsender har en
+                      avtale med for å besørge transport til mottaker.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Transport
+                  </td>
+                  <td>
+                    Transport
+                  </td>
+                  <td>
+                    En transport i kontekst av melde- og opplysning definerer
+                      et fysisk transportmiddel, dets fører og last. Last i denne sammenhenger
+                      definert av hovedforsendelser og forsendelser.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Transportmiddel
+                  </td>
+                  <td>
+                    Active Border Transport Means
+                  </td>
+                  <td>
+                    Et transportmiddel i kontekst av melde- og opplysning er
+                      en bil, et luftfartøy, et tog eller et fartøy som har egen fremdrift og
+                      frakter last over grensen til
+                      Norge.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Innsender
+                  </td>
+                  <td>
+                    Submitter
+                  </td>
+                  <td>
+                    Innsender er den som sender inn meldinger til Tolletaten.
+                      Merk at innsender og tollrepresentant kan være samme aktør.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Tollrepresentant
+                  </td>
+                  <td>
+                    Representative
+                  </td>
+                  <td>
+                    Tollrepresentant er en som handler
+                      på vegne av den fører og i førers navn i følge vareførselsloven §7-21.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Fører
+                  </td>
+                  <td>
+                    Operator
+                  </td>
+                  <td>
+                    Fører er den som fører transportmiddelet, og er den som er
+                      ansvarlig for å oppfylle melde og opplysningsplikten i følge vareførselsloven §2-3.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Transportutstyr
+                  </td>
+                  <td>
+                    Transport Equipment
+                  </td>
+                  <td>
+                    I kontekst av melde og opplysningsplikten er
+                      transportutstyr en beholder som blir brukt for å frakte en eller flere
+                      forsendelser eller hovedforsendelser i, og som ikke har egen fremdrift. Det
+                      inkluderer tilhengere, semi-trailere, containere, tanker, paller etc.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Beholder
+                  </td>
+                  <td>
+                    Container
+                  </td>
+                  <td>
+                    I kontekst av melde og opplysningsplikten er en beholder
+                      en måte å definere transportutstyr. Se transportutstyr.
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 id="funkbesk">Funksjonell beskrivelse av tjenesten</h2>
+        <p>
+          Tjenesten skal gjøre det mulig for aktører i næringslivet å oppfylle melde-
+          og opplysningplikten digitalt.
+          I tillegg legger tjenesten opp til å i størst mulig grad automatisere de steg i
+          prosessen der det er mulig.
+        </p>
+
+        <p>
+          Konseptuelt er den delen av tjenesten som er beskrevet her opptatt av å
+          betjene innsending av opplysninger på en slik måte at det sikrer Tolletatens
+          behov for risikovurdering og kontroll og samtidig legger til rette for
+          automatisering av øvrige steg.
+        </p>
+
+        <p>
+          Tjenesten legger opp til at meldinger om forsendelser, hovedforsendelser og
+          transport kan sendes inn så tidlig som mulig og uavhengig av hverandre.
+          Likevel er det viktig å merke seg at senest ved grensepassering må helheten av
+          informasjon som er sendt inn til Tolletaten tilfredsstille de krav som gjelder
+          for melde- og opplysningsplikten.<br/>
+          Det betyr at de forskjellige informasjonselementene må henge sammen, med nøkler
+          oppgitt av innsenderne, og at de nødvendige referanser er på plass der det
+          kreves.<br/>
+          For andre transportmåter enn kjøretøy på vei anses grensepassering å være når
+          transportmiddelet ankommer sitt bestemmelsessted (for eksempel flyplass, havn eller
+          jernbaneterminal).
+        </p>
+
+        <p>
+          Innsender av en melding har mulighet til å
+          sende inn en melding tidlig, oppdatere meldingen og trekke tilbake meldingen
+          ved behov (post, put, delete).<br/>
+          Innsender kan be om status på meldingen (get).
+         </p>
+
+        <p>
+          Innsender kan sende inn meldinger helt til transport ankommer grensen. Ved
+          grensepassering må informasjonen som er levert være komplett for transporten,
+          dens hovedforsendelser og forsendelser.
+        </p>
+
+        <p>Informasjon kan sendes inn på tre nivåer:</p>
+        <ul>
+            <li>Transport, som inneholder
+                <ul>
+                    <li>Hovedforsendelser, som inneholder
+                        <ul>
+                            <li>Forsendelser</li>
+                        </ul></li>
+                </ul></li>
+        </ul>
+
+        <figure>
+            <img src="media/MO-begreper.png" alt="Se bildetekst">
+            <figcaption>Figur: Illustrasjonen viser på et overordnet nivå hvilken informasjon
+            knyttet til transport og last som skal sendes inn</figcaption>
+        </figure>
+
+        <p>
+            Det er også mulig å sende inn transport og forsendelser, uten å sende inn hovedforsendelse.
+            Transport kobles da til forsendelser.
+        </p>
+
+        <h3 id="infomld">Informasjon og meldinger</h3>
+        <p>
+            API-ene støtter innsending av opplysninger knyttet til melde og
+            opplysningsplikten for post, ekspress, flyfrakt, kjøretøy på vei og ferge
+            i henhold til vareførselsloven § 2-3 og forskrift om inn- og utførsel av
+            varer.
+        </p>
+
+        <p>API-ene for innsending er delt i 3 forskjellige meldinger:</p>
+        <ol>
+         <li>en for innsending av opplysninger om transport</li>
+         <li>en for innsending av opplysninger om hovedforsendelse</li>
+         <li>en for innsending av opplysninger om forsendelser</li>
+        </ol>
+
+        <p>
+            Meldingene sendes inn hver for seg og uavhengig av hverandre med tanke på
+            både rekkefølge og avsender.
+            Melding om transport skal, ved grensepassering, inneholde en liste med
+            sporingsnummer til alle hovedforsendelsene og/eller forsendelsene som skal
+            være med på transporten.
+            Merk at det både kan knyttes forsendelser til transport direkte eller
+            via hovedforsendelse på samme transport.<br/>
+            Forsendelse knyttes til hovedforsendelsen eller til transporten:
+        </p>
+        <ul>
+          <li>
+            ved hjelp av at fraktbrevnummer til hovedforsendelsen oppgis i melding om forsendelse
+            (kan brukes av alle andre enn post-operatører)
+          </li>
+          <li>
+            ved at transporten inneholder en liste av forsendelser
+            (kan brukes av alle andre enn post-operatører)
+          </li>
+        </ul>
+        <p><img src="media/MO-nokler.png" alt="Sammenheng mellom nøkler" style="max-width: 60%"></p>
+        <p>For post-operatører gjelder egne koblinger via postbeholder:</p>
+        <ul>
+            <li>
+                ved hjelp av at postbeholder-id er referert både i forsendelse og i hovedforsendelse
+                (kun i bruk for post-operatører)
+            </li>
+        </ul>
+        <p><img src="media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" style="max-width: 60%"></p>
+
+        <p>&nbsp;</p>
+
+        <p>
+            For alle meldinger vil det være et sett med data som kun er relatert til
+            meldingen og innsending av denne.
+            I disse data inngår informasjon om tollrepresentant og
+            identifikasjon av melding (referanser til selve meldingen).
+            Se avsnittet <a href="#koblingAvMeldinger">Kobling av meldinger</a> for en detaljert beskrivelse.
+        </p>
+        <p>
+            Tabellene under gir en oversikt over sentrale dataelementer knyttet til transport og forsendelser.
+            De detaljerte informasjonsmodellene for transport, hovedforsendelser og forsendelser er publisert
+            i <a href="#Grensesnittbeskrivelse">API-definisjonene</a>.
+        </p>
+
+        <h3 id="datatransp">Dataelementer knyttet til transport</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Dataelement</th>
+                <th scope="col" class="center">Obligatorisk</th>
+                <th scope="col" class="center">Betinget</th>
+                <th scope="col" class="center">Frivillig</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <th scope="row">Transportør</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Aktivt transportmiddel</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Fører</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Tollsted / tid for ankomst</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="datahoved">Dataelementer knyttet til hovedforsendelse</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Dataelement</th>
+                <th scope="col" class="center">Obligatorisk</th>
+                <th scope="col" class="center">Betinget</th>
+                <th scope="col" class="center">Frivillig</th>
+            </tr>
+            </thead>
+            <tbody>
+             <tr>
+               <th scope="row">Avsender</th>
+               <td class="center">X</td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <th scope="row">Mottaker</th>
+               <td class="center">X</td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <th scope="row">Fraktbrev</th>
+               <td class="center">X</td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <th scope="row">Bruttovekt</th>
+               <td class="center">X</td>
+               <td></td>
+               <td></td>
+             </tr>
+             <tr>
+               <th scope="row">Transportutstyr</th>
+               <td></td>
+               <td class="center">X</td>
+               <td></td>
+             </tr>
+             <tr>
+               <th scope="row">Lastested</th>
+               <td></td>
+               <td></td>
+               <td class="center">X</td>
+             </tr>
+             <tr>
+               <th scope="row">Lossested</th>
+               <td></td>
+               <td></td>
+               <td class="center">X</td>
+             </tr>
+            </tbody>
+        </table>
+
+        <h3 id="dataforsend">Dataelementer knyttet til forsendelse</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Dataelement</th>
+                <th scope="col" class="center">Obligatorisk</th>
+                <th scope="col" class="center">Betinget</th>
+                <th scope="col" class="center">Frivillig</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">Avsender</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Mottaker</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Fraktbrev</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Relevante dokumenter</th>
+              <td></td>
+              <td class="center">X</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Bruttovekt</th>
+              <td class="center">X</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Transportutstyr</th>
+              <td></td>
+              <td class="center">X</td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">Lastested</th>
+              <td></td>
+              <td></td>
+              <td class="center">X</td>
+            </tr>
+            <tr>
+              <th scope="row">Lossested</th>
+              <td></td>
+              <td></td>
+              <td class="center">X</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h3 id="datavoec">Dataelementer knyttet til vare (sendes inn som en del av forsendelse) &ndash; kun for VOEC</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Dataelement</th>
+                <th scope="col" class="center">Obligatorisk<br/>ved VOEC</th>
+                <th scope="col" class="center">Betinget</th>
+                <th scope="col" class="center">Frivillig</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <th scope="row">Fakturert verdi</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Varenummer</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">Antall kolli</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th scope="row">VOEC-nummer</th>
+                  <td class="center">X</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="mldtransport">Melding om transport</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Område</th>
+                <th scope="col">Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    Melde transport
+                  </td>
+                  <td>
+                    Informasjon om transport og referanse til alle
+                    forsendelsene om bord i transporten
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Ansvarlig for informasjonen
+                  </td>
+                  <td>
+                    Fører av transport, i henhold til vareførselsloven § 2-3
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Avgiver av informasjon
+                  </td>
+                  <td>
+                    Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mottaker av informasjon
+                  </td>
+                  <td>
+                    Tolletaten
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Er informasjon obligatorisk?
+                  </td>
+                  <td>
+                    Ja
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes informasjon hos Tolletaten?
+                  </td>
+                  <td>
+                    Så tidlig som mulig, dog senest ved ankomst til grensen
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes oppdatering av informasjonen?
+                  </td>
+                  <td>
+                    Informasjon må oppdateres når viktige deler av informasjonen endres.
+                    Typisk ved endring av kjennemerker, fører, tid/sted for grensepassering, ved
+                    endringer i listen av hovedforsendelser
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Frist for innsending
+                  </td>
+                  <td>
+                    Senest ved grensepassering
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Viktige informasjonselementer
+                  </td>
+                  <td>
+                    <p>Kjennemerke(r) på transportmiddel og/eller rutenummer for rutegående
+                      trafikk (for eksempel rutefly)</p>
+                    <p>Informasjon om fører</p>
+                    <p>Tid/sted for grensepassering</p>
+                    <p>Referansenummer/fraktbrevnummer for alle hovedforsendelser (Master
+                      Consignment) og/eller forsendelser (House Consignment) som skal være med transporten</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Spesielt om oppdatering av melding om transport
+                  </td>
+                  <td>
+                    Ved oppdatering og kansellering er MRN mottatt i
+                    opprinnelig melding den nøkkelen som skal brukes for å identifisere riktig
+                    transport
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <h3 id="masterConsignment">Melding om hovedforsendelse (Master Consignment)</h3>
+        <p>Oppsummering av innhold</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Område</th>
+                <th scope="col">Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    Melde hovedforsendelse
+                  </td>
+                  <td>
+                    Informasjon om hovedforsendelse
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Ansvarlig for informasjonen
+                  </td>
+                  <td>
+                    Fører av transport, i henhold til vareførselsloven § 2-3
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Avgiver av informasjon
+                  </td>
+                  <td>
+                    Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mottaker av informasjon
+                  </td>
+                  <td>
+                    Tolletaten
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Er informasjon obligatorisk?
+                  </td>
+                  <td>
+                    Ja
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes informasjon hos Tolletaten?
+                  </td>
+                  <td>
+                    Så tidlig som mulig, dog senest ved grensepassering for
+                    transport
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes oppdatering av informasjonen?
+                  </td>
+                  <td>
+                    Informasjon må oppdateres når viktige deler av informasjonen endres
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Frist for innsending
+                  </td>
+                  <td>
+                    Senest ved grensepassering
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Viktige informasjonselementer
+                  </td>
+                  <td>
+                    <p>Mottaker og avsender</p>
+                    <p>Laste- og lossested</p>
+                    <p>Fraktbrevnummer til hovedforsendelse</p>
+                    <p>Referansenummer til alle postsekker (kun for post-operatører)</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Spesielt om oppdatering av melding om hovedforsendelse
+                  </td>
+                  <td>
+                    Ved oppdatering og kansellering er MRN mottatt i
+                    opprinnelig melding den nøkkelen som skal brukes for å identifisere riktig
+                    hovedforsendelse
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="houseConsignment">Melding om forsendelse (House Consignment)</h3>
+        <p>Oppsummering av innhold</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Område</th>
+                <th scope="col">Beskrivelse</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    Melde forsendelse
+                  </td>
+                  <td>
+                    Informasjon om forsendelse.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Ansvarlig for informasjonen
+                  </td>
+                  <td>
+                    Fører av transport, i henhold til vareførselsloven § 2-3
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Avgiver av informasjon
+                  </td>
+                  <td>
+                    Speditør/Transportør/Vareeier/Fullmektig
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Mottaker av informasjon
+                  </td>
+                  <td>
+                    Tolletaten
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Er informasjon obligatorisk?
+                  </td>
+                  <td>
+                    Ja
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes informasjon hos Tolletaten?
+                  </td>
+                  <td>
+                    Så tidlig som mulig, dog senest ved ankomst til grensen
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Når ønskes oppdatering av informasjonen?
+                  </td>
+                  <td>
+                    Informasjon ønskes oppdatert når viktige deler av informasjonen endres
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Frist for innsending
+                  </td>
+                  <td>
+                    Senest ved grensepassering
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Viktige informasjonselementer
+                  </td>
+                  <td>
+                    <p>Fraktbrevnummer til forsendelsen (sporingsnummer)</p>
+                    <p>Referanse til valgt tollprosedyre der det er aktuelt</p>
+                    <p>Referanse til import og eksport deklarasjoner</p>
+                    <p>Referanse til NCTS transittering(er)</p>
+                    <p>Grov varebeskrivelse/vekt</p>
+                    <p>Avsender</p>
+                    <p>Mottaker</p>
+                    <p>Referanse til transportør</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    Spesielt om oppdatering av melding om forsendelse
+                  </td>
+                  <td>
+                    Ved oppdatering og kansellering er MRN mottatt i
+                    opprinnelig melding nøkkelen som skal brukes for å identifisere riktig
+                    forsendelse.
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="detaljerteDatakrav">Detaljerte datakrav for alle meldingstyper</h3>
+        <p>
+          Her kan du laste ned en komplett oversikt:<br/>
+          <a href="mo-datakrav.xlsx"><img src="media/excel.png"
+          alt="Excel file containing detailed data
+          requirements"/>MO-datakrav</a>
+        </p>
+
+        <h3 id="utfyllingForsend">Valg av tollprosedyre og utfylling av foregående prosedyre i melding om forsendelse</h3>
+
+        <p>Tabellene under gir en fullstendig oversikt over hvordan man skal
+        fylle ut melding om forsendelse ut fra hvilken tollprosedyre man ønsker
+        å benytte i forbindelse med at varene krysser grensen.</p>
+
+        <p>De gir også en forklaring til hvordan man skal angi prosedyre fram til
+        grensen når det er nødvendig. Generelt gjelder at dersom grensekryssingen skjer
+        på landevei fra Sverige er det nødvendig å oppgi prosedyre fram til
+        grensen, ellers ikke.</p>
+
+        <h4>IMMEDIATE_RELEASE_IMPORT</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+           før ferge til Larvik)</p>
+           </td>
+           <td>
+           <p>Det er på forhånd levert deklarasjon for overgang til fri
+           disponering.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td colspan='2'>
+           <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter der denne kombinasjonen er gyldig</strong></td>
+            <td>Fly, tog, bil på ferge</td>
+            <td>Bil på vei</td>
+            <td colspan='2'>Tog, bil på vei, bil på ferge</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 1</th>
+           <th>Variant 2</th>
+           <th colspan='2'>Variant 3</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td colspan='2' style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          </td>
+          <td colspan='2'>
+          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td colspan='2'>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td colspan='2'>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5'>&nbsp;</td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>&nbsp;</td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td colspan='2' style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
+          INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td colspan='2' style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Transittering er startet opp i annet land. Fullføring av transitteringen
+           skal utføres ved lossing. Ved grensepassering skal det kun registreres
+           grensepassering i NCTS</p>
+           </td>
+           <td>
+           <p>Transittering skal startes opp på grensen.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på vei/ferge, tog</td>
+            <td>Bil på vei</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 4</th>
+           <th>Variant 5</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>TRANSIT_IMPORT</p>
+          </td>
+          <td>
+          <p>TRANSIT_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+          <td>
+          <p>må være = RETR</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>IMMEDIATE_RELEASE_VOEC</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>VOEC-forsendelser.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under
+           verdigrensen for krav om eksport.</p>
+           </td>
+           <td>
+           <p>VOEC-forsendelse.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td>
+           <p>VOEC-forsendelse.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på vei/ferge, tog, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 6</th>
+           <th>Variant 7</th>
+           <th>Variant 8</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_VOEC</p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_VOEC</p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_VOEC</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p><strong>goodsItem</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p><strong>itemAmountInvoicedVOEC</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p>value</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p>numberOfItems</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p><strong>commodityCodeVOEC</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p>harmonizedSystemSubheadingCode</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p><strong>additionalFiscalReferences</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FFF2CC;'>
+          <p>vatIdentificationNumber</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>WAREHOUSE_RELEASE</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+           før ferge til Larvik)</p>
+           </td>
+           <td>
+           <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td colspan='2'>
+           <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+           <td>
+             <p>Forsendelse som skal godsregistreres ved grensepassering</p>
+             <p>Eksport er foregående prosedyre og skal klareres ved grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td colspan='2'>Bil på vei/ferge, tog</td>
+            <td>Bil på vei</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 9</th>
+           <th>Variant 10</th>
+           <th colspan='2'>Variant 11</th>
+           <th>Variant 18</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td colspan='2' style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>WAREHOUSE_RELEASE</p>
+          </td>
+          <td>
+          <p>WAREHOUSE_RELEASE</p>
+          </td>
+          <td colspan='2'>
+          <p>WAREHOUSE_RELEASE</p>
+          </td>
+          <td>
+          <p>WAREHOUSE_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td colspan='2'>
+          <p>TRA</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td colspan='2'>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>liste må ha ett innslag
+          av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = CUDE</p>
+          </td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+          <td>
+          <p>må være = GONU</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td colspan='2' style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td colspan='2' style='background:#D5DCE4;'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>COLLECTIVE_RELEASE</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+           før ferge til Larvik)</p>
+           </td>
+           <td>
+           <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td>
+           <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 12</th>
+           <th>Variant 13</th>
+           <th>Variant 14</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>COLLECTIVE_RELEASE</p>
+          </td>
+          <td>
+          <p>COLLECTIVE_RELEASE</p>
+          </td>
+          <td>
+          <p>COLLECTIVE_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'></td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+           til grensen</strong></p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+           før ferge til Larvik)</p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+           grensepassering</p>
+           </td>
+           <td>
+           <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+           <p>Transittering er foregående prosedyre og skal fullføres ved
+           grensepassering.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+            <td>Bil på ferge, fly</td>
+            <td>Bil på vei</td>
+            <td>Bil på vei/ferge, tog</td>
+          </tr>
+          <tr>
+           <th>Felt</th>
+           <th>Kodeverk</th>
+           <th>Variant 15</th>
+           <th>Variant 16</th>
+           <th>Variant 17</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>må fylles ut</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+          <td>
+          <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>EXP</p>
+          </td>
+          <td>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+          <td>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'></td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>OG liste må ha ett
+          innslag av type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk.html#cl228">CL228</a>, <a
+          href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>må være = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td></td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'></td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>liste må ha MINST ett
+          innslag av type:</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;må ha verdi&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Mulige
+          valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+          at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p><a
+          href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td style='background:#D5DCE4;'></td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+          </td>
+          <td style='background:#D5DCE4;'>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <h3 id="hvordanSende">Hvordan sender man inn meldinger om transport, hovedforsendelse og forsendelse</h3>
+
+        <h4 id="sekvens">Sekvens for innsending av meldinger (POST)</h4>
+        <p>
+            Generelt fungerer innsending av informasjon slik at aktøren
+            sender inn en melding (POST) og mottar en referanse
+            (requestId). Ved å bruke den mottatte referansen kan aktøren
+            spørre (GET) om resultat av innsendingen og ved suksess
+            motta en permanent referanse til meldingen, utstedt av
+            Tolletaten. Dette gjøres på et eget endepunkt
+            (<code>/validation-status</code>) i spørre-API-et (query
+            API) linket til lengre nede på denne siden. Disse tjenestene
+            er asynkrone og man må derfor spørre inntil man får
+            svar. Valideringsrespons vil vanligvis være tilgjengelig i
+            løpet 1 til 2 sekunder, men det kan ta lenger tid i
+            enkelttilfeller. Spørring gjøres
+            på <code>/validation-status</code>-endepunktet, som vil
+            returnere MRN ved suksess og en liste med valideringsfeil
+            hvis de finnes.<br/>
+            Den permanente referansen blir kalt et Master Reference
+            Number, forkortet MRN. MRN brukes når meldinger skal
+            oppdateres eller kanselleres (put/delete) for å referere til
+            tidligere innsendte meldinger.<br/>
+            Valideringsendepunktet vil også kunne returnere en liste med
+            dokumentstatuser for å indikere manglende opplysninger, se
+            tabellene over.
+        </p>
+        <p>
+          Anbefalt metode for innsending er at aktøren sender inn alle
+          meldinger for oppretting (POST) som er aktuelle, og så venter
+          1-2 sekunder før spørring om validering (query API).<br/>
+          For eksempel: om man har 500 forsendelser for en
+          hovedforsendelse på en transport, så sender man inn (POST)
+          alle 500 meldingene om forsendelse, venter et par sekunder,
+          ber om validering og får tilbake MRN og status for alle de 500
+          meldingene.<br/>
+          Dersom man får status 404 ved kall til valideringsendepunktet må man
+          vente litt og spørre igjen. Det anbefales å lage en algoritme
+          som gjør gjentatte forsøk, inntil valideringsrespons mottas.
+        </p>
+        <p>
+          Se API-dokumentasjon <a href="#Grensesnittbeskrivelse">lenket til under</a> for detaljer om endepunktene.
+        </p>
+
+        <h4 id="koblingAvMeldinger">Kobling av meldinger</h4>
+        <p>Generelt kobles meldingene i melde- og opplysning gjennom nøkler som oppgis av innsender.</p>
+
+        <h5>Kobling mellom transport og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om hovedforsendelser.
+            I den listen oppgis nøkkelen til en hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme i melding om hovedforsendelse
+            (<code>carrier.IdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h5>
+        <p>
+            Melding om transport inneholder en liste av nøkler til melding om forsendelser.
+            I den listen oppgis nøkkelen til en melding om forsendelse, som består av fraktbrevnummer
+            (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>tranportLevel.carrierIdentificationNumber</code>)
+            og melding om transport (<code>carrier.IdentificationNumber</code>).<br/>
+            I melding om forsendelse må et flagg settes for at dette er en forsendelse som kobles direkte
+            til en transport: <code>"directConsignment": true</code>.
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til melding om hovedforsendelse.
+            I den referansen oppgis nøkkelen til en melding om hovedforsendelse, som består av hovedfraktbrevnummer
+            (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
+            For at koblingen skal bli korrekt må transportørens identifikator være den samme
+            i melding om forsendelse (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+            og melding om hovedforsendelse (<code>carrier.IdentificationNumber</code>).
+        </p>
+
+        <h5>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h5>
+        <p>
+            Melding om forsendelse inneholder en nøkkelreferanse til en postbeholder (receptacle).
+            I den referansen i melding om forsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).<br/>
+            Melding om hovedforsendelse inneholder en liste med nøkkelreferanser til postbeholdere.
+            I disse referansene i melding om hovedforsendelse oppgis nøkkelen til en postbeholder
+            (<code>receptacleIdentificationNumber</code>).
+        </p>
+
+        <h4 id="valideringMeldinger">Valideringsfeil</h4>
+        <p>
+          Se <a href="mo-valideringsfeil.html">denne siden</a> for
+          oversikt over de vanligste valderingsfeilene man kan få med
+          mulige årsaker / korreksjoner for disse.
+        </p>
+
+        <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
+
+        <p>
+          På samme måte som for innsending (POST), skal man ved
+          oppdatering (PUT) sende inn melding og motta en referanse
+          (requestid), for så å spørre om validering. PUT er en
+          fullstendig erstatning av tidligere innsending og må referere
+          til mottatt MRN for meldingen som nøkkel. I tillegg til å
+          måtte referere til MRN, må nøkkelinformasjon for meldingen
+          være uendret ved oppdatering:
+        </p>
+        <ul>
+          <li>
+            For <strong>transport</strong> kan <em>ikke</em> identifikatoren
+            (kjennemerke og registreringsnummer: <code>identificationNumber +
+            typeOfIdentification</code>), rutenummer
+            (<code>conveyanceReferenceNumber</code>) (kun fly) og
+            opprinnelig ankomsttid
+            (<code>scheduledDateAndTimeOfArrival</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>hovedforsendelse</strong> (master consignment)
+            kan <em>ikke</em> hovedfraktbrevnummer (<code>documentNumber
+            + type</code>) og transportøridentifikator
+            (<code>carrierId</code>) oppdateres.
+          </li>
+          <li>
+            For <strong>forsendelse</strong> (house consignment)
+            kan <em>ikke</em> fraktbrevnummer (<code>documentNumber +
+            type</code>) oppdateres.
+          </li>
+        </ul>
+        <p>
+          Ellers følger oppdatering (PUT) samme mønster som innsending
+          (POST). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
+        </p>
+
+        <h4 id="sletteMeldingDelete">Sletting/kansellering av melding (DELETE)</h4>
+        <p>
+          På samme måte som for innsending (POST) og oppdatering (PUT),
+          skal man ved sletting (DELETE) sende inn melding og motta en
+          referanse (requestid), for så å spørre om validering. DELETE
+          kansellerer tidligere innsendt melding og må referere til
+          mottatt MRN for meldingen som nøkkel. Ellers følger sletting
+          (DELETE) samme mønster som innsending (POST) og oppdatering
+          (PUT). Se API-dokumentasjon lenket til under for detaljer om
+          endepunktene.
+        </p>
+
+        <h4 id="autoKansellering">Automatisk kansellering av meldinger</h4>
+        <p>
+          Meldinger om transport blir automatisk kansellert 72 timer
+          etter estimert ankomst dersom ankomst ikke er registrert.
+          Meldinger om hovedforsendelse / forsendelse som ikke er koblet
+          til en transport vil bli kansellert 30 dager etter siste
+          oppdatering av meldingen.
+        </p>
+
+        <h3 id="kontrolldir">Fremlegging og kontrolldirigering</h3>
+
+        <p>
+           Fremlegging og kontrolldirigering består av to API-er:
+        </p>
+        <ol>
+            <li>Fremlegging (<a href="#movement-presentation-api">movement-presentation-api</a>)</li>
+            <li>Kontrolldirigering (<a href="#movement-routing-api">movement-routing-api</a>)</li>
+        </ol>
+        <p>
+           Begge API-ene dekkes av scopet <code>toll:movement/entry</code>.
+        </p>
+
+        <p>
+           Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
+           grensepassering. Dersom automatisk ankomst blir detektert vil
+           Tolletaten gjennomføre en automatisk digital fremlegging av
+           alle forventede forsendelser på den ankommende
+           transport.<br/>
+           Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt
+           API for de forventede forsendelsene. Aktører som er koblet
+           til de fremlagte forsendelser vil kunne hente ut
+           kontrolldirigering på API (<a href="#movement-routing-api">movement-routing-api</a>).
+           De aktører som automatisk er slik
+           koblet er den aktøren som sendte inn informasjon om
+           forsendelsen i Tolletatens API (autentisert i Maskinporten)
+           og eventuell tollrepresentant nevnt i melding om forsendelse,
+           hovedforsendelse eller transport.
+        </p>
+        <p>
+          Les mer om <a href="mo-vei-fly-forklaring.html">
+            fremlegging og kontrolldirigering her</a> (med eksempler).
+        </p>
+
+        <h4 id="tjenestefremlegging">Tjeneste for fremlegging</h4>
+
+        <p>
+           Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
+           (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
+           Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
+           og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
+           i ICS2-løsningen</strong>.
+           <br/>
+           Fremlegging (<a href="#movement-presentation-api">movement-presentation-api</a>)
+           kan meldes for
+           forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
+           si de forsendelser som er forventet fremlagt.
+        </p>
+
+        <p>
+           Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
+           eller en postsekk innsendt for melde og opplysningsplikten.
+           Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
+           under denne bli fremlagt.
+           En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
+           koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
+           kontrolldirigeringer for de samme forsendelsene.
+        </p>
+
+        <p>
+           For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
+           forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
+           Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
+           enkeltsendingene under denne bli fremlagt.
+        </p>
+
+        <h4 id="kontrollrespons">Dirigering (routing) for forsendelser</h4>
+
+        <p>
+          Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
+          skal bruke tjenesten for kontrolldirigering (<a href="#movement-routing-api">movement-routing-api</a>).
+          Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene som skal fysisk kontrolleres.
+          Disse sendingene skal snarest overleveres avtalt kontrollsted.
+          Når en aktør ber om dirigering gjennom å bruke denne tjenesten vil Tolletaten svare med én dirigering
+          per forsendelse (House Consignment).
+        </p>
+        <p>
+          Dersom forsendelsen er meldt inn gjennom forhåndsvarsling (ICS2), det vil si gods fra tredjeland
+           (utenfor EUs sikkerhetssone), vil det medfølge informasjon om ENS MRN og postsekker (receptacle)
+           dere det er relevant.
+           Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse dataelementene være tomme.
+        </p>
+
+        <h5>Hvem kan be om dirigering?</h5>
+
+        <p>
+          Næringslivsaktørene som har vært involvert i innsendingen av meldinger
+          knyttet til forsendelsen kan da be om å få en liste med dirigeringer for alle
+          forsendelser som de er involvert part i.
+        </p>
+
+        <ul>
+          <li>
+            Den som har sendt inn eller er nevnt som tollrepresentant
+             for transport kan få dirigering for alle forsendelser meldt på transporten
+            (fører, i praksis transportør, er juridisk ansvarlig)
+          </li>
+          <li>
+            Den som har sendt inn eller er nevnt som
+             tollrepresentant for hovedforsendelse (master consignment) kan få
+            dirigering for alle forsendelser meldt for hovedforsendelsen
+          </li>
+          <li>
+            Den som har sendt inn, er nevnt som tollrepresentant for,
+             eller har fremlagt digitalt forsendelse (house consignment), kan få
+            dirigering for forsendelsen
+          </li>
+        </ul>
+
+        <h5>Hvordan får man dirigering?</h5>
+
+        <p>
+          Når næringslivet ber om å få dirigeringssignal for aktuelle forsendelser,
+          skjer dette gjennom et kall til et grensesnitt (API) hos Tolletaten
+          (<a href="movement-routing-api.html">Movement routing API</a>).
+          Dette grensesnittet er uavhengig av transportmåte og vil gi dirigeringer for
+          alle forsendelser som er meldt på alle transporter som har ankommet tollområdet
+          og som er under behandling eller ferdig behandlet hos Tolletaten.<br/>
+          Næringslivsaktøren som skal benytte dette grensesnittet må
+          <a href="maskinporten.html">identifisere seg via Maskinporten</a>.
+          Det er organisasjonsnummeret til næringslivsaktøren som bestemmer hvilke
+          dirigeringer som gjøres tilgjengelige ved et kall.
+        </p>
+
+        <p>
+          URL-en til routing for forsendelse er:
+        </p>
+        <dl>
+          <dt>PLAYGROUND</dt>
+          <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+              https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
+          </dd>
+          <dt>PROD</dt>
+          <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+              https://api.toll.no/api/movement/routing/v1/house-consignment</a>
+          </dd>
+        </dl>
+
+        <h5>Inngangsparameter for bruk av API</h5>
+
+        <p>
+          Grensesnittets (API) inngangsparameter består av en markør, definert som:
+        </p>
+        <pre>marker string($uuid)</pre>
+
+        <p>
+          Denne markøren bestemmer fra hvilket sted i listen (av dirigeringer som
+          finnes for næringslivsaktøren) responsen skal begynne fra. Responsen fra
+          grensesnittet vil da levere en liste med dirigeringer fra og med det stedet
+          markøren viser og de som er nyere. Grensesnittet vil vise maksimalt 1000
+          dirigeringer per kall. Ved flere dirigeringer må grensesnittet kalles
+          flere ganger. Første gang man kaller API-et skal det kalles uten markør (for å
+          begynne på begynnelsen), deretter skal alltid markør brukes.
+        </p>
+
+        <h5>Respons (API)</h5>
+
+        <p>
+          Responsen i grensesnittet består av dataelementer som identifiserer
+          forsendelsen, et dirigeringssignal og en identifikator. Identifikatoren
+          fra den sist hentede dirigeringen er det som benyttes som markør for neste kall
+          på grensesnittet.
+        </p>
+
+        <h5>Identifiserende dataelementer</h5>
+
+        <p>
+          De viktigste identifiserende dataelementene for forsendelsen er:
+        </p>
+
+        <dl>
+          <dt><code>referenceNumber</code></dt>
+          <dd>Dette referer til det transportdokumentnummeret som er innsendt som
+            identifikator for forsendelsen. Typisk kalt fraktbrevnummer, kollinummer
+            eller sporingsnummer.
+          </dd>
+          <dt><code>type</code></dt>
+          <dd>
+            Hvilken type transportdokumentnummer som er benyttet (se
+            <a href="mo-kodeverk.html#cl754">kodeverk CL754</a>)
+          </dd>
+        </dl>
+
+        <p>
+          I tillegg kan det returneres to andre identifiserende dataelementer,
+          avhengig av hvilken innsending som er gjort:
+        </p>
+
+        <dl>
+          <dt><code>entrySummaryDeclarationMRN</code></dt>
+          <dd>MRN for innsendt forhåndsvarsel i ICS2</dd>
+          <dt><code>receptacleId</code></dt>
+          <dd>
+            Identifikator for receptacle (&quot;postsekk&quot;) dersom forsendelsen
+            er innmeldt som post
+          </dd>
+        </dl>
+
+        <h4>Dirigeringssignal</h4>
+
+        <p>
+          For en forsendelse vil det gis et dirigeringssignal:
+        </p>
+        <pre>routing</pre>
+        <p>
+          og om eventuell videre behandling skal skje på eller etter
+          grensepasseringssted:
+        </p>
+        <pre>routingControlLocation</pre>
+        <p>
+          sammen med identifikator som beskrevet over.
+        </p>
+
+        <p>
+          Dirigeringssignalet (<strong>routing</strong>) vil kunne ha følgende
+          verdier:
+        </p>
+        <dl>
+          <dt><strong>TO_ENTRY</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er gitt overgang til neste tollprosedyre.
+            Det kan for eksempel være til fri disponering eller innlegg på
+            tollager.
+          </dd>
+          <dt><strong>TO_CONTROL</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er tatt ut til fysisk kontroll av
+            Tolletaten, og skal overleveres for kontroll så snart som mulig.
+          </dd>
+          <dt><strong>ENTRY_PENDING</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen har mangler som er nødvendig for
+            overgang til neste tollprosedyre.<br/>
+            Den ansvarlige næringslivsaktøren må straks sørge for å rette de avvik som
+            finnes, slik at ny dirigering kan gis. Forsendelsen kan ikke gis ut til
+            mottaker.
+          </dd>
+          <dt><strong>ENTRY_DENIED</strong></dt>
+          <dd>
+            Denne koden betyr at forsendelsen er beslaglagt av Tolletaten og
+            ikke vil bli utlevert.
+          </dd>
+        </dl>
+
+        <p>
+          Dataelementet <code>routingControlLocation</code>
+          angir hvor videre behandling av forsendelsen skal utføres.
+          Dette elementet angir om forsendelsen må behandles på grensepasseringsstedet,
+          eller om forsendelsen tillates å fraktes til et annet sted for behandling.
+        </p>
+
+        <p>
+          Dersom forsendelsen har dirigeringssignal som innebærer videre behandling,
+          det vil si <strong>TO_CONTROL </strong>eller <strong>ENTRY_PENDING</strong>,
+          vil <code>routingControlLocation </code>angi om
+          denne behandlingen skal foregå på grensepasseringsstedet eller om forsendelsen
+          kan fraktes til et annet sted (for eksempel aktørens sorteringsanlegg) for
+          behandling.
+        </p>
+
+        <p>
+          Hvor videre behandling av forsendelsen skal utføres
+          (<code>routingControlLocation</code>) vil kunne ha følgende verdier:
+        </p>
+        <dl>
+          <dt><strong>ON_ENTRY</strong></dt>
+          <dd>
+            Behandling av forsendelsen må foregå på grensepasseringsstedet. Dette
+            kan være på et tollsted (på vei) eller på dertil egnet sted på en flyplass
+            (bakketjenesteselskap), i en havn (havneagent) eller jernbaneterminal
+            (togoperatør).
+          </dd>
+          <dt><strong>AFTER_ENTRY</strong></dt>
+          <dd>
+            Behandling av forsendelsen kan foregå på et sted etter grensepassering,
+            typisk i aktørens lokaler. Eksempel på dette kan være aktørens
+            sorteringsanlegg.
+          </dd>
+        </dl>
+
+        <p>
+          Dersom en forsendelse skulle få dirigeringssignaler flere ganger, er
+          det det <em>siste</em> dirigeringssignalet som gjelder. For eksempel
+          er det mulig for en forsendelse å først
+          få <strong>ENTRY_PENDING </strong>for i neste omgang å
+          få <strong>TO_CONTROL</strong>. Dersom en forsendelse man har meldt
+          ikke får dirigeringssignal når man forventer, betyr det som regel at
+          Tolletaten ikke har hatt tilstrekkelig tid til å behandle meldingen om
+          forsendelse. Aktøren må da holde tilbake forsendelsene til man får et
+          dirigeringssignal for den.
+        </p>
+
+
+        <h2 id="kodeverk">Kodeverk</h2>
+        <p>
+            En oversikt over de ulike kodeverkene meldingsinnholdet valideres mot er å
+            finne på <a href="mo-kodeverk.html">en egen
+            side</a>. I skjemaene på API-ene vil det være angitt hvilke kodeverk datafeltene
+            blir validert mot.
+        </p>
+
+        <h2 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h2>
+        <p>
+            Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
+        </p>
+        <p class="tips_box">
+          Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
+          vi deg ta kontakt; <a href="https://toll.no/.well-known/security.txt">se
+          her for info</a>.
+        </p>
+        <pre class="boxed">
+POST https://&lt;env&gt;/api/movement/road/v2/transport
+POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
+POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
+
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
+        </pre>
+        <p>
+           der &lt;env&gt; er
+  </p>
+        <ul>
+           <li>api.toll.no for produksjon</li>
+           <li><b>api-test</b>.toll.no for playground (testmiljø)</li>
+         </ul>
+   <p>
+      og<br/>
+      <em>{requestId}</em> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall<br/>
+            <em>{MRN}</em> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+         </p>
+
+        <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-road-api-v2.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-road-query-api-v2.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>Se <strong><a href="movement-presentation-api.html">API-dokumentasjon her</a></strong>.</p>
+
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
+        <p>
+            API-et for kontrolldirigering fungerer ved at det kontinuerlig publiseres dirigeringssignal for
+            forsendelser som er fremlagt.
+            Som regel vil fremleggingen skje automatisk ved ankomst av transportmiddel, men kan også bli
+            trigget av kall til API for fremlegging (<a href="#movement-presentation-api">movement-presentation-api</a>).
+        </p>
+        <ul>
+            <li>
+                Hvert kall til API-et returnerer en liste med opptil 1000 dirigeringssignal
+                som er tilgjengelige for den organisasjonen som har autentisert seg med
+                Maskinporten.
+            </li>
+            <li>
+                Parameter <code>marker</code> brukes for å si hvilket dirigeringssignal du leste sist.
+            </li>
+            <li>
+                <em>Aller første gang</em> du kaller API-et skal du <em>ikke</em> sende med noen <code>marker</code>.
+                Du vil da få en liste med de første dirigeringssignalene.
+            </li>
+            <li>
+                Hver gang du har behandlet et sett av dirigeringssignaler  henter du ut verdien
+                til feltet <code>routingResult.id</code> fra det siste dirigeringssignalet i listen og
+                tar vare på dette.<br/>
+                Neste gang du kaller API-et bruker du verdien du tok vare på som <code>marker</code> og vil
+                da få de neste dirigeringssignalene.
+            </li>
+            <li>
+                Fortsett å gjøre dette frem til du får en tom liste.
+                Da er det ingen flere dirigeringssignal tilgjengelig for din organisasjon.
+            </li>
+        </ul>
+        <p>
+            Ta vare på den siste ID-en du leste. For å få dirigeringssignal for forsendelser på neste transport
+            bruker du denne som <code>marker</code>.
+            Da slipper du å lese gjennom alle dirigeringssignalene for den forrige transporten på nytt.
+        </p>
+
+        <h3 id="dokumentinnsending">API: Dokumentinnsending</h3>
+        <p>
+            I tillegg til informasjonen om forsendelse som leveres gjennom movement-API-ene,
+            kan det også sendes inn faktura for forsendelser der det allerede er sendt inn en tolldeklarasjon.
+            Dokumentasjon på dette API-et finner du her:
+            <a href="document-api.html">Dokumentopplastning-API</a>.
+        </p>
+
+        <h2 id="eksempler">Aktuelle eksempler</h2>
+        <p>
+            Vi har laget en kort oversikt over hvordan meldingsinnhold for forsendelser
+            vil kunne se ut basert på hvilken tollprosedyre som benyttes.
+            <a href="mo-eksempler.html">Eksemplene finner du her</a>.<br/>
+            På den samme siden er det informasjon om testdata knyttet til tolldeklarasjoner
+            som kan brukes i forbindelse med test av grensesnittet.
+        </p>
+
+        <h2 id="autentisering">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
+        <p>
+            Våre API-er benytter <i>Maskinporten</i> for identitets- og tilgangsstyring. På
+            siden <strong><a href="maskinporten.html">Maskinporten
+            - Tolletaten</a></strong> finner du informasjon bl.a. om
+        </p>
+        <ul>
+         <li>hvordan du kommer i gang med integrasjon via Maskinporten
+             om du ikke har gjort det før, inkludert registreringsskjema for tilgang
+             hos Tolletaten</li>
+         <li>tilgangsstyring for våre API-er</li>
+         <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+         <li>drift og overvåking/feilsøking.</li>
+        </ul>
+
+        <p>Scopet som benyttes for API-ene er dokumentert på hvert enkelt API.</p>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
