@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maskinporten</title>
+    <meta name="description" content="Norwegian Customs' integration with Maskinporten">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../maskinporten/maskinporten.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main class="maskinporten">
+    <div role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Maskinporten</li>
+            </ol>
+        </nav>
+
+        <div class="about-section">
+            <div class="about-section-text">
+                <h1 id="hva-er-maskinporten">What is Maskinporten?</h1>
+                <p>
+                    Maskinporten and Altinn are national common components developed and operated
+                    by the Norwegian Digitalisation Agency (Digitaliseringsdirektoratet - Digdir).
+                    Together, they aim to facilitate the sharing and utilization of data across
+                    systems. These solutions ensure the verification of the identity of businesses
+                    and provide them with the appropriate access to data offered by public entities
+                    through interfaces.
+                    A prerequisite for using Maskinporten and Altinn is that the organization is
+                    registered in the Norwegian Business Registry (Enhetsregisteret) with a
+                    Norwegian organization number.
+                </p>
+
+                <br/>
+
+                <p>
+                    <strong>Maskinporten</strong> is a solution provided by the Norwegian Digitalisation
+                    Agency (<a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25"
+                               target="_blank">Digdir</a>) for access management for
+                    businesses that exchange data. The solution ensures identity assurance between
+                    organizations and provides authentication for machine-to-machine communication.
+                    It enables the integration of systems and the development of new services in
+                    an efficient manner.
+                </p>
+
+                <br/>
+
+                <p>
+                    In the future: <strong>Altinn (authorization)</strong> will allow for the
+                    delegation of rights to other organizations or individuals. This delegation is
+                    based on registered roles in the Norwegian Business Registry (Enhetsregisteret).
+                    This is not yet implemented.
+                </p>
+
+                <br/>
+
+                <p>
+                    Maskinporten ensures secure authentication and access control for data exchange
+                    between businesses. The solution guarantees the identity between organizations
+                    and enables the integration of systems and development of new services in
+                    an efficient manner.
+                </p>
+            </div>
+
+            <div class="image-size medium-screen-hidden">
+                <img class="image-size" src="../../media/digdir-logo.png" alt="digdir-logo">
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="about-section-text">
+            <h1 id="drift">Operations and monitoring</h1>
+            <p>
+                Maskinporten aims to maintain an uptime of 99.9% and, in case of any
+                deviations, it rarely experiences downtime exceeding 5 minutes.
+                Therefore, we recommend that our clients implement a retry mechanism
+                to <em>try again</em> if messages are rejected without clear error messages.
+            </p>
+            <p>We further recommend monitoring both planned and unplanned operational disruptions:</p>
+            <ul>
+                <li><a href="https://status.digdir.no/history?filter=nthvr1xysxs7" target="_blank">Digdir Status -
+                    History</a> at <a href="https://status.digdir.no/">https://status.digdir.no/</a></li>
+            </ul>
+            <p> It is also possible to verify if Maskinporten is up by using the links below:</p>
+            <ul>
+                <li><p><a href="https://oidc.difi.no/idporten-oidc-provider/health"
+                          class="uri" target="_blank">https://oidc.difi.no/idporten-oidc-provider/health</a></p></li>
+                <li><p><a href="https://maskinporten.no/health"
+                          class="uri" target="_blank">https://maskinporten.no/health</a></p></li>
+            </ul>
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">Maskinporten has
+                also created a troubleshooting page at</a>
+        </div>
+
+        <br/>
+
+        <div class="about-section-text">
+            <h1 id="hva-skal-til-for-a-bruke-maskinporten">What is needed to use Maskinporten?</h1>
+
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">The guide
+                below is in line with Maskinporten's own documentation</a>
+
+            <br/>
+            <br/>
+
+            <a href="https://samarbeid.digdir.no/maskinporten/konsument/119" target="_blank">See also Digdir's guide on
+                how to get started with Maskinporten:</a>
+
+            <h2 id="orgnummer">Prerequisite: Norwegian organization number</h2>
+            <p>
+                It is a prerequisite for using Maskinporten that you are registered in the
+                Norwegian Central Coordinating Register of Legal Entities (Enhetsregisteret)
+                with a Norwegian organization number.
+            </p>
+
+            <br/>
+
+            <h3 id="anskaffe-virksomhetssertifikat">1. Acquire a company certificate for testing and production
+                purpose</h3>
+            <p>
+                Digdir will validate your signature against your organization's certificate
+                issued by a recognized certificate provider. Find more documentation on this process<a
+                    href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat"
+                    target="_blank">at Digdir</a>.
+            </p>
+            <p>
+                Here are some options for acquiring an organization certificate:</p>
+            <ul>
+                <li><p><a
+                        href="https://www.commfides.com/commfides-virksomhetssertifikat/" target="_blank">
+                    https://www.commfides.com/commfides-virksomhetssertifikat/</a>
+                </p></li>
+                <li><p><a
+                        href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl" target="_blank">
+                    https://www.buypass.no/produkter/
+                    virksomhetssertifikat-esegl</a>
+                </p></li>
+            </ul>
+
+            <br/>
+
+            <h3 id="bli-kunde-hos-digdir">2. Become a customer of Digdir for access to the collaboration portal</h3>
+            <p>Contact Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
+
+            <br/>
+
+            <h3 id="bli-api-kunde">3. Register for access with Norwegian Customs</h3>
+            <p>
+                The registration form can be found here: <a target="_blank"
+                                                            href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">Registration:
+                Digitoll-actor - Norwegian Customs</a>
+            </p>
+            <p>Norwegian Customs provides access to the scopes needed for the relevant integration, see
+                <a href="#scopes">overview below</a>.</p>
+
+            <br/>
+
+            <h3 id="lag-en-integrasjon">4. Create an integration with Digdir and connect it to Norwegian Customs' API
+                (scope)</h3>
+            <p>Log in to <a href="https://samarbeid.digdir.no/" target="_blank">Collaboration Portal (digdir.no)</a></p>
+
+            <ul class="spaced-list">
+                <li>Difi-service = Maskinporten</li>
+                <li>Add scopes &ndash; see <a href="#scopes">overview of our scopes below</a></li>
+                <li>
+                    <em>Integration identifier:</em> This is what should be set in the
+                    "iss" field of your JWT sent to Difi (cf.
+                    <a href="#hent-maskinporten-token">section below</a>).
+                </li>
+                <li>
+                    <em>Name of the integration:</em> You are free to choose what
+                    the integration with Norwegian Customs should be called.<br/>
+                    It may be beneficial to give a name that distinguishes between different services and APIs for
+                    Norwegian Customs, as we have several different APIs.
+                </li>
+                <li>
+                    <em>Grant-types:</em>
+                    We currently use <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>,
+                    this may change in the future.
+                </li>
+            </ul>
+        </div>
+
+        <br/>
+
+        <section class="image-border">
+            <h4 id="integrasjon-selvbetjening">4.1 Go to self-service for integrations</h4>
+            <figure>
+                <img class="image-size" src="../media/maskp-selvbetjening.png" alt="Figure: Go to self-service"/>
+                <figcaption>Figure: Go to self-service</figcaption>
+            </figure>
+
+            <figure>
+                <img src="../media/maskp-integrasjoner.png" alt="Figure: Select environment"/>
+                <figcaption>Figure: Select environment</figcaption>
+            </figure>
+
+            <b>
+                <p>
+                    To manage integrations for testing: Select "Integrations" under <i>the heading "Ver
+                    2"</i>
+                </p>
+                <p>
+                    To manage integrations for production: Select "Integrations" under <i>the heading
+                    "Production"</i>
+                </p>
+            </b>
+
+            <h4 id="integrasjon-i-ver2">4.2 Create an integration in the Test environment at Digdir</h4>
+            <figure>
+                <img src="../media/maskp-test.png" alt="Figure: Go to integrations"/>
+                <figcaption>Figure: Go to integrations</figcaption>
+            </figure>
+
+            <h4 id="integrasjon-i-prod">4.3 Create an integration in PRODUCTION at Digdir</h4>
+            <figure>
+                <img src="../media/maskp-prod.png" alt="Figure: Go to integrations"/>
+                <figcaption>Figure: Go to integrations</figcaption>
+            </figure>
+
+            <h4 id="ny-integrasjon">4.4 New integration</h4>
+            <figure>
+                <img src="../media/maskp-nyintegrasjon.png" alt="Figure: Click New integration."/>
+                <figcaption>Figure: Click New integration.</figcaption>
+            </figure>
+            <figure>
+                <img src="../media/maskp-opprettny.png" alt="Figure: Fill in the fields"/>
+                <figcaption>Figure: Fill in the fields</figcaption>
+            </figure>
+
+            <br/>
+        </section>
+
+        <div class="about-section-text">
+            <h3 id="klientintegrasjon">5. Client Integration</h3>
+            <p>
+                API consumers must develop an application/system that retrieves access tokens from Maskinporten and
+                exchanges them for Toll-signed access tokens.
+            </p>
+            <p class="tips_box_normal">
+                <strong>TIPS:</strong><br/>
+                A Toll-signed access token can be used for its entire lifetime, so it is recommended to cache these
+                when communicating with Norwegian Customs' APIs. For a smoother experience, it is further
+                recommended to exchange for a new Toll token before (e.g., 1 minute before) the lifetime of the
+                previous one expires.
+            </p>
+
+            <br/>
+
+            <h3 id="scopes">Our scopes</h3>
+            <p>The scope(s) you should use depend on the services you will use and require assigned access to this
+                scope from Norwegian Customs:</p>
+            <ul class="spaced-list">
+                <li>movement-road-api: <strong>toll:movement/road</strong></li>
+                <li>movement-road-api-v2, movement-road-query-api-v2: <strong>toll:movement/road/v2</strong></li>
+                <li>movement-air-api, movement-air-query-api: <strong>toll:movement/air</strong></li>
+                <li>movement/presentation, movement/routing: <strong>toll:movement/entry</strong></li>
+                <li>Document upload: <strong>toll:goodsdeclaration/document.write</strong></li>
+            </ul>
+
+            <br/>
+
+            <h4 id="hent-maskinporten-token">5.1 Retrieve access token from Maskinporten</h4>
+            <p>See Maskinporten's own <a
+                    href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">documentation</a>
+                on how to retrieve an access token.</p>
+            <p class="tips_box_normal">
+                <strong>TIPS:</strong><br/>
+                Difi has published a <a href="https://github.com/difi/jwt-grant-generator" target="_blank">repository
+                on GitHub (jwt-grant-generator)</a> that demonstrates how to retrieve access tokens from Difi's
+                services, including Maskinporten.
+            </p>
+
+            <br/>
+
+            <h4 id="veksle-token">5.2 Exchange Maskinporten's access token for a Toll-signed access token</h4>
+
+            <h5 id="http-request">HTTP Request</h5>
+            <p>Method: <strong>POST</strong></p>
+            <strong><p>URL:</p></strong>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Environment</th>
+                    <th scope="col">URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Test</td>
+                    <td><a href="https://api-test.toll.no/api/access/external/oauth/token">https://api-test.toll.no/api/access/external/oauth/token</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Production</td>
+                    <td><a href="https://api.toll.no/api/access/external/oauth/token">https://api.toll.no/api/access/external/oauth/token</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <strong><p>HEADER:</p></strong>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Header</th>
+                    <th scope="col">Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Content-type</td>
+                    <td>application/x-www-form-urlencoded</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <strong><p>BODY:</p></strong>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Key</th>
+                    <th scope="col">Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>grant_type</td>
+                    <td>token-exchange</td>
+                </tr>
+                <tr>
+                    <td>subject_token_type</td>
+                    <td>access_token</td>
+                </tr>
+                <tr>
+                    <td>subject_token</td>
+                    <td>&lt;MASKINPORTEN ACCESS TOKEN HERE&gt;</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h5 id="eksempel-http-response">Example: HTTP Response</h5>
+            <p><strong>Maskinporten Access Token - Response</strong></p>
+
+            <pre class="boxed-mobile-display">
+{
+  "issued_token_type": "access_token",
+  "access_token": "&lt;TOLL ACCESS TOKEN HERE&gt;",
+  "token_type": "Bearer",
+  "expires_in": 970
+}
+</pre>
+
+            <pre class="boxed-medium-display">
+    1  {
+    2   "issued_token_type": "access_token",
+    3   "access_token": "&lt;TOLL ACCESS TOKEN HERE&gt;",
+    4   "token_type": "Bearer",
+    5   "expires_in": 970
+    6  }
+    7
+</pre>
+
+            <h4 id="teste-tilgang-til-api">5.3 Test access to the API</h4>
+            <p>This example applies to the road vehicle API.</p>
+
+            <h5 id="http-request-1">HTTP Request</h5>
+            <p>Method: <strong>GET</strong></p>
+            <p>URL:</p>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Environment</th>
+                    <th scope="col">URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Test</td>
+                    <td><a href="https://api-test.toll.no/api/movement/road/v1/test-auth">https://api-test.toll.no/api/movement/road/v1/test-auth</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Production</td>
+                    <td><a href="https://api.toll.no/api/movement/road/v1/test-auth">https://api.toll.no/api/movement/road/v1/test-auth</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>HEADER:</p>
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Header</th>
+                    <th scope="col">Value</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Authorization</td>
+                    <td>Bearer &lt;TOLL ACCESS TOKEN&gt;</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>Expected result is <strong>200 OK</strong>.</p>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2024 | <a
+        href="https://www.toll.no/en/about-norwegian-customs/contact-us/" class="white">Contact us</a>
+</footer>
+
+</body>
+</html>
