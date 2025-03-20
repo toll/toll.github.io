@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Funksjonell beskrivelse av tjenesten</title>
+    <meta name="description" content="Funksjonell beskrivelse av tjenesten">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="funksjonell-beskrivelse-av-tjenesten-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>EN</span>
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main class="funksjonell-beskrivelse">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Funksjonell beskrivelse av tjenesten</li>
+            </ol>
+        </nav>
+
+        <div class="about-section">
+            <div class="about-section-text">
+                <h2 id="funkbesk">Funksjonell beskrivelse av tjenesten</h2>
+                <p>
+                    Tjenesten skal gjøre det mulig for aktører i næringslivet å oppfylle melde-
+                    og opplysningplikten digitalt.
+                    I tillegg legger tjenesten opp til å i størst mulig grad automatisere de steg i
+                    prosessen der det er mulig.
+                </p>
+
+                <p>
+                    Konseptuelt er den delen av tjenesten som er beskrevet her opptatt av å
+                    betjene innsending av opplysninger på en slik måte at det sikrer Tolletatens
+                    behov for risikovurdering og kontroll og samtidig legger til rette for
+                    automatisering av øvrige steg.
+                </p>
+
+                <p>
+                    Tjenesten legger opp til at meldinger om forsendelser, hovedforsendelser og
+                    transport kan sendes inn så tidlig som mulig og uavhengig av hverandre.
+                    Likevel er det viktig å merke seg at senest ved grensepassering må helheten av
+                    informasjon som er sendt inn til Tolletaten tilfredsstille de krav som gjelder
+                    for melde- og opplysningsplikten.<br/>
+                    Det betyr at de forskjellige informasjonselementene må henge sammen, med nøkler
+                    oppgitt av innsenderne, og at de nødvendige referanser er på plass der det
+                    kreves.<br/>
+                    For andre transportmåter enn kjøretøy på vei anses grensepassering å være når
+                    transportmiddelet ankommer sitt bestemmelsessted (for eksempel flyplass, havn eller
+                    jernbaneterminal).
+                </p>
+
+                <p>
+                    Innsender av en melding har mulighet til å
+                    sende inn en melding tidlig, oppdatere meldingen og trekke tilbake meldingen
+                    ved behov (post, put, delete).<br/>
+                    Innsender kan be om status på meldingen (get).
+                </p>
+
+                <p>
+                    Innsender kan sende inn meldinger helt til transport ankommer grensen. Ved
+                    grensepassering må informasjonen som er levert være komplett for transporten,
+                    dens hovedforsendelser og forsendelser.
+                </p>
+            </div>
+
+            <div class="about-section-text">
+                <p>Informasjon kan sendes inn på tre nivåer:</p>
+                <ul>
+                    <li>Transport, som inneholder
+                        <ul>
+                            <li>Hovedforsendelser, som inneholder
+                                <ul>
+                                    <li>Forsendelser</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <figure>
+                    <img style="width: 150%; height: 150%" src="../media/MO-begreper.png" alt="Figur: Illustrasjonen viser på et overordnet nivå hvilken informasjon
+                knyttet til transport og last som skal sendes inn">
+                    <figcaption>Figur: Illustrasjonen viser på et overordnet nivå hvilken informasjon
+                        knyttet til transport og last som skal sendes inn
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Det er også mulig å sende inn transport og forsendelser, uten å sende inn hovedforsendelse.
+                    Transport kobles da til forsendelser.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

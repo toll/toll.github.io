@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Hvordan sende inn ulike deklarsjonsmeldinger</title>
+    <meta name="description" content="Hvordan sende inn ulike deklarsjonsmeldinger">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body class="deklarasjons-meldinger">
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="hvordan-sende-inn-meldinger-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>EN</span>
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="hvordan-sende-inn-meldinger">
+    <div role="main" class="align-self-start">
+        <h1 id="hvordanSende">Transport, hovedforsendelser og forsendelser - hvordan sende inn meldinger</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Transport, hovedforsendelser og forsendelser - hvordan sende inn meldinger</li>
+            </ol>
+        </nav>
+
+        <div class="two-column-section">
+            <div class="about-section-text">
+                <h3 id="sekvens">Sekvens for innsending av meldinger (POST)</h3>
+                <p>
+                    Generelt fungerer innsending av informasjon slik at aktøren
+                    sender inn en melding (POST) og mottar en referanse
+                    (requestId). Ved å bruke den mottatte referansen kan aktøren
+                    spørre (GET) om resultat av innsendingen og ved suksess
+                    motta en permanent referanse til meldingen, utstedt av
+                    Tolletaten.
+                </p>
+
+                <p>
+                    Dette gjøres på et eget endepunkt
+                    (<code>/validation-status</code>) i spørre-API-et (query
+                    API) linket til lengre nede på denne siden. Disse tjenestene
+                    er asynkrone og man må derfor spørre inntil man får
+                    svar.
+                </p>
+                <p>
+                    Valideringsrespons vil vanligvis være tilgjengelig i
+                    løpet 1 til 2 sekunder, men det kan ta lenger tid i
+                    enkelttilfeller. Spørring gjøres
+                    på <code>/validation-status</code>-endepunktet, som vil
+                    returnere MRN ved suksess og en liste med valideringsfeil
+                    hvis de finnes.<br/>
+                    Den permanente referansen blir kalt et Master Reference
+                    Number, forkortet MRN. MRN brukes når meldinger skal
+                    oppdateres eller kanselleres (put/delete) for å referere til
+                    tidligere innsendte meldinger.<br/>
+                    Valideringsendepunktet vil også kunne returnere en liste med
+                    dokumentstatuser for å indikere manglende opplysninger.
+                </p>
+                <p>
+                    Anbefalt metode for innsending er at aktøren sender inn alle
+                    meldinger for oppretting (POST) som er aktuelle, og så venter
+                    1-2 sekunder før spørring om validering (query API) .
+                </p>
+                <p>
+                    For eksempel: om man har 500 forsendelser for en
+                    hovedforsendelse på en transport, så sender man inn (POST)
+                    alle 500 meldingene om forsendelse, venter et par sekunder,
+                    ber om validering og får tilbake MRN og status for alle de 500
+                    meldingene.
+                </p>
+                <p>
+                    Dersom man får status 404 ved kall til valideringsendepunktet må man
+                    vente litt og spørre igjen. Det anbefales å lage en algoritme
+                    som gjør gjentatte forsøk, inntil valideringsrespons mottas.
+                </p>
+                <p>
+                    <a href="melde-og-opplysning.html#utfyllingForsend">Se API-dokumentasjon</a> for detaljer om
+                    endepunktene.
+                </p>
+
+
+                <h3 id="valideringMeldinger">Valideringsfeil</h3>
+                <p>
+                    Se <a href="synkrone-valideringsfeil.html">denne siden</a> for
+                    oversikt over de vanligste valderingsfeilene man kan få med
+                    mulige årsaker / korreksjoner for disse.
+                </p>
+
+                <p>
+                    Dersom en forsendelse skulle få dirigeringssignaler flere ganger, er
+                    det det <em>siste</em> dirigeringssignalet som gjelder. For eksempel
+                    er det mulig for en forsendelse å først
+                    få <strong>ENTRY_PENDING </strong>for i neste omgang å
+                    få <strong>TO_CONTROL</strong>. Dersom en forsendelse man har meldt
+                    ikke får dirigeringssignal når man forventer, betyr det som regel at
+                    Tolletaten ikke har hatt tilstrekkelig tid til å behandle meldingen om
+                    forsendelse. Aktøren må da holde tilbake forsendelsene til man får et
+                    dirigeringssignal for den.
+                </p>
+
+
+                <h3 id="kodeverk">Kodeverk</h3>
+                <p>
+                    En oversikt over de ulike kodeverkene meldingsinnholdet valideres mot er å
+                    finne på <a href="mo-kodeverk.html">en egen
+                    side</a>. I skjemaene på API-ene vil det være angitt hvilke kodeverk datafeltene
+                    blir validert mot.
+                </p>
+
+            </div>
+
+            <div class="about-section-text">
+                <h3 id="dokumentinnsending">API: Dokumentinnsending</h3>
+                <p>
+                    I tillegg til informasjonen om forsendelse som leveres gjennom movement-API-ene,
+                    kan det også sendes inn faktura for forsendelser der det allerede er sendt inn en tolldeklarasjon.
+                    Dokumentasjon på dette API-et finner du her:
+                    <a href="../document/document-api.html">Dokumentopplastning-API</a>.
+                </p>
+
+                <h3 id="eksempler">Aktuelle eksempler</h3>
+                <p>
+                    Vi har laget en kort oversikt over hvordan meldingsinnhold for forsendelser
+                    vil kunne se ut basert på hvilken tollprosedyre som benyttes.
+                    <a href="../mo-eksempel/mo-eksempler.html">Eksemplene finner du her</a>.<br/>
+                    På den samme siden er det informasjon om testdata knyttet til tolldeklarasjoner
+                    som kan brukes i forbindelse med test av grensesnittet.
+                </p>
+
+                <h3 id="autentisering">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h3>
+                <p>
+                    Våre API-er benytter <i>Maskinporten</i> for identitets- og tilgangsstyring. På
+                    siden <strong><a href="../maskinporten/maskinporten.html">Maskinporten
+                    - Tolletaten</a></strong> finner du informasjon bl.a. om
+                </p>
+                <ul class="spaced-list">
+                    <li>hvordan du kommer i gang med integrasjon via Maskinporten
+                        om du ikke har gjort det før, inkludert registreringsskjema for tilgang
+                        hos Tolletaten
+                    </li>
+
+                    <li>tilgangsstyring for våre API-er</li>
+
+                    <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+
+                    <li>drift og overvåking/feilsøking.</li>
+                </ul>
+
+                <p>Scopet som benyttes for API-ene er dokumentert på hvert enkelt API.</p>
+
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <div class="buttons-section">
+            <a href="kobling-oppdatering-og-sletting.html" class="new-page-button">
+                <p>Kobling, oppdatering og sletting av meldinger</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="fremlegging-og-kontrolldirigering.html" class="new-page-button">
+                <p>Fremlegging og kontrolldrirgering</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

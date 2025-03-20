@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentation and Control Routing</title>
+    <meta name="description" content="Input parameters for using the API">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body class="deklarasjons-meldinger">
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="fremlegging-og-kontrolldirigering.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main class="fremlegging-og-kontrolldirigereing">
+    <div class="align-self-start">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Reporting and Information</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger-EN.html">Information and Messages</a></li>
+                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger-EN.html">How to Submit Various Declaration Messages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Presentation and Control Routing</li>
+            </ol>
+        </nav>
+
+        <div class="two-column-section" role="main">
+            <div class="about-section-text">
+                <h1 id="kontrolldir">Presentation and Control Routing</h1>
+                <p>
+                    Presentation and control routing consist of two APIs:
+                </p>
+                <ol>
+                    <li>Presentation (movement-presentation-api)</li>
+                    <li>Control Routing (movement-routing-api)</li>
+                </ol>
+                <p>
+                    Both APIs are covered by the scope <strong><code>toll:movement/entry</code></strong>.
+                </p>
+
+                <p>
+                    Norwegian Customs will attempt to automatically detect the arrival of transport at the border crossing. If automatic arrival is detected, Norwegian Customs will perform an automatic digital presentation of all expected consignments on the arriving transport.
+                </p>
+                <p>
+                    Norwegian Customs will then make routing available in our API for the expected consignments. Actors connected to the presented consignments will be able to retrieve control routing via the API (movement-routing-api).
+                </p>
+                <p>
+                    The actors automatically connected in this way are the actor who submitted information about the consignment in Norwegian Customs' API (authenticated in Maskinporten) and any customs representative mentioned in the consignment, master consignment, or transport message.
+                </p>
+
+                <p>
+                    The control routing API works by continuously publishing routing signals for presented consignments. Usually, the presentation will occur automatically upon the arrival of the transport vehicle, but it can also be triggered by a call to the presentation API (movement-presentation-api).
+                </p>
+                <ul class="spaced-list">
+                    <li>
+                        Each call to the API returns a list of up to 1000 routing signals available to the organization authenticated with Maskinporten.
+                    </li>
+                    <li>
+                        The <code>marker</code> parameter is used to indicate the last routing signal you read.
+                    </li>
+                    <li>
+                        <em>The very first time</em> you call the API, you should <em>not</em> send any <code>marker</code>. You will then get a list of the first routing signals.
+                    </li>
+                    <li>
+                        Each time you have processed a set of routing signals, retrieve the value of the <code>routingResult.id</code> field from the last routing signal in the list and save it.<br/>
+                        The next time you call the API, use the value you saved as the <code>marker</code> to get the next set of routing signals.
+                    </li>
+                    <li>
+                        Continue doing this until you get an empty list. Then there are no more routing signals available for your organization.
+                    </li>
+                </ul>
+                <p>
+                    Save the last ID you read. To get routing signals for consignments on the next transport, use this as the <code>marker</code>. This way, you avoid reading through all the routing signals for the previous transport again.
+                </p>
+
+                <p>
+                    Read more about <a href="mo-vei-fly-forklaring-EN.html">presentation and control routing here</a> (with examples).
+                </p>
+
+                <br/>
+                <br/>
+
+                <h2 id="kontrollrespons">Routing for Consignments</h2>
+
+                <p>
+                    The person who presented the consignments, either automatically by Norwegian Customs or by self-presentation, should use the control routing service (movement-routing-api).
+                </p>
+                <p>
+                    Based on the result from control routing, the actor should pick out the consignments that need to be physically inspected. These consignments should be delivered to the agreed inspection location as soon as possible. When an actor requests routing through this service, Norwegian Customs will respond with one routing per consignment (House Consignment).
+                </p>
+                <p>
+                    If the consignment is pre-notified (ICS2), i.e., goods from third countries (outside the EU security zone), information about ENS MRN and receptacles will be included where relevant. If the consignment is not pre-notified, these data elements will be empty.
+                </p>
+
+                <br/>
+                <br/>
+
+                <h2>Who Can Request Routing?</h2>
+
+                <p>
+                    Business actors involved in submitting messages related to the consignment can request a list of routings for all consignments they are involved in.
+                </p>
+
+                <ul class="spaced-list">
+                    <li>
+                        The person who submitted or is mentioned as the customs representative for the transport can get routing for all consignments reported on the transport (the driver, in practice the carrier, is legally responsible).
+                    </li>
+                    <li>
+                        The person who submitted or is mentioned as the customs representative for the master consignment can get routing for all consignments reported for the master consignment.
+                    </li>
+                    <li>
+                        The person who submitted, is mentioned as the customs representative for, or has digitally presented the consignment (house consignment), can get routing for the consignment.
+                    </li>
+                </ul>
+
+                <br/>
+                <br/>
+
+                <h2>How to Get Routing?</h2>
+
+                <p>
+                    When businesses request routing signals for relevant consignments, this is done through a call to an interface (API) at Norwegian Customs (<a href="movement-routing-api-EN.html">Movement routing API</a>).
+                </p>
+
+                <p>
+                    This interface is independent of the mode of transport and will provide routing for all consignments reported on all transports that have arrived in the customs area and are under processing or have been processed by Norwegian Customs.
+                </p>
+
+                <p>
+                    The business actor using this interface must <a href="../maskinporten/maskinporten-EN.html">identify themselves via Maskinporten</a>. The organization number of the business actor determines which routings are made available with a call.
+                </p>
+
+                <p>
+                    The URL for routing for consignment is:
+                </p>
+                <dl>
+                    <dt><strong>PLAYGROUND</strong></dt>
+                    <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+                        https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
+                    </dd>
+                    <dt><strong>PROD</strong></dt>
+                    <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+                        https://api.toll.no/api/movement/routing/v1/house-consignment</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="about-section-text">
+                <h1>Input Parameters for Using the API</h1>
+
+                <p>
+                    The interface's (API) input parameter consists of a marker, defined as:
+                </p>
+                <pre>marker string($uuid)</pre>
+
+                <p>
+                    This marker determines from which point in the list (of routings available for the business actor) the response should start. The response from the interface will then deliver a list of routings from the point the marker indicates and those that are newer.
+                </p>
+                <p>
+                    The interface will show a maximum of 1000 routings per call. For more routings, the interface must be called multiple times. The first time you call the API, it should be called without a marker (to start from the beginning), then a marker should always be used.
+                </p>
+
+                <br/>
+                <br/>
+
+                <h2 id="tjenestefremlegging">Service for Presentation</h2>
+                <p>
+                    The service is used for the digital fulfillment of the presentation obligation (Customs Act § 2-4. Presentation of goods for control). The service can be used jointly for consignments covered by the <strong>reporting and information obligation</strong> and/or pre-notified to the EU in the ICS2 solution.
+                    <br/>
+                    Presentation (movement-presentation-api) can be reported for consignments pre-notified through the two mentioned obligations, i.e., consignments expected to be presented.
+                </p>
+
+                <p>
+                    Presentation can be done by presenting a master consignment, a consignment, or a receptacle submitted for the reporting and information obligation. If a receptacle or a master consignment is presented, all consignments under it will be presented. A party presenting consignments (through the above API), and not previously connected to the consignments, will then be connected and can therefore retrieve control routings for the same consignments.
+                </p>
+
+                <p>
+                    For pre-notification (ICS2), presentation can be done for an entire movement declaration (ENS), a receptacle, or individual consignments. If a receptacle or a movement declaration is presented, all individual consignments under it will be presented.
+                </p>
+
+                <br/>
+                <br/>
+
+                <h2>Routing Signal</h2>
+
+                <p>
+                    For a consignment, a routing signal will be given:
+                </p>
+                <pre>routing</pre>
+                <p>
+                    and whether further processing should take place at or after the border crossing point:
+                </p>
+                <pre>routingControlLocation</pre>
+                <p>
+                    along with the identifier as described above.
+                </p>
+
+                <p>
+                    The routing signal (<strong>routing</strong>) can have the following values:
+                </p>
+                <dl>
+                    <dt><strong>TO_ENTRY</strong></dt>
+                    <dd>
+                        This code means that the consignment is given transition to the next customs procedure. This can be, for example, for free disposal or entry into a customs warehouse.
+                    </dd>
+                    <dt><strong>TO_CONTROL</strong></dt>
+                    <dd>
+                        This code means that the consignment is selected for physical control by Norwegian Customs and should be delivered for inspection as soon as possible.
+                    </dd>
+                    <dt><strong>ENTRY_PENDING</strong></dt>
+                    <dd>
+                        This code means that the consignment has deficiencies necessary for transition to the next customs procedure.<br/>
+                        The responsible business actor must immediately correct the deviations found so that a new routing can be given. The consignment cannot be released to the recipient.
+                    </dd>
+                    <dt><strong>ENTRY_DENIED</strong></dt>
+                    <dd>
+                        This code means that the consignment is seized by Norwegian Customs and will not be released.
+                    </dd>
+                </dl>
+
+
+                <p>
+                    The data element <code>routingControlLocation</code> indicates where further processing of the consignment should take place. This element indicates whether the consignment must be processed at the border crossing point or if it is allowed to be transported to another location for processing.
+                </p>
+
+                <p>
+                    If the consignment has a routing signal that involves further processing, i.e., <strong>TO_CONTROL</strong> or <strong>ENTRY_PENDING</strong>, <code>routingControlLocation</code> will indicate whether this processing should take place at the border crossing point or if the consignment can be transported to another location (e.g., the actor's sorting facility) for processing.
+                </p>
+
+                <p>
+                    Where further processing of the consignment should take place (<code>routingControlLocation</code>) can have the following values:
+                </p>
+                <dl>
+                    <dt><strong>ON_ENTRY</strong></dt>
+                    <dd>
+                        Processing of the consignment must take place at the border crossing point. This can be at a customs office (on the road) or at a suitable location at an airport (ground handling company), in a port (port agent), or rail terminal (train operator).
+                    </dd>
+                    <dt><strong>AFTER_ENTRY</strong></dt>
+                    <dd>
+                        Processing of the consignment can take place at a location after the border crossing, typically at the actor's premises. An example of this can be the actor's sorting facility.
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

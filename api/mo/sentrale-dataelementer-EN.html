@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information Models - Central Data Elements and Messages</title>
+    <meta name="description" content="Information Models - Central Data Elements and Messages">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="sentrale-dataelementer.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="sentrale-dataelementer-parent-div align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Disclosure</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Information Models - Central Data Elements and Messages</li>
+            </ol>
+        </nav>
+
+        <div class="about-section-text">
+            <p>
+                For all messages, there will be a set of data that is only related to
+                the message and its submission.
+                This data includes information about the customs representative and
+                identification of the message (references to the message itself).
+                See the section <a href="kobling-oppdatering-og-sletting-EN.html#koblingAvMeldinger">Linking Messages</a> for a detailed description.
+            </p>
+            <p>
+                The tables below provide an overview of central data elements related to transport and consignments.
+                The detailed information models for transport, master consignments, and consignments are published
+                in the <a href="melde-og-opplysning-EN.html#utfyllingForsend">API definitions</a>.
+            </p>
+
+        </div>
+
+        <h2 id="datatransp">Data Elements Related to Transport</h2>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Data Element</th>
+                <th scope="col">Mandatory</th>
+                <th scope="col">Conditional</th>
+                <th scope="col">Optional</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Carrier</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Active Transport Means</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Driver</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Customs Office / Time of Arrival</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="mldtransport">Transport Notification</h2>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Area</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Notify Transport
+                </td>
+                <td>
+                    Information about transport and reference to all
+                    consignments on board the transport
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Responsible for Information
+                </td>
+                <td>
+                    Driver of the transport, according to the Customs Act § 2-3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Information Provider
+                </td>
+                <td>
+                    Customs representative according to the Customs Act § 7-21 &ndash; Forwarder/Carrier/Consignor
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Recipient of Information
+                </td>
+                <td>
+                    Norwegian Customs
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is Information Mandatory?
+                </td>
+                <td>
+                    Yes
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Desired by Norwegian Customs?
+                </td>
+                <td>
+                    As early as possible, but no later than upon arrival at the border
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Update Desired?
+                </td>
+                <td>
+                    Information must be updated when important parts of the information change.
+                    Typically when changing license plates, driver, time/place of border crossing, or
+                    changes in the list of master consignments
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Submission Deadline
+                </td>
+                <td>
+                    No later than upon border crossing
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Important Information Elements
+                </td>
+                <td>
+                    <p>License plate(s) of the transport means and/or route number for scheduled
+                        traffic (e.g., scheduled flights)</p>
+                    <p>Information about the driver</p>
+                    <p>Time/place of border crossing</p>
+                    <p>Reference number/waybill number for all master consignments (Master
+                        Consignment) and/or consignments (House Consignment) on board the transport</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Special about Updating Transport Notification
+                </td>
+                <td>
+                    When updating and canceling, the MRN received in
+                    the original message is the key to be used to identify the correct
+                    transport
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="datahoved">Data Elements Related to Master Consignment</h2>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Data Element</th>
+                <th scope="col">Mandatory</th>
+                <th scope="col">Conditional</th>
+                <th scope="col">Optional</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Sender</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Receiver</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Waybill</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Gross Weight</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Transport Equipment</th>
+                <td></td>
+                <td class="center">X</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Loading Place</th>
+                <td></td>
+                <td></td>
+                <td class="center">X</td>
+            </tr>
+            <tr>
+                <th scope="row">Unloading Place</th>
+                <td></td>
+                <td></td>
+                <td class="center">X</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="masterConsignment">Master Consignment Notification</h2>
+        <p>Summary of Content</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Area</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Notify Master Consignment
+                </td>
+                <td>
+                    Information about the master consignment
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Responsible for Information
+                </td>
+                <td>
+                    Driver of the transport, according to the Customs Act § 2-3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Information Provider
+                </td>
+                <td>
+                    Customs representative according to the Customs Act § 7-21 &ndash; Forwarder/Carrier/Consignor
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Recipient of Information
+                </td>
+                <td>
+                    Norwegian Customs
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is Information Mandatory?
+                </td>
+                <td>
+                    Yes
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Desired by Norwegian Customs?
+                </td>
+                <td>
+                    As early as possible, but no later than upon border crossing for
+                    transport
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Update Desired?
+                </td>
+                <td>
+                    Information must be updated when important parts of the information change
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Submission Deadline
+                </td>
+                <td>
+                    No later than upon border crossing
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Important Information Elements
+                </td>
+                <td>
+                    <p>Receiver and sender</p>
+                    <p>Loading and unloading place</p>
+                    <p>Waybill number for the master consignment</p>
+                    <p>Reference number for all mail bags (only for postal operators)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Special about Updating Master Consignment Notification
+                </td>
+                <td>
+                    When updating and canceling, the MRN received in
+                    the original message is the key to be used to identify the correct
+                    master consignment
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="dataforsend">Data Elements Related to Consignment</h2>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Data Element</th>
+                <th scope="col">Mandatory</th>
+                <th scope="col">Conditional</th>
+                <th scope="col">Optional</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Sender</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Receiver</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Waybill</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Relevant Documents</th>
+                <td></td>
+                <td class="center">X</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Gross Weight</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Transport Equipment</th>
+                <td></td>
+                <td class="center">X</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Loading Place</th>
+                <td></td>
+                <td></td>
+                <td class="center">X</td>
+            </tr>
+            <tr>
+                <th scope="row">Unloading Place</th>
+                <td></td>
+                <td></td>
+                <td class="center">X</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="houseConsignment">Consignment Notification (House Consignment)</h2>
+        <p>Summary of Content</p>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Area</th>
+                <th scope="col">Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    Notify Consignment
+                </td>
+                <td>
+                    Information about the consignment.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Responsible for Information
+                </td>
+                <td>
+                    Driver of the transport, according to the Customs Act § 2-3
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Information Provider
+                </td>
+                <td>
+                    Forwarder/Carrier/Consignor/Agent
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Recipient of Information
+                </td>
+                <td>
+                    Norwegian Customs
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Is Information Mandatory?
+                </td>
+                <td>
+                    Yes
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Desired by Norwegian Customs?
+                </td>
+                <td>
+                    As early as possible, but no later than upon arrival at the border
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    When is Information Update Desired?
+                </td>
+                <td>
+                    Information must be updated when important parts of the information change
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Submission Deadline
+                </td>
+                <td>
+                    No later than upon border crossing
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Important Information Elements
+                </td>
+                <td>
+                    <p>Waybill number for the consignment (tracking number)</p>
+                    <p>Reference to the chosen customs procedure where applicable</p>
+                    <p>Reference to import and export declarations</p>
+                    <p>Reference to NCTS transit(s)</p>
+                    <p>General description/weight of goods</p>
+                    <p>Sender</p>
+                    <p>Receiver</p>
+                    <p>Reference to carrier</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Special about Updating Consignment Notification
+                </td>
+                <td>
+                    When updating and canceling, the MRN received in
+                    the original message is the key to be used to identify the correct
+                    consignment.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="datavoec">Data Elements Related to Goods (submitted as part of consignment) &ndash; only for VOEC</h2>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Data Element</th>
+                <th scope="col">Mandatory<br/>for VOEC</th>
+                <th scope="col">Conditional</th>
+                <th scope="col">Optional</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Invoiced Value</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Item Number</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">Number of Packages</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <th scope="row">VOEC Number</th>
+                <td class="center">X</td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <br/>
+
+        <h2 id="detaljerteDatakrav">Detailed Data Requirements for All Message Types</h2>
+        <div class="tips_box_normal display-center flex-column">
+            <p>Here you can download a complete overview:</p>
+            <a class="flex-column display-center" href="../mo-datakrav-EN.xlsx">
+                <p>
+                    MO Data Requirements
+                </p>
+                <img src="../media/excel.svg" width="49" height="46" alt="Excel file containing detailed data requirements"/>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                                   class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

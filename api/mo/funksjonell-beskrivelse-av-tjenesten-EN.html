@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional Description of the Service</title>
+    <meta name="description" content="Functional Description of the Service">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="funksjonell-beskrivelse-av-tjenesten.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main class="funksjonell-beskrivelse">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Disclosure</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Functional Description of the Service</li>
+            </ol>
+        </nav>
+
+        <div class="about-section">
+            <div class="about-section-text">
+                <h2 id="funkbesk">Functional Description of the Service</h2>
+                <p>
+                    The service aims to enable business actors to fulfill the notification
+                    and disclosure obligations digitally.
+                    Additionally, the service aims to automate the steps in the process as much as possible.
+                </p>
+
+                <p>
+                    Conceptually, the part of the service described here is concerned with
+                    handling the submission of information in such a way that it ensures Norwegian Customs'
+                    needs for risk assessment and control while facilitating the automation of other steps.
+                </p>
+
+                <p>
+                    The service allows messages about consignments, master consignments, and
+                    transport to be submitted as early as possible and independently of each other.
+                    However, it is important to note that at the latest by border crossing, the entirety of
+                    the information submitted to Norwegian Customs must meet the requirements for
+                    notification and disclosure obligations.<br/>
+                    This means that the different information elements must be linked together, with keys
+                    provided by the submitters, and that the necessary references are in place where required.<br/>
+                    For other modes of transport than road vehicles, border crossing is considered to be when
+                    the means of transport arrives at its destination (e.g., airport, port, or
+                    railway terminal).
+                </p>
+
+                <p>
+                    The submitter of a message has the ability to
+                    submit a message early, update the message, and withdraw the message
+                    if necessary (post, put, delete).<br/>
+                    The submitter can request the status of the message (get).
+                </p>
+
+                <p>
+                    The submitter can submit messages until the transport arrives at the border. At
+                    border crossing, the information provided must be complete for the transport,
+                    its master consignments, and consignments.
+                </p>
+            </div>
+
+            <div class="about-section-text">
+                <p>Information can be submitted at three levels:</p>
+                <ul>
+                    <li>Transport, which contains
+                        <ul>
+                            <li>Master consignments, which contain
+                                <ul>
+                                    <li>Consignments</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <figure>
+                    <img style="width: 150%; height: 150%" src="../media/MO-begreper.png" alt="Figure: The illustration shows at a high level what information
+                related to transport and cargo should be submitted">
+                    <figcaption>Figure: The illustration shows at a high level what information
+                        related to transport and cargo should be submitted
+                    </figcaption>
+                </figure>
+
+                <p>
+                    It is also possible to submit transport and consignments without submitting a master consignment.
+                    Transport is then linked to consignments.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                                   class="footerLink">Contact Us</a>
+</footer>
+
+</body>
+</html>

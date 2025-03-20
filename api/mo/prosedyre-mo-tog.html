@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+
+<style>
+    :root {
+        --background-color-global-hover-4-info: #B7D5ED;
+        --background-color-global-hover-4-warning: #EFE2B2;
+        --background-color-global-hover-4-danger: #F0C8C8;
+        --background-color-global-hover-4-success: #B4DBBA;
+    }
+</style>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../../index-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>EN</span>
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Utfyllings prosedyre - mo - tog</li>
+            </ol>
+        </nav>
+
+        <div class="flex-column display-center">
+            <h1>Hvordan fylle ut melding om forsendelse</h1>
+
+            <h1 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h1>
+            <p>
+                Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
+            </p>
+
+<pre class="boxed-medium-display">
+    1  POST https://&lt;env&gt;/api/movement/rail/v1/transport
+    2  POST https://&lt;env&gt;/api/movement/rail/v1/master-consignment
+    3  POST https://&lt;env&gt;/api/movement/rail/v1/house-consignment
+    4
+    5  PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/transport/{MRN}
+    6  PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/master-consignment/{MRN}
+    7  PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/house-consignment/{MRN}
+    8
+    9  GET https://&lt;env&gt;/api/movement/rail/status/v1/transport/validation-status/{requestId}
+    10 GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
+    11 GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
+    12
+    13 <b>&lt;env&gt;</b> byttes ut med
+    14 • api.toll.no for produksjon
+    15
+    16 • <b>api-test</b>.toll.no for playground (testmiljø)
+    17
+    18 <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+    19 <b>{MRN}</b> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+</pre>
+
+            <p class="tips_box">
+                Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
+                vi deg ta kontakt; <a href="https://toll.no/.well-known/security.txt">se
+                her for info</a>
+            </p>
+
+            <h1>API Tjenester</h1>
+        </div>
+
+        <h3 id="movement-rail-api">API: movement-rail-api</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/rail</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-rail-api.html">
+            API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-rail-query-api">API: movement-rail-query-api</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/rail</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-rail-query-api.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>Se <strong><a href="movement-presentation-api.html">API-dokumentasjon her</a></strong>.</p>
+
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
+
+        <br/>
+        <br/>
+
+        <h4>IMMEDIATE_RELEASE_IMPORT</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td>
+                    <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+                    <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+                        før ferge til Larvik)</p>
+                </td>
+                <td colspan='2'>
+                    <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+                    <p>Transittering er foregående prosedyre og skal fullføres ved
+                        grensepassering.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter der denne kombinasjonen er gyldig</strong></td>
+                <td>Fly, tog, bil på ferge</td>
+                <td colspan='2'>Tog, bil på vei, bil på ferge</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th>Variant 1</th>
+                <th colspan='2'>Variant 3</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td>
+                    <p>IMMEDIATE_RELEASE_IMPORT</p>
+                </td>
+                <td colspan='2'>
+                    <p>IMMEDIATE_RELEASE_IMPORT</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td colspan='2'>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>false</p>
+                </td>
+                <td colspan='2'>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger)'>&nbsp;</td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag
+                        av type:</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag
+                        av type:</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>OG liste må ha ett
+                        innslag av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>må være = CUDE</p>
+                </td>
+                <td>
+                    <p>må være = CUDE</p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success)'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>&nbsp;</td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td colspan='2' style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td colspan='2'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td colspan='2'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                </td>
+                <td colspan='2'>
+                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td>
+                    <p>Transittering er startet opp i annet land. Fullføring av transitteringen
+                        skal utføres ved lossing. Ved grensepassering skal det kun registreres
+                        grensepassering i NCTS</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                <td>Bil på vei/ferge, tog</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th>Variant 4</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td>
+                    <p>TRANSIT_IMPORT</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'></td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag
+                        av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'></td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>IMMEDIATE_RELEASE_VOEC</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td>
+                    <p>VOEC-forsendelser.</p>
+                    <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under
+                        verdigrensen for krav om eksport.</p>
+                </td>
+                <td>
+                    <p>VOEC-forsendelse.</p>
+                    <p>Transittering er foregående prosedyre og skal fullføres ved
+                        grensepassering.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                <td>Bil på vei/ferge, tog, fly</td>
+                <td>Bil på vei/ferge, tog</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th>Variant 6</th>
+                <th>Variant 8</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td>
+                    <p>IMMEDIATE_RELEASE_VOEC</p>
+                </td>
+                <td>
+                    <p>IMMEDIATE_RELEASE_VOEC</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'></td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>-</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'></td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>goodsItem</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>itemAmountInvoicedVOEC</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>value</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>numberOfItems</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>commodityCodeVOEC</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>harmonizedSystemSubheadingCode</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>additionalFiscalReferences</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>vatIdentificationNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>WAREHOUSE_RELEASE</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td colspan='2'>
+                    <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+                    <p>Transittering er foregående prosedyre og skal fullføres ved
+                        grensepassering.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                <td colspan='2'>Bil på vei/ferge, tog</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th colspan='2'>Variant 11</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td colspan='2'>
+                    <p>WAREHOUSE_RELEASE</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td colspan='2'>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td colspan='2'>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'></td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag
+                        av type:</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>OG liste må ha ett
+                        innslag av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>må være = CUDE</p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'></td>
+                <td colspan='2' style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>-</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td colspan='2'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td colspan='2'>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td colspan='2'>
+                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>COLLECTIVE_RELEASE</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td>
+                    <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+                    <p>Transittering er foregående prosedyre og skal fullføres ved
+                        grensepassering.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                <td>Bil på vei/ferge, tog</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th>Variant 14</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td>
+                    <p>COLLECTIVE_RELEASE</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'></td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'></td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>-</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
+
+        <table>
+            <tr>
+                <td colspan='2'>
+                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                        til grensen</strong></p>
+                </td>
+                <td>
+                    <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+                    <p>Transittering er foregående prosedyre og skal fullføres ved
+                        grensepassering.</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                <td>Bil på vei/ferge, tog</td>
+            </tr>
+            <tr>
+                <th>Felt</th>
+                <th>Kodeverk</th>
+                <th>Variant 17</th>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>importProcedure</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'></td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><strong>må fylles ut</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>importProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                </td>
+                <td>
+                    <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>outgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p><a
+                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                </td>
+                <td>
+                    <p>TRA</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>hasOutgoingProcedure</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-info);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>true</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>previousDocuments</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'></td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>referenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>&lt;må ha verdi&gt;</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>typeOfReference</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p><a
+                            href="mo-kodeverk.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                </td>
+                <td>
+                    <p>må være = N820</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarantNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>declarationDate</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>sequenceNumber</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>exportFromEU</strong></p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'></td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><strong>-</strong></p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>exportId</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>-</p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p>typeOfExport</p>
+                </td>
+                <td style='background:var(--background-color-global-hover-4-success);'>
+                    <p><a
+                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                </td>
+                <td>
+                    <p>-</p>
+                </td>
+            </tr>
+            <tr>
+                <td style='background:#D5DCE4;'>
+                    <p><strong>Mulige
+                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                </td>
+                <td>
+                    <p><a
+                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                </td>
+                <td>
+                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

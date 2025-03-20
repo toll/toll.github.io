@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oversikt over valideringsfeil for API i MO</title>
+    <meta name="description" content="Oversikt valideringsfeil for API i MO">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="synkrone-valideringsfeil-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="valideringsfeil">
+    <div id="synkrone" class="about-section align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Synkrone valideringsfeil</li>
+            </ol>
+        </nav>
+
+        <div class="about-section-text">
+            <h2 id="Synkronevalideringsfeil">Synkrone valideringsfeil</h2>
+
+            <p>Synkrone (via HTTP) valideringsfeil oppgis som svar med statuskode 400 på
+                innsendelse mot API-et. Årsaken til valideringsfeilen returneres som
+                innhold (body) i svaret. Når man får synkrone valideringsfeil blir innsendingen
+                avvist umiddelbart og ikke behandlet videre før feilen(e) er rettet og det
+                sendes inn på nytt. Dersom det <em>ikke</em> er noen synkrone
+                valideringsfeil, vil svaret ha statuskode 202 og inneholde et felt
+                &quot;requestId&quot; som benyttes for så å se om det avdekkes <em>asynkrone
+                    valideringsfeil</em> under videre behandling. </p>
+
+            <h3 id="Innholdsformatpasynkronevalideringsfeil">Innholdsformat på synkrone valideringsfeil</h3>
+
+            <p>Valideringsfeilene returneres som en eller flere objekter i en liste
+                &quot;validationErrors&quot;. Innholdet i listen er et eller flere objekter som
+                peker på hvilke felter som forårsaket valideringsfeilen angitt i feltet
+                &quot;field&quot;, og årsaken til feilen angitt i feltet &quot;error&quot;.</p>
+
+            <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldWithErrorOne}",
+      "error": "${validationErrorCauseOne}"
+    },
+    {
+      "field": "${fieldWithErrorTwo}",
+      "error": "${validationErrorCauseTwo}"
+    }
+  ]
+}</pre>
+            <p>&nbsp;</p>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <section class="synkrone-grid-two-columns-container">
+
+            <div>
+                <h3 id="Manglendeellerblankepakrevdefelt">Manglende eller blanke (&quot;&quot;) påkrevde felt</h3>
+
+                <h4 id="Svar">Svar</h4>
+
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "must not be null"
+    },
+    {
+      "field": "${fieldname}",
+      "error": "must not be blank"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak">Årsak</h4>
+
+                <p>Felter som er påkrevd mangler eller har tomme verdier. Felter som ikke kan
+                    ha tomme verdier vil gi &quot;must not be blank&quot; enten de mangler eller er
+                    tomme. Alle andre påkrevde felter vil gi &quot;must not be null&quot; om de
+                    mangler.</p>
+
+                <h4 id="Rettelse">Rettelse</h4>
+
+                <p>
+                    Feltet må være med (&quot;must not be null&quot;) eller må være med <em>og</em>
+                    ha en verdi (&quot;must not be blank&quot;).
+                </p>
+            </div>
+
+            <div>
+                <h3 id="Feilformatpadatotid">Feil format på dato/tid</h3>
+
+                <h4 id="Svar.1">Svar</h4>
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "invalid ISO-8601 instant in UTC (yyyy-MM-ddTHH:mm:ssZ)"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.1">Årsak</h4>
+
+                <p>Dato og tidspunkt felter har feil format. De må følge ISO-8601 standarden.
+                    Det vil si være i formatet: yyyy-MM-ddTHH:mm:ssZ</p>
+
+                <h4 id="Rettelse.1">Rettelse</h4>
+
+                <p>Endre formatet til å følge ISO-8601 standarden i formatet
+                    yyyy-MM-ddTHH:mm:ssZ.</p>
+            </div>
+
+            <div>
+                <h3 id="Feilfeltstorrelse-tall">Feil feltstørrelse &ndash; tall</h3>
+
+                <h4 id="Svar.2">Svar</h4>
+
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "numeric value out of bounds (&lt;${maxInteger} digits&gt;.
+                &lt;${maxDecimalNumber} digits&gt; expected)"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.2">Årsak</h4>
+
+                <p>Man har angitt et tall som overskrider maksimalt antall siffer før
+                    elleretter desimalskille (&quot;.&quot;). Der det er kun heltall som er
+                    tillat vil tallet etter desimalskille (&quot;.&quot;, det vil si
+                    maxDecimalNumber) være 0.</p>
+
+                <h4 id="Rettelse.2">Rettelse</h4>
+
+                <p>Endre tallet til å være et siffer innenfor maksimalt heltall
+                    (maxInteger-verdien) og maksimalt antall desimalsiffer
+                    (maxDecimalNumber-verdien).</p>
+            </div>
+
+            <div>
+                <h3 id="Feilfeltstorrelse-strengtekst">Feil feltstørrelse &ndash; streng (tekst)</h3>
+
+                <h4 id="Svar.3">Svar</h4>
+
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "size must be between ${minLength} and ${maxLength}"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.3">Årsak</h4>
+
+                <p>Innholdet i feltet har overskredet maksimalt antall tegn eller har færre enn
+                    minimum antall tegn.</p>
+
+                <h4 id="Rettelse.3">Rettelse</h4>
+
+                <p>Endre innholdet til å være innenfor minimum og maksimum størrelse.</p>
+            </div>
+
+            <div>
+                <h3 id="Minstettavfeltenemavareoppgitt">Minst ett av feltene må være oppgitt</h3>
+
+                <h4 id="Svar.4">Svar</h4>
+
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "At least one of the following fields should be non null:
+                [${fieldOne}, ${fieldTwo}]"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.4">Årsak</h4>
+
+                <p>I noen tilfeller må minst et av flere felter være oppgitt. Objektet
+                    angitt (fieldname), må minst inneholde verdi i minst ett av de angitte feltene.</p>
+
+                <h4 id="Rettelse.4">Rettelse</h4>
+
+                <p>Påse at minst ett av de oppgitte feltene er oppgitt og har gyldig verdi på
+                    objektet.</p>
+            </div>
+
+            <div>
+                <h3 id="Mahaenpakrevdverdier">Må ha en av angitte verdier</h3>
+
+                <h4 id="Svar.5">Svar</h4>
+
+                <pre>
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "Must be one of [${valueOne}, ${valueTwo}]"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.5">Årsak</h4>
+
+                <p>Feltet (fieldname) må ha verdi og kan kun ha en av de angitte
+                    verdiene.</p>
+
+                <h4 id="Rettelse.5">Rettelse</h4>
+
+                <p>Send inn feltet med en av de angitte verdiene.</p>
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2024 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="white">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

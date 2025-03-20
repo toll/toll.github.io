@@ -2,11 +2,11 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>API for digital Notification and Disclosure of Information, Air</title>
+    <title>API for digital Notification and Disclosure of Information, rail</title>
     <meta name="description"
-       content=" Norwegian Customs' API for digital Notification and Disclosure of Information, Air">
+       content=" Norwegian Customs' API for digital Notification and Disclosure of Information, rail">
     <meta name="author" content="Tolletaten">
-    <link rel="stylesheet" href="../style/api.css">
+    <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
@@ -49,13 +49,13 @@
             <title>Toll logo -- link to Toll github homepage</title>
         </svg>
     </a>
-    <h1>API for Digital Notification and Disclosure of Information, Air</h1>
+    <h1>API for Digital Notification and Disclosure of Information, rail</h1>
 </header>
 
 
 <main>
     <div class="column right" role="navigation">
-         <div class="lang_nav"><a href="mo-fly.html"><img src="media/NO.png" alt="Norwegian flag"/>&nbsp;Norsk</a></div>
+         <div class="lang_nav"><a href="prosedyre-mo-fly.html"><img src="../media/NO.png" alt="Norwegian flag"/>&nbsp;Norsk</a></div>
          <div id="toc_container"  aria-hidden="true">
             <h2 id="innhold" class="toc_title">Content</h2>
             <ul>
@@ -81,8 +81,8 @@
                 <li><p><a href="#kodeverk">Code sets</a></p></li>
                 <li><p><a href="#Grensesnittbeskrivelse">API descriptions</a></p>
                   <ul>
-                    <li><p><a href="#movement-air-api">movement-air-api</a></p></li>
-                    <li><p><a href="#movement-air-query-api">movement-air-query-api</a></p></li>
+                    <li><p><a href="#movement-rail-api">movement-rail-api</a></p></li>
+                    <li><p><a href="#movement-rail-query-api">movement-rail-query-api</a></p></li>
                     <li><p><a href="#movement-presentation-api">movement-presentation-api</a></p></li>
                     <li><p><a href="#movement-routing-api">movement-routing-api</a></p></li>
                     <li><p><a href="#dokumentinnsending">Document upload</a></p></li>
@@ -109,7 +109,7 @@
           href="https://lovdata.no/dokument/SFE/forskrift/2022-10-27-1901"> associated regulations</a>.
         </p>
         <figure>
-            <img src="media/mo-digiflyt-EN.png" alt="See caption"/>
+            <img src="../media/mo-digiflyt-EN.png" alt="See caption"/>
             <figcaption> Figure: The service supports the Norwegian Customs' concept of digital
             and automated cross-border goods supply. </figcaption>
         </figure>
@@ -121,7 +121,7 @@
            <ul>
               <li><a href="mo-obligatorisk-2024-04-EN.html"><b>Changes to APIs</b>, April 2024</a></li>
               <li><a href="mo-vei-EN.html">API for Road/Ferry</a></li>
-              <li><a href="mo-jernbane-EN.html">API for Rail</a></li>
+              <li><a href="mo-fly-EN.html">API for Air</a></li>
            </ul>
         </div>
 
@@ -299,19 +299,12 @@
          </p>
 
         <p>
-          Submitting information to fulfil the notification and disclosure of
-          information obligations will often require digital cooperation between several actors.
-          <a href="mo-fly-samhandling-EN.html">Here is a guide</a> to the different types of
-          cooperation that may be necessary.
-        </p>
-
-        <p>
           The submitter can submit notifications until the transport reaches the border.
           At the border crossing, the submitted information must be complete for the
           transport, its master consignments, and house consignments.
         </p>
 
-        <p> Information can be submitted in three levels:</p>
+        <p>Information can be submitted in three levels:</p>
         <ul>
             <li>Transport, which contain
                <ul>
@@ -323,7 +316,7 @@
         </ul>
 
         <figure>
-            <img src="media/MO-begreper.png" alt="See caption">
+            <img src="../media/MO-begreper.png" alt="See caption">
             <figcaption>Figure: The illustration provides an overview of the information related
             to transport and cargo that needs to be submitted (English text in italics).</figcaption>
         </figure>
@@ -367,13 +360,13 @@
             by referencing a list of house consignments from the transport (can be used
             by all parties other than postal operators).
         </ul>
-        <p><img src="media/MO-nokler-EN.png" alt="Relationship of keys" style="max-width: 60%"></p>
+        <p><img src="../media/MO-nokler-EN.png" alt="Relationship of keys" style="max-width: 60%"></p>
         <p>For postal operators, there are separate associations through post bag ID:</p>
         <ul>
          <li>by referencing the post bag ID in both the house and the master
              consignment (only used by postal operators)</li>
         </ul>
-        <p><img src="media/MO-nokler-postsekk-EN.png"
+        <p><img src="../media/MO-nokler-postsekk-EN.png"
                 alt=" Relationship between keys using post bag ID" style="max-width: 60%"></p>
 
         <p>&nbsp;</p>
@@ -901,14 +894,14 @@
         <h3 id="detaljerteDatakrav">Detailed data requirements</h3>
         <p>
           Here you can download a complete overview:<br/>
-          <a href="mo-datakrav-EN.xlsx"><img src="media/excel.png"
-          alt="Excel file containing detailed data
+          <a href="../mo-datakrav-EN.xlsx"><img src="media/excel.png"
+                                                alt="Excel file containing detailed data
           requirements"/> requirements</a>
         </p>
 
         <h3 id="utfyllingForsend">How to select import procedure and previous procedure for a house consignment</h3>
 
-        <p>The tables below provides a complete overview of how to fill
+        <p>The tables below provide a complete overview of how to fill
         out a consignment notification based on the customs procedure
         you wish to use when your goods cross the border.</p>
 
@@ -929,15 +922,259 @@
            <p>A declaration for transitioning to immediate release import has been submitted in advance.</p>
            <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik).</p>
            </td>
+           <td colspan='2'>
+           <p>A declaration for transitioning to immediate release import has been submitted in advance.</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
+           </td>
           </tr>
           <tr>
             <td colspan='2'><strong>Means of transport where this combination is valid</strong></td>
             <td>Air, rail, vehicle on ferry</td>
+            <td colspan='2'>Rail, vehicle on road/ferry</td>
           </tr>
           <tr>
            <th>Field</th>
            <th>Code sets</th>
            <th>Variant 1</th>
+           <th colspan='2'>Variant 3</th>
+          </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p><strong>importProcedure</strong></p>
+          </td>
+          <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+          <td colspan='2' style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>importProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          </td>
+          <td colspan='2'>
+          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>outgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p><a
+          href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td colspan='2'>
+          <p>TRA</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D9E2F3;'>
+          <p>hasOutgoingProcedure</p>
+          </td>
+          <td style='background:#D9E2F3;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>false</p>
+          </td>
+          <td colspan='2'>
+          <p>true</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p><strong>previousDocuments</strong></p>
+          </td>
+          <td style='background:#FBE4D5'>&nbsp;</td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>The list must include an item of type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>The list must include an item of type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>AND the list must include an item of type:</strong></p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>referenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>typeOfReference</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p title=""><a
+          href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+          href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+          </td>
+          <td>
+          <p>must be = CUDE</p>
+          </td>
+          <td>
+          <p>must be = CUDE</p>
+          </td>
+          <td>
+          <p>must be = N820</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarantNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>declarationDate</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#FBE4D5;'>
+          <p>sequenceNumber</p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF'>
+          <p><strong>exportFromEU</strong></p>
+          </td>
+          <td style='background:#CCFFFF;'>&nbsp;</td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          <td colspan='2' style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>exportId</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#CCFFFF;'>
+          <p>typeOfExport</p>
+          </td>
+          <td style='background:#CCFFFF;'>
+          <p><a
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
+          </td>
+          <td colspan='2'>
+          <p>-</p>
+          </td>
+         </tr>
+         <tr>
+          <td style='background:#D5DCE4;'>
+          <p><strong>Possible validation messages if the information is not complete. We assume that the missing information will be submitted no later than upon arrival at the border.</strong></p>
+          </td>
+          <td>
+          <p><a
+          href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+          </td>
+          <td>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          </td>
+          <td colspan='2'>
+          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
+         </tr>
+        </table>
+
+        <p>&nbsp;</p>
+
+        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
+
+        <table>
+          <tr>
+           <td colspan='2'>
+           <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+           </td>
+           <td>
+           <p>Transit has been initiated in another country. The completion of transit should be carried out upon unloading. Only border crossing should be registered in NCTS upon border crossing.</p>
+           </td>
+          </tr>
+          <tr>
+            <td colspan='2'><strong>Means of transport</strong></td>
+            <td>Vehicle on road/ferry, rail</td>
+          </tr>
+          <tr>
+           <th>Field</th>
+           <th>Code sets</th>
+           <th>Variant 4</th>
           </tr>
          <tr>
           <td style='background:#D9E2F3;'>
@@ -957,7 +1194,7 @@
           href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
           </td>
           <td>
-          <p>IMMEDIATE_RELEASE_IMPORT</p>
+          <p>TRANSIT_IMPORT</p>
           </td>
          </tr>
          <tr>
@@ -969,7 +1206,7 @@
           href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
           </td>
           <td>
-          <p>-</p>
+          <p>TRA</p>
           </td>
          </tr>
          <tr>
@@ -980,14 +1217,14 @@
           <p>-</p>
           </td>
           <td>
-          <p>false</p>
+          <p>true</p>
           </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
           <p><strong>previousDocuments</strong></p>
           </td>
-          <td style='background:#FBE4D5'>&nbsp;</td>
+          <td style='background:#FBE4D5;'></td>
           <td style='background:#FBE4D5;'>
           <p><strong>The list must include an item of type:</strong></p>
           </td>
@@ -1000,7 +1237,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>-</p>
+          <p>&lt;must have a value&gt;</p>
           </td>
          </tr>
          <tr>
@@ -1008,12 +1245,12 @@
           <p>typeOfReference</p>
           </td>
           <td style='background:#FBE4D5;'>
-          <p><a
+          <p title=""><a
           href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
           href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
           </td>
           <td>
-          <p>must be = CUDE</p>
+          <p>must be = N820</p>
           </td>
          </tr>
          <tr>
@@ -1024,7 +1261,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>&lt;must have a value&gt;</p>
+          <p>-</p>
           </td>
          </tr>
          <tr>
@@ -1035,7 +1272,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>&lt;must have a value&gt;</p>
+          <p>-</p>
           </td>
          </tr>
          <tr>
@@ -1046,14 +1283,14 @@
           <p>-</p>
           </td>
           <td>
-          <p>&lt;must have a value&gt;</p>
+          <p>-</p>
           </td>
          </tr>
          <tr>
-          <td style='background:#CCFFFF'>
+          <td style='background:#CCFFFF;'>
           <p><strong>exportFromEU</strong></p>
           </td>
-          <td style='background:#CCFFFF;'>&nbsp;</td>
+          <td style='background:#CCFFFF;'></td>
           <td style='background:#CCFFFF;'>
           <p>-</p>
           </td>
@@ -1065,6 +1302,9 @@
           <td style='background:#CCFFFF;'>
           <p>-</p>
           </td>
+          <td>
+          <p>-</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#CCFFFF;'>
@@ -1072,7 +1312,7 @@
           </td>
           <td style='background:#CCFFFF;'>
           <p><a
-          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Exporttype</a></p>
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
           </td>
           <td>
           <p>-</p>
@@ -1087,7 +1327,7 @@
           href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
           </td>
           <td>
-          <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
           </td>
          </tr>
         </table>
@@ -1105,21 +1345,30 @@
            <p>VOEC-forsendelser.</p>
            <p>Another customs authority has cleared the previous procedure, or the value is below the threshold for export requirement.</p>
            </td>
+           <td>
+           <p>VOEC-consignment.</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
+           </td>
           </tr>
           <tr>
             <td colspan='2'><strong>Means of transport</strong></td>
             <td>Vehicle on road/ferry, rail, air</td>
+            <td>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
            <th>Code sets</th>
            <th>Variant 6</th>
+           <th>Variant 8</th>
           </tr>
          <tr>
           <td style='background:#D9E2F3;'>
           <p><strong>importProcedure</strong></p>
           </td>
           <td style='background:#D9E2F3;'></td>
+          <td style='background:#D9E2F3;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
           <td style='background:#D9E2F3;'>
           <p><strong>must be filled out</strong></p>
           </td>
@@ -1131,6 +1380,9 @@
           <td style='background:#D9E2F3;'>
           <p><a
           href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+          </td>
+          <td>
+          <p>IMMEDIATE_RELEASE_VOEC</p>
           </td>
           <td>
           <p>IMMEDIATE_RELEASE_VOEC</p>
@@ -1147,6 +1399,9 @@
           <td>
           <p>-</p>
           </td>
+          <td>
+          <p>TRA</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#D9E2F3;'>
@@ -1158,6 +1413,9 @@
           <td>
           <p>-</p>
           </td>
+          <td>
+          <p>true</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
@@ -1166,6 +1424,9 @@
           <td style='background:#FBE4D5;'></td>
           <td style='background:#FBE4D5;'>
           <p><strong>-</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>The list must include an item of type:</strong></p>
           </td>
          </tr>
          <tr>
@@ -1178,18 +1439,24 @@
           <td>
           <p>-</p>
           </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
           <p>typeOfReference</p>
           </td>
           <td style='background:#FBE4D5;'>
-          <p><a
+          <p title=""><a
           href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
           href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
           </td>
           <td>
           <p>-</p>
+          </td>
+          <td>
+          <p>must be = N820</p>
           </td>
          </tr>
          <tr>
@@ -1197,6 +1464,9 @@
           <p>declarantNumber</p>
           </td>
           <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
           <p>-</p>
           </td>
           <td>
@@ -1213,12 +1483,18 @@
           <td>
           <p>-</p>
           </td>
+          <td>
+          <p>-</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
           <p>sequenceNumber</p>
           </td>
           <td style='background:#FBE4D5;'>
+          <p>-</p>
+          </td>
+          <td>
           <p>-</p>
           </td>
           <td>
@@ -1233,12 +1509,18 @@
           <td style='background:#CCFFFF;'>
           <p>-</p>
           </td>
+          <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#CCFFFF;'>
           <p>exportId</p>
           </td>
           <td style='background:#CCFFFF;'>
+          <p>-</p>
+          </td>
+          <td>
           <p>-</p>
           </td>
           <td>
@@ -1251,7 +1533,10 @@
           </td>
           <td style='background:#CCFFFF;'>
           <p><a
-          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Exporttype</a></p>
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+          </td>
+          <td>
+          <p>-</p>
           </td>
           <td>
           <p>-</p>
@@ -1267,6 +1552,9 @@
           <td style='background:#FFF2CC;'>
           <p><strong>must be filled out</strong></p>
           </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FFF2CC;'>
@@ -1274,6 +1562,9 @@
           </td>
           <td style='background:#FFF2CC;'>
           <p>-</p>
+          </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>must be filled out</strong></p>
           </td>
           <td style='background:#FFF2CC;'>
           <p><strong>must be filled out</strong></p>
@@ -1289,6 +1580,9 @@
           <td>
           <p>&lt;must have a value&gt;</p>
           </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FFF2CC;'>
@@ -1296,6 +1590,9 @@
           </td>
           <td style='background:#FFF2CC;'>
           <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
           </td>
           <td>
           <p>&lt;must have a value&gt;</p>
@@ -1311,6 +1608,9 @@
           <td style='background:#FFF2CC;'>
           <p><strong>must be filled out</strong></p>
           </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FFF2CC;'>
@@ -1318,6 +1618,9 @@
           </td>
           <td style='background:#FFF2CC;'>
           <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
           </td>
           <td>
           <p>&lt;must have a value&gt;</p>
@@ -1333,6 +1636,9 @@
           <td style='background:#FFF2CC;'>
           <p><strong>must be filled out</strong></p>
           </td>
+          <td style='background:#FFF2CC;'>
+          <p><strong>must be filled out</strong></p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FFF2CC;'>
@@ -1340,6 +1646,9 @@
           </td>
           <td style='background:#FFF2CC;'>
           <p>-</p>
+          </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
           </td>
           <td>
           <p>&lt;must have a value&gt;</p>
@@ -1356,6 +1665,10 @@
           <td>
           <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
           </td>
+          <td>
+          <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
          </tr>
         </table>
 
@@ -1368,26 +1681,25 @@
            <td colspan='2'>
            <p><strong>Description of customs procedure and procedure up to the border</strong></p>
            </td>
-           <td>
+           <td colspan='2'>
            <p>A declaration for warehouse release has been submitted in advance.</p>
-           <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik).</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
           </tr>
           <tr>
             <td colspan='2'><strong>Means of transport</strong></td>
-            <td>Vehicle on ferry, air</td>
+            <td colspan='2'>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
            <th>Code sets</th>
-           <th>Variant 9</th>
+           <th colspan='2'>Variant 11</th>
           </tr>
          <tr>
           <td style='background:#D9E2F3;'>
           <p><strong>importProcedure</strong></p>
           </td>
-          <td style='background:#D9E2F3;'></td>
-          <td style='background:#D9E2F3;'>
+          <td colspan='2' style='background:#D9E2F3;'>
           <p><strong>must be filled out</strong></p>
           </td>
          </tr>
@@ -1399,7 +1711,7 @@
           <p><a
           href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
           </td>
-          <td>
+          <td colspan='2'>
           <p>WAREHOUSE_RELEASE</p>
           </td>
          </tr>
@@ -1414,6 +1726,9 @@
           <td>
           <p>-</p>
           </td>
+          <td colspan='2'>
+          <p>TRA</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#D9E2F3;'>
@@ -1422,8 +1737,8 @@
           <td style='background:#D9E2F3;'>
           <p>-</p>
           </td>
-          <td>
-          <p>false</p>
+          <td colspan='2'>
+          <p>true</p>
           </td>
          </tr>
          <tr>
@@ -1433,6 +1748,9 @@
           <td style='background:#FBE4D5;'></td>
           <td style='background:#FBE4D5;'>
           <p><strong>The list must include an item of type:</strong></p>
+          </td>
+          <td style='background:#FBE4D5;'>
+          <p><strong>AND the list must include an item of type:</strong></p>
           </td>
          </tr>
          <tr>
@@ -1445,18 +1763,24 @@
           <td>
           <p>-</p>
           </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
           <p>typeOfReference</p>
           </td>
           <td style='background:#FBE4D5;'>
-          <p><a
+          <p title=""><a
           href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
           href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
           </td>
           <td>
           <p>must be = CUDE</p>
+          </td>
+          <td>
+          <p>must be = N820</p>
           </td>
          </tr>
          <tr>
@@ -1469,6 +1793,9 @@
           <td>
           <p>&lt;must have a value&gt;</p>
           </td>
+          <td>
+          <p>-</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
@@ -1479,6 +1806,9 @@
           </td>
           <td>
           <p>&lt;must have a value&gt;</p>
+          </td>
+          <td>
+          <p>-</p>
           </td>
          </tr>
          <tr>
@@ -1491,6 +1821,9 @@
           <td>
           <p>&lt;must have a value&gt;</p>
           </td>
+          <td>
+          <p>-</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#CCFFFF;'>
@@ -1500,6 +1833,9 @@
           <td style='background:#CCFFFF;'>
           <p>-</p>
           </td>
+          <td colspan='2' style='background:#CCFFFF;'>
+          <p><strong>-</strong></p>
+          </td>
          </tr>
          <tr>
           <td style='background:#CCFFFF;'>
@@ -1508,7 +1844,7 @@
           <td style='background:#CCFFFF;'>
           <p>-</p>
           </td>
-          <td>
+          <td colspan='2'>
           <p>-</p>
           </td>
          </tr>
@@ -1518,9 +1854,9 @@
           </td>
           <td style='background:#CCFFFF;'>
           <p><a
-          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Exporttype</a></p>
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
           </td>
-          <td>
+          <td colspan='2'>
           <p>-</p>
           </td>
          </tr>
@@ -1532,8 +1868,9 @@
           <p><a
           href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
           </td>
-          <td>
+          <td colspan='2'>
           <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
           </td>
          </tr>
         </table>
@@ -1549,17 +1886,17 @@
            </td>
            <td>
            <p>Consignment for procedure Collective Release after border crossing.</p>
-           <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik).</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
           </tr>
           <tr>
             <td colspan='2'><strong>Means of transport</strong></td>
-            <td>Vehicle on ferry, air</td>
+            <td>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
            <th>Code sets</th>
-           <th>Variant 12</th>
+           <th>Variant 14</th>
           </tr>
          <tr>
           <td style='background:#D9E2F3;'>
@@ -1591,7 +1928,7 @@
           href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
           </td>
           <td>
-          <p>-</p>
+          <p>TRA</p>
           </td>
          </tr>
          <tr>
@@ -1602,7 +1939,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>false</p>
+          <p>true</p>
           </td>
          </tr>
          <tr>
@@ -1611,7 +1948,7 @@
           </td>
           <td style='background:#FBE4D5;'></td>
           <td style='background:#FBE4D5;'>
-          <p><strong>-</strong></p>
+          <p><strong>AND the list must include an item of type:</strong></p>
           </td>
          </tr>
          <tr>
@@ -1621,18 +1958,21 @@
           <td style='background:#FBE4D5;'>
           <p>-</p>
           </td>
+          <td>
+          <p>&lt;must have a value&gt;</p>
+          </td>
          </tr>
          <tr>
           <td style='background:#FBE4D5;'>
           <p>typeOfReference</p>
           </td>
           <td style='background:#FBE4D5;'>
-          <p><a
+          <p title=""><a
           href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
           href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
           </td>
           <td>
-          <p>-</p>
+          <p>must be = N820</p>
           </td>
          </tr>
          <tr>
@@ -1694,7 +2034,7 @@
           </td>
           <td style='background:#CCFFFF;'>
           <p><a
-          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Exporttype</a></p>
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
           </td>
           <td>
           <p>-</p>
@@ -1708,7 +2048,9 @@
           <p><a
           href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
           </td>
-          <td></td>
+          <td>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
          </tr>
         </table>
 
@@ -1723,17 +2065,17 @@
            </td>
            <td>
              <p>House consignments where declaration is not obliged, authorised according to article § 4-1-29 of "Movement of Goods Regulations".</p>
-           <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik).</p>
+           <p>Transit is the previous procedure and should be completed upon border crossing.</p>
            </td>
           </tr>
           <tr>
             <td colspan='2'><strong>Means of transport</strong></td>
-            <td>Vehicle on ferry, air</td>
+            <td>Vehicle on road/ferry, rail</td>
           </tr>
           <tr>
            <th>Field</th>
            <th>Code sets</th>
-           <th>Variant 15</th>
+           <th>Variant 14</th>
           </tr>
          <tr>
           <td style='background:#D9E2F3;'>
@@ -1765,7 +2107,7 @@
           href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
           </td>
           <td>
-          <p>-</p>
+          <p>TRA</p>
           </td>
          </tr>
          <tr>
@@ -1776,7 +2118,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>false</p>
+          <p>true</p>
           </td>
          </tr>
          <tr>
@@ -1785,7 +2127,7 @@
           </td>
           <td style='background:#FBE4D5;'></td>
           <td style='background:#FBE4D5;'>
-          <p><strong>-</strong></p>
+          <p><strong>the list must include an item of type:</strong></p>
           </td>
          </tr>
          <tr>
@@ -1796,7 +2138,7 @@
           <p>-</p>
           </td>
           <td>
-          <p>-</p>
+          <p>&lt;must have a value&gt;</p>
           </td>
          </tr>
          <tr>
@@ -1804,12 +2146,12 @@
           <p>typeOfReference</p>
           </td>
           <td style='background:#FBE4D5;'>
-          <p><a
+          <p title=""><a
           href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
           href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
           </td>
           <td>
-          <p>-</p>
+          <p>must be = N820</p>
           </td>
          </tr>
          <tr>
@@ -1871,7 +2213,7 @@
           </td>
           <td style='background:#CCFFFF;'>
           <p><a
-          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Exporttype</a></p>
+          href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
           </td>
           <td>
           <p>-</p>
@@ -1885,10 +2227,11 @@
           <p><a
           href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
           </td>
-          <td></td>
+          <td>
+          <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+          </td>
          </tr>
         </table>
-
 
         <h3 id="hvordanSende">How to submit notifications of transports,
         master consignments and house consignments</h3>
@@ -1982,7 +2325,7 @@
 
         <h4 id="valideringMeldinger">Validation errors</h4>
         <p>
-          See <a href="mo-valideringsfeil.html">this page</a> for
+          See <a href="synkrone-valideringsfeil.html">this page</a> for
           an overview of the most common validation errors and their
           possible causes and corrections.
         </p>
@@ -2047,7 +2390,6 @@
           last update of the notification.
         </p>
 
-
         <h3 id="kontrolldir">Presentation and control routing</h3>
 
         <p>
@@ -2085,18 +2427,16 @@
         <h4 id="tjenestefremlegging">Presentation service</h4>
 
         <p>
-           The service is used for the digital fulfillment of the
-           presentation obligation (Movement of Goods Act § 2-3 &ndash;
-           Presentation of goods for control).
-           The service can be used jointly for consignments subject
-           to <strong>notification and disclosure of information
-           obligations</strong> and/or <strong>pre-notified to the EU
-           in the ICS2 solution</strong>.
+           The service is used for the digital fulfillment of the presentation obligation
+           (Movement of Goods Act § 2-3 &ndash; Presentation of goods for control).
+           The service can be used jointly for consignments subject to <strong>notification
+           and disclosure of information obligations</strong> and/or <strong>pre-notified
+           to the EU in the ICS2 solution</strong>.
            <br/>
            Presentation (<a href="#movement-presentation-api">movement-presentation-api</a>)
-           can be reported for consignments that have been pre-notified through the two
-           mentioned obligations, i.e., consignments expected to be
-           presented.
+           can be reported for consignments that have
+           been pre-notified through the two mentioned obligations, i.e., consignments
+           expected to be presented.
         </p>
 
         <p>
@@ -2164,7 +2504,7 @@
           API at Norwegian Customs (<a href="movement-routing-api.html">movement
           routing API</a>). This API is independent of the type
           of transport. All routing results for all types of transportation will be
-          returned. Our APIs <a href="maskinporten-EN.html">use
+          returned. Our APIs <a href="../maskinporten/maskinporten-EN.html">use
           Maskinporten</a> for identity and access management. It is the Norwegian
           organization number for the party accessing the API that determines which
           routings are made available.
@@ -2339,17 +2679,17 @@
           info here</a>.
         </p>
         <pre class="boxed">
-POST https://&lt;env&gt;/api/movement/air/v1/transport
-POST https://&lt;env&gt;/api/movement/air/v1/master-consignment
-POST https://&lt;env&gt;/api/movement/air/v1/house-consignment
+POST https://&lt;env&gt;/api/movement/rail/v1/transport
+POST https://&lt;env&gt;/api/movement/rail/v1/master-consignment
+POST https://&lt;env&gt;/api/movement/rail/v1/house-consignment
 
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/transport/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/master-consignment/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/house-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/house-consignment/{MRN}
 
-GET https://&lt;env&gt;/api/movement/air/status/v1/transport/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/master-consignment/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
         </pre>
         <p>
            where &lt;env&gt; is
@@ -2364,24 +2704,24 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
             <em>{MRN}</em> is substituted by the reference returned from ".../validation-status..."-end points.
          </p>
 
-        <h3 id="movement-air-api">API: movement-air-api</h3>
+        <h3 id="movement-rail-api">API: movement-rail-api</h3>
         <p>
             In order to use the service, the scope for authentication against Maskinporten
             must be set to
-            <strong>toll:movement/air</strong>
+            <strong>toll:movement/rail</strong>
         </p>
         <p>
-            See <strong><a href="movement-air-api.html">API-documentation here</a></strong>.
+            See <strong><a href="movement-rail-api.html">API-documentation here</a></strong>.
         </p>
 
-        <h3 id="movement-air-query-api">API: movement-air-query-api</h3>
+        <h3 id="movement-rail-query-api">API: movement-rail-query-api</h3>
         <p>
             In order to use the service, the scope for authentication against Maskinporten
             must be set to
-            <strong>toll:movement/air</strong>
+            <strong>toll:movement/rail</strong>
         </p>
         <p>
-            See <strong><a href="movement-air-query-api.html">API-documentation here</a></strong>.
+            See <strong><a href="movement-rail-query-api.html">API-documentation here</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
@@ -2429,14 +2769,14 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
             In addition to the information about consignments provided through the movement APIs,
             it is also possible to upload invoices and other documentation for consignments where customs declarations
             have already been submitted. Documentation for this API can be found here:
-            <a href="document-api-EN.html">Document upload API</a>.
+            <a href="../document/document-api-EN.html">Document upload API</a>.
         </p>
 
         <h2 id="eksempler">Examples</h2>
         <p>
             We have created a brief overview of how the notification content for consignments
             can look, based on the customs procedure used.
-            <a href="mo-eksempler-EN.html">Examples can be found here</a>.<br/>
+            <a href="../mo-eksempel/mo-eksempler-EN.html">Examples can be found here</a>.<br/>
             On the same page, there is also information about test data related to customs declarations
             that can be used for testing the interface.
         </p>
@@ -2445,7 +2785,7 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
         Data exchange between the business sector and Norwegian Customs</h2>
         <p>
             Our APIs use Maskinporten for identity and access management.
-            On the page <strong><a href="maskinporten-EN.html">Maskinporten</a></strong>
+            On the page <strong><a href="../maskinporten/maskinporten-EN.html">Maskinporten</a></strong>
             you will find information on:
         </p>
         <ul>

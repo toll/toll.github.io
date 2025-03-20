@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to Submit Various Declaration Messages</title>
+    <meta name="description" content="How to Submit Various Declaration Messages">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body class="deklarasjons-meldinger">
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="hvordan-sende-inn-meldinger.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main class="hvordan-sende-inn-meldinger">
+    <div role="main" class="align-self-start">
+        <h1 id="hvordanSende">Transport, Master Consignments and Consignments - How to Submit Messages</h1>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger-EN.html">Information and Messages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Transport, Master Consignments and Consignments - How to Submit Messages</li>
+            </ol>
+        </nav>
+
+        <div class="two-column-section">
+            <div class="about-section-text">
+                <h3 id="sekvens">Sequence for Submitting Messages (POST)</h3>
+                <p>
+                    Generally, the submission of information works such that the actor
+                    sends a message (POST) and receives a reference
+                    (requestId). By using the received reference, the actor
+                    can query (GET) the result of the submission and upon success
+                    receive a permanent reference to the message, issued by
+                    Norwegian Customs.
+                </p>
+
+                <p>
+                    This is done at a dedicated endpoint
+                    (<code>/validation-status</code>) in the query API linked further down on this page. These services
+                    are asynchronous and therefore one must query until a response is received.
+                </p>
+                <p>
+                    Validation responses are usually available within
+                    1 to 2 seconds, but it may take longer in some cases. Querying is done
+                    at the <code>/validation-status</code> endpoint, which will
+                    return the MRN upon success and a list of validation errors
+                    if any.<br/>
+                    The permanent reference is called a Master Reference
+                    Number, abbreviated MRN. MRN is used when messages need to
+                    be updated or canceled (put/delete) to refer to
+                    previously submitted messages.<br/>
+                    The validation endpoint can also return a list of
+                    document statuses to indicate missing information.
+                </p>
+                <p>
+                    The recommended method for submission is that the actor submits all
+                    messages for creation (POST) that are relevant, and then waits
+                    1-2 seconds before querying for validation (query API).
+                </p>
+                <p>
+                    For example: if you have 500 consignments for a
+                    master consignment on a transport, you submit (POST)
+                    all 500 consignment messages, wait a few seconds,
+                    query for validation, and receive the MRN and status for all 500
+                    messages.
+                </p>
+                <p>
+                    If you receive a 404 status when calling the validation endpoint, you
+                    must wait a bit and query again. It is recommended to create an algorithm
+                    that makes repeated attempts until a validation response is received.
+                </p>
+                <p>
+                    <a href="melde-og-opplysning-EN.html#utfyllingForsend">See API documentation</a> for details on
+                    the endpoints.
+                </p>
+
+
+                <h3 id="valideringMeldinger">Validation Errors</h3>
+                <p>
+                    See <a href="synkrone-valideringsfeil-EN.html">this page</a> for
+                    an overview of the most common validation errors you may encounter with
+                    possible causes/corrections for them.
+                </p>
+
+                <p>
+                    If a consignment receives routing signals multiple times, the
+                    <em>last</em> routing signal is the one that applies. For example,
+                    it is possible for a consignment to first
+                    receive <strong>ENTRY_PENDING</strong> and then
+                    receive <strong>TO_CONTROL</strong>. If a consignment you have reported
+                    does not receive a routing signal when expected, it usually means that
+                    Norwegian Customs has not had sufficient time to process the consignment message. The actor must then hold back the consignments until a
+                    routing signal is received for it.
+                </p>
+
+
+                <h3 id="kodeverk">Code Lists</h3>
+                <p>
+                    An overview of the various code lists that the message content is validated against can be found on <a href="mo-kodeverk-EN.html">a separate
+                    page</a>. In the schemas on the APIs, it will be indicated which code lists the data fields
+                    are validated against.
+                </p>
+
+            </div>
+
+            <div class="about-section-text">
+                <h3 id="dokumentinnsending">API: Document Submission</h3>
+                <p>
+                    In addition to the consignment information provided through the movement APIs,
+                    invoices for consignments where a customs declaration has already been submitted can also be sent.
+                    Documentation for this API can be found here:
+                    <a href="../document/document-api-EN.html">Document Upload API</a>.
+                </p>
+
+                <h3 id="eksempler">Relevant Examples</h3>
+                <p>
+                    We have created a brief overview of how consignment message content
+                    might look based on the customs procedure used.
+                    <a href="../mo-eksempel/mo-eksempler-EN.html">Examples can be found here</a>.<br/>
+                    On the same page, there is information about test data related to customs declarations
+                    that can be used in connection with interface testing.
+                </p>
+
+                <h3 id="autentisering">Authentication – Data Exchange between Businesses and Norwegian Customs</h3>
+                <p>
+                    Our APIs use <i>Maskinporten</i> for identity and access management. On
+                    the page <strong><a href="../maskinporten/maskinporten-EN.html">Maskinporten
+                    - Norwegian Customs</a></strong> you will find information about
+                </p>
+                <ul class="spaced-list">
+                    <li>how to get started with integration via Maskinporten
+                        if you have not done so before, including the registration form for access
+                        at Norwegian Customs
+                    </li>
+
+                    <li>access management for our APIs</li>
+
+                    <li>how to set up a client to authenticate via Maskinporten</li>
+
+                    <li>operation and monitoring/troubleshooting.</li>
+                </ul>
+
+                <p>The scope used for the APIs is documented on each individual API.</p>
+
+                <br/>
+                <br/>
+            </div>
+        </div>
+        <div class="buttons-section">
+            <a href="kobling-oppdatering-og-sletting-EN.html" class="new-page-button">
+                <p>Linking, Updating and Deleting Messages</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="fremlegging-og-kontrolldirigering-EN.html" class="new-page-button">
+                <p>Presentation and Control Routing</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>
