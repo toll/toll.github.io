@@ -2,18 +2,18 @@
 <html lang="no">
 <head>
     <meta charset="UTF-8">
-    <title>API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2</title>
-    <meta name="description" content="Tolletatens API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2">
-    <meta name="author" content="Tolletaten">
+    <title>API for reporting and information, rail</title>
+    <meta name="description" content="The Customs API for reporting and information, rail">
+    <meta name="author" content="The Customs">
     <link rel="stylesheet" href="../../style/api.css">
-    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="/logo32.png" type="image/png"/>
-    <link rel="apple-touch-icon" href="/logo152.png"/>
-    <link rel="apple-touch-icon-precomposed" href="/logo152.png"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="/logo152.png"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
 </head>
 
 <style>
@@ -27,37 +27,37 @@
 <body>
 
 <header>
-    <a href="../../index.html">
-        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="The Customs" class="logo"/>
     </a>
 
-    <a href="../../index-EN.html" class="nav-language-button" role="navigation">
+    <a href="prosedyre-mo-tog.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
-            <span>EN</span>
-            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="Norsk flagg">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
 
-<main>
+<main class="mo-api">
     <div role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
-                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Utfyllings prosedyre - mo - tog</li>
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Reporting and information</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Filling procedure - mo - rail</li>
             </ol>
         </nav>
 
         <div class="flex-column display-center">
-            <h1>Hvordan fylle ut melding om forsendelse</h1>
+            <h1>How to fill out a shipment report</h1>
 
-            <h1 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h1>
+            <h1 id="Grensesnittbeskrivelse">Interface description</h1>
             <p>
-                Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
+                The services are made available as REST services over HTTPS, with data in JSON format.
             </p>
 
-<pre class="boxed-medium-display">
+            <pre class="boxed-medium-display">
     1  POST https://&lt;env&gt;/api/movement/rail/v1/transport
     2  POST https://&lt;env&gt;/api/movement/rail/v1/master-consignment
     3  POST https://&lt;env&gt;/api/movement/rail/v1/house-consignment
@@ -70,79 +70,71 @@
     10 GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
     11 GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
     12
-    13 <b>&lt;env&gt;</b> byttes ut med
-    14 • api.toll.no for produksjon
+    13 <b>&lt;env&gt;</b> is replaced with
+    14 • api.toll.no for production
     15
-    16 • <b>api-test</b>.toll.no for playground (testmiljø)
+    16 • <b>api-test</b>.toll.no for playground (test environment)
     17
-    18 <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
-    19 <b>{MRN}</b> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+    18 <b>{requestId}</b> is replaced with the reference returned by POST/PUT/DELETE calls
+    19 <b>{MRN}</b> is replaced with the reference returned from ".../validation-status..." endpoints.
 </pre>
 
             <p class="tips_box">
-                Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
-                vi deg ta kontakt; <a href="https://toll.no/.well-known/security.txt">se
-                her for info</a>
+                If you discover security issues in our solutions, please contact us; <a href="https://toll.no/.well-known/security.txt">see here for info</a>
             </p>
 
-            <h1>API Tjenester</h1>
+            <h1>API Services</h1>
         </div>
 
         <h3 id="movement-rail-api">API: movement-rail-api</h3>
         <p>
-            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
-            settes til <strong>toll:movement/rail</strong>
+            To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/rail</strong>
         </p>
         <p>
-            Se <strong><a href="movement-rail-api.html">
-            API-dokumentasjon her</a></strong>.
+            See <strong><a href="movement-rail-api.html">
+            API documentation here</a></strong>.
         </p>
 
         <h3 id="movement-rail-query-api">API: movement-rail-query-api</h3>
         <p>
-            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
-            settes til <strong>toll:movement/rail</strong>
+            To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/rail</strong>
         </p>
         <p>
-            Se <strong><a href="movement-rail-query-api.html">API-dokumentasjon her</a></strong>.
+            See <strong><a href="movement-rail-query-api.html">API documentation here</a></strong>.
         </p>
 
         <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
-        <p>Se <strong><a href="movement-presentation-api.html">API-dokumentasjon her</a></strong>.</p>
+        <p>See <strong><a href="movement-presentation-api.html">API documentation here</a></strong>.</p>
 
         <h3 id="movement-routing-api">API: movement-routing-api</h3>
-        <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
+        <p>See <strong><a href="movement-routing-api.html">API documentation here</a></strong>.</p>
 
         <br/>
         <br/>
 
         <h4>IMMEDIATE_RELEASE_IMPORT</h4>
-
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
-                    <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
-                        før ferge til Larvik)</p>
+                    <p>A declaration for transition to free disposal has been submitted in advance.</p>
+                    <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
                 </td>
                 <td colspan='2'>
-                    <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
-                    <p>Transittering er foregående prosedyre og skal fullføres ved
-                        grensepassering.</p>
+                    <p>A declaration for transition to free disposal has been submitted in advance.</p>
+                    <p>Transit is the previous procedure and must be completed at the border crossing.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter der denne kombinasjonen er gyldig</strong></td>
-                <td>Fly, tog, bil på ferge</td>
-                <td colspan='2'>Tog, bil på vei, bil på ferge</td>
+                <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong></td>
+                <td>Air, train, car on ferry</td>
+                <td colspan='2'>Train, car on road, car on ferry</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th>Variant 1</th>
                 <th colspan='2'>Variant 3</th>
             </tr>
@@ -152,10 +144,10 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -163,8 +155,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td>
                     <p>IMMEDIATE_RELEASE_IMPORT</p>
@@ -178,8 +169,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -208,16 +198,13 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger)'>&nbsp;</td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag
-                        av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag
-                        av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>OG liste må ha ett
-                        innslag av type:</strong></p>
+                    <p><strong>AND list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -234,7 +221,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -242,18 +229,16 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
-                    <p>må være = CUDE</p>
+                    <p>must be = CUDE</p>
                 </td>
                 <td>
-                    <p>må være = CUDE</p>
+                    <p>must be = CUDE</p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -264,10 +249,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -281,10 +266,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -298,10 +283,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -338,8 +323,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -350,13 +334,10 @@
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td>
                     <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
@@ -375,22 +356,19 @@
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Transittering er startet opp i annet land. Fullføring av transitteringen
-                        skal utføres ved lossing. Ved grensepassering skal det kun registreres
-                        grensepassering i NCTS</p>
+                    <p>Transit has started in another country. Completion of the transit must be performed at unloading. At the border crossing, only the border crossing should be registered in NCTS.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
-                <td>Bil på vei/ferge, tog</td>
+                <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                <td>Car on road/ferry, train</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th>Variant 4</th>
             </tr>
             <tr>
@@ -399,7 +377,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -407,8 +385,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td>
                     <p>TRANSIT_IMPORT</p>
@@ -419,8 +396,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td>
                     <p>TRA</p>
@@ -443,8 +419,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'></td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag
-                        av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -455,7 +430,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -463,12 +438,10 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -529,8 +502,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -538,13 +510,10 @@
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td>
                     <p>INCOMPLETE_TRA_DOCUMENTATION</p>
@@ -559,28 +528,25 @@
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>VOEC-forsendelser.</p>
-                    <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under
-                        verdigrensen for krav om eksport.</p>
+                    <p>VOEC shipments.</p>
+                    <p>Another customs authority has cleared the previous procedure, or value below the threshold for export requirements.</p>
                 </td>
                 <td>
-                    <p>VOEC-forsendelse.</p>
-                    <p>Transittering er foregående prosedyre og skal fullføres ved
-                        grensepassering.</p>
+                    <p>VOEC shipment.</p>
+                    <p>Transit is the previous procedure and must be completed at border crossing.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
-                <td>Bil på vei/ferge, tog, fly</td>
-                <td>Bil på vei/ferge, tog</td>
+                <td colspan='2'><strong>Relevant modes of transport</strong></td>
+                <td>Car on road/ferry, train, plane</td>
+                <td>Car on road/ferry, train</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th>Variant 6</th>
                 <th>Variant 8</th>
             </tr>
@@ -590,10 +556,10 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -601,8 +567,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td>
                     <p>IMMEDIATE_RELEASE_VOEC</p>
@@ -616,8 +581,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -649,7 +613,7 @@
                     <p><strong>-</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -663,7 +627,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -671,15 +635,13 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
                     <p>-</p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -755,8 +717,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -773,10 +734,10 @@
                     <p>-</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -787,10 +748,10 @@
                     <p>-</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -801,10 +762,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -815,10 +776,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -829,10 +790,10 @@
                     <p>-</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -843,10 +804,10 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -857,10 +818,10 @@
                     <p>-</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-warning);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -871,21 +832,18 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than at the border crossing.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td>
                     <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
@@ -904,22 +862,20 @@
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td colspan='2'>
-                    <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
-                    <p>Transittering er foregående prosedyre og skal fullføres ved
-                        grensepassering.</p>
+                    <p>A declaration for entry into the customs warehouse has been submitted in advance.</p>
+                    <p>Transit is the preceding procedure and must be completed at border crossing.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
-                <td colspan='2'>Bil på vei/ferge, tog</td>
+                <td colspan='2'><strong>Relevant modes of transport</strong></td>
+                <td colspan='2'>Car on road/ferry, train</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th colspan='2'>Variant 11</th>
             </tr>
             <tr>
@@ -928,7 +884,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -936,8 +892,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td colspan='2'>
                     <p>WAREHOUSE_RELEASE</p>
@@ -948,8 +903,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td colspan='2'>
                     <p>TRA</p>
@@ -972,12 +926,10 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'></td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag
-                        av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>OG liste må ha ett
-                        innslag av type:</strong></p>
+                    <p><strong>AND list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -991,7 +943,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -999,15 +951,13 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
-                    <p>må være = CUDE</p>
+                    <p>must be = CUDE</p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -1018,7 +968,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -1032,7 +982,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -1046,7 +996,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
                 <td>
                     <p>-</p>
@@ -1077,8 +1027,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td colspan='2'>
                     <p>-</p>
@@ -1086,13 +1035,10 @@
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td colspan='2'>
                     <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
@@ -1108,22 +1054,20 @@
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
-                    <p>Transittering er foregående prosedyre og skal fullføres ved
-                        grensepassering.</p>
+                    <p>Shipment to be collectively cleared after border crossing.</p>
+                    <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
-                <td>Bil på vei/ferge, tog</td>
+                <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                <td>Car on road/ferry, train</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th>Variant 14</th>
             </tr>
             <tr>
@@ -1132,7 +1076,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1140,8 +1084,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td>
                     <p>COLLECTIVE_RELEASE</p>
@@ -1152,8 +1095,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td>
                     <p>TRA</p>
@@ -1176,7 +1118,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'></td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1187,7 +1129,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -1195,12 +1137,10 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -1261,8 +1201,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -1270,13 +1209,10 @@
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td>
                     <p>INCOMPLETE_TRA_DOCUMENTATION</p>
@@ -1291,22 +1227,20 @@
         <table>
             <tr>
                 <td colspan='2'>
-                    <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
-                        til grensen</strong></p>
+                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
-                    <p>Transittering er foregående prosedyre og skal fullføres ved
-                        grensepassering.</p>
+                    <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic Regulations.</p>
+                    <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
                 </td>
             </tr>
             <tr>
-                <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
-                <td>Bil på vei/ferge, tog</td>
+                <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                <td>Car on road/ferry, train</td>
             </tr>
             <tr>
-                <th>Felt</th>
-                <th>Kodeverk</th>
+                <th>Field</th>
+                <th>Code list</th>
                 <th>Variant 17</th>
             </tr>
             <tr>
@@ -1315,7 +1249,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'></td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><strong>må fylles ut</strong></p>
+                    <p><strong>must be filled out</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1323,8 +1257,7 @@
                     <p>importProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                 </td>
                 <td>
                     <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
@@ -1335,8 +1268,7 @@
                     <p>outgoingProcedure</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-info);'>
-                    <p><a
-                            href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                 </td>
                 <td>
                     <p>TRA</p>
@@ -1359,7 +1291,7 @@
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'></td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><strong>liste må ha ett innslag av type:</strong></p>
+                    <p><strong>list must have one entry of type:</strong></p>
                 </td>
             </tr>
             <tr>
@@ -1370,7 +1302,7 @@
                     <p>-</p>
                 </td>
                 <td>
-                    <p>&lt;må ha verdi&gt;</p>
+                    <p>&lt;must have value&gt;</p>
                 </td>
             </tr>
             <tr>
@@ -1378,12 +1310,10 @@
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a
-                            href="mo-kodeverk.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                 </td>
                 <td>
-                    <p>må være = N820</p>
+                    <p>must be = N820</p>
                 </td>
             </tr>
             <tr>
@@ -1444,8 +1374,7 @@
                     <p>typeOfExport</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-success);'>
-                    <p><a
-                            href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
                 </td>
                 <td>
                     <p>-</p>
@@ -1453,13 +1382,10 @@
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Mulige
-                        valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
-                        at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
-                    <p><a
-                            href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
                 </td>
                 <td>
                     <p>INCOMPLETE_TRA_DOCUMENTATION</p>
@@ -1471,8 +1397,7 @@
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                            class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact us</a>
 </footer>
 
 </body>

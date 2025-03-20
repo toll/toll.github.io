@@ -148,6 +148,10 @@ blockquote {
     font-size: 2vh;
 }
 
+.mo-api .tips_box {
+    font-size: 2vh;
+}
+
 .tips_box_normal {
     border-radius: 18px;
     background: var(--background-color-pink-red);
