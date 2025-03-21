@@ -25,7 +25,7 @@
     <a href="asynkrone-valideringsfeil-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>EN</span>
-            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -41,8 +41,8 @@
             </ol>
         </nav>
     </div>
-    <div class="about-section" role="main">
-        <div class="about-section-text">
+    <div class="align-self-start" role="main">
+        <div>
             <h2 id="Asynkronevalideringsfeil">Asynkrone valideringsfeil</h2>
 
             <p>Dersom en innsending ikke hadde noen valideringsfeil som
@@ -56,8 +56,6 @@
                 innsendingen, og returnert som asynkrone valideringsfeil.</p>
         </div>
 
-
-        <section class="synkrone-grid-two-columns-container">
 
             <div>
                 <h3 id="Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone valideringsfeil</h3>
@@ -79,7 +77,7 @@
                     innnsending er <em>vellykket</em>, vil feltet &quot;status&quot; ha
                     verdien &quot;<strong>SUCCESS</strong>&quot;</p>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -106,7 +104,7 @@
 
                 <h4 id="Svar.6">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -142,7 +140,7 @@
 
                 <h4 id="Svar.7">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -178,7 +176,7 @@
 
                 <h4 id="Svar.8">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -215,7 +213,7 @@
 
                 <h4 id="Svar.10">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -261,7 +259,7 @@
 
                 <h4 id="Svar.11">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -280,7 +278,7 @@
 
                 <p>Verdi for feltet outgoingProcedure ble ikke funnet blant de gyldige kodene
                     som finnes i OutgoingProcedure kodeverket <a
-                            href="https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure">https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure</a>.
+                            href="mo-kodeverk.html#outgoingprocedure">mo-kodeverk.html#outgoingprocedure</a>.
                 </p>
 
                 <h4 id="Rettelse.11">Rettelse</h4>
@@ -298,7 +296,7 @@
 
                 <h4 id="Svar.12">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -335,7 +333,7 @@
 
                 <h4 id="Svar.13">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -371,7 +369,7 @@
 
                 <h4 id="Svar.14">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -409,7 +407,7 @@
 
                 <h4 id="Svar.15">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -452,7 +450,7 @@
 
                 <h4 id="Svar.16">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -492,7 +490,7 @@
 
                 <h4 id="Svar.17">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -536,9 +534,8 @@
                             is not IMMEDATE_RELEASE_VOEC, should not be provided.</b>
                         </p>
                     </div>
-                    <div><pre
-                            data-syntaxhighlighter-params="brush: js; gutter: false; theme: Eclipse; collapse: true"
-                            data-theme=Eclipse>{
+                    <div>
+                      <pre class="boxed-display">>{
   &quot;status&quot;: &quot;FAILURE&quot;,
   &quot;requestId&quot;: &quot;${requestIdForSubmission}&quot;,
   &quot;notificationDate&quot;: &quot;${dateTimeResultWasReady}&quot;
@@ -575,7 +572,7 @@
 
                 <h4 id="Svar.19">Svar</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -594,7 +591,7 @@
 
                 <p>Referansenummeret oppgitt for &quot;customsOfficeOfFirstEntry&quot;
                     refererer ikke til et gyldig tollkontor. Bruk CL141 Customs office reference
-                    number fra kodeverk <a href="https://toll.github.io/api/mo-kodeverk.html#cl141">https://toll.github.io/api/mo-kodeverk.html#cl141</a>
+                    number fra kodeverk <a href="mo-kodeverk.html#cl141">mo-kodeverk.html#cl141</a>
                 </p>
 
                 <h4 id="Rettelse.19">Rettelse</h4>
@@ -612,7 +609,7 @@
 
                 <h4 id="Svar.30">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -655,7 +652,7 @@
 
                 <h4 id="Svar.31">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -679,7 +676,7 @@
                     varene har vært underlagt. Dersom man oppgir at tidligere tollprosedyre er
                     eksport, så kan man ikke henvise til en referanse til transittering.<br>
                     Se valg av tollprosedyre <a
-                            href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>
+                            href="mo-vei.html#utfyllingForsend">mo-vei.html#utfyllingForsend</a>
                 </p>
 
                 <h4 id="Rettelse.31">Rettelse</h4>
@@ -697,7 +694,7 @@
 
                 <h4 id="Svar.32">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -733,7 +730,7 @@
 
                 <h4 id="Svar.33">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -770,7 +767,7 @@
 
                 <h4 id="Svar.34">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -809,7 +806,7 @@
 
                 <h4 id="Svar.35">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -855,10 +852,10 @@
                     &quot;incompleteDocumentationReasonList&quot; liste som lister opp årsakskoder
                     for hvorfor innsendingen ble vurdert ufullstendig. Eksempler på verdier
                     som kan komme som årsakskoder finner man her: <a
-                            href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a>
+                            href="mo-kodeverk-EN.html#incompleteDocumentationReason">mo-kodeverk-EN.html#incompleteDocumentationReason</a>
                 </p>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "documentNumber": "${documentNumber}",
   "type": "${documentType}",
@@ -874,7 +871,7 @@
 
                 <h4 id="Svar.36">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "documentNumber": "${documentNumber}",
   "type": "${documentType}",
@@ -888,51 +885,25 @@
 
                 <p>Man har en innsendelse som ikke oppfyller kravene for en fullstendig
                     innsending for valgt tollprosedyre. Se: <a
-                            href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>
+                            href="mo-vei.html#utfyllingForsend">mo-vei.html#utfyllingForsend</a>
                 </p>
 
                 <h4 id="Rettelse.36">Rettelse</h4>
 
                 <p>Endre innsending slik at den oppfyller kravene for valgt tollprosedyre. Se: <a
-                        href="https://toll.github.io/api/mo-vei.html#utfyllingForsend">https://toll.github.io/api/mo-vei.html#utfyllingForsend</a>.
+                        href="mo-vei.html#utfyllingForsend">mo-vei.html#utfyllingForsend</a>.
                     Send
                     inn oppdatert innsending med endringene (HTTP PUT). Verifiser at
                     &quot;/transport-document/status&quot; etter ny behandling etter hvert
                     returnerer med status &quot;SUCCESS&quot;</p>
             </div>
-
-        </section>
     </div>
 
 </main>
-<button id="scrollToTopBtn" title="Go to top">Til toppen</button>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2024 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                            class="white">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="white">Kontakt oss</a>
 </footer>
 
 </body>
-<script>
-    let mybutton = document.getElementById("scrollToTopBtn");
-
-    window.onscroll = function () {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    mybutton.onclick = function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
 </html>

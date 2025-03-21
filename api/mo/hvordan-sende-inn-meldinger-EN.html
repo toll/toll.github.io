@@ -25,7 +25,7 @@
     <a href="hvordan-sende-inn-meldinger.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>NO</span>
-            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
@@ -42,7 +42,7 @@
             </ol>
         </nav>
 
-        <div class="two-column-section">
+        <div>
             <div class="about-section-text">
                 <h3 id="sekvens">Sequence for Submitting Messages (POST)</h3>
                 <p>
@@ -56,8 +56,10 @@
 
                 <p>
                     This is done at a dedicated endpoint
-                    (<code>/validation-status</code>) in the query API linked further down on this page. These services
-                    are asynchronous and therefore one must query until a response is received.
+                    (<code>/validation-status</code>) in the query API
+                    linked further down on this page. These services are
+                    asynchronous and therefore one must query until a
+                    response is received.
                 </p>
                 <p>
                     Validation responses are usually available within
@@ -90,8 +92,8 @@
                     that makes repeated attempts until a validation response is received.
                 </p>
                 <p>
-                    <a href="melde-og-opplysning-EN.html#utfyllingForsend">See API documentation</a> for details on
-                    the endpoints.
+                    <a href="melde-og-opplysning-EN.html#utfyllingForsend">See
+                    API documentation</a> for details on the endpoints.
                 </p>
 
 
@@ -104,21 +106,28 @@
 
                 <p>
                     If a consignment receives routing signals multiple times, the
-                    <em>last</em> routing signal is the one that applies. For example,
-                    it is possible for a consignment to first
+                    <em>last</em> routing signal is the one that
+                    applies. For example, it is possible for a
+                    consignment to first
                     receive <strong>ENTRY_PENDING</strong> and then
-                    receive <strong>TO_CONTROL</strong>. If a consignment you have reported
-                    does not receive a routing signal when expected, it usually means that
-                    Norwegian Customs has not had sufficient time to process the consignment message. The actor must then hold back the consignments until a
-                    routing signal is received for it.
+                    receive <strong>TO_CONTROL</strong>. If a
+                    consignment you have reported does not receive a
+                    routing signal when expected, it usually means that
+                    Norwegian Customs has not had sufficient time to
+                    process the consignment message. The actor must then
+                    hold back the consignments until a routing signal is
+                    received for it.
                 </p>
 
 
                 <h3 id="kodeverk">Code Lists</h3>
                 <p>
-                    An overview of the various code lists that the message content is validated against can be found on <a href="mo-kodeverk-EN.html">a separate
-                    page</a>. In the schemas on the APIs, it will be indicated which code lists the data fields
-                    are validated against.
+                    An overview of the various code lists that the
+                    message content is validated against can be found
+                    on <a href="mo-kodeverk-EN.html">a separate
+                    page</a>. In the schemas on the APIs, it will be
+                    indicated which code lists the data fields are
+                    validated against.
                 </p>
 
             </div>
@@ -126,19 +135,24 @@
             <div class="about-section-text">
                 <h3 id="dokumentinnsending">API: Document Submission</h3>
                 <p>
-                    In addition to the consignment information provided through the movement APIs,
-                    invoices for consignments where a customs declaration has already been submitted can also be sent.
-                    Documentation for this API can be found here:
+                    In addition to the consignment information provided
+                    through the movement APIs, invoices for consignments
+                    where a customs declaration has already been
+                    submitted can also be sent.  Documentation for this
+                    API can be found here:
                     <a href="../document/document-api-EN.html">Document Upload API</a>.
                 </p>
 
                 <h3 id="eksempler">Relevant Examples</h3>
                 <p>
-                    We have created a brief overview of how consignment message content
-                    might look based on the customs procedure used.
-                    <a href="../mo-eksempel/mo-eksempler-EN.html">Examples can be found here</a>.<br/>
-                    On the same page, there is information about test data related to customs declarations
-                    that can be used in connection with interface testing.
+                    We have created a brief overview of how consignment
+                    message content might look based on the customs
+                    procedure used.
+                    <a href="../mo/mo-eksempler-EN.html">Examples can be
+                      found here</a>.<br/>
+                    On the same page, there is information about test
+                    data related to customs declarations that can be
+                    used in connection with interface testing.
                 </p>
 
                 <h3 id="autentisering">Authentication – Data Exchange between Businesses and Norwegian Customs</h3>
@@ -167,13 +181,15 @@
             </div>
         </div>
         <div class="buttons-section">
-            <a href="kobling-oppdatering-og-sletting-EN.html" class="new-page-button">
+            <a href="kobling-oppdatering-og-sletting-EN.html"
+                class="new-page-button no-icon">
                 <p>Linking, Updating and Deleting Messages</p>
                 <div>
                     <img src="../../media/arrow-right.svg" alt="arrow-right">
                 </div>
             </a>
-            <a href="fremlegging-og-kontrolldirigering-EN.html" class="new-page-button">
+            <a href="fremlegging-og-kontrolldirigering-EN.html"
+               class="new-page-button no-icon">
                 <p>Presentation and Control Routing</p>
                 <div>
                     <img src="../../media/arrow-right.svg" alt="arrow-right">

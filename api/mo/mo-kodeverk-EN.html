@@ -25,7 +25,7 @@
     <a href="mo-kodeverk.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norwegian">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian">
         </div>
     </a>
 </header>
@@ -47,12 +47,18 @@
                     <h2 id="kodeverk">Code sets</h2>
 
                     <p>
-                        Below is a comprehensive overview of the various code sets that the notification content in the
-                        API is validated against. There are two code sets used, one is the EU code set, and the other is
-                        the national code set that have been established to support Norwegian Customs business
-                        processes. Since the national code sets are not known to the business community in other
-                        contexts, we have added a description of how the codes should be used. In the forms at <a
-                            href="movement-air-api.html">movement-air-api</a> og
+                        Below is a comprehensive overview of the various
+                        code sets that the notification content in the
+                        API is validated against. There are two code
+                        sets used, one is the EU code set, and the other
+                        is the national code set that have been
+                        established to support Norwegian Customs
+                        business processes. Since the national code sets
+                        are not known to the business community in other
+                        contexts, we have added a description of how the
+                        codes should be used. In the forms
+                        at <a href="movement-air-api.html">movement-air-api</a>
+                        og
                         <a href="movement-road-api-v2.html">movement-road-api-v2</a>
                         it will be specified which code sets the data fields are validated against.
                     </p>
@@ -7689,7 +7695,6 @@
         </div>
     </div>
 </main>
-<button id="scrollToTopBtn" title="Go to top">To top</button>
 
 <footer role="contentinfo">
     <a href="https://www.toll.no/en/">Norwegian Customs</a> 2025 |
@@ -7698,26 +7703,4 @@
 </footer>
 
 </body>
-<script>
-    let mybutton = document.getElementById("scrollToTopBtn");
-
-    window.onscroll = function () {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    mybutton.onclick = function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
 </html>

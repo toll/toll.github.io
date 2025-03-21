@@ -36,13 +36,13 @@
     <a href="prosedyre-mo-vei-ferge.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
 
 <main class="mo-vei mo-api">
-    <div class="" role="main">
+    <div role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
@@ -52,34 +52,46 @@
         </nav>
 
         <div>
-            <h1>How to fill out a shipment report</h1>
+            <h1>How to fill out a shipment report, road/ferry</h1>
 
             <h2 id="Grensesnittbeskrivelse">Interface description</h2>
             <p>
                 The services are made available as REST services over HTTPS, with data in JSON format.
             </p>
 
-            <pre class="boxed-medium-display">
-    1  POST https://&lt;env&gt;/api/movement/road/v2/transport
-    2  POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
-    3  POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
-    4
-    5  PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
-    6  PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
-    7  PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
-    8
-    9  GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
-    10 GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
-    11 GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
-    12
-    13 <b>&lt;env&gt;</b> is replaced with
-    14 • api.toll.no for production
-    15
-    16 • <b>api-test</b>.toll.no for playground (test environment)
-    17
-    18 <b>{requestId}</b> is replaced with the reference returned by POST/PUT/DELETE calls
-    19 <b>{MRN}</b> is replaced with the reference returned from the ".../validation-status..." endpoints.
+            <pre class="boxed-display">
+POST https://&lt;env&gt;/api/movement/road/v2/transport
+POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
+POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
+
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
 </pre>
+            <p>
+              where
+              <ul>
+                <li>
+                  <b>&lt;env&gt;</b> is replaced with
+                  <ul>
+                    <li><i>api.toll.no</i> for production</li>
+                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                  </ul>
+                </li>
+                <li>
+                  <b>{requestId}</b> is replaced with the reference
+                  returned by POST/PUT/DELETE calls
+                </li>
+                <li>
+                  <b>{MRN}</b> is replaced with the reference returned
+                  from ".../validation-status..." endpoints.
+                </li>
+              </ul>
+            </p>
 
             <p class="tips_box">
                 If you discover security issues in our solutions, please contact us; <a

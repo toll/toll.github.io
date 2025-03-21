@@ -25,7 +25,7 @@
     <a href="asynkrone-valideringsfeil.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
@@ -41,44 +41,51 @@
             </ol>
         </nav>
     </div>
-    <div class="about-section" role="main">
-        <div class="about-section-text">
+    <div class="align-self-start" role="main">
+        <div>
             <h2 id="Asynkronevalideringsfeil">Asynchronous validation errors</h2>
 
             <p>If a submission did not have any validation errors that
                 led to <em>immediate</em> rejection (synchronous
-                validation errors), the submission will be processed further. Validation errors can
-                still occur <em>later</em>, during further processing. These will then be returned as a response to
-                calls to
-                the corresponding &quot;/validation-status&quot; endpoint
-                when processing is complete. Validation errors are linked to
-                the &quot;requestId&quot; value returned on the original
-                submission, and returned as asynchronous validation errors.</p>
+                validation errors), the submission will be processed
+                further. Validation errors can still
+                occur <em>later</em>, during further processing. These
+                will then be returned as a response to calls to the
+                corresponding &quot;/validation-status&quot; endpoint
+                when processing is complete. Validation errors are
+                linked to the &quot;requestId&quot; value returned on
+                the original submission, and returned as asynchronous
+                validation errors.</p>
         </div>
-
-        <section class="synkrone-grid-two-columns-container">
 
             <div>
                 <h3 id="Innholdsformatpaasynkronevalideringsfeil">Content format for asynchronous validation errors</h3>
 
-                <p>If <strong>validation errors</strong> are found when asynchronous
-                    validation is complete, the response to the &quot;/validation-status&quot; endpoint
-                    will return HTTP code 202 with content where the field &quot;status&quot; has the value
+                <p>If <strong>validation errors</strong> are found when
+                    asynchronous validation is complete, the response to
+                    the &quot;/validation-status&quot; endpoint will
+                    return HTTP code 202 with content where the field
+                    &quot;status&quot; has the value
                     &quot;<strong>FAILURE</strong>&quot;.<br>
-                    Validation errors are returned as one or more objects in a list,
-                    &quot;validationErrorList&quot;. The content of the list is object(s) that
-                    point to the path of the field(s) that caused the validation error indicated in the field
-                    &quot;pointer.messageElementPath&quot; and the cause of the error indicated in the field
+                    Validation errors are returned as one or more
+                    objects in a list,
+                    &quot;validationErrorList&quot;. The content of the
+                    list is object(s) that point to the path of the
+                    field(s) that caused the validation error indicated
+                    in the field &quot;pointer.messageElementPath&quot;
+                    and the cause of the error indicated in the field
                     &quot;description&quot;.</p>
 
                 <p>Until processing is complete, the response to the endpoint will give HTTP code
                     404.</p>
 
-                <p>If there are <strong><em>no</em> validation errors</strong>, and
-                    the submission is <em>successful</em>, the field &quot;status&quot; will have
-                    the value &quot;<strong>SUCCESS</strong>&quot;</p>
+                <p>If there are <strong><em>no</em> validation
+                    errors</strong>, and the submission
+                    is <em>successful</em>, the field &quot;status&quot;
+                    will have the value
+                    &quot;<strong>SUCCESS</strong>&quot;</p>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -105,7 +112,7 @@
 
                 <h4 id="Svar.6">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -122,18 +129,23 @@
 
                 <h4 id="Aarsak.6">Cause</h4>
 
-                <p>The field specified in &quot;messageElementPath&quot; had a value that was not
-                    found in the code list (table of valid values). One of the code list values, as specified in [&quot;codeOne&quot;,
-                    &quot;codeTwo&quot;...], is required
-                    for the field.</p>
+                <p>The field specified in &quot;messageElementPath&quot;
+                    had a value that was not found in the code list
+                    (table of valid values). One of the code list
+                    values, as specified in [&quot;codeOne&quot;,
+                    &quot;codeTwo&quot;...], is required for the
+                    field.</p>
 
                 <h4 id="Rettelse.6">Correction</h4>
 
-                <p>Change the field to have a value corresponding to a valid code list code as
-                    required for the field. Resubmit. Use the new &quot;requestId&quot; returned for the new submission
-                    and verify that asynchronous validation for
-                    this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot; when new
-                    processing is complete.</p>
+                <p>Change the field to have a value corresponding to a
+                    valid code list code as required for the
+                    field. Resubmit. Use the new &quot;requestId&quot;
+                    returned for the new submission and verify that
+                    asynchronous validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
@@ -141,7 +153,7 @@
 
                 <h4 id="Svar.7">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -163,11 +175,14 @@
 
                 <h4 id="Rettelse.7">Correction</h4>
 
-                <p>Change the field to use a valid ISO-3166 Alpha-2 code. Resubmit. Use the new &quot;requestId&quot;
-                    returned for the new submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
-
-                <p>&nbsp;</p>
+                <p>
+                  Change the field to use a valid ISO-3166 Alpha-2
+                    code. Resubmit. Use the new &quot;requestId&quot;
+                    returned for the new submission and verify that
+                    asynchronous validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is complete.
+                </p>
             </div>
 
             <div>
@@ -176,7 +191,7 @@
 
                 <h4 id="Svar.8">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -211,7 +226,7 @@
 
                 <h4 id="Svar.10">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -228,30 +243,36 @@
 
                 <h4 id="Aarsak.10">Cause</h4>
 
-                <p>The export is of type AES_EXPORT but the exportId was not found, or has the wrong status in AES. In
-                    addition to the export declaration not being found with the specified ID, the cause may be:</p>
+                <p>The export is of type AES_EXPORT but the exportId was
+                    not found, or has the wrong status in AES. In
+                    addition to the export declaration not being found
+                    with the specified ID, the cause may be:</p>
 
                 <ul>
-                    <li>The export declaration exists but has not been released from the departure customs office</li>
-                    <li>The export declaration exists but has already been registered for export</li>
+                    <li>The export declaration exists but has not been
+                    released from the departure customs office</li>
+                    <li>The export declaration exists but has already
+                    been registered for export</li>
                 </ul>
 
                 <h4 id="Rettelse.10">Correction</h4>
 
-                <p>Verify and, if necessary, change so that the exportId is correct and has the right status in AES.<br>
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot;
-                    when new processing is complete.</p>
+                <p>Verify and, if necessary, change so that the exportId
+                    is correct and has the right status in AES.<br>
+                    Resubmit. Use the new &quot;requestId&quot; returned
+                    for the new submission and verify that asynchronous
+                    validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment was under
-                    until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it must be one
-                    of the codes allowed in the code list</h3>
+                <h3 id="Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it must be one of the codes allowed in the code list</h3>
 
                 <h4 id="Svar.11">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -268,27 +289,28 @@
 
                 <h4 id="Aarsak.11">Cause</h4>
 
-                <p>The value for the field outgoingProcedure was not found among the valid codes
-                    in the OutgoingProcedure code list <a
-                            href="https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure">https://toll.github.io/api/mo-kodeverk.html#outgoingprocedure</a>.
+                <p>The value for the field outgoingProcedure was not
+                    found among the valid codes in the OutgoingProcedure
+                    code list <a href="mo-kodeverk-EN.html#outgoingprocedure">mo-kodeverk-EN.html#outgoingprocedure</a>.
                 </p>
 
                 <h4 id="Rettelse.11">Correction</h4>
 
-                <p>Change the value to one of the values in the OutgoingProcedure code list.
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Change the value to one of the values in the
+                    OutgoingProcedure code list.  Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure
-                    the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;)
-                    is Transit (TRA)</h3>
+                <h3 id="KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</h3>
 
                 <h4 id="Svar.12">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -304,27 +326,30 @@
 
                 <h4 id="Aarsak.12">Cause</h4>
 
-                <p>There are several fields in the messages where the value to be provided is based on the UN location
+                <p>There are several fields in the messages where the
+                    value to be provided is based on the UN location
                     codes, &quot;UNLOCODE&quot;. The field specified in
-                    &quot;messageElementPath&quot; has a submitted value that was not found in
-                    the CL144 UNLOCODE code list.</p>
+                    &quot;messageElementPath&quot; has a submitted value
+                    that was not found in the CL144 UNLOCODE code
+                    list.</p>
 
                 <h4 id="Rettelse.12">Correction</h4>
 
-                <p>Change the value to one of the values in the CL144 UNLOCODE code list.
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Change the value to one of the values in the CL144
+                    UNLOCODE code list.  Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure
-                    the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is
-                    Transit (TRA)</h3>
+                <h3 id="KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</h3>
 
                 <h4 id="Svar.13">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -341,26 +366,29 @@
 
                 <h4 id="Aarsak.13">Cause</h4>
 
-                <p>If the procedure the consignment was under until crossing the border into Norway (in the field
+                <p>If the procedure the consignment was under until
+                    crossing the border into Norway (in the field
                     outgoingProcedure) has the value TRA (for transit),
-                    you cannot submit a reference to export from the EU (exportFromEU).</p>
+                    you cannot submit a reference to export from the EU
+                    (exportFromEU).</p>
 
                 <h4 id="Rettelse.13">Correction</h4>
 
-                <p>Remove exportFromEU from the import procedure or change
-                    outgoingProcedure. Resubmit.<br>
-                    Use the new &quot;requestId&quot; returned for the new submission and
-                    verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Remove exportFromEU from the import procedure or
+                    change outgoingProcedure. Resubmit.<br>  Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is
-                    specified, the UN location code (&quot;UNLOCODE&quot;) is required</h3>
+                <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, the UN location code (&quot;UNLOCODE&quot;) is required</h3>
 
                 <h4 id="Svar.14">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -376,29 +404,35 @@
 
                 <h4 id="Aarsak.14">Cause</h4>
 
-                <p>The object specified in &quot;messageElementPath&quot; has neither address
-                    (&quot;address&quot;) nor location (&quot;location&quot;) provided. Therefore, the field
-                    &quot;unloCode&quot; must be provided and have a value for this object.<br>
-                    This applies to the place of loading (&quot;placeOfLoading&quot;), place of unloading
-                    (&quot;placeOfUnloading&quot;), place of acceptance (&quot;placeOfAcceptance&quot;)
-                    and place of delivery (&quot;placeOfDelivery&quot;).</p>
+                <p>The object specified in
+                    &quot;messageElementPath&quot; has neither address
+                    (&quot;address&quot;) nor location
+                    (&quot;location&quot;) provided. Therefore, the
+                    field &quot;unloCode&quot; must be provided and have
+                    a value for this object.<br>  This applies to the
+                    place of loading (&quot;placeOfLoading&quot;), place
+                    of unloading (&quot;placeOfUnloading&quot;), place
+                    of acceptance (&quot;placeOfAcceptance&quot;) and
+                    place of delivery (&quot;placeOfDelivery&quot;).</p>
 
                 <h4 id="Rettelse.14">Correction</h4>
 
-                <p>Add a valid &quot;unloCode&quot;, or add &quot;address&quot;
-                    and/or &quot;location&quot; to the object. Resubmit. Use the new
-                    &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field &quot;status&quot; with the value
-                    &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Add a valid &quot;unloCode&quot;, or add
+                    &quot;address&quot; and/or &quot;location&quot; to
+                    the object. Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot;
-                    equal to &quot;N820&quot;) refers to transit that does not have valid status</h3>
+                <h3 id="ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot; equal to &quot;N820&quot;) refers to transit that does not have valid status</h3>
 
                 <h4 id="Svar.15">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -415,33 +449,40 @@
 
                 <h4 id="Aarsak.15">Cause</h4>
 
-                <p>A reference to a transit where the type of reference is
-                    &quot;N820&quot; (&quot;typeOfReference&quot; equal to &quot;N820&quot;) has been provided. This
-                    transit is not in the correct status. The requirement for the correct status in this
-                    context is that it is declared with a Norwegian border crossing customs office and a Norwegian
-                    destination customs office in the transit declaration and that the transit has been
-                    released from the departure customs office. </p>
+                <p>A reference to a transit where the type of reference
+                    is &quot;N820&quot; (&quot;typeOfReference&quot;
+                    equal to &quot;N820&quot;) has been provided. This
+                    transit is not in the correct status. The
+                    requirement for the correct status in this context
+                    is that it is declared with a Norwegian border
+                    crossing customs office and a Norwegian destination
+                    customs office in the transit declaration and that
+                    the transit has been released from the departure
+                    customs office. </p>
 
-                <p>The document of type N820 specified in &quot;messageElementPath&quot; has the wrong
-                    status in the transit system.</p>
+                <p>The document of type N820 specified in
+                    &quot;messageElementPath&quot; has the wrong status
+                    in the transit system.</p>
 
                 <h4 id="Rettelse.15">Correction</h4>
 
-                <p>Check that the transit declaration is in accordance with the description
-                    above.</p>
+                <p>Check that the transit declaration is in accordance
+                    with the description above.</p>
 
-                <p>Resubmit. Use the new &quot;requestId&quot; returned for the new
-                    submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Resubmit. Use the new &quot;requestId&quot; returned
+                    for the new submission and verify that asynchronous
+                    validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a
-                    value that exceeds NOK 3,000, therefore an import declaration must be used instead</h3>
+                <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a value that exceeds NOK 3,000, therefore an import declaration must be used instead</h3>
 
                 <h4 id="Svar.16">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -458,30 +499,35 @@
 
                 <h4 id="Aarsak.16">Cause</h4>
 
-                <p>VOEC has a maximum value per item of NOK 3,000. The goods item
-                    (&quot;goodsItem&quot;) with the specified VOEC number
-                    (&quot;vatIdentificationNumber&quot;) has a value per item (&quot;itemAmountInvoicedVOEC&quot;)
-                    that exceeds the maximum limit of
-                    3,000 kroner. </p>
+                <p>VOEC has a maximum value per item of NOK 3,000. The
+                    goods item (&quot;goodsItem&quot;) with the
+                    specified VOEC number
+                    (&quot;vatIdentificationNumber&quot;) has a value
+                    per item (&quot;itemAmountInvoicedVOEC&quot;) that
+                    exceeds the maximum limit of 3,000 kroner. </p>
 
                 <h4 id="Rettelse.16">Correction</h4>
 
-                <p>Create a regular import declaration for the item(s) and use this. Note
-                    that if one or more of the items the recipient has purchased has a value
-                    exceeding 3,000 NOK, all items must be cleared through customs in the usual way. See <a
-                            href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new
-                    submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Create a regular import declaration for the item(s)
+                    and use this. Note that if one or more of the items
+                    the recipient has purchased has a value exceeding
+                    3,000 NOK, all items must be cleared through customs
+                    in the usual
+                    way. See <a href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
+                    Resubmit. Use the new &quot;requestId&quot; returned
+                    for the new submission and verify that asynchronous
+                    validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for
-                    the VOEC number specified on the VOEC goods item (&quot;goodsItem&quot;)</h3>
+                <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for the VOEC number specified on the VOEC goods item (&quot;goodsItem&quot;)</h3>
 
                 <h4 id="Svar.17">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -499,35 +545,40 @@
                 <h4 id="Aarsak.17">Cause</h4>
 
                 <p>No valid VOEC permissions found for the VOEC number
-                    (&quot;vatIdentificationNumber&quot;) specified on the VOEC goods item
-                    (&quot;goodsItem&quot;). A VOEC number has been provided that we cannot
-                    verify as valid. It may be an incorrect VOEC number, or
-                    the validity of the VOEC number has expired.</p>
+                    (&quot;vatIdentificationNumber&quot;) specified on
+                    the VOEC goods item (&quot;goodsItem&quot;). A VOEC
+                    number has been provided that we cannot verify as
+                    valid. It may be an incorrect VOEC number, or the
+                    validity of the VOEC number has expired.</p>
 
                 <h4 id="Rettelse.17">Correction</h4>
 
-                <p>Change the VOEC number to a valid number. If a valid VOEC number
-                    cannot be obtained, the items must be declared with a regular import declaration.<br>
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new
-                    submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Change the VOEC number to a valid number. If a valid
+                    VOEC number cannot be obtained, the items must be
+                    declared with a regular import declaration.<br>
+                    Resubmit. Use the new &quot;requestId&quot; returned
+                    for the new submission and verify that asynchronous
+                    validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;)
-                    if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
+                <h3 id="KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;) if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
 
                 <h4 id="Svar.18">Response</h4>
 
                 <div>
                     <div>
-                        <p><b>If consignmentHouseLevel.importProcedure.importProcedure
-                            is not IMMEDIATE_RELEASE_VOEC, it should not be provided.</b>
+                        <p><b>If
+                            consignmentHouseLevel.importProcedure.importProcedure
+                            is not IMMEDIATE_RELEASE_VOEC, it should not
+                            be provided.</b>
                         </p>
                     </div>
-                    <div><pre
-                            data-syntaxhighlighter-params="brush: js; gutter: false; theme: Eclipse; collapse: true"
-                            data-theme=Eclipse>{
+                    <div>
+                      <pre class="boxed-display">>{
   &quot;status&quot;: &quot;FAILURE&quot;,
   &quot;requestId&quot;: &quot;${requestIdForSubmission}&quot;,
   &quot;notificationDate&quot;: &quot;${dateTimeResultWasReady}&quot;,
@@ -545,15 +596,23 @@
 
                 <h4 id="Aarsak.18">Cause</h4>
 
-                <p>You cannot submit VOEC goods items (&quot;goodsItem&quot; list) unless you have specified that the
-                    customs procedure for the consignment (&quot;importProcedure&quot;) is VOEC (has the value &quot;IMMEDIATE_RELEASE_VOEC&quot;).</p>
+                <p>You cannot submit VOEC goods items
+                    (&quot;goodsItem&quot; list) unless you have
+                    specified that the customs procedure for the
+                    consignment (&quot;importProcedure&quot;) is VOEC
+                    (has the value
+                    &quot;IMMEDIATE_RELEASE_VOEC&quot;).</p>
 
                 <h4 id="Rettelse.18">Correction</h4>
 
-                <p>Remove the &quot;goodsItem&quot; list, or set &quot;importProcedure&quot; to &quot;IMMEDIATE_RELEASE_VOEC&quot;.
-                    Resubmit. Use the new &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot;
-                    when new processing is complete.</p>
+                <p>Remove the &quot;goodsItem&quot; list, or set
+                    &quot;importProcedure&quot; to
+                    &quot;IMMEDIATE_RELEASE_VOEC&quot;.  Resubmit. Use
+                    the new &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
@@ -562,7 +621,7 @@
 
                 <h4 id="Svar.19">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -579,25 +638,30 @@
 
                 <h4 id="Aarsak.19">Cause</h4>
 
-                <p>The reference number provided for &quot;customsOfficeOfFirstEntry&quot; does not refer to a valid
-                    customs office. Use CL141 Customs office reference number from the code list <a
-                            href="https://toll.github.io/api/mo-kodeverk-EN.html#cl141">https://toll.github.io/api/mo-kodeverk-EN.html#cl141</a>.
+                <p>The reference number provided for
+                    &quot;customsOfficeOfFirstEntry&quot; does not refer
+                    to a valid customs office. Use CL141 Customs office
+                    reference number from the code
+                    list <a href="mo-kodeverk-EN.html#cl141">mo-kodeverk-EN.html#cl141</a>.
                 </p>
 
                 <h4 id="Rettelse.19">Correction</h4>
 
-                <p>Provide a valid reference number for a customs office. Resubmit. Use the new &quot;requestId&quot;
-                    returned for the new submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Provide a valid reference number for a customs
+                    office. Resubmit. Use the new &quot;requestId&quot;
+                    returned for the new submission and verify that
+                    asynchronous validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot
-                    have a value when a specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
+                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot have a value when a specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
 
                 <h4 id="Svar.30">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -614,28 +678,42 @@
 
                 <h4 id="Aarsak.30">Cause</h4>
 
-                <p>If a customs procedure (&quot;importProcedure&quot;) is specified, this field, indicated in &quot;messageElementPath&quot;,
-                    cannot be filled out. This error occurs when the specified customs procedure is different from
-                    &quot;IMMEDIATE_RELEASE_IMPORT&quot; while values are provided in the fields that refer to the
-                    customs declaration (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;, and/or
-                    &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot;, and/or &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;).</p>
+                <p>If a customs procedure (&quot;importProcedure&quot;)
+                    is specified, this field, indicated in
+                    &quot;messageElementPath&quot;, cannot be filled
+                    out. This error occurs when the specified customs
+                    procedure is different from
+                    &quot;IMMEDIATE_RELEASE_IMPORT&quot; while values
+                    are provided in the fields that refer to the customs
+                    declaration
+                    (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;,
+                    and/or
+                    &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot;,
+                    and/or
+                    &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;).</p>
 
                 <h4 id="Rettelse.30">Correction</h4>
 
-                <p>Either change the importProcedure or remove the value in this field. Resubmit. Use the new &quot;requestId&quot;
-                    returned for the new submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Either change the importProcedure or remove the value
+                    in this field. Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
                 <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">
-                    Field cannot have a value for transit (&quot;N820&quot;) if the procedure the consignment was under
-                    until crossing the border into Norway (&quot;outgoing procedure&quot;) is export
+                    Field cannot have a value for transit
+                    (&quot;N820&quot;) if the procedure the consignment
+                    was under until crossing the border into Norway
+                    (&quot;outgoing procedure&quot;) is export
                     (&quot;EXP&quot;)</h3>
 
                 <h4 id="Svar.31">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -652,28 +730,35 @@
 
                 <h4 id="Aarsak.31">Cause</h4>
 
-                <p>If the procedure the consignment was under until crossing the border into Norway (&quot;outgoingProcedure&quot;)
-                    is export (with the value &quot;EXP&quot;), you cannot provide the value &quot;N820&quot; in this
-                    field. This applies to references to previous customs procedures the goods have been subject to. If
-                    the previous customs procedure is export, you cannot refer to a transit reference.<br>See the choice
-                    of customs procedure <a href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>.
+                <p>If the procedure the consignment was under until
+                    crossing the border into Norway
+                    (&quot;outgoingProcedure&quot;) is export (with the
+                    value &quot;EXP&quot;), you cannot provide the value
+                    &quot;N820&quot; in this field. This applies to
+                    references to previous customs procedures the goods
+                    have been subject to. If the previous customs
+                    procedure is export, you cannot refer to a transit
+                    reference.<br>See the choice of customs
+                    procedure <a href="mo-vei-EN.html#utfyllingForsend">mo-vei-EN.html#utfyllingForsend</a>.
                 </p>
 
                 <h4 id="Rettelse.31">Correction</h4>
 
-                <p>Either change the value in the field or the outgoingProcedure. Resubmit. Use the new &quot;requestId&quot;
-                    returned for the new submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Either change the value in the field or the
+                    outgoingProcedure. Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced
-                    document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified
-                    field is mandatory</h3>
+                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</h3>
 
                 <h4 id="Svar.32">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -690,25 +775,29 @@
 
                 <h4 id="Aarsak.32">Cause</h4>
 
-                <p>If the referenced document is a customs declaration (&quot;typeReference&quot; with the value &quot;CUDE&quot;),
-                    you must also provide a value in the specified field (the field is specified in the error
-                    message).</p>
+                <p>If the referenced document is a customs declaration
+                    (&quot;typeReference&quot; with the value
+                    &quot;CUDE&quot;), you must also provide a value in
+                    the specified field (the field is specified in the
+                    error message).</p>
 
                 <h4 id="Rettelse.32">Correction</h4>
 
-                <p>Either change the typeReference or provide a value for the field. Resubmit. Use the new &quot;requestId&quot;
-                    returned for the new submission and verify that asynchronous validation for this returns the field
-                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Either change the typeReference or provide a value
+                    for the field. Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document
-                    references (&quot;previousDocument&quot;) are provided, the customs procedure (field &quot;importProcedure&quot;)
-                    must be specified</h3>
+                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) are provided, the customs procedure (field &quot;importProcedure&quot;) must be specified</h3>
 
                 <h4 id="Svar.33">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -725,26 +814,29 @@
 
                 <h4 id="Aarsak.33">Cause</h4>
 
-                <p>You have submitted one or more document references (objects in the &quot;previousDocuments&quot;
-                    list) but have not specified a customs procedure (value in the &quot;importProcedure&quot;
-                    field).</p>
+                <p>You have submitted one or more document references
+                    (objects in the &quot;previousDocuments&quot; list)
+                    but have not specified a customs procedure (value in
+                    the &quot;importProcedure&quot; field).</p>
 
                 <h4 id="Rettelse.33">Correction</h4>
 
-                <p>Either provide a value for the importProcedure field or remove all objects in the previousDocuments
-                    list. Resubmit. Use the new &quot;requestId&quot; returned for the new submission and verify that
-                    asynchronous validation for this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot;
-                    when new processing is complete.</p>
+                <p>Either provide a value for the importProcedure field
+                    or remove all objects in the previousDocuments
+                    list. Resubmit. Use the new &quot;requestId&quot;
+                    returned for the new submission and verify that
+                    asynchronous validation for this returns the field
+                    &quot;status&quot; with the value
+                    &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only
-                    provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot;
-                    list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
                 <h4 id="Svar.34">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -761,27 +853,35 @@
 
                 <h4 id="Aarsak.34">Cause</h4>
 
-                <p>You have submitted more than one customs declaration (object in the &quot;previousDocuments&quot;
-                    list) with the value &quot;CUDE&quot; in the &quot;typeOfReference&quot; field.<br>Only one customs
-                    declaration per consignment is allowed.</p>
+                <p>You have submitted more than one customs declaration
+                    (object in the &quot;previousDocuments&quot; list)
+                    with the value &quot;CUDE&quot; in the
+                    &quot;typeOfReference&quot; field.<br>Only one
+                    customs declaration per consignment is allowed.</p>
 
                 <h4 id="Rettelse.34">Correction</h4>
 
-                <p>Ensure that you only have one object with the typeOfReference value &quot;CUDE&quot; in the
-                    previousDocuments list.<br>Resubmit. Use the new &quot;requestId&quot; returned for the new
-                    submission and verify that asynchronous validation for this returns the field &quot;status&quot;
-                    with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Ensure that you only have one object with the
+                    typeOfReference value &quot;CUDE&quot; in the
+                    previousDocuments list.<br>Resubmit. Use the new
+                    &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
-                <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the
-                    document reference is something other than a customs declaration (&quot;typeOfReference&quot; &lt;&gt;
-                    &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the
-                    &quot;previousDocuments&quot; object</h3>
+                <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If
+                    the document reference is something other than a
+                    customs declaration (&quot;typeOfReference&quot;
+                    &lt;&gt; &quot;CUDE&quot;), the reference must be
+                    provided in the &quot;referenceNumber&quot; field in
+                    the &quot;previousDocuments&quot; object</h3>
 
                 <h4 id="Svar.35">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -798,32 +898,48 @@
 
                 <h4 id="Aarsak.35">Cause</h4>
 
-                <p>When referencing other types of documents than a customs declaration, the &quot;referenceNumber&quot;
-                    field in &quot;previousDocuments&quot; should be used to provide this reference (typically MRN or
-                    similar).<br>You have submitted an object in the &quot;previousDocuments&quot; list with a value
-                    that is <em>not</em> &quot;CUDE&quot; in the &quot;typeOfReference&quot; field, while <em>not</em>
-                    providing a value in the &quot;referenceNumber&quot; field.<br>This field is required to have a
-                    value unless &quot;typeOfReference&quot; has the value &quot;CUDE&quot;.</p>
+                <p>When referencing other types of documents than a
+                    customs declaration, the &quot;referenceNumber&quot;
+                    field in &quot;previousDocuments&quot; should be
+                    used to provide this reference (typically MRN or
+                    similar).<br>You have submitted an object in the
+                    &quot;previousDocuments&quot; list with a value that
+                    is <em>not</em> &quot;CUDE&quot; in the
+                    &quot;typeOfReference&quot; field,
+                    while <em>not</em> providing a value in the
+                    &quot;referenceNumber&quot; field.<br>This field is
+                    required to have a value unless
+                    &quot;typeOfReference&quot; has the value
+                    &quot;CUDE&quot;.</p>
 
                 <h4 id="Rettelse.35">Correction</h4>
 
-                <p>Change the object to have the value &quot;CUDE&quot; in the typeOfReference field, or provide a valid
-                    value in the referenceNumber field. Resubmit. Use the new &quot;requestId&quot; returned for the new
-                    submission and verify that asynchronous validation for this returns the field &quot;status&quot;
-                    with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+                <p>Change the object to have the value &quot;CUDE&quot;
+                    in the typeOfReference field, or provide a valid
+                    value in the referenceNumber field. Resubmit. Use
+                    the new &quot;requestId&quot; returned for the new
+                    submission and verify that asynchronous validation
+                    for this returns the field &quot;status&quot; with
+                    the value &quot;SUCCESS&quot; when new processing is
+                    complete.</p>
             </div>
 
             <div>
                 <h3 id="Formatpadokumentstatus">Format of document status</h3>
 
-                <p>If the submission is complete, the field &quot;documentStatus&quot; will have the value &quot;SUCCESS&quot;,
-                    otherwise it will have &quot;INCOMPLETE&quot;. If the status is &quot;INCOMPLETE&quot;, an &quot;incompleteDocumentationReasonList&quot;
-                    will be sent, listing the reason codes for why the submission was considered incomplete. Examples of
-                    values that may appear as reason codes can be found here: <a
-                            href="https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason">https://toll.github.io/api/mo-kodeverk-EN.html#incompleteDocumentationReason</a>.
+                <p>If the submission is complete, the field
+                    &quot;documentStatus&quot; will have the value
+                    &quot;SUCCESS&quot;, otherwise it will have
+                    &quot;INCOMPLETE&quot;. If the status is
+                    &quot;INCOMPLETE&quot;, an
+                    &quot;incompleteDocumentationReasonList&quot; will
+                    be sent, listing the reason codes for why the
+                    submission was considered incomplete. Examples of
+                    values that may appear as reason codes can be found
+                    here: <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">mo-kodeverk-EN.html#incompleteDocumentationReason</a>.
                 </p>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "documentNumber": "${documentNumber}",
   "type": "${documentType}",
@@ -839,7 +955,7 @@
 
                 <h4 id="Svar.36">Response</h4>
 
-                <pre>
+                <pre class="boxed-display">
 {
   "documentNumber": "${documentNumber}",
   "type": "${documentType}",
@@ -851,49 +967,31 @@
 
                 <h4 id="Aarsak.36">Cause</h4>
 
-                <p>You have a submission that does not meet the requirements for a complete submission for the selected
-                    customs procedure. See: <a href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>.
+                <p>You have a submission that does not meet the
+                    requirements for a complete submission for the
+                    selected customs
+                    procedure. See: <a href="mo-vei-EN.html#utfyllingForsend">mo-vei-EN.html#utfyllingForsend</a>.
                 </p>
 
                 <h4 id="Rettelse.36">Correction</h4>
 
-                <p>Change the submission to meet the requirements for the selected customs procedure. See: <a
-                        href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a>.
-                    Resubmit the updated submission with the changes (HTTP PUT). Verify that &quot;/transport-document/status&quot;
-                    eventually returns with the status &quot;SUCCESS&quot; after new processing is complete.</p>
+                <p>Change the submission to meet the requirements for
+                        the selected customs
+                        procedure. See: <a href="mo-vei-EN.html#utfyllingForsend">mo-vei-EN.html#utfyllingForsend</a>.
+                        Resubmit the updated submission with the changes
+                        (HTTP PUT). Verify that
+                        &quot;/transport-document/status&quot;
+                        eventually returns with the status
+                        &quot;SUCCESS&quot; after new processing is
+                        complete.</p>
             </div>
 
-        </section>
     </div>
 </main>
-<button id="scrollToTopBtn" title="Go to top">To top</button>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2024 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                            class="white">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="white">Kontakt oss</a>
 </footer>
 
 </body>
-<script>
-    let mybutton = document.getElementById("scrollToTopBtn");
-
-    window.onscroll = function () {
-        scrollFunction();
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    mybutton.onclick = function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-</script>
 </html>

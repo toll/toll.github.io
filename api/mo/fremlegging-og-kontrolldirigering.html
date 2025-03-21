@@ -25,7 +25,7 @@
     <a href="fremlegging-og-kontrolldirigering-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>EN</span>
-            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -42,7 +42,7 @@
             </ol>
         </nav>
 
-        <div class="two-column-section" role="main">
+        <div role="main">
             <div class="about-section-text">
                 <h1 id="kontrolldir">Fremlegging og kontrolldirigering</h1>
                 <p>
@@ -93,15 +93,20 @@
                         Parameter <code>marker</code> brukes for å si hvilket dirigeringssignal du leste sist.
                     </li>
                     <li>
-                        <em>Aller første gang</em> du kaller API-et skal du <em>ikke</em> sende med noen <code>marker</code>.
-                        Du vil da få en liste med de første dirigeringssignalene.
+                        <em>Aller første gang</em> du kaller API-et skal
+                        du <em>ikke</em> sende med
+                        noen <code>marker</code>.  Du vil da få en liste
+                        med de første dirigeringssignalene.
                     </li>
                     <li>
-                        Hver gang du har behandlet et sett av dirigeringssignaler  henter du ut verdien
-                        til feltet <code>routingResult.id</code> fra det siste dirigeringssignalet i listen og
-                        tar vare på dette.<br/>
-                        Neste gang du kaller API-et bruker du verdien du tok vare på som <code>marker</code> og vil
-                        da få de neste dirigeringssignalene.
+                        Hver gang du har behandlet et sett av
+                        dirigeringssignaler henter du ut verdien til
+                        feltet <code>routingResult.id</code> fra det
+                        siste dirigeringssignalet i listen og tar vare
+                        på dette.<br/>  Neste gang du kaller API-et
+                        bruker du verdien du tok vare på
+                        som <code>marker</code> og vil da få de neste
+                        dirigeringssignalene.
                     </li>
                     <li>
                         Fortsett å gjøre dette frem til du får en tom liste.
@@ -119,30 +124,33 @@
                     fremlegging og kontrolldirigering her</a> (med eksempler).
                 </p>
 
-                <br/>
-                <br/>
-
                 <h2 id="kontrollrespons">Dirigering (routing) for forsendelser</h2>
 
                 <p>
-                    Den som har fremlagt sendingene, automatisk av Tolletaten eller ved egen fremlegging,
-                    skal bruke tjenesten for kontrolldirigering (movement-routing-api).
+                    Den som har fremlagt sendingene, automatisk av
+                    Tolletaten eller ved egen fremlegging, skal bruke
+                    tjenesten for kontrolldirigering
+                    (movement-routing-api).
                 </p>
                 <p>
-                    Basert på resultatet fra kontrolldirigering skal aktøren plukke ut sendingene som skal fysisk kontrolleres.
-                    Disse sendingene skal snarest overleveres avtalt kontrollsted.
-                    Når en aktør ber om dirigering gjennom å bruke denne tjenesten vil Tolletaten svare med én dirigering
-                    per forsendelse (House Consignment).
+                    Basert på resultatet fra kontrolldirigering skal
+                    aktøren plukke ut sendingene som skal fysisk
+                    kontrolleres.  Disse sendingene skal snarest
+                    overleveres avtalt kontrollsted.  Når en aktør ber
+                    om dirigering gjennom å bruke denne tjenesten vil
+                    Tolletaten svare med én dirigering per forsendelse
+                    (House Consignment).
                 </p>
                 <p>
-                    Dersom forsendelsen er meldt inn gjennom forhåndsvarsling (ICS2), det vil si gods fra tredjeland
-                    (utenfor EUs sikkerhetssone), vil det medfølge informasjon om ENS MRN og postsekker (receptacle)
-                    dere det er relevant.
-                    Hvis forsendelsen ikke er meldt inn gjennom forhåndsvarsling vil disse dataelementene være tomme.
+                    Dersom forsendelsen er meldt inn gjennom
+                    forhåndsvarsling (ICS2), det vil si gods fra
+                    tredjeland (utenfor EUs sikkerhetssone), vil det
+                    medfølge informasjon om ENS MRN og postsekker
+                    (receptacle) dere det er relevant.  Hvis
+                    forsendelsen ikke er meldt inn gjennom
+                    forhåndsvarsling vil disse dataelementene være
+                    tomme.
                 </p>
-
-                <br/>
-                <br/>
 
                 <h2>Hvem kan be om dirigering?</h2>
 
@@ -169,9 +177,6 @@
                         dirigering for forsendelsen
                     </li>
                 </ul>
-
-                <br/>
-                <br/>
 
                 <h2>Hvordan får man dirigering?</h2>
 
@@ -208,6 +213,7 @@
                     </dd>
                 </dl>
             </div>
+
             <div class="about-section-text">
                 <h1>Inngangsparameter for bruk av API</h1>
 
@@ -228,9 +234,6 @@
                     flere ganger. Første gang man kaller API-et skal det kalles uten markør (for å
                     begynne på begynnelsen), deretter skal alltid markør brukes.
                 </p>
-
-                <br/>
-                <br/>
 
                 <h2 id="tjenestefremlegging">Tjeneste for fremlegging</h2>
                 <p>
@@ -354,8 +357,7 @@
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                            class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

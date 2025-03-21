@@ -25,7 +25,7 @@
     <a href="ufullstendig-dokumentasjon-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>EN</span>
-            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -42,7 +42,7 @@
         </nav>
     </div>
 
-    <div class="about-section" role="main">
+    <div class="align-self-start" role="main">
         <div class="about-section-text">
             <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Ufullstendig dokumentasjon / Incomplete
                 documentation</h2>
@@ -57,11 +57,10 @@
                 informasjonen.</p>
         </div>
 
-        <section class="synkrone-grid-two-columns-container">
             <div>
                 <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</h3>
                 <h4 id="Svar.30">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -95,7 +94,7 @@
             <div>
                 <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</h3>
                 <h4 id="Svar.31">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -128,7 +127,7 @@
             <div>
                 <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</h3>
                 <h4 id="Svar.32">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -156,7 +155,7 @@
             <div>
                 <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</h3>
                 <h4 id="Svar.33">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -185,7 +184,7 @@
             <div>
                 <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
                 <h4 id="Svar.34">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -215,7 +214,7 @@
             <div>
                 <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet</h3>
                 <h4 id="Svar.35">Response</h4>
-                <pre>
+                <pre class="boxed-display">
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -247,7 +246,6 @@
                     denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
                     behandling er ferdig.</p>
             </div>
-        </section>
     </div>
 
 </main>

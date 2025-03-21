@@ -25,7 +25,7 @@
     <a href="kobling-oppdatering-og-sletting.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
@@ -49,129 +49,151 @@
 
                 <h4>Linking between Transport and Master Consignment</h4>
                 <p>
-                    The transport message contains a list of keys to master consignment messages.
-                    In that list, the key to a master consignment is provided, which consists of the master waybill number
+                    The transport message contains a list of keys to
+                    master consignment messages.  In that list, the key
+                    to a master consignment is provided, which consists
+                    of the master waybill number
                     (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
-                    For the link to be correct, the carrier's identifier must be the same in the master consignment message
-                    (<code>carrier.IdentificationNumber</code>)
-                    and the transport message (<code>carrier.IdentificationNumber</code>).
+                    For the link to be correct, the carrier's identifier
+                    must be the same in the master consignment message
+                    (<code>carrier.IdentificationNumber</code>) and the
+                    transport message
+                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
                 <h4>Linking between Transport and House Consignment &ndash; without using Master Consignment</h4>
                 <p>
-                    The transport message contains a list of keys to house consignment messages.
-                    In that list, the key to a house consignment message is provided, which consists of the waybill number
-                    (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
-                    For the link to be correct, the carrier's identifier must be the same
-                    in the house consignment message (<code>tranportLevel.carrierIdentificationNumber</code>)
-                    and the transport message (<code>carrier.IdentificationNumber</code>).<br/>
-                    In the house consignment message, a flag must be set to indicate that this is a consignment linked directly
-                    to a transport: <code>"directConsignment": true</code>.
+                    The transport message contains a list of keys to
+                    house consignment messages.  In that list, the key
+                    to a house consignment message is provided, which
+                    consists of the waybill number
+                    (<code>transportDocumentHouseLevel.documentNumber +
+                    transportDocumentHouseLevel.type</code>).  For the
+                    link to be correct, the carrier's identifier must be
+                    the same in the house consignment message
+                    (<code>tranportLevel.carrierIdentificationNumber</code>)
+                    and the transport message
+                    (<code>carrier.IdentificationNumber</code>).<br/>
+                    In the house consignment message, a flag must be set
+                    to indicate that this is a consignment linked
+                    directly to a transport: <code>"directConsignment":
+                    true</code>.
                 </p>
 
                 <h4>Linking between House Consignment and Master Consignment</h4>
                 <p>
-                    The house consignment message contains a key reference to the master consignment message.
-                    In that reference, the key to a master consignment message is provided, which consists of the master waybill number
-                    (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
-                    For the link to be correct, the carrier's identifier must be the same
-                    in the house consignment message (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
-                    and the master consignment message (<code>carrier.IdentificationNumber</code>).
+                    The house consignment message contains a key
+                    reference to the master consignment message.  In
+                    that reference, the key to a master consignment
+                    message is provided, which consists of the master
+                    waybill number
+                    (<code>transportDocumentMasterLevel.documentNumber +
+                    transportDocumentMasterlevel.type</code>).  For the
+                    link to be correct, the carrier's identifier must be
+                    the same in the house consignment message
+                    (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+                    and the master consignment message
+                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
                 <h4>Linking between House Consignment and Master Consignment for consignments covered by UPU conventions</h4>
                 <p>
-                    The house consignment message contains a key reference to a receptacle.
-                    In that reference in the house consignment message, the key to a receptacle is provided
+                    The house consignment message contains a key
+                    reference to a receptacle.  In that reference in the
+                    house consignment message, the key to a receptacle
+                    is provided
                     (<code>receptacleIdentificationNumber</code>).<br/>
-                    The master consignment message contains a list of key references to receptacles.
-                    In these references in the master consignment message, the key to a receptacle is provided
+                    The master consignment message contains a list of
+                    key references to receptacles.  In these references
+                    in the master consignment message, the key to a
+                    receptacle is provided
                     (<code>receptacleIdentificationNumber</code>).
                 </p>
 
             </div>
 
-
             <div>
-                <div class="image-size"><img src="../media/MO-nokler.png" alt="Relationship between keys" style="max-width: 100%; margin-top: 1rem"></div>
-                <p>For postal operators, specific links via receptacle apply:</p>
-                <ul class="about-section-text">
-                    <li>
-                        by referencing the receptacle ID in both the house consignment and the master consignment
-                        (only used for postal operators)
-                    </li>
-                </ul>
-                <div class="image-size"><img src="../media/MO-nokler-postsekk.png" alt="Relationship between keys for receptacle" style="max-width: 60%"></div>
+              <div class="image-size">
+                <img src="../media/MO-nokler.png" alt="Relationship
+                between keys">
+              </div> 
+              <p>For postal operators, specific links via receptacle apply:</p>
+              <ul class="about-section-text">
+                <li>
+                  by referencing the receptacle ID in both the house
+                  consignment and the master consignment (only used for
+                  postal operators)
+                </li>
+              </ul>
+              <div class="image-size">
+                <img src="../media/MO-nokler-postsekk.png"
+                  alt="Relationship between keys for receptacle" style="max-width: 60%">
+              </div>
             </div>
-
         </div>
 
-        <br/>
-        <br/>
-        <br/>
+        <div class="about-section-text">
+          <h4 id="oppdaterMeldingPut">Updating Messages (PUT)</h4>
 
-        <div class="two-column-section">
-            <div class="about-section-text">
-                <h4 id="oppdaterMeldingPut">Updating Messages (PUT)</h4>
+          <p>
+            In the same way as for submission (POST), when updating
+            (PUT), a message must be sent and a reference (requestid)
+            received, and then validation must be queried. PUT is a
+            complete replacement of the previous submission and must
+            refer to the received MRN for the message as a key. In
+            addition to referring to the MRN, the key information for
+            the message must remain unchanged when updating:
+          </p>
+          <ul class="spaced-list">
+            <li>
+              For <strong>transport</strong>, the identifier (license
+              plate and registration number: <code>identificationNumber
+              + typeOfIdentification</code>), route number
+              (<code>conveyanceReferenceNumber</code>) (only for
+              flights), and original arrival time
+              (<code>scheduledDateAndTimeOfArrival</code>) <em>cannot</em>
+              be updated.
+            </li>
+            <li>
+              For <strong>master consignment</strong>, the master
+              waybill number (<code>documentNumber + type</code>) and
+              carrier identifier
+              (<code>carrierId</code>) <em>cannot</em> be updated.
+            </li>
+            <li>
+              For <strong>house consignment</strong>, the waybill number
+              (<code>documentNumber + type</code>) <em>cannot</em> be
+              updated.
+            </li>
+          </ul>
+          <p>
+            Otherwise, updating (PUT) follows the same pattern as
+            submission (POST). See the API documentation linked below
+            for details on the endpoints.
+          </p>
+        </div>
 
-                <p>
-                    In the same way as for submission (POST), when updating (PUT), a message must be sent and a reference
-                    (requestid) received, and then validation must be queried. PUT is a
-                    complete replacement of the previous submission and must refer
-                    to the received MRN for the message as a key. In addition to
-                    referring to the MRN, the key information for the message
-                    must remain unchanged when updating:
-                </p>
-                <ul class="spaced-list">
-                    <li>
-                        For <strong>transport</strong>, the identifier
-                        (license plate and registration number: <code>identificationNumber +
-                        typeOfIdentification</code>), route number
-                        (<code>conveyanceReferenceNumber</code>) (only for flights), and
-                        original arrival time
-                        (<code>scheduledDateAndTimeOfArrival</code>) <em>cannot</em> be updated.
-                    </li>
-                    <li>
-                        For <strong>master consignment</strong>,
-                        the master waybill number (<code>documentNumber
-                        + type</code>) and carrier identifier
-                        (<code>carrierId</code>) <em>cannot</em> be updated.
-                    </li>
-                    <li>
-                        For <strong>house consignment</strong>,
-                        the waybill number (<code>documentNumber +
-                        type</code>) <em>cannot</em> be updated.
-                    </li>
-                </ul>
-                <p>
-                    Otherwise, updating (PUT) follows the same pattern as submission
-                    (POST). See the API documentation linked below for details on
-                    the endpoints.
-                </p>
-            </div>
+        <div class="about-section-text">
+          <h4 id="sletteMeldingDelete">Deleting/Cancelling Messages (DELETE)</h4>
+          <p>
+            In the same way as for submission (POST) and updating (PUT),
+            when deleting (DELETE), a message must be sent and a reference
+            (requestid) received, and then validation must be queried. DELETE
+            cancels the previously submitted message and must refer to
+            the received MRN for the message as a key. Otherwise, deleting
+            (DELETE) follows the same pattern as submission (POST) and updating
+            (PUT). See the API documentation linked below for details on
+            the endpoints.
+          </p>
 
-            <div class="about-section-text">
-                <h4 id="sletteMeldingDelete">Deleting/Cancelling Messages (DELETE)</h4>
-                <p>
-                    In the same way as for submission (POST) and updating (PUT),
-                    when deleting (DELETE), a message must be sent and a reference
-                    (requestid) received, and then validation must be queried. DELETE
-                    cancels the previously submitted message and must refer to
-                    the received MRN for the message as a key. Otherwise, deleting
-                    (DELETE) follows the same pattern as submission (POST) and updating
-                    (PUT). See the API documentation linked below for details on
-                    the endpoints.
-                </p>
-
-                <h4 id="autoKansellering">Automatic Cancellation of Messages</h4>
-                <p>
-                    Transport messages are automatically cancelled 72 hours
-                    after the estimated arrival if the arrival is not registered.
-                    Master consignment/house consignment messages that are not linked
-                    to a transport will be cancelled 30 days after the last
-                    update of the message.
-                </p>
-            </div>
+          <h4 id="autoKansellering">Automatic Cancellation of Messages</h4>
+          <p>
+            Transport messages are automatically cancelled 72 hours
+            after the estimated arrival if the arrival is not registered.
+            Master consignment/house consignment messages that are not linked
+            to a transport will be cancelled 30 days after the last
+            update of the message.
+          </p>
         </div>
     </div>
 

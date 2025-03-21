@@ -25,7 +25,7 @@
     <a href="kobling-oppdatering-og-sletting-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>EN</span>
-            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -49,43 +49,65 @@
 
                 <h4>Kobling mellom transport og hovedforsendelse (master consignment)</h4>
                 <p>
-                    Melding om transport inneholder en liste av nøkler til melding om hovedforsendelser.
-                    I den listen oppgis nøkkelen til en hovedforsendelse, som består av hovedfraktbrevnummer
+                    Melding om transport inneholder en liste av nøkler
+                    til melding om hovedforsendelser.  I den listen
+                    oppgis nøkkelen til en hovedforsendelse, som består
+                    av hovedfraktbrevnummer
                     (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
-                    For at koblingen skal bli korrekt må transportørens identifikator være den samme i melding om hovedforsendelse
-                    (<code>carrier.IdentificationNumber</code>)
-                    og melding om transport (<code>carrier.IdentificationNumber</code>).
+                    For at koblingen skal bli korrekt må transportørens
+                    identifikator være den samme i melding om
+                    hovedforsendelse
+                    (<code>carrier.IdentificationNumber</code>) og
+                    melding om transport
+                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
                 <h4>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h4>
                 <p>
-                    Melding om transport inneholder en liste av nøkler til melding om forsendelser.
-                    I den listen oppgis nøkkelen til en melding om forsendelse, som består av fraktbrevnummer
-                    (<code>transportDocumentHouseLevel.documentNumber + transportDocumentHouseLevel.type</code>).
-                    For at koblingen skal bli korrekt må transportørens identifikator være den samme
-                    i melding om forsendelse (<code>tranportLevel.carrierIdentificationNumber</code>)
-                    og melding om transport (<code>carrier.IdentificationNumber</code>).<br/>
-                    I melding om forsendelse må et flagg settes for at dette er en forsendelse som kobles direkte
-                    til en transport: <code>"directConsignment": true</code>.
+                    Melding om transport inneholder en liste av nøkler
+                    til melding om forsendelser.  I den listen oppgis
+                    nøkkelen til en melding om forsendelse, som består
+                    av fraktbrevnummer
+                    (<code>transportDocumentHouseLevel.documentNumber +
+                    transportDocumentHouseLevel.type</code>).  For at
+                    koblingen skal bli korrekt må transportørens
+                    identifikator være den samme i melding om
+                    forsendelse
+                    (<code>tranportLevel.carrierIdentificationNumber</code>)
+                    og melding om transport
+                    (<code>carrier.IdentificationNumber</code>).<br/>  I
+                    melding om forsendelse må et flagg settes for at
+                    dette er en forsendelse som kobles direkte til en
+                    transport: <code>"directConsignment": true</code>.
                 </p>
 
                 <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h4>
                 <p>
-                    Melding om forsendelse inneholder en nøkkelreferanse til melding om hovedforsendelse.
-                    I den referansen oppgis nøkkelen til en melding om hovedforsendelse, som består av hovedfraktbrevnummer
-                    (<code>transportDocumentMasterLevel.documentNumber + transportDocumentMasterlevel.type</code>).
-                    For at koblingen skal bli korrekt må transportørens identifikator være den samme
-                    i melding om forsendelse (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
-                    og melding om hovedforsendelse (<code>carrier.IdentificationNumber</code>).
+                    Melding om forsendelse inneholder en nøkkelreferanse
+                    til melding om hovedforsendelse.  I den referansen
+                    oppgis nøkkelen til en melding om hovedforsendelse,
+                    som består av hovedfraktbrevnummer
+                    (<code>transportDocumentMasterLevel.documentNumber +
+                    transportDocumentMasterlevel.type</code>).  For at
+                    koblingen skal bli korrekt må transportørens
+                    identifikator være den samme i melding om
+                    forsendelse
+                    (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
+                    og melding om hovedforsendelse
+                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
                 <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h4>
                 <p>
-                    Melding om forsendelse inneholder en nøkkelreferanse til en postbeholder (receptacle).
-                    I den referansen i melding om forsendelse oppgis nøkkelen til en postbeholder
+                    Melding om forsendelse inneholder en nøkkelreferanse
+                    til en postbeholder (receptacle).  I den referansen
+                    i melding om forsendelse oppgis nøkkelen til en
+                    postbeholder
                     (<code>receptacleIdentificationNumber</code>).<br/>
-                    Melding om hovedforsendelse inneholder en liste med nøkkelreferanser til postbeholdere.
-                    I disse referansene i melding om hovedforsendelse oppgis nøkkelen til en postbeholder
+                    Melding om hovedforsendelse inneholder en liste med
+                    nøkkelreferanser til postbeholdere.  I disse
+                    referansene i melding om hovedforsendelse oppgis
+                    nøkkelen til en postbeholder
                     (<code>receptacleIdentificationNumber</code>).
                 </p>
 
@@ -93,12 +115,16 @@
 
 
             <div>
-                <div class="image-size"><img src="../media/MO-nokler.png" alt="Sammenheng mellom nøkler" style="max-width: 100%; margin-top: 1rem"></div>
+              <div class="image-size">
+                <img src="../media/MO-nokler.png" alt="Sammenheng mellom
+                    nøkler" style="max-width: 100%; margin-top: 1rem">
+              </div>
                 <p>For post-operatører gjelder egne koblinger via postbeholder:</p>
                 <ul class="about-section-text">
                     <li>
-                        ved hjelp av at postbeholder-id er referert både i forsendelse og i hovedforsendelse
-                        (kun i bruk for post-operatører)
+                        ved hjelp av at postbeholder-id er referert både
+                        i forsendelse og i hovedforsendelse (kun i bruk
+                        for post-operatører)
                     </li>
                 </ul>
                 <div class="image-size"><img src="../media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" style="max-width: 60%"></div>
@@ -106,11 +132,6 @@
 
         </div>
 
-        <br/>
-        <br/>
-        <br/>
-
-        <div class="two-column-section">
             <div class="about-section-text">
                 <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
 
@@ -125,12 +146,14 @@
                 </p>
                 <ul class="spaced-list">
                     <li>
-                        For <strong>transport</strong> kan <em>ikke</em> identifikatoren
-                        (kjennemerke og registreringsnummer: <code>identificationNumber +
-                        typeOfIdentification</code>), rutenummer
-                        (<code>conveyanceReferenceNumber</code>) (kun fly) og
-                        opprinnelig ankomsttid
-                        (<code>scheduledDateAndTimeOfArrival</code>) oppdateres.
+                        For <strong>transport</strong> kan <em>ikke</em>
+                        identifikatoren (kjennemerke og
+                        registreringsnummer: <code>identificationNumber
+                        + typeOfIdentification</code>), rutenummer
+                        (<code>conveyanceReferenceNumber</code>) (kun
+                        fly) og opprinnelig ankomsttid
+                        (<code>scheduledDateAndTimeOfArrival</code>)
+                        oppdateres.
                     </li>
                     <li>
                         For <strong>hovedforsendelse</strong> (master consignment)
@@ -173,7 +196,6 @@
                     oppdatering av meldingen.
                 </p>
             </div>
-        </div>
     </div>
 
 </main>
