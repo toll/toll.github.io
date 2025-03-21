@@ -12,19 +12,27 @@ header h1 {
     padding: 3px 3px 3px 6px;
 }
 
-h2, h3, h4, h5, h6  {
+h2,
+h3,
+h4,
+h5,
+h6  {
     color: #12404F;
     margin-top: 48px;
     margin-bottom: 20px;
 }
 
-a, a:link, a:visited, a:hover, a:active {
-  color: #007682;
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #007682;
 }
 
 header {
-  padding: 16px 6px 6px 16px;
-  margin-top: 5px;
+    padding: 16px 6px 6px 16px;
+    margin-top: 5px;
 }
 
 footer {
@@ -41,30 +49,35 @@ footer {
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
+    border-collapse: collapse;
+    width: 100%;
 }
 
-td, th {
-  border: 1px solid #ddd;
-  padding: 8px;
+td,
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
 }
 
 .noborder {
-  border: none;
-  background-color: #ffffff !important;
+    border: none;
+    background-color: #ffffff !important;
 }
 
-tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
 
-tr:hover {background-color: #ddd;}
+tr:hover {
+    background-color: #ddd;
+}
 
 th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #12404F;
-  color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #12404F;
+    color: white;
 }
 
 table caption {
@@ -76,9 +89,9 @@ figcaption {
 }
 
 .column {
-	float: left;
-	display: flex;
-	flex-direction: column;
+    float: left;
+    display: flex;
+    flex-direction: column;
 }
 .left {
     width: 5%;
@@ -91,35 +104,35 @@ figcaption {
     float: right;
 }
 @media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
+    .column {
+        width: 100%;
+    }
 }
 
 blockquote {
-   font-style: italic;
+    font-style: italic;
 }
 
 .boxed, blockquote {
-  border-radius: 18px;
-  background: #ffffff;
-  padding: 20px;
-  border: 1px solid #EFEFEF;
+    border-radius: 18px;
+    background: #ffffff;
+    padding: 20px;
+    border: 1px solid #EFEFEF;
 }
 
 
 .tips_box {
-  border-radius: 18px;
-  background: #E6F1F3;
-  padding: 20px;
-  border: 1px solid #EFEFEF;
+    border-radius: 18px;
+    background: #E6F1F3;
+    padding: 20px;
+    border: 1px solid #EFEFEF;
 }
 
 .warning_box {
-  border-radius: 18px;
-  background: #ffe4e1;
-  padding: 20px;
-  border: 1px solid #EFEFEF;
+    border-radius: 18px;
+    background: #ffe4e1;
+    padding: 20px;
+    border: 1px solid #EFEFEF;
 }
 
 
@@ -138,14 +151,13 @@ blockquote {
     margin: 8px 8px 1em;
     float: right;
 }
-@media print
-{
-	#toc_container {
-		display: none !important;
-	}
-	.right {
-		width: 2%;
-	}
+@media print {
+    #toc_container {
+        display: none !important;
+    }
+    .right {
+        width: 2%;
+    }
 }
 
 .toc_title {
@@ -156,9 +168,11 @@ blockquote {
     margin-top: 0px;
 }
 
-#toc_container ul, #toc_container ul li, #toc_container ul li p {
+#toc_container ul,
+#toc_container ul li,
+#toc_container ul li p {
     list-style: outside none none !important;
-	margin-bottom: 0px;
+    margin-bottom: 0px;
     margin-top: 0px;
 }
 
@@ -182,6 +196,7 @@ blockquote {
     margin-top: 0px;
 }
 
-pre, code {
-	font-size: large;
+pre,
+code {
+    font-size: large;
 }
