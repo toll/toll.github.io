@@ -42,7 +42,13 @@
         <div class="about-section">
             <div class="about-section-text">
                 <h1 id="omtjenesten">About the service</h1>
-                <p>The API supports the submission of documents.</p>
+                <p>
+                  <img src="../media/file-upload-icon.svg"
+                       alt="fileUpload"
+                       style="max-width: 120px"
+                       class="img-right">
+                  The API supports the submission of documents.
+                </p>
 
                 <p>
                     Norwegian Customs now makes it possible to submit relevant
@@ -86,20 +92,22 @@
             </div>
 
             <div>
-                <img src="../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
             </div>
         </div>
 
         <h1 id="grensesnitt">Interface description</h1>
 
-        <p class="display-center">The services are made available as REST services over HTTPS, with data in JSON format.</p>
+        <p>
+          The services are made available as REST services over HTTPS,
+          with data in JSON format.
+        </p>
 
 
         <pre class="boxed-display">
-     POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
             <p>
-              der
+              where
               <ul>
                 <li>
                   <b>&lt;env&gt;</b> is replaced with
@@ -149,8 +157,8 @@
             </thead>
             <tbody>
             <tr>
-                <td class="center">Authorization</td>
-                <td class="center">Bearer "TOLL ACCESS TOKEN"</td>
+                <td>Authorization</td>
+                <td>Bearer "TOLL ACCESS TOKEN"</td>
             </tr>
             </tbody>
         </table>

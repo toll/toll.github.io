@@ -43,7 +43,14 @@
         <div class="about-section">
             <div class="about-section-text">
                 <h1 id="omtjenesten">Om tjenesten</h1>
-                <p>API-et støtter maskinell innsending av underlagsdokumenter.</p>
+                <p>
+                  <img src="../media/file-upload-icon.svg"
+                       alt="opplasting"
+                       style="max-width: 120px"
+                       class="img-right">
+                  API-et støtter maskinell innsending av
+                  underlagsdokumenter.
+                </p>
 
                 <p>
                     Tolletaten gjør det nå mulig å sende inn all nødvendig
@@ -84,20 +91,18 @@
                     til <strong>toll:goodsdeclaration/document.write</strong>
                 </p>
             </div>
-
-            <div>
-                <img src="../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
-            </div>
         </div>
 
 
         <h1 id="grensesnitt">Grensesnittbeskrivelse</h1>
 
-        <p class="display-center">Tjenestene gjøres tilgjengelige som en REST-tjenester over HTTPS, med data på
-            JSON-format.</p>
+        <p>
+          Tjenestene gjøres tilgjengelige som en REST-tjenester over
+          HTTPS, med data på JSON-format.
+        </p>
 
         <pre class="boxed-display">
-     POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
             <p>
               der
@@ -148,8 +153,8 @@
             </thead>
             <tbody>
             <tr>
-                <td class="center">Authorization</td>
-                <td class="center">Bearer "TOLL ACCESS TOKEN"</td>
+                <td>Authorization</td>
+                <td>Bearer "TOLL ACCESS TOKEN"</td>
             </tr>
             </tbody>
         </table>

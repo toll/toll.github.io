@@ -12,9 +12,22 @@ body {
     padding: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin-top: 32px;
+}
+
 img {
     max-width: 100%;
     height: auto;
+}
+
+.img-right {
+    float: right;
+    padding-left; 5px;
 }
 
 p {
@@ -23,7 +36,7 @@ p {
 
 header {
     background-color: var(--background-color-light-dark-green);
-    padding: 20px 145px 20px 145px;
+    padding: 20px 80px 20px 80px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -138,9 +151,9 @@ blockquote {
     border-radius: 18px;
     background: var(--background-color-pink-red);
     padding: 20px;
+    margin: 30px;
     border: 1px solid #EFEFEF;
     display: flex;
-    font-size: 1.5vh;
     flex-direction: column;
     justify-content: center;
     text-align: center;
@@ -251,19 +264,16 @@ code {
 }
 
 .about-section {
-    display: flex;
-    flex-direction: column;
     gap: 5vh;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin: 20px;
 }
 
 .about-section-text {
     white-space: wrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 345px;
+    max-width: 800px;
     color: #003237;
 }
 
@@ -292,7 +302,7 @@ p {
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
-    padding: 0.75rem 0;
+    padding: 1rem 0;
     margin-bottom: 1rem;
     list-style: none;
     border-radius: 0.25rem;
@@ -322,6 +332,7 @@ p {
     gap: 1rem;
     justify-content: space-between;
     align-items: start;
+    grid-template-columns: none;
 }
 
 .spaced-list li {
@@ -383,19 +394,22 @@ dialog img {
     color: #d5d4d4;
 }
 
+
 @media (min-width: 1024px) {
     header {
         justify-content: space-between;
     }
 
-    main {
-        padding: 20px 400px 20px 400px;
-    }
-
     .about-section {
-        flex-direction: row;
+        flex-direction: column;
         gap: 0;
     }
+
+    .two-column-section {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
 
     .boxed-display {
         display: block;
@@ -416,7 +430,7 @@ dialog img {
     }
 
     .about-section-text {
-        max-width: 650px;
+        max-width: 750px;
     }
 
     .index .buttons-section {
