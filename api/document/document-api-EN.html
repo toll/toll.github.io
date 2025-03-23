@@ -106,32 +106,32 @@
         <pre class="boxed-display">
 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
-            <p>
-              where
+         <p>
+           where
+         </p>
+          <ul>
+            <li>
+              <b>&lt;env&gt;</b> is replaced with
               <ul>
-                <li>
-                  <b>&lt;env&gt;</b> is replaced with
-                  <ul>
-                    <li><i>api.toll.no</i> for production</li>
-                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>{DeclarationID}</strong> is TVINN declaration
-                  ID, divided into three parts in the following format:
-                  "123456789-01092023-1":
-                  <ol>
-                    <li>The first part is the declarant number</li>
-                    <li>The second part is the declaration date in the format "ddmmyyyy"</li>
-                    <li>The third part is the sequence number.</li>
-                  </ol>
-                </li>
+                <li><i>api.toll.no</i> for production</li>
+                <li><i>api-test</i>.toll.no for playground (testing environment)</li>
               </ul>
-            </p>
+            </li>
+            <li>
+              <strong>{DeclarationID}</strong> is TVINN declaration
+              ID, divided into three parts in the following format:
+              "123456789-01092023-1":
+              <ol>
+                <li>The first part is the declarant number</li>
+                <li>The second part is the declaration date in the format "ddmmyyyy"</li>
+                <li>The third part is the sequence number.</li>
+              </ol>
+            </li>
+          </ul>
 
         <p>
             See detailed
-            &nbsp;<strong><a href="document-api-link.html">API
+            <strong><a href="document-api-link.html">API
             documentation here</a></strong>.
         </p>
 

@@ -215,18 +215,18 @@
         <br/>
 
         <section class="image-border">
-            <h4 id="integrasjon-selvbetjening">4.1 Go to self-service for integrations</h4>
-            <figure>
-                <img class="image-size" src="../media/maskp-selvbetjening.png" alt="Figure: Go to self-service"/>
-                <figcaption>Figure: Go to self-service</figcaption>
-            </figure>
+            <div>
+                <h4 id="integrasjon-selvbetjening">4.1 Go to self-service for integrations</h4>
+                <figure>
+                    <img class="image-size" src="../media/maskp-selvbetjening.png" alt="Figure: Go to self-service"/>
+                    <figcaption>Figure: Go to self-service</figcaption>
+                </figure>
 
-            <figure>
-                <img src="../media/maskp-integrasjoner.png" alt="Figure: Select environment"/>
-                <figcaption>Figure: Select environment</figcaption>
-            </figure>
+                <figure>
+                    <img src="../media/maskp-integrasjoner.png" alt="Figure: Select environment"/>
+                    <figcaption>Figure: Select environment</figcaption>
+                </figure>
 
-            <b>
                 <p>
                     To manage integrations for testing: Select "Integrations" under <i>the heading "Ver
                     2"</i>
@@ -235,31 +235,29 @@
                     To manage integrations for production: Select "Integrations" under <i>the heading
                     "Production"</i>
                 </p>
-            </b>
 
-            <h4 id="integrasjon-i-ver2">4.2 Create an integration in the Test environment at Digdir</h4>
-            <figure>
-                <img src="../media/maskp-test.png" alt="Figure: Go to integrations"/>
-                <figcaption>Figure: Go to integrations</figcaption>
-            </figure>
+                <h4 id="integrasjon-i-ver2">4.2 Create an integration in the Test environment at Digdir</h4>
+                <figure>
+                    <img src="../media/maskp-test.png" alt="Figure: Go to integrations"/>
+                    <figcaption>Figure: Go to integrations</figcaption>
+                </figure>
 
-            <h4 id="integrasjon-i-prod">4.3 Create an integration in PRODUCTION at Digdir</h4>
-            <figure>
-                <img src="../media/maskp-prod.png" alt="Figure: Go to integrations"/>
-                <figcaption>Figure: Go to integrations</figcaption>
-            </figure>
+                <h4 id="integrasjon-i-prod">4.3 Create an integration in PRODUCTION at Digdir</h4>
+                <figure>
+                    <img src="../media/maskp-prod.png" alt="Figure: Go to integrations"/>
+                    <figcaption>Figure: Go to integrations</figcaption>
+                </figure>
 
-            <h4 id="ny-integrasjon">4.4 New integration</h4>
-            <figure>
-                <img src="../media/maskp-nyintegrasjon.png" alt="Figure: Click New integration."/>
-                <figcaption>Figure: Click New integration.</figcaption>
-            </figure>
-            <figure>
-                <img src="../media/maskp-opprettny.png" alt="Figure: Fill in the fields"/>
-                <figcaption>Figure: Fill in the fields</figcaption>
-            </figure>
-
-            <br/>
+                <h4 id="ny-integrasjon">4.4 New integration</h4>
+                <figure>
+                    <img src="../media/maskp-nyintegrasjon.png" alt="Figure: Click New integration."/>
+                    <figcaption>Figure: Click New integration.</figcaption>
+                </figure>
+                <figure>
+                    <img src="../media/maskp-opprettny.png" alt="Figure: Fill in the fields"/>
+                    <figcaption>Figure: Fill in the fields</figcaption>
+                </figure>
+            </div>
         </section>
 
         <div class="about-section-text">
@@ -311,7 +309,7 @@
 
             <h5 id="http-request">HTTP Request</h5>
             <p>Method: <strong>POST</strong></p>
-            <strong><p>URL:</p></strong>
+            <p>URL:</p>
             <table>
                 <thead>
                 <tr>
@@ -333,45 +331,49 @@
                 </tbody>
             </table>
 
-            <strong><p>HEADER:</p></strong>
-            <table>
-                <thead>
-                <tr>
-                    <th scope="col">Header</th>
-                    <th scope="col">Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Content-type</td>
-                    <td>application/x-www-form-urlencoded</td>
-                </tr>
-                </tbody>
-            </table>
+            <div>
+                <p>HEADER:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">Header</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Content-type</td>
+                        <td>application/x-www-form-urlencoded</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-            <strong><p>BODY:</p></strong>
-            <table>
-                <thead>
-                <tr>
-                    <th scope="col">Key</th>
-                    <th scope="col">Value</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>grant_type</td>
-                    <td>token-exchange</td>
-                </tr>
-                <tr>
-                    <td>subject_token_type</td>
-                    <td>access_token</td>
-                </tr>
-                <tr>
-                    <td>subject_token</td>
-                    <td>&lt;MASKINPORTEN ACCESS TOKEN HERE&gt;</td>
-                </tr>
-                </tbody>
-            </table>
+            <div>
+                <p>BODY:</p>
+                <table>
+                    <thead>
+                    <tr>
+                        <th scope="col">Key</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>grant_type</td>
+                        <td>token-exchange</td>
+                    </tr>
+                    <tr>
+                        <td>subject_token_type</td>
+                        <td>access_token</td>
+                    </tr>
+                    <tr>
+                        <td>subject_token</td>
+                        <td>&lt;MASKINPORTEN ACCESS TOKEN HERE&gt;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
             <h5 id="eksempel-http-response">Example: HTTP Response</h5>
             <p><strong>Maskinporten Access Token - Response</strong></p>

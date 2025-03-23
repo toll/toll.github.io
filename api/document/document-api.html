@@ -104,28 +104,28 @@
         <pre class="boxed-display">
 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
-            <p>
-              der
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> byttes ut med
-                  <ul>
-                    <li><i>api.toll.no</i> for produksjon</li>
-                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>{DeklarasjonsID}</strong> er TVINN
-                  deklarasjons-ID, delt opp i tre deler som angis på
-                  følgende format: "123456789-01092023-1"
-                  <ol>
-                    <li>Første del er deklarantnummer</li>
-                    <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
-                    <li>Tredje del sekvensnummer.</li>
-                  </ol>
-                </li>
-              </ul>
-            </p>
+        <p>
+          der
+        </p>
+      <ul>
+        <li>
+          <b>&lt;env&gt;</b> byttes ut med
+          <ul>
+            <li><i>api.toll.no</i> for produksjon</li>
+            <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+          </ul>
+        </li>
+        <li>
+          <strong>{DeklarasjonsID}</strong> er TVINN
+          deklarasjons-ID, delt opp i tre deler som angis på
+          følgende format: "123456789-01092023-1"
+          <ol>
+            <li>Første del er deklarantnummer</li>
+            <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
+            <li>Tredje del sekvensnummer.</li>
+          </ol>
+        </li>
+      </ul>
 
         <p>
             Se detaljert &nbsp;<strong><a href="document-api-link.html">API-dokumentasjon her</a></strong>.
