@@ -25,7 +25,7 @@
     <a href="ufullstendig-dokumentasjon.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>NO</span>
-            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
@@ -42,8 +42,8 @@
         </nav>
     </div>
 
-    <div class="align-self-start" role="main">
-        <div class="align-self-start">
+    <div class="about-section" role="main">
+        <div class="about-section-text">
             <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Incomplete documentation</h2>
 
             <p>In some cases, the information submitted may not be sufficient to complete processing. At the endpoint
@@ -53,10 +53,11 @@
                 &quot;/master-consignment/transport-document/status&quot; to get this information.</p>
         </div>
 
+        <section class="synkrone-grid-two-columns-container">
             <div>
                 <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot have a value when specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
                 <h4 id="Svar.30">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -83,7 +84,7 @@
             <div>
                 <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Field cannot have a value for transit (&quot;N820&quot;) if the procedure the consignment was subject to until border crossing into Norway (&quot;outgoing procedure&quot;) is specified as export (&quot;EXP&quot;)</h3>
                 <h4 id="Svar.31">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -111,7 +112,7 @@
             <div>
                 <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</h3>
                 <h4 id="Svar.32">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -138,7 +139,7 @@
             <div>
                 <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) are specified, a customs procedure (field &quot;importProcedure&quot;) must be provided</h3>
                 <h4 id="Svar.33">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -167,7 +168,7 @@
             <div>
                 <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Only one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;) can be provided</h3>
                 <h4 id="Svar.34">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -197,7 +198,7 @@
             <div>
                 <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the document reference is something other than a customs declaration (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the &quot;previousDocuments&quot; object</h3>
                 <h4 id="Svar.35">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "status": "FAILURE",
   "requestId": "${requestIdForSubmission}",
@@ -229,6 +230,7 @@
                     this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot; when new
                     processing is complete.</p>
             </div>
+        </section>
     </div>
 
 </main>

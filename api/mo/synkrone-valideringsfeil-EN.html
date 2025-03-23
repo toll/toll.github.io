@@ -25,13 +25,13 @@
     <a href="synkrone-valideringsfeil.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
 
 <main class="valideringsfeil">
-    <div id="synkrone" class="align-self-start" role="main">
+    <div id="synkrone" class="about-section align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
@@ -41,7 +41,7 @@
             </ol>
         </nav>
 
-        <div class="align-self-start">
+        <div class="about-section-text">
             <h2 id="Synkronevalideringsfeil">Synchronous Validation Errors</h2>
 
             <p>Synchronous (via HTTP) validation errors are returned with status code 400 on
@@ -58,7 +58,7 @@
                 indicate which fields caused the validation error specified in the field
                 &quot;field&quot;, and the cause of the error specified in the field &quot;error&quot;.</p>
 
-            <pre class="boxed-display">
+            <pre>
 {
   "validationErrors": [
     {
@@ -78,12 +78,14 @@
         <br/>
         <br/>
 
+        <section class="synkrone-grid-two-columns-container">
+
             <div>
                 <h3 id="Manglendeellerblankepakrevdefelt">Missing or Blank (&quot;&quot;) Required Fields</h3>
 
                 <h4 id="Svar">Response</h4>
 
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -116,7 +118,7 @@
                 <h3 id="Feilformatpadatotid">Incorrect Date/Time Format</h3>
 
                 <h4 id="Svar.1">Response</h4>
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -142,7 +144,7 @@
 
                 <h4 id="Svar.2">Response</h4>
 
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -172,7 +174,7 @@
 
                 <h4 id="Svar.3">Response</h4>
 
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -197,7 +199,7 @@
 
                 <h4 id="Svar.4">Response</h4>
 
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -224,7 +226,7 @@
 
                 <h4 id="Svar.5">Response</h4>
 
-                <pre class="boxed-display">
+                <pre>
 {
   "validationErrors": [
     {
@@ -243,6 +245,7 @@
 
                 <p>Submit the field with one of the specified values.</p>
             </div>
+        </section>
     </div>
 
 </main>

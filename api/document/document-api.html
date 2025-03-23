@@ -25,7 +25,7 @@
     <a href="../document/document-api-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>EN</span>
-            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Engelsk flagg">
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="Engelsk flagg">
         </div>
     </a>
 </header>
@@ -86,7 +86,7 @@
             </div>
 
             <div>
-                <img src="../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
+                <img src="../../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
             </div>
         </div>
 
@@ -96,33 +96,39 @@
         <p class="display-center">Tjenestene gjøres tilgjengelige som en REST-tjenester over HTTPS, med data på
             JSON-format.</p>
 
-        <pre class="boxed-display">
+<pre class="boxed-mobile-display">
      POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
-        </pre>
-            <p>
-              der
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> byttes ut med
-                  <ul>
-                    <li><i>api.toll.no</i> for produksjon</li>
-                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>{DeklarasjonsID}</strong> er TVINN
-                  deklarasjons-ID, delt opp i tre deler som angis på
-                  følgende format: "123456789-01092023-1"
-                  <ol>
-                    <li>Første del er deklarantnummer</li>
-                    <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
-                    <li>Tredje del sekvensnummer.</li>
-                  </ol>
-                </li>
-              </ul>
-            </p>
 
-        <p>
+     <strong>"env"</strong> byttes ut med:
+      • <strong>api.toll.no</strong> for produksjon
+      • <strong>api-test.toll.no</strong> for playground (testmiljø)
+
+     <strong>{DeklarasjonsID}</strong> TVINN deklarasjons-ID, delt opp i tre deler som angis på følgende format: "123456789-01092023-1"
+      • Første del er deklarantnummer
+
+      • Andre del deklarasjonsdato på format "ddmmyyyy"
+
+      • Tredje del sekvensnummer.
+
+</pre>
+
+<pre class="boxed-medium-display">
+    1 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+    2
+    3 <strong>"env"</strong> byttes ut med:
+    4  • <strong>api.toll.no</strong> for produksjon
+    5  • <strong>api-test.toll.no</strong> for playground (testmiljø)
+    6
+    7 <strong>{DeklarasjonsID}</strong> TVINN deklarasjons-ID, delt opp i tre deler som angis på følgende format: "123456789-01092023-1"
+    8  • Første del er deklarantnummer
+    9
+    10 • Andre del deklarasjonsdato på format "ddmmyyyy"
+    11
+    12 • Tredje del sekvensnummer.
+    13
+</pre>
+
+        <p class="display-center">
             Se detaljert &nbsp;<strong><a href="document-api-link.html">API-dokumentasjon her</a></strong>.
         </p>
 
@@ -261,7 +267,8 @@
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2024 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

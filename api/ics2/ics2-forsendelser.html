@@ -25,7 +25,7 @@
     <a href="../ics2/ics2-forsendelser-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>EN</span>
-            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Engelsk flagg">
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="Engelsk flagg">
         </div>
     </a>
 </header>
@@ -40,7 +40,7 @@
                 </li>
             </ol>
         </nav>
-
+        
         <div class="about-section-text">
             <h2 id="Omtjenesten">Om tjenesten</h2>
 
@@ -77,8 +77,8 @@
                 <li>
                     <a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
                        target="_blank">Guidancedokumenter fra EU</a></li>
-                <li><a href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901"
-                target="_blank">Forskrift om inn- og utførsel av varer (vareførselsforskriften)</a></li>
+                <li><a href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901">Forskrift om inn- og utførsel av
+                    varer (vareførselsforskriften)</a></li>
             </ul>
 
             <h2 id="Bruksflyt">Bruksflyt</h2>
@@ -110,41 +110,48 @@
 
         </div>
 
-        <div class="align-self-start">
+        <div class="align-self-start flex-column">
             <h1 id="Grensesnitt">Grensesnittbeskrivelse</h1>
-          <p>
-            Tjenestene er tilgjengelige over HTTPS, med autentisering
-            via Maskinporten.
-          </p>
-          <pre class="boxed-display">
-POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
-POST https://&lt;env&gt;/api/movement/presentation/v1/master-consignment
-POST https://&lt;env&gt;/api/movement/presentation/v1/container
-POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
-POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
+            <p>Tjenestene er tilgjengelige over HTTPS, med autentisering via Maskinporten.</p>
+<pre class="boxed-mobile-display">
+     POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
+     POST https://&lt;env&gt;/api/movement/presentation/v1/master-consignment
+     POST https://&lt;env&gt;/api/movement/presentation/v1/container
+     POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
+     POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
 
-GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
-GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
-          </pre>
-            <p>
-              der
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> byttes ut med
-                  <ul>
-                    <li><i>api.toll.no</i> for produksjon</li>
-                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-                  </ul>
-                </li>
-                <li>
-                  <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
-                </li>
-                <li>
-                  <b>{MRN}</b> byttes ut med referansen som returneres
-                  fra ".../validation-status..."-endepunktene.
-                </li>
-              </ul>
-            </p>
+     GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
+     GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
+
+
+     <b>&lt;env&gt;</b> byttes ut med
+     • api.toll.no for produksjon
+
+     • <b>api-test</b>.toll.no for playground (testmiljø)
+
+     <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+     <b>{MRN}</b> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+</pre>
+
+<pre class="boxed-medium-display">
+    1 POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
+    2 POST https://&lt;env&gt;/api/movement/presentation/v1/master-consignment
+    3 POST https://&lt;env&gt;/api/movement/presentation/v1/container
+    4 POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
+    5 POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
+    6
+    7 GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
+    8 GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
+    9
+    10
+    11 <b>&lt;env&gt;</b> byttes ut med
+    12 • api.toll.no for produksjon
+    13
+    14 • <b>api-test</b>.toll.no for playground (testmiljø)
+    15
+    16 <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+    17 <b>{MRN}</b> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+</pre>
         </div>
 
         <div class="about-section-text">
@@ -178,11 +185,12 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
             <p>Customs Office of Presentation valideres etter EU-kodeverk <a
                     href="https://ec.europa.eu/taxation_customs/dds2/rd/rd_home.jsp?Lang=en"
                     target="_blank">Reference Data &amp; Customs Offices List (europa.eu)</a></p>
-            <h3 id="Transportdokumenttype">
-              <a href="../mo/mo-kodeverk.html#cl754"
-                 target="_blank">Transportdokumenttype CL754</a>
-            </h3>
         </div>
+
+        <strong><a href="../mo/mo-kodeverk.html#cl754">Transportdokumenttype CL754</a></strong>
+
+        <br/>
+        <br/>
 
         <div class="about-section-text">
 
@@ -416,7 +424,8 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

@@ -25,7 +25,7 @@
     <a href="../document/document-api.html" class="nav-language-button" role="navigation">
         <div class="lang_nav" >
             <span>NO</span>
-            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flagg">
+            <img class="flag-rounded" src="../../flag/NO-flag.svg" alt="Norwegian flagg">
         </div>
     </a>
 </header>
@@ -86,7 +86,7 @@
             </div>
 
             <div>
-                <img src="../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
+                <img src="../../media/file-upload-icon.svg" alt="fileUpload" width="260px" height="200px">
             </div>
         </div>
 
@@ -94,37 +94,40 @@
 
         <p class="display-center">The services are made available as REST services over HTTPS, with data in JSON format.</p>
 
+        <pre class="boxed-mobile-display">
+     POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeclarationID}</strong>/document
 
-        <pre class="boxed-display">
-     POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
-        </pre>
-            <p>
-              der
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> is replaced with
-                  <ul>
-                    <li><i>api.toll.no</i> for production</li>
-                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>{DeclarationID}</strong> is TVINN declaration
-                  ID, divided into three parts in the following format:
-                  "123456789-01092023-1":
-                  <ol>
-                    <li>The first part is the declarant number</li>
-                    <li>The second part is the declaration date in the format "ddmmyyyy"</li>
-                    <li>The third part is the sequence number.</li>
-                  </ol>
-                </li>
-              </ul>
-            </p>
+     <strong>"env"</strong> is replaced with:
+      • <strong>api.toll.no</strong> for production
+      • <strong>api-test.toll.no</strong> for playground (test environment)
 
-        <p>
-            See detailed
-            &nbsp;<strong><a href="document-api-link.html">API
-            documentation here</a></strong>.
+     <strong>{DeclarationID}</strong> TVINN declaration ID, divided into three parts in the following format: "123456789-01092023-1"
+      • The first part is the declarant number
+
+      • The second part is the declaration date in the format "ddmmyyyy"
+
+      • The third part is the sequence number.
+
+</pre>
+
+        <pre class="boxed-medium-display">
+    1 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeclarationID}</strong>/document
+    2
+    3 <strong>"env"</strong> is replaced with:
+    4  • <strong>api.toll.no</strong> for production
+    5  • <strong>api-test.toll.no</strong> for playground (test environment)
+    6
+    7 <strong>{DeclarationID}</strong> TVINN declaration ID, divided into three parts in the following format: "123456789-01092023-1"
+    8  • The first part is the declarant number
+    9
+    10 • The second part is the declaration date in the format "ddmmyyyy"
+    11
+    12 • The third part is the sequence number.
+    13
+</pre>
+
+        <p class="display-center">
+            See detailed &nbsp;<strong><a href="document-api-link.html">API documentation here</a></strong>.
         </p>
 
         <p class="tips_box">

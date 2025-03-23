@@ -35,7 +35,7 @@
     <a href="prosedyre-mo-fly-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>EN</span>
-            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+            <img class="flag-rounded" src="../../flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -50,46 +50,35 @@
             </ol>
         </nav>
 
-        <div class="flex-column">
-            <h1>Hvordan fylle ut melding om forsendelse, fly</h1>
+        <div class="flex-column display-center">
+            <h1>Hvordan fylle ut melding om forsendelse</h1>
 
-            <h2 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h2>
+            <h1 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h1>
             <p>
                 Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
             </p>
 
-            <pre class="boxed-display">
-POST https://&lt;env&gt;/api/movement/air/v1/transport
-POST https://&lt;env&gt;/api/movement/air/v1/master-consignment
-POST https://&lt;env&gt;/api/movement/air/v1/house-consignment
-
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/transport/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/master-consignment/{MRN}
-PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/house-consignment/{MRN}
-
-GET https://&lt;env&gt;/api/movement/air/status/v1/transport/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/master-consignment/validation-status/{requestId}
-GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-status/{requestId}
-            </pre>
-            <p>
-              der
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> byttes ut med
-                  <ul>
-                    <li><i>api.toll.no</i> for produksjon</li>
-                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-                  </ul>
-                </li>
-                <li>
-                  <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
-                </li>
-                <li>
-                  <b>{MRN}</b> byttes ut med referansen som returneres
-                  fra ".../validation-status..."-endepunktene.
-                </li>
-              </ul>
-            </p>
+            <pre class="boxed-medium-display">
+    1  POST https://&lt;env&gt;/api/movement/air/v1/transport
+    2  POST https://&lt;env&gt;/api/movement/air/v1/master-consignment
+    3  POST https://&lt;env&gt;/api/movement/air/v1/house-consignment
+    4
+    5  PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/transport/{MRN}
+    6  PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/master-consignment/{MRN}
+    7  PUT/DELETE https://&lt;env&gt;/api/movement/air/v1/house-consignment/{MRN}
+    8
+    9  GET https://&lt;env&gt;/api/movement/air/status/v1/transport/validation-status/{requestId}
+    10 GET https://&lt;env&gt;/api/movement/air/status/v1/master-consignment/validation-status/{requestId}
+    11 GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-status/{requestId}
+    12
+    13 <b>&lt;env&gt;</b> byttes ut med
+    14 • api.toll.no for produksjon
+    15
+    16 • <b>api-test</b>.toll.no for playground (testmiljø)
+    17
+    18 <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+    19 <b>{MRN}</b> byttes ut med referansen som returneres fra ".../validation-status..."-endepunktene.
+</pre>
 
             <p class="tips_box">
                 Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
@@ -97,7 +86,7 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                 her for info</a>
             </p>
 
-            <h2>API Tjenester</h2>
+            <h1>API Tjenester</h1>
         </div>
 
         <h3 id="movement-air-api">API: movement-air-api</h3>
@@ -950,7 +939,7 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
 
                 </td>
             </tr>
-        </table>
+        </table>lll
 
         <p>&nbsp;</p>
 
@@ -1138,7 +1127,8 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>
