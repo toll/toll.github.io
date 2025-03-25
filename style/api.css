@@ -2,6 +2,10 @@
 :root {
     --background-color-pink-red: #efdeea;
     --background-color-light-dark-green: #007682;
+    --content-text-color-white: #d5d4d4;
+    --content-text-color-dark-green: #003237;
+    --api-template-box-background-color: #333333;
+    --slightly-darker-white-border-color: #EFEFEF;
 }
 
 html, body {
@@ -30,11 +34,6 @@ header {
     flex-wrap: wrap;
 }
 
-header a {
-    color: white;
-    padding: 3px 6px;
-}
-
 main {
     padding: 20px 30px 20px 30px;
     display: flex;
@@ -44,7 +43,7 @@ main {
 }
 
 a, a:link, a:visited, a:hover, a:active {
-  color: #007682;
+  color: var(--background-color-light-dark-green);
 }
 
 footer {
@@ -123,9 +122,9 @@ blockquote {
     word-wrap: break-word;
     white-space: pre-wrap;
     border-radius: 18px;
-    background: #333333;
+    background: var(--api-template-box-background-color);
     padding: 20px;
-    color: #d5d4d4;
+    color: var(--content-text-color-white);
 }
 
 .boxed-medium-display {
@@ -136,7 +135,7 @@ blockquote {
   border-radius: 18px;
   background: var(--background-color-pink-red);
   padding: 20px;
-  border: 1px solid #EFEFEF;
+  border: 1px solid var(--slightly-darker-white-border-color);
   display: flex;
     font-size: 1.5vh;
     flex-direction: column;
@@ -156,14 +155,14 @@ blockquote {
     border-radius: 18px;
     background: var(--background-color-pink-red);
     padding: 20px;
-    border: 1px solid #EFEFEF;
+    border: 1px solid var(--slightly-darker-white-border-color);
 }
 
 .warning_box {
   border-radius: 18px;
   background: #ffe4e1;
   padding: 20px;
-  border: 1px solid #EFEFEF;
+  border: 1px solid var(--slightly-darker-white-border-color);
 }
 
 
@@ -326,7 +325,7 @@ pre, code {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 345px;
-    color: #003237;
+    color: var(--content-text-color-dark-green);
 }
 
 h1, h2, h3, h4 {
@@ -334,7 +333,7 @@ h1, h2, h3, h4 {
 }
 
 p {
-    color: #003237;
+    color: var(--content-text-color-dark-green);
 }
 
 .display-center {
@@ -421,14 +420,14 @@ p {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 680px;
-    color: #003237;
+    color: var(--content-text-color-dark-green);
 }
 
 .valideringsfeil pre {
     border-radius: 18px;
-    background: #333333;
+    background: var(--api-template-box-background-color);
     padding: 20px;
-    color: #d5d4d4;
+    color: var(--content-text-color-white);
     width: 665px;
     word-wrap: break-word;
     white-space: pre-wrap;
@@ -567,15 +566,15 @@ dialog img {
     border-radius: 18px;
     background: var(--background-color-light-dark-green);
     padding: 10px 20px 10px 10px;
-    color: #d5d4d4;
+    color: var(--content-text-color-white);
 }
 
 .content-box a {
-    color: #d5d4d4;
+    color: var(--content-text-color-white);
 }
 
 .content-box h2 {
-    color: #d5d4d4;
+    color: var(--content-text-color-white);
 }
 
 @media (min-width: 1024px) {
@@ -619,7 +618,7 @@ dialog img {
         display: block;
         width: auto;
         border-radius: 18px;
-        background: #333333;
+        background: var(--api-template-box-background-color);
         padding: 20px;
         color: #d5d4d4;
     }
