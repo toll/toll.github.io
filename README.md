@@ -6,4 +6,4 @@ Filen `/api/template.html` bør brukes som utgangspunkt for nye sider.
 
 Styling ligger utrolig nok på `/style`.
 
-Utgangspunktet for det som vises på https://toll.github.io er i `/index.html`.
+Utgangspunktet for det som vises på https://toll.github.io er i `/index.html`. 
