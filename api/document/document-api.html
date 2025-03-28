@@ -23,7 +23,7 @@
     </a>
 
     <a href="../document/document-api-EN.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Engelsk flagg">
         </div>
@@ -41,91 +41,88 @@
         </nav>
 
         <div class="about-section">
-            <div class="about-section-text">
-                <h1 id="omtjenesten">Om tjenesten</h1>
-                <p>
-                  <img src="../media/file-upload-icon.svg"
-                       alt="opplasting"
-                       style="max-width: 120px"
-                       class="img-right">
-                  API-et støtter maskinell innsending av
-                  underlagsdokumenter.
-                </p>
+            <h1 id="omtjenesten">Om tjenesten</h1>
+            <p>
+                <img src="../media/file-upload-icon.svg"
+                     alt="opplasting"
+                     class="img-right"/>
+                API-et støtter maskinell innsending av
+                underlagsdokumenter.
+            </p>
 
-                <p>
-                    Tolletaten gjør det nå mulig å sende inn all nødvendig
-                    underlagsdokumentasjon til deklarasjoner på forhånd, slik at
-                    den er tilgjengelig for Tolletaten før varene ankommer
-                    grensen. Dette kan bidra til redusert behov for å bli
-                    kontaktet i forbindelse med for eksempel dokumentkontroll,
-                    siden Tolletaten allerede har den nødvendige dokumentasjonen.
-                </p>
+            <p>
+                Tolletaten gjør det nå mulig å sende inn all nødvendig
+                underlagsdokumentasjon til deklarasjoner på forhånd, slik at
+                den er tilgjengelig for Tolletaten før varene ankommer
+                grensen. Dette kan bidra til redusert behov for å bli
+                kontaktet i forbindelse med for eksempel dokumentkontroll,
+                siden Tolletaten allerede har den nødvendige dokumentasjonen.
+            </p>
 
+            <br/>
+
+            <p>
+                Vi ønsker at så mange som mulig av virksomhetene som
+                deklarerer i Digitoll (mot ekspedisjonsenhetene <strong>441002 og
+                441003</strong>), tar i bruk API-et for innsending av
+                underlagsdokumentasjon knyttet til tolldeklarasjonen.
+                Dokumenter som faktura, tillatelser, fraktregning,
+                opprinnelsesdokumentasjon eller fraktbrev, kan sendes
+                uoppfordret og på forhånd.
+            </p>
+
+            <br/>
+
+            <p>
+                Dokumentene kan også sendes inn via API-et i de tilfellene
+                hvor Tolletaten krever dokumentkontroll, om man ikke har sendt
+                de på forhånd.
+            </p>
+
+            <br/>
+
+            <p>
+                Dokumentene knyttes til tolldeklarasjonen i TVINN.
                 <br/>
-
-                <p>
-                    Vi ønsker at så mange som mulig av virksomhetene som
-                    deklarerer i Digitoll (mot ekspedisjonsenhetene <strong>441002 og
-                    441003</strong>), tar i bruk API-et for innsending av
-                    underlagsdokumentasjon knyttet til tolldeklarasjonen.
-                    Dokumenter som faktura, tillatelser, fraktregning,
-                    opprinnelsesdokumentasjon eller fraktbrev, kan sendes
-                    uoppfordret og på forhånd.
-                </p>
-
-                <br/>
-
-                <p>
-                    Dokumentene kan også sendes inn via API-et i de tilfellene
-                    hvor Tolletaten krever dokumentkontroll, om man ikke har sendt
-                    de på forhånd.
-                </p>
-
-                <br/>
-
-                <p>
-                    Dokumentene knyttes til tolldeklarasjonen i TVINN.
-                    <br/>
-                    For å kunne bruke tjenesten må scope for autentisering mot
-                    Maskinporten settes
-                    til <strong>toll:goodsdeclaration/document.write</strong>
-                </p>
-            </div>
+                For å kunne bruke tjenesten må scope for autentisering mot
+                Maskinporten settes
+                til <strong>toll:goodsdeclaration/document.write</strong>
+            </p>
         </div>
 
 
         <h1 id="grensesnitt">Grensesnittbeskrivelse</h1>
 
         <p>
-          Tjenestene gjøres tilgjengelige som en REST-tjenester over
-          HTTPS, med data på JSON-format.
+            Tjenestene gjøres tilgjengelige som en REST-tjenester over
+            HTTPS, med data på JSON-format.
         </p>
 
         <pre class="boxed-display">
 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
         <p>
-          der
+            der
         </p>
-      <ul>
-        <li>
-          <b>&lt;env&gt;</b> byttes ut med
-          <ul>
-            <li><i>api.toll.no</i> for produksjon</li>
-            <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-          </ul>
-        </li>
-        <li>
-          <strong>{DeklarasjonsID}</strong> er TVINN
-          deklarasjons-ID, delt opp i tre deler som angis på
-          følgende format: "123456789-01092023-1"
-          <ol>
-            <li>Første del er deklarantnummer</li>
-            <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
-            <li>Tredje del sekvensnummer.</li>
-          </ol>
-        </li>
-      </ul>
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> byttes ut med
+                <ul>
+                    <li><i>api.toll.no</i> for produksjon</li>
+                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>{DeklarasjonsID}</strong> er TVINN
+                deklarasjons-ID, delt opp i tre deler som angis på
+                følgende format: "123456789-01092023-1"
+                <ol>
+                    <li>Første del er deklarantnummer</li>
+                    <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
+                    <li>Tredje del sekvensnummer.</li>
+                </ol>
+            </li>
+        </ul>
 
         <p>
             Se detaljert &nbsp;<strong><a href="document-api-link.html">API-dokumentasjon her</a></strong>.
@@ -246,7 +243,8 @@ POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong
         <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
         <p>
             Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
-            På siden <b><a href="../maskinporten/maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+            På siden <b><a href="../maskinporten/maskinporten.html">Maskinporten - Tolletaten</a></b> finner du
+            informasjon bl.a. om
         </p>
         <ul>
             <li>
@@ -266,7 +264,8 @@ POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

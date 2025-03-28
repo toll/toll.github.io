@@ -23,7 +23,7 @@
     </a>
 
     <a href="../ics2/ics2-forsendelser-EN.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Engelsk flagg">
         </div>
@@ -41,82 +41,80 @@
             </ol>
         </nav>
 
-        <div class="about-section-text">
-            <h2 id="Omtjenesten">Om tjenesten</h2>
+        <h2 id="Omtjenesten">Om tjenesten</h2>
 
-            <p>
-                Tjenesten brukes for digital fremlegging av sendinger. Alt
-                gods som er forhåndsmeldt er pliktig også å fremlegge med
-                melding til dette API-et. Fra mars 2023 omfatter det alle
-                sendinger som fraktes med fly fra tredjeland, fra 3. juni 2024
-                gjelder det også maritime sendinger.  Med tredjeland menes
-                land utenfor EUs sikkerhetssone (EU, Sveits, Liechtenstein og
-                Norge unntatt Svalbard). Den samme tjenesten kan brukes for
-                felles fremlegging iht. forhåndsvarsling og melde- og
-                opplysningsplikten. Fremlegging kan gjøres ved å sende en hel
-                forflytningsdeklarasjon (ENS), en postsekk (receptacle) eller
-                enkeltsendinger (House Consignment). Dersom en postsekk eller
-                en forflytningsdeklarasjon fremlegges, vil alle
-                enkeltsendingene som er forhåndsmeldt under denne bli ansett
-                som fremlagt. Videre skal den som har fremlagt sendingene også
-                bruke tjenesten for kontrolldirigering (routing) før godset
-                eventuelt kan innpasseres. Når man fremlegger
-                ICS2-sendinger er det kun routing av forsendelse (house
-                consignment) som er relevant (for enkelte aktører kan
-                tjenesten for routing på transportnivå bli aktuelt ifm. melde-
-                og opplysningsplikten). Basert på resultatet fra dirigeringen
-                skal sendingene som har fått signalet TO_CONTROL overleveres
-                til avtalt kontrollsted. Sendinger skal ikke utleveres før
-                signalet TO_ENTRY er mottatt.
-            </p>
+        <p>
+            Tjenesten brukes for digital fremlegging av sendinger. Alt
+            gods som er forhåndsmeldt er pliktig også å fremlegge med
+            melding til dette API-et. Fra mars 2023 omfatter det alle
+            sendinger som fraktes med fly fra tredjeland, fra 3. juni 2024
+            gjelder det også maritime sendinger.  Med tredjeland menes
+            land utenfor EUs sikkerhetssone (EU, Sveits, Liechtenstein og
+            Norge unntatt Svalbard). Den samme tjenesten kan brukes for
+            felles fremlegging iht. forhåndsvarsling og melde- og
+            opplysningsplikten. Fremlegging kan gjøres ved å sende en hel
+            forflytningsdeklarasjon (ENS), en postsekk (receptacle) eller
+            enkeltsendinger (House Consignment). Dersom en postsekk eller
+            en forflytningsdeklarasjon fremlegges, vil alle
+            enkeltsendingene som er forhåndsmeldt under denne bli ansett
+            som fremlagt. Videre skal den som har fremlagt sendingene også
+            bruke tjenesten for kontrolldirigering (routing) før godset
+            eventuelt kan innpasseres. Når man fremlegger
+            ICS2-sendinger er det kun routing av forsendelse (house
+            consignment) som er relevant (for enkelte aktører kan
+            tjenesten for routing på transportnivå bli aktuelt ifm. melde-
+            og opplysningsplikten). Basert på resultatet fra dirigeringen
+            skal sendingene som har fått signalet TO_CONTROL overleveres
+            til avtalt kontrollsted. Sendinger skal ikke utleveres før
+            signalet TO_ENTRY er mottatt.
+        </p>
 
-            <p>Mer informasjon om ICS2:</p>
-            <ul>
-                <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/"
-                       target="_blank">ICS2 på toll.no</a></li>
-                <li>
-                    <a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
-                       target="_blank">Guidancedokumenter fra EU</a></li>
-                <li><a href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901"
-                target="_blank">Forskrift om inn- og utførsel av varer (vareførselsforskriften)</a></li>
-            </ul>
+        <p>Mer informasjon om ICS2:</p>
+        <ul>
+            <li><a href="https://toll.no/no/bedrift/transport-og-tollager/forhandsvarsling/ics2/"
+                   target="_blank">ICS2 på toll.no</a></li>
+            <li>
+                <a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
+                   target="_blank">Guidancedokumenter fra EU</a></li>
+            <li><a href="https://lovdata.no/dokument/SF/forskrift/2022-10-27-1901"
+                   target="_blank">Forskrift om inn- og utførsel av varer (vareførselsforskriften)</a></li>
+        </ul>
 
-            <h2 id="Bruksflyt">Bruksflyt</h2>
+        <h2 id="Bruksflyt">Bruksflyt</h2>
 
-            <p>
-                Fremleggingstjenestene skal kalles så fort forsendelsen er
-                ankommet. Ved å sende med requestId på alle kall vil du som
-                konsument kunne sikre at en forsendelse kun fremlegges én
-                gang. Gjenbruk av samme requestId vil medføre
-                valideringsfeil. Dette er kun en teknisk identifikasjon av
-                hver enkelt tjenestekall. Status på alle requester kan hentes
-                ut ved å bruke validation-statustjenesten.
-            </p>
+        <p>
+            Fremleggingstjenestene skal kalles så fort forsendelsen er
+            ankommet. Ved å sende med requestId på alle kall vil du som
+            konsument kunne sikre at en forsendelse kun fremlegges én
+            gang. Gjenbruk av samme requestId vil medføre
+            valideringsfeil. Dette er kun en teknisk identifikasjon av
+            hver enkelt tjenestekall. Status på alle requester kan hentes
+            ut ved å bruke validation-statustjenesten.
+        </p>
 
-            <p>
-                Når en forsendelse er korrekt fremlagt kan
-                kontrolldirigeringssignal hentes fra routing-tjenesten. Det
-                vil si informasjon om hvorvidt sendingen må leveres til
-                kontroll eller at den kan innpassere og utleveres til
-                mottaker når øvrige tollprosedyrer er
-                ferdigstilt. Kontrolldirigering gjøres kun på
-                enkeltsendings-nivå (house consignment), men fremlegging på
-                postsekk- eller ENS-nivå (Entry Summary Declaration) vil
-                medføre at resultat skal hentes for alle enkeltsendinger som
-                er forhåndsmeldt i den aktuelle postsekk eller ENS. Ved å
-                bruke marker som input kan du enkelt hente ut endringer siden
-                forrige uthenting.
-            </p>
+        <p>
+            Når en forsendelse er korrekt fremlagt kan
+            kontrolldirigeringssignal hentes fra routing-tjenesten. Det
+            vil si informasjon om hvorvidt sendingen må leveres til
+            kontroll eller at den kan innpassere og utleveres til
+            mottaker når øvrige tollprosedyrer er
+            ferdigstilt. Kontrolldirigering gjøres kun på
+            enkeltsendings-nivå (house consignment), men fremlegging på
+            postsekk- eller ENS-nivå (Entry Summary Declaration) vil
+            medføre at resultat skal hentes for alle enkeltsendinger som
+            er forhåndsmeldt i den aktuelle postsekk eller ENS. Ved å
+            bruke marker som input kan du enkelt hente ut endringer siden
+            forrige uthenting.
+        </p>
 
-        </div>
 
         <div class="align-self-start">
             <h1 id="Grensesnitt">Grensesnittbeskrivelse</h1>
-          <p>
-            Tjenestene er tilgjengelige over HTTPS, med autentisering
-            via Maskinporten.
-          </p>
-          <pre class="boxed-display">
+            <p>
+                Tjenestene er tilgjengelige over HTTPS, med autentisering
+                via Maskinporten.
+            </p>
+            <pre class="boxed-display">
 POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
 POST https://&lt;env&gt;/api/movement/presentation/v1/master-consignment
 POST https://&lt;env&gt;/api/movement/presentation/v1/container
@@ -127,24 +125,24 @@ GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
 GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
           </pre>
             <p>
-              der
+                der
             </p>
-              <ul>
+            <ul>
                 <li>
-                  <b>&lt;env&gt;</b> byttes ut med
-                  <ul>
-                    <li><i>api.toll.no</i> for produksjon</li>
-                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
-                  </ul>
+                    <b>&lt;env&gt;</b> byttes ut med
+                    <ul>
+                        <li><i>api.toll.no</i> for produksjon</li>
+                        <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+                    </ul>
                 </li>
                 <li>
-                  <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+                    <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
                 </li>
                 <li>
-                  <b>{MRN}</b> byttes ut med referansen som returneres
-                  fra ".../validation-status..."-endepunktene.
+                    <b>{MRN}</b> byttes ut med referansen som returneres
+                    fra ".../validation-status..."-endepunktene.
                 </li>
-              </ul>
+            </ul>
         </div>
 
         <div class="about-section-text">
@@ -179,8 +177,8 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
                     href="https://ec.europa.eu/taxation_customs/dds2/rd/rd_home.jsp?Lang=en"
                     target="_blank">Reference Data &amp; Customs Offices List (europa.eu)</a></p>
             <h3 id="Transportdokumenttype">
-              <a href="../mo/mo-kodeverk.html#cl754"
-                 target="_blank">Transportdokumenttype CL754</a>
+                <a href="../mo/mo-kodeverk.html#cl754"
+                   target="_blank">Transportdokumenttype CL754</a>
             </h3>
         </div>
 
@@ -189,7 +187,8 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
             <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
             <p>
                 Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
-                På siden <b><a href="../maskinporten/maskinporten.html">Maskinporten - Tolletaten</a></b> finner du informasjon bl.a. om
+                På siden <b><a href="../maskinporten/maskinporten.html">Maskinporten - Tolletaten</a></b> finner du
+                informasjon bl.a. om
             </p>
             <ul class="spaced-list">
                 <li>
@@ -219,7 +218,8 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
             </p>
         </div>
 
-        <div class="flex-column">
+        <span class="display-none" style="font-style: italic">Dra til høyre for å se mer</span>
+        <div class="table-responsive">
             <table>
                 <thead>
                 <tr>
@@ -416,7 +416,8 @@ GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

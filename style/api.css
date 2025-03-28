@@ -26,8 +26,10 @@ img {
 }
 
 .img-right {
+    max-width: 300px;
     float: right;
-    padding-left: 5px;
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 p {
@@ -92,7 +94,7 @@ tr {
     background-color: #ffffff;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
@@ -116,17 +118,36 @@ figcaption {
     font-style: italic;
 }
 
+#scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #007682;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
 .column {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+
 .left {
     align-items: flex-start;
 }
+
 .middle {
     align-items: center;
 }
+
 .right {
     align-items: flex-end;
 }
@@ -230,8 +251,8 @@ code {
 }
 
 .new-page-button.no-icon {
-   height: 150px;
- }
+    height: 150px;
+}
 
 .new-page-button div {
     position: absolute;
@@ -268,7 +289,6 @@ code {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin: 20px;
 }
 
 .about-section-text {
@@ -349,7 +369,7 @@ dialog {
 }
 
 dialog::backdrop {
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 dialog img {
@@ -361,7 +381,7 @@ dialog img {
 }
 
 .image-size {
-    width: 100%;
+    width: auto;
     height: auto;
 }
 
@@ -394,10 +414,24 @@ dialog img {
     color: #d5d4d4;
 }
 
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-responsive table {
+    width: 100%;
+    border-collapse: collapse;
+}
 
 @media (min-width: 1024px) {
     header {
         justify-content: space-between;
+        padding: 20px 250px 20px 250px;
+    }
+
+    main {
+        padding: 20px 250px 20px 250px;
     }
 
     .about-section {
@@ -416,7 +450,7 @@ dialog img {
         width: auto;
         border-radius: 18px;
         background: #333333;
-        padding: 20px;
+        padding: 25px 20px 10px;
         color: #d5d4d4;
     }
 
@@ -426,7 +460,7 @@ dialog img {
 
     .buttons-section {
         grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
-        justify-content: center;
+        justify-content: start;
     }
 
     .about-section-text {
@@ -445,6 +479,10 @@ dialog img {
         align-items: center;
         flex-wrap: wrap;
         gap: 20px;
+    }
+
+    .display-none {
+        display: none;
     }
 }
 
@@ -465,6 +503,7 @@ dialog img {
     #toc_container {
         display: none !important;
     }
+
     .right {
         width: 2%;
     }
