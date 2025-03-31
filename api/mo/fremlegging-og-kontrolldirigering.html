@@ -23,7 +23,7 @@
     </a>
 
     <a href="fremlegging-og-kontrolldirigering-EN.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
@@ -31,333 +31,331 @@
 </header>
 
 <main class="fremlegging-og-kontrolldirigereing">
-  <div role="main">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
-        <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
-        <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
-        <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger.html">Hvordan sende inn ulike deklarsjonsmeldinger</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Fremlegging og kontrolldrirgering</li>
-      </ol>
-    </nav>
+    <div role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
+                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger.html">Hvordan sende inn ulike
+                    deklarsjonsmeldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Fremlegging og kontrolldrirgering</li>
+            </ol>
+        </nav>
 
-    <div class="about-section">
-      <div class="about-section-text">
-        <h1 id="kontrolldir">Fremlegging og kontrolldirigering</h1>
-                <p>
-                    Fremlegging og kontrolldirigering består av to API-er:
-                </p>
-                <ol>
-                    <li>Fremlegging (movement-presentation-api)</li>
-                    <li>Kontrolldirigering (movement-routing-api)</li>
-                </ol>
-                <p>
-                    Begge API-ene dekkes av scopet <strong><code>toll:movement/entry</code></strong>.
-                </p>
+        <div class="about-section" style="width: 70%">
+            <h1 id="kontrolldir">Fremlegging og kontrolldirigering</h1>
+            <p>
+                Fremlegging og kontrolldirigering består av to API-er:
+            </p>
+            <ol>
+                <li>Fremlegging (movement-presentation-api)</li>
+                <li>Kontrolldirigering (movement-routing-api)</li>
+            </ol>
+            <p>
+                Begge API-ene dekkes av scopet <strong><code>toll:movement/entry</code></strong>.
+            </p>
 
-                <p>
-                    Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
-                    grensepassering. Dersom automatisk ankomst blir detektert vil
-                    Tolletaten gjennomføre en automatisk digital fremlegging av
-                    alle forventede forsendelser på den ankommende
-                    transport.
-                </p>
-                <p>
-                    Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt
-                    API for de forventede forsendelsene. Aktører som er koblet
-                    til de fremlagte forsendelser vil kunne hente ut
-                    kontrolldirigering på API (movement-routing-api).
-                </p>
-                <p>
-                    De aktører som automatisk er slik
-                    koblet er den aktøren som sendte inn informasjon om
-                    forsendelsen i Tolletatens API (autentisert i Maskinporten)
-                    og eventuell tollrepresentant nevnt i melding om forsendelse,
-                    hovedforsendelse eller transport.
-                </p>
+            <p>
+                Tolletaten vil forsøke å automatisk detektere ankomst av transport ved
+                grensepassering. Dersom automatisk ankomst blir detektert vil
+                Tolletaten gjennomføre en automatisk digital fremlegging av
+                alle forventede forsendelser på den ankommende
+                transport.
+            </p>
+            <p>
+                Deretter vil Tolletaten gjøre dirigering tilgjengelig i vårt
+                API for de forventede forsendelsene. Aktører som er koblet
+                til de fremlagte forsendelser vil kunne hente ut
+                kontrolldirigering på API (movement-routing-api).
+            </p>
+            <p>
+                De aktører som automatisk er slik
+                koblet er den aktøren som sendte inn informasjon om
+                forsendelsen i Tolletatens API (autentisert i Maskinporten)
+                og eventuell tollrepresentant nevnt i melding om forsendelse,
+                hovedforsendelse eller transport.
+            </p>
 
-                <p>
-                    API-et for kontrolldirigering fungerer ved at det kontinuerlig publiseres dirigeringssignal for
-                    forsendelser som er fremlagt.
-                    Som regel vil fremleggingen skje automatisk ved ankomst av transportmiddel, men kan også bli
-                    trigget av kall til API for fremlegging (movement-presentation-api).
-                </p>
-                <ul class="spaced-list">
-                    <li>
-                        Hvert kall til API-et returnerer en liste med opptil 1000 dirigeringssignal
-                        som er tilgjengelige for den organisasjonen som har autentisert seg med
-                        Maskinporten.
-                    </li>
-                    <li>
-                        Parameter <code>marker</code> brukes for å si hvilket dirigeringssignal du leste sist.
-                    </li>
-                    <li>
-                        <em>Aller første gang</em> du kaller API-et skal
-                        du <em>ikke</em> sende med
-                        noen <code>marker</code>.  Du vil da få en liste
-                        med de første dirigeringssignalene.
-                    </li>
-                    <li>
-                        Hver gang du har behandlet et sett av
-                        dirigeringssignaler henter du ut verdien til
-                        feltet <code>routingResult.id</code> fra det
-                        siste dirigeringssignalet i listen og tar vare
-                        på dette.<br/>  Neste gang du kaller API-et
-                        bruker du verdien du tok vare på
-                        som <code>marker</code> og vil da få de neste
-                        dirigeringssignalene.
-                    </li>
-                    <li>
-                        Fortsett å gjøre dette frem til du får en tom liste.
-                        Da er det ingen flere dirigeringssignal tilgjengelig for din organisasjon.
-                    </li>
-                </ul>
-                <p>
-                    Ta vare på den siste ID-en du leste. For å få dirigeringssignal for forsendelser på neste transport
-                    bruker du denne som <code>marker</code>.
-                    Da slipper du å lese gjennom alle dirigeringssignalene for den forrige transporten på nytt.
-                </p>
+            <p>
+                API-et for kontrolldirigering fungerer ved at det kontinuerlig publiseres dirigeringssignal for
+                forsendelser som er fremlagt.
+                Som regel vil fremleggingen skje automatisk ved ankomst av transportmiddel, men kan også bli
+                trigget av kall til API for fremlegging (movement-presentation-api).
+            </p>
+            <ul class="spaced-list">
+                <li>
+                    Hvert kall til API-et returnerer en liste med opptil 1000 dirigeringssignal
+                    som er tilgjengelige for den organisasjonen som har autentisert seg med
+                    Maskinporten.
+                </li>
+                <li>
+                    Parameter <code>marker</code> brukes for å si hvilket dirigeringssignal du leste sist.
+                </li>
+                <li>
+                    <em>Aller første gang</em> du kaller API-et skal
+                    du <em>ikke</em> sende med
+                    noen <code>marker</code>. Du vil da få en liste
+                    med de første dirigeringssignalene.
+                </li>
+                <li>
+                    Hver gang du har behandlet et sett av
+                    dirigeringssignaler henter du ut verdien til
+                    feltet <code>routingResult.id</code> fra det
+                    siste dirigeringssignalet i listen og tar vare
+                    på dette.<br/> Neste gang du kaller API-et
+                    bruker du verdien du tok vare på
+                    som <code>marker</code> og vil da få de neste
+                    dirigeringssignalene.
+                </li>
+                <li>
+                    Fortsett å gjøre dette frem til du får en tom liste.
+                    Da er det ingen flere dirigeringssignal tilgjengelig for din organisasjon.
+                </li>
+            </ul>
+            <p>
+                Ta vare på den siste ID-en du leste. For å få dirigeringssignal for forsendelser på neste transport
+                bruker du denne som <code>marker</code>.
+                Da slipper du å lese gjennom alle dirigeringssignalene for den forrige transporten på nytt.
+            </p>
 
-                <p>
-                    Les mer om <a href="mo-vei-fly-forklaring.html">
-                    fremlegging og kontrolldirigering her</a> (med eksempler).
-                </p>
+            <p>
+                Les mer om <a href="mo-vei-fly-forklaring.html">
+                fremlegging og kontrolldirigering her</a> (med eksempler).
+            </p>
 
-                <h2 id="kontrollrespons">Dirigering (routing) for forsendelser</h2>
+            <h2 id="kontrollrespons">Dirigering (routing) for forsendelser</h2>
 
-                <p>
-                    Den som har fremlagt sendingene, automatisk av
-                    Tolletaten eller ved egen fremlegging, skal bruke
-                    tjenesten for kontrolldirigering
-                    (movement-routing-api).
-                </p>
-                <p>
-                    Basert på resultatet fra kontrolldirigering skal
-                    aktøren plukke ut sendingene som skal fysisk
-                    kontrolleres.  Disse sendingene skal snarest
-                    overleveres avtalt kontrollsted.  Når en aktør ber
-                    om dirigering gjennom å bruke denne tjenesten vil
-                    Tolletaten svare med én dirigering per forsendelse
-                    (House Consignment).
-                </p>
-                <p>
-                    Dersom forsendelsen er meldt inn gjennom
-                    forhåndsvarsling (ICS2), det vil si gods fra
-                    tredjeland (utenfor EUs sikkerhetssone), vil det
-                    medfølge informasjon om ENS MRN og postsekker
-                    (receptacle) dere det er relevant.  Hvis
-                    forsendelsen ikke er meldt inn gjennom
-                    forhåndsvarsling vil disse dataelementene være
-                    tomme.
-                </p>
+            <p>
+                Den som har fremlagt sendingene, automatisk av
+                Tolletaten eller ved egen fremlegging, skal bruke
+                tjenesten for kontrolldirigering
+                (movement-routing-api).
+            </p>
+            <p>
+                Basert på resultatet fra kontrolldirigering skal
+                aktøren plukke ut sendingene som skal fysisk
+                kontrolleres. Disse sendingene skal snarest
+                overleveres avtalt kontrollsted. Når en aktør ber
+                om dirigering gjennom å bruke denne tjenesten vil
+                Tolletaten svare med én dirigering per forsendelse
+                (House Consignment).
+            </p>
+            <p>
+                Dersom forsendelsen er meldt inn gjennom
+                forhåndsvarsling (ICS2), det vil si gods fra
+                tredjeland (utenfor EUs sikkerhetssone), vil det
+                medfølge informasjon om ENS MRN og postsekker
+                (receptacle) dere det er relevant. Hvis
+                forsendelsen ikke er meldt inn gjennom
+                forhåndsvarsling vil disse dataelementene være
+                tomme.
+            </p>
 
-                <h2>Hvem kan be om dirigering?</h2>
+            <h2>Hvem kan be om dirigering?</h2>
 
-                <p>
-                    Næringslivsaktørene som har vært involvert i innsendingen av meldinger
-                    knyttet til forsendelsen kan da be om å få en liste med dirigeringer for alle
-                    forsendelser som de er involvert part i.
-                </p>
+            <p>
+                Næringslivsaktørene som har vært involvert i innsendingen av meldinger
+                knyttet til forsendelsen kan da be om å få en liste med dirigeringer for alle
+                forsendelser som de er involvert part i.
+            </p>
 
-                <ul class="spaced-list">
-                    <li>
-                        Den som har sendt inn eller er nevnt som tollrepresentant
-                        for transport kan få dirigering for alle forsendelser meldt på transporten
-                        (fører, i praksis transportør, er juridisk ansvarlig)
-                    </li>
-                    <li>
-                        Den som har sendt inn eller er nevnt som
-                        tollrepresentant for hovedforsendelse (master consignment) kan få
-                        dirigering for alle forsendelser meldt for hovedforsendelsen
-                    </li>
-                    <li>
-                        Den som har sendt inn, er nevnt som tollrepresentant for,
-                        eller har fremlagt digitalt forsendelse (house consignment), kan få
-                        dirigering for forsendelsen
-                    </li>
-                </ul>
+            <ul class="spaced-list">
+                <li>
+                    Den som har sendt inn eller er nevnt som tollrepresentant
+                    for transport kan få dirigering for alle forsendelser meldt på transporten
+                    (fører, i praksis transportør, er juridisk ansvarlig)
+                </li>
+                <li>
+                    Den som har sendt inn eller er nevnt som
+                    tollrepresentant for hovedforsendelse (master consignment) kan få
+                    dirigering for alle forsendelser meldt for hovedforsendelsen
+                </li>
+                <li>
+                    Den som har sendt inn, er nevnt som tollrepresentant for,
+                    eller har fremlagt digitalt forsendelse (house consignment), kan få
+                    dirigering for forsendelsen
+                </li>
+            </ul>
 
-                <h2>Hvordan får man dirigering?</h2>
+            <h2>Hvordan får man dirigering?</h2>
 
-                <p>
-                    Når næringslivet ber om å få dirigeringssignal for aktuelle forsendelser,
-                    skjer dette gjennom et kall til et grensesnitt (API) hos Tolletaten
-                    (<a href="movement-routing-api.html">Movement routing API</a>).
-                </p>
+            <p>
+                Når næringslivet ber om å få dirigeringssignal for aktuelle forsendelser,
+                skjer dette gjennom et kall til et grensesnitt (API) hos Tolletaten
+                (<a href="movement-routing-api.html">Movement routing API</a>).
+            </p>
 
-                <p>
-                    Dette grensesnittet er uavhengig av transportmåte og vil gi dirigeringer for
-                    alle forsendelser som er meldt på alle transporter som har ankommet tollområdet
-                    og som er under behandling eller ferdig behandlet hos Tolletaten.
-                </p>
+            <p>
+                Dette grensesnittet er uavhengig av transportmåte og vil gi dirigeringer for
+                alle forsendelser som er meldt på alle transporter som har ankommet tollområdet
+                og som er under behandling eller ferdig behandlet hos Tolletaten.
+            </p>
 
-                <p>
-                    Næringslivsaktøren som skal benytte dette grensesnittet må
-                    <a href="../maskinporten/maskinporten.html">identifisere seg via Maskinporten</a>.
-                    Det er organisasjonsnummeret til næringslivsaktøren som bestemmer hvilke
-                    dirigeringer som gjøres tilgjengelige ved et kall.
-                </p>
+            <p>
+                Næringslivsaktøren som skal benytte dette grensesnittet må
+                <a href="../maskinporten/maskinporten.html">identifisere seg via Maskinporten</a>.
+                Det er organisasjonsnummeret til næringslivsaktøren som bestemmer hvilke
+                dirigeringer som gjøres tilgjengelige ved et kall.
+            </p>
 
-                <p>
-                    URL-en til routing for forsendelse er:
-                </p>
-                <dl>
-                    <dt><strong>PLAYGROUND</strong></dt>
-                    <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
-                        https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
-                    </dd>
-                    <dt><strong>PROD</strong></dt>
-                    <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
-                        https://api.toll.no/api/movement/routing/v1/house-consignment</a>
-                    </dd>
-                </dl>
-            </div>
+            <p>
+                URL-en til routing for forsendelse er:
+            </p>
+            <dl>
+                <dt><strong>PLAYGROUND</strong></dt>
+                <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+                    https://api-test.toll.no/api/movement/routing/v1/house-consignment</a>
+                </dd>
+                <dt><strong>PROD</strong></dt>
+                <dd><a href="https://api-test.toll.no/api/movement/routing/v1/house-consignment">
+                    https://api.toll.no/api/movement/routing/v1/house-consignment</a>
+                </dd>
+            </dl>
 
-            <div class="about-section-text">
-                <h1>Inngangsparameter for bruk av API</h1>
+            <h1>Inngangsparameter for bruk av API</h1>
 
-                <p>
-                    Grensesnittets (API) inngangsparameter består av en markør, definert som:
-                </p>
-                <pre>marker string($uuid)</pre>
+            <p>
+                Grensesnittets (API) inngangsparameter består av en markør, definert som:
+            </p>
+            <pre>marker string($uuid)</pre>
 
-                <p>
-                    Denne markøren bestemmer fra hvilket sted i listen (av dirigeringer som
-                    finnes for næringslivsaktøren) responsen skal begynne fra. Responsen fra
-                    grensesnittet vil da levere en liste med dirigeringer fra og med det stedet
-                    markøren viser og de som er nyere.
-                </p>
-                <p>
-                    Grensesnittet vil vise maksimalt 1000
-                    dirigeringer per kall. Ved flere dirigeringer må grensesnittet kalles
-                    flere ganger. Første gang man kaller API-et skal det kalles uten markør (for å
-                    begynne på begynnelsen), deretter skal alltid markør brukes.
-                </p>
+            <p>
+                Denne markøren bestemmer fra hvilket sted i listen (av dirigeringer som
+                finnes for næringslivsaktøren) responsen skal begynne fra. Responsen fra
+                grensesnittet vil da levere en liste med dirigeringer fra og med det stedet
+                markøren viser og de som er nyere.
+            </p>
+            <p>
+                Grensesnittet vil vise maksimalt 1000
+                dirigeringer per kall. Ved flere dirigeringer må grensesnittet kalles
+                flere ganger. Første gang man kaller API-et skal det kalles uten markør (for å
+                begynne på begynnelsen), deretter skal alltid markør brukes.
+            </p>
 
-                <h2 id="tjenestefremlegging">Tjeneste for fremlegging</h2>
-                <p>
-                    Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
-                    (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
-                    Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
-                    og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
-                    i ICS2-løsningen</strong>.
-                    <br/>
-                    Fremlegging (movement-presentation-api)
-                    kan meldes for
-                    forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
-                    si de forsendelser som er forventet fremlagt.
-                </p>
-
-                <p>
-                    Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
-                    eller en postsekk innsendt for melde og opplysningsplikten.
-                    Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
-                    under denne bli fremlagt.
-                    En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
-                    koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
-                    kontrolldirigeringer for de samme forsendelsene.
-                </p>
-
-                <p>
-                    For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
-                    forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
-                    Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
-                    enkeltsendingene under denne bli fremlagt.
-                </p>
-
+            <h2 id="tjenestefremlegging">Tjeneste for fremlegging</h2>
+            <p>
+                Tjenesten brukes for digital oppfyllelse av fremleggelsesplikten
+                (Vareførselsloven § 2-4.Fremleggelse av varer for kontroll).
+                Tjenesten kan benyttes felles for sendinger som er omfattet av <strong>melde-
+                og opplysningsplikten</strong> og/eller som er <strong>forhåndsmeldt til EU
+                i ICS2-løsningen</strong>.
                 <br/>
-                <br/>
+                Fremlegging (movement-presentation-api)
+                kan meldes for
+                forsendelser som er meldt inn på forhånd gjennom de to nevnte plikter, det vil
+                si de forsendelser som er forventet fremlagt.
+            </p>
 
-                <h2>Dirigeringssignal</h2>
+            <p>
+                Fremlegging kan gjøres ved å fremlegge en hovedforsendelse, en forsendelse
+                eller en postsekk innsendt for melde og opplysningsplikten.
+                Dersom en postsekk eller en hovedforsendelse fremlegges, vil alle forsendelser
+                under denne bli fremlagt.
+                En part som fremlegger forsendelser (gjennom overnevnte API), og ikke før er
+                koblet til forsendelsene, vil da bli koblet, og kan derfor hente ut
+                kontrolldirigeringer for de samme forsendelsene.
+            </p>
 
-                <p>
-                    For en forsendelse vil det gis et dirigeringssignal:
-                </p>
-                <pre>routing</pre>
-                <p>
-                    og om eventuell videre behandling skal skje på eller etter
-                    grensepasseringssted:
-                </p>
-                <pre>routingControlLocation</pre>
-                <p>
-                    sammen med identifikator som beskrevet over.
-                </p>
+            <p>
+                For forhåndsmelding (ICS2), kan fremlegging gjøres for en hel
+                forflytningsdeklarasjon (ENS), en postsekk eller enkeltsendinger.
+                Dersom en postsekk eller en forflytningsdeklarasjon fremlegges, vil alle
+                enkeltsendingene under denne bli fremlagt.
+            </p>
 
-                <p>
-                    Dirigeringssignalet (<strong>routing</strong>) vil kunne ha følgende
-                    verdier:
-                </p>
-                <dl>
-                    <dt><strong>TO_ENTRY</strong></dt>
-                    <dd>
-                        Denne koden betyr at forsendelsen er gitt overgang til neste tollprosedyre.
-                        Det kan for eksempel være til fri disponering eller innlegg på
-                        tollager.
-                    </dd>
-                    <dt><strong>TO_CONTROL</strong></dt>
-                    <dd>
-                        Denne koden betyr at forsendelsen er tatt ut til fysisk kontroll av
-                        Tolletaten, og skal overleveres for kontroll så snart som mulig.
-                    </dd>
-                    <dt><strong>ENTRY_PENDING</strong></dt>
-                    <dd>
-                        Denne koden betyr at forsendelsen har mangler som er nødvendig for
-                        overgang til neste tollprosedyre.<br/>
-                        Den ansvarlige næringslivsaktøren må straks sørge for å rette de avvik som
-                        finnes, slik at ny dirigering kan gis. Forsendelsen kan ikke gis ut til
-                        mottaker.
-                    </dd>
-                    <dt><strong>ENTRY_DENIED</strong></dt>
-                    <dd>
-                        Denne koden betyr at forsendelsen er beslaglagt av Tolletaten og
-                        ikke vil bli utlevert.
-                    </dd>
-                </dl>
+            <br/>
+            <br/>
+
+            <h2>Dirigeringssignal</h2>
+
+            <p>
+                For en forsendelse vil det gis et dirigeringssignal:
+            </p>
+            <pre>routing</pre>
+            <p>
+                og om eventuell videre behandling skal skje på eller etter
+                grensepasseringssted:
+            </p>
+            <pre>routingControlLocation</pre>
+            <p>
+                sammen med identifikator som beskrevet over.
+            </p>
+
+            <p>
+                Dirigeringssignalet (<strong>routing</strong>) vil kunne ha følgende
+                verdier:
+            </p>
+            <dl>
+                <dt><strong>TO_ENTRY</strong></dt>
+                <dd>
+                    Denne koden betyr at forsendelsen er gitt overgang til neste tollprosedyre.
+                    Det kan for eksempel være til fri disponering eller innlegg på
+                    tollager.
+                </dd>
+                <dt><strong>TO_CONTROL</strong></dt>
+                <dd>
+                    Denne koden betyr at forsendelsen er tatt ut til fysisk kontroll av
+                    Tolletaten, og skal overleveres for kontroll så snart som mulig.
+                </dd>
+                <dt><strong>ENTRY_PENDING</strong></dt>
+                <dd>
+                    Denne koden betyr at forsendelsen har mangler som er nødvendig for
+                    overgang til neste tollprosedyre.<br/>
+                    Den ansvarlige næringslivsaktøren må straks sørge for å rette de avvik som
+                    finnes, slik at ny dirigering kan gis. Forsendelsen kan ikke gis ut til
+                    mottaker.
+                </dd>
+                <dt><strong>ENTRY_DENIED</strong></dt>
+                <dd>
+                    Denne koden betyr at forsendelsen er beslaglagt av Tolletaten og
+                    ikke vil bli utlevert.
+                </dd>
+            </dl>
 
 
-                <p>
-                    Dataelementet <code>routingControlLocation</code>
-                    angir hvor videre behandling av forsendelsen skal utføres.
-                    Dette elementet angir om forsendelsen må behandles på grensepasseringsstedet,
-                    eller om forsendelsen tillates å fraktes til et annet sted for behandling.
-                </p>
+            <p>
+                Dataelementet <code>routingControlLocation</code>
+                angir hvor videre behandling av forsendelsen skal utføres.
+                Dette elementet angir om forsendelsen må behandles på grensepasseringsstedet,
+                eller om forsendelsen tillates å fraktes til et annet sted for behandling.
+            </p>
 
-                <p>
-                    Dersom forsendelsen har dirigeringssignal som innebærer videre behandling,
-                    det vil si <strong>TO_CONTROL </strong>eller <strong>ENTRY_PENDING</strong>,
-                    vil <code>routingControlLocation </code>angi om
-                    denne behandlingen skal foregå på grensepasseringsstedet eller om forsendelsen
-                    kan fraktes til et annet sted (for eksempel aktørens sorteringsanlegg) for
-                    behandling.
-                </p>
+            <p>
+                Dersom forsendelsen har dirigeringssignal som innebærer videre behandling,
+                det vil si <strong>TO_CONTROL </strong>eller <strong>ENTRY_PENDING</strong>,
+                vil <code>routingControlLocation </code>angi om
+                denne behandlingen skal foregå på grensepasseringsstedet eller om forsendelsen
+                kan fraktes til et annet sted (for eksempel aktørens sorteringsanlegg) for
+                behandling.
+            </p>
 
-                <p>
-                    Hvor videre behandling av forsendelsen skal utføres
-                    (<code>routingControlLocation</code>) vil kunne ha følgende verdier:
-                </p>
-                <dl>
-                    <dt><strong>ON_ENTRY</strong></dt>
-                    <dd>
-                        Behandling av forsendelsen må foregå på grensepasseringsstedet. Dette
-                        kan være på et tollsted (på vei) eller på dertil egnet sted på en flyplass
-                        (bakketjenesteselskap), i en havn (havneagent) eller jernbaneterminal
-                        (togoperatør).
-                    </dd>
-                    <dt><strong>AFTER_ENTRY</strong></dt>
-                    <dd>
-                        Behandling av forsendelsen kan foregå på et sted etter grensepassering,
-                        typisk i aktørens lokaler. Eksempel på dette kan være aktørens
-                        sorteringsanlegg.
-                    </dd>
-                </dl>
-            </div>
+            <p>
+                Hvor videre behandling av forsendelsen skal utføres
+                (<code>routingControlLocation</code>) vil kunne ha følgende verdier:
+            </p>
+            <dl>
+                <dt><strong>ON_ENTRY</strong></dt>
+                <dd>
+                    Behandling av forsendelsen må foregå på grensepasseringsstedet. Dette
+                    kan være på et tollsted (på vei) eller på dertil egnet sted på en flyplass
+                    (bakketjenesteselskap), i en havn (havneagent) eller jernbaneterminal
+                    (togoperatør).
+                </dd>
+                <dt><strong>AFTER_ENTRY</strong></dt>
+                <dd>
+                    Behandling av forsendelsen kan foregå på et sted etter grensepassering,
+                    typisk i aktørens lokaler. Eksempel på dette kan være aktørens
+                    sorteringsanlegg.
+                </dd>
+            </dl>
         </div>
     </div>
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
 </footer>
 
 </body>

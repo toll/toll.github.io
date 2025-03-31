@@ -424,6 +424,14 @@ dialog img {
     border-collapse: collapse;
 }
 
+.example-box {
+    background-color: #333333;
+    color: white;
+    padding: 1rem;
+    border-radius: 18px;
+    line-height: 30px
+}
+
 @media (min-width: 1024px) {
     header {
         justify-content: space-between;
