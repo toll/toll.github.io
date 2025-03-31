@@ -32,7 +32,7 @@
     </a>
 
     <a href="prosedyre-mo-tog.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>NO</span>
             <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
@@ -49,7 +49,7 @@
             </ol>
         </nav>
 
-        <div class="flex-column">
+        <div style="width: 70%;" class="flex-column">
             <h1>How to fill out a shipment report, train</h1>
 
             <h2 id="Grensesnittbeskrivelse">Interface description</h2>
@@ -69,30 +69,31 @@ PUT/DELETE https://&lt;env&gt;/api/movement/rail/v1/house-consignment/{MRN}
 GET https://&lt;env&gt;/api/movement/rail/status/v1/transport/validation-status/{requestId}
 GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
 GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
-</pre>
+            </pre>
             <p>
-              where
+                where
             </p>
-              <ul>
+            <ul>
                 <li>
-                  <b>&lt;env&gt;</b> is replaced with
-                  <ul>
-                    <li><i>api.toll.no</i> for production</li>
-                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-                  </ul>
+                    <b>&lt;env&gt;</b> is replaced with
+                    <ul>
+                        <li><i>api.toll.no</i> for production</li>
+                        <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                    </ul>
                 </li>
                 <li>
-                  <b>{requestId}</b> is replaced with the reference
-                  returned by POST/PUT/DELETE calls
+                    <b>{requestId}</b> is replaced with the reference
+                    returned by POST/PUT/DELETE calls
                 </li>
                 <li>
-                  <b>{MRN}</b> is replaced with the reference returned
-                  from ".../validation-status..." endpoints.
+                    <b>{MRN}</b> is replaced with the reference returned
+                    from ".../validation-status..." endpoints.
                 </li>
-              </ul>
+            </ul>
 
             <p class="tips_box">
-                If you discover security issues in our solutions, please contact us; <a href="https://toll.no/.well-known/security.txt">see here for info</a>
+                If you discover security issues in our solutions, please contact us; <a
+                    href="https://toll.no/.well-known/security.txt">see here for info</a>
             </p>
 
             <h2>API Services</h2>
@@ -132,7 +133,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                 </td>
                 <td>
                     <p>A declaration for transition to free disposal has been submitted in advance.</p>
-                    <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
+                    <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                        ferry to Larvik)</p>
                 </td>
                 <td colspan='2'>
                     <p>A declaration for transition to free disposal has been submitted in advance.</p>
@@ -241,7 +243,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>must be = CUDE</p>
@@ -346,7 +350,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -371,7 +376,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Transit has started in another country. Completion of the transit must be performed at unloading. At the border crossing, only the border crossing should be registered in NCTS.</p>
+                    <p>Transit has started in another country. Completion of the transit must be performed at unloading.
+                        At the border crossing, only the border crossing should be registered in NCTS.</p>
                 </td>
             </tr>
             <tr>
@@ -450,7 +456,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>must be = N820</p>
@@ -522,7 +530,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -544,7 +553,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                 </td>
                 <td>
                     <p>VOEC shipments.</p>
-                    <p>Another customs authority has cleared the previous procedure, or value below the threshold for export requirements.</p>
+                    <p>Another customs authority has cleared the previous procedure, or value below the threshold for
+                        export requirements.</p>
                 </td>
                 <td>
                     <p>VOEC shipment.</p>
@@ -647,7 +657,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>-</p>
@@ -852,7 +864,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than at the border crossing.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than at the border crossing.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -963,7 +976,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>must be = CUDE</p>
@@ -1047,7 +1062,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -1149,7 +1165,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>must be = N820</p>
@@ -1221,7 +1239,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -1242,7 +1261,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                 </td>
                 <td>
-                    <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic Regulations.</p>
+                    <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic
+                        Regulations.</p>
                     <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
                 </td>
             </tr>
@@ -1322,7 +1342,9 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     <p>typeOfReference</p>
                 </td>
                 <td style='background:var(--background-color-global-hover-4-danger);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
+                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                    </p>
                 </td>
                 <td>
                     <p>must be = N820</p>
@@ -1394,7 +1416,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             </tr>
             <tr>
                 <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
+                    <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        missing information is submitted no later than upon arrival at the border.</strong></p>
                 </td>
                 <td>
                     <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
@@ -1409,7 +1432,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact us</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Contact us</a>
 </footer>
 
 </body>

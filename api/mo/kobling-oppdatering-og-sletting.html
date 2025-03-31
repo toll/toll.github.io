@@ -23,7 +23,7 @@
     </a>
 
     <a href="kobling-oppdatering-og-sletting-EN.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
@@ -37,8 +37,10 @@
                 <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
                 <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
                 <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
-                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger.html">Hvordan sende inn ulike deklarsjonsmeldinger</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Kobling, oppdatering og sletting av meldinger</li>
+                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger.html">Hvordan sende inn ulike
+                    deklarsjonsmeldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Kobling, oppdatering og sletting av meldinger
+                </li>
             </ol>
         </nav>
 
@@ -50,7 +52,7 @@
                 <h4>Kobling mellom transport og hovedforsendelse (master consignment)</h4>
                 <p>
                     Melding om transport inneholder en liste av nøkler
-                    til melding om hovedforsendelser.  I den listen
+                    til melding om hovedforsendelser. I den listen
                     oppgis nøkkelen til en hovedforsendelse, som består
                     av hovedfraktbrevnummer
                     (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
@@ -62,20 +64,21 @@
                     (<code>carrier.IdentificationNumber</code>).
                 </p>
 
-                <h4>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h4>
+                <h4>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av
+                    hovedforsendelse</h4>
                 <p>
                     Melding om transport inneholder en liste av nøkler
-                    til melding om forsendelser.  I den listen oppgis
+                    til melding om forsendelser. I den listen oppgis
                     nøkkelen til en melding om forsendelse, som består
                     av fraktbrevnummer
                     (<code>transportDocumentHouseLevel.documentNumber +
-                    transportDocumentHouseLevel.type</code>).  For at
+                    transportDocumentHouseLevel.type</code>). For at
                     koblingen skal bli korrekt må transportørens
                     identifikator være den samme i melding om
                     forsendelse
                     (<code>tranportLevel.carrierIdentificationNumber</code>)
                     og melding om transport
-                    (<code>carrier.IdentificationNumber</code>).<br/>  I
+                    (<code>carrier.IdentificationNumber</code>).<br/> I
                     melding om forsendelse må et flagg settes for at
                     dette er en forsendelse som kobles direkte til en
                     transport: <code>"directConsignment": true</code>.
@@ -84,11 +87,11 @@
                 <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h4>
                 <p>
                     Melding om forsendelse inneholder en nøkkelreferanse
-                    til melding om hovedforsendelse.  I den referansen
+                    til melding om hovedforsendelse. I den referansen
                     oppgis nøkkelen til en melding om hovedforsendelse,
                     som består av hovedfraktbrevnummer
                     (<code>transportDocumentMasterLevel.documentNumber +
-                    transportDocumentMasterlevel.type</code>).  For at
+                    transportDocumentMasterlevel.type</code>). For at
                     koblingen skal bli korrekt må transportørens
                     identifikator være den samme i melding om
                     forsendelse
@@ -97,15 +100,16 @@
                     (<code>carrier.IdentificationNumber</code>).
                 </p>
 
-                <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h4>
+                <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for
+                    forsendelser som er post dekket av UPU-konvensjoner</h4>
                 <p>
                     Melding om forsendelse inneholder en nøkkelreferanse
-                    til en postbeholder (receptacle).  I den referansen
+                    til en postbeholder (receptacle). I den referansen
                     i melding om forsendelse oppgis nøkkelen til en
                     postbeholder
                     (<code>receptacleIdentificationNumber</code>).<br/>
                     Melding om hovedforsendelse inneholder en liste med
-                    nøkkelreferanser til postbeholdere.  I disse
+                    nøkkelreferanser til postbeholdere. I disse
                     referansene i melding om hovedforsendelse oppgis
                     nøkkelen til en postbeholder
                     (<code>receptacleIdentificationNumber</code>).
@@ -115,10 +119,10 @@
 
 
             <div style="width: 70%;">
-              <div class="image-size">
-                <img src="../media/MO-nokler.png" alt="Sammenheng mellom
+                <div class="image-size">
+                    <img src="../media/MO-nokler.png" alt="Sammenheng mellom
                     nøkler" style="max-width: 100%; margin-top: 1rem">
-              </div>
+                </div>
                 <p>For post-operatører gjelder egne koblinger via postbeholder:</p>
                 <ul class="about-section-text">
                     <li>
@@ -127,75 +131,77 @@
                         for post-operatører)
                     </li>
                 </ul>
-                <div class="image-size"><img src="../media/MO-nokler-postsekk.png" alt="Sammenheng mellom nøkler ved postsekk" style="max-width: 60%"></div>
+                <div class="image-size"><img src="../media/MO-nokler-postsekk.png"
+                                             alt="Sammenheng mellom nøkler ved postsekk" style="max-width: 60%">
+                </div>
             </div>
 
         </div>
 
-            <div class="about-section-text">
-                <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
+        <div class="about-section-text">
+            <h4 id="oppdaterMeldingPut">Oppdateringer av meldinger (PUT)</h4>
 
-                <p>
-                    På samme måte som for innsending (POST), skal man ved
-                    oppdatering (PUT) sende inn melding og motta en referanse
-                    (requestid), for så å spørre om validering. PUT er en
-                    fullstendig erstatning av tidligere innsending og må referere
-                    til mottatt MRN for meldingen som nøkkel. I tillegg til å
-                    måtte referere til MRN, må nøkkelinformasjon for meldingen
-                    være uendret ved oppdatering:
-                </p>
-                <ul class="spaced-list">
-                    <li>
-                        For <strong>transport</strong> kan <em>ikke</em>
-                        identifikatoren (kjennemerke og
-                        registreringsnummer: <code>identificationNumber
-                        + typeOfIdentification</code>), rutenummer
-                        (<code>conveyanceReferenceNumber</code>) (kun
-                        fly) og opprinnelig ankomsttid
-                        (<code>scheduledDateAndTimeOfArrival</code>)
-                        oppdateres.
-                    </li>
-                    <li>
-                        For <strong>hovedforsendelse</strong> (master consignment)
-                        kan <em>ikke</em> hovedfraktbrevnummer (<code>documentNumber
-                        + type</code>) og transportøridentifikator
-                        (<code>carrierId</code>) oppdateres.
-                    </li>
-                    <li>
-                        For <strong>forsendelse</strong> (house consignment)
-                        kan <em>ikke</em> fraktbrevnummer (<code>documentNumber +
-                        type</code>) oppdateres.
-                    </li>
-                </ul>
-                <p>
-                    Ellers følger oppdatering (PUT) samme mønster som innsending
-                    (POST). Se API-dokumentasjon lenket til under for detaljer om
-                    endepunktene.
-                </p>
-            </div>
+            <p>
+                På samme måte som for innsending (POST), skal man ved
+                oppdatering (PUT) sende inn melding og motta en referanse
+                (requestid), for så å spørre om validering. PUT er en
+                fullstendig erstatning av tidligere innsending og må referere
+                til mottatt MRN for meldingen som nøkkel. I tillegg til å
+                måtte referere til MRN, må nøkkelinformasjon for meldingen
+                være uendret ved oppdatering:
+            </p>
+            <ul class="spaced-list">
+                <li>
+                    For <strong>transport</strong> kan <em>ikke</em>
+                    identifikatoren (kjennemerke og
+                    registreringsnummer: <code>identificationNumber
+                    + typeOfIdentification</code>), rutenummer
+                    (<code>conveyanceReferenceNumber</code>) (kun
+                    fly) og opprinnelig ankomsttid
+                    (<code>scheduledDateAndTimeOfArrival</code>)
+                    oppdateres.
+                </li>
+                <li>
+                    For <strong>hovedforsendelse</strong> (master consignment)
+                    kan <em>ikke</em> hovedfraktbrevnummer (<code>documentNumber
+                    + type</code>) og transportøridentifikator
+                    (<code>carrierId</code>) oppdateres.
+                </li>
+                <li>
+                    For <strong>forsendelse</strong> (house consignment)
+                    kan <em>ikke</em> fraktbrevnummer (<code>documentNumber +
+                    type</code>) oppdateres.
+                </li>
+            </ul>
+            <p>
+                Ellers følger oppdatering (PUT) samme mønster som innsending
+                (POST). Se API-dokumentasjon lenket til under for detaljer om
+                endepunktene.
+            </p>
+        </div>
 
-            <div class="about-section-text">
-                <h4 id="sletteMeldingDelete">Sletting/kansellering av melding (DELETE)</h4>
-                <p>
-                    På samme måte som for innsending (POST) og oppdatering (PUT),
-                    skal man ved sletting (DELETE) sende inn melding og motta en
-                    referanse (requestid), for så å spørre om validering. DELETE
-                    kansellerer tidligere innsendt melding og må referere til
-                    mottatt MRN for meldingen som nøkkel. Ellers følger sletting
-                    (DELETE) samme mønster som innsending (POST) og oppdatering
-                    (PUT). Se API-dokumentasjon lenket til under for detaljer om
-                    endepunktene.
-                </p>
+        <div class="about-section-text">
+            <h4 id="sletteMeldingDelete">Sletting/kansellering av melding (DELETE)</h4>
+            <p>
+                På samme måte som for innsending (POST) og oppdatering (PUT),
+                skal man ved sletting (DELETE) sende inn melding og motta en
+                referanse (requestid), for så å spørre om validering. DELETE
+                kansellerer tidligere innsendt melding og må referere til
+                mottatt MRN for meldingen som nøkkel. Ellers følger sletting
+                (DELETE) samme mønster som innsending (POST) og oppdatering
+                (PUT). Se API-dokumentasjon lenket til under for detaljer om
+                endepunktene.
+            </p>
 
-                <h4 id="autoKansellering">Automatisk kansellering av meldinger</h4>
-                <p>
-                    Meldinger om transport blir automatisk kansellert 72 timer
-                    etter estimert ankomst dersom ankomst ikke er registrert.
-                    Meldinger om hovedforsendelse / forsendelse som ikke er koblet
-                    til en transport vil bli kansellert 30 dager etter siste
-                    oppdatering av meldingen.
-                </p>
-            </div>
+            <h4 id="autoKansellering">Automatisk kansellering av meldinger</h4>
+            <p>
+                Meldinger om transport blir automatisk kansellert 72 timer
+                etter estimert ankomst dersom ankomst ikke er registrert.
+                Meldinger om hovedforsendelse / forsendelse som ikke er koblet
+                til en transport vil bli kansellert 30 dager etter siste
+                oppdatering av meldingen.
+            </p>
+        </div>
     </div>
 
 </main>

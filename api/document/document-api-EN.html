@@ -23,7 +23,7 @@
     </a>
 
     <a href="../document/document-api.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>NO</span>
             <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flagg">
         </div>
@@ -40,99 +40,94 @@
         </nav>
 
         <div class="about-section">
-            <div class="about-section-text">
-                <h1 id="omtjenesten">About the service</h1>
-                <p>
-                  <img src="../media/file-upload-icon.svg"
-                       alt="fileUpload"
-                       style="max-width: 120px"
-                       class="img-right">
-                  The API supports the submission of documents.
-                </p>
+            <h1 id="omtjenesten">About the service</h1>
+            <p>
+                <img src="../media/file-upload-icon.svg"
+                     alt="fileUpload"
+                     style="max-width: 120px"
+                     class="img-right">
+                The API supports the submission of documents.
+            </p>
 
-                <p>
-                    Norwegian Customs now makes it possible to submit relevant
-                    supporting documentation for declarations in advance, making
-                    it available to customs before the goods arrive at the border.
-                    This is intended to reduce the number of times it will be
-                    necessary for Norwegian Customs to contact the submitter for
-                    document inspection, as the relevant documentation
-                    is already available.
-                </p>
+            <p>
+                Norwegian Customs now makes it possible to submit relevant
+                supporting documentation for declarations in advance, making
+                it available to customs before the goods arrive at the border.
+                This is intended to reduce the number of times it will be
+                necessary for Norwegian Customs to contact the submitter for
+                document inspection, as the relevant documentation
+                is already available.
+            </p>
 
+            <br/>
+
+            <p>
+                We urge as many Digitoll and direct customs clearance users
+                (those who declare against units <strong>441002 and
+                441003</strong>) as possible to use this API to submit
+                supporting documentation related to the customs declaration.
+                Documents such as invoices, permits, freight invoices,
+                proof of origin documentation, or waybills can be submitted
+                unsolicited and in advance.
+            </p>
+
+            <br/>
+
+            <p>
+                The documents may also be submitted via the API when Norwegian
+                Customs requires a document inspection, if they are not
+                submitted in advance.
+            </p>
+
+            <br/>
+
+            <p>
+                The documents must be linked to the customs declaration in TVINN.
                 <br/>
-
-                <p>
-                    We urge as many Digitoll and direct customs clearance users
-                    (those who declare against units <strong>441002 and
-                    441003</strong>) as possible to use this API to submit
-                    supporting documentation related to the customs declaration.
-                    Documents such as invoices, permits, freight invoices,
-                    proof of origin documentation, or waybills can be submitted
-                    unsolicited and in advance.
-                </p>
-
-                <br/>
-
-                <p>
-                    The documents may also be submitted via the API when Norwegian
-                    Customs requires a document inspection, if they are not
-                    submitted in advance.
-                </p>
-
-                <br/>
-
-                <p>
-                    The documents must be linked to the customs declaration in TVINN.
-                    <br/>
-                    To use the service, the scope for authentication in
-                    Maskinporten must be set
-                    to <strong>toll:goodsdeclaration/document.write</strong>
-                </p>
-            </div>
-
-            <div>
-            </div>
+                To use the service, the scope for authentication in
+                Maskinporten must be set
+                to <strong>toll:goodsdeclaration/document.write</strong>
+            </p>
         </div>
 
         <h1 id="grensesnitt">Interface description</h1>
 
         <p>
-          The services are made available as REST services over HTTPS,
-          with data in JSON format.
+            The services are made available as REST services over HTTPS,
+            with data in JSON format.
         </p>
 
 
         <pre class="boxed-display">
 POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
         </pre>
-         <p>
-           where
-         </p>
-          <ul>
+        <p>
+            where
+        </p>
+        <ul>
             <li>
-              <b>&lt;env&gt;</b> is replaced with
-              <ul>
-                <li><i>api.toll.no</i> for production</li>
-                <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-              </ul>
+                <b>&lt;env&gt;</b> is replaced with
+                <ul>
+                    <li><i>api.toll.no</i> for production</li>
+                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                </ul>
             </li>
             <li>
-              <strong>{DeclarationID}</strong> is TVINN declaration
-              ID, divided into three parts in the following format:
-              "123456789-01092023-1":
-              <ol>
-                <li>The first part is the declarant number</li>
-                <li>The second part is the declaration date in the format "ddmmyyyy"</li>
-                <li>The third part is the sequence number.</li>
-              </ol>
+                <strong>{DeclarationID}</strong> is TVINN declaration
+                ID, divided into three parts in the following format:
+                "123456789-01092023-1":
+                <ol>
+                    <li>The first part is the declarant number</li>
+                    <li>The second part is the declaration date in the format "ddmmyyyy"</li>
+                    <li>The third part is the sequence number.</li>
+                </ol>
             </li>
-          </ul>
+        </ul>
 
         <p>
             See detailed
             <strong><a href="document-api-link.html">API
-            documentation here</a></strong>.
+                documentation here</a></strong>.
         </p>
 
         <p class="tips_box">
@@ -249,7 +244,8 @@ POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong
         <h2 id="aut">Authentication – Data exchange between the business sector and Norwegian Customs</h2>
         <p>
             Our APIs use Maskinporten for identity and access management.
-            On the page <b><a href="../maskinporten/maskinporten.html">Maskinporten - Norwegian Customs</a></b> you will find information on
+            On the page <b><a href="../maskinporten/maskinporten.html">Maskinporten - Norwegian Customs</a></b> you will
+            find information on
         </p>
         <ul>
             <li>
@@ -268,8 +264,9 @@ POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2024 | <a href="https://www.toll.no/en/about-norwegian-customs/contact-us/"
-                                                                      class="footerLink">Contact us</a>
+    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2024 | <a
+        href="https://www.toll.no/en/about-norwegian-customs/contact-us/"
+        class="footerLink">Contact us</a>
 </footer>
 
 </body>
