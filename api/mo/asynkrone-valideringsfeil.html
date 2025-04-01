@@ -899,32 +899,64 @@
         </div>
 
         <div class="content-box">
-            <div class="center">
-                <h2>Innhold</h2>
-            </div>
+            <h2>Innhold</h2>
             <nav>
                 <ul class="spaced-list">
                     <li><a href="#Asynkronevalideringsfeil">Asynkrone valideringsfeil</a></li>
-                    <li><a href="#Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone valideringsfeil</a></li>
-                    <li><a href="#Feltetskalhaenverdiangittavkodeverk">Feltet skal ha en verdi angitt av kodeverk</a></li>
+                    <li><a href="#Innholdsformatpaasynkronevalideringsfeil">Innholdsformat på asynkrone
+                        valideringsfeil</a></li>
+                    <li><a href="#Feltetskalhaenverdiangittavkodeverk">Feltet skal ha en verdi angitt av kodeverk</a>
+                    </li>
                     <li><a href="#Landkodeikkegyldig">Landkode ikke gyldig</a></li>
-                    <li><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Format på oppgitt MRN er ugyldig for eksport av angitt eksporttype</a></li>
-                    <li><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i AES</a></li>
-                    <li><a href="#Dersomverdisomangirprosedyren">Dersom verdi som angir prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må verdien være en av kodene tillatt i kodeverket</a></li>
-                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA1">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></li>
-                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA">Kan ikke sende inn exportFromEU liste dersom prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;) er Transittering (TRA)</a></li>
-                    <li><a href="#Dersomverkenadresseellerlokasjonerspesifisert">Dersom verken adresse eller lokasjon er spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></li>
-                    <li><a href="#ReferansetiltransitteringtypeOfReference">Referanse til transittering (&quot;typeOfReference&quot; lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></li>
-                    <li><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC varelinje (&quot;goodsItem&quot;) har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a></li>
-                    <li><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">Ingen tillatelser funnet for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></li>
-                    <li><a href="#KanikkesendelistemedVOECvarelinjer">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;) dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
-                    <li><a href="#KodeforTollkontordetrefererestilerugyldig">Kode for Tollkontor det refereres til er ugyldig</a></li>
-                    <li><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</a></li>
-                    <li><a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</a></li>
-                    <li><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</a></li>
-                    <li><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</a></li>
-                    <li><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
-                    <li><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet</a></li>
+                    <li><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Format på oppgitt MRN er
+                        ugyldig for eksport av angitt eksporttype</a></li>
+                    <li><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Kun
+                        veitransport (road-API): Eksport av type AES_EXPORT ble ikke funnet eller har feil status i
+                        AES</a></li>
+                    <li><a href="#Dersomverdisomangirprosedyren">Dersom verdi som angir prosedyren som forsendelsen var
+                        underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), er angitt, må
+                        verdien være en av kodene tillatt i kodeverket</a></li>
+                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA1">Kan ikke sende inn exportFromEU liste dersom
+                        prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing
+                        procedure&quot;) er Transittering (TRA)</a></li>
+                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA">Kan ikke sende inn exportFromEU liste dersom
+                        prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing
+                        procedure&quot;) er Transittering (TRA)</a></li>
+                    <li><a href="#Dersomverkenadresseellerlokasjonerspesifisert">Dersom verken adresse eller lokasjon er
+                        spesifisert, er FN stedskode (&quot;UNLOCODE&quot;) påkrevd</a></li>
+                    <li><a href="#ReferansetiltransitteringtypeOfReference">Referanse til transittering (&quot;typeOfReference&quot;
+                        lik &quot;N820&quot;) refererer til transittering som ikke har gyldig status</a></li>
+                    <li><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC varelinje (&quot;goodsItem&quot;)
+                        har angitt en verdi som er over NOK 3.000, derfor må importdeklarasjon benyttes i stedet</a>
+                    </li>
+                    <li><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">Ingen tillatelser funnet
+                        for VOEC-nummeret angitt på VOEC varelinjen (&quot;goodsItem&quot;)</a></li>
+                    <li><a href="#KanikkesendelistemedVOECvarelinjer">Kan ikke sende liste med VOEC varelinjer (&quot;goodsItem&quot;)
+                        dersom valgt tollprosedyre (&quot;importProcedure&quot;) for forsendelsen ikke er VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a>
+                    </li>
+                    <li><a href="#KodeforTollkontordetrefererestilerugyldig">Kode for Tollkontor det refereres til er
+                        ugyldig</a></li>
+                    <li><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert
+                        felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot;
+                        er X)</a></li>
+                    <li>
+                        <a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt
+                            kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren
+                            som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing
+                            procedure&quot;), som eksport (&quot;EXP&quot;)</a></li>
+                    <li><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når
+                        referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det
+                        spesifiserte feltet obligatorisk</a></li>
+                    <li><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man
+                        angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet
+                        &quot;importProcedure&quot;) være oppgitt</a></li>
+                    <li><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man
+                        kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot;
+                        listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
+                    <li><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom
+                        dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt;
+                        &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot;
+                        objektet</a></li>
                     <li><a href="#Formatpadokumentstatus">Format på dokumentstatus</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</a></li>
                 </ul>

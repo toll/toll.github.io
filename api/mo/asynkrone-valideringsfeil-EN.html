@@ -42,7 +42,7 @@
         </nav>
     </div>
     <div class="two-column-section">
-        <div class="align-self-start" role="main">
+        <div style="width: 70%" role="main">
             <div>
                 <h2 id="Asynkronevalideringsfeil">Asynchronous validation errors</h2>
 
@@ -251,9 +251,11 @@
 
                 <ul>
                     <li>The export declaration exists but has not been
-                        released from the departure customs office</li>
+                        released from the departure customs office
+                    </li>
                     <li>The export declaration exists but has already
-                        been registered for export</li>
+                        been registered for export
+                    </li>
                 </ul>
 
                 <h4 id="Rettelse.10">Correction</h4>
@@ -269,7 +271,9 @@
             </div>
 
             <div>
-                <h3 id="Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it must be one of the codes allowed in the code list</h3>
+                <h3 id="Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment was under
+                    until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it must be one
+                    of the codes allowed in the code list</h3>
 
                 <h4 id="Svar.11">Response</h4>
 
@@ -298,7 +302,7 @@
                 <h4 id="Rettelse.11">Correction</h4>
 
                 <p>Change the value to one of the values in the
-                    OutgoingProcedure code list.  Resubmit. Use the new
+                    OutgoingProcedure code list. Resubmit. Use the new
                     &quot;requestId&quot; returned for the new
                     submission and verify that asynchronous validation
                     for this returns the field &quot;status&quot; with
@@ -307,7 +311,9 @@
             </div>
 
             <div>
-                <h3 id="KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</h3>
+                <h3 id="KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure the
+                    consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is
+                    Transit (TRA)</h3>
 
                 <h4 id="Svar.12">Response</h4>
 
@@ -337,7 +343,7 @@
                 <h4 id="Rettelse.12">Correction</h4>
 
                 <p>Change the value to one of the values in the CL144
-                    UNLOCODE code list.  Resubmit. Use the new
+                    UNLOCODE code list. Resubmit. Use the new
                     &quot;requestId&quot; returned for the new
                     submission and verify that asynchronous validation
                     for this returns the field &quot;status&quot; with
@@ -346,7 +352,9 @@
             </div>
 
             <div>
-                <h3 id="KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</h3>
+                <h3 id="KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure the
+                    consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is
+                    Transit (TRA)</h3>
 
                 <h4 id="Svar.13">Response</h4>
 
@@ -376,7 +384,7 @@
                 <h4 id="Rettelse.13">Correction</h4>
 
                 <p>Remove exportFromEU from the import procedure or
-                    change outgoingProcedure. Resubmit.<br>  Use the new
+                    change outgoingProcedure. Resubmit.<br> Use the new
                     &quot;requestId&quot; returned for the new
                     submission and verify that asynchronous validation
                     for this returns the field &quot;status&quot; with
@@ -385,7 +393,8 @@
             </div>
 
             <div>
-                <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, the UN location code (&quot;UNLOCODE&quot;) is required</h3>
+                <h3 id="Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, the
+                    UN location code (&quot;UNLOCODE&quot;) is required</h3>
 
                 <h4 id="Svar.14">Response</h4>
 
@@ -410,7 +419,7 @@
                     (&quot;address&quot;) nor location
                     (&quot;location&quot;) provided. Therefore, the
                     field &quot;unloCode&quot; must be provided and have
-                    a value for this object.<br>  This applies to the
+                    a value for this object.<br> This applies to the
                     place of loading (&quot;placeOfLoading&quot;), place
                     of unloading (&quot;placeOfUnloading&quot;), place
                     of acceptance (&quot;placeOfAcceptance&quot;) and
@@ -429,7 +438,8 @@
             </div>
 
             <div>
-                <h3 id="ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot; equal to &quot;N820&quot;) refers to transit that does not have valid status</h3>
+                <h3 id="ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot;
+                    equal to &quot;N820&quot;) refers to transit that does not have valid status</h3>
 
                 <h4 id="Svar.15">Response</h4>
 
@@ -479,7 +489,8 @@
             </div>
 
             <div>
-                <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a value that exceeds NOK 3,000, therefore an import declaration must be used instead</h3>
+                <h3 id="VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a
+                    value that exceeds NOK 3,000, therefore an import declaration must be used instead</h3>
 
                 <h4 id="Svar.16">Response</h4>
 
@@ -514,7 +525,8 @@
                     the recipient has purchased has a value exceeding
                     3,000 NOK, all items must be cleared through customs
                     in the usual
-                    way. See <a href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
+                    way. See <a
+                            href="https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/">https://www.skatteetaten.no/bedrift-og-organisasjon/avgifter/mva/utland/e-handel-voec/sending-av-pakker-i-voec-ordningen/</a>.<br>
                     Resubmit. Use the new &quot;requestId&quot; returned
                     for the new submission and verify that asynchronous
                     validation for this returns the field
@@ -524,7 +536,8 @@
             </div>
 
             <div>
-                <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for the VOEC number specified on the VOEC goods item (&quot;goodsItem&quot;)</h3>
+                <h3 id="IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for the VOEC
+                    number specified on the VOEC goods item (&quot;goodsItem&quot;)</h3>
 
                 <h4 id="Svar.17">Response</h4>
 
@@ -566,7 +579,8 @@
             </div>
 
             <div>
-                <h3 id="KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;) if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
+                <h3 id="KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;)
+                    if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</h3>
 
                 <h4 id="Svar.18">Response</h4>
 
@@ -608,7 +622,7 @@
 
                 <p>Remove the &quot;goodsItem&quot; list, or set
                     &quot;importProcedure&quot; to
-                    &quot;IMMEDIATE_RELEASE_VOEC&quot;.  Resubmit. Use
+                    &quot;IMMEDIATE_RELEASE_VOEC&quot;. Resubmit. Use
                     the new &quot;requestId&quot; returned for the new
                     submission and verify that asynchronous validation
                     for this returns the field &quot;status&quot; with
@@ -658,7 +672,8 @@
             </div>
 
             <div>
-                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot have a value when a specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
+                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot
+                    have a value when a specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
 
                 <h4 id="Svar.30">Response</h4>
 
@@ -755,7 +770,9 @@
             </div>
 
             <div>
-                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</h3>
+                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced
+                    document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified
+                    field is mandatory</h3>
 
                 <h4 id="Svar.32">Response</h4>
 
@@ -794,7 +811,9 @@
             </div>
 
             <div>
-                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) are provided, the customs procedure (field &quot;importProcedure&quot;) must be specified</h3>
+                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document
+                    references (&quot;previousDocument&quot;) are provided, the customs procedure (field &quot;importProcedure&quot;)
+                    must be specified</h3>
 
                 <h4 id="Svar.33">Response</h4>
 
@@ -833,7 +852,9 @@
             </div>
 
             <div>
-                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only
+                    provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot;
+                    list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
                 <h4 id="Svar.34">Response</h4>
 
@@ -990,32 +1011,64 @@
         </div>
 
         <div class="content-box">
-            <div class="center">
-                <h2>Content</h2>
-            </div>
+            <h2>Content</h2>
             <nav>
                 <ul class="spaced-list">
                     <li><a href="#Asynkronevalideringsfeil">Asynchronous validation errors</a></li>
-                    <li><a href="#Innholdsformatpaasynkronevalideringsfeil">Content format for asynchronous validation errors</a></li>
-                    <li><a href="#Feltetskalhaenverdiangittavkodeverk">The field must have a value specified by the code list</a></li>
+                    <li><a href="#Innholdsformatpaasynkronevalideringsfeil">Content format for asynchronous validation
+                        errors</a></li>
+                    <li><a href="#Feltetskalhaenverdiangittavkodeverk">The field must have a value specified by the code
+                        list</a></li>
                     <li><a href="#Landkodeikkegyldig">Country code not valid</a></li>
-                    <li><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Invalid MRN format for the specified export type</a></li>
-                    <li><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Road transport only (road-API): Export of type AES_EXPORT not found or has wrong status in AES</a></li>
-                    <li><a href="#Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it must be one of the codes allowed in the code list</a></li>
-                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</a></li>
-                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is Transit (TRA)</a></li>
-                    <li><a href="#Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is specified, the UN location code (&quot;UNLOCODE&quot;) is required</a></li>
-                    <li><a href="#ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot; equal to &quot;N820&quot;) refers to transit that does not have valid status</a></li>
-                    <li><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;) has a value that exceeds NOK 3,000, therefore an import declaration must be used instead</a></li>
-                    <li><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for the VOEC number specified on the VOEC goods item (&quot;goodsItem&quot;)</a></li>
-                    <li><a href="#KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;) if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
-                    <li><a href="#KodeforTollkontordetrefererestilerugyldig">Code for the referenced customs office is invalid</a></li>
-                    <li><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot have a value when a specified customs procedure (&quot;importProcedure&quot; is X) is provided</a></li>
-                    <li><a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Field cannot have a value for transit (&quot;N820&quot;) if the procedure the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is export (&quot;EXP&quot;)</a></li>
-                    <li><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</a></li>
-                    <li><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) are provided, the customs procedure (field &quot;importProcedure&quot;) must be specified</a></li>
-                    <li><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
-                    <li><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the document reference is something other than a customs declaration (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the &quot;previousDocuments&quot; object</a></li>
+                    <li><a href="#FormatpaoppgittMRNerugyldigforeksportavangitteksporttype">Invalid MRN format for the
+                        specified export type</a></li>
+                    <li><a href="#Kunveitransportroad-APIEksportavtypeAES_EXPORTbleikkefunnetellerharfeilstatusiAES">Road
+                        transport only (road-API): Export of type AES_EXPORT not found or has wrong status in AES</a>
+                    </li>
+                    <li><a href="#Dersomverdisomangirprosedyren">If the value indicating the procedure the consignment
+                        was under until crossing the border into Norway (&quot;outgoing procedure&quot;) is provided, it
+                        must be one of the codes allowed in the code list</a></li>
+                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA1">Cannot submit exportFromEU list if the procedure
+                        the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;)
+                        is Transit (TRA)</a></li>
+                    <li><a href="#KanikkesendeinnexportFromEUlisteTRA">Cannot submit exportFromEU list if the procedure
+                        the consignment was under until crossing the border into Norway (&quot;outgoing procedure&quot;)
+                        is Transit (TRA)</a></li>
+                    <li><a href="#Dersomverkenadresseellerlokasjonerspesifisert">If neither address nor location is
+                        specified, the UN location code (&quot;UNLOCODE&quot;) is required</a></li>
+                    <li><a href="#ReferansetiltransitteringtypeOfReference">Reference to transit (&quot;typeOfReference&quot;
+                        equal to &quot;N820&quot;) refers to transit that does not have valid status</a></li>
+                    <li><a href="#VOECvarelinjeharangittenverdisomeroverNOK3000">VOEC goods item (&quot;goodsItem&quot;)
+                        has a value that exceeds NOK 3,000, therefore an import declaration must be used instead</a>
+                    </li>
+                    <li><a href="#IngentillatelserfunnetforVOEC-nummeretangittpåVOECvarelinjen">No permissions found for
+                        the VOEC number specified on the VOEC goods item (&quot;goodsItem&quot;)</a></li>
+                    <li><a href="#KanikkesendelistemedVOECvarelinjer">Cannot submit a list of VOEC goods items (&quot;goodsItem&quot;)
+                        if the selected customs procedure (&quot;importProcedure&quot;) for the consignment is not VOEC
+                        (&quot;IMMEDIATE_RELEASE_VOEC&quot;)</a></li>
+                    <li><a href="#KodeforTollkontordetrefererestilerugyldig">Code for the referenced customs office is
+                        invalid</a></li>
+                    <li><a href="#Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified
+                        field cannot have a value when a specified customs procedure (&quot;importProcedure&quot; is X)
+                        is provided</a></li>
+                    <li>
+                        <a href="#FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Field
+                            cannot have a value for transit (&quot;N820&quot;) if the procedure the consignment was
+                            under until crossing the border into Norway (&quot;outgoing procedure&quot;) is export (&quot;EXP&quot;)</a>
+                    </li>
+                    <li><a href="#Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the
+                        referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the
+                        specified field is mandatory</a></li>
+                    <li><a href="#Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or
+                        more document references (&quot;previousDocument&quot;) are provided, the customs procedure
+                        (field &quot;importProcedure&quot;) must be specified</a></li>
+                    <li><a href="#Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">You
+                        can only provide one document reference to a customs declaration (an object in the &quot;previousDocuments&quot;
+                        list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;)</a></li>
+                    <li><a href="#Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If
+                        the document reference is something other than a customs declaration (&quot;typeOfReference&quot;
+                        &lt;&gt; &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot;
+                        field in the &quot;previousDocuments&quot; object</a></li>
                     <li><a href="#Formatpadokumentstatus">Format of document status</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Document status INCOMPLETE</a></li>
                 </ul>
@@ -1026,7 +1079,8 @@
 <button id="scrollToTopBtn" title="Go to top">Til toppen</button>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="white">Kontakt oss</a>
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="white">Kontakt oss</a>
 </footer>
 
 </body>

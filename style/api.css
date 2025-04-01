@@ -6,6 +6,8 @@
     --content-text-color-dark-green: #003237;
     --api-template-box-background-color: #333333;
     --slightly-darker-white-border-color: #EFEFEF;
+    --button-color-dark-green: #004C54;
+    --box-border-radius: 18px;
 }
 
 html,
@@ -249,7 +251,7 @@ blockquote {
 
 .nav-language-button {
     background-color: #B6D8DB;
-    color: #004C54;
+    color: var(--button-color-dark-green);
     text-align: center;
     text-decoration: none;
     font-size: 1rem;
@@ -271,7 +273,7 @@ blockquote {
 
 .nav-language-button:hover {
     background-color: #D1E6E8;
-    border: 2px solid #004C54;
+    border: 2px solid var(--button-color-dark-green);
 }
 
 pre,
@@ -294,7 +296,7 @@ code {
     align-items: center;
     padding: 30px;
     background-color: #B6D8DB;
-    color: #004C54;
+    color: var(--button-color-dark-green);
     border: none;
     text-align: center;
     text-decoration: none;
@@ -508,16 +510,6 @@ dialog img {
     display: none;
 }
 
-.mo-vei .flex-column {
-    width: auto;
-    font-size: 12px;
-}
-
-.ics2-forsendelser .flex-column {
-    width: auto;
-    font-size: 12px;
-}
-
 .content-box {
     border-radius: 18px;
     background: var(--background-color-light-dark-green);
@@ -530,6 +522,7 @@ dialog img {
 }
 
 .content-box h2 {
+    text-align: center;
     color: var(--content-text-color-white);
 }
 
