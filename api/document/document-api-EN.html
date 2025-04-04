@@ -31,7 +31,7 @@
 </header>
 
 <main class="document-api">
-    <div role="main">
+    <div class="about-section align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
@@ -39,56 +39,53 @@
             </ol>
         </nav>
 
-        <div class="about-section">
-            <h1 id="omtjenesten">About the service</h1>
-            <p>
-                <img src="../media/file-upload-icon.svg"
-                     alt="fileUpload"
-                     style="max-width: 120px"
-                     class="img-right">
-                The API supports the submission of documents.
-            </p>
+        <h1 id="omtjenesten">About the service</h1>
+        <p>
+            <img src="../media/file-upload-icon.svg"
+                 alt="fileUpload"
+                 class="img-right">
+            The API supports the submission of documents.
+        </p>
 
-            <p>
-                Norwegian Customs now makes it possible to submit relevant
-                supporting documentation for declarations in advance, making
-                it available to customs before the goods arrive at the border.
-                This is intended to reduce the number of times it will be
-                necessary for Norwegian Customs to contact the submitter for
-                document inspection, as the relevant documentation
-                is already available.
-            </p>
+        <p>
+            Norwegian Customs now makes it possible to submit relevant
+            supporting documentation for declarations in advance, making
+            it available to customs before the goods arrive at the border.
+            This is intended to reduce the number of times it will be
+            necessary for Norwegian Customs to contact the submitter for
+            document inspection, as the relevant documentation
+            is already available.
+        </p>
 
+        <br/>
+
+        <p>
+            We urge as many Digitoll and direct customs clearance users
+            (those who declare against units <strong>441002 and
+            441003</strong>) as possible to use this API to submit
+            supporting documentation related to the customs declaration.
+            Documents such as invoices, permits, freight invoices,
+            proof of origin documentation, or waybills can be submitted
+            unsolicited and in advance.
+        </p>
+
+        <br/>
+
+        <p>
+            The documents may also be submitted via the API when Norwegian
+            Customs requires a document inspection, if they are not
+            submitted in advance.
+        </p>
+
+        <br/>
+
+        <p>
+            The documents must be linked to the customs declaration in TVINN.
             <br/>
-
-            <p>
-                We urge as many Digitoll and direct customs clearance users
-                (those who declare against units <strong>441002 and
-                441003</strong>) as possible to use this API to submit
-                supporting documentation related to the customs declaration.
-                Documents such as invoices, permits, freight invoices,
-                proof of origin documentation, or waybills can be submitted
-                unsolicited and in advance.
-            </p>
-
-            <br/>
-
-            <p>
-                The documents may also be submitted via the API when Norwegian
-                Customs requires a document inspection, if they are not
-                submitted in advance.
-            </p>
-
-            <br/>
-
-            <p>
-                The documents must be linked to the customs declaration in TVINN.
-                <br/>
-                To use the service, the scope for authentication in
-                Maskinporten must be set
-                to <strong>toll:goodsdeclaration/document.write</strong>
-            </p>
-        </div>
+            To use the service, the scope for authentication in
+            Maskinporten must be set
+            to <strong>toll:goodsdeclaration/document.write</strong>
+        </p>
 
         <h1 id="grensesnitt">Interface description</h1>
 

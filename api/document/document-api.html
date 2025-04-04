@@ -32,7 +32,7 @@
 
 
 <main class="document-api">
-    <div role="main">
+    <div class="align-self-start about-section" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
@@ -40,55 +40,53 @@
             </ol>
         </nav>
 
-        <div class="about-section">
-            <h1 id="omtjenesten">Om tjenesten</h1>
-            <p>
-                <img src="../media/file-upload-icon.svg"
-                     alt="opplasting"
-                     class="img-right"/>
-                API-et støtter maskinell innsending av
-                underlagsdokumenter.
-            </p>
+        <h1 id="omtjenesten">Om tjenesten</h1>
+        <p>
+            <img src="../media/file-upload-icon.svg"
+                 alt="opplasting"
+                 class="img-right"/>
+            API-et støtter maskinell innsending av
+            underlagsdokumenter.
+        </p>
 
-            <p>
-                Tolletaten gjør det nå mulig å sende inn all nødvendig
-                underlagsdokumentasjon til deklarasjoner på forhånd, slik at
-                den er tilgjengelig for Tolletaten før varene ankommer
-                grensen. Dette kan bidra til redusert behov for å bli
-                kontaktet i forbindelse med for eksempel dokumentkontroll,
-                siden Tolletaten allerede har den nødvendige dokumentasjonen.
-            </p>
+        <p>
+            Tolletaten gjør det nå mulig å sende inn all nødvendig
+            underlagsdokumentasjon til deklarasjoner på forhånd, slik at
+            den er tilgjengelig for Tolletaten før varene ankommer
+            grensen. Dette kan bidra til redusert behov for å bli
+            kontaktet i forbindelse med for eksempel dokumentkontroll,
+            siden Tolletaten allerede har den nødvendige dokumentasjonen.
+        </p>
 
+        <br/>
+
+        <p>
+            Vi ønsker at så mange som mulig av virksomhetene som
+            deklarerer i Digitoll (mot ekspedisjonsenhetene <strong>441002 og
+            441003</strong>), tar i bruk API-et for innsending av
+            underlagsdokumentasjon knyttet til tolldeklarasjonen.
+            Dokumenter som faktura, tillatelser, fraktregning,
+            opprinnelsesdokumentasjon eller fraktbrev, kan sendes
+            uoppfordret og på forhånd.
+        </p>
+
+        <br/>
+
+        <p>
+            Dokumentene kan også sendes inn via API-et i de tilfellene
+            hvor Tolletaten krever dokumentkontroll, om man ikke har sendt
+            de på forhånd.
+        </p>
+
+        <br/>
+
+        <p>
+            Dokumentene knyttes til tolldeklarasjonen i TVINN.
             <br/>
-
-            <p>
-                Vi ønsker at så mange som mulig av virksomhetene som
-                deklarerer i Digitoll (mot ekspedisjonsenhetene <strong>441002 og
-                441003</strong>), tar i bruk API-et for innsending av
-                underlagsdokumentasjon knyttet til tolldeklarasjonen.
-                Dokumenter som faktura, tillatelser, fraktregning,
-                opprinnelsesdokumentasjon eller fraktbrev, kan sendes
-                uoppfordret og på forhånd.
-            </p>
-
-            <br/>
-
-            <p>
-                Dokumentene kan også sendes inn via API-et i de tilfellene
-                hvor Tolletaten krever dokumentkontroll, om man ikke har sendt
-                de på forhånd.
-            </p>
-
-            <br/>
-
-            <p>
-                Dokumentene knyttes til tolldeklarasjonen i TVINN.
-                <br/>
-                For å kunne bruke tjenesten må scope for autentisering mot
-                Maskinporten settes
-                til <strong>toll:goodsdeclaration/document.write</strong>
-            </p>
-        </div>
+            For å kunne bruke tjenesten må scope for autentisering mot
+            Maskinporten settes
+            til <strong>toll:goodsdeclaration/document.write</strong>
+        </p>
 
 
         <h1 id="grensesnitt">Grensesnittbeskrivelse</h1>
@@ -258,8 +256,6 @@ POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong
         <p>
             Scopet som benyttes for dette API-et er <b>toll:goodsdeclaration/document.write</b>.
         </p>
-    </div>
-
 
 </main>
 
