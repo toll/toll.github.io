@@ -23,7 +23,7 @@
     </a>
 
     <a href="mo-eksempler-EN.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
@@ -31,32 +31,37 @@
 </header>
 
 <main class="mo-eksempler">
-    <div class="about-section" role="main">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger.html">Hvordan sende inn meldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Forsendelse - eksempler</li>
+            </ol>
+        </nav>
 
-        <div class="about-section-text">
-            <h2 id="eksempler">Eksempler</h2>
+        <h2 id="eksempler">Eksempler</h2>
 
-            <p>
-                Vi har laget noen eksempler på hvordan meldingsinnholdet
-                for en House Consignment kan se ut basert på hvilken
-                tollprosedyre som benyttes.  Eksemplene er også
-                illustrert med referanse til Master Consignment for å
-                vise hvordan Post-forsendelser meldes litt annerledes.
-                For å holde det så kort som mulig er kun innholdet som
-                er forskjellig for de ulike prosedyrene vist, det vil si
-                følgende objekter:
-            </p>
-            <ul>
-                <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
-                <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
-                <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
-                <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
-                <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
-            </ul>
+        <p>
+            Vi har laget noen eksempler på hvordan meldingsinnholdet
+            for en House Consignment kan se ut basert på hvilken
+            tollprosedyre som benyttes. Eksemplene er også
+            illustrert med referanse til Master Consignment for å
+            vise hvordan Post-forsendelser meldes litt annerledes.
+            For å holde det så kort som mulig er kun innholdet som
+            er forskjellig for de ulike prosedyrene vist, det vil si
+            følgende objekter:
+        </p>
+        <ul>
+            <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
+            <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
+            <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
+            <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
+            <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
+        </ul>
 
-            <h3 id="eks1">Eksempel 1 &ndash; Tolldeklarasjon for overgang til fri disponering og svensk/EU eksport (kun
-                relevant på vei)</h3>
-            <pre class="boxed-display">
+        <h3 id="eks1">Eksempel 1 &ndash; Tolldeklarasjon for overgang til fri disponering og svensk/EU eksport (kun
+            relevant på vei)</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -92,9 +97,9 @@
 }
        </pre>
 
-            <h3 id="eks2">Eksempel 2 &ndash; Tolldeklarasjon for overgang til fri disponering og transittering som skal
-                fullføres ved grensepassering</h3>
-            <pre class="boxed-display">
+        <h3 id="eks2">Eksempel 2 &ndash; Tolldeklarasjon for overgang til fri disponering og transittering som skal
+            fullføres ved grensepassering</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -128,9 +133,9 @@
 }
         </pre>
 
-            <h3 id="eks3">Eksempel 3 &ndash; Transittering som er startet opp utenfor Norge
-                og som bare skal grensepasseres ved ankomst til grensen</h3>
-            <pre class="boxed-display">
+        <h3 id="eks3">Eksempel 3 &ndash; Transittering som er startet opp utenfor Norge
+            og som bare skal grensepasseres ved ankomst til grensen</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -158,9 +163,9 @@
 }
         </pre>
 
-            <h3 id="eks4">Eksempel 4 &ndash; Transittering som skal startes på grensen,
-                prosedyre frem til grensen er svensk eksport</h3>
-            <pre class="boxed-display">
+        <h3 id="eks4">Eksempel 4 &ndash; Transittering som skal startes på grensen,
+            prosedyre frem til grensen er svensk eksport</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -193,13 +198,11 @@
     }
 }
         </pre>
-        </div>
 
-        <div class="about-section-text">
-            <h3 id="eks5">Eksempel 5 &ndash; Tolldeklarasjon for overgang til fri disponering der eksportene er
-                avsluttet i
-                avgangslandet</h3>
-            <pre class="boxed-display">
+        <h3 id="eks5">Eksempel 5 &ndash; Tolldeklarasjon for overgang til fri disponering der eksportene er
+            avsluttet i
+            avgangslandet</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -229,8 +232,8 @@
 }
         </pre>
 
-            <h3 id="eks6">Eksempel 6 &ndash; VOEC-forsendelse</h3>
-            <pre class="boxed-display">
+        <h3 id="eks6">Eksempel 6 &ndash; VOEC-forsendelse</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -267,8 +270,8 @@
 }
         </pre>
 
-            <h3 id="eks7">Eksempel 7 &ndash; Postforsendelse som blir samlefortollet</h3>
-            <pre class="boxed-display">
+        <h3 id="eks7">Eksempel 7 &ndash; Postforsendelse som blir samlefortollet</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "receptacleIdentificationNumber": "4j3i24ji3o24ji23",
@@ -284,10 +287,10 @@
 }
         </pre>
 
-            <h3 id="eks8">Eksempel 8 &ndash; Tolldeklarasjon for innlegg på tollager uten informasjon om prosedyre fram
-                til
-                grensen</h3>
-            <pre class="boxed-display">
+        <h3 id="eks8">Eksempel 8 &ndash; Tolldeklarasjon for innlegg på tollager uten informasjon om prosedyre fram
+            til
+            grensen</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -317,8 +320,8 @@
 }
         </pre>
 
-            <h3 id="eks9">Eksempel 9 &ndash; Godsregistrering på grensen og eksport fram til grensen</h3>
-<pre class="boxed-display">
+        <h3 id="eks9">Eksempel 9 &ndash; Godsregistrering på grensen og eksport fram til grensen</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -351,10 +354,7 @@
     }
 }
 </pre>
-
-        </div>
     </div>
-
     <div>
         <h3 id="testdata">Testdata</h3>
         <p>

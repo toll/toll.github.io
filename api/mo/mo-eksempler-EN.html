@@ -23,7 +23,7 @@
     </a>
 
     <a href="mo-eksempler.html" class="nav-language-button" role="navigation">
-        <div class="lang_nav" >
+        <div class="lang_nav">
             <span>NO</span>
             <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
@@ -31,31 +31,37 @@
 </header>
 
 <main class="mo-eksempler">
-    <div class="about-section" role="main">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="hvordan-sende-inn-meldinger-EN.html">Transport, Master Consignments and Consignments - How to Submit Messages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">House Consignment - examples</li>
+            </ol>
+        </nav>
 
-        <div class="about-section-text">
-            <h2 id="eksempler">Examples</h2>
+        <h2 id="eksempler">Examples</h2>
 
-            <p>
-                We have created some examples of how the message content
-                for a House Consignment can look based on the customs
-                procedure used.  The examples are also illustrated with
-                reference to Master Consignment to show how postal
-                consignments are reported slightly differently.  To keep
-                it as short as possible, only the content that differs
-                for the various procedures is shown, i.e., the following
-                objects:
-            </p>
-            <ul>
-                <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
-                <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
-                <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
-                <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
-                <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
-            </ul>
+        <p>
+            We have created some examples of how the message content
+            for a House Consignment can look based on the customs
+            procedure used. The examples are also illustrated with
+            reference to Master Consignment to show how postal
+            consignments are reported slightly differently. To keep
+            it as short as possible, only the content that differs
+            for the various procedures is shown, i.e., the following
+            objects:
+        </p>
+        <ul>
+            <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
+            <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
+            <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
+            <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
+            <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
+        </ul>
 
-            <h3 id="eks1">Example 1 &ndash; Customs declaration for release for free circulation and Swedish/EU export (only relevant for road)</h3>
-            <pre class="boxed-display">
+        <h3 id="eks1">Example 1 &ndash; Customs declaration for release for free circulation and Swedish/EU export (only
+            relevant for road)</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -91,8 +97,9 @@
 }
        </pre>
 
-            <h3 id="eks2">Example 2 &ndash; Customs declaration for release for free circulation and transit to be completed at border crossing</h3>
-            <pre class="boxed-display">
+        <h3 id="eks2">Example 2 &ndash; Customs declaration for release for free circulation and transit to be completed
+            at border crossing</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -126,8 +133,9 @@
 }
         </pre>
 
-            <h3 id="eks3">Example 3 &ndash; Transit started outside Norway and only to be border-crossed upon arrival at the border</h3>
-            <pre class="boxed-display">
+        <h3 id="eks3">Example 3 &ndash; Transit started outside Norway and only to be border-crossed upon arrival at the
+            border</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -155,8 +163,9 @@
 }
         </pre>
 
-            <h3 id="eks4">Example 4 &ndash; Transit to be started at the border, procedure up to the border is Swedish export</h3>
-            <pre class="boxed-display">
+        <h3 id="eks4">Example 4 &ndash; Transit to be started at the border, procedure up to the border is Swedish
+            export</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -189,11 +198,10 @@
     }
 }
         </pre>
-        </div>
 
-        <div class="about-section-text">
-            <h3 id="eks5">Example 5 &ndash; Customs declaration for release for free circulation where exports are completed in the country of departure</h3>
-            <pre class="boxed-display">
+        <h3 id="eks5">Example 5 &ndash; Customs declaration for release for free circulation where exports are completed
+            in the country of departure</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -223,8 +231,8 @@
 }
         </pre>
 
-            <h3 id="eks6">Example 6 &ndash; VOEC consignment</h3>
-            <pre class="boxed-display">
+        <h3 id="eks6">Example 6 &ndash; VOEC consignment</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -261,8 +269,8 @@
 }
         </pre>
 
-            <h3 id="eks7">Example 7 &ndash; Postal consignment for collective clearance</h3>
-            <pre class="boxed-display">
+        <h3 id="eks7">Example 7 &ndash; Postal consignment for collective clearance</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "receptacleIdentificationNumber": "4j3i24ji3o24ji23",
@@ -278,8 +286,9 @@
 }
         </pre>
 
-            <h3 id="eks8">Example 8 &ndash; Customs declaration for entry into a customs warehouse without information on the procedure up to the border</h3>
-            <pre class="boxed-display">
+        <h3 id="eks8">Example 8 &ndash; Customs declaration for entry into a customs warehouse without information on
+            the procedure up to the border</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -309,8 +318,8 @@
 }
         </pre>
 
-            <h3 id="eks9">Example 9 &ndash; Goods registration at the border and export up to the border</h3>
-            <pre class="boxed-display">
+        <h3 id="eks9">Example 9 &ndash; Goods registration at the border and export up to the border</h3>
+        <pre class="boxed-display">
 {
     "consignmentHouseLevel": {
         "transportDocumentHouseLevel": {
@@ -344,14 +353,14 @@
 }
 </pre>
 
-        </div>
     </div>
 
     <div>
         <h3 id="testdata">Test data</h3>
         <p>
             The validation of submitted messages includes a check that the specified declarations
-            in TVINN and NCTS exist and have the expected status. In the playground environment, we do not have integration with
+            in TVINN and NCTS exist and have the expected status. In the playground environment, we do not have
+            integration with
             these systems, so the content is validated against a static list containing a few declarations.
         </p>
         <p>
