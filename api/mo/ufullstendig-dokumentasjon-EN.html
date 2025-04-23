@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Overview of validation errors for API in MO</title>
     <meta name="description" content="Overview of validation errors for API in MO">
-    <meta name="author" content="Tolletaten">
+    <meta name="author" content="Norwegian Customs">
     <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -100,7 +100,7 @@
                 <h4 id="Aarsak.31">Cause</h4>
                 <p>If the procedure the consignment was subject to until border crossing into Norway (&quot;outgoingProcedure&quot;) is specified as export (with value &quot;EXP&quot;), the value &quot;N820&quot; cannot be specified in this field. This applies to references to previous customs procedures that the goods have been subject to. If the previous customs procedure is specified as export, a reference to transit cannot be provided.<br>
                     See choice of customs procedure <a
-                            href="https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend">https://toll.github.io/api/mo-vei-EN.html#utfyllingForsend</a></p>
+                            href="mo-vei-EN.html#utfyllingForsend">mo-vei-EN.html#utfyllingForsend</a></p>
                 <h4 id="Rettelse.31">Correction</h4>
                 <p>Either change the value in the field or outgoingProcedure. Resubmit.
                     Use the new &quot;requestId&quot; received in return for the new submission and

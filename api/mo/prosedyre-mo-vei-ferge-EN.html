@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>API for reporting and information, vehicles on road/ferry - version 2</title>
     <meta name="description"
-          content="The Customs Agency's API for reporting and information, vehicles on road/ferry - version 2">
-    <meta name="author" content="The Customs Agency">
+          content="Norwegian Customs' API for reporting and information, vehicles on road/ferry - version 2">
+    <meta name="author" content="Norwegian Customs">
     <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -16,15 +16,6 @@
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
     <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
 </head>
-
-<style>
-    :root {
-        --background-color-global-hover-4-info: #B7D5ED;
-        --background-color-global-hover-4-warning: #EFE2B2;
-        --background-color-global-hover-4-danger: #F0C8C8;
-        --background-color-global-hover-4-success: #B4DBBA;
-    }
-</style>
 
 <body>
 
@@ -132,7 +123,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>IMMEDIATE_RELEASE_IMPORT</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
@@ -165,25 +156,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th colspan='2'>Variant 3</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -197,10 +188,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -214,10 +205,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -231,28 +222,28 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger)'>&nbsp;</td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -269,10 +260,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -291,10 +282,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -311,10 +302,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -331,10 +322,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -351,25 +342,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success)'>
+                    <td style='background:var(--background-color-procedure-green)'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>&nbsp;</td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
-                    <td colspan='2' style='background:var(--background-color-global-hover-4-success);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -383,10 +374,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
@@ -425,7 +416,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
@@ -451,22 +442,22 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 5</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -477,10 +468,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -491,10 +482,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -505,22 +496,22 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'></td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -531,10 +522,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -547,10 +538,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -561,10 +552,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -575,10 +566,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -589,22 +580,22 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'></td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -615,10 +606,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
@@ -651,7 +642,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>IMMEDIATE_RELEASE_VOEC</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Beskrivelse av tollprosedyre og prosedyre fram til grensen</strong></p>
@@ -684,25 +675,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 8</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -716,10 +707,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -733,10 +724,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -750,25 +741,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'></td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>liste må ha ett innslag av type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -782,10 +773,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -801,10 +792,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -815,10 +806,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -832,10 +823,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -849,25 +840,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'></td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>liste må ha MINST ett innslag av type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -881,10 +872,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
@@ -898,44 +889,44 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>goodsItem</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>itemAmountInvoicedVOEC</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>value</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -949,10 +940,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>numberOfItems</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -966,27 +957,27 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>commodityCodeVOEC</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>harmonizedSystemSubheadingCode</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1000,27 +991,27 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>additionalFiscalReferences</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>vatIdentificationNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-warning);'>
+                    <td style='background:var(--background-color-procedure-yellow);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1060,7 +1051,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>WAREHOUSE_RELEASE</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
@@ -1099,28 +1090,28 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 18</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td colspan='2' style='background:var(--background-color-global-hover-4-info);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -1137,10 +1128,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -1157,10 +1148,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1177,31 +1168,31 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'></td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1221,10 +1212,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -1246,10 +1237,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1269,10 +1260,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1292,10 +1283,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1315,28 +1306,28 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'></td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
-                    <td colspan='2' style='background:var(--background-color-global-hover-4-success);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1353,10 +1344,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
@@ -1402,7 +1393,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>COLLECTIVE_RELEASE</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
@@ -1435,25 +1426,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 14</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -1467,10 +1458,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -1484,10 +1475,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1501,25 +1492,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'></td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1533,10 +1524,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -1550,10 +1541,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1565,10 +1556,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1580,10 +1571,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1595,25 +1586,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'></td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1627,10 +1618,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
@@ -1666,7 +1657,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
             <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
 
-            <table>
+            <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
@@ -1702,25 +1693,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 17</th>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'></td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>importProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
@@ -1734,10 +1725,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>outgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
@@ -1751,10 +1742,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>hasOutgoingProcedure</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-info);'>
+                    <td style='background:var(--background-color-procedure-blue);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1768,25 +1759,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'></td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>referenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1800,10 +1791,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p title=""><a href="mo-kodeverk.html#cl228">CL228</a>, <a
                                 href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
                         </p>
@@ -1817,10 +1808,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1832,10 +1823,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>declarationDate</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1847,10 +1838,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-danger);'>
+                    <td style='background:var(--background-color-procedure-red);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1862,25 +1853,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'></td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1894,10 +1885,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
-                    <td style='background:var(--background-color-global-hover-4-success);'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><a href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
                     </td>
                     <td>
