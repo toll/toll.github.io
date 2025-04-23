@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview of validation errors for API in MO</title>
+    <meta name="description" content="Overview of validation errors for API in MO">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="ufullstendig-dokumentasjon.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main class="valideringsfeil">
+    <div class="align-self-start">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Reporting and Information</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger-EN.html">Information and Messages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Incomplete documentation</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="align-self-start" style="width: 70%;" role="main">
+        <div class="align-self-start">
+            <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Incomplete documentation</h2>
+
+            <p>In some cases, the information submitted may not be sufficient to complete processing. At the endpoint
+                &quot;/house-consignment/validation-status/{requestIds}&quot;, you will receive a list of reason codes under
+                &quot;incompleteDocumentationReasonList&quot;. It is also possible to query the endpoints
+                &quot;/house-consignment/transport-document/status&quot; or
+                &quot;/master-consignment/transport-document/status&quot; to get this information.</p>
+        </div>
+
+            <div>
+                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Specified field cannot have a value when specified customs procedure (&quot;importProcedure&quot; is X) is provided</h3>
+                <h4 id="Svar.30">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field cannot be filled out when consignmentHouseLevel.importProcedure is ${importProcedureType}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldName}"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.30">Cause</h4>
+                <p>If the customs procedure (&quot;importProcedure&quot;) is specified, this field cannot be filled out, i.e., the field specified in &quot;messageElementPath&quot;. This error occurs when the specified customs procedure is different from &quot;IMMEDIATE_RELEASE_IMPORT&quot; while specifying values in the fields that indicate the reference to the customs declaration.
+                    (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;, and/or
+                    &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot; and/or
+                    &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;)</p>
+                <h4 id="Rettelse.30">Correction</h4>
+                <p>Either change the importProcedure or remove the value in this field. Resubmit. Use the new &quot;requestId&quot; received in return for the new submission and verify that asynchronous validation for this returns the field
+                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+            </div>
+
+            <div>
+                <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Field cannot have a value for transit (&quot;N820&quot;) if the procedure the consignment was subject to until border crossing into Norway (&quot;outgoing procedure&quot;) is specified as export (&quot;EXP&quot;)</h3>
+                <h4 id="Svar.31">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field cannot have value N820 out when consignmentHouseLevel.outgoingProcedure is EXP",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].typeOfReference"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.31">Cause</h4>
+                <p>If the procedure the consignment was subject to until border crossing into Norway (&quot;outgoingProcedure&quot;) is specified as export (with value &quot;EXP&quot;), the value &quot;N820&quot; cannot be specified in this field. This applies to references to previous customs procedures that the goods have been subject to. If the previous customs procedure is specified as export, a reference to transit cannot be provided.<br>
+                    See choice of customs procedure <a
+                            href="mo-vei-EN.html#utfyllingForsend">mo-vei-EN.html#utfyllingForsend</a></p>
+                <h4 id="Rettelse.31">Correction</h4>
+                <p>Either change the value in the field or outgoingProcedure. Resubmit.
+                    Use the new &quot;requestId&quot; received in return for the new submission and
+                    verify that asynchronous validation for this returns the field
+                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+            </div>
+
+            <div>
+                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">When the referenced document (&quot;typeReference&quot;) is a customs declaration (&quot;CUDE&quot;), the specified field is mandatory</h3>
+                <h4 id="Svar.32">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Required field when typeReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldRequired}"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.32">Cause</h4>
+                <p>If the referenced document is a customs declaration
+                    (&quot;typeReference&quot; with value &quot;CUDE&quot;), a value must also be provided
+                    in the specified field (the field is specified in the error message).</p>
+                <h4 id="Rettelse.32">Correction</h4>
+                <p>Either change the typeReference or provide a value for the field. Resubmit. Use the new &quot;requestId&quot; received in return for the new submission and
+                    verify that asynchronous validation for this returns the field
+                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+            </div>
+
+            <div>
+                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">If one or more document references (&quot;previousDocument&quot;) are specified, a customs procedure (field &quot;importProcedure&quot;) must be provided</h3>
+                <h4 id="Svar.33">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "importProcedure is required when any consignmentHouseLevel.previousDocuments[] is provided",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.importProcedure"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.33">Cause</h4>
+                <p>One or more references to documents (objects in the
+                    &quot;previousDocuments&quot; list) have been submitted, but a customs procedure (value
+                    in the &quot;importProcedure&quot; field) has not been provided.</p>
+                <h4 id="Rettelse.33">Correction</h4>
+                <p>Either provide a value for the importProcedure field or remove all objects in
+                    the previousDocuments list. Resubmit. Use the new &quot;requestId&quot;
+                    received in return for the new submission and verify that asynchronous validation for
+                    this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot; when new
+                    processing is complete.</p>
+            </div>
+
+            <div>
+                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Only one document reference to a customs declaration (an object in the &quot;previousDocuments&quot; list) of type customs declaration (with &quot;typeOfReference&quot; = &quot;CUDE&quot;) can be provided</h3>
+                <h4 id="Svar.34">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "PreviousDocuments can only contain one document of type CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.34">Cause</h4>
+                <p>More than one customs declaration (object in the
+                    &quot;previousDocuments&quot; list) with the value &quot;CUDE&quot; in the field
+                    &quot;typeOfReference&quot; has been submitted.<br>
+                    Only one customs declaration per consignment is allowed.</p>
+                <h4 id="Rettelse.34">Correction</h4>
+                <p>Ensure that only one object with the typeOfReference value &quot;CUDE&quot;
+                    is in the previousDocuments list.<br>
+                    Resubmit. Use the new &quot;requestId&quot; received in return for the new
+                    submission and verify that asynchronous validation for this returns the field
+                    &quot;status&quot; with the value &quot;SUCCESS&quot; when new processing is complete.</p>
+            </div>
+
+            <div>
+                <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">If the document reference is something other than a customs declaration (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;), the reference must be provided in the &quot;referenceNumber&quot; field in the &quot;previousDocuments&quot; object</h3>
+                <h4 id="Svar.35">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field should have value unless typeOfReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.35">Cause</h4>
+                <p>When referencing other types of documents than customs declarations, the
+                    &quot;referenceNumber&quot; field in &quot;previousDocuments&quot; should be used to
+                    provide this reference (typically MRN or similar).<br>
+                    An object in the &quot;previousDocuments&quot; list has been submitted with a value
+                    that is <em>not</em> &quot;CUDE&quot; in the field
+                    &quot;typeOfReference&quot;, while <em>not</em> providing a value
+                    in the &quot;referenceNumber&quot; field.<br>
+                    This field must be provided with a value unless
+                    &quot;typeOfReference&quot; has the value &quot;CUDE&quot;.</p>
+                <h4 id="Rettelse.35">Correction</h4>
+                <p>Change the object to have the value &quot;CUDE&quot; in the
+                    typeOfReference field, or provide a valid value in the
+                    referenceNumber field. Resubmit. Use the new &quot;requestId&quot;
+                    received in return for the new submission and verify that asynchronous validation for
+                    this returns the field &quot;status&quot; with the value &quot;SUCCESS&quot; when new
+                    processing is complete.</p>
+            </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="white">Contact us</a>
+</footer>
+
+</body>
+</html>

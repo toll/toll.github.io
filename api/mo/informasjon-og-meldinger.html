@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Informasjon og meldinger</title>
+    <meta name="description" content="Informasjon og meldinger">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="informasjon-og-meldinger-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="informasjon-og-meldinger">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Informasjon og meldinger</li>
+            </ol>
+        </nav>
+
+        <div class="">
+            <h1 id="infomld">Informasjon og meldinger</h1>
+            <p>
+                API-ene støtter innsending av opplysninger knyttet
+                til melde og opplysningsplikten for post, ekspress,
+                flyfrakt, kjøretøy på vei og ferge i henhold til
+                vareførselsloven § 2-3 og forskrift om inn- og
+                utførsel av varer.
+            </p>
+
+            <p>API-ene for innsending er delt i 3 forskjellige meldinger:</p>
+            <ol class="spaced-list">
+                <li>en for innsending av opplysninger om transport</li>
+                <li>en for innsending av opplysninger om hovedforsendelse</li>
+                <li>en for innsending av opplysninger om forsendelser</li>
+            </ol>
+
+            <p>
+                Meldingene sendes inn hver for seg og uavhengig av hverandre med tanke på
+                både rekkefølge og avsender.
+                Melding om transport skal, ved grensepassering, inneholde en liste med
+                sporingsnummer til alle hovedforsendelsene og/eller forsendelsene som skal
+                være med på transporten.
+                Merk at det både kan knyttes forsendelser til transport direkte eller
+                via hovedforsendelse på samme transport.<br/>
+                Forsendelse knyttes til hovedforsendelsen eller til transporten:
+            </p>
+            <ul class="spaced-list">
+                <li>
+                    ved hjelp av at fraktbrevnummer til
+                    hovedforsendelsen oppgis i melding om
+                    forsendelse (kan brukes av alle andre enn
+                    post-operatører)
+                </li>
+                <li>
+                    ved at transporten inneholder en liste av forsendelser
+                    (kan brukes av alle andre enn post-operatører)
+                </li>
+            </ul>
+        </div>
+
+        <h1 id="Sekvensforinnsending-synkronogasynkronrespons">Sekvens for innsending &ndash; synkron og asynkron
+            respons</h1>
+
+        <p>Se også dokumentasjon
+            her: <a href="hvordan-sende-inn-meldinger.html">hvordan-sende-inn-meldinger.html</a>,
+            dette er likt for alle transportformer.</p>
+
+        <p>Generelt fungerer innsending av informasjon slik at
+            aktøren sender inn en melding (POST) og mottar en
+            referanse (requestId). Ved å bruke den mottatte
+            referansen kan aktøren spørre (GET) om resultat av
+            innsendingen og ved suksess motta en permanent
+            referanse til meldingen, utstedt av
+            Tolletaten. Dette gjøres på et eget endepunkt
+            (/validation-status) i spørre-API-et (query API)
+            linket til lengre nede på denne siden. Disse
+            tjenestene er asynkrone og man må derfor spørre
+            inntil man får svar. Valideringsrespons vil
+            vanligvis være tilgjengelig i løpet 1 til 2
+            sekunder, men det kan ta lenger tid i
+            enkelttilfeller.<br> Spørring gjøres på
+            /validation-status-endepunktet, som vil returnere
+            den permanente referansen, et Master Reference
+            Number, forkortet MRN ved suksess og en liste med
+            valideringsfeil hvis de finnes.</p>
+
+        <p>Eksempel på innsendingssekvens for forsendelse (house consignment).
+            Mønsteret er det samme for de andre meldingene, hovedforsendelse (master
+            consignment) og transport.</p>
+
+        <figure>
+            <img style="width: 850px; height: 50%" src="../media/mo-valideringsfeil.png" alt="Se figurtekst"/>
+            <figcaption>Figur: sekvens for innsending av melding om
+                forsendelse (house consignment)
+            </figcaption>
+        </figure>
+
+        <p>&nbsp;</p>
+
+        <p>MRN brukes når meldinger skal oppdateres eller
+            kanselleres (put/delete) for å referere til
+            tidligere innsendte
+            meldinger. Valideringsendepunktet vil også kunne
+            returnere en liste med dokumentstatuser for å
+            indikere manglende opplysninger,
+            se
+            <a href="mo-kodeverk.html#incompleteDocumentationReason">mo-kodeverk.html#incompleteDocumentationReason</a>.
+            Anbefalt metode for innsending er at aktøren sender
+            inn alle meldinger for oppretting (POST) som er
+            aktuelle, og så venter 1-2 sekunder før spørring om
+            validering (query API).
+        </p>
+
+        <p>For eksempel: om man har 500 forsendelser for en
+            hovedforsendelse på en transport, så sender man inn
+            (POST) alle 500 meldingene om forsendelse, venter et
+            par sekunder, ber om validering og får tilbake MRN
+            og status for alle de 500 meldingene. Dersom man får
+            status 404 ved kall til valideringsendepunktet må
+            man vente litt og spørre igjen. Det anbefales å lage
+            en algoritme som gjør gjentatte forsøk, inntil
+            valideringsrespons mottas.
+        </p>
+        <div class="index-buttons-container">
+            <br/>
+            <br/>
+            <br/>
+            <div class="buttons-section">
+                <a href="hvordan-sende-inn-meldinger.html"
+                   class="new-page-button no-icon">
+                    <p>Transport, hovedforsendelser og forsendelser - hvordan sende inn meldinger</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="synkrone-valideringsfeil.html"
+                   class="new-page-button no-icon">
+                    <p>Synkrone valideringsfeil</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="asynkrone-valideringsfeil.html"
+                   class="new-page-button no-icon">
+                    <p>Asynkrone valideringsfeil</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="ufullstendig-dokumentasjon.html"
+                   class="new-page-button no-icon">
+                    <p>Ufullstendig dokumentasjon</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

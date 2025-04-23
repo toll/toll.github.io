@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API for presentation of goods and control direction of ICS2 consignments</title>
+    <meta name="description"
+          content="Norwegian Customs' API for presentation of goods and control direction of ICS2 consignments">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../ics2/ics2-forsendelser.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main class="ics2-forsendelser">
+    <div class="about-section align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">API for presentation of goods and control
+                    direction of ICS2 consignments
+                </li>
+            </ol>
+        </nav>
+
+
+        <h2 id="Omtjenesten">About the service</h2>
+
+        <p>
+            This service is used for digital presentation of
+            consignments. All goods filed in ICS2 are obligated to
+            be presented upon arrival with a message to this
+            API. From March 2023, this includes all consignments
+            transported by air from third countries, and from June
+            3, 2024, it also applies to maritime consignments. Third
+            countries in this context means countries outside the EU
+            security zone (EU, Switzerland, Liechtenstein and
+            Norway, excluding Svalbard). The same service can be
+            used for joint presentation according to Entry Summary
+            Declaration (ICS2) and Notification and Disclosure of
+            Information (Melde- og opplysning)
+            obligations. Presentation can be done by sending an
+            Entry Summary Declaration (ENS), receptacle or
+            individual house consignments. If a receptacle or an
+            Entry Summary Declaration is presented, all individual
+            consignments within will be considered
+            presented. Furthermore, the party who has presented the
+            consignments must use the routing service before the
+            consignments eventually may enter. When presenting ICS2
+            consignments, only routing of house consignment is
+            relevant (for some parties, the service for routing at
+            transport level may be relevant in relation to the
+            Notification and Disclosure of Information
+            obligation). Based on the result of the routing, the
+            consignments that have received TO_CONTROL signal must
+            be delivered to the agreed place of
+            control. Consignments can not be released before
+            TO_ENTRY signal has been received.
+        </p>
+
+        <p>More background information on ICS2:</p>
+        <ul>
+            <li>
+                <a href="https://toll.no/en/corporate/transport-and-customs-warehouse/prenotification/advance-cargo-information--import-control-system-2-ics2/"
+                   target="_blank">ICS2 at toll.no</a></li>
+            <li>
+                <a href="https://circabc.europa.eu/ui/group/18fb5859-3970-4ac5-b30b-6604977a15a7/library/16e29912-d290-417e-a45c-b286407e1770"
+                   target="_blank">Guidance documents from the EU</a></li>
+            <li><a href="https://lovdata.no/dokument/SFE/forskrift/2022-10-27-1901"
+            target="_blank">Regulations concerning importation and
+            exportation of goods (Movement of Goods
+            Regulations)</a></li>
+        </ul>
+
+        <h2 id="Bruksflyt">Workflow</h2>
+
+        <p>
+            The presentation services should be called as soon as
+            the consignment has arrived. By including the requestId
+            in every call, you as the consumer can ensure that a
+            consignment is presented only once. Reusing the same
+            requestId will result in validation errors. This is only
+            a technical identification of each service call. The
+            status of all requests can be retrieved by using the
+            validation-status service.
+        </p>
+
+        <p>
+            Once a consignment has been correctly presented, the
+            control direction signal can be retrieved from the
+            routing service. This signal provides information on
+            whether the consignment needs to be delivered for
+            inspection or if it can be cleared and released to the
+            recipient when other customs procedures are
+            fulfilled. Control direction is performed at the
+            individual consignment level (house consignment). When
+            presenting at the receptacle or ENS (Entry Summary
+            Declaration) level, the result for all individual
+            consignments pre-notified within the respective
+            receptacle or ENS must be retrieved. By using a marker
+            as input, you can easily retrieve changes since the last
+            call.
+        </p>
+
+        <div class="align-self-start">
+            <h1 id="Grensesnitt">Interface Description</h1>
+            <p>
+                The services are made available over HTTPS, with
+                authentication via Maskinporten.
+            </p>
+            <pre class="boxed-display">
+POST https://&lt;env&gt;/api/movement/presentation/v1/house-consignment
+POST https://&lt;env&gt;/api/movement/presentation/v1/master-consignment
+POST https://&lt;env&gt;/api/movement/presentation/v1/container
+POST https://&lt;env&gt;/api/movement/presentation/v1/receptacle
+POST https://&lt;env&gt;/api/movement/presentation/v1/entry-summary-declaration
+
+GET https://&lt;env&gt;/api/movement/presentation/v1/validation-status
+GET https://&lt;env&gt;/api/movement/routing/v1/house-consignment
+            </pre>
+            <p>
+                where
+            </p>
+            <ul>
+                <li>
+                    <b>&lt;env&gt;</b> is replaced with
+                    <ul>
+                        <li><i>api.toll.no</i> for production</li>
+                        <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>{requestId}</b> is replaced with the reference
+                    returned by POST/PUT/DELETE calls
+                </li>
+                <li>
+                    <b>{MRN}</b> is replaced with the reference returned
+                    from ".../validation-status..." endpoints.
+                </li>
+            </ul>
+        </div>
+
+        <p>
+            The API is under development in line with the needs of
+            the Norwegian Customs' digitalization program, so that
+            we will eventually have a complete presentation service
+            for all obligations upon the arrival of goods. We will
+            make changes backward compatible as much as possible,
+            but if there are non-compatible changes, the service
+            will be versioned and the change communicated to
+            consumers. Backward compatible changes will be added
+            without version updates or notifications.
+        </p>
+        <p>
+            If you have questions or feedback about the API, we
+            would love to hear from you
+            at <a href="mailto:digitoll@toll.no">digitoll@toll.no</a>.
+        </p>
+
+        <h3 id="APIdok">API Documentation</h3>
+        <ul class="spaced-list">
+            <li><a href="../mo/movement-presentation-api.html">Movement - Presentation</a></li>
+            <li><a href="../mo/movement-routing-api.html">Movement - Routing</a></li>
+        </ul>
+
+        <br/>
+
+        <h2 id="Kodeverk">Code Lists</h2>
+
+        <h3 id="Tollsteder">Customs Office of Presentation CL141</h3>
+
+        <p>Customs Office of Presentation is validated according to
+            the EU code
+            list <a href="https://ec.europa.eu/taxation_customs/dds2/rd/rd_home.jsp?Lang=en"
+                    target="_blank">Reference Data & Customs Offices List
+                (europa.eu)</a></p>
+        <h3 id="Transportdokumenttype">
+            <a href="../mo/mo-kodeverk-EN.html#cl754" target="_blank">
+                Transport document type CL754</a>
+        </h3>
+
+
+        <h2 id="aut">Authentication – Data exchange between businesses and Norwegian Customs</h2>
+        <p>
+            Our APIs use Maskinporten for identity and access
+            management. On the
+            page <b><a href="../maskinporten/maskinporten-EN.html">Maskinporten
+            - Norwegian Customs</a></b> you will find information about
+        </p>
+        <ul class="spaced-list">
+            <li>
+                how to get started with integration via Maskinporten if you have not done so before,
+                including the registration form for access at Norwegian Customs
+            </li>
+            <li>access management for our APIs</li>
+            <li>how to set up a client to authenticate via Maskinporten</li>
+            <li>operation and monitoring/troubleshooting.</li>
+        </ul>
+        <p>The scope used for this API is <b>toll:movement/entry</b>.</p>
+
+        <br/>
+        <br/>
+
+        <h2 id="testing">Testing</h2>
+
+        <p>For testing, the <em>playground</em> environment can be used.</p>
+
+        <p>
+            The validation of submitted messages includes a check that the provided references to "Entry Summary
+            Declaration", receptacle, and waybill exist.
+            In the playground environment, we do not have integration with other systems, so the content is validated
+            against a static list containing a few values.
+        </p>
+
+        <div class="table-responsive">
+          <p>
+            <em>(The table is wide, you may need to scroll to view all)</em>
+          </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>Entry Summary Declaration MRN</th>
+                    <th>Receptacle ID</th>
+                    <th>TransportDocumentHouseLevel &ndash; documentNumber</th>
+                    <th>TransportDocumentHouseLevel &ndash; type</th>
+                    <th>ContainerId</th>
+                    <th>Routing</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>
+                        <p>23NO00000000000001</p>
+                    </td>
+                    <td>
+                        <p>GBASFZMLBKONAUN30001001019999</p>
+                    </td>
+                    <td>
+                        <p>NO100000001MU</p>
+                    </td>
+                    <td>
+                        <p>N750</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_CONTROL</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000002</p>
+                    </td>
+                    <td>
+                        <p>GBASFZMLBKONAUN30001001019999</p>
+                    </td>
+                    <td>
+                        <p>NO100000002MU</p>
+                    </td>
+                    <td>
+                        <p>N750</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_ENTRY</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000003</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC001</p>
+                    </td>
+                    <td>
+                        <p>N740</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_ENTRY</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000003</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC002</p>
+                    </td>
+                    <td>
+                        <p>N740</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_CONTROL</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000004</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC001</p>
+                    </td>
+                    <td>
+                        <p>N703</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_CONTROL</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000004</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC002</p>
+                    </td>
+                    <td>
+                        <p>N703</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>TO_ENTRY</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000005</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC003</p>
+                    </td>
+                    <td>
+                        <p>N714&nbsp;</p>
+                    </td>
+                    <td>
+                        <p>JARU0000010</p>
+                    </td>
+                    <td>
+                        <p>TO_CONTROL&nbsp; </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>23NO00000000000005</p>
+                    </td>
+                    <td>
+                        <p>&ndash;</p>
+                    </td>
+                    <td>
+                        <p>HC004</p>
+                    </td>
+                    <td>
+                        <p>N714&nbsp;</p>
+                    </td>
+                    <td>
+                        <p>JARU0000026</p>
+                    </td>
+                    <td>
+                        <p>TO_ENTRY</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>
+            The routing signals retrieved in the playground
+            environment are also a static list and will be based
+            on the same values.
+            Other values will result in validation errors upon
+            submission.
+        </p>
+
+        <br/>
+        <br/>
+
+        <h2 id="Tilbakemeldinger">Feedback and Contact</h2>
+
+        <p>
+            If you have questions or feedback about the API, we
+            would love to hear from you
+            at <a href="mailto:ics2-kontakt@toll.no">ics2-kontakt@toll.no</a>.
+        </p>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2025 | <a
+        href="https://www.toll.no/en/about-norwegian-customs/contact-us/" class="white">Contact us</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentation and control routing &ndash; by example</title>
+    <meta name="description" content="Principles and examples explaining the APIs for presentation and control routing">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="mo-vei-fly-forklaring.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" style="width: 70%" role="main">
+
+        <h2 id="prinsipper">Key Principles</h2>
+
+        <p>
+            To understand how presentation and routing work, it is important to understand how the solution handles the
+            entire process of goods arriving at the customs area. For arrival, presentation, routing, and entry, the
+            solution is based on some key principles:
+        </p>
+
+        <div>
+            <ul class="spaced-list">
+                <li><strong>Norwegian Customs automatically detects the arrival of the means of transport.</strong></li>
+                <li><strong>Norwegian Customs automatically carries out the presentation of consignments based on the
+                    reported expected load in the means of transport.</strong></li>
+                <li><strong>Norwegian Customs automatically provides routing signals for the transport and
+                    consignments.</strong></li>
+                <li><strong>Norwegian Customs automatically registers allowed entry to the customs area and initiates
+                    the transition to the chosen customs procedure.</strong></li>
+            </ul>
+        </div>
+
+        <p>
+            In addition to these key principles, the solution must be able to support exceptions. There are several
+            exceptions that lead to deviations from the basic concept in various scenarios:
+        </p>
+        <ol class="spaced-list">
+            <li>Automatic detection of arrival and provision of routing not possible.</li>
+            <li>Businesses have received permission, upon application, to present goods at a location other than the
+                border crossing point.
+            </li>
+            <li>In exceptional cases, Norwegian Customs may grant conditional entry pending the completion of document
+                control. The relevant goods should remain untouched and stored at an agreed location.
+            </li>
+            <li>Norwegian Customs decides to physically inspect a consignment at the unloading location or the location
+                of presentation instead of the border crossing point.
+            </li>
+        </ol>
+
+        <h2 id="gjennomgang">Review of a "standard" process based on the key principles</h2>
+
+        <p>
+            For the modes of transportation covered by the Digitoll solution, namely road, train, and air
+            transportation, the same main process will apply:
+        </p>
+
+        <ol class="spaced-list">
+            <li>
+                Businesses submit a complete set of messages covering transport, master consignment(s), and house
+                consignment(s) for a transport that is set to arrive at the customs area in advance and no later than
+                upon arrival.
+            </li>
+            <li>
+                When the means of transportation arrives at the customs area, Norwegian Customs will attempt to
+                automatically detect it.
+                <ul class="spaced-list">
+                    <li>
+                        For <em>road</em> transport, this is done through ANPR (automatic number plate recognition) at
+                        Ørje and Svinesund, camera 1, or other border crossing solutions (currently under
+                        development/testing).
+                    </li>
+                    <li>
+                        For <em>air</em> transport, this is achieved by using services from Avinor, or manually by
+                        customs officers at airports not operated by Avinor.
+                    </li>
+                    <li>
+                        For <em>train</em> transport, the solution is not yet fully defined, but a similar approach as
+                        for air transport is assumed.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Once Norwegian Customs has registered the arrival of the means of transportation, on behalf of the
+                sender (in practice, those who have submitted transport, master consignment, and house consignment
+                messages), the goods will be digitally presented.
+                <ul class="spaced-list">
+                    <li>
+                        This means that in "normal cases", businesses will not need to perform their own digital
+                        presentation.
+                    </li>
+                    <li>
+                        Other variations will be described separately (see <em><a href="#hvorfor_eget">Why a separate
+                        interface (API) for presentation?</a></em>).
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Norwegian Customs will then provide routing for the consignments, allowing businesses to access this
+                information.
+                <ul class="spaced-list">
+                    <li>
+                        The routing interface is a "pull" interface, where the business identifies itself and receives
+                        all routing information for the consignments relevant to the business.
+                    </li>
+                    <li>
+                        The business that submitted a house consignment message, or is mentioned in the message as the
+                        customs representative can retrieve routing for the house consignment(s).
+                    </li>
+                    <li>
+                        The business that submitted a master consignment message or is mentioned in the message as the
+                        customs representative can retrieve routing for all house consignments associated with the
+                        master consignment.
+                    </li>
+                    <li>
+                        The business that submitted a transport message or is mentioned in the message as the customs
+                        representative can retrieve routing for all consignments associated with all master consignments
+                        connected to the transport.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Norwegian Customs will then, at a time depending on the mode of transportation, allow entry to the
+                customs area and transition to the chosen customs procedure for all consignments listed in the
+                transport.
+                <ul class="spaced-list">
+                    <li>For air and train transports, this occurs immediately after routing is made available.</li>
+                    <li>For road transportation, this happens when the transport leaves the customs area (camera 2).
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="fremlegging">Presentation in Digitoll</h2>
+
+        <p>
+            As mentioned above, the main principle for presentation is that all goods arriving at the customs area are
+            automatically digitally presented by Norwegian Customs on behalf of the carrier of the means of transport.
+            The carrier is, as known, in most cases not the one who submits the information. In practice, this means
+            that the presentation will be done and the result of the presentation will be made available to the carrier
+            (where practically possible) and to those who represent the carrier. This means that for road transport
+            carriers, routing will be made available in the form of a light signal. Routing is explained in detail in
+            the next section.
+        </p>
+
+        <h3 id="hvorfor_eget">Why a separate interface (API) for presentation?</h3>
+
+        <p>
+            This interface allows an actor to present consignments digitally on their own initiative. Presentation can
+            therefore be done by actors who are not pre-registered in the transport, master consignment, or house
+            consignment messages. By presenting consignments digitally, this actor can retrieve routing for the
+            presented consignments.
+        </p>
+
+        <p>
+            The idea here is, for example, a "ground handler" who handles goods arriving by air, where the airline has
+            submitted the notification and information data and where the airline itself acts as the customs
+            representative. In such a case, this actor ("ground handler") may need to "sign up" to receive information
+            so that they can handle the consignments upon arrival.
+        </p>
+
+        <p>
+            The main rule is that there should be no need to use the presentation interface. This is an interface that
+            can be used if needed. If an actor still wants to use the interface, they can do so without causing
+            problems.
+        </p>
+
+        <p>Submitted <strong>question</strong>:</p>
+        <ol class="spaced-list">
+            <li>
+                <em>At what point should the presentation be used? Is it based on polling, or is there a specific time
+                    when data becomes available? Who should use it? Are there criteria for when it should and should not
+                    be used? Similarly for routing. Is it such that any party (e.g., the sender of house consignment no.
+                    15 on a truck with 100 consignments) should use it, and thus be responsible for the entire truck
+                    acting based on the routing information that comes back?</em><br/>
+                <em>The information can be interpreted to mean that if a truck is registered through movement-road, it
+                    should not be necessary to use the presentation API, because Norwegian Customs has automatically
+                    carried out the digital presentation, but the routing API should always be used?</em>
+                <ul class="spaced-list" style="margin-top: 20px">
+                    <li><strong>Answer</strong>:<br/>
+                        As mentioned above, it is not necessary for businesses to submit the presentation. The exception
+                        is in very specific cases where the actor needs to retrieve routing without having been involved
+                        in the submission of messages in advance.<br/>
+                        Regarding routing, it will be necessary for actors who receive consignments/master consignments
+                        upon arrival to retrieve routing. This can be at an airport (typically a ground handler), or if
+                        the actor has permission to transport consignments from the arrival location to their sorting
+                        facility (postal services, express companies).<br/>
+                        Other actors may wish to retrieve routing to obtain information they want to use in their
+                        logistics flow.
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 id="dirigering">Routing in Digitoll</h2>
+
+        <p>
+            As mentioned above, routing will be made available based on automatic arrival and digital presentation.
+            Routing will not be available until the transport is registered as arrived. The routing interface is a
+            "pull" interface, where the actor identifies themselves and retrieves all routings for consignments relevant
+            to the actor. In practice, this means that the interface only has one parameter, a marker, so that the actor
+            can retrieve all new routings since the last routing was retrieved. Consignments are retrieved based on who
+            identifies themselves in Maskinporten (organization number) and the marker for which routing was last
+            retrieved.
+        </p>
+
+        <h3 id="hvemhva">Who can retrieve what?</h3>
+
+        <p>
+            In principle, it is the sender of the message and any mentioned customs representative (if it is another
+            party) who can retrieve routing for consignments. In addition, actors who need it can present consignments
+            and thus gain access to routing signals for these.
+        </p>
+
+        <ol class="spaced-list">
+            <li>The actor who has submitted a message for a consignment, or is mentioned in the message as the customs
+                representative, can retrieve routing for this consignment.
+            </li>
+            <li>The actor who has submitted a message for a master consignment, or is mentioned in the message as the
+                customs representative, can retrieve routing for all consignments associated with the master
+                consignment.
+            </li>
+            <li>The actor who has submitted a message for transport, or is mentioned in the message as the customs
+                representative, can retrieve routing for all consignments associated with all master consignments
+                connected to the transport.
+            </li>
+        </ol>
+
+        <p>The routing will, for each consignment, contain a reference to the consignment and a routing signal.</p>
+
+        <h2 id="eksempler">Examples</h2>
+
+        <h3 id="Eksempel1">Example 1</h3>
+        <div class="example-box">
+            <div>
+                Norsk Transport AS has a trailer on the way (transport) with 4 master consignments and four house
+                consignments. Well before the border crossing, Norsk Transport AS has registered the master consignment,
+                and Speditør 1 AS has registered master consignment A and B, while Speditør 2 AS has registered master
+                consignment C and D. Norsk Transport AS has ensured that references to all four master consignments are
+                included in the transport section.
+            </div>
+            <br/>
+            <div>
+                What do the different parties do next to use these two APIs?
+            </div>
+        </div>
+
+        <p>
+            In principle, none of these parties should need to submit a presentation message.
+            Since this is about road transport, it will, in principle, not be required for any of the actors to retrieve
+            routing.
+        </p>
+
+        <ol class="spaced-list">
+            <li>In a normal case, the driver will get a green light at the customs office and all consignments are given
+                transition to the chosen customs procedure (the one submitted in the consignment message).
+            </li>
+            <li>If one or more consignments, or the transport itself, are selected for physical control, the driver will
+                get a red light and must report to the customs office.<br/>
+                In normal cases, the control will then be carried out at the customs office.
+                Alternatively, the driver may be instructed to drive to another customs office to carry out the control.
+            </li>
+            <li>If one or more consignments, or the transport itself, have deficiencies in the submission of
+                information, the driver will get a red light and must report to the customs office.<br/>
+                In normal cases, this must be resolved before the transport can continue.<br/>
+                In exceptional cases, Norwegian Customs may decide that the transport can continue to a customs
+                warehouse for storage there.
+            </li>
+        </ol>
+
+        <p>
+            The relevant parties can, if they wish, request routing through the interface.
+            They will then receive information about any discrepancies and the status of those given transition to the
+            desired customs procedure, for example, free disposal or storage in a customs warehouse.
+        </p>
+
+        <p>In this scenario:</p>
+        <ul class="spaced-list">
+            <li>&quot;Norsk Transport AS&quot; can retrieve routing for all consignments reported to arrive on the
+                transport.
+            </li>
+            <li>&quot;Speditør 1 AS&quot; can retrieve routing for all consignments reported to arrive on the transport
+                and linked to master consignment A and B
+            </li>
+            <li>&quot;Speditør 2 AS&quot; can retrieve routing for all consignments reported to arrive on the transport
+                and linked to master consignment C and D
+            </li>
+        </ul>
+
+        <figure>
+            <img src="../media/MO-vei-fly-x1-EN.png" alt="Scenario, see figure text"/>
+            <figcaption>
+                Figure: Cleared before arrival, Decided permission for entry for transport and consignments
+            </figcaption>
+        </figure>
+
+        <h3 id="Eksempel2">Example 2</h3>
+
+        <div class="example-box">
+            <div>
+                Express AS has a sorting facility at Helsfyr and receives all cargo on its own flights landing at
+                Gardermoen.
+                As a result of being an express cargo operator with air freight, they have received pre-approval to
+                transport their consignments to their sorting facility at Helsfyr for sorting.<br/>
+                Express AS has submitted a transport message for flight EX0836 with a scheduled landing time at OSL on
+                November 3, 2023, at 06:00.<br/>
+                They have submitted a master consignment message linked to the transport and 1534 consignment messages
+                linked to the submitted master consignment.<br/>
+                Flight EX0836 arrives at Gardermoen (OSL) at 06:23 on November 3, 2023.
+            </div>
+        </div>
+
+        <figure>
+            <img src="../media/MO-vei-fly-x2-EN.png" alt="Scenario, see figure text"/>
+            <figcaption>
+                Figure: Consignment cannot be granted entry permission before arrival, but cleared for &quot;conditional
+                entry&quot; before arrival.<br/>
+                - Transport is granted entry permission and a green light.<br/>
+                - Entry is registered for transport and consignments, but two consignments are not released.<br/>
+                - Consignments can be further processed and updated on the way. Consignments for physical control must
+                be delivered to Norwegian Customs.
+            </figcaption>
+        </figure>
+
+        <p>
+            Norwegian Customs has received and processed information about transport, master consignment, and
+            consignments, including information on the transition to the next customs procedure for 1533 consignments.
+            Based on the received data, one consignment is selected for physical control and one consignment is selected
+            for document control (based on missing customs procedure).
+        </p>
+        <p>
+            At 06:25, Norwegian Customs retrieves arrival information from Avinor at regular intervals and discovers
+            that flight EX0836 with a scheduled time of 06:00 has arrived.
+            Norwegian Customs has received a message about this transport and carries out a digital presentation on
+            behalf of the carrier (in practice on behalf of Express AS). Routing is immediately made available for 1534
+            consignments. 1532 consignments are given transition to the chosen customs procedure, in this case, free
+            disposal. One consignment is routed to physical control and one to document control (see <a
+                href="#merknadA">note /A/ below</a>).
+        </p>
+        <p>
+            Express AS uses the routing interface and retrieves routing, thus receiving routing for 1534 consignments.
+            Express AS' customs processing department becomes aware that one consignment lacks submitted information.
+            The routing information is fed into Express AS' sorting facility.
+        </p>
+        <p>
+            Express AS retrieves the consignments at Gardermoen and drives them to their sorting facility at Helsfyr.
+            Meanwhile, the customs department at Express AS has found the missing information for the consignment
+            selected for document control and submitted the correct customs information. Norwegian Customs receives and
+            processes this information and provides routing for the consignment. Everything is in order, and the
+            consignment is granted entry permission and transition to free disposal.
+        </p>
+        <p>
+            Express AS retrieves routing information and now receives the updated information on the release of the
+            consignments that were to document control (see <a href="#merknadA">note /A/ below</a>).
+            The updated information is loaded into the sorting facility.
+        </p>
+        <p>
+            The consignments are loaded at the sorting facility as the transport from OSL arrives at Helsfyr 35 minutes
+            later. 1533 consignments are sorted for further distribution to Express AS' customers since they are
+            released for free disposal. One consignment is sorted for physical control, and Express AS transports this
+            to Norwegian Customs for control.
+        </p>
+
+        <p>Note:<br/>
+            <a id="merknadA"><strong>/A/</strong></a>
+            Document control is not implemented in the solution today but will come within a relatively short time.
+            Currently, only the codes TO_ENTRY, TO_CONTROL, ENTRY_DENIED are active.</p>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="white">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

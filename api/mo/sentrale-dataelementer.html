@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Informasjonsmodeller - Sentrale dataelementer og meldinger</title>
+    <meta name="description" content="Informasjonsmodeller - Sentrale dataelementer og meldinger">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="sentrale-dataelementer-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Informasjonsmodeller- Sentrale dataelementer og meldinger</li>
+            </ol>
+        </nav>
+
+        <div class="about-section-text">
+            <p>
+                For alle meldinger vil det være et sett med data som kun er relatert til
+                meldingen og innsending av denne.
+                I disse data inngår informasjon om tollrepresentant og
+                identifikasjon av melding (referanser til selve meldingen).
+                Se avsnittet <a href="kobling-oppdatering-og-sletting.html#koblingAvMeldinger">Kobling av meldinger</a> for en detaljert beskrivelse.
+            </p>
+            <p>
+                Tabellene under gir en oversikt over sentrale dataelementer knyttet til transport og forsendelser.
+                De detaljerte informasjonsmodellene for transport, hovedforsendelser og forsendelser er publisert
+                i <a href="melde-og-opplysning.html#utfyllingForsend">API-definisjonene</a>.
+            </p>
+
+        </div>
+
+        <div class="table-responsive">
+            <h2 id="datatransp">Dataelementer knyttet til transport</h2>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Dataelement</th>
+                    <th scope="col">Obligatorisk</th>
+                    <th scope="col">Betinget</th>
+                    <th scope="col">Frivillig</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Transportør</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Aktivt transportmiddel</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Fører</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Tollsted / tid for ankomst</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="mldtransport">Melding om transport</h2>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Område</th>
+                    <th scope="col">Beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td data-label="Område">Melde transport</td>
+                    <td data-label="Beskrivelse">Informasjon om transport og referanse til alle forsendelsene om bord i transporten</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Ansvarlig for informasjonen</td>
+                    <td data-label="Beskrivelse">Fører av transport, i henhold til vareførselsloven § 2-3</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Avgiver av informasjon</td>
+                    <td data-label="Beskrivelse">Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Mottaker av informasjon</td>
+                    <td data-label="Beskrivelse">Tolletaten</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Er informasjon obligatorisk?</td>
+                    <td data-label="Beskrivelse">Ja</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes informasjon hos Tolletaten?</td>
+                    <td data-label="Beskrivelse">Så tidlig som mulig, dog senest ved ankomst til grensen</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes oppdatering av informasjonen?</td>
+                    <td data-label="Beskrivelse">Informasjon må oppdateres når viktige deler av informasjonen endres. Typisk ved endring av kjennemerker, fører, tid/sted for grensepassering, ved endringer i listen av hovedforsendelser</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Frist for innsending</td>
+                    <td data-label="Beskrivelse">Senest ved grensepassering</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Viktige informasjonselementer</td>
+                    <td data-label="Beskrivelse">
+                        <p>Kjennemerke(r) på transportmiddel og/eller rutenummer for rutegående trafikk (for eksempel rutefly)</p>
+                        <p>Informasjon om fører</p>
+                        <p>Tid/sted for grensepassering</p>
+                        <p>Referansenummer/fraktbrevnummer for alle hovedforsendelser (Master Consignment) og/eller forsendelser (House Consignment) som skal være med transporten</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Spesielt om oppdatering av melding om transport</td>
+                    <td data-label="Beskrivelse">Ved oppdatering og kansellering er MRN mottatt i opprinnelig melding den nøkkelen som skal brukes for å identifisere riktig transport</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="datahoved">Dataelementer knyttet til hovedforsendelse</h2>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Dataelement</th>
+                    <th scope="col">Obligatorisk</th>
+                    <th scope="col">Betinget</th>
+                    <th scope="col">Frivillig</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Avsender</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Mottaker</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Fraktbrev</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Bruttovekt</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Transportutstyr</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td class="center" data-label="Betinget">X</td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Lastested</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td data-label="Betinget"></td>
+                    <td class="center" data-label="Frivillig">X</td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Lossested</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td data-label="Betinget"></td>
+                    <td class="center" data-label="Frivillig">X</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="masterConsignment">Melding om hovedforsendelse (Master Consignment)</h2>
+            <p>Oppsummering av innhold</p>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Område</th>
+                    <th scope="col">Beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td data-label="Område">Melde hovedforsendelse</td>
+                    <td data-label="Beskrivelse">Informasjon om hovedforsendelse</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Ansvarlig for informasjonen</td>
+                    <td data-label="Beskrivelse">Fører av transport, i henhold til vareførselsloven § 2-3</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Avgiver av informasjon</td>
+                    <td data-label="Beskrivelse">Tollrepresentant i henhold til vareførselsloven § 7-21 &ndash; Speditør/Transportør/Vareeier</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Mottaker av informasjon</td>
+                    <td data-label="Beskrivelse">Tolletaten</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Er informasjon obligatorisk?</td>
+                    <td data-label="Beskrivelse">Ja</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes informasjon hos Tolletaten?</td>
+                    <td data-label="Beskrivelse">Så tidlig som mulig, dog senest ved grensepassering for transport</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes oppdatering av informasjonen?</td>
+                    <td data-label="Beskrivelse">Informasjon må oppdateres når viktige deler av informasjonen endres</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Frist for innsending</td>
+                    <td data-label="Beskrivelse">Senest ved grensepassering</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Viktige informasjonselementer</td>
+                    <td data-label="Beskrivelse">
+                        <p>Mottaker og avsender</p>
+                        <p>Laste- og lossested</p>
+                        <p>Fraktbrevnummer til hovedforsendelse</p>
+                        <p>Referansenummer til alle postsekker (kun for post-operatører)</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Spesielt om oppdatering av melding om hovedforsendelse</td>
+                    <td data-label="Beskrivelse">Ved oppdatering og kansellering er MRN mottatt i opprinnelig melding den nøkkelen som skal brukes for å identifisere riktig hovedforsendelse</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="dataforsend">Dataelementer knyttet til forsendelse</h2>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Dataelement</th>
+                    <th scope="col">Obligatorisk</th>
+                    <th scope="col">Betinget</th>
+                    <th scope="col">Frivillig</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Avsender</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Mottaker</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Fraktbrev</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Relevante dokumenter</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td class="center" data-label="Betinget">X</td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Bruttovekt</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Transportutstyr</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td class="center" data-label="Betinget">X</td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Lastested</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td data-label="Betinget"></td>
+                    <td class="center" data-label="Frivillig">X</td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Lossested</th>
+                    <td data-label="Obligatorisk"></td>
+                    <td data-label="Betinget"></td>
+                    <td class="center" data-label="Frivillig">X</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="houseConsignment">Melding om forsendelse (House Consignment)</h2>
+            <p>Oppsummering av innhold</p>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Område</th>
+                    <th scope="col">Beskrivelse</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td data-label="Område">Melde forsendelse</td>
+                    <td data-label="Beskrivelse">Informasjon om forsendelse.</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Ansvarlig for informasjonen</td>
+                    <td data-label="Beskrivelse">Fører av transport, i henhold til vareførselsloven § 2-3</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Avgiver av informasjon</td>
+                    <td data-label="Beskrivelse">Speditør/Transportør/Vareeier/Fullmektig</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Mottaker av informasjon</td>
+                    <td data-label="Beskrivelse">Tolletaten</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Er informasjon obligatorisk?</td>
+                    <td data-label="Beskrivelse">Ja</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes informasjon hos Tolletaten?</td>
+                    <td data-label="Beskrivelse">Så tidlig som mulig, dog senest ved ankomst til grensen</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Når ønskes oppdatering av informasjonen?</td>
+                    <td data-label="Beskrivelse">Informasjon ønskes oppdatert når viktige deler av informasjonen endres</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Frist for innsending</td>
+                    <td data-label="Beskrivelse">Senest ved grensepassering</td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Viktige informasjonselementer</td>
+                    <td data-label="Beskrivelse">
+                        <p>Fraktbrevnummer til forsendelsen (sporingsnummer)</p>
+                        <p>Referanse til valgt tollprosedyre der det er aktuelt</p>
+                        <p>Referanse til import og eksport deklarasjoner</p>
+                        <p>Referanse til NCTS transittering(er)</p>
+                        <p>Grov varebeskrivelse/vekt</p>
+                        <p>Avsender</p>
+                        <p>Mottaker</p>
+                        <p>Referanse til transportør</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td data-label="Område">Spesielt om oppdatering av melding om forsendelse</td>
+                    <td data-label="Beskrivelse">Ved oppdatering og kansellering er MRN mottatt i opprinnelig melding nøkkelen som skal brukes for å identifisere riktig forsendelse.</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <br/>
+            <br/>
+
+            <h2 id="datavoec">Dataelementer knyttet til vare (sendes inn som en del av forsendelse) &ndash; kun for VOEC</h2>
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Dataelement</th>
+                    <th scope="col">Obligatorisk<br/>ved VOEC</th>
+                    <th scope="col">Betinget</th>
+                    <th scope="col">Frivillig</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Fakturert verdi</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Varenummer</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">Antall kolli</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                <tr>
+                    <th scope="row" data-label="Dataelement">VOEC-nummer</th>
+                    <td class="center" data-label="Obligatorisk">X</td>
+                    <td data-label="Betinget"></td>
+                    <td data-label="Frivillig"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <br/>
+        <br/>
+
+        <h2 id="detaljerteDatakrav">Detaljerte datakrav for alle meldingstyper</h2>
+        <div class="tips_box_normal display-center flex-column">
+            <p>Her kan du laste ned en komplett oversikt:</p>
+            <a class="flex-column display-center" href="../mo-datakrav.xlsx">
+                <p>
+                    MO-datakrav
+                </p>
+                <img src="../media/excel.svg" width="49" height="46" alt="Excel file containing detailed data requirements"/>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

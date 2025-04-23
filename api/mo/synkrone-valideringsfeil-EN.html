@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview of Validation Errors for API in MO</title>
+    <meta name="description" content="Overview of validation errors for API in MO">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="synkrone-valideringsfeil.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
+        </div>
+    </a>
+</header>
+
+<main class="valideringsfeil">
+    <div id="synkrone" class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Reporting and Information</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger-EN.html">Information and Messages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Synchronous Validation Errors</li>
+            </ol>
+        </nav>
+
+        <div class="align-self-start">
+            <h2 id="Synkronevalideringsfeil">Synchronous Validation Errors</h2>
+
+            <p>Synchronous (via HTTP) validation errors are returned with status code 400 on
+                submission to the API. The cause of the validation error is returned as
+                content (body) in the response. When synchronous validation errors occur, the submission
+                is immediately rejected and not processed further until the error(s) are corrected and resubmitted.
+                If there are <em>no</em> synchronous validation errors, the response will have status code 202 and contain a field
+                &quot;requestId&quot; which is used to check for <em>asynchronous validation errors</em> during further processing.</p>
+
+            <h3 id="Innholdsformatpasynkronevalideringsfeil">Content Format of Synchronous Validation Errors</h3>
+
+            <p>Validation errors are returned as one or more objects in a list
+                &quot;validationErrors&quot;. The content of the list is one or more objects that
+                indicate which fields caused the validation error specified in the field
+                &quot;field&quot;, and the cause of the error specified in the field &quot;error&quot;.</p>
+
+            <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldWithErrorOne}",
+      "error": "${validationErrorCauseOne}"
+    },
+    {
+      "field": "${fieldWithErrorTwo}",
+      "error": "${validationErrorCauseTwo}"
+    }
+  ]
+}</pre>
+            <p>&nbsp;</p>
+        </div>
+
+        <br/>
+        <br/>
+        <br/>
+
+            <div>
+                <h3 id="Manglendeellerblankepakrevdefelt">Missing or Blank (&quot;&quot;) Required Fields</h3>
+
+                <h4 id="Svar">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "must not be null"
+    },
+    {
+      "field": "${fieldname}",
+      "error": "must not be blank"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak">Cause</h4>
+
+                <p>Required fields are missing or have empty values. Fields that cannot
+                    have empty values will return &quot;must not be blank&quot; whether they are
+                    missing or empty. All other required fields will return &quot;must not be null&quot; if they
+                    are missing.</p>
+
+                <h4 id="Rettelse">Correction</h4>
+
+                <p>
+                    The field must be included (&quot;must not be null&quot;) or must be included <em>and</em>
+                    have a value (&quot;must not be blank&quot;).
+                </p>
+            </div>
+
+            <div>
+                <h3 id="Feilformatpadatotid">Incorrect Date/Time Format</h3>
+
+                <h4 id="Svar.1">Response</h4>
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "invalid ISO-8601 instant in UTC (yyyy-MM-ddTHH:mm:ssZ)"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.1">Cause</h4>
+
+                <p>Date and time fields have incorrect format. They must follow the ISO-8601 standard.
+                    That is, be in the format: yyyy-MM-ddTHH:mm:ssZ</p>
+
+                <h4 id="Rettelse.1">Correction</h4>
+
+                <p>Change the format to follow the ISO-8601 standard in the format
+                    yyyy-MM-ddTHH:mm:ssZ.</p>
+            </div>
+
+            <div>
+                <h3 id="Feilfeltstorrelse-tall">Incorrect Field Size &ndash; Numbers</h3>
+
+                <h4 id="Svar.2">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "numeric value out of bounds (&lt;${maxInteger} digits&gt;.
+                &lt;${maxDecimalNumber} digits&gt; expected)"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.2">Cause</h4>
+
+                <p>A number has been specified that exceeds the maximum number of digits before
+                    or after the decimal point (&quot;.&quot;). Where only integers are
+                    allowed, the number after the decimal point (&quot;.&quot;, that is
+                    maxDecimalNumber) will be 0.</p>
+
+                <h4 id="Rettelse.2">Correction</h4>
+
+                <p>Change the number to be within the maximum integer
+                    (maxInteger value) and maximum number of decimal digits
+                    (maxDecimalNumber value).</p>
+            </div>
+
+            <div>
+                <h3 id="Feilfeltstorrelse-strengtekst">Incorrect Field Size &ndash; String (Text)</h3>
+
+                <h4 id="Svar.3">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "size must be between ${minLength} and ${maxLength}"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.3">Cause</h4>
+
+                <p>The content of the field has exceeded the maximum number of characters or has fewer than
+                    the minimum number of characters.</p>
+
+                <h4 id="Rettelse.3">Correction</h4>
+
+                <p>Change the content to be within the minimum and maximum size.</p>
+            </div>
+
+            <div>
+                <h3 id="Minstettavfeltenemavareoppgitt">At Least One of the Fields Must Be Specified</h3>
+
+                <h4 id="Svar.4">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "At least one of the following fields should be non null:
+                [${fieldOne}, ${fieldTwo}]"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.4">Cause</h4>
+
+                <p>In some cases, at least one of several fields must be specified. The object
+                    specified (fieldname) must contain a value in at least one of the specified fields.</p>
+
+                <h4 id="Rettelse.4">Correction</h4>
+
+                <p>Ensure that at least one of the specified fields is provided and has a valid value on
+                    the object.</p>
+            </div>
+
+            <div>
+                <h3 id="Mahaenpakrevdverdier">Must Have One of the Specified Values</h3>
+
+                <h4 id="Svar.5">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "validationErrors": [
+    {
+      "field": "${fieldname}",
+      "error": "Must be one of [${valueOne}, ${valueTwo}]"
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.5">Cause</h4>
+
+                <p>The field (fieldname) must have a value and can only have one of the specified
+                    values.</p>
+
+                <h4 id="Rettelse.5">Correction</h4>
+
+                <p>Submit the field with one of the specified values.</p>
+            </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                                   class="white">Contact us</a>
+</footer>
+
+</body>
+</html>

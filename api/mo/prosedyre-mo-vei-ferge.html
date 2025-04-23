@@ -1,0 +1,2007 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="prosedyre-mo-vei-ferge-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main class="mo-api">
+    <div style="align-self: normal" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Utfyllingsprosedyre - MO - vei/ferge</li>
+            </ol>
+        </nav>
+            <h1>Hvordan fylle ut melding om forsendelse, vei/ferge</h1>
+
+            <h2 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h2>
+            <p>
+                Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
+            </p>
+
+            <pre class="boxed-display">
+POST https://&lt;env&gt;/api/movement/road/v2/transport
+POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
+POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
+
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/master-consignment/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/road/v2/house-consignment/{MRN}
+
+GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
+
+</pre>
+            <p>
+                der
+            </p>
+            <ul>
+                <li>
+                    <b>&lt;env&gt;</b> byttes ut med
+                    <ul>
+                        <li><i>api.toll.no</i> for produksjon</li>
+                        <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+                </li>
+                <li>
+                    <b>{MRN}</b> byttes ut med referansen som returneres
+                    fra ".../validation-status..."-endepunktene.
+                </li>
+            </ul>
+
+            <p class="tips_box">
+                Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
+                vi deg ta kontakt; <a href="https://toll.no/.well-known/security.txt">se
+                her for info</a>
+            </p>
+
+        <h2>API Tjenester</h2>
+        <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-road-api-v2.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten
+            settes til <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            Se <strong><a href="movement-road-query-api-v2.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>Se <strong><a href="movement-presentation-api.html">API-dokumentasjon her</a></strong>.</p>
+
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>Se <strong><a href="movement-routing-api.html">API-dokumentasjon her</a></strong>.</p>
+    </div>
+
+    <br/>
+    <br/>
+
+    <div class="table-responsive">
+        <h3>IMMEDIATE_RELEASE_IMPORT</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+                            før ferge til Larvik)</p>
+                    </td>
+                    <td>
+                        <p>Det er på forhånd levert deklarasjon for overgang til fri
+                            disponering.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved
+                            grensepassering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter der denne kombinasjonen er gyldig</strong></td>
+                    <td>Fly, tog, bil på ferge</td>
+                    <td>Bil på vei</td>
+                    <td colspan='2'>Tog, bil på vei, bil på ferge</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 1</th>
+                    <th>Variant 2</th>
+                    <th colspan='2'>Variant 3</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_IMPORT</p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_IMPORT</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>IMMEDIATE_RELEASE_IMPORT</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>OG liste må ha ett
+                            innslag av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green)'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
+                            INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td colspan='2' style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>Transittering er startet opp i annet land. Fullføring av transitteringen
+                            skal utføres ved lossing. Ved grensepassering skal det kun registreres
+                            grensepassering i NCTS</p>
+                    </td>
+                    <td>
+                        <p>Transittering skal startes opp på grensen.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                    <td>Bil på vei/ferge, tog</td>
+                    <td>Bil på vei</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 4</th>
+                    <th>Variant 5</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRANSIT_IMPORT</p>
+                    </td>
+                    <td>
+                        <p>TRANSIT_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                    <td>
+                        <p>må være = RETR</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <h3>IMMEDIATE_RELEASE_VOEC</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>VOEC-forsendelser.</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under
+                            verdigrensen for krav om eksport.</p>
+                    </td>
+                    <td>
+                        <p>VOEC-forsendelse.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                    <td>
+                        <p>VOEC-forsendelse.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved
+                            grensepassering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                    <td>Bil på vei/ferge, tog, fly</td>
+                    <td>Bil på vei</td>
+                    <td>Bil på vei/ferge, tog</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 6</th>
+                    <th>Variant 7</th>
+                    <th>Variant 8</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_VOEC</p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_VOEC</p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_VOEC</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>goodsItem</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>itemAmountInvoicedVOEC</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>value</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>numberOfItems</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>commodityCodeVOEC</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>harmonizedSystemSubheadingCode</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>additionalFiscalReferences</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>vatIdentificationNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <h3>WAREHOUSE_RELEASE</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+                            før ferge til Larvik)</p>
+                    </td>
+                    <td>
+                        <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>Det er på forhånd levert deklarasjon for innlegg på tollager.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved
+                            grensepassering.</p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som skal godsregistreres ved grensepassering</p>
+                        <p>Eksport er foregående prosedyre og skal klareres ved grensepassering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                    <td>Bil på ferge, fly</td>
+                    <td>Bil på vei</td>
+                    <td colspan='2'>Bil på vei/ferge, tog</td>
+                    <td>Bil på vei</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 9</th>
+                    <th>Variant 10</th>
+                    <th colspan='2'>Variant 11</th>
+                    <th>Variant 18</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>WAREHOUSE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>WAREHOUSE_RELEASE</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>WAREHOUSE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>WAREHOUSE_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>TRA</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>OG liste må ha ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                    <td>
+                        <p>må være = GONU</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td colspan='2' style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <h3>COLLECTIVE_RELEASE</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+                            før ferge til Larvik)</p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som skal samlefortolles etter grensepassering.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved
+                            grensepassering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                    <td>Bil på ferge, fly</td>
+                    <td>Bil på vei</td>
+                    <td>Bil på vei/ferge, tog</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 12</th>
+                    <th>Variant 13</th>
+                    <th>Variant 14</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>OG liste må ha ett
+                            innslag av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'></td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <p>&nbsp;</p>
+
+        <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
+                            før ferge til Larvik)</p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+                        <p>EU/svensk-eksport er foregående prosedyre og skal klareres ved
+                            grensepassering</p>
+                    </td>
+                    <td>
+                        <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved
+                            grensepassering.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Aktuelle transportmåter</strong></td>
+                    <td>Bil på ferge, fly</td>
+                    <td>Bil på vei</td>
+                    <td>Bil på vei/ferge, tog</td>
+                </tr>
+                <tr>
+                    <th>Felt</th>
+                    <th>Kodeverk</th>
+                    <th>Variant 15</th>
+                    <th>Variant 16</th>
+                    <th>Variant 17</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>må fylles ut</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a
+                                href="mo-kodeverk.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>OG liste må ha ett
+                            innslag av type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p title=""><a
+                                href="mo-kodeverk.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a
+                                href="mo-kodeverk.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Mulige
+                            valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                            at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p><a
+                                href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
+                    </td>
+                    <td style='background:#D5DCE4;'></td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

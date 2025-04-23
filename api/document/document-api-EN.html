@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for uploading documents</title>
+    <meta name="description" content="Norwegian Customs' API for uploading documents">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../document/document-api.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flagg">
+        </div>
+    </a>
+</header>
+
+<main class="document-api">
+    <div class="about-section align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Document upload</li>
+            </ol>
+        </nav>
+
+        <h1 id="omtjenesten">About the service</h1>
+        <p>
+            <img src="../media/file-upload-icon.svg"
+                 alt="fileUpload"
+                 class="img-right">
+            The API supports the submission of documents.
+        </p>
+
+        <p>
+            Norwegian Customs now makes it possible to submit relevant
+            supporting documentation for declarations in advance, making
+            it available to customs before the goods arrive at the border.
+            This is intended to reduce the number of times it will be
+            necessary for Norwegian Customs to contact the submitter for
+            document inspection, as the relevant documentation
+            is already available.
+        </p>
+
+        <br/>
+
+        <p>
+            We urge as many Digitoll and direct customs clearance users
+            (those who declare against units <strong>441002 and
+            441003</strong>) as possible to use this API to submit
+            supporting documentation related to the customs declaration.
+            Documents such as invoices, permits, freight invoices,
+            proof of origin documentation, or waybills can be submitted
+            unsolicited and in advance.
+        </p>
+
+        <br/>
+
+        <p>
+            The documents may also be submitted via the API when Norwegian
+            Customs requires a document inspection, if they are not
+            submitted in advance.
+        </p>
+
+        <br/>
+
+        <p>
+            The documents must be linked to the customs declaration in TVINN.
+            <br/>
+            To use the service, the scope for authentication in
+            Maskinporten must be set
+            to <strong>toll:goodsdeclaration/document.write</strong>
+        </p>
+
+        <h1 id="grensesnitt">Interface description</h1>
+
+        <p>
+            The services are made available as REST services over HTTPS,
+            with data in JSON format.
+        </p>
+
+
+        <pre class="boxed-display">
+POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+        </pre>
+        <p>
+            where
+        </p>
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> is replaced with
+                <ul>
+                    <li><i>api.toll.no</i> for production</li>
+                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>{DeclarationID}</strong> is TVINN declaration
+                ID, divided into three parts in the following format:
+                "123456789-01092023-1":
+                <ol>
+                    <li>The first part is the declarant number</li>
+                    <li>The second part is the declaration date in the format "ddmmyyyy"</li>
+                    <li>The third part is the sequence number.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <p>
+            See detailed
+            <strong><a href="document-api-link.html">API
+                documentation here</a></strong>.
+        </p>
+
+        <p class="tips_box">
+            If you discover security issues in our solutions, please
+            contact us; <a href="https://toll.no/.well-known/security.txt">see
+            info here</a>
+        </p>
+
+        <h2 id="HTTPRequest">HTTP Request</h2>
+        <p>
+            <b>Method</b>: POST<br/>
+            <b>Endpoint</b>: /goodsdeclaration/document/v2/declaration-id/<strong>{DeclarationID}</strong>/document
+        </p>
+
+        <h3 id="Headers">Headers:</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Header</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Authorization</td>
+                <td>Bearer "TOLL ACCESS TOKEN"</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>
+            The required token must be a Toll-signed JWT with the scope
+            <strong>toll:goodsdeclaration/document.write</strong>
+            from Maskinporten (see description of authentication further down the page).
+        </p>
+
+        <h3 id="Body">Body:</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Media Type</td>
+                <td>Form Data</td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td>
+                    <ul>
+                        <li><strong>metadata</strong>:
+                            {&quot;declarationId&quot;: &quot;Insert declaration-id here&quot;,
+                            &quot;documentType&quot;: &quot;Insert document type here&quot;}
+                        </li>
+                        <li><strong>file</strong>: Your document</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Document type must be one of</td>
+                <td>
+                    <ul>
+                        <li>invoice</li>
+                        <li>permits</li>
+                        <li>freight invoice</li>
+                        <li>proof of origin documentation</li>
+                        <li>waybill</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>File type must be one of</td>
+                <td>
+                    <ul>
+                        <li>pdf</li>
+                        <li>jpg</li>
+                        <li>png</li>
+                        <li>txt</li>
+                        <li>doc</li>
+                        <li>docx</li>
+                        <li>xls</li>
+                        <li>xlsx</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Maximum file size</td>
+                <td>
+                    <ul>
+                        <li>
+                            Maximum 10MB per attachment.
+                            If the attachment is larger, you must split it into multiple parts, each smaller than 10MB.
+                        </li>
+                        <li>
+                            Note! The order of the fields in the content must be the same as specified above
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h1 id="EksempelPostman">Postman Example</h1>
+
+        <h2 id="pmBody">Body</h2>
+        <img src="../media/document-postman-body.png" alt="Screenshot from Postman"/>
+
+        <h2 id="pmAuth">Auth</h2>
+        <img src="../media/document-postman-auth.png" alt="Screenshot from Postman"/>
+
+        <h2 id="aut">Authentication – Data exchange between the business sector and Norwegian Customs</h2>
+        <p>
+            Our APIs use Maskinporten for identity and access management.
+            On the page <b><a href="../maskinporten/maskinporten.html">Maskinporten - Norwegian Customs</a></b> you will
+            find information on
+        </p>
+        <ul>
+            <li>
+                how to get started with integration via Maskinporten if you have not done so before,
+                including a registration form for access to Norwegian Customs
+            </li>
+            <li>Access management for our APIs</li>
+            <li>Setting up a client for authentication via Maskinporten</li>
+            <li>Operations and monitoring/troubleshooting.</li>
+        </ul>
+        <p>
+            The scope used for this API is <b>toll:goodsdeclaration/document.write</b>.
+        </p>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2024 | <a
+        href="https://www.toll.no/en/about-norwegian-customs/contact-us/"
+        class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

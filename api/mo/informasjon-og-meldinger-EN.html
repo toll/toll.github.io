@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information and Messages</title>
+    <meta name="description" content="Information and Messages">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="informasjon-og-meldinger.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian">
+        </div>
+    </a>
+</header>
+
+<main class="informasjon-og-meldinger">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Information and Messages</li>
+            </ol>
+        </nav>
+
+        <div class="about-section">
+            <h1 id="infomld">Information and Messages</h1>
+            <p>
+                The APIs support the submission of information
+                related to the notification and information
+                obligation for mail, express, air freight, road
+                vehicles, and ferries in accordance with the Goods
+                Transport Act § 2-3 and the regulations on the
+                import and export of goods.
+            </p>
+
+            <p>The submission APIs are divided into 3 different messages:</p>
+            <ol class="spaced-list">
+                <li>one for submitting information about transport</li>
+                <li>one for submitting information about master consignment</li>
+                <li>one for submitting information about consignments</li>
+            </ol>
+
+            <p>
+                The messages are submitted separately and
+                independently of each other in terms of both order
+                and sender. The transport message must, at border
+                crossing, contain a list of tracking numbers for all
+                master consignments and/or consignments that will be
+                on the transport. Note that consignments can be
+                linked to transport directly or via master
+                consignment on the same transport.<br/> Consignment
+                is linked to the master consignment or to the
+                transport:
+            </p>
+            <ul class="spaced-list">
+                <li>
+                    by specifying the master consignment's waybill
+                    number in the consignment message (can be used
+                    by all except postal operators)
+                </li>
+                <li>
+                    by the transport containing a list of
+                    consignments (can be used by all except postal
+                    operators)
+                </li>
+            </ul>
+        </div>
+
+        <h1 id="Sekvensforinnsending-synkronogasynkronrespons">Submission Sequence &ndash; Synchronous and Asynchronous Response</h1>
+
+        <p>See also documentation
+            here: <a href="mo-vei-EN.html#hvordanSende">mo-vei.html#hvordanSende</a>,
+            this is the same for all modes of transport.</p>
+
+        <p>In general, the submission of information works so
+            that the actor sends a message (POST) and receives a
+            reference (requestId). By using the received
+            reference, the actor can query (GET) the result of
+            the submission and, if successful, receive a
+            permanent reference to the message, issued by
+            Norwegian Customs. This is done at a separate
+            endpoint (/validation-status) in the query API
+            linked further down this page. These services are
+            asynchronous, and you must query until you get a
+            response. Validation response is usually available
+            within 1 to 2 seconds, but it may take longer in
+            some cases.<br> Querying is done at the
+            /validation-status endpoint, which will return the
+            permanent reference, a Master Reference Number (MRN)
+            upon success, and a list of validation errors if
+            any.</p>
+
+        <p>Example of submission sequence for consignment (house consignment). The pattern is the same for the other
+            messages, master consignment, and transport.</p>
+
+        <figure style="margin-top: 30px">
+            <img style="width: 850px; height: 50%" src="../media/mo-valideringsfeil-EN.png" alt="See figure text"/>
+            <figcaption>Figure: submission sequence for consignment (house consignment)</figcaption>
+        </figure>
+
+        <p>&nbsp;</p>
+
+        <p>MRN is used when messages need to be updated or
+            canceled (put/delete) to refer to previously submitted
+            messages. The validation endpoint can also return a list
+            of document statuses to indicate missing information,
+            see
+            <a href="mo-kodeverk.html#incompleteDocumentationReason">mo-kodeverk.html#incompleteDocumentationReason</a>.
+            The
+            recommended method for submission is for the actor to
+            submit all relevant messages for creation (POST), then
+            wait 1-2 seconds before querying for validation (query
+            API).</p>
+
+        <p>For example: if you have 500 consignments for a
+            master consignment on a transport, you submit (POST) all
+            500 consignment messages, wait a couple of seconds,
+            request validation, and get back MRN and status for all
+            500 messages. If you get status 404 when calling the
+            validation endpoint, you need to wait a bit and query
+            again. It is recommended to create an algorithm that
+            makes repeated attempts until the validation response is
+            received.</p>
+
+        <div class="index-buttons-container">
+            <div class="buttons-section">
+                <a href="hvordan-sende-inn-meldinger-EN.html"
+                   class="new-page-button no-icon">
+                    <p>Transport, master consignments, and consignments - how to submit messages</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="synkrone-valideringsfeil-EN.html"
+                   class="new-page-button no-icon">
+                    <p>Synchronous validation errors</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="asynkrone-valideringsfeil-EN.html"
+                   class="new-page-button no-icon">
+                    <p>Asynchronous validation errors</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+                <a href="ufullstendig-dokumentasjon-EN.html"
+                   class="new-page-button no-icon">
+                    <p>Incomplete documentation</p>
+                    <div>
+                        <img src="../../media/arrow-right.svg" alt="arrow-right">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a
+        href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

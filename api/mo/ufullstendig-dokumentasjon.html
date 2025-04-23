@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oversikt over valideringsfeil for API i MO</title>
+    <meta name="description" content="Oversikt valideringsfeil for API i MO">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="ufullstendig-dokumentasjon-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav" >
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="valideringsfeil">
+    <div class="align-self-start">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="informasjon-og-meldinger.html">Informasjon og meldinger</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Ufullstendig dokumentasjon</li>
+            </ol>
+        </nav>
+    </div>
+
+    <div class="align-self-start about-section" role="main">
+        <div class="about-section-text">
+            <h2 id="UfullstendingdokumentasjonIncompletedocumentation">Ufullstendig dokumentasjon / Incomplete
+                documentation</h2>
+
+            <p>I visse tilfeller kan informasjonen som er sendt inn ikke være nok til å
+                fullføre behandling. På endepunktet
+                &quot;/house-consignment/validation-status/{requestIds}&quot; vil man da få en
+                liste med årsakskoder under &quot;incompleteDocumentationReasonList&quot;. Det
+                er også mulig å spørre på endepunktene
+                &quot;/house-consignment/transport-document/status&quot; eller
+                &quot;/master-consignment/transport-document/status&quot; for å få denne
+                informasjonen.</p>
+        </div>
+
+            <div>
+                <h3 id="Spesifisertfeltkanikkehaenverdinarmanharoppgittspesifiserttollprosedyre">Spesifisert felt kan ikke ha en verdi når man har oppgitt spesifisert tollprosedyre (&quot;importProcedure&quot; er X)</h3>
+                <h4 id="Svar.30">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field cannot be filled out when consignmentHouseLevel.importProcedure is ${importProcedureType}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldName}"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.30">Cause</h4>
+                <p>Dersom man har angitt at tollprosedyre (&quot;importProcedure&quot;) er
+                    angitt verdi, kan man ikke fylle ut dette feltet, det vil si feltet som er
+                    angitt i &quot;messageElementPath&quot;. Denne feilen kommer når angitt
+                    tollprosedyre er forskjellig fra &quot;IMMEDIATE_RELEASE_IMPORT&quot; samtidig
+                    som man angir verdier i feltene som skal fortelle om referansen til
+                    tolldeklarasjonen.
+                    (&quot;consignmentHouseLevel.previousDocuments.sequenceNumber&quot;, og/eller
+                    &quot;consignmentHouseLevel.previousDocuments.declarantNumber&quot; og/eller
+                    &quot;consignmentHouseLevel.previousDocuments.declarationDate&quot;)</p>
+                <h4 id="Rettelse.30">Correction</h4>
+                <p>Enten endre importProcedure eller fjern verdien i dette feltet. Send inn på
+                    nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+                    verifiser at asynkron validering for denne returner feltet
+                    &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+            </div>
+
+            <div>
+                <h3 id="FeltkanikkehaenverdifortransitteringdersommanharangittprosedyrensomforsendelsenvarunderlagtfremtilgrensepasseringinniNorge">Felt kan ikke ha en verdi for transittering (&quot;N820&quot;) dersom man har angitt prosedyren som forsendelsen var underlagt frem til grensepassering inn i Norge (&quot;outgoing procedure&quot;), som eksport (&quot;EXP&quot;)</h3>
+                <h4 id="Svar.31">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field cannot have value N820 out when consignmentHouseLevel.outgoingProcedure is EXP",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].typeOfReference"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.31">Cause</h4>
+                <p>Dersom man har angitt at prosedyren som forsendelsen var underlagt frem til
+                    grensepassering inn i Norge (&quot;outgoingProcedure&quot;) er eksport (med
+                    verdi &quot;EXP&quot;), kan man ikke oppgi verdien &quot;N820&quot; i
+                    dette feltet. Dette gjelder referanser til tidligere tollprosedyrer som
+                    varene har vært underlagt. Dersom man oppgir at tidligere tollprosedyre er
+                    eksport, så kan man ikke henvise til en referanse til transittering.<br>
+                    Se valg av tollprosedyre <a
+                            href="mo-vei.html#utfyllingForsend">mo-vei.html#utfyllingForsend</a></p>
+                <h4 id="Rettelse.31">Correction</h4>
+                <p>Enten endre verdien i feltet eller outgoingProcedure. Send inn på nytt.
+                    Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+                    verifiser at asynkron validering for denne returner feltet
+                    &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+            </div>
+
+            <div>
+                <h3 id="Nårreferertdokumentertolldeklarasjonsaerdetspesifisertefeltetobligatorisk">Når referert dokument (&quot;typeReference&quot;) er tolldeklarasjon (&quot;CUDE&quot;), er det spesifiserte feltet obligatorisk</h3>
+                <h4 id="Svar.32">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Required field when typeReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].${fieldRequired}"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.32">Cause</h4>
+                <p>Man har angitt at referert dokument er tolldeklarasjon
+                    (&quot;typeReference&quot; med verdi &quot;CUDE&quot;), da må man også oppgi
+                    verdi i det spesifisert feltet (feltet er spesifisert i feilmeldingen).</p>
+                <h4 id="Rettelse.32">Correction</h4>
+                <p>Enten endre typeReference eller oppgi verdi for feltet. Send inn på
+                    nytt. Bruk ny &quot;requestId&quot; man får i retur for ny innsendelse og
+                    verifiser at asynkron validering for denne returner feltet
+                    &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+            </div>
+
+            <div>
+                <h3 id="Dersommanangittenellerfleredokumentreferansermatollprosedyrevareoppgitt">Dersom man angitt en eller flere dokumentreferanser (&quot;previousDocument&quot;) må tollprosedyre (feltet &quot;importProcedure&quot;) være oppgitt</h3>
+                <h4 id="Svar.33">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "importProcedure is required when any consignmentHouseLevel.previousDocuments[] is provided",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.importProcedure"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.33">Cause</h4>
+                <p>Man har sendt inn ett eller flere referanser til dokumenter (objekter i
+                    &quot;previousDocuments&quot; listen), men ikke oppgitt en tollprosedyre (verdi
+                    i &quot;importProcedure&quot; feltet).</p>
+                <h4 id="Rettelse.33">Correction</h4>
+                <p>Enten oppgi en verdi for importProcedure feltet eller fjern alle objekter i
+                    previousDocuments listen. Send inn på nytt. Bruk ny &quot;requestId&quot;
+                    man får i retur for ny innsendelse og verifiser at asynkron validering for
+                    denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+                    behandling er ferdig.</p>
+            </div>
+
+            <div>
+                <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot; listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
+                <h4 id="Svar.34">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "PreviousDocuments can only contain one document of type CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.34">Cause</h4>
+                <p>Man har sendt mer enn en tolldeklarasjon (objekt i
+                    &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
+                    &quot;typeOfReference&quot;.<br>
+                    Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
+                <h4 id="Rettelse.34">Correction</h4>
+                <p>Påse at man kun har ett objekt med typeOfReference verdien &quot;CUDE&quot;
+                    i previousDocuments-listen.<br>
+                    Send inn på nytt. Bruk ny &quot;requestId&quot; man får i retur for ny
+                    innsendelse og verifiser at asynkron validering for denne returner feltet
+                    &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny behandling er ferdig.</p>
+            </div>
+
+            <div>
+                <h3 id="Dersomdokumentreferanseernoeannetenntilentolldeklarasjonmareferansenoppgisifeltet">Dersom dokumentreferanse er noe annet enn til en tolldeklarasjon (&quot;typeOfReference&quot; &lt;&gt; &quot;CUDE&quot;) må referansen oppgis i feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; objektet</h3>
+                <h4 id="Svar.35">Response</h4>
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}"
+  "validationErrorList": [
+    {
+      "description": "Field should have value unless typeOfReference is CUDE",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+                <h4 id="Aarsak.35">Cause</h4>
+                <p>Når det angis referanse til andre typer dokumenter enn tolldeklarasjon skal
+                    feltet &quot;referenceNumber&quot; i &quot;previousDocuments&quot; benyttes for
+                    å oppgi denne referansen (typisk MRN eller lignende).<br>
+                    Man har sendt inn et objekt i &quot;previousDocuments&quot;-listen med en verdi
+                    som <em>ikke</em> er &quot;CUDE&quot; i feltet
+                    &quot;typeOfReference&quot;, samtidig som man <em>ikke</em> har angitt en verdi
+                    i feltet &quot;referenceNumber&quot;.<br>
+                    Det er påkrevd at dette feltet er angitt med en verdi med mindre
+                    &quot;typeOfReference&quot; har verdien &quot;CUDE&quot;.</p>
+                <h4 id="Rettelse.35">Correction</h4>
+                <p>Endre objektet til å ha til å ha verdien &quot;CUDE&quot; i
+                    typeOfReference-feltet, eller legg inn gyldig verdi i
+                    referenceNumber-feltet. Send inn på nytt. Bruk ny &quot;requestId&quot;
+                    man får i retur for ny innsendelse og verifiser at asynkron validering for
+                    denne returner feltet &quot;status&quot; med verdien &quot;SUCCESS&quot; når ny
+                    behandling er ferdig.</p>
+            </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="white">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

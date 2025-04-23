@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for opplasting av dokumenter</title>
+    <meta name="description" content="Tolletatens API for opplasting av dokumenter">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../document/document-api-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Engelsk flagg">
+        </div>
+    </a>
+</header>
+
+
+<main class="document-api">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Dokumentopplastning</li>
+            </ol>
+        </nav>
+
+        <h1 id="omtjenesten">Om tjenesten</h1>
+        <p>
+            <img src="../media/file-upload-icon.svg"
+                 alt="opplasting"
+                 class="img-right"/>
+            API-et støtter maskinell innsending av
+            underlagsdokumenter.
+        </p>
+
+        <p>
+            Tolletaten gjør det nå mulig å sende inn all nødvendig
+            underlagsdokumentasjon til deklarasjoner på forhånd, slik at
+            den er tilgjengelig for Tolletaten før varene ankommer
+            grensen. Dette kan bidra til redusert behov for å bli
+            kontaktet i forbindelse med for eksempel dokumentkontroll,
+            siden Tolletaten allerede har den nødvendige dokumentasjonen.
+        </p>
+
+        <br/>
+
+        <p>
+            Vi ønsker at så mange som mulig av virksomhetene som
+            deklarerer i Digitoll (mot ekspedisjonsenhetene <strong>441002 og
+            441003</strong>), tar i bruk API-et for innsending av
+            underlagsdokumentasjon knyttet til tolldeklarasjonen.
+            Dokumenter som faktura, tillatelser, fraktregning,
+            opprinnelsesdokumentasjon eller fraktbrev, kan sendes
+            uoppfordret og på forhånd.
+        </p>
+
+        <br/>
+
+        <p>
+            Dokumentene kan også sendes inn via API-et i de tilfellene
+            hvor Tolletaten krever dokumentkontroll, om man ikke har sendt
+            de på forhånd.
+        </p>
+
+        <br/>
+
+        <p>
+            Dokumentene knyttes til tolldeklarasjonen i TVINN.
+            <br/>
+            For å kunne bruke tjenesten må scope for autentisering mot
+            Maskinporten settes
+            til <strong>toll:goodsdeclaration/document.write</strong>
+        </p>
+
+
+        <h1 id="grensesnitt">Grensesnittbeskrivelse</h1>
+
+        <p>
+            Tjenestene gjøres tilgjengelige som en REST-tjenester over
+            HTTPS, med data på JSON-format.
+        </p>
+
+        <pre class="boxed-display">
+POST https://&lt;env&gt;/api/goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+        </pre>
+        <p>
+            der
+        </p>
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> byttes ut med
+                <ul>
+                    <li><i>api.toll.no</i> for produksjon</li>
+                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>{DeklarasjonsID}</strong> er TVINN
+                deklarasjons-ID, delt opp i tre deler som angis på
+                følgende format: "123456789-01092023-1"
+                <ol>
+                    <li>Første del er deklarantnummer</li>
+                    <li>Andre del deklarasjonsdato på format "ddmmyyyy"</li>
+                    <li>Tredje del sekvensnummer.</li>
+                </ol>
+            </li>
+        </ul>
+
+        <p>
+            Se detaljert &nbsp;<strong><a href="document-api-link.html">API-dokumentasjon her</a></strong>.
+        </p>
+
+        <p class="tips_box">
+            Dersom du oppdager sikkerhetsutfordringer i våre løsninger ber
+            vi deg ta kontakt; <a href="https://toll.no/.well-known/security.txt">se
+            her for info</a>
+        </p>
+
+        <h2 id="HTTPRequest">HTTP Request</h2>
+        <p>
+            <b>Metode</b>: POST<br/>
+            <b>Endepunkt</b>: /goodsdeclaration/document/v2/declaration-id/<strong>{DeklarasjonsID}</strong>/document
+        </p>
+
+        <h3 id="Headers">Header:</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Header</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Authorization</td>
+                <td>Bearer "TOLL ACCESS TOKEN"</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>
+            Tokenet som kreves er et Toll-signert JWT med scopet
+            <strong>toll:goodsdeclaration/document.write</strong>
+            fra Maskinporten (se beskrivelse av autentisering lenger ned på siden).
+        </p>
+
+        <h3 id="Body">Body:</h3>
+        <table>
+            <thead>
+            <tr class="header">
+                <th scope="col">Key</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Media Type</td>
+                <td>Form Data</td>
+            </tr>
+            <tr>
+                <td>Innhold</td>
+                <td>
+                    <ul>
+                        <li><strong>metadata</strong>:
+                            {&quot;declarationId&quot;: &quot;Sett inn deklarasjons-id her&quot;,
+                            &quot;documentType&quot;: &quot;Sett inn dokumenttype her&quot;}
+                        </li>
+                        <li><strong>file</strong>: Ditt dokument</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Dokumenttype må være en av</td>
+                <td>
+                    <ul>
+                        <li>faktura</li>
+                        <li>tillatelser</li>
+                        <li>fraktregning</li>
+                        <li>opprinnelsesdokumentasjon</li>
+                        <li>fraktbrev</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Filtype må være en av</td>
+                <td>
+                    <ul>
+                        <li>pdf</li>
+                        <li>jpg</li>
+                        <li>png</li>
+                        <li>txt</li>
+                        <li>doc</li>
+                        <li>docx</li>
+                        <li>xls</li>
+                        <li>xlsx</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Maks filstørrelse</td>
+                <td>
+                    <ul>
+                        <li>
+                            Maks 10MB i filstørrelse per vedlegg.
+                            Dersom vedlegget er større, må du dele denne opp i flere deler som hver er mindre enn 10MB.
+                        </li>
+                        <li>
+                            NB! Rekkefølgen på feltene i innholdet må være samme som oppgitt over
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <h1 id="EksempelPostman">Eksempel i Postman</h1>
+
+        <h2 id="pmBody">Body</h2>
+        <img src="../media/document-postman-body.png" alt="Skjermbilde fra Postman"/>
+
+        <h2 id="pmAuth">Auth</h2>
+        <img src="../media/document-postman-auth.png" alt="Skjermbilde fra Postman"/>
+
+
+        <h2 id="aut">Autentisering – Datautveksling mellom næringslivet og Tolletaten</h2>
+        <p>
+            Våre API-er benytter Maskinporten for identitets- og tilgangsstyring.
+            På siden <b><a href="../maskinporten/maskinporten.html">Maskinporten - Tolletaten</a></b> finner du
+            informasjon bl.a. om
+        </p>
+        <ul>
+            <li>
+                hvordan du kommer i gang med integrasjon via Maskinporten om du ikke har gjort det før,
+                inkludert registreringsskjema for tilgang hos Tolletaten
+            </li>
+            <li>tilgangsstyring for våre API-er</li>
+            <li>hvordan sette opp en klient for å autentisere via Maskinporten</li>
+            <li>drift og overvåking/feilsøking.</li>
+        </ul>
+        <p>
+            Scopet som benyttes for dette API-et er <b>toll:goodsdeclaration/document.write</b>.
+        </p>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
