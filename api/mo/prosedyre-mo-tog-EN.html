@@ -32,7 +32,7 @@
 </header>
 
 <main class="mo-api">
-    <div role="main">
+    <div style="align-self: normal" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
@@ -41,15 +41,14 @@
             </ol>
         </nav>
 
-        <div style="width: 70%;" class="flex-column">
-            <h1>How to fill out a shipment report, train</h1>
+        <h1>How to fill out a shipment report, train</h1>
 
-            <h2 id="Grensesnittbeskrivelse">Interface description</h2>
-            <p>
-                The services are made available as REST services over HTTPS, with data in JSON format.
-            </p>
+        <h2 id="Grensesnittbeskrivelse">Interface description</h2>
+        <p>
+            The services are made available as REST services over HTTPS, with data in JSON format.
+        </p>
 
-            <pre class="boxed-display">
+        <pre class="boxed-display">
 POST https://&lt;env&gt;/api/movement/rail/v1/transport
 POST https://&lt;env&gt;/api/movement/rail/v1/master-consignment
 POST https://&lt;env&gt;/api/movement/rail/v1/house-consignment
@@ -62,34 +61,34 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/transport/validation-status/
 GET https://&lt;env&gt;/api/movement/rail/status/v1/master-consignment/validation-status/{requestId}
 GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation-status/{requestId}
             </pre>
-            <p>
-                where
-            </p>
-            <ul>
-                <li>
-                    <b>&lt;env&gt;</b> is replaced with
-                    <ul>
-                        <li><i>api.toll.no</i> for production</li>
-                        <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>{requestId}</b> is replaced with the reference
-                    returned by POST/PUT/DELETE calls
-                </li>
-                <li>
-                    <b>{MRN}</b> is replaced with the reference returned
-                    from ".../validation-status..." endpoints.
-                </li>
-            </ul>
+        <p>
+            where
+        </p>
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> is replaced with
+                <ul>
+                    <li><i>api.toll.no</i> for production</li>
+                    <li><i>api-test</i>.toll.no for playground (testing environment)</li>
+                </ul>
+            </li>
+            <li>
+                <b>{requestId}</b> is replaced with the reference
+                returned by POST/PUT/DELETE calls
+            </li>
+            <li>
+                <b>{MRN}</b> is replaced with the reference returned
+                from ".../validation-status..." endpoints.
+            </li>
+        </ul>
 
-            <p class="tips_box">
-                If you discover security issues in our solutions, please contact us; <a
-                    href="https://toll.no/.well-known/security.txt">see here for info</a>
-            </p>
+        <p class="tips_box">
+            If you discover security issues in our solutions, please contact us; <a
+                href="https://toll.no/.well-known/security.txt">see here for info</a>
+        </p>
 
-            <h2>API Services</h2>
-        </div>
+        <h2>API Services</h2>
+
 
         <h3 id="movement-rail-api">API: movement-rail-api</h3>
         <p>
@@ -113,1312 +112,1336 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
 
         <h3 id="movement-routing-api">API: movement-routing-api</h3>
         <p>See <strong><a href="movement-routing-api.html">API documentation here</a></strong>.</p>
+    </div>
 
-        <br/>
-        <br/>
+    <br/>
+    <br/>
+
+    <div class="table-responsive">
 
         <h4>IMMEDIATE_RELEASE_IMPORT</h4>
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td>
-                    <p>A declaration for transition to free disposal has been submitted in advance.</p>
-                    <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
-                        ferry to Larvik)</p>
-                </td>
-                <td colspan='2'>
-                    <p>A declaration for transition to free disposal has been submitted in advance.</p>
-                    <p>Transit is the previous procedure and must be completed at the border crossing.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong></td>
-                <td>Air, train, car on ferry</td>
-                <td colspan='2'>Train, car on road, car on ferry</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th>Variant 1</th>
-                <th colspan='2'>Variant 3</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td colspan='2' style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td>
-                    <p>IMMEDIATE_RELEASE_IMPORT</p>
-                </td>
-                <td colspan='2'>
-                    <p>IMMEDIATE_RELEASE_IMPORT</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td colspan='2'>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>false</p>
-                </td>
-                <td colspan='2'>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>AND list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>must be = CUDE</p>
-                </td>
-                <td>
-                    <p>must be = CUDE</p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green)'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td colspan='2'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td colspan='2'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than upon arrival at the border.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
-                </td>
-                <td colspan='2'>
-                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td>
+                        <p>A declaration for transition to free disposal has been submitted in advance.</p>
+                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                            ferry to Larvik)</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>A declaration for transition to free disposal has been submitted in advance.</p>
+                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong></td>
+                    <td>Air, train, car on ferry</td>
+                    <td colspan='2'>Train, car on road, car on ferry</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th>Variant 1</th>
+                    <th colspan='2'>Variant 3</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_IMPORT</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>IMMEDIATE_RELEASE_IMPORT</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>false</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>must be = CUDE</p>
+                    </td>
+                    <td>
+                        <p>must be = CUDE</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green)'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <p>&nbsp;</p>
 
         <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
 
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td>
-                    <p>Transit has started in another country. Completion of the transit must be performed at unloading.
-                        At the border crossing, only the border crossing should be registered in NCTS.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                <td>Car on road/ferry, train</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th>Variant 4</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td>
-                    <p>TRANSIT_IMPORT</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'></td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'></td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than upon arrival at the border.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td>
+                        <p>Transit has started in another country. Completion of the transit must be performed at
+                            unloading.
+                            At the border crossing, only the border crossing should be registered in NCTS.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                    <td>Car on road/ferry, train</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th>Variant 4</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRANSIT_IMPORT</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <p>&nbsp;</p>
 
         <h4>IMMEDIATE_RELEASE_VOEC</h4>
 
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td>
-                    <p>VOEC shipments.</p>
-                    <p>Another customs authority has cleared the previous procedure, or value below the threshold for
-                        export requirements.</p>
-                </td>
-                <td>
-                    <p>VOEC shipment.</p>
-                    <p>Transit is the previous procedure and must be completed at border crossing.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Relevant modes of transport</strong></td>
-                <td>Car on road/ferry, train, plane</td>
-                <td>Car on road/ferry, train</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th>Variant 6</th>
-                <th>Variant 8</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td>
-                    <p>IMMEDIATE_RELEASE_VOEC</p>
-                </td>
-                <td>
-                    <p>IMMEDIATE_RELEASE_VOEC</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'></td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>-</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'></td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>goodsItem</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>itemAmountInvoicedVOEC</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>value</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>numberOfItems</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>commodityCodeVOEC</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>harmonizedSystemSubheadingCode</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>additionalFiscalReferences</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>vatIdentificationNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-yellow);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than at the border crossing.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td>
+                        <p>VOEC shipments.</p>
+                        <p>Another customs authority has cleared the previous procedure, or value below the threshold
+                            for
+                            export requirements.</p>
+                    </td>
+                    <td>
+                        <p>VOEC shipment.</p>
+                        <p>Transit is the previous procedure and must be completed at border crossing.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Relevant modes of transport</strong></td>
+                    <td>Car on road/ferry, train, plane</td>
+                    <td>Car on road/ferry, train</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th>Variant 6</th>
+                    <th>Variant 8</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_VOEC</p>
+                    </td>
+                    <td>
+                        <p>IMMEDIATE_RELEASE_VOEC</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>goodsItem</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>itemAmountInvoicedVOEC</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>value</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>numberOfItems</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>commodityCodeVOEC</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>harmonizedSystemSubheadingCode</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>additionalFiscalReferences</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>vatIdentificationNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than at the border crossing.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <p>&nbsp;</p>
 
         <h4>WAREHOUSE_RELEASE</h4>
 
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td colspan='2'>
-                    <p>A declaration for entry into the customs warehouse has been submitted in advance.</p>
-                    <p>Transit is the preceding procedure and must be completed at border crossing.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Relevant modes of transport</strong></td>
-                <td colspan='2'>Car on road/ferry, train</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th colspan='2'>Variant 11</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td colspan='2' style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td colspan='2'>
-                    <p>WAREHOUSE_RELEASE</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td colspan='2'>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td colspan='2'>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'></td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>AND list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>must be = CUDE</p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'></td>
-                <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                    <p><strong>-</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td colspan='2'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td colspan='2'>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than upon arrival at the border.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td colspan='2'>
-                    <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td colspan='2'>
+                        <p>A declaration for entry into the customs warehouse has been submitted in advance.</p>
+                        <p>Transit is the preceding procedure and must be completed at border crossing.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Relevant modes of transport</strong></td>
+                    <td colspan='2'>Car on road/ferry, train</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th colspan='2'>Variant 11</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td colspan='2'>
+                        <p>WAREHOUSE_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td colspan='2'>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>must be = CUDE</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td colspan='2'>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td colspan='2'>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <p>&nbsp;</p>
 
         <h4>COLLECTIVE_RELEASE</h4>
 
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td>
-                    <p>Shipment to be collectively cleared after border crossing.</p>
-                    <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                <td>Car on road/ferry, train</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th>Variant 14</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td>
-                    <p>COLLECTIVE_RELEASE</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'></td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'></td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>-</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than upon arrival at the border.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td>
+                        <p>Shipment to be collectively cleared after border crossing.</p>
+                        <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                    <td>Car on road/ferry, train</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th>Variant 14</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
         <p>&nbsp;</p>
 
         <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
 
-        <table class="procedure-table">
-            <tr>
-                <td colspan='2'>
-                    <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                </td>
-                <td>
-                    <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic
-                        Regulations.</p>
-                    <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
-                </td>
-            </tr>
-            <tr>
-                <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                <td>Car on road/ferry, train</td>
-            </tr>
-            <tr>
-                <th>Field</th>
-                <th>Code list</th>
-                <th>Variant 17</th>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>importProcedure</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'></td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><strong>must be filled out</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>importProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                </td>
-                <td>
-                    <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>outgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                </td>
-                <td>
-                    <p>TRA</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>hasOutgoingProcedure</p>
-                </td>
-                <td style='background:var(--background-color-procedure-blue);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>true</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>previousDocuments</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'></td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><strong>list must have one entry of type:</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>referenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>&lt;must have value&gt;</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>typeOfReference</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                            href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                    </p>
-                </td>
-                <td>
-                    <p>must be = N820</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarantNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>declarationDate</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>sequenceNumber</p>
-                </td>
-                <td style='background:var(--background-color-procedure-red);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>exportFromEU</strong></p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'></td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><strong>-</strong></p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>exportId</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>-</p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p>typeOfExport</p>
-                </td>
-                <td style='background:var(--background-color-procedure-green);'>
-                    <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
-                </td>
-                <td>
-                    <p>-</p>
-                </td>
-            </tr>
-            <tr>
-                <td style='background:#D5DCE4;'>
-                    <p><strong>Possible validation messages if the information is not complete. We assume that the
-                        missing information is submitted no later than upon arrival at the border.</strong></p>
-                </td>
-                <td>
-                    <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a></p>
-                </td>
-                <td>
-                    <p>INCOMPLETE_TRA_DOCUMENTATION</p>
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive">
+            <table class="procedure-table">
+                <tr>
+                    <td colspan='2'>
+                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                    </td>
+                    <td>
+                        <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic
+                            Regulations.</p>
+                        <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
+                    <td>Car on road/ferry, train</td>
+                </tr>
+                <tr>
+                    <th>Field</th>
+                    <th>Code list</th>
+                    <th>Variant 17</th>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>importProcedure</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>importProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>outgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>hasOutgoingProcedure</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>previousDocuments</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>list must have one entry of type:</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>referenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>typeOfReference</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
+                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarantNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>declarationDate</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>sequenceNumber</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>exportFromEU</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>exportId</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p>typeOfExport</p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style='background:#D5DCE4;'>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                    </td>
+                    <td>
+                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        </p>
+                    </td>
+                    <td>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
 </main>

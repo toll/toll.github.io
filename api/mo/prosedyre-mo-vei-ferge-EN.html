@@ -33,7 +33,7 @@
 </header>
 
 <main class="mo-vei mo-api">
-    <div role="main">
+    <div style="align-self: normal" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
@@ -42,15 +42,14 @@
             </ol>
         </nav>
 
-        <div style="width: 70%;">
-            <h1>How to fill out a shipment report, road/ferry</h1>
+        <h1>How to fill out a shipment report, road/ferry</h1>
 
-            <h2 id="Grensesnittbeskrivelse">Interface description</h2>
-            <p>
-                The services are made available as REST services over HTTPS, with data in JSON format.
-            </p>
+        <h2 id="Grensesnittbeskrivelse">Interface description</h2>
+        <p>
+            The services are made available as REST services over HTTPS, with data in JSON format.
+        </p>
 
-            <pre class="boxed-display">
+        <pre class="boxed-display">
 POST https://&lt;env&gt;/api/movement/road/v2/transport
 POST https://&lt;env&gt;/api/movement/road/v2/master-consignment
 POST https://&lt;env&gt;/api/movement/road/v2/house-consignment
@@ -63,66 +62,63 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/transport/validation-status/
 GET https://&lt;env&gt;/api/movement/road/status/v2/master-consignment/validation-status/{requestId}
 GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation-status/{requestId}
             </pre>
-            <p>
-              where
-            </p>
-              <ul>
-                <li>
-                  <b>&lt;env&gt;</b> is replaced with
-                  <ul>
+        <p>
+            where
+        </p>
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> is replaced with
+                <ul>
                     <li><i>api.toll.no</i> for production</li>
                     <li><i>api-test</i>.toll.no for playground (testing environment)</li>
-                  </ul>
-                </li>
-                <li>
-                  <b>{requestId}</b> is replaced with the reference
-                  returned by POST/PUT/DELETE calls
-                </li>
-                <li>
-                  <b>{MRN}</b> is replaced with the reference returned
-                  from ".../validation-status..." endpoints.
-                </li>
-              </ul>
+                </ul>
+            </li>
+            <li>
+                <b>{requestId}</b> is replaced with the reference
+                returned by POST/PUT/DELETE calls
+            </li>
+            <li>
+                <b>{MRN}</b> is replaced with the reference returned
+                from ".../validation-status..." endpoints.
+            </li>
+        </ul>
 
-            <p class="tips_box">
-                If you discover security issues in our solutions, please contact us; <a
-                    href="https://toll.no/.well-known/security.txt">see here for info</a>
-            </p>
-        </div>
+        <p class="tips_box">
+            If you discover security issues in our solutions, please contact us; <a
+                href="https://toll.no/.well-known/security.txt">see here for info</a>
+        </p>
 
         <h1>API Services</h1>
-        <div>
-            <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
-            <p>
-                To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/road/v2</strong>
-            </p>
-            <p>
-                See <strong><a href="movement-road-api-v2.html">API documentation here</a></strong>.
-            </p>
+        <h3 id="movement-road-api-v2">API: movement-road-api-v2</h3>
+        <p>
+            To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            See <strong><a href="movement-road-api-v2.html">API documentation here</a></strong>.
+        </p>
 
-            <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
-            <p>
-                To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/road/v2</strong>
-            </p>
-            <p>
-                See <strong><a href="movement-road-query-api-v2.html">API documentation here</a></strong>.
-            </p>
+        <h3 id="movement-road-query-api-v2">API: movement-road-query-api-v2</h3>
+        <p>
+            To use the service, the scope for authentication against Maskinporten must be set to <strong>toll:movement/road/v2</strong>
+        </p>
+        <p>
+            See <strong><a href="movement-road-query-api-v2.html">API documentation here</a></strong>.
+        </p>
 
-            <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
-            <p>See <strong><a href="movement-presentation-api.html">API documentation here</a></strong>.</p>
+        <h3 id="movement-presentation-api">API: movement-presentation-api</h3>
+        <p>See <strong><a href="movement-presentation-api.html">API documentation here</a></strong>.</p>
 
-            <h3 id="movement-routing-api">API: movement-routing-api</h3>
-            <p>See <strong><a href="movement-routing-api.html">API documentation here</a></strong>.</p>
+        <h3 id="movement-routing-api">API: movement-routing-api</h3>
+        <p>See <strong><a href="movement-routing-api.html">API documentation here</a></strong>.</p>
+    </div>
 
-        </div>
+    <br/>
+    <br/>
 
-        <br/>
-        <br/>
+    <div class="table-responsive">
+        <h3>IMMEDIATE_RELEASE_IMPORT</h3>
 
-        <div class="flex-column">
-
-            <h3>IMMEDIATE_RELEASE_IMPORT</h3>
-
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
@@ -130,12 +126,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>A declaration for release for free circulation has been submitted in advance.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
+                            the
                             ferry to Larvik)</p>
                     </td>
                     <td>
                         <p>A declaration for release for free circulation has been submitted in advance.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
                     </td>
                     <td colspan='2'>
                         <p>A declaration for release for free circulation has been submitted in advance.</p>
@@ -143,7 +141,8 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong></td>
+                    <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong>
+                    </td>
                     <td>Airplane, train, car on ferry</td>
                     <td>Car on road</td>
                     <td colspan='2'>Train, car on road, car on ferry</td>
@@ -392,11 +391,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        <p><strong>Possible validation messages if the information is not complete. We assume that
+                            the
                             missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'>
@@ -411,11 +412,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
             </table>
+        </div>
 
-            <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-            <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
+        <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
 
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
@@ -423,11 +426,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>Transit has started in another country. Completion of the transit must be performed upon
-                            unloading. At the border crossing, only the border crossing should be registered in NCTS</p>
+                            unloading. At the border crossing, only the border crossing should be registered in
+                            NCTS</p>
                     </td>
                     <td>
                         <p>Transit should start at the border.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
                     </td>
                 </tr>
                 <tr>
@@ -621,11 +626,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        <p><strong>Possible validation messages if the information is not complete. We assume that
+                            the
                             missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'>
@@ -637,11 +644,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
             </table>
+        </div>
 
-            <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-            <h3>IMMEDIATE_RELEASE_VOEC</h3>
+        <h3>IMMEDIATE_RELEASE_VOEC</h3>
 
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
@@ -649,7 +658,8 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>VOEC-forsendelser.</p>
-                        <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under verdigrensen for krav
+                        <p>Annen tollmyndighet har klarert foregående prosedyre, eller verdi under verdigrensen for
+                            krav
                             om eksport.</p>
                     </td>
                     <td>
@@ -1026,11 +1036,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Mulige valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da
+                        <p><strong>Mulige valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter
+                            da
                             at den manglende informasjonen er innlevert senest ved ankomst til grensen.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'>
@@ -1046,11 +1058,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
             </table>
+        </div>
 
-            <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-            <h3>WAREHOUSE_RELEASE</h3>
+        <h3>WAREHOUSE_RELEASE</h3>
 
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
@@ -1058,12 +1072,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
+                            the
                             ferry to Larvik)</p>
                     </td>
                     <td>
                         <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
                     </td>
                     <td colspan='2'>
                         <p>A declaration for warehouse entry has been submitted in advance.</p>
@@ -1365,11 +1381,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        <p><strong>Possible validation messages if the information is not complete. We assume that
+                            the
                             missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'>
@@ -1388,11 +1406,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
             </table>
+        </div>
 
-            <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-            <h3>COLLECTIVE_RELEASE</h3>
+        <h3>COLLECTIVE_RELEASE</h3>
 
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
@@ -1400,12 +1420,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
+                            the
                             ferry to Larvik)</p>
                     </td>
                     <td>
                         <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
                     </td>
                     <td>
                         <p>Shipment to be collectively cleared after border crossing.</p>
@@ -1636,11 +1658,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        <p><strong>Possible validation messages if the information is not complete. We assume that
+                            the
                             missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'></td>
@@ -1652,29 +1676,36 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
             </table>
+        </div>
 
-            <p>&nbsp;</p>
+        <p>&nbsp;</p>
 
-            <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
+        <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
 
+        <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic
+                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods
+                            Traffic
                             Regulations.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
+                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
+                            the
                             ferry to Larvik)</p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic
+                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods
+                            Traffic
                             Regulations.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic
+                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods
+                            Traffic
                             Regulations.</p>
                         <p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
@@ -1903,11 +1934,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
+                        <p><strong>Possible validation messages if the information is not complete. We assume that
+                            the
                             missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
+                        <p>
+                            <a href="mo-kodeverk.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'></td>
@@ -1920,6 +1953,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
             </table>
         </div>
+    </div>
     </div>
 </main>
 
