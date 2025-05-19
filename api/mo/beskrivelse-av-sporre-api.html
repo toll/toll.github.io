@@ -22,7 +22,7 @@
         <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
     </a>
 
-    <a href="funksjonell-beskrivelse-av-tjenesten-EN.html" class="nav-language-button" role="navigation">
+    <a href="beskrivelse-av-sporre-api-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>EN</span>
             <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Norsk flagg">
@@ -41,8 +41,8 @@
         </nav>
 
         <div class="about-section">
-            <h2 id="funkbesk">Løsningen for Melde og Opplysning har et sett med grensesnitt for spørring om validering
-                og status</h2>
+            <h1 id="funkbesk">Løsningen for Melde og Opplysning har et sett med grensesnitt for spørring om validering
+                og status</h1>
             <h3>Dette grensesnittet (API) omfatter flere endepunkter for hvert meldingsnivå:</h3>
             <ul class="spaced-list">
                 <li>Transport</li>
@@ -57,19 +57,41 @@
             </ul>
 
             <h2>Valideringsendepunkter:</h2>
-            <p>
-                Disse endepunktene er de som returnerer valideringsstatus og
-                <br/>
-                MRN (Movement? Reference Number,
-                Tolletatens referanse til meldingen) ved innsending av meldinger.
-            </p>
 
-            <p>
-                Klient sender inn LRN (egen referanse til meldingen) for innsendt melding og
-                får MRN (ved vellykket innsending) og valideringsstatus (alltid)
-            </p>
+            <ul class="spaced-list">
 
-            <p>Forklaring på valideringsstatuser finnes her<a> til side med valideringsstatuser</a></p>
+                <li>
+                    Disse endepunktene er de som returnerer valideringsstatus og
+                    <br/>
+                    MRN
+                    <strong>
+                        (Movement Reference Number,
+                        Tolletatens referanse til meldingen)
+                    </strong>
+                    ved innsending av meldinger.
+                </li>
+
+                <li>
+                    Klient sender inn LRN
+                    <strong>
+                        (egen referanse til meldingen)
+                    </strong>
+                    for innsendt melding og
+                    får MRN
+                    <strong>
+                        (ved vellykket innsending)
+                    </strong>
+                    og valideringsstatus
+                    <strong>
+                        (alltid)
+                    </strong>
+                </li>
+
+            </ul>
+
+            <strong>
+                <a href="asynkrone-valideringsfeil.html#Formatpadokumentstatus">Forklaring på valideringsstatuser finnes her</a>
+            </strong>
 
             <h3>Transport</h3>
             <p>/transport/validation-status/{requestId}</p>
@@ -111,7 +133,7 @@
                     <p>Bruk denne for å se alle forsendelser som er knyttet til en transport.
                         For hver forsendelse vil det også bli returnert en liste med manglende dokumentasjonsreferanser
                         dersom det er aktuelt.
-                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                        Se <a href="asynkrone-valideringsfeil.html#Formatpadokumentstatus">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
                 </li>
             </ul>
 
@@ -143,7 +165,7 @@
                         eller dokumentnummeret til hovedforsendelsen.
                         For hver forsendelse vil det også bli returnert en liste med manglende dokumentasjonsreferanser
                         dersom det er aktuelt.
-                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                        Se <a href="asynkrone-valideringsfeil.html#Formatpadokumentstatus">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
                 </li>
             </ul>
 
@@ -160,7 +182,7 @@
                     <p>Bruk disse for å se status for en forsendelse basert på MRN til forsendelsen.
                         For forsendelsen vil det også bli returnert en liste med manglende dokumentasjonsreferanser
                         dersom det er aktuelt.
-                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                        Se <a href="asynkrone-valideringsfeil.html#Formatpadokumentstatus">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
                 </li>
                 <li>
                     <p><code>/house-consignment/transport-document/status</code></p>
@@ -169,7 +191,7 @@
                         Bruk disse for å se status for en forsendelse basert på dokumentnummeret til forsendelsen.
                         For forsendelsen vil det også bli returnert en liste med manglende dokumentasjonsreferanser
                         dersom det er aktuelt.
-                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                        Se <a href="asynkrone-valideringsfeil.html#Formatpadokumentstatus">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
                 </li>
                 <li>
                     <p><code>/house-consignment/postal-receptacle/{receptacleIdentificationNumber}/transport-document/status</code>
