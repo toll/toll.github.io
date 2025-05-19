@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Beskrivelse av spørre-API</title>
+    <meta name="description" content="Funksjonell beskrivelse av tjenesten">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="funksjonell-beskrivelse-av-tjenesten-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main class="funksjonell-beskrivelse">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Beskrivelse av spørre-API</li>
+            </ol>
+        </nav>
+
+        <div class="about-section">
+            <h2 id="funkbesk">Løsningen for Melde og Opplysning har et sett med grensesnitt for spørring om validering
+                og status</h2>
+            <h3>Dette grensesnittet (API) omfatter flere endepunkter for hvert meldingsnivå:</h3>
+            <ul class="spaced-list">
+                <li>Transport</li>
+                <li>Hovedforsendelse (Master consignment)</li>
+                <li>Forsendelse (House consignment)</li>
+            </ul>
+
+            <h3>Det er to typer endepunkter for hvert nivå:</h3>
+            <ul class="spaced-list">
+                <li>Validering av meldinger</li>
+                <li>Hente status på meldinger</li>
+            </ul>
+
+            <h2>Valideringsendepunkter:</h2>
+            <p>
+                Disse endepunktene er de som returnerer valideringsstatus og
+                <br/>
+                MRN (Movement? Reference Number,
+                Tolletatens referanse til meldingen) ved innsending av meldinger.
+            </p>
+
+            <p>
+                Klient sender inn LRN (egen referanse til meldingen) for innsendt melding og
+                får MRN (ved vellykket innsending) og valideringsstatus (alltid)
+            </p>
+
+            <p>Forklaring på valideringsstatuser finnes her<a> til side med valideringsstatuser</a></p>
+
+            <h3>Transport</h3>
+            <p>/transport/validation-status/{requestId}</p>
+
+            <h3>Hovedforsendelse (Master consignment)</h3>
+            <p>/master-consignment/validation-status/{requestId}</p>
+
+            <h3>Forsendelse (House consignment)</h3>
+            <p>/house-consignment/validation-status/{requestId}</p>
+
+            <h2>Statusendepunkter:</h2>
+            <p>Disse endepunktene gir en status for innsending og en oversikt over underliggende nivåer (der det er
+                aktuelt).</p>
+
+            <h3>Transport:</h3>
+            <p>
+                <strong>
+                    Inngangsparameter til disse endepunktene er MRN for transportmeldingen,
+                    altså den MRN som blir returnert for en vellykket innsending av en melding om transport.
+                </strong>
+            </p>
+            <ul>
+                <li>
+                    <p><code>/transport/{mrn}/status-with-descendants</code></p>
+                    <p>Bruk dette når du ønsker å se alle hovedforsendelser og alle forsendelser som er knyttet til en
+                        transport.
+                        Endepunktet gir en oppsummering av vekt for hovedforsendelser og forsendelser og oppgitt vekt
+                        for hver hovedforsendelse og hver forsendelse.
+                        Feltet "received" på hovedforsendelse indikerer at melding om hovedforsendelse er sendt inn. En
+                        verdi "false" her indikerer at referansen til hovedforsendelsen er oppgitt i transportmeldingen,
+                        men melding om hovedforsendelse er ikke mottatt.</p>
+                </li>
+                <li>
+                    <p><code>/transport/{mrn}/master-consignment/transport-document/status</code></p>
+                    <p>Bruk denne for å se alle hovedforsendelser som er knyttet til en transport.</p>
+                </li>
+                <li>
+                    <p><code>/transport/{mrn}/house-consignment/transport-document/status</code></p>
+                    <p>Bruk denne for å se alle forsendelser som er knyttet til en transport.
+                        For hver forsendelse vil det også bli returnert en liste med manglende dokumentasjonsreferanser
+                        dersom det er aktuelt.
+                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                </li>
+            </ul>
+
+
+            <h3>Hovedforsendelse (Master consignment):</h3>
+            <p>
+                <strong>
+                    Inngangsparameter til disse endepunktene er MRN for meldingen om hovedforsendelse,
+                    altså den MRN som blir returnert for en vellykket innsending av en melding om hovedforsendelse
+                    (master).
+                </strong>
+            </p>
+            <ul>
+                <li>
+                    <p><code>/master-consignment/{mrn}/status-with-descendants</code></p>
+                    <p>Bruk dette når du ønsker å se en hovedforsendelse og alle forsendelser som er knyttet til den.
+                        Endepunktet gir en oppsummering av vekt og forsendelser knyttet til hovedforsendelsen og oppgitt
+                        vekt for hver hovedforsendelse og hver forsendelse.
+                        Feltet "received" på hovedforsendelse indikerer at melding om hovedforsendelse er sendt inn. En
+                        verdi "false" her indikerer at referansen til hovedforsendelsen er oppgitt i transportmeldingen,
+                        men melding om hovedforsendelse er ikke mottatt.</p>
+                </li>
+                <li>
+                    <p><code>/master-consignment/{mrn}/transport-document/status</code></p>
+                    <p><code>/master-consignment/transport-document/status</code></p>
+                    <p>Inngangsparameter her er hovedforsendelsens dokumentnummer/fraktbrevnummer (documentNumber, type
+                        og carrierId).
+                        Bruk disse for å se alle forsendelser som er knyttet til en hovedforsendelse, basert på MRN
+                        eller dokumentnummeret til hovedforsendelsen.
+                        For hver forsendelse vil det også bli returnert en liste med manglende dokumentasjonsreferanser
+                        dersom det er aktuelt.
+                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                </li>
+            </ul>
+
+            <h3>Forsendelse (House consignment):</h3>
+            <p>
+                <strong>
+                    Inngangsparameter til disse endepunktene er MRN for meldingen om forsendelse,
+                    altså den MRN som blir returnert for en vellykket innsending av en melding om forsendelse (house).
+                </strong>
+            </p>
+            <ul>
+                <li>
+                    <p><code>/house-consignment/{mrn}/transport-document/status</code></p>
+                    <p>Bruk disse for å se status for en forsendelse basert på MRN til forsendelsen.
+                        For forsendelsen vil det også bli returnert en liste med manglende dokumentasjonsreferanser
+                        dersom det er aktuelt.
+                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                </li>
+                <li>
+                    <p><code>/house-consignment/transport-document/status</code></p>
+                    <p>Inngangsparameter her er forsendelsens dokumentnummer/fraktbrevnummer (documentNumber, type og
+                        carrierId).
+                        Bruk disse for å se status for en forsendelse basert på dokumentnummeret til forsendelsen.
+                        For forsendelsen vil det også bli returnert en liste med manglende dokumentasjonsreferanser
+                        dersom det er aktuelt.
+                        Se <a href="#">link til incompleteDocumentationReasonList dokumentasjon</a>.</p>
+                </li>
+                <li>
+                    <p><code>/house-consignment/postal-receptacle/{receptacleIdentificationNumber}/transport-document/status</code>
+                    </p>
+                    <p>Inngangsparameter her er postsekk/postbeholders id-nummer (receptacleIdentificationNumber).
+                        Bruk denne for å se status for forsendelser som er knyttet til en postsekk/postbeholder basert
+                        på postsekk/postbeholder sin id.
+                        Brukes kun for UPU postsendinger.</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
