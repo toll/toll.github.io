@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Description of Query API</title>
-    <meta name="description" content="Functional description of the service">
+    <meta name="description" content="Description of the MO Query APIs">
     <meta name="author" content="Norwegian Customs">
     <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
@@ -42,151 +42,174 @@
 
         <div class="about-section">
             <h1 id="funkbesk">The Notification and Disclosure solution includes a set of interfaces for querying validation and status</h1>
-            <h3>This interface (API) includes several endpoints for each message level:</h3>
+            <p>This interface (API) includes several endpoints for each message level:</p>
             <ul class="spaced-list">
                 <li>Transport</li>
                 <li>Master consignment</li>
                 <li>House consignment</li>
             </ul>
 
-            <h3>There are two types of endpoints for each level:</h3>
+            <p>There are two types of endpoints for each level:</p>
             <ul class="spaced-list">
                 <li>Validation of messages</li>
                 <li>Retrieving the status of messages</li>
             </ul>
 
-            <h2>Validation Endpoints:</h2>
+            <h2>Validation endpoints:</h2>
 
             <ul class="spaced-list">
                 <li>
-                    These endpoints return the validation status and
-                    <br/>
-                    MRN
-                    <strong>
-                        (Movement Reference Number,
-                        Norwegian Customs' reference to the message)
-                    </strong>
+                    These endpoints return the validation status and MRN
+                    (Movement Reference Number, <em>Norwegian Customs</em>' reference to the message)
                     upon submission of messages.
                 </li>
 
                 <li>
-                    The client submits LRN
-                    <strong>
-                        (its own reference to the message)
-                    </strong>
-                    for the submitted message and receives MRN
-                    <strong>
-                        (upon successful submission)
-                    </strong>
-                    and validation status
-                    <strong>
-                        (always)
-                    </strong>.
+                    The client submits LRN (<em>client's own</em> reference to the message)
+                    for the submitted message and receives MRN (upon <em>successful</em> submission)
+                    and validation status (<em>always</em>).
                 </li>
             </ul>
 
-            <strong>
-                <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">Explanation of validation statuses can be found here</a>
-            </strong>
+            <p>
+              <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">Explanation
+              of validation statuses can be found here</a>.
+            </p>
 
-            <h3>Transport</h3>
-            <p>/transport/validation-status/{requestId}</p>
+            <dl class="spaced-list">
+              <dt>Transport</dt>
+              <dd><code>/transport/validation-status/{requestId}</code></dd>
+              <dt>Master consignment</dt>
+              <dd><code>/master-consignment/validation-status/{requestId}</code></dd>
+              <dt>House consignment</dt>
+              <dd><code>/house-consignment/validation-status/{requestId}</code></dd>
+            </dl>
 
-            <h3>Master consignment</h3>
-            <p>/master-consignment/validation-status/{requestId}</p>
-
-            <h3>House consignment</h3>
-            <p>/house-consignment/validation-status/{requestId}</p>
-
-            <h2>Status Endpoints:</h2>
-            <p>These endpoints provide a submission status and an overview of underlying levels (where applicable).</p>
+            <h2>Status endpoints:</h2>
+            <p>
+              These endpoints provide a submission status and an
+              overview of underlying levels (where applicable).
+            </p>
 
             <h3>Transport:</h3>
             <p>
-                <strong>
-                    The input parameter for these endpoints is the MRN for the transport message,
-                    i.e., the MRN returned for a successful submission of a transport message.
-                </strong>
+              The input parameter for these endpoints is the MRN for the transport message,
+              i.e., the MRN returned for a successful submission of a transport message.
             </p>
             <ul>
-                <li>
-                    <p><code>/transport/{mrn}/status-with-descendants</code></p>
-                    <p>Use this to view all master consignments and all house consignments linked to a transport.
-                        The endpoint provides a summary of weight for master consignments and house consignments and the specified weight for each master consignment and consignment.
-                        The "received" field on the master consignment indicates that the master consignment message has been submitted. A "false" value here indicates that the reference to the master consignment is provided in the transport message, but the master consignment message has not been received.</p>
-                </li>
-                <li>
-                    <p><code>/transport/{mrn}/master-consignment/transport-document/status</code></p>
-                    <p>Use this to view all master consignments linked to a transport.</p>
-                </li>
-                <li>
-                    <p><code>/transport/{mrn}/house-consignment/transport-document/status</code></p>
-                    <p>Use this to view all house consignments linked to a transport.
-                        For each consignment, a list of missing documentation references will also be returned if applicable.
-                        See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
+              <li>
+                <p><code>/transport/{mrn}/status-with-descendants</code></p>
+                <p>
+                  Use this to view all master consignments and all house consignments linked to a transport.
+                  The endpoint provides a summary of weight for master
+                  consignments and house consignments and the specified
+                  weight for each master consignment and consignment.
+                  The "received" field on the master consignment
+                  indicates that the master consignment message has been
+                  submitted. A "false" value here indicates that the
+                  reference to the master consignment is provided in the
+                  transport message, but the master consignment message
+                  has not been received.
+                </p>
+              </li>
+              <li>
+                <p><code>/transport/{mrn}/master-consignment/transport-document/status</code></p>
+                <p>Use this to view all master consignments linked to a transport.</p>
+              </li>
+              <li>
+                <p><code>/transport/{mrn}/house-consignment/transport-document/status</code></p>
+                <p>
+                  Use this to view all house consignments linked to a transport.
+                  For each consignment, a list of missing documentation
+                  references will also be returned if applicable.
+                  See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link
+                  to incompleteDocumentationReasonList documentation</a>.
+                  </p>
                 </li>
             </ul>
 
             <h3>Master consignment:</h3>
             <p>
-                <strong>
-                    The input parameter for these endpoints is the MRN for the master consignment message,
-                    i.e., the MRN returned for a successful submission of a master consignment message.
-                </strong>
+              The input parameter for these endpoints is the MRN for the master consignment message,
+              i.e., the MRN returned for a successful submission of a master consignment message.
             </p>
             <ul>
-                <li>
-                    <p><code>/master-consignment/{mrn}/status-with-descendants</code></p>
-                    <p>Use this to view a master consignment and all house consignments linked to it.
-                        The endpoint provides a summary of weight and house consignments linked to the master consignment and the specified weight for each master consignment and consignment.
-                        The "received" field on the master consignment indicates that the master consignment message has been submitted. A "false" value here indicates that the reference to the master consignment is provided in the transport message, but the master consignment message has not been received.</p>
-                </li>
-                <li>
-                    <p><code>/master-consignment/{mrn}/transport-document/status</code></p>
-                    <p><code>/master-consignment/transport-document/status</code></p>
-                    <p>The input parameter here is the master consignment's document number (documentNumber, type, and carrierId).
-                        Use these to view all house consignments linked to a master consignment, based on the MRN or document number of the master consignment.
-                        For each consignment, a list of missing documentation references will also be returned if applicable.
-                        See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
+              <li>
+                <p><code>/master-consignment/{mrn}/status-with-descendants</code></p>
+                <p>
+                  Use this to view a master consignment and all house consignments linked to it.
+                  The endpoint provides a summary of weight and house
+                  consignments linked to the master consignment and the
+                  specified weight for each master consignment and
+                  consignment.
+                  The "received" field on the master consignment
+                  indicates that the master consignment message has been
+                  submitted. A "false" value here indicates that the
+                  reference to the master consignment is provided in the
+                  transport message, but the master consignment message
+                  has not been received.
+                </p>
+              </li>
+              <li>
+                <p><code>/master-consignment/{mrn}/transport-document/status</code></p>
+                <p><code>/master-consignment/transport-document/status</code></p>
+                <p>
+                  The input parameter here is the master consignment's
+                  document number (documentNumber, type, and carrierId).
+                  Use these to view all house consignments linked to a
+                  master consignment, based on the MRN or document
+                  number of the master consignment.
+                  For each consignment, a list of missing documentation
+                  references will also be returned if applicable.
+                  See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link
+                  to incompleteDocumentationReasonList documentation</a>.</p>
                 </li>
             </ul>
 
             <h3>House consignment:</h3>
             <p>
-                <strong>
-                    The input parameter for these endpoints is the MRN for the house consignment message,
-                    i.e., the MRN returned for a successful submission of a house consignment message.
-                </strong>
+              The input parameter for these endpoints is the MRN for the house consignment message,
+              i.e., the MRN returned for a successful submission of a house consignment message.
             </p>
             <ul>
-                <li>
-                    <p><code>/house-consignment/{mrn}/transport-document/status</code></p>
-                    <p>Use these to view the status of a consignment based on the MRN of the consignment.
-                        For the consignment, a list of missing documentation references will also be returned if applicable.
-                        See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
-                </li>
-                <li>
-                    <p><code>/house-consignment/transport-document/status</code></p>
-                    <p>The input parameter here is the consignment's document number (documentNumber, type, and carrierId).
-                        Use these to view the status of a consignment based on the document number of the consignment.
-                        For the consignment, a list of missing documentation references will also be returned if applicable.
-                        See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
-                </li>
-                <li>
-                    <p><code>/house-consignment/postal-receptacle/{receptacleIdentificationNumber}/transport-document/status</code>
-                    </p>
-                    <p>The input parameter here is the postal receptacle's ID number (receptacleIdentificationNumber).
-                        Use this to view the status of house consignments linked to a postal receptacle based on the postal receptacle's ID.
-                        Used only for UPU postal shipments.</p>
-                </li>
+              <li>
+                <p><code>/house-consignment/{mrn}/transport-document/status</code></p>
+                <p>
+                  Use these to view the status of a consignment based on the MRN of the consignment.
+                  For the consignment, a list of missing documentation references will also be returned if applicable.
+                  See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link
+                  to incompleteDocumentationReasonList
+                    documentation</a>.
+                </p>
+              </li>
+              <li>
+                <p><code>/house-consignment/transport-document/status</code></p>
+                <p>
+                  The input parameter here is the consignment's document number (documentNumber, type, and carrierId).
+                  Use these to view the status of a consignment based on the document number of the consignment.
+                  For the consignment, a list of missing documentation references will also be returned if applicable.
+                  See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link
+                  to incompleteDocumentationReasonList documentation</a>.</p>
+              </li>
+              <li>
+                <p><code>/house-consignment/postal-receptacle/{receptacleIdentificationNumber}/transport-document/status</code>
+                </p>
+                <p>
+                  The input parameter here is the postal receptacle's ID number (receptacleIdentificationNumber).
+                  Use this to view the status of house consignments
+                  linked to a postal receptacle based on the postal
+                  receptacle's ID.
+                  Used only for UPU postal shipments.
+                </p>
+              </li>
             </ul>
         </div>
     </div>
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Norwegian Customs</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                                   class="footerLink">Contact Us</a>
+  <a href="https://www.toll.no/">Norwegian Customs</a> 2025 |
+  <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact Us</a>
 </footer>
 
 </body>

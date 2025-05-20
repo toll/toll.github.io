@@ -370,7 +370,8 @@ p {
     grid-template-columns: none;
 }
 
-.spaced-list li {
+.spaced-list li,
+.spaced-list dd {
     margin-bottom: 1rem;
 }
 
