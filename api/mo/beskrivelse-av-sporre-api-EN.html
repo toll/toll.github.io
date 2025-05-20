@@ -111,8 +111,8 @@
             <ul>
                 <li>
                     <p><code>/transport/{mrn}/status-with-descendants</code></p>
-                    <p>Use this to view all master consignments and all consignments linked to a transport.
-                        The endpoint provides a summary of weight for master consignments and consignments and the specified weight for each master consignment and consignment.
+                    <p>Use this to view all master consignments and all house consignments linked to a transport.
+                        The endpoint provides a summary of weight for master consignments and house consignments and the specified weight for each master consignment and consignment.
                         The "received" field on the master consignment indicates that the master consignment message has been submitted. A "false" value here indicates that the reference to the master consignment is provided in the transport message, but the master consignment message has not been received.</p>
                 </li>
                 <li>
@@ -121,7 +121,7 @@
                 </li>
                 <li>
                     <p><code>/transport/{mrn}/house-consignment/transport-document/status</code></p>
-                    <p>Use this to view all consignments linked to a transport.
+                    <p>Use this to view all house consignments linked to a transport.
                         For each consignment, a list of missing documentation references will also be returned if applicable.
                         See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
                 </li>
@@ -137,15 +137,15 @@
             <ul>
                 <li>
                     <p><code>/master-consignment/{mrn}/status-with-descendants</code></p>
-                    <p>Use this to view a master consignment and all consignments linked to it.
-                        The endpoint provides a summary of weight and consignments linked to the master consignment and the specified weight for each master consignment and consignment.
+                    <p>Use this to view a master consignment and all house consignments linked to it.
+                        The endpoint provides a summary of weight and house consignments linked to the master consignment and the specified weight for each master consignment and consignment.
                         The "received" field on the master consignment indicates that the master consignment message has been submitted. A "false" value here indicates that the reference to the master consignment is provided in the transport message, but the master consignment message has not been received.</p>
                 </li>
                 <li>
                     <p><code>/master-consignment/{mrn}/transport-document/status</code></p>
                     <p><code>/master-consignment/transport-document/status</code></p>
                     <p>The input parameter here is the master consignment's document number (documentNumber, type, and carrierId).
-                        Use these to view all consignments linked to a master consignment, based on the MRN or document number of the master consignment.
+                        Use these to view all house consignments linked to a master consignment, based on the MRN or document number of the master consignment.
                         For each consignment, a list of missing documentation references will also be returned if applicable.
                         See <a href="asynkrone-valideringsfeil-EN.html#Formatpadokumentstatus">link to incompleteDocumentationReasonList documentation</a>.</p>
                 </li>
@@ -176,7 +176,7 @@
                     <p><code>/house-consignment/postal-receptacle/{receptacleIdentificationNumber}/transport-document/status</code>
                     </p>
                     <p>The input parameter here is the postal receptacle's ID number (receptacleIdentificationNumber).
-                        Use this to view the status of consignments linked to a postal receptacle based on the postal receptacle's ID.
+                        Use this to view the status of house consignments linked to a postal receptacle based on the postal receptacle's ID.
                         Used only for UPU postal shipments.</p>
                 </li>
             </ul>
