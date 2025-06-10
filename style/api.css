@@ -463,6 +463,19 @@ p {
     line-height: 30px
 }
 
+.scroll-hint {
+    font-size: 14px;
+    color: #555;
+    width: 35%;
+    text-align: center;
+    margin: auto auto 20px;
+    font-weight: bold;
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
 @media (min-width: 1024px) {
     header {
         flex-direction: row;
