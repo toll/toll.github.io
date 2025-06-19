@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="no" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Maskinporten</title>
@@ -177,9 +177,17 @@
 
         <br/>
 
-        <h3 id="lag-en-integrasjon">4. Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API
-            (scope)</h3>
-        <p>Logg deg inn på <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen (digdir.no)</a>
+        <h3 id="lag-en-integrasjon">
+            4. Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)
+        </h3>
+        <p>
+            For <strong>PROD</strong>: Logg deg inn på <a href="https://sjolvbetjening.samarbeid.digdir.no"
+                                                          target="_blank">Samarbeidsportalen selvbetjening
+            (digdir.no)</a>
+        <p>
+            For <strong>TEST</strong>: Logg deg inn på <a href="https://sjolvbetjening.test.samarbeid.digdir.no"
+                                                          target="_blank">Samarbeidsportalen selvbetjening
+            (digdir.no)</a>
         </p>
 
         <ul class="spaced-list">
@@ -193,13 +201,15 @@
             <li>
                 <em>Navn på integrasjonen</em>: Her står du fritt selv til å velge hva
                 integrasjonen mot Tolletaten skal hete.<br/>
-                Det kan lønne seg å gi et navn som skiller på ulike tjenester og API-er for
-                Tolletaten, siden vi har flere ulike API-er.
+                Det kan lønne seg å gi et navn som skiller på ulike
+                tjenester og API-er for Tolletaten, siden vi har flere
+                ulike API-er.
             </li>
             <li>
                 <em>Grant-types</em>:
-                Vi bruker <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code> nå,
-                dette kan endre seg på sikt.
+                Vi
+                bruker <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>
+                nå, dette kan endre seg på sikt.
             </li>
         </ul>
 
@@ -209,48 +219,66 @@
             <div>
                 <h4 id="integrasjon-selvbetjening">4.1 Gå til selvbetjening av integrasjoner</h4>
                 <figure>
-                    <img class="image-size" src="../media/maskp-selvbetjening.png" alt="Figur: Gå til selvbetjening"/>
-                    <figcaption>Figur: Gå til selvbetjening</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Gå til selvbetjening"/>
+                    <figcaption>Figur: Login på selvbetjening</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="../media/maskp-integrasjoner.png" alt="Figur: Velg miljø"/>
-                    <figcaption>Figur: Velg miljø</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-virksomhet.png" alt="Velg virksomhet"/>
+                    <figcaption>Figur: Velg din virksomhet</figcaption>
                 </figure>
 
-                <p>
-                    For å administrere integrasjoner for testing: Velg
-                    "Integrasjoner" under <i>overskriften "Ver 2"</i>
-                </p>
-                <p>
-                    For å administrere integrasjoner for produksjon:
-                    Velg "Integrasjoner" under <i>overskriften
-                    "Produksjon"</i>
-                </p>
-
-                <h4 id="integrasjon-i-ver2">4.2 Opprett en integrasjon i Test-miljøet hos Digdir</h4>
                 <figure>
-                    <img src="../media/maskp-test.png" alt="Figur: Gå til integrasjoner"/>
-                    <figcaption>Figur: Gå til integrasjoner</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-klient.PNG" alt="Velg klient"/>
+                    <figcaption>Figur: For deg som skal integrere en tjeneste, velg Klient</figcaption>
                 </figure>
 
-                <h4 id="integrasjon-i-prod">4.3 Opprett en integrasjon i PRODUKSJON hos Digdir</h4>
+                <h4 id="ny-integrasjon">4.2 Ny integrasjon</h4>
                 <figure>
-                    <img src="../media/maskp-prod.png" alt="Figur: Gå til integrasjoner"/>
-                    <figcaption>Figur: Gå til integrasjoner</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.PNG"
+                         alt="Legg til ny integrasjon."/>
+                    <figcaption>
+                        Figur: Her er en liste av dine klienter. For en
+                        ny klientintegrasjon, trykk Legg til ny.
+                    </figcaption>
                 </figure>
 
-                <h4 id="ny-integrasjon">4.4 Ny integrasjon</h4>
                 <figure>
-                    <img src="../media/maskp-nyintegrasjon.png" alt="Figur: Trykk Ny integrasjon."/>
-                    <figcaption>Figur: Trykk Ny integrasjon.</figcaption>
-                </figure>
-                <figure>
-                    <img src="../media/maskp-opprettny.png" alt="Figur: Utfylling av felter"/>
-                    <figcaption>Figur: Utfylling av felter</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-maskinporten.PNG" alt="Velg maskinporten"/>
+                    <figcaption>Figur: Velg Maskinporten.</figcaption>
                 </figure>
 
-                <br/>
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-legg-til-scope.PNG"
+                         alt="Velg Legg til scope"/>
+                    <figcaption>
+                        Figur: Etter å ha fylt ut selvvalgt navn og din
+                        beskrivelse, trykk på Legg til scope
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-scopes.PNG"
+                         alt="Velg scopene du trenger"/>
+                    <figcaption>
+                        Figur: Velg scopene du trenger, du
+                        finner <a href="#scopes">oversikt under</a>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-integrasjon.png"
+                         alt="Oversikt over integrasjonen"/>
+                    <figcaption>
+                        Figur: Etter å ha trykket på opprett vil du få
+                        en oversikt over din integrasjoner/klienter.
+                        Trykk på den du nettopp opprettet for å se
+                        detaljer og eventuelt redigere.
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
@@ -263,11 +291,12 @@
             </p>
             <p class="tips_box_normal">
                 <strong>TIPS:</strong><br/>
-                Et Toll-signert access token kan brukes i hele dets levetid, derfor
-                anbefales det å mellomlagre disse når en kommuniserer med Tolletatens
-                API-er. For en mer sømløs opplevelse anbefaler vi videre å utveksle til
-                et nytt Toll token før (f.eks 1 minutt før) levetiden til det foregående
-                utgår.
+                Et Toll-signert access token
+                kan brukes i hele dets levetid, derfor anbefales det å
+                mellomlagre disse når en kommuniserer med Tolletatens
+                API-er. For en mer sømløs opplevelse anbefaler vi videre
+                å utveksle til et nytt Toll-token før (f.eks 1 minutt
+                før) levetiden til det foregående utgår.
             </p>
 
             <br/>

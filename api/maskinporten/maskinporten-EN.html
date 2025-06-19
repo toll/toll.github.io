@@ -179,9 +179,17 @@
 
         <br/>
 
-        <h3 id="lag-en-integrasjon">4. Create an integration with Digdir and connect it to Norwegian Customs' API
-            (scope)</h3>
-        <p>Log in to <a href="https://samarbeid.digdir.no/" target="_blank">Collaboration Portal (digdir.no)</a></p>
+        <h3 id="lag-en-integrasjon">
+            4. Create an integration with Digdir and connect it to Norwegian Customs' API (scope)
+        </h3>
+        <p>
+            For <strong>PROD</strong>: Log in to <a href="https://sjolvbetjening.samarbeid.digdir.no"
+                                                    target="_blank">Self-service portal (digdir.no)</a>
+        </p>
+        <p>
+            For <strong>TEST</strong>: Log in to <a href="https://sjolvbetjening.test.samarbeid.digdir.no"
+                                                    target="_blank">Self-service portal (digdir.no)</a>
+        </p>
 
         <ul class="spaced-list">
             <li>Difi-service = Maskinporten</li>
@@ -212,45 +220,67 @@
             <div>
                 <h4 id="integrasjon-selvbetjening">4.1 Go to self-service for integrations</h4>
                 <figure>
-                    <img class="image-size" src="../media/maskp-selvbetjening.png" alt="Figure: Go to self-service"/>
-                    <figcaption>Figure: Go to self-service</figcaption>
+                    <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Figure: Go to self-service"/>
+                    <figcaption>Figure: Login at self-service</figcaption>
                 </figure>
 
                 <figure>
-                    <img src="../media/maskp-integrasjoner.png" alt="Figure: Select environment"/>
-                    <figcaption>Figure: Select environment</figcaption>
+                    <img src="../media/maskinporten/maskp-virksomhet.png" alt="Select your organization"/>
+                    <figcaption>Figure: Select your organization</figcaption>
+
                 </figure>
 
-                <p>
-                    To manage integrations for testing: Select "Integrations" under <i>the heading "Ver
-                    2"</i>
-                </p>
-                <p>
-                    To manage integrations for production: Select "Integrations" under <i>the heading
-                    "Production"</i>
-                </p>
+             <figure>
+                 <img class="image-size" src="../media/maskinporten/maskp-klient.PNG" alt="Select client"/>
+                 <figcaption>Figure: For those integrating a service, select Client</figcaption>
+             </figure>
 
-                <h4 id="integrasjon-i-ver2">4.2 Create an integration in the Test environment at Digdir</h4>
-                <figure>
-                    <img src="../media/maskp-test.png" alt="Figure: Go to integrations"/>
-                    <figcaption>Figure: Go to integrations</figcaption>
-                </figure>
+             <h4 id="ny-integrasjon">4.2 New integration</h4>
+             <figure>
+                 <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.PNG"
+                      alt="Add new integration."/>
+                 <figcaption>
+                     Figure: Here is a list of your clients. For a
+                     new client integration, click Add new.
+                 </figcaption>
+             </figure>
 
-                <h4 id="integrasjon-i-prod">4.3 Create an integration in PRODUCTION at Digdir</h4>
-                <figure>
-                    <img src="../media/maskp-prod.png" alt="Figure: Go to integrations"/>
-                    <figcaption>Figure: Go to integrations</figcaption>
-                </figure>
+             <figure>
+                 <img class="image-size" src="../media/maskinporten/maskp-maskinporten.PNG" alt="Select Maskinporten"/>
+                 <figcaption>Figure: Select Maskinporten.</figcaption>
+             </figure>
 
-                <h4 id="ny-integrasjon">4.4 New integration</h4>
-                <figure>
-                    <img src="../media/maskp-nyintegrasjon.png" alt="Figure: Click New integration."/>
-                    <figcaption>Figure: Click New integration.</figcaption>
-                </figure>
-                <figure>
-                    <img src="../media/maskp-opprettny.png" alt="Figure: Fill in the fields"/>
-                    <figcaption>Figure: Fill in the fields</figcaption>
-                </figure>
+             <figure>
+                 <img class="image-size"
+                      src="../media/maskinporten/maskp-legg-til-scope.PNG"
+                      alt="Select Add scope"/>
+                 <figcaption>
+                     Figure: After entering your chosen name and
+                     description, click Add scope
+                 </figcaption>
+             </figure>
+
+             <figure>
+                 <img class="image-size"
+                      src="../media/maskinporten/maskp-scopes.PNG"
+                      alt="Select the scopes you need"/>
+                 <figcaption>
+                     Figure: Select the scopes you need, you
+                     can find an <a href="#scopes">overview below</a>
+                 </figcaption>
+             </figure>
+
+             <figure>
+                 <img class="image-size"
+                      src="../media/maskinporten/maskp-integrasjon.png"
+                      alt="Overview of the integration"/>
+                 <figcaption>
+                     Figure: After clicking create, you will get
+                     an overview of your integrations/clients.
+                     Click the one you just created to see
+                     details and edit if needed.
+                 </figcaption>
+             </figure>
             </div>
         </section>
 
