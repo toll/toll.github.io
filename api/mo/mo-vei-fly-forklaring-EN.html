@@ -7,7 +7,7 @@
     <meta name="author" content="Norwegian Customs">
     <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"/>
     <meta name="theme-color" content="#000000"/>
     <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
     <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
@@ -32,7 +32,7 @@
 </header>
 
 <main>
-    <div class="align-self-start" style="width: 70%" role="main">
+    <div class="align-self-start" role="main">
 
         <h2 id="prinsipper">Key Principles</h2>
 
@@ -189,31 +189,38 @@
         </p>
 
         <p>Submitted <strong>question</strong>:</p>
-        <ol class="spaced-list">
-            <li>
+        <div class="tips_box_normal">
+            <p>
                 <em>At what point should the presentation be used? Is it based on polling, or is there a specific time
                     when data becomes available? Who should use it? Are there criteria for when it should and should not
                     be used? Similarly for routing. Is it such that any party (e.g., the sender of house consignment no.
                     15 on a truck with 100 consignments) should use it, and thus be responsible for the entire truck
-                    acting based on the routing information that comes back?</em><br/>
+                    acting based on the routing information that comes back?</em>
+            </p>
+            <p>
                 <em>The information can be interpreted to mean that if a truck is registered through movement-road, it
                     should not be necessary to use the presentation API, because Norwegian Customs has automatically
                     carried out the digital presentation, but the routing API should always be used?</em>
-                <ul class="spaced-list" style="margin-top: 20px">
-                    <li><strong>Answer</strong>:<br/>
-                        As mentioned above, it is not necessary for businesses to submit the presentation. The exception
-                        is in very specific cases where the actor needs to retrieve routing without having been involved
-                        in the submission of messages in advance.<br/>
-                        Regarding routing, it will be necessary for actors who receive consignments/master consignments
-                        upon arrival to retrieve routing. This can be at an airport (typically a ground handler), or if
-                        the actor has permission to transport consignments from the arrival location to their sorting
-                        facility (postal services, express companies).<br/>
-                        Other actors may wish to retrieve routing to obtain information they want to use in their
-                        logistics flow.
-                    </li>
-                </ul>
-            </li>
-        </ol>
+            </p>
+            <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc;">
+                <p><strong>Answer:</strong></p>
+                <p>
+                    As mentioned above, it is not necessary for businesses to submit the presentation. The exception
+                    is in very specific cases where the actor needs to retrieve routing without having been involved
+                    in the submission of messages in advance.
+                </p>
+                <p>
+                    Regarding routing, it will be necessary for actors who receive consignments/master consignments
+                    upon arrival to retrieve routing. This can be at an airport (typically a ground handler), or if
+                    the actor has permission to transport consignments from the arrival location to their sorting
+                    facility (postal services, express companies).
+                </p>
+                <p>
+                    Other actors may wish to retrieve routing to obtain information they want to use in their
+                    logistics flow.
+                </p>
+            </div>
+        </div>
 
         <h2 id="dirigering">Routing in Digitoll</h2>
 
@@ -256,7 +263,7 @@
         <h3 id="Eksempel1">Example 1</h3>
         <div class="example-box">
             <div>
-                Norsk Transport AS has a trailer on the way (transport) with 4 master consignments and four house
+                <strong>Scenario:</strong> Norsk Transport AS has a trailer on the way (transport) with 4 master consignments and four house
                 consignments. Well before the border crossing, Norsk Transport AS has registered the master consignment,
                 and Speditør 1 AS has registered master consignment A and B, while Speditør 2 AS has registered master
                 consignment C and D. Norsk Transport AS has ensured that references to all four master consignments are
@@ -264,7 +271,7 @@
             </div>
             <br/>
             <div>
-                What do the different parties do next to use these two APIs?
+                <strong>Question:</strong> What do the different parties do next to use these two APIs?
             </div>
         </div>
 
@@ -321,14 +328,17 @@
 
         <div class="example-box">
             <div>
-                Express AS has a sorting facility at Helsfyr and receives all cargo on its own flights landing at
+                <strong>Scenario:</strong> Express AS has a sorting facility at Helsfyr and receives all cargo on its own flights landing at
                 Gardermoen.
                 As a result of being an express cargo operator with air freight, they have received pre-approval to
-                transport their consignments to their sorting facility at Helsfyr for sorting.<br/>
+                transport their consignments to their sorting facility at Helsfyr for sorting.
+            </div>
+            <br/>
+            <div>
                 Express AS has submitted a transport message for flight EX0836 with a scheduled landing time at OSL on
-                November 3, 2023, at 06:00.<br/>
+                November 3, 2023, at 06:00.
                 They have submitted a master consignment message linked to the transport and 1534 consignment messages
-                linked to the submitted master consignment.<br/>
+                linked to the submitted master consignment.
                 Flight EX0836 arrives at Gardermoen (OSL) at 06:23 on November 3, 2023.
             </div>
         </div>
@@ -384,10 +394,13 @@
             to Norwegian Customs for control.
         </p>
 
-        <p>Note:<br/>
-            <a id="merknadA"><strong>/A/</strong></a>
-            Document control is not implemented in the solution today but will come within a relatively short time.
-            Currently, only the codes TO_ENTRY, TO_CONTROL, ENTRY_DENIED are active.</p>
+        <div id="merknadA" class="tips_box_normal">
+            <p><strong>Note:</strong></p>
+            <p>
+                <strong>/A/</strong> Document control is not implemented in the solution today but will come within a relatively short time.
+                Currently, only the codes TO_ENTRY, TO_CONTROL, ENTRY_DENIED are active.
+            </p>
+        </div>
     </div>
 </main>
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <title>Fremlegging og kontrolldirigering &ndash; forklart med eksempler</title>
@@ -7,7 +7,7 @@
     <meta name="author" content="Tolletaten">
     <link rel="stylesheet" href="../../style/api.css">
     <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"/>
     <meta name="theme-color" content="#000000"/>
     <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
     <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
@@ -31,7 +31,7 @@
 </header>
 
 <main>
-    <div class="align-self-start" style="width: 70%" role="main">
+    <div class="align-self-start" role="main">
 
       <h2 id="prinsipper">Bærende prinsipper</h2>
 
@@ -202,9 +202,9 @@
         problemer.
       </p>
 
-      <p>Innsendt <strong>spørsmål</strong>:</p>
-      <ol class="spaced-list">
-        <li>
+      <div class="tips_box_normal">
+        <p><strong>Innsendt spørsmål:</strong></p>
+        <p>
           <em>På hvilket tidspunkt skal presentation benyttes?
             Baseres det på polling, eller er det et tidspunkt data blir
             tilgjengelig? Hvem skal bruke det? Er det kriterier på når det
@@ -212,27 +212,35 @@
             slik at en hvilken som helst part (f.eks. innsender av house consignment
             nr. 15 på en bil med 100 partier) skal bruke det, og dermed bli ansvarlig
             for at hele bilen agerer på bakgrunn av routing-informasjonen som kommer
-            tilbake?</em><br/>
+            tilbake?</em>
+        </p>
+        <p>
           <em>Informasjonen kan tolkes slik at hvis en bil er meldt inn gjennom
             movement-road, så skal det ikke være nødvendig å bruke
             presentation-API-et, fordi da har Tolletaten automatisk gjennomført
             digital fremlegging, men at routing-API-et alltid skal benyttes?</em>
-          <ul class="spaced-list" style="margin-top: 20px">
-            <li><strong>Svar</strong>:<br/>
-              Som nevnt over er det ikke nødvendig for næringslivet å sende inn
-              fremlegging (presentation). Unntaket er i helt spesifikke tilfeller, der
-              aktøren har behov for å få dirigering uten å ha vært involvert i
-              innsendingen av meldinger i forkant.<br/>
-              Når det gjelder dirigering (routing) vil det være nødvendig for aktører
-              som mottar forsendelser / hovedforsendelser ved ankomst å hente dirigering.
-              Dette kan være på en lufthavn (typisk ground handler), eller ved at
-              aktøren har tillatelse til å frakte forsendelser fra ankomststed til sitt
-              sorteringsanlegg (posten, ekspresselskaper).<br/>
-              Andre aktører kan ønske å innhente dirigering for å kunne få informasjon
-            som de ønsker å benytte i sin logistikkflyt.</li>
-          </ul>
-        </li>
-      </ol>
+        </p>
+        <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #ccc;">
+          <p><strong>Svar:</strong></p>
+          <p>
+            Som nevnt over er det ikke nødvendig for næringslivet å sende inn
+            fremlegging (presentation). Unntaket er i helt spesifikke tilfeller, der
+            aktøren har behov for å få dirigering uten å ha vært involvert i
+            innsendingen av meldinger i forkant.
+          </p>
+          <p>
+            Når det gjelder dirigering (routing) vil det være nødvendig for aktører
+            som mottar forsendelser / hovedforsendelser ved ankomst å hente dirigering.
+            Dette kan være på en lufthavn (typisk ground handler), eller ved at
+            aktøren har tillatelse til å frakte forsendelser fra ankomststed til sitt
+            sorteringsanlegg (posten, ekspresselskaper).
+          </p>
+          <p>
+            Andre aktører kan ønske å innhente dirigering for å kunne få informasjon
+            som de ønsker å benytte i sin logistikkflyt.
+          </p>
+        </div>
+      </div>
 
 
       <h2 id="dirigering">Dirigering i Digitoll</h2>
@@ -282,16 +290,16 @@
 
       <div class="example-box">
         <div>
-          Norsk Transport AS har en trailer på vei (transport) med 4 hovedforsendelser
+          <strong>Scenario:</strong> Norsk Transport AS har en trailer på vei (transport) med 4 hovedforsendelser
           (master consignments) og fire sendinger (house consignments). I god tid før
           grensepassering har Norsk Transport AS meldt inn hovedforsendelsen, og Speditør
           1 AS har meldt inn hovedforsendelse A og B, mens Speditør 2 AS har meldt inn
           hovedforsendelse C og D. Norsk Transport AS har sørget for at referanser til
           alle fire hovedforsendelsene er inkludert i transport-delen.
         </div>
-          <br/>
+        <br/>
         <div>
-          Hva gjør de forskjellige partene videre her for å bruke disse
+          <strong>Spørsmål:</strong> Hva gjør de forskjellige partene videre her for å bruke disse
           to API-ene?
         </div>
       </div>
@@ -354,18 +362,20 @@
 
       <div class="example-box">
         <div>
-          Express AS har sorteringsanlegg på Helsfyr og mottar all frakt på egne fly
+          <strong>Scenario:</strong> Express AS har sorteringsanlegg på Helsfyr og mottar all frakt på egne fly
           som lander på Gardermoen.
           Som en følge av at de er en ekspressgodsaktør med flyfrakt har de fått
           forhåndstillatelse til å frakte sine forsendelser til sorteringsanlegget sitt
-          på Helsfyr for sortering.<br/>
+          på Helsfyr for sortering.
+        </div>
+        <br/>
+        <div>
           Express AS har sendt inn melding om transport for flight EX0836 med rutetid for
-          landing på OSL på 03. november 2023 kl 06.00.<br/>
+          landing på OSL på 03. november 2023 kl 06.00.
           De har sendt inn en melding om hovedforsendelse som er linket til
           transporten og 1534 meldinger om forsendelser som er linket til den innsendte
-          hovedforsendelsen.<br/>
-          Flight EX0836 ankommer Gardermoen (OSL) kl 06.23 3.november
-          2023
+          hovedforsendelsen.
+          Flight EX0836 ankommer Gardermoen (OSL) kl 06.23 3.november 2023.
         </div>
       </div>
 
@@ -430,12 +440,15 @@
         Tolletaten for kontroll.
       </p>
 
-      <p>Merknad:<br/>
-        <a id="merknadA"><strong>/A/</strong></a>
-        Dokumentkontroll er ikke implementert i løsningen per i
-        dag, men vil komme innen forholdsvis kort tid.
-        Per i dag er det bare kodene TO_ENTRY, TO_CONTROL, ENTRY_DENIED som er
-        aktive.</p>
+      <div id="merknadA" class="tips_box_normal">
+        <p><strong>Merknad:</strong></p>
+        <p>
+          <strong>/A/</strong> Dokumentkontroll er ikke implementert i løsningen per i
+          dag, men vil komme innen forholdsvis kort tid.
+          Per i dag er det bare kodene TO_ENTRY, TO_CONTROL, ENTRY_DENIED som er
+          aktive.
+        </p>
+      </div>
 
     </div>
 
