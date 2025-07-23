@@ -484,12 +484,12 @@ p {
 
 /* Norwegian version (default) */
 .table-responsive::before {
-    content: "← Skroll til siden for å se resten av tabellen →";
+    content: "← Det kan hende du må skrolle til siden for å se resten av tabellen →";
 }
 
 /* English version */
 html[lang="en"] .table-responsive::before {
-    content: "← Scroll sideways to see the rest of the table →";
+    content: "← You might have to scroll sideways to see the rest of the table →";
 }
 
 @media (min-width: 1024px) {
