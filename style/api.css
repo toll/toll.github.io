@@ -468,7 +468,7 @@ p {
     line-height: 30px
 }
 
-/* Dynamic scroll hint for tables based on page language */
+/* Dynamic scroll hint based on page language */
 .table-responsive::before {
     display: block;
     background: var(--background-color-navigation);
@@ -484,12 +484,12 @@ p {
 
 /* Norwegian version (default) */
 .table-responsive::before {
-    content: "← Det kan hende du må skrolle til siden for å se resten av tabellen →";
+    content: "← Det er mulig du må skrolle til siden for resten av tabellen →";
 }
 
 /* English version */
 html[lang="en"] .table-responsive::before {
-    content: "← You might have to scroll sideways to see the rest of the table →";
+    content: "← You might need to scroll sideways for the rest of the table →";
 }
 
 @media (min-width: 1024px) {

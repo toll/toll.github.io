@@ -31,9 +31,9 @@
 </header>
 
 <main class="mo-eksempler">
-    <div class="about-section" role="main">
+    <div class="align-self-start" role="main">
 
-        <div class="about-section-text">
+        <div class="align-self-start">
             <h2 id="eksempler">Eksempler</h2>
 
             <p>
@@ -46,13 +46,18 @@
                 er forskjellig for de ulike prosedyrene vist, det vil si
                 følgende objekter:
             </p>
-            <ul>
-                <li>houseConsignment.consignmentHouseLevel.exportFromEU</li>
-                <li>houseConsignment.consignmentHouseLevel.importProcedure</li>
-                <li>houseConsignment.consignmentHouseLevel.previousDocuments</li>
-                <li>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</li>
-                <li>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</li>
-            </ul>
+            <dl class="spaced-list">
+                <dt>Export fra EU</dt>
+                <dd><code>houseConsignment.consignmentHouseLevel.exportFromEU</code></dd>
+                <dt>Importprosedyre</dt>
+                <dd><code>houseConsignment.consignmentHouseLevel.importProcedure</code></dd>
+                <dt>Tidligere dokumenter</dt>
+                <dd><code>houseConsignment.consignmentHouseLevel.previousDocuments</code></dd>
+                <dt>Transportdokument på forsendelsenivå</dt>
+                <dd><code>houseConsignment.consignmentHouseLevel.transportDocumentHouseLevel</code></dd>
+                <dt>Hovedforsendelse</dt>
+                <dd><code>houseConsignment.consignmentHouseLevel.consignmentMasterLevel</code></dd>
+            </dl>
 
             <h3 id="eks1">Eksempel 1 &ndash; Tolldeklarasjon for overgang til fri disponering og svensk/EU eksport (kun
                 relevant på vei)</h3>
@@ -355,7 +360,7 @@
         </div>
     </div>
 
-    <div>
+    <div class="table-responsive-container">
         <h3 id="testdata">Testdata</h3>
         <p>
             Valideringen av innsendte meldinger inneholder blant annet en kontroll mot at oppgitte deklarasjoner
@@ -365,65 +370,68 @@
         <p>
             For TVINN-deklarasjoner er det disse som kan brukes:
         </p>
-        <table>
-            <tbody>
-            <tr>
-                <th scope="col">declarant_number</th>
-                <th scope="col">declaration_date</th>
-                <th scope="col">sequence_number</th>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>1</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>2</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>4</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>8</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>123456789</td>
-                <td>2022-08-10</td>
-                <td>10</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table>
+                <tbody>
+                <tr>
+                    <th scope="col">declarant_number</th>
+                    <th scope="col">declaration_date</th>
+                    <th scope="col">sequence_number</th>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>123456789</td>
+                    <td>2022-08-10</td>
+                    <td>10</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <p>
             For transitteringsdeklarasjoner (NCTS) er det enda enklere validering i playground-miljøet.
             Her validerer vi bare at feltet inneholder 18 alfanumeriske tegn som regnes som OK.
