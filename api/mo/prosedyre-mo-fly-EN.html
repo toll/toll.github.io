@@ -135,10 +135,6 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                 </tr>
                 <tr>
-                    <td colspan='2'><strong>Applicable modes of transport where this combination is valid</strong></td>
-                    <td>Plane, train, car on ferry</td>
-                </tr>
-                <tr>
                     <th>Field</th>
                     <th>Code list</th>
                     <th>Variant 1</th>
@@ -314,10 +310,6 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                             for
                             export requirements.</p>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                    <td>Car on road/ferry, train, plane</td>
                 </tr>
                 <tr>
                     <th>Field</th>
@@ -584,10 +576,6 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                 </tr>
                 <tr>
-                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                    <td>Car on ferry, plane</td>
-                </tr>
-                <tr>
                     <th>Field</th>
                     <th>Code list</th>
                     <th>Variant 9</th>
@@ -762,21 +750,42 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                         <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
                             ferry to Larvik)</p>
                     </td>
-                </tr>
-                <tr>
-                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                    <td>Car on ferry, plane</td>
+                    <td>
+                        <p>Shipment to be collectively cleared after border crossing.</p>
+                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
+                            crossing</p>
+                    </td>
+                    <td>
+                        <p>Shipment to be collectively cleared after border crossing.</p>
+                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+                    </td>
+                    <td>
+                        <p>Shipment to be collectively cleared after border crossing.</p>
+                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+                    </td>
                 </tr>
                 <tr>
                     <th>Field</th>
                     <th>Code list</th>
-                    <th>Variant 12</th>
+                    <th>Variant 15</th>
+                    <th>Variant 16</th>
+                    <th>Variant 17</th>
+                    <th>Variant 18</th>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
@@ -787,6 +796,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
+                    </td>
+                    <td>
+                        <p>COLLECTIVE_RELEASE</p>
                     </td>
                     <td>
                         <p>COLLECTIVE_RELEASE</p>
@@ -802,6 +820,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td>
                         <p>-</p>
                     </td>
+                    <td>
+                        <p>EXP</p>
+                    </td>
+                    <td>
+                        <p>TRE</p>
+                    </td>
+                    <td>
+                        <p>TRA</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
@@ -813,6 +840,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td>
                         <p>false</p>
                     </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
+                    <td>
+                        <p>true</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
@@ -821,6 +857,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td style='background:var(--background-color-procedure-red);'></td>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>-</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
@@ -832,6 +877,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                     <td>
                         <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                 </tr>
                 <tr>
@@ -846,12 +900,26 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td>
                         <p>-</p>
                     </td>
+                    <td></td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p>declarantNumber</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
                         <p>-</p>
                     </td>
                     <td>
@@ -868,12 +936,26 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td>
                         <p>-</p>
                     </td>
+                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p>sequenceNumber</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td></td>
+                    <td>
                         <p>-</p>
                     </td>
                     <td>
@@ -888,6 +970,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>-</strong></p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-green);'>
@@ -895,6 +986,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
                         <p>-</p>
@@ -910,6 +1010,15 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     <td>
                         <p>-</p>
                     </td>
+                    <td>
+                        <p>must be one of [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td>
+                        <p>must be one of [ AES_EXPORT, EUEIR_EXPORT ]</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
@@ -920,7 +1029,16 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                         <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
-                    <td>
+                    <td style='background:#D5DCE4;'></td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                 </tr>
             </table>
@@ -944,188 +1062,9 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
                     </td>
                 </tr>
                 <tr>
-                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                    <td>Car on ferry, plane</td>
-                </tr>
-                <tr>
                     <th>Field</th>
                     <th>Code list</th>
-                    <th>Variant 15</th>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>importProcedure</strong></p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-blue);'></td>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>must be filled out</strong></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p>importProcedure</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
-                    </td>
-                    <td>
-                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p>outgoingProcedure</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p>hasOutgoingProcedure</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-blue);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>false</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>previousDocuments</strong></p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'></td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>-</strong></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>referenceNumber</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>typeOfReference</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>declarantNumber</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>declarationDate</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>sequenceNumber</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-red);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p><strong>exportFromEU</strong></p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-green);'></td>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p><strong>-</strong></p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p>exportId</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p>typeOfExport</p>
-                    </td>
-                    <td style='background:var(--background-color-procedure-green);'>
-                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
-                    </td>
-                    <td>
-                        <p>-</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
-                    </td>
-                    <td>
-                        <p><a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
-                    </td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="table-responsive">
-            <table class="procedure-table">
-                <tr>
-                    <td colspan='2'>
-                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
-                    </td>
-                    <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the customs
-                            regulations.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the
-                            ferry to Larvik)</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan='2'><strong>Applicable modes of transport</strong></td>
-                    <td>Car on ferry, plane</td>
-                </tr>
-                <tr>
-                    <th>Field</th>
-                    <th>Code list</th>
-                    <th>Variant 15</th>
+                    <th>Variant 19</th>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
