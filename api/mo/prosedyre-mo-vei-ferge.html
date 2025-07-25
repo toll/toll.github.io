@@ -116,10 +116,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
     <br/>
     <br/>
 
-    <div class="table-responsive">
+    <div class="table-responsive-container">
         <h3>IMMEDIATE_RELEASE_IMPORT</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -425,7 +424,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -661,7 +659,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>IMMEDIATE_RELEASE_VOEC</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1078,7 +1075,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>WAREHOUSE_RELEASE</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1101,7 +1097,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>Transittering er foregående prosedyre og skal fullføres ved
                             grensepassering.</p>
                     </td>
-                    <td>
+                    <td colspan='2'>
                         <p>Forsendelse som skal godsregistreres ved grensepassering</p>
                         <p>Eksport er foregående prosedyre og skal klareres ved grensepassering.</p>
                     </td>
@@ -1124,10 +1120,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 <tr>
                     <th>Felt</th>
                     <th>Kodeverk</th>
-                    <th>Variant 9</th>
-                    <th>Variant 10</th>
-                    <th colspan='2'>Variant 11</th>
-                    <th>Variant 18</th>
+                    <th>Variant 11</th>
+                    <th>Variant 12</th>
+                    <th colspan='2'>Variant 13</th>
+                    <th colspan='2'>Variant 14</th>
                     <th>Variant 23</th>
                     <th>Variant 24</th>
                     <th colspan='2'>Variant 25</th>
@@ -1147,7 +1143,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td colspan='2' style='background:var(--background-color-procedure-blue);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-blue);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-blue);'>
                         <p><strong>må fylles ut</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
@@ -1180,8 +1176,8 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td colspan='2'>
                         <p>WAREHOUSE_RELEASE</p>
                     </td>
-                    <td>
-                        <p>COLLECTIVE_RELEASE</p>
+                    <td colspan='2'>
+                        <p>WAREHOUSE_RELEASE</p>
                     </td>
                     <td>
                         <p>WAREHOUSE_RELEASE</p>
@@ -1211,9 +1207,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>EXP</p>
                     </td>
                     <td colspan='2'>
-                        <p>TRA</p>
+                        <p>TRE</p>
                     </td>
-                    <td>
+                    <td colspan='2'>
                         <p>TRA</p>
                     </td>
                     <td>
@@ -1245,7 +1241,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td colspan='2'>
                         <p>true</p>
                     </td>
-                    <td>
+                    <td colspan='2'>
                         <p>true</p>
                     </td>
                     <td>
@@ -1281,6 +1277,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>OG liste må ha ett
                             innslag av type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>liste må ha ett innslag
+                            av type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>OG liste må ha ett
@@ -1331,6 +1331,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>&lt;må ha verdi&gt;</p>
                     </td>
                     <td>
+                        <p>-</p>
+                    </td>
+                    <td>
                         <p>&lt;må ha verdi&gt;</p>
                     </td>
                     <td>
@@ -1375,19 +1378,22 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>må være = N820</p>
                     </td>
                     <td>
+                        <p>må være = CUDE</p>
+                    </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
+                    <td>
+                        <p>må være = GONU</p>
+                    </td>
+                    <td>
+                        <p>må være = GONU</p>
+                    </td>
+                    <td>
                         <p>må være = N820</p>
                     </td>
                     <td>
                         <p>må være = GONU</p>
-                    </td>
-                    <td>
-                        <p>må være = GONU</p>
-                    </td>
-                    <td>
-                        <p>må være = GONU</p>
-                    </td>
-                    <td>
-                        <p>må være = N820</p>
                     </td>
                     <td>
                         <p>må være = GONU</p>
@@ -1414,6 +1420,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;må ha verdi&gt;</p>
                     </td>
                     <td>
                         <p>-</p>
@@ -1457,6 +1466,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
                         <p>-</p>
                     </td>
                     <td>
@@ -1498,6 +1510,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td>
+                        <p>&lt;må ha verdi&gt;</p>
+                    </td>
+                    <td>
                         <p>-</p>
                     </td>
                     <td>
@@ -1532,9 +1547,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                             innslag av type:</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                        <p><strong>-</strong></p>
+                        <p><strong>liste må ha MINST ett
+                            innslag av type:</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'>
+                    <td colspan='2' style='background:var(--background-color-procedure-green);'>
                         <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
@@ -1566,9 +1582,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>&lt;må ha verdi&gt;</p>
                     </td>
                     <td colspan='2'>
-                        <p>-</p>
+                        <p>&lt;må ha verdi&gt;</p>
                     </td>
-                    <td>
+                    <td colspan='2'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1599,9 +1615,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
                     </td>
                     <td colspan='2'>
-                        <p>-</p>
+                        <p>må være en av [ AES_EXPORT, EUEIR_EXPORT ]</p>
                     </td>
-                    <td>
+                    <td colspan='2'>
                         <p>-</p>
                     </td>
                     <td>
@@ -1629,17 +1645,19 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         </p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
                         <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                     </td>
                     <td colspan='2' style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
-                    <td style='background:#D5DCE4;'>
+                    <td colspan='2' style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
@@ -1666,7 +1684,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>COLLECTIVE_RELEASE</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1989,7 +2006,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
 
-        <p class="scroll-hint">På mindre skjermer har du mulighet til å skrolle til siden for å se hele tabellen.</p>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
