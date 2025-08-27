@@ -131,8 +131,7 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                     </td>
                     <td>
                         <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
-                        <p>Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll
-                            før ferge til Larvik)</p>
+                        <p>Annen tollmyndighet har klarert foregående prosedyre</p>
                     </td>
                     <td colspan='2'>
                         <p>Det er på forhånd levert deklarasjon for overgang til fri disponering.</p>
@@ -373,7 +372,7 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h4>TRANSIT_IMPORT / TRANSIT_RELEASE</h4>
+        <h4>TRANSIT_IMPORT</h4>
 
         <div class="table-responsive">
             <table class="procedure-table">
@@ -383,9 +382,8 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                             til grensen</strong></p>
                     </td>
                     <td>
-                        <p>Transittering er startet opp i annet land. Fullføring av transitteringen
-                            skal utføres ved lossing. Ved grensepassering skal det kun registreres
-                            grensepassering i NCTS</p>
+                      <p>Transittering er startet opp i annet land.</p>
+                      <p>Fullføring av transitteringen skal utføres av autorisert mottaker.</p>
                     </td>
                 </tr>
                 <tr>
@@ -632,7 +630,7 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>false</p>
                     </td>
                     <td>
                         <p>true</p>
@@ -1290,12 +1288,12 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
             <table class="procedure-table">
                 <tr>
                     <td colspan='2'>
-                        <p><strong>Description of customs procedure and procedure up to the border</strong></p>
+                        <p><strong>Beskrivelse av tollprosedyre og prosedyre fram
+                            til grensen</strong></p>
                     </td>
                     <td>
-                        <p>Shipments that are not subject to declaration obligation under § 4-1-29 of the Goods Traffic
-                            Regulations.</p>
-                        <p>Transit is the preceding procedure and must be completed at the border crossing.</p>
+                        <p>Forsendelse som ikke har deklarasjonsplikt etter § 4-1-29 i vareførselsforskriften.</p>
+                        <p>Transittering er foregående prosedyre og skal fullføres ved grensepassering.</p>
                     </td>
                 </tr>
                 <tr>
