@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Melde og opplysning</title> <!-- TODO -->
+    <meta name="description" content="Tolletatens API for melde- og opplysning"> <!-- TODO -->
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../../style/api.css">
+    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../../index.html">
+        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../melde-og-opplysning-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="../melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket.html">Utfyllingsprosedyre - MO - Sjø
+                    - Kystverket (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Sentrale dataelementer og meldinger</li>
+            </ol>
+        </nav>
+
+        <h1>Sentrale dataelementer og meldinger</h1>
+
+        <h2>Generelt</h2>
+
+        <p>
+            Alle tre meldinger inneholder informasjon om 'declarant'. Declarant skal inneholde informasjon om
+            autentisert innsender i SSNN, enten den som er pålogget portalen og sender inn data eller den virksomheten
+            som sender data inn til SSNN via RIM.
+        </p>
+
+        <h2>Dataelementer knyttet til du ulike meldingene</h2>
+        <p>
+            Tabellene under gir en oversikt over sentrale dataelementer knyttet til transport, declaration of goods og
+            relationship. De detaljerte informasjonsmodellene for disse meldingene er beskrevet under 'hvordan fylle ut
+            meldinger' (lenke)
+        </p>
+
+        <h3>Dataelementer knyttet til transport</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Dataelement</th>
+                    <th scope="col">Obligatorisk</th>
+                    <th scope="col">Betinget</th>
+                    <th scope="col">Frivillig</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>Declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>VisitId</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ship</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PortOfCall</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>EtaAtFirstPortCallLocation</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>itineraryList</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(se detaljer i swagger-dokumentasjon)</p>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

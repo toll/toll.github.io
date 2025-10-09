@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Melde og opplysning</title> <!-- TODO -->
+    <meta name="description" content="Tolletatens API for melde- og opplysning"> <!-- TODO -->
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../../style/api.css">
+    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../../index.html">
+        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="../melde-og-opplysning-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="../melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket.html">Utfyllingsprosedyre - MO - Sjø - Kystverket (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Informasjon og meldinger</li>
+            </ol>
+        </nav>
+
+        <h1>Informasjon og meldinger ved innsending</h1>
+        <figure>
+            <img style="width: 850px; height: 50%" src="../../media/kystverket(SSNN)/overordnet-meldingsflyt.png"
+                 alt="Se figurtekst"/>
+            <figcaption>...</figcaption> <!-- TODO -->
+        </figure>
+
+
+        <h2>Meldinger og relasjoner i mellom de</h2>
+
+        <h3>Melding om transport</h3>
+        <p>
+            For hver havn et fartøy anløper vil Tolletaten ha en melding om transport.
+            Denne meldingen skal inneholde informasjon om hvilken havn anløpet gjelder ("Port Of Call").
+        </p>
+
+        <h3>Melding om 'Declaration of goods' (DOG)</h3>
+        <p>
+            Alle varer ombord i fartøyet skal være dekket av en "Declaration of Goods" ved ankomst til havnen.
+            Det gjelder både de varene som skal losses i den havnen fartøyet ankommer og varer som skal losses i en
+            påfølgende havn.
+        </p>
+
+        <p>
+            For hver havn fartøyet ankommer skal det opprettes nye "Declaration of Goods" for alle varer.
+            Alle "Declaration of Goods" skal inneholde en kode for hvilken havn de varene som er dekket av "Declaration
+            of Goods" skal losses i → "Port Of Discharge"
+        </p>
+        <p>
+            I den havnen der varer dekket av "Declaration of Goods" skal losses vil "Declaration of Goods" sin "Port Of
+            Discharge" være identisk med transportens (visit) sin "Port Of Call".
+        </p>
+
+        <p><strong>En "Declaration of Goods" kan sendes inn i ulike varianter:</strong></p>
+
+        <ol class="spaced-list">
+            <li>En hovedforsendelse (master) med alle data og en liste med forsendelser (house) med alle data</li>
+            <li>
+                En hovedforsendelse (master) med alle data
+                <ol type="a">
+                    <li>
+                        Underliggende forsendelse (house) vil i slike tilfeller være sendt inn fra systemleverandører
+                        direkte mot Digitoll, og det er forsendelsen som vil inneholde referanse til hovedforsendelse
+                        (master).
+                    </li>
+                </ol>
+            </li>
+            <li>En liste med direkteforsendelser som skal losses i samme havn, der alle har alle data</li>
+            <li>
+                En liste med referanser. Referansene kan være:
+                <ol type="a">
+                    <li>
+                        En liste med referanser til meldinger sendt inn fra systemleverandører direkte mot Digitoll. Det
+                        er to separate lister for hhv hovedforsendelser og direkteforsendelser
+                    </li>
+                    <li>
+                        En liste med referanse til tidligere innsendte hovedforsendelser og/eller en liste med tidligere
+                        innsendte direkteforsendelser. Det er to separate lister i meldingen.
+                    </li>
+                    <li>
+                        Felles for begge er at referansene som oppgis er fraktbrevnummer.
+                        <ol type="i">
+                            <li>
+                                Listene kan inneholde kombinasjoner av a og b (det vil si man kan samtidig referere til
+                                meldinger sendt direkte til Digitoll med referanser til meldinger sendt inn tidligere
+                                fra SSNN
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+
+        <p>
+            Når en "Declaration of Goods" inneholder en hovedforsendelse eller direkteforsendelser, med alle data, skal
+            den ikke inneholde lister av referanser til tidligere innsendte hovedforsendelser eller direkteforsendelser.
+        </p>
+
+        <h3>Melding om 'Relationship'</h3>
+
+        <p>
+            Koblingmeldingen, "Relationship", vil inneholde koblingene mellom visitID og de ulike fraktbrevreferansene
+            fra forsendelsene direkte knyttet opp mot transporten knyttet til et anløp.
+        </p>
+
+        <ul>
+            <li>
+                Fraktbrevnummer på ordinære forsendelser(House consignment), de som ikke har en direkte kobling til
+                transporten, skal alltid være knyttet til en hovedforsendelse (Master consignment) og gjennom den til
+                transporten. De ordinære forsendelsene vil derfor ikke være med i relationship meldingen som sendes inn
+                ved hvert anløp.
+            </li>
+        </ul>
+
+        <p>
+            Relationshipmeldingen brukes av Tolletaten til å knytte de ulike innsendte DOG meldinger med tilhørende
+            transportmelding.
+        </p>
+
+        <figure>
+            <img style="width: 1550px; height: 50%" src="../../media/kystverket(SSNN)/dog-relationship.png"
+                 alt="Se figurtekst"/>
+            <figcaption>
+                Siden alle varer ombord er knyttet til en "Declaration of Goods" som har en "port of discharge" vil
+                Tolletaten kunne finne hvilke varer som skal losses i hvilken havn.
+            </figcaption>
+        </figure>
+
+
+        <h2>Overordnet meldingsflyt ifm kvitteringer tilbake til SSNN på innsendte data</h2>
+        <p>Overordnet meldingsflyt:</p>
+        <figure>
+            <img style="width: 1550px; height: 50%"
+                 src="../../media/kystverket(SSNN)/overordnet-meldingsflyt-kvittering.png" alt="Se figurtekst"/>
+            <figcaption>...</figcaption> <!-- TODO -->
+        </figure>
+
+        <h3>Melding om validation-status</h3>
+        <p>
+            På alle innsendte meldinger (transport, DOG og relationship) vil SSNN motta synkron respons på innsendt
+            melding. Denne vil inneholde en requestID.
+        </p>
+
+        <p>
+            SafeSeaNet må bruke requestID til å hente ut informasjon om melding innsendt har blitt behandlet OK i
+            digitoll. Det er vil være særskilt endepunkt for:
+        </p>
+
+        <ul>
+            <li>validation-status på transport</li>
+            <li>validation-status på DOG</li>
+            <li>validation-status på relationship (vises vel ikke i GUI i SSNN)</li>
+        </ul>
+
+        <p>Meldingsstrukturen er felles, requestID i parameter når man sender melding til Digitoll</p>
+
+        <p>Returstrukturen er tilsvarende lik, status, ev MRN hvis OK, ev feilliste hvis ikke OK.</p>
+
+        <ul>
+            <li>
+                Detaljert beskrivelse av meldingsinnhold i validation-status meldinger er dokumentert i swagger, under
+                query-meldinger:
+                <a href="https://api-test.toll.no/api/movement/maritime-ssnn/status/v1/swagger-ui/index.html">
+                    Swagger UI
+                </a>
+            </li>
+            <li>
+                Generell informasjon om synkrone valideringsfeil:
+                <a href="https://toll.github.io/api/mo/synkrone-valideringsfeil.html">
+                    Oversikt over valideringsfeil for API i
+                    Melding/opplysning
+                </a>
+            </li>
+            <li>
+                Generell informasjon om asynkron valideringsfeil:
+                <a href="https://toll.github.io/api/mo/asynkrone-valideringsfeil.html">
+                    Oversikt over valideringsfeil for API i MO
+                </a>
+            </li>
+        </ul>
+
+        <h3>Visning av resultat av validation-status i skjermbildene i SSNN</h3>
+
+        <p>
+            Respons på hhv innsending av transport og innsending av DOG må vises i skjermbildene i SSNN, slik at man
+            også får se feilmeldingen og hva som må rettes.
+        </p>
+
+        <p>
+            I tillegg er det viktig at MRN som kommer i retur på transportmelding vises i skjermbildene. Denne kan
+            fartøyet i noen tilfeller ha behov for å dele med aktørene de samarbeider med.
+        </p>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
