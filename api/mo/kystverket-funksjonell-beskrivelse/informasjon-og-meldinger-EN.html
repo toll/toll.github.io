@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Information and Messages</title>
+    <meta name="description" content="Information when submitting data to SafeSeaNet (SSNN)">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../../style/api.css">
+    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../../index-EN.html">
+        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="informasjon-og-meldinger.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../../media/flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Information and Messages</li>
+            </ol>
+        </nav>
+
+        <h1>Information and Messages for Submission</h1>
+        <figure>
+            <img style="width: 850px; height: 50%" src="../../media/kystverket(SSNN)/overordnet-meldingsflyt.png"
+                 alt="See figure caption"/>
+        </figure>
+
+
+        <h2>Messages and Relationships Between Them</h2>
+
+        <h3>Message about Transport</h3>
+        <p>
+            For each port a vessel calls at, Norwegian Customs will have a transport message.
+            This message shall contain information about which port the call concerns ("Port Of Call").
+        </p>
+
+        <h3>Message about 'Declaration of goods' (DOG)</h3>
+        <p>
+            All goods aboard the vessel shall be covered by a "Declaration of Goods" upon arrival at the port.
+            This applies to both goods that are to be unloaded in the port the vessel arrives at and goods that are to be unloaded at a subsequent port.
+        </p>
+
+        <p>
+            For each port the vessel arrives at, new "Declaration of Goods" shall be created for all goods.
+            All "Declaration of Goods" shall contain a code for which port the goods covered by "Declaration
+            of Goods" are to be unloaded in → "Port Of Discharge"
+        </p>
+        <p>
+            In the port where goods covered by "Declaration of Goods" are to be unloaded, the "Declaration of Goods"
+            "Port Of Discharge" will be identical to the transport's (visit) "Port Of Call".
+        </p>
+
+        <p><strong>A "Declaration of Goods" can be submitted in different variants:</strong></p>
+
+        <ol class="spaced-list">
+            <li>A master consignment with all data and a list of house consignments with all data</li>
+            <li>
+                A master consignment with all data
+                <ol type="a">
+                    <li>
+                        Underlying house consignment will in such cases be sent directly from system suppliers
+                        to Digitoll, and it is the consignment that will contain reference to the master consignment.
+                    </li>
+                </ol>
+            </li>
+            <li>A list of direct consignments to be unloaded in the same port, where all have all data</li>
+            <li>
+                A list of references. The references can be:
+                <ol type="a">
+                    <li>
+                        A list of references to messages sent directly from system suppliers to Digitoll. There
+                        are two separate lists for master consignments and direct consignments respectively
+                    </li>
+                    <li>
+                        A list of references to previously submitted master consignments and/or a list of previously
+                        submitted direct consignments. There are two separate lists in the message.
+                    </li>
+                    <li>
+                        Common to both is that the references provided are waybill numbers.
+                        <ol type="i">
+                            <li>
+                                The lists can contain combinations of a and b (that is, one can simultaneously refer to
+                                messages sent directly to Digitoll with references to messages sent earlier
+                                from SSNN
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </li>
+        </ol>
+
+        <p>
+            When a "Declaration of Goods" contains a master consignment or direct consignments, with all data, it shall
+            not contain lists of references to previously submitted master consignments or direct consignments.
+        </p>
+
+        <h3>Message about 'Relationship'</h3>
+
+        <p>
+            The linking message, "Relationship", will contain the links between visitID and the various waybill references
+            from consignments directly linked to the transport related to a port call.
+        </p>
+
+        <ul>
+            <li>
+                Waybill numbers for ordinary consignments (House consignment), those that do not have a direct link to
+                the transport, shall always be linked to a master consignment and through it to
+                the transport. The ordinary consignments will therefore not be included in the relationship message sent
+                at each port call.
+            </li>
+        </ul>
+
+        <p>
+            The relationship message is used by Norwegian Customs to link the various submitted DOG messages with corresponding
+            transport message.
+        </p>
+
+        <figure>
+            <img style="width: 1550px; height: 50%" src="../../media/kystverket(SSNN)/dog-relationship.png"
+                 alt="See figure caption"/>
+            <figcaption>
+                Since all goods aboard are linked to a "Declaration of Goods" that has a "port of discharge",
+                Norwegian Customs will be able to find which goods are to be unloaded in which port.
+            </figcaption>
+        </figure>
+
+
+        <h2>Overall Message Flow Regarding Receipts Back to SSNN on Submitted Data</h2>
+        <p>Overall message flow:</p>
+        <figure>
+            <img style="width: 1550px; height: 50%"
+                 src="../../media/kystverket(SSNN)/overordnet-meldingsflyt-kvittering.png" alt="See figure caption"/>
+        </figure>
+
+        <h3>Message about validation-status</h3>
+        <p>
+            For all submitted messages (transport, DOG and relationship), SSNN will receive synchronous response to submitted
+            message. This will contain a requestID.
+        </p>
+
+        <p>
+            SafeSeaNet must use requestID to retrieve information about whether the submitted message has been processed OK in
+            Digitoll. There will be specific endpoints for:
+        </p>
+
+        <ul>
+            <li>validation-status for transport</li>
+            <li>validation-status for DOG</li>
+            <li>validation-status for relationship (probably not shown in GUI in SSNN)</li>
+        </ul>
+
+        <p>The message structure is common, requestID as parameter when sending message to Digitoll</p>
+
+        <p>The return structure is correspondingly similar, status, possibly MRN if OK, possibly error list if not OK.</p>
+
+        <ul>
+            <li>
+                Detailed description of message content in validation-status messages is documented in swagger, under
+                query-messages:
+                <a href="https://api-test.toll.no/api/movement/maritime-ssnn/status/v1/swagger-ui/index.html">
+                    Swagger UI
+                </a>
+            </li>
+            <li>
+                General information about synchronous validation errors:
+                <a href="https://toll.github.io/api/mo/synkrone-valideringsfeil-EN.html">
+                    Overview of validation errors for API in
+                    Notification/Information
+                </a>
+            </li>
+            <li>
+                General information about asynchronous validation errors:
+                <a href="https://toll.github.io/api/mo/asynkrone-valideringsfeil-EN.html">
+                    Overview of validation errors for API in MO
+                </a>
+            </li>
+        </ul>
+
+        <h3>Display of validation-status results in SSNN screens</h3>
+
+        <p>
+            Response to transport submission and DOG submission respectively must be displayed in the screens in SSNN, so that one
+            can also see the error message and what needs to be corrected.
+        </p>
+
+        <p>
+            In addition, it is important that the MRN returned from the transport message is displayed in the screens. The vessel may
+            in some cases need to share this with the actors they collaborate with.
+        </p>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
