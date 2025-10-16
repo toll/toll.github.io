@@ -487,6 +487,13 @@ p {
     content: "← Det er mulig du må skrolle til siden for resten av tabellen →";
 }
 
+.table-center-X {}
+.table-center-X td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+    text-align: center;
+}
+
 /* English version */
 html[lang="en"] .table-responsive::before {
     content: "← You might need to scroll sideways for the rest of the table →";

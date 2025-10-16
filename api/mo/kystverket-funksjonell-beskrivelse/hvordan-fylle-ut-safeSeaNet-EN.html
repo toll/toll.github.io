@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API for Notification and Information, Maritime from SafeSeaNet (SSNN)</title>
+    <meta name="description" content="Norwegian Customs API for notification and information, maritime (SSNN)">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../../style/api.css">
+    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+
+<body>
+
+<header>
+    <a href="../../../index-EN.html">
+        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="hvordan-fylle-ut-safeSeaNet.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../../media/flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main class="mo-api">
+    <div style="align-self: normal" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="../melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">How to Fill Out Messages from SafeSeaNet</li>
+            </ol>
+        </nav>
+
+        <h1>How to Fill Out Messages from SafeSeaNet</h1>
+
+        <h2 id="Grensesnittbeskrivelse">Interface Description</h2>
+        <p>
+            The services are made available as REST services over HTTPS, with data in JSON format.
+        </p>
+
+        <pre class="boxed-display">
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/transport
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/declaration-of-goods
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/relationship
+
+PUT/DELETE https://&lt;env&gt;/api/movement/maritime-ssnn/v1/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/maritime-ssnn/v1/declaration-of-goods/{MRN}
+PUT https://&lt;env&gt;/api/movement/maritime-ssnn/v1/relationship/{MRN}
+
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/declaration-of-goods/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/relationship/validation-status/{requestId}
+        </pre>
+
+        <p>where</p>
+
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> is replaced with
+                <ul>
+                    <li><i>api.toll.no</i> for production</li>
+                    <li><i>api-test</i>.toll.no for playground (test environment)</li>
+                </ul>
+            </li>
+            <li>
+                <b>{requestId}</b> is replaced with the reference returned from POST/PUT/DELETE calls
+            </li>
+            <li>
+                <b>{MRN}</b> is replaced with the reference returned
+                from the ".../validation-status..." endpoints.
+            </li>
+        </ul>
+
+        <p class="tips_box">
+            If you discover security challenges in our solutions, please
+            contact us; <a href="https://toll.no/.well-known/security.txt">see
+            here for info</a>
+        </p>
+
+        <h2>Special about DELETE and Relationship</h2>
+        <p>
+            Since relationship messages are generated based on declaration-of-goods, it is not logical to delete a
+            declaration-of-goods directly. They are deleted indirectly through declaration-of-goods being changed. Therefore,
+            DELETE on declaration-of-goods is not an option.
+        </p>
+        <p>If all declaration-of-goods are deleted, an empty relationship message is submitted as PUT.</p>
+
+        <h2>Link to Swagger Documentation</h2>
+
+        <h4>API: movement-maritime-ssnn-api</h4>
+        <p>
+            To be able to use the service, the scope for authentication against Maskinporten must be set to
+            <strong>toll:movement/maritime</strong>
+        </p>
+
+        <p>
+            See: <a href="https://api-test.toll.no/api/movement/maritime-ssnn/v1/swagger-ui/index.html">
+            API documentation here</a>.
+        </p>
+
+        <h4>API: movement-maritime-ssnn-query-api</h4>
+        <p>
+            To be able to use the service, the scope for authentication against Maskinporten must be set to
+            <strong>toll:movement/maritime</strong>
+        </p>
+
+        <p>
+            See: <a href="https://api-test.toll.no/api/movement/maritime-ssnn/status/v1/swagger-ui/index.html">
+            API documentation here</a>.
+        </p>
+
+        <h4>API: movement-routing-api</h4>
+        <p>
+            See: <a href="https://toll.github.io/api/mo/movement-routing-api.html">
+            API documentation here</a>.
+        </p>
+
+        <h2>The Tables for Description of Customs Procedure and Procedure to the Border Will Be the Same as the Tables for Maritime</h2>
+        <a href="../prosedyre-mo-sjo-EN.html#prosedyreTabeller">See the tables here</a>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
