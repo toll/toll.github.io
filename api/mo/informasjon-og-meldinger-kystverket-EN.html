@@ -5,27 +5,27 @@
     <title>Information and Messages</title>
     <meta name="description" content="Information when submitting data to SafeSeaNet (SSNN)">
     <meta name="author" content="Norwegian Customs">
-    <link rel="stylesheet" href="../../../style/api.css">
-    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
-    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
-    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
     <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
 </head>
 <body>
 
 <header>
-    <a href="../../../index-EN.html">
-        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
     </a>
 
     <a href="informasjon-og-meldinger.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../../media/flag/NO-flag.svg" alt="Norwegian flag">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
         </div>
     </a>
 </header>
@@ -34,16 +34,16 @@
     <div class="align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../index-EN.html">Home</a></li>
-                <li class="breadcrumb-item"><a href="../melde-og-opplysning-EN.html">Notification and Information</a></li>
-                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Information and Messages</li>
             </ol>
         </nav>
 
         <h1>Information and Messages for Submission</h1>
         <figure>
-            <img style="width: 850px; height: 50%" src="../../media/kystverket(SSNN)/overordnet-meldingsflyt.png"
+            <img class="responsive-diagram" src="../media/kystverket(SSNN)/overordnet-meldingsflyt.png"
                  alt="See figure caption"/>
         </figure>
 
@@ -103,7 +103,7 @@
                             <li>
                                 The lists can contain combinations of a and b (that is, one can simultaneously refer to
                                 messages sent directly to Digitoll with references to messages sent earlier
-                                from SSNN
+                                from SSNN)
                             </li>
                         </ol>
                     </li>
@@ -138,7 +138,7 @@
         </p>
 
         <figure>
-            <img style="width: 1550px; height: 50%" src="../../media/kystverket(SSNN)/dog-relationship.png"
+            <img class="responsive-diagram" src="../media/kystverket(SSNN)/dog-relationship.png"
                  alt="See figure caption"/>
             <figcaption>
                 Since all goods aboard are linked to a "Declaration of Goods" that has a "port of discharge",
@@ -150,8 +150,8 @@
         <h2>Overall Message Flow Regarding Receipts Back to SSNN on Submitted Data</h2>
         <p>Overall message flow:</p>
         <figure>
-            <img style="width: 1550px; height: 50%"
-                 src="../../media/kystverket(SSNN)/overordnet-meldingsflyt-kvittering.png" alt="See figure caption"/>
+            <img class="responsive-diagram"
+                 src="../media/kystverket(SSNN)/overordnet-meldingsflyt-kvittering.png" alt="See figure caption"/>
         </figure>
 
         <h3>Message about validation-status</h3>
@@ -179,8 +179,8 @@
             <li>
                 Detailed description of message content in validation-status messages is documented in swagger, under
                 query-messages:
-                <a href="https://api-test.toll.no/api/movement/maritime-ssnn/status/v1/swagger-ui/index.html">
-                    Swagger UI
+                <a href="maritime-ssnn-status-api.html">
+                    API documentation maritime-ssnn-status-api
                 </a>
             </li>
             <li>
