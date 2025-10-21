@@ -1,31 +1,31 @@
 <!DOCTYPE html>
-<html lang="no">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sentrale dataelementer og meldinger</title>
-    <meta name="description" content="Informasjon om obligatoriske og betingede dataelementer i meldinger fra SafeSeaNet (SSNN)">
-    <meta name="author" content="Tolletaten">
-    <link rel="stylesheet" href="../../../style/api.css">
-    <link rel="icon" href="../../../media/toll-logo/favicon.ico"/>
+    <title>Central Data Elements and Messages</title>
+    <meta name="description" content="Information about mandatory and conditional data elements in messages from SafeSeaNet (SSNN)">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="theme-color" content="#000000"/>
-    <link rel="shortcut icon" href="../../../media/toll-logo/logo32.png" type="image/png"/>
-    <link rel="apple-touch-icon" href="../../../media/toll-logo/logo152.png"/>
-    <link rel="apple-touch-icon-precomposed" href="../../../media/toll-logo/logo152.png"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
     <meta name="msapplication-TileColor" content="#FFFFFF"/>
-    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileImage" content="../media/toll-logo/logo152.png"/>
 </head>
 <body>
 
 <header>
-    <a href="../../../index.html">
-        <img src="../../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
     </a>
 
-    <a href="sentrale-dataelementer-og-meldinger-EN.html" class="nav-language-button" role="navigation">
+    <a href="sentrale-dataelementer-og-meldinger-ssnn.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
-            <span>EN</span>
-            <img class="flag-rounded" src="../../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
         </div>
     </a>
 </header>
@@ -34,40 +34,39 @@
     <div class="align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../../../index.html">Hjem</a></li>
-                <li class="breadcrumb-item"><a href="../melde-og-opplysning.html">Melde og opplysning</a></li>
-                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket.html">Utfyllingsprosedyre - MO - Sjø
-                    - Kystverket (SSNN)</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Sentrale dataelementer og meldinger</li>
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Central Data Elements and Messages</li>
             </ol>
         </nav>
 
-        <h1>Sentrale dataelementer og meldinger</h1>
+        <h1>Central Data Elements and Messages</h1>
 
-        <h2>Generelt</h2>
+        <h2>General</h2>
 
         <p>
-            Alle tre meldinger inneholder informasjon om 'declarant'. Declarant skal inneholde informasjon om
-            autentisert innsender i SSNN, enten den som er pålogget portalen og sender inn data eller den virksomheten
-            som sender data inn til SSNN via RIM.
+            All three messages contain information about 'declarant'. Declarant shall contain information about
+            authenticated sender in SSNN, either the one logged into the portal and submitting data or the company
+            that sends data to SSNN via RIM.
         </p>
 
-        <h2>Dataelementer knyttet til du ulike meldingene</h2>
+        <h2>Data Elements Related to the Different Messages</h2>
         <p>
-            Tabellene under gir en oversikt over sentrale dataelementer knyttet til transport, declaration of goods og
-            relationship. De detaljerte informasjonsmodellene for disse meldingene er beskrevet under
-            <a href="hvordan-fylle-ut-safeSeaNet.html">'hvordan fylle ut meldinger'</a>
+            The tables below provide an overview of central data elements related to transport, declaration of goods and
+            relationship. The detailed information models for these messages are described under
+            <a href="hvordan-fylle-ut-safeSeaNet-EN.html">'how to fill out messages'</a>
         </p>
 
-        <h3>Dataelementer knyttet til transport</h3>
+        <h3>Data Elements Related to Transport</h3>
         <div class="table-responsive">
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -109,18 +108,18 @@
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
-        <h3>Dataelementer knyttet til declaration of goods (DOG)</h3>
+        <h3>Data Elements Related to Declaration of Goods (DOG)</h3>
         <div class="table-responsive">
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -144,25 +143,25 @@
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
-        <h3>Message type</h3>
+        <h3>Message Type</h3>
         <p>
-            Det er fire meldingstyper (messageType). Hvilke felter som er obligatoriske i DOG styres av hvilken
-            meldingstype som brukes. Hovedforskjellen mellom meldingstypene er illustrert her:
+            There are four message types (messageType). Which fields are mandatory in DOG is controlled by which
+            message type is used. The main difference between the message types is illustrated here:
         </p>
 
         <figure>
-            <img style="width: 1550px; height: 50%" src="../../media/kystverket(SSNN)/message_type_figur.png"
-                 alt="Se figurtekst"/>
+            <img style="width: 1550px; height: 50%" src="../media/kystverket(SSNN)/message_type_figur.png"
+                 alt="See figure caption"/>
             <figcaption>
-                Datamodellen til declaration of goods støtter flere forekomster av house meldinger under en master.
+                The data model for declaration of goods supports multiple instances of house messages under a master.
             </figcaption>
         </figure>
 
         <p>
-            Under beskrives hvilke felter som er obligatoriske i declaration of goods innenfor de ulike meldingstypene:
+            Below describes which fields are mandatory in declaration of goods within the different message types:
         </p>
 
         <h3>Master_Only</h3>
@@ -170,10 +169,10 @@
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -202,7 +201,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>MC-MasterTransportContractDocumentList (kun en forekomst)</td>
+                    <td>MC-MasterTransportContractDocumentList (only one instance)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
@@ -221,7 +220,7 @@
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
         <h3>Master_and_house</h3>
@@ -229,10 +228,10 @@
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -261,7 +260,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>MC-MasterTransportContractDocumentList (kun en forekomst)</td>
+                    <td>MC-MasterTransportContractDocumentList (only one instance)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
@@ -279,62 +278,62 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC-houseConsigmentList (min en forekomst)</td>
+                    <td>HC-houseConsigmentList (min one instance)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - descriptionOfGoods</td>
+                    <td>HC instance - descriptionOfGoods</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - additionalIinformationCode</td>
+                    <td>HC instance - additionalIinformationCode</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - previousReferencedDocumentList (CUDE)*</td>
+                    <td>HC instance - previousReferencedDocumentList (CUDE)*</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - consignee</td>
+                    <td>HC instance - consignee</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - consignor</td>
+                    <td>HC instance - consignor</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - transportContractNumber</td>
+                    <td>HC instance - transportContractNumber</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - transportDocumentType</td>
+                    <td>HC instance - transportDocumentType</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - directConsignment (boolsk, false)</td>
+                    <td>HC instance - directConsignment (boolean, false)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
         <h3>Direct_consignment_only</h3>
@@ -342,10 +341,10 @@
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -374,62 +373,62 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC-houseConsigmentList (min en forekomst)</td>
+                    <td>HC-houseConsigmentList (min one instance)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - descriptionOfGoods</td>
+                    <td>HC instance - descriptionOfGoods</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - additionalIinformationCode</td>
+                    <td>HC instance - additionalIinformationCode</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - previousReferencedDocumentList (CUDE)*</td>
+                    <td>HC instance - previousReferencedDocumentList (CUDE)*</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - consignee</td>
+                    <td>HC instance - consignee</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - consignor</td>
+                    <td>HC instance - consignor</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - transportContractNumber</td>
+                    <td>HC instance - transportContractNumber</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - transportDocumentType</td>
+                    <td>HC instance - transportDocumentType</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr>
-                    <td>HC forekomst - directConsignment (boolsk, true)</td>
+                    <td>HC instance - directConsignment (boolean, true)</td>
                     <td>X</td>
                     <td></td>
                     <td></td>
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
         <h3>Limited</h3>
@@ -437,10 +436,10 @@
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -469,7 +468,7 @@
                     <td></td>
                 </tr>
                 <tr>
-                    <td>MC-MasterTransportContractDocumentList (liste)</td>
+                    <td>MC-MasterTransportContractDocumentList (list)</td>
                     <td></td>
                     <td>X</td>
                     <td></td>
@@ -483,56 +482,56 @@
 
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
-        <h3>Spesielle feltvalideringer</h3>
+        <h3>Special Field Validations</h3>
         <ul class="spaced-list">
             <li>
-                på house nivå, felt: additionalInformationCode skal inneholde en spesifikk streng med data bestående av
-                spesifikke kodeverder
+                at house level, field: additionalInformationCode shall contain a specific string with data consisting of
+                specific code values
                 <ul class="spaced-list">
-                    <li>IIMRE - Overgang til fri disponering</li>
-                    <li>IWARE - Innlegg på tollager</li>
-                    <li>ICORE - Samlefortolling</li>
-                    <li>IDOCR - Dokumenter</li>
-                    <li>IATCA - ATA-carnet</li>
+                    <li>IIMRE - Release for free circulation</li>
+                    <li>IWARE - Placement in customs warehouse</li>
+                    <li>ICORE - Collective clearance</li>
+                    <li>IDOCR - Documents</li>
+                    <li>IATCA - ATA carnet</li>
                 </ul>
             </li>
-            <li>på house nivå, felt: previousReferencedDocumentList, referenceNumber, skal inneholde en spesifikk streng
-                med data bestående av tre elementer
+            <li>at house level, field: previousReferencedDocumentList, referenceNumber, shall contain a specific string
+                with data consisting of three elements
                 <ul class="spaced-list">
-                    <li>declarantNumber: 9 tegn, numerisk</li>
+                    <li>declarantNumber: 9 characters, numeric</li>
                     <li>declarationDate: YYYY-MM-DD</li>
-                    <li>sequenceNumber: 3 tegn, numerisk</li>
+                    <li>sequenceNumber: 3 characters, numeric</li>
                 </ul>
             </li>
-            <li>Disse tre strengende med data skal sendes Tolletaten i feltet referenceNumber</li>
-            <li>Tilhørende type skal være CUDE iht kodeliste.</li>
+            <li>These three strings of data shall be sent to Norwegian Customs in the referenceNumber field</li>
+            <li>Corresponding type shall be CUDE according to code list.</li>
         </ul>
 
-        <h3>Kriterier for innsending av DOG</h3>
+        <h3>Criteria for Submission of DOG</h3>
         <p>
-            Som illustrert i figuren over skal ikke declaration of goods med message type LIMITED sendes inn til
-            Digitoll. Informasjonen fylt i i DOG med type LIMITED vil bli oversendt Tolletaten gjennom bruk av
-            relationship meldinger som forklart under.
+            As illustrated in the figure above, declaration of goods with message type LIMITED shall not be submitted to
+            Digitoll. The information filled in DOG with type LIMITED will be transmitted to Norwegian Customs through use of
+            relationship messages as explained below.
         </p>
 
-        <h3>Spesielt om message type DIRECT_CONSIGMNET_ONLY</h3>
+        <h3>Special about Message Type DIRECT_CONSIGNMENT_ONLY</h3>
         <p>
-            Ved bruk av meldingstypen DIRECT_CONSIGNMENT_ONLY skal det være mulig å legge ved flere forekomster av house
-            consignments i samme declaration of goods.
+            When using the message type DIRECT_CONSIGNMENT_ONLY it shall be possible to attach multiple instances of house
+            consignments in the same declaration of goods.
         </p>
 
-        <h3>Dataelementer knyttet til Relationship</h3>
+        <h3>Data Elements Related to Relationship</h3>
         <div class="table-responsive">
             <table>
                 <thead>
                 <tr class="header">
-                    <th scope="col">Dataelement</th>
-                    <th scope="col">Obligatorisk</th>
-                    <th scope="col">Betinget</th>
-                    <th scope="col">Frivillig</th>
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
                 </tr>
                 </thead>
                 <tbody class="table-center-X">
@@ -568,43 +567,43 @@
                 </tr>
                 </tbody>
             </table>
-            <p>(se detaljer i swagger-dokumentasjon)</p>
+            <p>(see details in swagger documentation)</p>
         </div>
 
-        <h3>Spesielle feltvalideringer</h3>
+        <h3>Special Field Validations</h3>
         <ul>
             <li>
-                Relationshipmelding har felt for directConsignment (true/false). Logikken for setting av dette feltet:
+                Relationship message has field for directConsignment (true/false). The logic for setting this field:
                 <ul class="spaced-list">
                     <li>
-                        TRUE - transportContractNumber hentes fra DOG på house nivå, messageType: DirectConsigmentOnly
-                        (transportdokument på master eksisterer ikke)
+                        TRUE - transportContractNumber is retrieved from DOG at house level, messageType: DirectConsignmentOnly
+                        (transport document at master does not exist)
                     </li>
                     <li>
-                        FALSE - transportContractNumber hentes fra DOG på master nivå (gjelder de tre andre
-                        meldingstypene som alle har transportdokumentnr på masternivå)
+                        FALSE - transportContractNumber is retrieved from DOG at master level (applies to the three other
+                        message types that all have transport document number at master level)
                     </li>
                 </ul>
             </li>
         </ul>
 
-        <h2>Rekkefølge på innsending av meldinger</h2>
-        <p>Kystverket skal sende meldingene i følgende rekkefølge:</p>
+        <h2>Order of Message Submission</h2>
+        <p>The Norwegian Coastal Administration shall send the messages in the following order:</p>
         <ul class="spaced-list">
-            <li>Transportmelding</li>
+            <li>Transport message</li>
             <li>
-                DeclarationOfGoods (vente med å sende relationship melding til dere synkront har fått ok på innsending
-                av DoG)
+                DeclarationOfGoods (wait to send relationship message until you have synchronously received ok on submission
+                of DoG)
             </li>
             <li>Relationship</li>
         </ul>
 
-        <p>Ved oppdatering:</p>
+        <p>For updates:</p>
         <ul class="spaced-list">
-            <li>Transportmelding kan oppdateres uten at det initierer noen andre innsendelser</li>
+            <li>Transport message can be updated without initiating any other submissions</li>
             <li>
-                Ved oppdatering av en DOG skal det i etterkant sendes ny versjon av relationship (komplett innhold,
-                referanser til alle DOG)
+                When updating a DOG, a new version of relationship shall subsequently be sent (complete content,
+                references to all DOG)
             </li>
         </ul>
     </div>
