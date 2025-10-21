@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Central Data Elements and Messages</title>
+    <meta name="description" content="Information about mandatory and conditional data elements in messages from SafeSeaNet (SSNN)">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="sentrale-dataelementer-og-meldinger-ssnn.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item"><a href="prosedyre-mo-sjo-kystverket-EN.html">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Central Data Elements and Messages</li>
+            </ol>
+        </nav>
+
+        <h1>Central Data Elements and Messages</h1>
+
+        <h2>General</h2>
+
+        <p>
+            All three messages contain information about 'declarant'. Declarant shall contain information about
+            authenticated sender in SSNN, either the one logged into the portal and submitting data or the company
+            that sends data to SSNN via RIM.
+        </p>
+
+        <h2>Data Elements Related to the Different Messages</h2>
+        <p>
+            The tables below provide an overview of central data elements related to transport, declaration of goods and
+            relationship. The detailed information models for these messages are described under
+            <a href="hvordan-fylle-ut-safeSeaNet-EN.html">'how to fill out messages'</a>
+        </p>
+
+        <h3>Data Elements Related to Transport</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>Declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>VisitId</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ship</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>PortOfCall</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>EtaAtFirstPortCallLocation</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>itineraryList</td>
+                    <td></td>
+                    <td></td>
+                    <td>X</td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Data Elements Related to Declaration of Goods (DOG)</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>MC-declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-VisitID</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MessageType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Message Type</h3>
+        <p>
+            There are four message types (messageType). Which fields are mandatory in DOG is controlled by which
+            message type is used. The main difference between the message types is illustrated here:
+        </p>
+
+        <figure>
+            <img style="width: 1550px; height: 50%" src="../media/message_type_figur-EN.png"
+                 alt="See figure caption"/>
+            <figcaption>
+                The data model for declaration of goods supports multiple instances of house messages under a master.
+            </figcaption>
+        </figure>
+
+        <p>
+            Below describes which fields are mandatory in declaration of goods within the different message types:
+        </p>
+
+        <h3>Master_Only</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>MC-declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-VisitID</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MessageType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-PortOfDischarge</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MasterTransportContractDocumentList (only one instance)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-Consignee</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-Consignor</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Master_and_house</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>MC-declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-VisitID</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MessageType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-PortOfDischarge</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MasterTransportContractDocumentList (only one instance)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-Consignee</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-Consignor</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC-houseConsigmentList (min one instance)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - descriptionOfGoods</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - additionalIinformationCode</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - previousReferencedDocumentList (CUDE)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - consignee</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - consignor</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - transportContractNumber</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - transportDocumentType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - directConsignment (boolean, false)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Direct_consignment_only</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>MC-declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-VisitID</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MessageType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-PortOfDischarge</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC-houseConsigmentList (min one instance)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - descriptionOfGoods</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - additionalIinformationCode</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - previousReferencedDocumentList (CUDE)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - consignee</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - consignor</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - transportContractNumber</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - transportDocumentType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HC instance - directConsignment (boolean, true)</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Limited</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>MC-declarant</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-VisitID</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MessageType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-PortOfDischarge</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-MasterTransportContractDocumentList (list)</td>
+                    <td></td>
+                    <td>X</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>MC-directConsignmentTransportContractDocumentList</td>
+                    <td></td>
+                    <td>X</td>
+                    <td></td>
+                </tr>
+
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Special Field Validations</h3>
+        <ul class="spaced-list">
+            <li>
+                at house level, field: additionalInformationCode shall contain a specific string with data consisting of
+                specific code values
+                <ul class="spaced-list">
+                    <li>IIMRE - Release for free circulation</li>
+                    <li>IWARE - Placement in customs warehouse</li>
+                    <li>ICORE - Collective clearance</li>
+                    <li>IDOCR - Documents</li>
+                    <li>IATCA - ATA carnet</li>
+                </ul>
+            </li>
+            <li>at house level, field: previousReferencedDocumentList, referenceNumber, shall contain a specific string
+                with data consisting of three elements
+                <ul class="spaced-list">
+                    <li>declarantNumber: 9 characters, numeric</li>
+                    <li>declarationDate: YYYY-MM-DD</li>
+                    <li>sequenceNumber: 3 characters, numeric</li>
+                </ul>
+            </li>
+            <li>These three strings of data shall be sent to Norwegian Customs in the referenceNumber field</li>
+            <li>Corresponding type shall be CUDE according to code list.</li>
+        </ul>
+
+        <h3>Criteria for Submission of DOG</h3>
+        <p>
+            As illustrated in the figure above, declaration of goods with message type LIMITED shall not be submitted to
+            Digitoll. The information filled in DOG with type LIMITED will be transmitted to Norwegian Customs through use of
+            relationship messages as explained below.
+        </p>
+
+        <h3>Special about Message Type DIRECT_CONSIGNMENT_ONLY</h3>
+        <p>
+            When using the message type DIRECT_CONSIGNMENT_ONLY it shall be possible to attach multiple instances of house
+            consignments in the same declaration of goods.
+        </p>
+
+        <h3>Data Elements Related to Relationship</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr class="header">
+                    <th scope="col">Data Element</th>
+                    <th scope="col">Mandatory</th>
+                    <th scope="col">Conditional</th>
+                    <th scope="col">Optional</th>
+                </tr>
+                </thead>
+                <tbody class="table-center-X">
+                <tr>
+                    <td>transportContractNumber</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>transportDocumentType</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>portOfDischargeCoded</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>carrierIdentificationNumber</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>directConsignment</td>
+                    <td>X</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>(see details in API documentation)</p>
+        </div>
+
+        <h3>Special Field Validations</h3>
+        <ul>
+            <li>
+                Relationship message has field for directConsignment (true/false). The logic for setting this field:
+                <ul class="spaced-list">
+                    <li>
+                        TRUE - transportContractNumber is retrieved from DOG at house level, messageType: DirectConsignmentOnly
+                        (transport document at master does not exist)
+                    </li>
+                    <li>
+                        FALSE - transportContractNumber is retrieved from DOG at master level (applies to the three other
+                        message types that all have transport document number at master level)
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Order of Message Submission</h2>
+        <p>The Norwegian Coastal Administration shall send the messages in the following order:</p>
+        <ul class="spaced-list">
+            <li>Transport message</li>
+            <li>
+                DeclarationOfGoods (wait to send relationship message until you have synchronously received ok on submission
+                of DoG)
+            </li>
+            <li>Relationship</li>
+        </ul>
+
+        <p>For updates:</p>
+        <ul class="spaced-list">
+            <li>Transport message can be updated without initiating any other submissions</li>
+            <li>
+                When updating a DOG, a new version of relationship shall subsequently be sent (complete content,
+                references to all DOG)
+            </li>
+        </ul>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

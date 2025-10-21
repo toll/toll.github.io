@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>API for Notification and Information, Maritime, Norwegian Coastal Administration (SSNN)</title>
+    <meta name="description" content="Norwegian Customs API for notification and information, maritime (SSNN)">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="prosedyre-mo-sjo-kystverket.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Information</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Completion Procedure - MO - Maritime - Norwegian Coastal Administration (SSNN)</li>
+            </ol>
+        </nav>
+
+        <h2 id="genereltOmDigitoll">General about Digitoll, Digital Notification and Information Obligation for Import of Goods to Norway</h2>
+
+        <p>
+            The operator of a means of transport will in the future be obliged to comply with the notification and information obligation digitally.
+            This involves submitting digital information to Norwegian Customs about:
+        </p>
+
+        <ul class="spaced-list">
+            <li>Means of transport</li>
+            <li>Cargo aboard the means of transport</li>
+        </ul>
+
+        <p>
+            Submission of transport information and information about cargo aboard is done separately. Different actors
+            can take responsibility for submitting the different parts. Nevertheless, it is important to note that at the latest upon
+            border crossing, the entirety of information submitted to Norwegian Customs must satisfy the requirements that
+            apply to the notification and information obligation. For maritime transport mode, border crossing is considered to be when
+            the means of transport arrives at its destination, i.e., the port where goods are to be unloaded, but the deadline for
+            submission of messages is 24 hours before arrival, or at the latest upon departure from the previous port.
+        </p>
+
+        <p>
+            There is a requirement to provide reference information (the information elements must be linked together, with keys provided by
+            the submitters, and that the necessary references are in place where required) in the messages so that Norwegian Customs can
+            link submitted data about transport and cargo together, and process them as one.
+        </p>
+
+        <h2 id="SSNNbeskrivelse">Functional Description of the Service to SSNN</h2>
+
+        <p>
+            Since vessels today are obliged to use SSNN to report data to the public authorities in connection with port calls in Norway,
+            the Norwegian Coastal Administration in collaboration with Norwegian Customs must develop support so that the new digital notification and information obligation can
+            be complied with through use of SSNN. In addition to SSNN having to support that vessels can register mandatory
+            information to Norwegian Customs in SSNN, a new important part of the service is that the Norwegian Coastal Administration shall forward
+            information from SSNN to Norwegian Customs' internal systems for processing there (on par with other
+            modes of transport). The result of the processing is communicated back to SSNN and made available to actors
+            in the business community who have submitted data (ship master etc.).
+        </p>
+
+        <p>SSNN shall submit messages to Digitoll in the formats described here.</p>
+        <p><strong>Information can be submitted at three levels from SSNN:</strong></p>
+
+        <ul class="spaced-list">
+            <li>
+                Transport → Corresponds to "Visit" in SSNN → Information about the means of transport, which port it comes to and
+                the time of the call
+            </li>
+            <li>
+                Goods → "Description of goods" (DOG) → Information about goods that the transport carries. Master consignment
+                and house consignment.
+            </li>
+            <li>
+                Linking → "Relationship" → Linking information → Links transport with goods (master and house)
+            </li>
+        </ul>
+
+        <h2>Transport ("Visit")</h2>
+
+        <p>
+            SSNN shall send a transport message to Norwegian Customs for every single ship that is to have a port call in a Norwegian
+            port and which is reported in SSNN.
+            This corresponds to a "visit" in SSNN and is identified with a "visit-id".
+        </p>
+
+        <p>
+            For a transport message (visit), what is the "port of call" (the place the vessel calls at) will always be specified.
+        </p>
+
+        <p>
+            Norwegian Customs will validate and return an MRN in the query-status endpoint upon successful submission of
+            transport message.
+        </p>
+
+        <h2>Goods ("DOG")</h2>
+        <p>
+            If the ship comes from abroad and transports goods to the Norwegian customs territory, the vessel's master shall report
+            customs formalities in SSNN under the formality 'Declaration of Goods' (DOG).
+        </p>
+
+        <p>
+            The actors can choose to deliver all customs formalities in SSNN, parts of these, or as a minimum that
+            reference to customs formalities submitted directly to Norwegian Customs is reported in DOG in SSNN. In case only
+            parts of the customs formalities, or references to customs formalities are delivered in SSNN, then the rest must be delivered
+            directly to Norwegian Customs.
+        </p>
+
+        <p>
+            All goods that are aboard the vessel upon arrival at a port shall be declared on a DOG.
+            Port of discharge in DOG provides information about where to unload the goods.
+        </p>
+
+        <p>Norwegian Customs will validate and return an MRN in the query-status endpoint upon successful submission of each
+            DOG.</p>
+
+        <h2>Linking ("Relationship")</h2>
+
+        <p>
+            To link customs formalities submitted in SSNN to the actual port call ("visit"), a
+            linking message ("relationship") shall be sent.
+            The linking message contains reference to transport ("visit-id" for a port call) and reference to
+            the transport document specified/referred to in DOG (id for goods, master or house).
+            Transport will always occur in SSNN, while information about goods (master/house) can occur in SSNN or in
+            Digitoll.
+        </p>
+
+        <p>
+            All goods that are aboard the vessel upon arrival at a port (through all DOG messages) must be linked to
+            the port call (visit), regardless of whether they are to be unloaded in the current port or whether they are to be unloaded in a
+            subsequent port.
+        </p>
+
+        <p>
+            Norwegian Customs will validate and return an MRN in the query-status endpoint upon successful submission of
+            relationship message.
+        </p>
+
+        <h2>Information about All Goods Shall Be Delivered Before the First Port Call</h2>
+        <p>
+            If a vessel is to unload goods from abroad in multiple ports, then information about all goods aboard
+            shall be delivered before the first port call.
+            In the subsequent port calls, one does not need to fill out information about goods anew in SSNN. It is sufficient to provide
+            the transport document number references to already submitted DOG messages in connection with the first port call.
+        </p>
+
+        <h2>Transitional Arrangement in Connection with New Digital Notification and Information Obligation</h2>
+        <p>
+            Today's solution in current SSNN is that the vessel's master uploads manifests as documentation of which goods
+            are aboard. With new SSNN, it is described above how the new solution will be. However, there must be a
+            transitional arrangement where the vessel's master is not forced to use the new solution. It must be possible in new SSNN to upload
+            manifests in a transitional period. Ref. below about old and new solutions in parallel, these manifests must be
+            available to Norwegian Customs in current SSNN for manual lookup.
+        </p>
+
+        <p>
+            In such cases, a transport message is sent from SSNN to Norwegian Customs regarding the port call, no DOG data,
+            no relationship message.
+        </p>
+
+        <h2>Crew Declarations (crew effects) and Provisions Aboard (ship store)</h2>
+
+        <p>
+            Vessels arriving in Norway have, in addition to the obligation to inform about what goods they transport, also an obligation to
+            report any crew declarations and provisions aboard. Norwegian Customs plans to digitize these
+            obligations in a phase 2 of adapting new SSNN for Norwegian Customs' needs.
+        </p>
+
+        <p><strong>In the interim period, the following will apply:</strong></p>
+
+        <ul class="spaced-list">
+            <li>
+                Crew declarations are reported in the new submission interface in SSNN, the data is converted to JSON-formated text file in
+                SSNN and sent back to the current version of SSNN, and displayed there in connection with port calls (corresponding
+                to what is shown today by uploading JSON-formated text file about this information)
+            </li>
+            <li>
+                Provisions are reported structured in new SSNN in the same way as was done in existing. The data
+                is converted back to current SSNN and displayed there as today
+            </li>
+        </ul>
+
+        <p>
+            In the long term, Norwegian Customs will develop interfaces so that information about crew declarations and provisions can
+            be transmitted and processed in Norwegian Customs' systems (following the same pattern as for DOG ref above)
+        </p>
+
+        <h2>Notification and Information Obligation for Export of Goods from Norway</h2>
+
+        <p>
+            Norwegian Customs has not conducted a digitization process in connection with export of goods from Norway. Today's
+            solution in SSNN is continued if it is in the new solution. This means that the vessel's master (or their representative) must
+            be able to upload manifests as files in SSNN to describe the cargo being exported. This data will not be
+            transmitted to Norwegian Customs. Norwegian Customs will have access to the data by logging into SSNN and retrieving
+            manifest information on specific vessel departures (as today)
+        </p>
+
+        <p>
+            There are no customs formalities related to movement of already cleared goods within Norway
+            (domestic).
+        </p>
+
+        <h2>Old and New SSNN</h2>
+        <p>
+            In a transitional phase, the Norwegian Coastal Administration will move data reported in new SSNN back to old SSNN and display it there as
+            today. Norwegian Customs will be able to use old SSNN to log in and have insight into the same information about vessels
+            arriving in Norway as today, even though parts of the data are submitted in the new solution.
+        </p>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="buttons-section">
+            <a href="informasjon-og-meldinger-EN.html" class="new-page-button no-icon">
+                <p>Information and Messages</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="sentrale-dataelementer-og-meldinger-ssnn-EN.html" class="new-page-button no-icon">
+                <p>Information Models - Central Data Elements and Messages</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="hvordan-fylle-ut-safeSeaNet-EN.html" class="new-page-button no-icon">
+                <p>How to Fill Out Messages from SafeSeaNet</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

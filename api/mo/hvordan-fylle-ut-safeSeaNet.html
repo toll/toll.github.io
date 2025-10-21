@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for melde- og opplysning, sjø fra SafeSeaNet (SSNN)</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, sjø (SSNN)">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="hvordan-fylle-ut-safeSeaNet-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="mo-api">
+    <div style="align-self: normal" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="../melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item"><a href="../prosedyre-mo-sjo-kystverket.html">Utfyllingsprosedyre - MO - Sjø
+                    - Kystverket (SSNN)</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hvordan fylle ut meldinger fra SafeSeaNet</li>
+            </ol>
+        </nav>
+
+        <h1>Hvordan fylle ut meldinger fra SafeSeaNet</h1>
+
+        <h2 id="Grensesnittbeskrivelse">Grensesnittbeskrivelse</h2>
+        <p>
+            Tjenestene gjøres tilgjengelige som REST-tjenester over HTTPS, med data på JSON-format.
+        </p>
+
+        <pre class="boxed-display">
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/transport
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/declaration-of-goods
+POST https://&lt;env&gt;/api/movement/maritime-ssnn/v1/relationship
+
+PUT/DELETE https://&lt;env&gt;/api/movement/maritime-ssnn/v1/transport/{MRN}
+PUT/DELETE https://&lt;env&gt;/api/movement/maritime-ssnn/v1/declaration-of-goods/{MRN}
+PUT https://&lt;env&gt;/api/movement/maritime-ssnn/v1/relationship/{MRN}
+
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/transport/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/declaration-of-goods/validation-status/{requestId}
+GET https://&lt;env&gt;/api/movement/maritime-ssnn/status/v1/relationship/validation-status/{requestId}
+        </pre>
+
+        <p>der</p>
+
+        <ul>
+            <li>
+                <b>&lt;env&gt;</b> byttes ut med
+                <ul>
+                    <li><i>api.toll.no</i> for produksjon</li>
+                    <li><i>api-test</i>.toll.no for playground (testmiljø)</li>
+                </ul>
+            </li>
+            <li>
+                <b>{requestId}</b> byttes ut med referansen som returneres ved POST/PUT/DELETE-kall
+            </li>
+            <li>
+                <b>{MRN}</b> byttes ut med referansen som returneres
+                fra ".../validation-status..."-endepunktene.
+            </li>
+        </ul>
+
+        <p class="tips_box">
+            Dersom du oppdager sikkerhetsutfordringer i våre løsninger
+            ber vi deg ta
+            kontakt; <a href="https://toll.no/.well-known/security.txt">se
+            her for info</a>
+        </p>
+
+        <h2>Spesielt om DELETE og RELATIONSHIP</h2>
+        <p>
+            Siden relationship melding genereres med bakgrunn i
+            declaration-of-goods er det ikke logisk å slette en
+            declaration-of-goods direkte. De slettes indirekte gjennom
+            at declaration-of-goods endres. Derfor er ikke DELETE på
+            declaration-of-goods et valg.
+        </p>
+        <p>Dersom alle declaration-of-goods slettes sendes det inn en
+        tom relationshipmelding som PUT.</p>
+
+        <h4>API: movement-maritime-ssnn-api</h4>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten settes til
+            <strong>toll:movement/maritime</strong>
+        </p>
+
+        <p>
+            Se <strong><a href="maritime-ssnn-api.html">
+            API-dokumentasjon her</a></strong>.
+        </p>
+
+        <h4>API: movement-maritime-ssnn-query-api</h4>
+        <p>
+            For å kunne bruke tjenesten må scope for autentisering mot Maskinporten settes til
+            <strong>toll:movement/maritime</strong>
+        </p>
+
+        <p>
+            Se: <a href="maritime-ssnn-status-api.html">
+            API-dokumentasjon her</a>.
+        </p>
+
+        <h4>API: movement-routing-api</h4>
+        <p>
+            Se: <a href="movement-routing-api.html">
+            API-dokumentasjon her</a>.
+        </p>
+
+        <h2>Beskrivelse av tollprosedyre og prosedyre fram til
+          grensen</h2>
+        <p>vil være de samme som tabellene for sjø &ndash;
+        <a href="prosedyre-mo-sjo.html#prosedyreTabeller">se tabellene
+        her</a></p>
+    </div>
+</main>
+
+<footer role="contentinfo">
+  <a href="https://www.toll.no/">Tolletaten</a> 2025 |
+  <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+     class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

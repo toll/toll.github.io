@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>API for melde og opplysning, sjø, kystverket (SSNN)</title>
+    <meta name="description" content="Tolletatens API for melde- og opplysning, sjø (SSNN)">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="prosedyre-mo-sjo-kystverket-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Utfyllingsprosedyre - MO - Sjø - Kystverket (SSNN)</li>
+            </ol>
+        </nav>
+
+        <h2 id="genereltOmDigitoll">Generelt om Digitoll, digital melde- og opplysningsplikt ved innførsel av varer til
+            Norge</h2>
+
+        <p>
+            Fører av et transportmiddel vil i fremtiden få plikt til å etterleve melde- og opplysningsplikten digitalt.
+            Det innebærer å sende inn digital informasjon til Tolletaten om:
+        </p>
+
+        <ul class="spaced-list">
+            <li>Transportmiddel</li>
+            <li>Last ombord i transportmiddel</li>
+        </ul>
+
+        <p>
+            Innsending av transportmiddelinformasjon og informasjon om last ombord gjøres hver for seg. Ulike aktører
+            kan ta ansvar for innsending av de ulike delene. Likevel er det viktig å merke seg at senest ved
+            grensepassering må helheten av informasjon som er sendt inn til Tolletaten tilfredsstille de krav som
+            gjelder for melde- og opplysningsplikten. For transportmåte maritim anses grensepassering å være når
+            transportmiddelet ankommer sitt bestemmelsessted, det vil si havn der varer skal losses, men fristen for
+            innsending av meldinger er 24 timer før ankomst, eller senest ved avgang foregående havn.
+        </p>
+
+        <p>
+            Det er krav til å oppgi referanseinformasjon (informasjonselementene må henge sammen, med nøkler oppgitt av
+            innsenderne, og at de nødvendige referanser er på plass der det kreves) i meldingene slik at Tolletaten kan
+            koble innsendt data om transport og last sammen, og behandle de under ett.
+        </p>
+
+        <h2 id="SSNNbeskrivelse">Funksjonell beskrivelse av tjenesten mot SSNN</h2>
+
+        <p>
+            Siden fartøy i dag er pliktige til å bruke SSNN for å melde data til det offentlige ifm anløp i Norge må
+            Kystverket i samarbeid med Tolletaten utvikle støtte for at ny digital melde- og opplysningsplikt kan
+            etterleves gjennom bruk av SSNN. I tillegg til at SSNN må støtte at fartøy kan registrere pliktig
+            informasjon til Tolletaten i SSNN er en ny viktig del av tjenesten at Kystverket skal videreformidle
+            informasjon fra SSNN til Tolletatens interne systemer for behandling der (på lik linje med andre
+            transportmåter). Resultatet av behandlingen kommuniseres tilbake til SSNN og gjøres tilgjengelig for aktører
+            i næringslivet som har sendt data inn (skipsfører etc).
+        </p>
+
+        <p>SSNN skal sende inn meldinger til Digitoll på de formater som er beskrevet her.</p>
+        <p><strong>Informasjon kan sendes inn på tre nivåer fra SSNN:</strong></p>
+
+        <ul class="spaced-list">
+            <li>
+                Transport → Tilsvarer "Visit" i SSNN → Informasjon om transportmidlet, hvilken havn det kommer til og
+                tidspunktet for anløpet
+            </li>
+            <li>
+                Varer → "Description of goods" (DOG) → Informasjon om varer som transporten medfører. Hovedforsendelse
+                (master) og forsendelse (House).
+            </li>
+            <li>
+                Kobling → "Relationship" → Koblingsinformasjon → Kobler transport med varer (master og house)
+            </li>
+        </ul>
+
+        <h2>Transport ("Visit")</h2>
+
+        <p>
+            SSNN skal sende en melding om transport til Tolletaten for hver eneste skip som skal ha et anløp i en norsk
+            havn og som er meldt i SSNN.
+            Dette tilsvarer en "visit" i SSNN og er identifisert med en "visit-id".
+        </p>
+
+        <p>
+            For en transportmelding (visit) vil det alltid være angitt hva som er "port of call" (stedet fartøyet
+            anløper).
+        </p>
+
+        <p>
+            Tolletaten vil validere og returnere en MRN i query-status endepunkt ved vellykket innsending av
+            transportmelding.
+        </p>
+
+        <h2>Varer ("DOG")</h2>
+        <p>
+            Dersom skipet kommer fra utlandet og frakter varer til tollområdet Norge skal fartøys fører rapportere
+            tollformaliteter i SSNN under formaliteten 'Declaration of Goods' (DOG).
+        </p>
+
+        <p>
+            Aktørene kan velge å levere alle tollformaliteter i SSNN, deler av disse, eller som et minimum at det
+            rapporteres referanse til tollformaliteter innsendt direkte til Tolletaten i DOG i SSNN. I tilfelle det kun
+            er deler av tollformalitetene, eller referanser til tollformaliteter leveres i SSNN, så må resten leveres
+            direkte til Tolletaten.
+        </p>
+
+        <p>
+            Alle varer som er ombord i fartøyet ved ankomst til en havn skal være deklarert på en DOG.
+            Port of discharge i DOG gir informasjon om hvilket sted varene skal losses.
+        </p>
+
+        <p>Tolletaten vil validere og returnere en MRN i query-status endepunkt ved vellykket innsending av hver
+            DOG.</p>
+
+        <h2>Kobling ("Relationship")</h2>
+
+        <p>
+            For å koble tollformaliteter innlevert i SSNN til det faktiske anløpet ("visit") skal det sendes en
+            koblingsmelding ("relationship").
+            Koblingsmelding inneholder referanse til transport ("visit-id" for et anløp) og referanse til
+            transportdokumentet oppgitt/referert i DOG (id for varer, master eller house).
+            Transport vil alltid oppstå i SSNN, mens informasjon om varer (master/house) kan oppstå i SSNN eller i
+            Digitoll.
+        </p>
+
+        <p>
+            All varer som er ombord i fartøyet ved ankomst til en havn (gjennom alle DOG meldinger) må kobles til
+            anløpet (visit), uavhengig om det skal losses in den aktuelle havnen eller om det skal losses i en
+            påfølgende havn.
+        </p>
+
+        <p>
+            Tolletaten vil validere og returnere en MRN i query-status endepunkt ved vellykket innsending av
+            relationship melding.
+        </p>
+
+        <h2>Informasjon om alle varer skal leveres før første anløp</h2>
+        <p>
+            Dersom et fartøy skal losse varer fra utlandet i flere havner, så skal informasjon om alle varer ombord
+            leveres før første anløp.
+            I de påfølgende anløp trenger man ikke i SSNN å fylle ut informasjon om varer på nytt. Det holder å oppgi
+            transportdokumentnummer-referansene til allerede innsendte DOG meldinger ifm første anløp.
+        </p>
+
+        <h2>Overgangsordning ifm ny digital melde- og opplysningsplikt</h2>
+        <p>
+            Dagens løsning i dagens SSNN er at fartøysfører laster opp manifester som dokumentasjon på hvilke varer som
+            er ombord. Med ny SSNN er det beskrevet over hvordan ny løsning blir. Det må imidlertid være en
+            overgangsordning hvor fartøysfører ikke tvinges til å bruke ny løsning. Det må være mulig i ny SSNN og last
+            opp manifest i en overgangsperiode. Ref under om gammel og ny løsning i paralell må disse manifestene være
+            tilgjengelig for Tolletaten i dagens SSNN for manuelt oppslag.
+        </p>
+
+        <p>
+            Det sendes i slike tilfeller transportmelding fra SSNN til Tolletaten angående anløpet, ingen DOG data,
+            ingen relationship melding.
+        </p>
+
+        <h2>Besetningsdeklarasjoner (crew effects) og proviant om bord (ship store)</h2>
+
+        <p>
+            Fartøy som ankommer Norge har utover plikten til å informere hvilke gods de frakter også plikt til å
+            rapportere eventuelt besetningsdeklarasjoner og proviant ombord. Tolletaten planlegger å digitalisere disse
+            pliktene i en fase 2 av å tilrettelegge ny SSNN for Tolletatens behov.
+        </p>
+
+        <p><strong>I mellomperioden vil følgende være gjeldende:</strong></p>
+
+        <ul class="spaced-list">
+            <li>
+                Mannskapsdeklarasjoner rapporteres i nytt innsendingsgrensesnitt i SSNN, dataene konverteres til JSON i formatert tekstfil i
+                SSNN og sendes tilbake til gjeldende versjon av SSNN, og vises der i forbindelse med anløp (tilsvarende
+                det som vise i dag ved at man laster opp JSON i formatert tekstfil om denne informasjonen)
+            </li>
+            <li>
+                Proviant rapporteres strukturert i ny SSNN på samme måte som det ble gjort i eksisterende. Datene
+                konverteres tilbake til gjeldende SSNN og vises dere som i dag
+            </li>
+        </ul>
+
+        <p>
+            På sikt vil Tolletaten utvikle grensesnitt slik at informasjon om besetningsdeklarasjoner proviant kan
+            oversendes og behandles i Tolletatens systemer (etter samme mønster som for DOG ref ver)
+        </p>
+
+        <h2>Melde- og opplysningsplikt ved utførsel av varer fra Norge</h2>
+
+        <p>
+            Tolletaten har ikke gjennomført et digitaliseringsløp i forbindelse med utførsel av varer fra Norge. Dagens
+            løsning i SSNN videreføres om den er i ny løsning. Det betyr at fartsøysfører (eller dens representant ) må
+            kunne last opp manifester som filer i SSNN for å beskrive den last som utføres. Disse datene vil ikke bli
+            oversendt Tolletaten. Tolletaten vil ha tilgang til dataene gjennom å logge seg på SSNN og hente ut
+            manifestinformasjon på spesifikke fartøysavganger (som idag)
+        </p>
+
+        <p>
+            Det er ingen tollformaliteter knyttet til forflytning av allerede fortellede varer innenfor Norge
+            (domestic).
+        </p>
+
+        <h2>Gammel og ny SSNN</h2>
+        <p>
+            I en overgangsfase vil Kystverket flytte data rapportert i ny SSNN tilbake til gammel SSNN og vises der som
+            i dag. Tolletaten vil kunne bruke gammel SSNN til å logge på å ha innsyn i samme informasjon om fartøy som
+            ankommer Norge som i dag, selv om deler av dataene er sendt inn i ny løsning.
+        </p>
+
+        <br/>
+        <br/>
+        <br/>
+
+        <div class="buttons-section">
+            <a href="informasjon-og-meldinger.html" class="new-page-button no-icon">
+                <p>Informasjon og meldinger</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="sentrale-dataelementer-og-meldinger-ssnn.html" class="new-page-button no-icon">
+                <p>Informasjonsmodeller - Sentrale dataelementer og meldinger</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="hvordan-fylle-ut-safeSeaNet.html" class="new-page-button no-icon">
+                <p>Hvordan fylle ut meldinger fra SafeSeaNet</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+                                                            class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
