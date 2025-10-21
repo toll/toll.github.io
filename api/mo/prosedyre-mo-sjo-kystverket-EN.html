@@ -128,9 +128,7 @@
 
         <p>
             All goods that are aboard the vessel upon arrival at a port shall be declared on a DOG.
-            This applies to both goods that are to be unloaded in the port ("port of call" in transport message is the same as "port of
-            discharge") and goods that are to continue to another port in the customs territory ("port of discharge" in
-            transport message is different from "port of call").
+            Port of discharge in DOG provides information about where to unload the goods.
         </p>
 
         <p>Norwegian Customs will validate and return an MRN in the query-status endpoint upon successful submission of each
@@ -192,9 +190,9 @@
 
         <ul class="spaced-list">
             <li>
-                Crew declarations are reported in the new submission interface in SSNN, the data is converted to PDF in
+                Crew declarations are reported in the new submission interface in SSNN, the data is converted to JSON-formated text file in
                 SSNN and sent back to the current version of SSNN, and displayed there in connection with port calls (corresponding
-                to what is shown today by uploading PDF about this information)
+                to what is shown today by uploading JSON-formated text file about this information)
             </li>
             <li>
                 Provisions are reported structured in new SSNN in the same way as was done in existing. The data

@@ -54,7 +54,7 @@
         </ul>
 
         <p>
-            Innsending av transportmiddelinformasjon og informasjon om last ombord gjøres hver hver seg. Ulike aktører
+            Innsending av transportmiddelinformasjon og informasjon om last ombord gjøres hver for seg. Ulike aktører
             kan ta ansvar for innsending av de ulike delene. Likevel er det viktig å merke seg at senest ved
             grensepassering må helheten av informasjon som er sendt inn til Tolletaten tilfredsstille de krav som
             gjelder for melde- og opplysningsplikten. For transportmåte maritim anses grensepassering å være når
@@ -130,9 +130,7 @@
 
         <p>
             Alle varer som er ombord i fartøyet ved ankomst til en havn skal være deklarert på en DOG.
-            Det gjelder både varer som skal losses i havnen ("port of call" i transportmelding er det samme som "port of
-            discharge") og varer som skal være med videre til en annen havn i tollområdet ("port og discharge" i
-            transportmelding er forskjellig "fra port of call").
+            Port of discharge i DOG gir informasjon om hvilket sted varene skal losses.
         </p>
 
         <p>Tolletaten vil validere og returnere en MRN i query-status endepunkt ved vellykket innsending av hver
@@ -194,9 +192,9 @@
 
         <ul class="spaced-list">
             <li>
-                Mannskapsdeklarasjoner rapporteres i nytt innsendingsgrensesnitt i SSNN, dataene konverteres til PDF i
+                Mannskapsdeklarasjoner rapporteres i nytt innsendingsgrensesnitt i SSNN, dataene konverteres til JSON i formatert tekstfil i
                 SSNN og sendes tilbake til gjeldende versjon av SSNN, og vises der i forbindelse med anløp (tilsvarende
-                det som vise i dag ved at man laster opp PDF om denne informasjonen)
+                det som vise i dag ved at man laster opp JSON i formatert tekstfil om denne informasjonen)
             </li>
             <li>
                 Proviant rapporteres strukturert i ny SSNN på samme måte som det ble gjort i eksisterende. Datene
