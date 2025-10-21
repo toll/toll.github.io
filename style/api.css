@@ -755,6 +755,16 @@ html[lang="en"] .table-responsive::before {
     align-items: flex-end;
 }
 
+.responsive-diagram {
+    height: 50vh;
+}
+
+@media (max-width: 768px) {
+    .responsive-diagram {
+        max-width: 100%;
+        height: auto;
+    }
+}
 
 @media print {
     header,
