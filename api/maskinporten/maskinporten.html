@@ -41,58 +41,35 @@
         </nav>
 
         <h1 id="hva-er-maskinporten">Hva er Maskinporten?</h1>
-        <p>
+        <div>
             <img class="img-right"
                  src="../media/digdir-logo.png"
                  alt="digdir-logo"/>
-            Maskinporten og Altinn er nasjonale
-            felleskomponenter utviklet og driftet av
-            Digitaliseringsdirektoratet som sammen skal gjøre
-            det enklere å dele og bruke data på tvers av
-            systemer. Løsningene sørger for verifisering av
-            identiteten til virksomheter og gi disse riktig
-            tilgang til data som offentlige virksomheter tilbyr
-            via grensesnitt. En forutsetninger for å benytte
-            Maskinporten og Altinn er at organisasjonen er
-            registrert i Enhetsregisteret med norsk
-            organisasjonsnummer.
-        </p>
+            <p>
+                Maskinporten og Altinn er nasjonale felleskomponenter utviklet og driftet av Digitaliseringsdirektoratet
+                som
+                sammen skal gjøre det enklere å dele og bruke data på tvers av systemer for eksempel ved å gi
+                virksomheter
+                riktig tilgang til data som offentlige virksomheter tilbyr via grensesnitt.
+            </p>
+
+            <p>
+                Løsningen garanterer identitet
+                mellom virksomheter og sørger for autentisering ved kommunikasjon maskin-til-maskin. Den gjør det mulig
+                å
+                binde sammen systemer og utvikle nye tjenester på en effektiv måte.
+            </p>
+
+            <p>
+                En forutsetning for å benytte Maskinporten er at organisasjonen enten er registrert i Enhetsregisteret
+                med
+                norsk organisasjonsnummer eller at organisasjonen har et virksomhetssertifikat som ligger på EU sin
+                «list of
+                trusted lists».
+            </p>
+        </div>
 
         <br/>
-
-        <p>
-            <strong>Maskinporten</strong> er en løsning hos
-            Digitaliseringsdirektoratet
-            (<a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25"
-                target="_blank">Digdir</a>) for tilgangsstyring for
-            virksomheter som utveksler data. Løsningen
-            garanterer identitet mellom virksomheter og sørger
-            for autentisering ved kommunikasjon
-            maskin-til-maskin. Den gjør det mulig å binde
-            sammen systemer og utvikle nye tjenester på en
-            effektiv måte.
-        </p>
-
-        <br/>
-
-        <p>
-            Fremtidig mulighet, men ikke innført: <strong>Altinn
-            (autorisasjon)</strong> gir mulighet for delegering
-            av rettigheter til andre organisasjoner eller
-            personer. Baserer seg på registrerte roller i
-            Enhetsregisteret.
-        </p>
-
-        <br/>
-
-        <p>
-            Maskinporten sørger for sikker autentisering og
-            tilgangskontroll for datautveksling mellom
-            virksomheter. Løsningen garanterer identiteten
-            mellom virksomheter og gjør det mulig å binde sammen
-            systemer og utvikle nye tjenester på en effektiv
-            måte.
-        </p>
 
         <h1 id="drift">Drift og overvåking</h1>
         <p>
@@ -120,6 +97,13 @@
 
         <h1 id="hva-skal-til-for-a-bruke-maskinporten">Hva skal til for å bruke Maskinporten?</h1>
 
+        <p>
+            Det er ulik fremgangsmåte for norske og europeiske virksomheter. Fremgangsmåte for europeiske virksomheter
+            finnes her: (Lenke til europisk guide lenger ned)
+        </p>
+
+        <h3>For norske virksomheter </h3>
+
         <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">Guide som
             er i tråd med Maskinportens egen dokumentasjon</a>
 
@@ -134,8 +118,6 @@
             Det er en forutsetning for bruk av Maskinporten at man er registrert i Enhetsregisteret
             med et norsk organisasjonsnummer.
         </p>
-
-        <br/>
 
         <h3 id="anskaffe-virksomhetssertifikat">1. Anskaffe virksomhetssertifikat for test og prod</h3>
         <p>
@@ -158,13 +140,9 @@
             </p></li>
         </ul>
 
-        <br/>
-
         <h3 id="bli-kunde-hos-digdir">2. Bli kunde hos Digdir for tilgang til samarbeidsportalen</h3>
         <p>Ta kontakt med Digdir
             via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
-
-        <br/>
 
         <h3 id="bli-api-kunde">3. Registrer deg for tilgang hos Tolletaten</h3>
         <p>
@@ -174,8 +152,6 @@
         </p>
         <p>Tolletaten gir tilgang til det/de scopene som trengs for aktuell integrasjon, se
             <a href="#scopes">oversikt under</a>.</p>
-
-        <br/>
 
         <h3 id="lag-en-integrasjon">
             4. Lag en integrasjon hos Digdir og koble denne opp mot Tolletatens API (scope)
@@ -270,7 +246,7 @@
 
                 <figure>
                     <img class="image-size"
-                         src="../media/maskinporten/maskp-integrasjon.png"
+                         src="../media/maskinporten/maskp-integrasjon.PNG"
                          alt="Oversikt over integrasjonen"/>
                     <figcaption>
                         Figur: Etter å ha trykket på opprett vil du få
@@ -320,11 +296,11 @@
                     href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument"
                     target="_blank">dokumentasjon</a> på hvordan hente ut et access token.</p>
             <p class="tips_box_normal">
-                <strong>TIPS:</strong><br/> Difi har publisert
+                <strong>TIPS:</strong><br/> Digdir har publisert
                 et <a href="https://github.com/difi/jwt-grant-generator"
                       target="_blank">repository på github
                 (jwt-grant-generator)</a> som demonstrer hvordan en kan
-                hente ut access token fra Difis tjenester, deriblant
+                hente ut access token fra Digdirs tjenester, deriblant
                 Maskinporten.
             </p>
 
@@ -469,6 +445,77 @@
                 </tbody>
             </table>
             <p>Forventet resultat er <strong>200 OK</strong>.</p>
+
+            <h2>For Europeiske virksomheter</h2>
+
+            <p><strong>Forutsetning:</strong> Virksomhetssertifikat som ligger på EU sin «list of trusted lists» </p>
+
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">European eSeals |
+                Maskinporten</a>
+            <p>Følg guiden for europeiske virksomheter</p>
+
+            <h4>1. Skaff et gyldig europeisk virksomhetssertifikat</h4>
+            <p>
+                Klienten må ha et gyldig sertifikat for elektronisk segl utstedt av en godkjent
+                tillitstjenesteleverandør
+                som er oppført på <a
+                    href="https://eidas.ec.europa.eu/efda/trust-services/browse/eidas/tls/search/type?step=3&searchCriteria=eyJzZXJ2aWNlU2NvcGUiOiJBTEwiLCJjb3VudHJ5Q29kZXMiOlsiQVQiLCJCRSIsIkJHIiwiSFIiLCJDWSIsIkNaIiwiREsiLCJFRSIsIkZJIiwiRlIiLCJERSIsIkVMIiwiSFUiLCJJUyIsIklFIiwiSVQiLCJMViIsIkxJIiwiTFQiLCJMVSIsIk1UIiwiTkwiLCJOTyIsIlBMIiwiUFQiLCJSTyIsIlNLIiwiU0kiLCJFUyIsIlNFIiwiVUsiXSwic2VydmljZUxlZ2FsVHlwZXMiOlsiUV9DRVJUX0VTRUFMIiwiQ0VSVF9FU0VBTCJdfQ%3D%3D">
+                EUs tillitsliste</a>. Merk at en oppført leverandør vanligvis tilbyr flere
+                sertifikattjenester, som normalt kommer fra forskjellige sertifikatkjeder/rotsertifikater, og bare noen
+                av disse sertifikatkjeder/rotsertifikater er oppført på EUs tillitsliste.
+            </p>
+
+            <h4>2. Registrer deg for tilgang hos Tolletaten</h4>
+            <p>
+                Skjema for innmelding finner du her:
+                <a href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">
+                    Registrering: Digitoll-aktør - Tolletaten
+                </a>
+            </p>
+
+            <p>Tolletaten gir tilgang til det/de scopene som trengs for aktuell integrasjon, se oversikt under. </p>
+
+            <h4>3. Klientintegrasjon</h4>
+            <p>
+                API-konsumenter må selv utvikle en applikasjon/system som henter access token fra Maskinporten og
+                veksler
+                disse inn mot Toll-signerte access tokens.
+            </p>
+
+            <p class="tips_box_normal">
+                <strong>TIPS:</strong><br/>
+                Et Toll-signert access token
+                kan brukes i hele dets levetid, derfor anbefales det å
+                mellomlagre disse når en kommuniserer med Tolletatens
+                API-er. For en mer sømløs opplevelse anbefaler vi videre
+                å utveksle til et nytt Toll-token før (f.eks 1 minutt
+                før) levetiden til det foregående utgår.
+            </p>
+
+            <h3>Våre scops: </h3>
+            <p>Hvilke(t) scope du skal bruke avhenger av hvilke tjenester du skal ta i bruk, og krever tildelt tilgang
+                til dette scopet fra Tolletaten: </p>
+
+            <ul class="spaced-list">
+                <li>movement-road-api: <strong>toll:eu/movement/road</strong></li>
+                <li>movement-road-api-v2, movement-road-query-api-v2: <strong>toll:eu/movement/road/v2</strong></li>
+                <li>movement-air-api, movement-air-query-api: <strong>toll:eu/movement/air</strong></li>
+                <li>movement/presentation, movement/routing: <strong>toll:eu/movement/entry</strong></li>
+                <li>Document upload: <strong>toll:eu/goodsdeclaration/document.write</strong></li>
+            </ul>
+
+            <h4>3.1 Hent access token fra Maskinporten</h4>
+            <p>Se digdir sin dokumentasjon under request
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
+                    European eSeals | Maskinporten
+                </a>
+            </p>
+
+            <h4>3.2 Veksle Maskinportens access token til et Toll-signert access token</h4>
+            <a href="#veksle-token">Som for de norske (Lenke til 5.2 i den norske guiden) </a>
+
+            <h4>3.3 Teste tilgang til API-et</h4>
+            <a href="#teste-tilgang-til-api">Som for de norske (Lenke til 5.3 i den norske guiden) </a>
         </div>
     </div>
 </main>

@@ -41,54 +41,30 @@
         </nav>
 
         <h1 id="hva-er-maskinporten">What is Maskinporten?</h1>
-        <p>
+        <div>
             <img class="img-right"
-                 src="../media/digdir-logo.png" alt="digdir-logo"> Maskinporten and
-            Altinn are national common components developed
-            and operated by the Norwegian Digitalisation
-            Agency (Digitaliseringsdirektoratet - Digdir).
-            Together, they aim to facilitate the sharing and
-            utilization of data across systems. These
-            solutions ensure the verification of the identity
-            of businesses and provide them with the
-            appropriate access to data offered by public
-            entities through interfaces. A prerequisite for
-            using Maskinporten and Altinn is that the
-            organization is registered in the Norwegian
-            Business Registry (Enhetsregisteret) with a
-            Norwegian organization number.
-        </p>
+                 src="../media/digdir-logo.png" alt="digdir-logo">
+            <p>
+                <strong>Maskinporten and Altinn</strong>
+                are national common components developed
+                and operated by the Norwegian Digitalisation
+                <strong>Agency (Digitaliseringsdirektoratet - Digdir).</strong>
+            </p>
 
-        <p>
-            <strong>Maskinporten</strong> is a solution provided
-            by the Norwegian Digitalisation Agency
-            (<a href="https://samarbeid.digdir.no/maskinporten/maskinporten/25"
-                target="_blank">Digdir</a>) for access management
-            for businesses that exchange data. The solution
-            ensures identity assurance between organizations and
-            provides authentication for machine-to-machine
-            communication. It enables the integration of
-            systems and the development of new services in an
-            efficient manner.
-        </p>
+            <p>
+                Together, they aim to simplify the sharing and use of data across systems, for example by granting
+                organizations appropriate access to data offered by public entities via interfaces.
+                The solution guarantees identity between organizations and ensures authentication in
+                machine-to-machine communication. It enables systems to be connected and new services
+                to be developed efficiently.
+            </p>
 
-        <p>
-            In the future: <strong>Altinn
-            (authorization)</strong> will allow for the
-            delegation of rights to other organizations or
-            individuals. This delegation is based on registered
-            roles in the Norwegian Business Registry
-            (Enhetsregisteret). This is not yet implemented.
-        </p>
-
-        <p>
-            Maskinporten ensures secure authentication and
-            access control for data exchange between
-            businesses. The solution guarantees the identity
-            between organizations and enables the integration of
-            systems and development of new services in an
-            efficient manner.
-        </p>
+            <p>
+                To use <strong>Maskinporten</strong>, the organization must either be registered in the Norwegian Entity
+                Registry with a <strong>Norwegian organization number</strong>or possess an enterprise certificate
+                listed on the <strong>EU’s “List of Trusted Lists.”</strong>
+            </p>
+        </div>
 
         <h1 id="drift">Operations and monitoring</h1>
         <p>
@@ -104,7 +80,7 @@
         <ul>
             <li><a href="https://status.digdir.no/history?filter=nthvr1xysxs7"
                    target="_blank">Digdir Status - History</a>
-                at <a href="https://status.digdir.no/">https://status.digdir.no/</a></li>
+                at <a target="_blank" href="https://status.digdir.no/">https://status.digdir.no/</a></li>
         </ul>
         <p> It is also possible to verify if Maskinporten is up by using the links below:</p>
         <ul>
@@ -113,28 +89,39 @@
             <li><p><a href="https://maskinporten.no/health"
                       class="uri" target="_blank">https://maskinporten.no/health</a></p></li>
         </ul>
-        <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">Maskinporten has
-            also created a troubleshooting page at</a>
+        <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">
+            Maskinporten has also created a troubleshooting page
+        </a>
 
         <h1 id="hva-skal-til-for-a-bruke-maskinporten">What is needed to use Maskinporten?</h1>
 
-        <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">The guide
-            below is in line with Maskinporten's own documentation</a>
+        <p>
+            The process differs for Norwegian and European organizations. The procedure for European organizations can
+            be found here: <a href="#registrationEuropeanOrg">
+            For European organizations
+        </a>
+        </p>
+
+        <h2>For Norwegian organizations</h2>
+        <p>Guide aligned with Maskinporten’s official documentation</p>
+
+        <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">
+            The guide below is in line with Maskinporten's own documentation
+        </a>
 
         <br/>
         <br/>
 
-        <a href="https://samarbeid.digdir.no/maskinporten/konsument/119" target="_blank">See also Digdir's guide on
-            how to get started with Maskinporten:</a>
+        <a href="https://samarbeid.digdir.no/maskinporten/konsument/119" target="_blank">
+            See also Digdir's guide on how to get started with Maskinporten:
+        </a>
 
-        <h2 id="orgnummer">Prerequisite: Norwegian organization number</h2>
+        <h3 id="orgnummer">Prerequisite: Norwegian organization number</h3>
         <p>
             It is a prerequisite for using Maskinporten that you are registered in the
             Norwegian Central Coordinating Register of Legal Entities (Enhetsregisteret)
             with a Norwegian organization number.
         </p>
-
-        <br/>
 
         <h3 id="anskaffe-virksomhetssertifikat">1. Acquire a company certificate for testing and production
             purpose</h3>
@@ -142,8 +129,8 @@
             Digdir will validate your signature against your
             organization's certificate issued by a recognized
             certificate provider. Find more documentation on this
-            process<a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat"
-                      target="_blank">at Digdir</a>.
+            process <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat"
+                       target="_blank">at Digdir</a>.
         </p>
         <p>
             Here are some options for acquiring an organization
@@ -161,23 +148,20 @@
             </p></li>
         </ul>
 
-        <br/>
-
         <h3 id="bli-kunde-hos-digdir">2. Become a customer of Digdir for access to the collaboration portal</h3>
         <p>Contact Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a></p>
 
-        <br/>
-
         <h3 id="bli-api-kunde">3. Register for access with Norwegian Customs</h3>
         <p>
-            The registration form can be found here: <a target="_blank"
-                                                        href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">Registration:
-            Digitoll-actor - Norwegian Customs</a>
+            The registration form can be found here:
+            <a target="_blank"
+               href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">
+                Registration: Digitoll-actor - Norwegian Customs
+            </a>
         </p>
+
         <p>Norwegian Customs provides access to the scopes needed for the relevant integration, see
             <a href="#scopes">overview below</a>.</p>
-
-        <br/>
 
         <h3 id="lag-en-integrasjon">
             4. Create an integration with Digdir and connect it to Norwegian Customs' API (scope)
@@ -220,7 +204,8 @@
             <div>
                 <h4 id="integrasjon-selvbetjening">4.1 Go to self-service for integrations</h4>
                 <figure>
-                    <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Figure: Go to self-service"/>
+                    <img class="image-size" src="../media/maskinporten/maskp-login.png"
+                         alt="Figure: Go to self-service"/>
                     <figcaption>Figure: Login at self-service</figcaption>
                 </figure>
 
@@ -230,57 +215,58 @@
 
                 </figure>
 
-             <figure>
-                 <img class="image-size" src="../media/maskinporten/maskp-klient.PNG" alt="Select client"/>
-                 <figcaption>Figure: For those integrating a service, select Client</figcaption>
-             </figure>
+                <figure>
+                    <img class="image-size" src="../media/maskinporten/maskp-klient.PNG" alt="Select client"/>
+                    <figcaption>Figure: For those integrating a service, select Client</figcaption>
+                </figure>
 
-             <h4 id="ny-integrasjon">4.2 New integration</h4>
-             <figure>
-                 <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.PNG"
-                      alt="Add new integration."/>
-                 <figcaption>
-                     Figure: Here is a list of your clients. For a
-                     new client integration, click Add new.
-                 </figcaption>
-             </figure>
+                <h4 id="ny-integrasjon">4.2 New integration</h4>
+                <figure>
+                    <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.PNG"
+                         alt="Add new integration."/>
+                    <figcaption>
+                        Figure: Here is a list of your clients. For a
+                        new client integration, click Add new.
+                    </figcaption>
+                </figure>
 
-             <figure>
-                 <img class="image-size" src="../media/maskinporten/maskp-maskinporten.PNG" alt="Select Maskinporten"/>
-                 <figcaption>Figure: Select Maskinporten.</figcaption>
-             </figure>
+                <figure>
+                    <img class="image-size" src="../media/maskinporten/maskp-maskinporten.PNG"
+                         alt="Select Maskinporten"/>
+                    <figcaption>Figure: Select Maskinporten.</figcaption>
+                </figure>
 
-             <figure>
-                 <img class="image-size"
-                      src="../media/maskinporten/maskp-legg-til-scope.PNG"
-                      alt="Select Add scope"/>
-                 <figcaption>
-                     Figure: After entering your chosen name and
-                     description, click Add scope
-                 </figcaption>
-             </figure>
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-legg-til-scope.PNG"
+                         alt="Select Add scope"/>
+                    <figcaption>
+                        Figure: After entering your chosen name and
+                        description, click Add scope
+                    </figcaption>
+                </figure>
 
-             <figure>
-                 <img class="image-size"
-                      src="../media/maskinporten/maskp-scopes.PNG"
-                      alt="Select the scopes you need"/>
-                 <figcaption>
-                     Figure: Select the scopes you need, you
-                     can find an <a href="#scopes">overview below</a>
-                 </figcaption>
-             </figure>
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-scopes.PNG"
+                         alt="Select the scopes you need"/>
+                    <figcaption>
+                        Figure: Select the scopes you need, you
+                        can find an <a href="#scopes">overview below</a>
+                    </figcaption>
+                </figure>
 
-             <figure>
-                 <img class="image-size"
-                      src="../media/maskinporten/maskp-integrasjon.png"
-                      alt="Overview of the integration"/>
-                 <figcaption>
-                     Figure: After clicking create, you will get
-                     an overview of your integrations/clients.
-                     Click the one you just created to see
-                     details and edit if needed.
-                 </figcaption>
-             </figure>
+                <figure>
+                    <img class="image-size"
+                         src="../media/maskinporten/maskp-integrasjon.png"
+                         alt="Overview of the integration"/>
+                    <figcaption>
+                        Figure: After clicking create, you will get
+                        an overview of your integrations/clients.
+                        Click the one you just created to see
+                        details and edit if needed.
+                    </figcaption>
+                </figure>
             </div>
         </section>
 
@@ -344,12 +330,12 @@
                 <tbody>
                 <tr>
                     <td>Test</td>
-                    <td><a href="https://api-test.toll.no/api/access/external/oauth/token">https://api-test.toll.no/api/access/external/oauth/token</a>
+                    <td><a target="_blank" href="https://api-test.toll.no/api/access/external/oauth/token">https://api-test.toll.no/api/access/external/oauth/token</a>
                     </td>
                 </tr>
                 <tr>
                     <td>Production</td>
-                    <td><a href="https://api.toll.no/api/access/external/oauth/token">https://api.toll.no/api/access/external/oauth/token</a>
+                    <td><a target="_blank" href="https://api.toll.no/api/access/external/oauth/token">https://api.toll.no/api/access/external/oauth/token</a>
                     </td>
                 </tr>
                 </tbody>
@@ -424,12 +410,16 @@
                 <tbody>
                 <tr>
                     <td>Test</td>
-                    <td><a href="https://api-test.toll.no/api/movement/road/v1/test-auth">https://api-test.toll.no/api/movement/road/v1/test-auth</a>
+                    <td><a target="_blank" href="https://api-test.toll.no/api/movement/road/v1/test-auth">
+                        https://api-test.toll.no/api/movement/road/v1/test-auth
+                    </a>
                     </td>
                 </tr>
                 <tr>
                     <td>Production</td>
-                    <td><a href="https://api.toll.no/api/movement/road/v1/test-auth">https://api.toll.no/api/movement/road/v1/test-auth</a>
+                    <td><a target="_blank" href="https://api.toll.no/api/movement/road/v1/test-auth">
+                        https://api.toll.no/api/movement/road/v1/test-auth
+                    </a>
                     </td>
                 </tr>
                 </tbody>
@@ -451,12 +441,92 @@
                 </tbody>
             </table>
             <p>Expected result is <strong>200 OK</strong>.</p>
+
+            <h2 id="registrationEuropeanOrg">For European organizations</h2>
+            <p>Requirement: Enterprise certificate listed on the EU’s “List of Trusted Lists” </p>
+
+            <a target="_blank" href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
+                European eSeals | Maskinporten
+            </a>
+
+            <p>Follow the guide for European organizations.</p>
+
+            <h3>1. Obtain a valid European enterprise certificate</h3>
+            <p>
+                The client must have a valid electronic seal certificate issued by a qualified trust service provider
+                listed on the
+                <a target="_blank"
+                   href="https://eidas.ec.europa.eu/efda/trust-services/browse/eidas/tls/search/type?step=3&searchCriteria=eyJzZXJ2aWNlU2NvcGUiOiJBTEwiLCJjb3VudHJ5Q29kZXMiOlsiQVQiLCJCRSIsIkJHIiwiSFIiLCJDWSIsIkNaIiwiREsiLCJFRSIsIkZJIiwiRlIiLCJERSIsIkVMIiwiSFUiLCJJUyIsIklFIiwiSVQiLCJMViIsIkxJIiwiTFQiLCJMVSIsIk1UIiwiTkwiLCJOTyIsIlBMIiwiUFQiLCJSTyIsIlNLIiwiU0kiLCJFUyIsIlNFIiwiVUsiXSwic2VydmljZUxlZ2FsVHlwZXMiOlsiUV9DRVJUX0VTRUFMIiwiQ0VSVF9FU0VBTCJdfQ%3D%3D">
+                    EU Trusted List</a>.
+                Note that a listed provider typically offers multiple certificate
+                services, which usually originate from different chains/roots, and just some of these chains/roots are
+                in the trusted list.
+            </p>
+
+
+            <h3>2. Register for access with the Norwegian Customs (Tolletaten)</h3>
+            <p>
+                Registration form:
+                <a href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">
+                    Digitoll Registration – Tolletaten
+                </a>
+            </p>
+
+            <p>
+                Tolletaten grants access to the scope(s) required for the relevant integration.
+                <a href="#scopesEU">See the scopes below</a>.
+            </p>
+
+            <h3>3. Client Integration</h3>
+            <p>
+                API consumers must develop an application/system that
+                retrieves access tokens from Maskinporten and exchanges
+                them for Toll-signed access tokens.
+            </p>
+            <p class="tips_box_normal">
+                <strong>TIPS:</strong><br/> A Toll-signed access token
+                can be used for its entire lifetime, so it is
+                recommended to cache these when communicating with
+                Norwegian Customs' APIs. For a smoother experience, it
+                is further recommended to exchange for a new Toll token
+                before (e.g., 1 minute before) the lifetime of the
+                previous one expires.
+            </p>
+
+            <h3 id="scopesEU">Our scopes</h3>
+            <p>The scope(s) you should use depend on the services you will use and require assigned access to this
+                scope from Norwegian Customs:</p>
+            <ul class="spaced-list">
+                <li>movement-road-api: <strong>toll:eu/movement/road</strong></li>
+                <li>movement-road-api-v2, movement-road-query-api-v2: <strong>toll:eu/movement/road/v2</strong></li>
+                <li>movement-air-api, movement-air-query-api: <strong>toll:eu/movement/air</strong></li>
+                <li>movement/presentation, movement/routing: <strong>toll:eu/movement/entry</strong></li>
+                <li>Document upload: <strong>toll:eu/goodsdeclaration/document.write</strong></li>
+            </ul>
+
+            <h4>3.1 Retrieve access token from Maskinporten</h4>
+            <p>See Digdir’s documentation under request
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
+                    "European eSeals | Maskinporten”
+                </a>
+            </p>
+
+            <h4>3.2 Retrieve access token from Maskinporten</h4>
+            <a href="#veksle-token">
+                Same procedure as for Norwegian organizations (Link to section 5.2 in the Norwegian guide)
+            </a>
+
+            <h4>3.3 Retrieve access token from Maskinporten</h4>
+            <a href="#teste-tilgang-til-api">
+                Same procedure as for Norwegian organizations (Link to section 5.3 in the Norwegian guide)
+            </a>
+
         </div>
     </div>
 </main>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/en/">Norwegian Customs</a> 2025 | <a
+    <a target="_blank" href="https://www.toll.no/en/">Norwegian Customs</a> 2025 | <a
         href="https://www.toll.no/en/about-norwegian-customs/contact-us/" class="white">Contact us</a>
 </footer>
 
