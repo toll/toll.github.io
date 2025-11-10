@@ -97,12 +97,10 @@
 
         <p>
             The process differs for Norwegian and European organizations. The procedure for European organizations can
-            be found here: <a href="#registrationEuropeanOrg">
-            For European organizations
-        </a>
+            <a href="#europeisk">be found here</a>.
         </p>
 
-        <h2>For Norwegian organizations</h2>
+        <h2 id="norsk">For Norwegian organizations</h2>
         <p>Guide aligned with Maskinporten’s official documentation</p>
 
         <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument" target="_blank">
@@ -116,12 +114,8 @@
             See also Digdir's guide on how to get started with Maskinporten:
         </a>
 
-        <h3 id="orgnummer">Prerequisite: Norwegian organization number</h3>
-        <p>
-            It is a prerequisite for using Maskinporten that you are registered in the
-            Norwegian Central Coordinating Register of Legal Entities (Enhetsregisteret)
-            with a Norwegian organization number.
-        </p>
+        <p id="orgnummer"><strong>Prerequisite</strong>: the
+        organization has a Norwegian organization number</h3>
 
         <h3 id="anskaffe-virksomhetssertifikat">1. Acquire a company certificate for testing and production
             purpose</h3>
@@ -160,19 +154,20 @@
             </a>
         </p>
 
-        <p>Norwegian Customs provides access to the scopes needed for the relevant integration, see
+        <p>Norwegian Customs provides access to the scopes needed for
+        the relevant integration, see
             <a href="#scopes">overview below</a>.</p>
 
-        <h3 id="lag-en-integrasjon">
-            4. Create an integration with Digdir and connect it to Norwegian Customs' API (scope)
-        </h3>
+        <h3 id="lag-en-integrasjon">4. Create an integration with Digdir and connect it to Norwegian Customs' API (scope)</h3>
         <p>
-            For <strong>PROD</strong>: Log in to <a href="https://sjolvbetjening.samarbeid.digdir.no"
-                                                    target="_blank">Self-service portal (digdir.no)</a>
+          For <strong>PROD</strong>: Log in to
+          <a href="https://sjolvbetjening.samarbeid.digdir.no"
+             target="_blank">Self-service portal (digdir.no)</a>
         </p>
         <p>
-            For <strong>TEST</strong>: Log in to <a href="https://sjolvbetjening.test.samarbeid.digdir.no"
-                                                    target="_blank">Self-service portal (digdir.no)</a>
+          For <strong>TEST</strong>: Log in to
+          <a href="https://sjolvbetjening.test.samarbeid.digdir.no"
+             target="_blank">Self-service portal (digdir.no)</a>
         </p>
 
         <ul class="spaced-list">
@@ -216,13 +211,13 @@
                 </figure>
 
                 <figure>
-                    <img class="image-size" src="../media/maskinporten/maskp-klient.PNG" alt="Select client"/>
+                    <img class="image-size" src="../media/maskinporten/maskp-klient.png" alt="Select client"/>
                     <figcaption>Figure: For those integrating a service, select Client</figcaption>
                 </figure>
 
                 <h4 id="ny-integrasjon">4.2 New integration</h4>
                 <figure>
-                    <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.PNG"
+                    <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.png"
                          alt="Add new integration."/>
                     <figcaption>
                         Figure: Here is a list of your clients. For a
@@ -231,14 +226,14 @@
                 </figure>
 
                 <figure>
-                    <img class="image-size" src="../media/maskinporten/maskp-maskinporten.PNG"
+                    <img class="image-size" src="../media/maskinporten/maskp-maskinporten.png"
                          alt="Select Maskinporten"/>
                     <figcaption>Figure: Select Maskinporten.</figcaption>
                 </figure>
 
                 <figure>
                     <img class="image-size"
-                         src="../media/maskinporten/maskp-legg-til-scope.PNG"
+                         src="../media/maskinporten/maskp-legg-til-scope.png"
                          alt="Select Add scope"/>
                     <figcaption>
                         Figure: After entering your chosen name and
@@ -248,7 +243,7 @@
 
                 <figure>
                     <img class="image-size"
-                         src="../media/maskinporten/maskp-scopes.PNG"
+                         src="../media/maskinporten/maskp-scopes.png"
                          alt="Select the scopes you need"/>
                     <figcaption>
                         Figure: Select the scopes you need, you
@@ -442,14 +437,13 @@
             </table>
             <p>Expected result is <strong>200 OK</strong>.</p>
 
-            <h2 id="registrationEuropeanOrg">For European organizations</h2>
-            <p>Requirement: Enterprise certificate listed on the EU’s “List of Trusted Lists” </p>
+            <h2 id="europeisk">For European organizations</h2>
+            <p><strong>Requirement</strong>: The enterprise has an enterprise certificate listed on the EU’s “List of Trusted Lists.</p>
 
-            <a target="_blank" href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
+            <p><a target="_blank" href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
                 European eSeals | Maskinporten
-            </a>
-
-            <p>Follow the guide for European organizations.</p>
+            </a>,
+            follow the guide for European organizations.</p>
 
             <h3>1. Obtain a valid European enterprise certificate</h3>
             <p>
@@ -459,22 +453,25 @@
                    href="https://eidas.ec.europa.eu/efda/trust-services/browse/eidas/tls/search/type?step=3&searchCriteria=eyJzZXJ2aWNlU2NvcGUiOiJBTEwiLCJjb3VudHJ5Q29kZXMiOlsiQVQiLCJCRSIsIkJHIiwiSFIiLCJDWSIsIkNaIiwiREsiLCJFRSIsIkZJIiwiRlIiLCJERSIsIkVMIiwiSFUiLCJJUyIsIklFIiwiSVQiLCJMViIsIkxJIiwiTFQiLCJMVSIsIk1UIiwiTkwiLCJOTyIsIlBMIiwiUFQiLCJSTyIsIlNLIiwiU0kiLCJFUyIsIlNFIiwiVUsiXSwic2VydmljZUxlZ2FsVHlwZXMiOlsiUV9DRVJUX0VTRUFMIiwiQ0VSVF9FU0VBTCJdfQ%3D%3D">
                     EU Trusted List</a>.
                 Note that a listed provider typically offers multiple certificate
-                services, which usually originate from different chains/roots, and just some of these chains/roots are
-                in the trusted list.
+                services, which usually originate from different
+                chains/roots, and just some of these chains/roots
+                are in the trusted list.
             </p>
 
 
             <h3>2. Register for access with the Norwegian Customs (Tolletaten)</h3>
             <p>
                 Registration form:
-                <a href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/">
+                <a href="https://toll.no/no/bedrift/digital-tollbehandling/meldeogopplysningsplikt/digital-samhandler-med-tolletaten/"
+                   target="_blank">
                     Digitoll Registration – Tolletaten
                 </a>
             </p>
 
             <p>
-                Tolletaten grants access to the scope(s) required for the relevant integration.
-                <a href="#scopesEU">See the scopes below</a>.
+                Tolletaten grants access to the scope(s) required for
+                the relevant integration. <a href="#scopes-eu">See the
+                scopes below</a>.
             </p>
 
             <h3>3. Client Integration</h3>
@@ -493,7 +490,7 @@
                 previous one expires.
             </p>
 
-            <h3 id="scopesEU">Our scopes</h3>
+            <h3 id="scopes-eu">Our scopes</h3>
             <p>The scope(s) you should use depend on the services you will use and require assigned access to this
                 scope from Norwegian Customs:</p>
             <ul class="spaced-list">
@@ -506,20 +503,20 @@
 
             <h4>3.1 Retrieve access token from Maskinporten</h4>
             <p>See Digdir’s documentation under request
-                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html">
-                    "European eSeals | Maskinporten”
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html"
+                   target="_blank">European eSeals | Maskinporten
                 </a>
             </p>
 
             <h4>3.2 Retrieve access token from Maskinporten</h4>
-            <a href="#veksle-token">
-                Same procedure as for Norwegian organizations (Link to section 5.2 in the Norwegian guide)
-            </a>
+            <p><a href="#veksle-token">
+                Same procedure as for Norwegian organizations
+            </a>.</p>
 
             <h4>3.3 Retrieve access token from Maskinporten</h4>
-            <a href="#teste-tilgang-til-api">
-                Same procedure as for Norwegian organizations (Link to section 5.3 in the Norwegian guide)
-            </a>
+            <p><a href="#teste-tilgang-til-api">
+                Same procedure as for Norwegian organizations
+            </a>.</p>
 
         </div>
     </div>
