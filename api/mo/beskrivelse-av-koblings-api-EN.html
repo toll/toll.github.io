@@ -25,7 +25,7 @@
     <a href="beskrivelse-av-koblings-api.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>NO</span>
-            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norwegian flag">
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Norsk">
         </div>
     </a>
 </header>
@@ -47,114 +47,145 @@
 
         <p>The current solution requires:</p>
         <ul class="spaced-list">
-            <li>That the sender of the transport notification provides information about which master waybill(s) and
-                waybill(s) (direct consignment) are included in the transport.
-            </li>
-            <li>That the sender of the consignment provides a reference to the parent master waybill number (or a
-                parent transport for direct consigments) as well as a reference to the declaration in TVINN.
-            </li>
+          <li>
+            That the sender of the transport notification provides
+            information about which master waybill(s) and waybill(s)
+            (direct consignment) are included in the transport.
+          </li>
+          <li>
+            That the sender of the consignment provides a reference to
+            the parent master waybill number (or a parent transport for
+            direct consigments) as well as a reference to the
+            declaration in TVINN.
+          </li>
         </ul>
 
         <p>
-            The industry has requested greater flexibility regarding which senders can
-            <strong>“take responsibility”</strong> for ensuring that the necessary linking information is included
-            in notifications submitted in the solution for notification and disclosure of information.
+            The industry has requested greater flexibility regarding
+            which senders can <em>take responsibility</em> for ensuring
+            that the necessary linking information is included in
+            notifications submitted in the solution for notification and
+            disclosure of information.
         </p>
 
         <p>
-            Norwegian Customs has therefore enabled actors to agree among themselves who is best suited to submit
-            the necessary linking information by separating the links into dedicated relation notifications
-            <strong>(called relation in the API).</strong>
+            Norwegian Customs has therefore enabled actors to agree
+            among themselves who is best suited to submit the necessary
+            linking information by separating the links into dedicated
+            relation notifications (called relation in the API).
         </p>
 
         <p>
-            Relation notifications are <strong>an addition to the current solution</strong> of submitting references
-            in the respective notifications.
+            Relation notifications are <em>an addition</em> to the
+            current solution of submitting references in the respective
+            notifications.
         </p>
 
         <h2>Relation-API:</h2>
 
         <p>Relation notifications follow a standard pattern:</p>
         <ul class="spaced-list">
-            <li>Create <strong>(POST)</strong> – The company creates a request ID, and the Norwegian Customs
-                Authority creates and returns an MRN.
-            </li>
-            <li>Delete <strong>(DELETE)</strong> – The company submits the request ID and MRN.</li>
+          <li>
+            Create (POST) &ndash; The company creates a request ID, and
+            the Norwegian Customs Authority creates and returns an MRN.
+          </li>
+          <li>
+            Delete (DELETE) &ndash; The company submits the request ID
+            and MRN.
+          </li>
         </ul>
 
         <p>
-            The main principle is that the relation notification specifies the two MRNs (including MRN type) that
-            identify the notifications to be linked.
+            The main principle is that the relation notification
+            specifies the two MRNs (including MRN type) that identify
+            the notifications to be linked.
         </p>
 
         <p>
-            If a link needs to be changed, this is done by deleting the submitted relation notification
-            <strong>(DELETE in the API)</strong> and creating a new relation notification.
+            If a link needs to be changed, this is done by deleting the
+            submitted relation notification (DELETE in the API) and
+            creating a new relation notification.
         </p>
 
         <p>
-            Similar to the fields for “representative” in transport, master, and house notifications, there should
-            also be fields for representatives in the relation notification.
+            Similar to the fields for "representative" in transport,
+            master, and house notifications, there should also be fields
+            for representatives in the relation notification.
         </p>
 
         <p>
-            API documentation is included as part of the notification and disclosure of information APIs for each
-            transport mode, under Relation
-            <a href="movement-road-api-v2.html" target="_blank">
-                (Documentation for road api, scroll further down for Relation endpoint)</a>.
-            There is no explicit APIs for each relation type.
+            API documentation is included as part of the notification
+            and disclosure of information APIs for each transport mode,
+            under Relation <a href="movement-road-api-v2.html"
+            target="_blank">for road API</a>, similar for other
+            transports modes. There are no explicit APIs for each relation type.
         </p>
 
-        <h2>API for Lookup and MRN Retrieval</h2>
+        <h2>API for Lookup and Retrieval of MRN</h2>
         <p>
-            If the sender of a relation notification does not know the MRN, Digitoll provides a query API that
-            allows MRN lookup for a notification if the sender has other identifying information about an object.
-            For example, knowing the vehicle registration number, border crossing location, and time of crossing.
+            If the sender of a relation notification does not know the
+            MRN, Digitoll provides a query API that allows MRN lookup
+            for a notification if the sender has other identifying
+            information about an object.  For example, knowing the
+            vehicle registration number, border crossing location, and
+            time of crossing.
         </p>
 
         <p>
-            See <a href="https://toll.github.io/api/mo/movement-road-query-api-v2.html" target="_blank">
-            <strong>API documentation for the query API here</strong></a>.
+            See <a href="movement-road-query-api-v2.html" target="_blank">
+            API documentation for the road query API here</a>.
         </p>
 
         <h2>Limitations:</h2>
         <p>
-            Support is only provided for linking Digitoll notifications. Support for linking declaration IDs
-            (from TVINN) to consignments (house) will be developed later, but is not included in the first version.
+            Support is only provided for linking Digitoll
+            notifications. Support for linking declaration IDs (from
+            TVINN) to consignments (house) will be developed later, but
+            is not included in the first version.
         </p>
 
         <p>
-            There is no support for submitting references to <strong>transit, Swedish export, mail bag (receptacle)
-            and ATA carnet</strong> via relation notifications to link these to transport/consignments.
+            There is no support for submitting references
+            to <em>transit, Swedish export, mail bag (receptacle)
+            and ATA carnet</em> via relation notifications to link
+            these to transports / consignments.
         </p>
 
         <p>
-            Relation notifications will not solve the industry’s challenges if the actors involved do not know each
-            other or do not exchange necessary information. Relation notifications only make it more flexible who
-            takes responsibility for collecting and submitting the information.
+            Relation notifications will not solve the industry’s
+            challenges if the actors involved do not know each other or
+            do not exchange necessary information. Relation
+            notifications only make it more flexible who takes
+            responsibility for collecting and submitting the
+            information.
         </p>
 
         <h3>Case example:</h3>
         <ul class="spaced-list">
-            <li>A freight forwarder submits the master consignment notification <strong>before</strong> a transport
-                agreement is made. Digitoll issues an MRN for the notification.
-            </li>
-            <li>
-                The carrier/driver submits a transport notification <strong>(unauthenticated solution or standard
-                Digitoll)</strong> without reference to the master consignment notification. Digitoll issues an
-                MRN for the notification.
-                <ul style="margin-top: 10px;">
-                    <li>
-                        The carrier/driver distributes the MRN for the transport notification to the actors
-                        they later agree to transport goods for.
-                    </li>
-                </ul>
-            </li>
-            <li>
-                The freight forwarder submits a relation notification
-                <strong>(MRN of master consignment notification and MRN of transport notification)</strong>
-                to establish the necessary link when the freight is agreed upon.
-            </li>
+          <li>
+            A freight forwarder submits the master consignment
+            notification <em>before</em> a transport agreement is
+            made. Digitoll issues an MRN for the notification.
+          </li>
+          <li>
+            The carrier/driver submits a transport
+            notification <em>(unauthenticated solution or standard
+            Digitoll)</em> without reference to the master consignment
+            notification. Digitoll issues an MRN for the notification.
+            <ul class="spaced-list">
+              <li>
+                The carrier/driver distributes the MRN for the transport
+                notification to the actors they later agree to transport
+                goods for.
+              </li>
+            </ul>
+          </li>
+          <li>
+            The freight forwarder submits a relation notification (MRN
+            of master consignment notification and MRN of transport
+            notification) to establish the necessary link when the
+            freight is agreed upon.
+          </li>
         </ul>
 
         <h3>Code example:</h3>
@@ -168,9 +199,10 @@
   "childObjectType": "MASTER_CONSIGNMENT",
   "childObjectReference": "24NO02091DW4BIEST4"
 }
-                    </pre>
+                </pre>
             </li>
-            <li>Response: <strong><em>202, 400, 401, 403, 415, 500</em></strong> (as today)</li>
+            <li>
+              Response: <em>202, 400, 401, 403, 415, 500</em> (like now)</li>
         </ul>
     </div>
 </main>

@@ -25,7 +25,7 @@
     <a href="beskrivelse-av-koblings-api-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
             <span>EN</span>
-            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="Norsk flagg">
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
         </div>
     </a>
 </header>
@@ -46,27 +46,36 @@
 
         <p>Dagens løsning krever:</p>
         <ul class="spaced-list">
-            <li>At innsender av transportmelding har ansvar for å sende hvilke hovedfraktbrev og fraktbrev
-                (direkteforsendelse) som er med i transporten.
+          <li>
+            At innsender av transportmelding har ansvar for å sende
+                hvilke hovedfraktbrev og fraktbrev (direkteforsendelse)
+                som er med i transporten.
             </li>
-            <li>At innsender av forsendelse har ansvar for å sende inn referanse til overliggende hovedfraktbrevnummer
-                (eller overliggende transport ved direkteforsendelser) samt referanse til deklarasjonen i TVINN.
-            </li>
+          <li>
+            At innsender av forsendelse har ansvar for å sende inn
+            referanse til overliggende hovedfraktbrevnummer (eller
+            overliggende transport ved direkteforsendelser) samt
+            referanse til deklarasjonen i TVINN.
+          </li>
         </ul>
 
         <p>
-            Næringslivsaktørene har etterlyst en større fleksibilitet for hvilke innsendere som kan
-            <strong>"ta ansvar"</strong> for at nødvendig koblingsinformasjon er på plass i meldingene innsendt i MO.
+            Næringslivsaktørene har etterlyst en større fleksibilitet
+            for hvilke innsendere som kan ta ansvar for at nødvendig
+            koblingsinformasjon er på plass i meldingene innsendt i MO.
         </p>
 
         <p>
-            Tolletaten har derfor lagt til rette for at aktørene kan avtale seg imellom hvem som er best egnet til å
-            sende inn nødvendig koblingsinformasjon ved å skille ut koblingene i egne koblingsmeldinger
+            Tolletaten har derfor lagt til rette for at aktørene kan
+            avtale seg imellom hvem som er best egnet til å sende inn
+            nødvendig koblingsinformasjon ved å skille ut koblingene i
+            egne koblingsmeldinger
             <strong>(kalt relation i API)</strong>.
         </p>
 
         <p>
-            Koblingsmeldingene er <strong>et tillegg til dagens løsning</strong> med innsendelse av referanser i de
+            Koblingsmeldingene er <em>et tillegg</em> til dagens
+            løsning med innsendelse av referanser i de
             respektive meldinger.
         </p>
 
@@ -74,83 +83,107 @@
 
         <p>Koblingsmeldinger følger standard mønster:</p>
         <ul class="spaced-list">
-            <li>Opprette <strong>(POST)</strong> - Virksomhet oppretter request-id, Tolletaten oppretter og returnerer
-                MRN
-            </li>
-            <li>Slette <strong>(DELETE)</strong> - Virksomhet sender inn request-id og MRN</li>
+          <li>
+            Opprette (POST) &ndash; Virksomhet oppretter
+            request-id, Tolletaten oppretter og returnerer MRN
+          </li>
+          <li>
+            Slette (DELETE) &ndash; Virksomhet sender inn
+            request-id og MRN
+          </li>
         </ul>
 
         <p>
-            Hovedprinsippet er at man i koblingsmeldingen angir de to MRN (inkl type MRN) som identifiserer de
-            meldingene som skal kobles sammen.
+            Hovedprinsippet er at man i koblingsmeldingen angir de to
+            MRN (inkl. type MRN) som identifiserer de meldingene som skal
+            kobles sammen.
         </p>
 
         <p>
-            Hvis en kobling skal endres, gjøres dette ved å slette den innsendte koblingsmeldingen
-            <strong>(DELETE i API)</strong> og opprette en ny koblingsmelding.
+            Hvis en kobling skal endres, gjøres dette ved å slette den
+            innsendte koblingsmeldingen (DELETE i API) og opprette
+            en <em>ny</em> koblingsmelding.
         </p>
 
         <p>
-            API-dokumentasjon ligger som en del av Melde- og opplysnings API’ene for hver transportmåte, under Relation
-            <a target="_blank" href="movement-road-api-v2.html">
-                (Dokumentasjon for vei api, skroll lengere ned for koblings endepunkt)</a>.
-            Det er ikke eksplisitte API’er for hver koblingstype.
+            API-dokumentasjon ligger som en del av Melde- og opplysnings
+            API-ene for hver transportmåte, under
+            Relation <a target="_blank"
+            href="movement-road-api-v2.html">for vei</a>, tilsvarende
+            for andre transportmåter.  Det er ikke eksplisitte API-er
+            for hver koblingstype.
         </p>
 
 
         <h2>API for å slå opp og få returnert MRN</h2>
         <p>
-            Dersom innsender av relationship-melding ikke kjenner MRN, vil Digitoll ha spørre API som gjør det mulig å
-            slå opp MRN på en melding dersom man besitter annen identifiserende informasjon om et objekt. For eksempel
-            at man kjenner kjøretøynummer, grensepasseringssted, tidspunkt for grensepassering.
+            Dersom innsender av relationship-melding ikke kjenner MRN,
+            vil Digitoll ha et spørre-API som gjør det mulig å slå opp MRN
+            på en melding dersom man besitter annen identifiserende
+            informasjon om et objekt. For eksempel at man kjenner
+            kjøretøynummer, grensepasseringssted og tidspunkt for
+            grensepassering.
         </p>
 
         <p>
-            Se <a target="_blank" href="https://toll.github.io/api/mo/movement-road-query-api-v2.html">
-            <strong>API-dokumentasjon for spørre-API her</strong></a>.
+            Se <a target="_blank" href="movement-road-query-api-v2.html">
+            API-dokumentasjon for spørre-API på vei her</a>.
         </p>
 
         <h2>Avgrensninger:</h2>
 
         <p>
             Det lages kun støtte for å koble sammen Digitoll-meldinger.
-            Støtte for å koble deklarasjons-id (fra TVINN) til forsendelse (house) vil bli utviklet senere, men i første
+            Støtte for å koble deklarasjons-id (fra TVINN) til
+            forsendelse (house) vil bli utviklet senere, men i første
             versjon er ikke dette med.
         </p>
 
         <p>
-            Det lages ikke støtte for at man via relationship-melding kan sende inn referanse hverken til
-            <strong>transittering, svensk eksport, postsekk (receptacle) eller ATA-carnet</strong>
-            for å koble disse til transport/forsendelser.
+            Det lages ikke støtte for at man via relationship-melding
+            kan sende inn referanse hverken til
+            <em>transittering, svensk eksport, postsekk (receptacle)
+            eller ATA-carnet</em> for å koble disse til
+            transport/forsendelser.
         </p>
 
         <p>
-            Koblingsmeldinger vil ikke løse utfordringen til næringslivet hvis aktørene som skal samhandle ikke kjenner
-            hverandre/ikke utveksler nødvendig informasjon. Koblingsmeldinger åpner kun for at det blir mer fleksibelt
-            hvem som tar ansvar for å samle og sende inn informasjon.
+            Koblingsmeldinger vil ikke løse utfordringen til
+            næringslivet hvis aktørene som skal samhandle ikke kjenner
+            hverandre / ikke utveksler nødvendig
+            informasjon. Koblingsmeldinger åpner kun for at det blir mer
+            fleksibelt hvem som tar ansvar for å samle og sende inn hvilken
+            informasjon.
         </p>
 
         <h3>Case eksempel:</h3>
         <ul class="spaced-list">
-            <li>Speditør sender inn hovedforsendelse <strong>før</strong> avtale om transport er avtalt. Digitoll
-                utsteder MRN for meldingen.
-            </li>
-            <li>Transportør/fører sender inn transportmelding <strong>(ikke autentisert løsning eller ordinær
-                Digitoll)</strong> uten referanse til hovedfraktbrev. Digitoll utsteder MRN for meldingen.
-                <ul style="margin-top: 10px;">
-                    <li>
-                        Transportør/fører distribuerer MRN for transportmelding til de aktører transportør etterhvert
-                        avtaler å transportere gods for.
-                    </li>
-                </ul>
-            </li>
-            <li>Speditør sender inn koblingsmelding
-                <strong>(MRN til hovedforsendelse og MRN til transport)</strong>
-                for å etablere nødvendig kobling når frakt er avtalt
-            </li>
+          <li>
+            Speditør sender inn hovedforsendelse <em>før</em> avtale om
+            transport er avtalt. Digitoll utsteder MRN for
+            meldingen.
+          </li>
+          <li>
+            Transportør/fører sender inn transportmelding <em>(ikke
+            autentisert løsning eller ordinær Digitoll)</em> uten
+            referanse til hovedfraktbrev. Digitoll utsteder MRN for
+            meldingen.
+            <ul class="spaced-list">
+              <li>
+                Transportør/fører distribuerer MRN for transportmelding
+                til de aktører transportør etterhvert avtaler å
+                transportere gods for.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Speditør sender inn koblingsmelding <em>(MRN til
+            hovedforsendelse og MRN til transport)</em> for å etablere
+            nødvendig kobling når frakt er avtalt.
+          </li>
         </ul>
 
-        <h3>Kode eksempel:</h3>
+        <h3>Kodeeksempel:</h3>
         <ul class="spaced-list">
             <li>Request:
                 <pre class="boxed-display">
@@ -163,7 +196,7 @@
 }
                 </pre>
             </li>
-            <li>Response: <strong><em>202, 400, 401, 403, 415, 500</em></strong> (som i dag)</li>
+            <li>Response: <em>202, 400, 401, 403, 415, 500</em> (som i dag)</li>
         </ul>
     </div>
 </main>
