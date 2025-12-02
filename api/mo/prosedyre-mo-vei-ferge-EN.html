@@ -116,7 +116,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
     <br/>
 
     <div class="table-responsive-container">
-        <h3>IMMEDIATE_RELEASE_IMPORT</h3>
+        <h3>IMMEDIATE_RELEASE_IMPORT (Transition to free circulation at border crossing)</h3>
 
         <div class="table-responsive">
             <table class="procedure-table">
@@ -481,7 +481,12 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h3>TRANSIT_IMPORT / TRANSIT_RELEASE</h3>
+        <h3>
+            TRANSIT_IMPORT / TRANSIT_RELEASE
+            <br>
+            <br>
+            (Transit to be completed at unloading/transit to be started at the border)
+        </h3>
 
         <div class="table-responsive">
             <table class="procedure-table">
@@ -708,8 +713,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h3>IMMEDIATE_RELEASE_VOEC</h3>
-
+        <h3>IMMEDIATE_RELEASE_VOEC (VOEC shipments released at border crossing)</h3>
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1199,7 +1203,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h3>WAREHOUSE_RELEASE</h3>
+        <h3>WAREHOUSE_RELEASE (Entry into customs warehouse)</h3>
+        <h3>
+            NB! This code is to be used BEFORE a border crossing customs warehouse entry declaration has been submitted.
+            <br>
+            <br>
+            Until 01.09.2026 it can also be used for goods that are driven directly.
+        </h3>
+
 
         <div class="table-responsive">
             <table class="procedure-table">
@@ -1821,7 +1832,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h3>COLLECTIVE_RELEASE</h3>
+        <h3>COLLECTIVE_RELEASE (Goods to be cleared collectively)</h3>
 
         <div class="table-responsive">
             <table class="procedure-table">
