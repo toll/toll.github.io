@@ -303,6 +303,10 @@ p {
     color: var(--text-color-basic);
 }
 
+.procedure-table .link-color a{
+    color: #0048ff !important;
+}
+
 .display-center {
     display: flex;
     justify-content: center;
