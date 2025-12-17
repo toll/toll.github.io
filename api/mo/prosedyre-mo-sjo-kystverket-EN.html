@@ -194,34 +194,41 @@
                 All DOG (Declaration of Goods) messages are linked to the visitID via relationship messages (see above).
             </li>
             <li>
-                The result of the Customs Authority’s processing is returned as a feed that SSNN must read.
-                The structure is slightly simplified:
-                <ul class="spaced-list" style="margin-top: 10px;">
+                The result of the Customs Authority’s processing is
+                returned as a feed that SSNN must read. The structure is
+                slightly simplified:
+                <ul class="spaced-list">
                     <li>Transport document number (type and number)</li>
                     <li>
                         routingResult:
-                        <ul class="spaced-list" style="margin-top: 10px;">
+                        <ul class="spaced-list">
                             <li>visitId</li>
                             <li>
-                                routing (TO_ENTRY, ENTRY_PENDING_TO_CONTROL) – if TO_CONTROL,
-                                the goods have not been released for the selected customs procedure.
+                                routing (TO_ENTRY,
+                                ENTRY_PENDING_TO_CONTROL) &ndash; if
+                                TO_CONTROL,q the goods have not been
+                                released for the selected customs
+                                procedure.
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                SSNN must read the feed, look up the visitID, and store the routing result for the port call (visitId).
+                SSNN must read the feed, look up the visitID, and store
+                the routing result for the port call (visitId).
             </li>
             <li>
-                SNN users can access SSNN after a vessel has arrived to verify that all cargo on board has been released
-                for the selected customs procedure
+                SNN users can access SSNN after a vessel has arrived to
+                verify that all cargo on board has been released for the
+                selected customs procedure.
             </li>
         </ul>
 
         <p>
-            (It is not necessary to link routing to data in the DOG message; it is sufficient to display all routing
-            results associated with the port call in an explicit list.)
+            (It is not necessary to link routing to data in the DOG
+            message; it is sufficient to display all routing results
+            associated with the port call in an explicit list.)
         </p>
 
 
