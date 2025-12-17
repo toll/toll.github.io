@@ -164,6 +164,74 @@
             the transport document number references to already submitted DOG messages in connection with the first port call.
         </p>
 
+        <h1>Routing</h1>
+        <p>
+            The result of the Norwegian Customs Authority’s processing of information submitted (transport, goods (DOG),
+            and relationships associated with a port call) is made available back to SSNN via a dedicated API.
+        </p>
+        <p>
+            The purpose of the API is to provide the vessel operator with information on whether the goods reported
+            through the digital reporting and disclosure obligation and the declaration obligation have been
+            successfully processed and whether the goods have been released for the selected customs procedure.
+            If the goods have been released for the selected customs procedure, the vessel operator knows that
+            responsibility for the unloaded goods has been transferred to the recipient.
+        </p>
+
+        <h2>Routing (dirigigering)</h2>
+
+        <p>
+            There is one routing API. This is a feed-based API where SSNN continuously reads routing results for all
+            goods reported for all vessels submitted from SSNN.
+        </p>
+        <p>
+            Upon receiving routing results in SSNN, SSNN must link the routing to the relevant visit and display the
+            routing result in SSNN associated with the port call. The logic is as follows:
+        </p>
+
+        <ul class="spaced-list">
+            <li>
+                SSNN creates a visitID for each port call.
+                All DOG (Declaration of Goods) messages are linked to the visitID via relationship messages (see above).
+            </li>
+            <li>
+                The result of the Customs Authority’s processing is
+                returned as a feed that SSNN must read. The structure is
+                slightly simplified:
+                <ul class="spaced-list">
+                    <li>Transport document number (type and number)</li>
+                    <li>
+                        routingResult:
+                        <ul class="spaced-list">
+                            <li>visitId</li>
+                            <li>
+                                routing (TO_ENTRY,
+                                ENTRY_PENDING_TO_CONTROL) &ndash; if
+                                TO_CONTROL,q the goods have not been
+                                released for the selected customs
+                                procedure.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                SSNN must read the feed, look up the visitID, and store
+                the routing result for the port call (visitId).
+            </li>
+            <li>
+                SNN users can access SSNN after a vessel has arrived to
+                verify that all cargo on board has been released for the
+                selected customs procedure.
+            </li>
+        </ul>
+
+        <p>
+            (It is not necessary to link routing to data in the DOG
+            message; it is sufficient to display all routing results
+            associated with the port call in an explicit list.)
+        </p>
+
+
         <h2>Transitional Arrangement in Connection with New Digital Notification and Information Obligation</h2>
         <p>
             Today's solution in current SSNN is that the vessel's master uploads manifests as documentation of which goods

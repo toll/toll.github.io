@@ -36,7 +36,9 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
                 <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Utfyllingsprosedyre - MO - Sjø - Kystverket (SSNN)</li>
+                <li class="breadcrumb-item active" aria-current="page">Utfyllingsprosedyre - MO - Sjø - Kystverket
+                    (SSNN)
+                </li>
             </ol>
         </nav>
 
@@ -166,33 +168,113 @@
             transportdokumentnummer-referansene til allerede innsendte DOG meldinger ifm første anløp.
         </p>
 
+        <h1>Dirigering</h1>
+        <p>
+            Resultatet av Tolletatens behandling av informasjon som er
+            sendt inn (transport, varer (DOG), og relationship
+            tilknyttet et anløp gjøres tilgjengelig tilbake til SSNN via
+            et eget API.
+        </p>
+        <p>
+            Formålet med API er å gi fartøysfører informasjon om varene
+            som er meldt inn via hhv digital melde- og opplysningsplikt
+            og deklarasjonsplikt er behandlet ok og om varene har blitt
+            frigitt til valgt tollprosedyre.  Er varene frigitt til
+            valgt tollprosedyre vet fartøysfører at ansvaret for varene
+            som losses har blitt overført til mottaker av varene.
+        </p>
+
+        <h2>Routing (dirigigering)</h2>
+
+        <p>
+            Det er et dirigerings-API. Dette er et feedbasert API hvor
+            SSNN løpende leser inn dirigeringsresultat for alle varer
+            som er meldt for alle fartøy sendt inn fra SSNN.
+        </p>
+        <p>
+            Ved mottak av dirigeringsresultat i SSNN må SSNN koble til
+            hvilke visit en dirigering gjelder, og presentere
+            dirigeringsresultatet i skjermbilder knyttet til
+            anløpet. Funksjonelt er logikken slik:
+        </p>
+
+        <ul class="spaced-list">
+            <li>
+                Fra SSNN opprettes den en visitID for hvert anløp.  Alle
+                DOG (declaration of goods) meldinger knyttes til visitID
+                via relationship meldinger (ref over).
+            </li>
+            <li>
+                Resultatet av Tolletatens behandling returneres som en feed SSNN må lese. Strukturen er litt forenklet:
+                <ul class="spaced-list">
+                    <li>transportdokumentnummer (type og nummer)</li>
+                    <li>
+                        routingResult:
+                        <ul class="spaced-list">
+                            <li>visitId</li>
+                            <li>
+                                routing (TO_ENTRY,
+                                ENTRY_PENDING_TO_CONTROL) &ndash; dersom
+                                TO_CONTROL har ikke varene blitt frigitt
+                                til valgt tollprosedyre
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+              SSNN må lese feed, slå opp visitID og lagre
+              dirigeringsresultatet til anløpet (visitId)
+            </li>
+            <li>
+                Brukerne av SSNN kan gå inn i SSNN etter at et fartøy
+                har ankommet for å verifisere at alt gods ombord har
+                blitt fristilt til valgt tollprosedyre.
+            </li>
+        </ul>
+
+        <p>
+            (Det er ikke nødvendig å koble dirigering til data i DOG
+            melding, det holder å isolert vise alle dirigeringsresultat
+            knyttet til anløpet i en eksplisitt liste.)
+        </p>
+
+
         <h2>Overgangsordning ifm ny digital melde- og opplysningsplikt</h2>
         <p>
-            Dagens løsning i dagens SSNN er at fartøysfører laster opp manifester som dokumentasjon på hvilke varer som
-            er ombord. Med ny SSNN er det beskrevet over hvordan ny løsning blir. Det må imidlertid være en
-            overgangsordning hvor fartøysfører ikke tvinges til å bruke ny løsning. Det må være mulig i ny SSNN og last
-            opp manifest i en overgangsperiode. Ref under om gammel og ny løsning i paralell må disse manifestene være
-            tilgjengelig for Tolletaten i dagens SSNN for manuelt oppslag.
+            Dagens løsning i dagens SSNN er at fartøysfører laster opp
+            manifester som dokumentasjon på hvilke varer som er
+            ombord. Med ny SSNN er det beskrevet over hvordan ny løsning
+            blir. Det må imidlertid være en overgangsordning hvor
+            fartøysfører ikke tvinges til å bruke ny løsning. Det må
+            være mulig i ny SSNN og last opp manifest i en
+            overgangsperiode. Ref under om gammel og ny løsning i
+            paralell må disse manifestene være tilgjengelig for
+            Tolletaten i dagens SSNN for manuelt oppslag.
         </p>
 
         <p>
-            Det sendes i slike tilfeller transportmelding fra SSNN til Tolletaten angående anløpet, ingen DOG data,
-            ingen relationship melding.
+            Det sendes i slike tilfeller transportmelding fra SSNN til
+            Tolletaten angående anløpet, ingen DOG data, ingen
+            relationship melding.
         </p>
 
         <h2>Besetningsdeklarasjoner (crew effects) og proviant om bord (ship store)</h2>
 
         <p>
-            Fartøy som ankommer Norge har utover plikten til å informere hvilke gods de frakter også plikt til å
-            rapportere eventuelt besetningsdeklarasjoner og proviant ombord. Tolletaten planlegger å digitalisere disse
-            pliktene i en fase 2 av å tilrettelegge ny SSNN for Tolletatens behov.
+            Fartøy som ankommer Norge har utover plikten til å informere
+            hvilke gods de frakter også plikt til å rapportere eventuelt
+            besetningsdeklarasjoner og proviant ombord. Tolletaten
+            planlegger å digitalisere disse pliktene i en fase 2 av å
+            tilrettelegge ny SSNN for Tolletatens behov.
         </p>
 
         <p><strong>I mellomperioden vil følgende være gjeldende:</strong></p>
 
         <ul class="spaced-list">
             <li>
-                Mannskapsdeklarasjoner rapporteres i nytt innsendingsgrensesnitt i SSNN, dataene konverteres til JSON i formatert tekstfil i
+                Mannskapsdeklarasjoner rapporteres i nytt innsendingsgrensesnitt i SSNN, dataene konverteres til JSON i
+                formatert tekstfil i
                 SSNN og sendes tilbake til gjeldende versjon av SSNN, og vises der i forbindelse med anløp (tilsvarende
                 det som vise i dag ved at man laster opp JSON i formatert tekstfil om denne informasjonen)
             </li>
