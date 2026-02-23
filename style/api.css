@@ -158,10 +158,6 @@ blockquote {
     color: var(--text-color-header);
 }
 
-.boxed-medium-display {
-    display: none;
-}
-
 .tips_box {
     border-radius: 18px;
     background: var(--background-color-tips-box);
@@ -313,16 +309,6 @@ p {
     align-items: center;
 }
 
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-row {
-    display: flex;
-    flex-direction: row;
-}
-
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -421,15 +407,6 @@ p {
 
 .hvordan-sende-inn-meldinger .buttons-section {
     justify-content: start;
-}
-
-.synkrone-grid-two-columns-container {
-    display: grid;
-    row-gap: 40px;
-}
-
-.medium-screen-hidden {
-    display: none;
 }
 
 .content-box {
