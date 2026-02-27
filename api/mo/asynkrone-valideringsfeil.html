@@ -928,6 +928,38 @@
 
                 <p>Fjern de dokumentreferansene som har duplisert referansenummer fra innsendingen og send inn på nytt.</p>
             </div>
+
+            <div>
+                <h3 id="MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
+                  Hvis typeOfReference er CUDE, kan man ikke ha flere dokumentreferanser med samme kombinasjon av deklarasjonsnummer, 
+                  deklarantnummer og dato for deklarasjon
+                </h3>
+
+                <h4 id="Svar.38">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate PreviousDocuments of type CUDE with declarantNumber: ${declarantNumber}, declarationDate: ${declarationDate} and sequenceNumber: ${sequenceNumber}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}]"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.38">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder dokumentreferanser med typeOfReference CUDE med samme kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon.</p>
+
+                <h4 id="Rettelse.38">Rettelse</h4>
+
+                <p>Fjern de dokumentreferansene som har typeOfReference CUDE og duplisert kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon fra innsendingen og send inn på nytt.</p>
+            </div>
         </div>
 
         <div class="content-box">
@@ -992,6 +1024,9 @@
                     <li><a href="#Formatpadokumentstatus">Format på dokumentstatus</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</a></li>
                     <li><a href="#Mankanikkehadokumentreferansermedsammereferansenummer">Man kan ikke ha flere dokumentreferanser med samme referansenummer</a></li>
+                    <li><a href="#MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
+                      Man kan ikke ha flere dokumentreferanser med typeOfReference CUDE med samme kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon
+                    </a></li>
                 </ul>
             </nav>
         </div>
