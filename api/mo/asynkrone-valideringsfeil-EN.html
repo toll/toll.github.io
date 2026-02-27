@@ -1009,6 +1009,37 @@
                     complete.</p>
             </div>
 
+            <div>
+                <h3 id="Mankanikkehadokumentreferansermedsammereferansenummer">
+                  You cannot have multiple document references with the same reference number
+                </h3>
+
+                <h4 id="Svar.37">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate PreviousDocuments with referenceNumber: ${referenceNumber}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.37">Cause</h4>
+
+                <p>You have a submission that contains multiple document references with the same reference number.</p>
+
+                <h4 id="Rettelse.37">Correction</h4>
+
+                <p>Remove the document references that have duplicate reference numbers from the submission and resubmit.</p>
+            </div>
+
         </div>
 
         <div class="content-box">
@@ -1072,6 +1103,7 @@
                         field in the &quot;previousDocuments&quot; object</a></li>
                     <li><a href="#Formatpadokumentstatus">Format of document status</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Document status INCOMPLETE</a></li>
+                    <li><a href="#Mankanikkehadokumentreferansermedsammereferansenummer">You cannot have duplicate document references</a></li>
                 </ul>
             </nav>
         </div>

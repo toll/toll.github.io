@@ -762,7 +762,7 @@
 
             <div>
                 <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha
-                    oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot;
+                    oppgitt en dokumentreferanse til én tolldeklarasjon (et objekt i &quot;previousDocuments&quot;
                     listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
                 <h4 id="Svar.34">Response</h4>
@@ -784,7 +784,7 @@
 
                 <h4 id="Aarsak.34">Årsak</h4>
 
-                <p>Man har sendt mer enn en tolldeklarasjon (objekt i
+                <p>Man har sendt mer enn én tolldeklarasjon (objekt i
                     &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
                     &quot;typeOfReference&quot;.<br>
                     Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
@@ -897,6 +897,37 @@
                     &quot;/transport-document/status&quot; etter ny behandling etter hvert
                     returnerer med status &quot;SUCCESS&quot;</p>
             </div>
+
+            <div>
+                <h3 id="Mankanikkehadokumentreferansermedsammereferansenummer">
+                  Man kan ikke ha flere dokumentreferanser med samme referansenummer
+                </h3>
+
+                <h4 id="Svar.37">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate PreviousDocuments with referenceNumber: ${referenceNumber}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.37">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder dokumentreferanser med samme referansenummer.</p>
+
+                <h4 id="Rettelse.37">Rettelse</h4>
+
+                <p>Fjern de dokumentreferansene som har duplisert referansenummer fra innsendingen og send inn på nytt.</p>
+            </div>
         </div>
 
         <div class="content-box">
@@ -960,6 +991,7 @@
                         objektet</a></li>
                     <li><a href="#Formatpadokumentstatus">Format på dokumentstatus</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</a></li>
+                    <li><a href="#Mankanikkehadokumentreferansermedsammereferansenummer">Man kan ikke ha flere dokumentreferanser med samme referansenummer</a></li>
                 </ul>
             </nav>
         </div>
