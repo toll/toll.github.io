@@ -762,7 +762,7 @@
 
             <div>
                 <h3 id="Mankankunhaoppgittendokumentreferansetilentolldeklarasjonavtypetolldeklarasjon">Man kan kun ha
-                    oppgitt en dokumentreferanse til en tolldeklarasjon (et objekt i &quot;previousDocuments&quot;
+                    oppgitt en dokumentreferanse til én tolldeklarasjon (et objekt i &quot;previousDocuments&quot;
                     listen) av type tolldeklarasjon (med &quot;typeOfReference&quot; = &quot;CUDE&quot;)</h3>
 
                 <h4 id="Svar.34">Response</h4>
@@ -784,7 +784,7 @@
 
                 <h4 id="Aarsak.34">Årsak</h4>
 
-                <p>Man har sendt mer enn en tolldeklarasjon (objekt i
+                <p>Man har sendt mer enn én tolldeklarasjon (objekt i
                     &quot;previousDocuments&quot;-listen) med verdien &quot;CUDE&quot; i feltet
                     &quot;typeOfReference&quot;.<br>
                     Det er kun tillatt med én tolldeklarasjon per forsendelse.</p>
@@ -897,6 +897,100 @@
                     &quot;/transport-document/status&quot; etter ny behandling etter hvert
                     returnerer med status &quot;SUCCESS&quot;</p>
             </div>
+
+            <div>
+                <h3 id="Mankanikkehadokumentreferansermedsammereferansenummer">
+                  Man kan ikke ha flere dokumentreferanser med samme referansenummer
+                </h3>
+
+                <h4 id="Svar.37">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate PreviousDocuments with referenceNumber: ${referenceNumber}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}].referenceNumber"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.37">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder dokumentreferanser med samme referansenummer.</p>
+
+                <h4 id="Rettelse.37">Rettelse</h4>
+
+                <p>Fjern de dokumentreferansene som har duplisert referansenummer fra innsendingen og send inn på nytt.</p>
+            </div>
+
+            <div>
+                <h3 id="MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
+                  Hvis typeOfReference er CUDE, kan man ikke ha flere dokumentreferanser med samme kombinasjon av deklarasjonsnummer, 
+                  deklarantnummer og dato for deklarasjon
+                </h3>
+
+                <h4 id="Svar.38">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate PreviousDocuments of type CUDE with declarantNumber: ${declarantNumber}, declarationDate: ${declarationDate} and sequenceNumber: ${sequenceNumber}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.previousDocuments[${indexInList}]"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.38">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder dokumentreferanser med typeOfReference CUDE med samme kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon.</p>
+
+                <h4 id="Rettelse.38">Rettelse</h4>
+
+                <p>Fjern de dokumentreferansene som har typeOfReference CUDE og duplisert kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon fra innsendingen og send inn på nytt.</p>
+            </div>
+
+            <div>
+                <h3 id="Mankanikkehaeksportreferansermedsammeeksportid">
+                  Man kan ikke ha flere eksportreferanser med samme eksportid
+                </h3>
+
+                <h4 id="Svar.39">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate ExportFromEU with exportId: ${exportId}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.39">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder eksportreferanser med samme eksportid.</p>
+
+                <h4 id="Rettelse.39">Rettelse</h4>
+
+                <p>Fjern de eksportreferansene som har duplisert eksportid fra innsendingen og send inn på nytt.</p>
+            </div>
         </div>
 
         <div class="content-box">
@@ -960,6 +1054,11 @@
                         objektet</a></li>
                     <li><a href="#Formatpadokumentstatus">Format på dokumentstatus</a></li>
                     <li><a href="#DokumentstatusINCOMPLETE">Dokument status INCOMPLETE</a></li>
+                    <li><a href="#Mankanikkehadokumentreferansermedsammereferansenummer">Man kan ikke ha flere dokumentreferanser med samme referansenummer</a></li>
+                    <li><a href="#MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
+                      Man kan ikke ha flere dokumentreferanser med typeOfReference CUDE med samme kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon
+                    </a></li>
+                    <li><a href="#Mankanikkehaeksportreferansermedsammeeksportid">Man kan ikke ha flere eksportreferanser med samme eksportid</a></li>
                 </ul>
             </nav>
         </div>
@@ -969,8 +1068,9 @@
 <button id="scrollToTopBtn" title="Go to top">Til toppen</button>
 
 <footer role="contentinfo">
-    <a href="https://www.toll.no/">Tolletaten</a> 2025 | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
-                                                            class="white">Kontakt oss</a>
+  <a href="https://www.toll.no/">Tolletaten</a> 2026 |
+  <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/"
+     class="white">Kontakt oss</a>
 </footer>
 
 </body>
