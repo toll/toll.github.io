@@ -960,6 +960,37 @@
 
                 <p>Fjern de dokumentreferansene som har typeOfReference CUDE og duplisert kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon fra innsendingen og send inn på nytt.</p>
             </div>
+
+            <div>
+                <h3 id="Mankanikkehaeksportreferansermedsammeeksportid">
+                  Man kan ikke ha flere eksportreferanser med samme eksportid
+                </h3>
+
+                <h4 id="Svar.39">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate ExportFromEU with exportId: ${exportId}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.39">Årsak</h4>
+
+                <p>Man har en innsendelse som inneholder eksportreferanser med samme eksportid.</p>
+
+                <h4 id="Rettelse.39">Rettelse</h4>
+
+                <p>Fjern de eksportreferansene som har duplisert eksportid fra innsendingen og send inn på nytt.</p>
+            </div>
         </div>
 
         <div class="content-box">
@@ -1027,6 +1058,7 @@
                     <li><a href="#MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
                       Man kan ikke ha flere dokumentreferanser med typeOfReference CUDE med samme kombinasjon av deklarasjonsnummer, deklarantnummer og dato for deklarasjon
                     </a></li>
+                    <li><a href="#Mankanikkehaeksportreferansermedsammeeksportid">Man kan ikke ha flere eksportreferanser med samme eksportid</a></li>
                 </ul>
             </nav>
         </div>

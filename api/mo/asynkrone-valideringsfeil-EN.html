@@ -1074,6 +1074,37 @@
 
         </div>
 
+            <div>
+                <h3 id="Mankanikkehaeksportreferansermedsammeeksportid">
+                  You cannot have multiple export references with the same exportId
+                </h3>
+
+                <h4 id="Svar.39">Response</h4>
+
+                <pre class="boxed-display">
+{
+  "status": "FAILURE",
+  "requestId": "${requestIdForSubmission}",
+  "notificationDate": "${dateTimeResultWasReady}",
+  "validationErrorList": [
+    {
+      "description": "Duplicate ExportFromEU with exportId: ${exportId}",
+      "pointer": {
+        "messageElementPath": "consignmentHouseLevel.exportFromEU[${indexInList}].exportId"
+      }
+    }
+  ]
+}</pre>
+
+                <h4 id="Aarsak.39">Cause</h4>
+
+                <p>You have a submission that contains export references with the same exportId.</p>
+
+                <h4 id="Rettelse.39">Correction</h4>
+
+                <p>Remove the export references that have duplicate exportId from the submission and resubmit.</p>
+            </div>
+
         <div class="content-box">
             <h2>Content</h2>
             <nav>
@@ -1139,6 +1170,7 @@
                     <li><a href="#MankanikkehadokumentreferanserCUDEmedsammekombinasjon">
                       You cannot have multiple document references with typeOfReference CUDE with the same combination of declaration number, declarant number, and declaration date
                     </a></li>
+                    <li><a href="#Mankanikkehaeksportreferansermedsammeeksportid">You cannot have multiple export references with the same exportId</a></li>
                 </ul>
             </nav>
         </div>
