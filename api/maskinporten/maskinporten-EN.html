@@ -288,7 +288,6 @@
             <p>The scope(s) you should use depend on the services you will use and require assigned access to this
                 scope from Norwegian Customs:</p>
             <ul class="spaced-list">
-                <li>movement-road-api: <strong>toll:movement/road</strong></li>
                 <li>movement-road-api-v2, movement-road-query-api-v2: <strong>toll:movement/road/v2</strong></li>
                 <li>movement-air-api, movement-air-query-api: <strong>toll:movement/air</strong></li>
                 <li>movement/presentation, movement/routing: <strong>toll:movement/entry</strong></li>
@@ -405,15 +404,15 @@
                 <tbody>
                 <tr>
                     <td>Test</td>
-                    <td><a target="_blank" href="https://api-test.toll.no/api/movement/road/v1/test-auth">
-                        https://api-test.toll.no/api/movement/road/v1/test-auth
+                    <td><a target="_blank" href="https://api-test.toll.no/api/movement/road/v2/test-auth">
+                        https://api-test.toll.no/api/movement/road/v2/test-auth
                     </a>
                     </td>
                 </tr>
                 <tr>
                     <td>Production</td>
-                    <td><a target="_blank" href="https://api.toll.no/api/movement/road/v1/test-auth">
-                        https://api.toll.no/api/movement/road/v1/test-auth
+                    <td><a target="_blank" href="https://api.toll.no/api/movement/road/v2/test-auth">
+                        https://api.toll.no/api/movement/road/v2/test-auth
                     </a>
                     </td>
                 </tr>
@@ -494,9 +493,10 @@
             <p>The scope(s) you should use depend on the services you will use and require assigned access to this
                 scope from Norwegian Customs:</p>
             <ul class="spaced-list">
-                <li>movement-road-api: <strong>toll:eu/movement/road</strong></li>
                 <li>movement-road-api-v2, movement-road-query-api-v2: <strong>toll:eu/movement/road/v2</strong></li>
                 <li>movement-air-api, movement-air-query-api: <strong>toll:eu/movement/air</strong></li>
+                <li>movement-rail-api, movement-rail-query-api: <strong>toll:eu/movement/rail</strong></li>
+                <li>movement-maritime-api, movement-maritime-query-api: <strong>toll:eu/movement/maritime</strong></li>
                 <li>movement/presentation, movement/routing: <strong>toll:eu/movement/entry</strong></li>
                 <li>Document upload: <strong>toll:eu/goodsdeclaration/document.write</strong></li>
             </ul>
@@ -508,12 +508,12 @@
                 </a>
             </p>
 
-            <h4>3.2 Retrieve access token from Maskinporten</h4>
+            <h4>3.2 Exchange Maskinporten's access token for a Toll-signed access token</h4>
             <p><a href="#veksle-token">
                 Same procedure as for Norwegian organizations
             </a>.</p>
 
-            <h4>3.3 Retrieve access token from Maskinporten</h4>
+            <h4>3.3 Test access to the API</h4>
             <p><a href="#teste-tilgang-til-api">
                 Same procedure as for Norwegian organizations
             </a>.</p>
@@ -523,7 +523,7 @@
 </main>
 
 <footer role="contentinfo">
-    <a target="_blank" href="https://www.toll.no/en/">Norwegian Customs</a> 2025 | <a
+    <a target="_blank" href="https://www.toll.no/en/">Norwegian Customs</a> 2026 | <a
         href="https://www.toll.no/en/about-norwegian-customs/contact-us/" class="white">Contact us</a>
 </footer>
 
