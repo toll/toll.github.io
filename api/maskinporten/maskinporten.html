@@ -46,26 +46,27 @@
                  src="../media/digdir-logo.png"
                  alt="digdir-logo"/>
             <p>
-                Maskinporten og Altinn er nasjonale felleskomponenter utviklet og driftet av Digitaliseringsdirektoratet
-                som
-                sammen skal gjøre det enklere å dele og bruke data på tvers av systemer for eksempel ved å gi
-                virksomheter
-                riktig tilgang til data som offentlige virksomheter tilbyr via grensesnitt.
+                Maskinporten og Altinn er nasjonale felleskomponenter
+                utviklet og driftet av Digitaliseringsdirektoratet som
+                sammen skal gjøre det enklere å dele og bruke data på
+                tvers av systemer for eksempel ved å gi virksomheter
+                riktig tilgang til data som offentlige virksomheter
+                tilbyr via grensesnitt.
             </p>
 
             <p>
-                Løsningen garanterer identitet
-                mellom virksomheter og sørger for autentisering ved kommunikasjon maskin-til-maskin. Den gjør det mulig
-                å
-                binde sammen systemer og utvikle nye tjenester på en effektiv måte.
+                Løsningen garanterer identitet mellom virksomheter og
+                sørger for autentisering ved kommunikasjon
+                maskin-til-maskin. Den gjør det mulig å binde sammen
+                systemer og utvikle nye tjenester på en effektiv måte.
             </p>
 
             <p>
-                En forutsetning for å benytte Maskinporten er at organisasjonen enten er registrert i Enhetsregisteret
-                med
-                norsk organisasjonsnummer eller at organisasjonen har et virksomhetssertifikat som ligger på EU sin
-                «list of
-                trusted lists».
+                En forutsetning for å benytte Maskinporten er at
+                organisasjonen enten er registrert i Enhetsregisteret
+                med norsk organisasjonsnummer eller at organisasjonen
+                har et virksomhetssertifikat som ligger på EU sin «list
+                of trusted lists».
             </p>
         </div>
 
@@ -73,10 +74,11 @@
 
         <h1 id="drift">Drift og overvåking</h1>
         <p>
-            Maskinporten skal ha en oppetid på 99,9% og ved avvik har den sjelden nedetid
-            mer enn 5 minutter. Vi anbefaler derfor at våre klienter implementerer en
-            retry-mekanisme slik at man <em>prøver på nytt</em> dersom meldinger blir
-            avvist uten forklarlige feilmeldinger.
+            Maskinporten skal ha en oppetid på 99,9% og ved avvik har
+            den sjelden nedetid mer enn 5 minutter. Vi anbefaler derfor
+            at våre klienter implementerer en retry-mekanisme slik at
+            man <em>prøver på nytt</em> dersom meldinger blir avvist
+            uten forklarlige feilmeldinger.
         </p>
         <p>Vi anbefaler videre å følge med på planlagt og ikke-planlagt driftsavvik:</p>
         <ul>
@@ -85,7 +87,8 @@
                 under <a href="https://status.digdir.no/"
                 target="_blank">https://status.digdir.no/</a></li>
         </ul>
-        <p>Det er også mulig å verifisere om Maskinporten er oppe ved å benytte linkene under:</p>
+        <p>Det er også mulig å verifisere om Maskinporten er oppe ved å
+        benytte linkene under:</p>
         <ul>
             <li><p><a href="https://status.digdir.no/history?filter=nthvr1xysxs7"
                       class="uri" target="_blank">Digitaliseringsdirektoratet Status - Historikk</a></p></li>
@@ -146,7 +149,7 @@
 
         <h3 id="bli-api-kunde">3. Registrer deg for tilgang hos Tolletaten</h3>
         <p>
-          Skjema for innmelding finner du her:
+          Skjema for innmelding på Digitoll finner du her:
           <a target="_blank"
              href="https://www.toll.no/no/bedrift/alt-om-digitoll/dette-er-digitoll/registrering">Registrering:
             Digitoll-aktør - Tolletaten</a>
@@ -309,23 +312,6 @@
                 Maskinporten.
             </p>
 
-            <br/>
-            <!--
-                    <h4 id="deleger-roller">5.2 Deleger roller i Altinn</h4>
-                    <p>
-                        Dersom man benytter en systemleverandør for å utveksle informasjon
-                        med Tolletaten må rettigheter delegeres via Altinn: <a
-                                href="https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/"
-                                class="uri" target="_blank">https://www.altinn.no/hjelp/profil/roller-og-rettigheter/hvordan-gi-rettigheter-til-andre/</a>.
-                    </p>
-                    <p>
-                        Om du ønsker å finne ut hva rollene gir tilgang til, logg inn i
-                        Altinn og se under <em>Skjema og tjenester du har rettighet til</em>,
-                        der får du oversikt over rollene du har for den aktøren du
-                        representerer. Til høyre for hver rolle finner du et spørsmålstegn,
-                        klikk der og du vil se hvilke tilganger rollen gir deg.
-                    </p>
-            -->
             <h4 id="veksle-token">5.2 Veksle Maskinportens access token til et Toll-signert access token</h4>
 
             <h5 id="http-request">HTTP Request</h5>
@@ -481,7 +467,7 @@
 
             <h4>2. Registrer deg for tilgang hos Tolletaten</h4>
             <p>
-                Skjema for innmelding finner du her:
+                Skjema for innmelding på Digitoll finner du her:
                 <a href="https://www.toll.no/no/bedrift/alt-om-digitoll/dette-er-digitoll/registrering"
                    target="_blank">
                     Registrering: Digitoll-aktør &ndash; Tolletaten
@@ -520,6 +506,7 @@
               <li>movement-maritime-api, movement-maritime-query-api: <strong>toll:eu/movement/maritime</strong></li>
               <li>movement/presentation, movement/routing: <strong>toll:eu/movement/entry</strong></li>
               <li>Document upload: <strong>toll:eu/goodsdeclaration/document.write</strong></li>
+              <li>API for declaration data (not yet ready): <strong>toll:declaration.feed</strong></li>
             </ul>
 
             <h4>3.1 Hent access token fra Maskinporten</h4>
