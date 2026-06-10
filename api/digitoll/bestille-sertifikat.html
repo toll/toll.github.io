@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestille sertifikat – Integrasjonsguide Digitoll</title>
+    <meta name="description" content="Hvilket sertifikat du trenger og hvordan du bestiller det">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="bestille-sertifikat-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="digitoll-integration">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="index-digitoll-integration.html">Integrasjonsguide Digitoll</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Bestille sertifikat</li>
+            </ol>
+        </nav>
+
+        <h1 id="bestille-sertifikat">Bestille sertifikat</h1>
+        <p>
+            For å autentisere virksomheten din mot Maskinporten trenger du et sertifikat.
+            Sertifikatet beviser hvem virksomheten er, og brukes til å signere token-request
+            til Maskinporten.
+        </p>
+        <h2 id="velg-vei">Har virksomheten norsk organisasjonsnummer?</h2>
+        <p>
+            Det avgjør både hvilket sertifikat du trenger og hvordan du bestiller det.
+        </p>
+        <ul class="spaced-list">
+            <li>
+                <strong>Velg Norsk virksomhet</strong> hvis virksomheten har norsk
+                organisasjonsnummer i Enhetsregisteret. Da trenger du et norsk
+                virksomhetssertifikat fra Buypass eller Commfides.
+            </li>
+            <li>
+                <strong>Velg Utenlandsk virksomhet</strong> hvis ikke. Da trenger du et
+                eSeal-sertifikat fra en tilbyder av tillitstjenester (TSP) som står på EUs
+                «list of trusted lists».
+            </li>
+        </ul>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="bestille-sertifikat-norsk.html" class="new-page-button no-icon">
+                <p>Norsk virksomhet</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="bestille-sertifikat-utenlandsk.html" class="new-page-button no-icon">
+                <p>Utenlandsk virksomhet</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

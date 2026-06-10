@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestille sertifikat – norsk virksomhet – Integrasjonsguide Digitoll</title>
+    <meta name="description" content="Hvilket sertifikat norske virksomheter trenger og hvordan du bestiller det">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="bestille-sertifikat-norsk-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+        </div>
+    </a>
+</header>
+
+<main class="digitoll-integration">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="index-digitoll-integration.html">Integrasjonsguide Digitoll</a></li>
+                <li class="breadcrumb-item"><a href="bestille-sertifikat.html">Bestille sertifikat</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Norsk virksomhet</li>
+            </ol>
+        </nav>
+
+        <h1 id="norsk">Bestille sertifikat – norsk virksomhet</h1>
+        <p>
+            Denne siden gjelder virksomheter med norsk organisasjonsnummer i
+            Enhetsregisteret. Har virksomheten ikke norsk organisasjonsnummer, se
+            <a href="bestille-sertifikat-utenlandsk.html">Bestille sertifikat – utenlandsk virksomhet</a>.
+        </p>
+
+        <h2 id="norsk-hvilket">Hvilket sertifikat du trenger</h2>
+        <p>
+            Virksomheter med norsk organisasjonsnummer trenger et godkjent <strong>norsk</strong>
+            virksomhetssertifikat. Per idag er det Buypass og Commfides som er godkjente
+            utstedere.
+        </p>
+        <p>
+            Se Digdirs dokumentasjon om
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat"
+               target="_blank">virksomhetssertifikat</a> for mer informasjon.
+        </p>
+
+        <h2 id="norsk-leverandorer">Hvor du bestiller</h2>
+        <p>Du bestiller virksomhetssertifikatet direkte hos en av de godkjente utstederne:</p>
+        <ul class="spaced-list">
+            <li>
+                <a href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl"
+                   target="_blank">Buypass – virksomhetssertifikat (eSegl)</a>
+            </li>
+            <li>
+                <a href="https://www.commfides.com/commfides-virksomhetssertifikat/"
+                   target="_blank">Commfides – virksomhetssertifikat</a>
+            </li>
+        </ul>
+
+        <h2 id="norsk-prosess">Bestillingsprosess</h2>
+        <p>Detaljene varierer noe mellom utstederne, men prosessen er i hovedsak lik:</p>
+        <ol class="spaced-list">
+            <li>
+                Fyll ut bestillingsskjemaet hos utstederen (Buypass eller Commfides).
+            </li>
+            <li>
+                Bestillingen må godkjennes av en person med <strong>signaturrett eller
+                prokura</strong> for virksomheten (en rolle registrert i
+                Brønnøysundregisteret). For testsertifikat kreves vanligvis ingen signatur.
+            </li>
+            <li>
+                Sertifikatet leveres elektronisk via e-post, vanligvis som en
+                <strong>.p12-fil</strong> (PKCS#12, et såkalt soft token), mens passordet
+                sendes separat. Du bekrefter mottak digitalt.
+            </li>
+        </ol>
+        <p>
+            Leveringstid er typisk noen virkedager etter at bestillingen er godkjent.
+        </p>
+        <p>
+            Merk at utstederen leverer flere sertifikater (for autentisering, signering og
+            kryptering). Det er <strong>autentiseringssertifikatet</strong> du bruker mot
+            Maskinporten.
+        </p>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="onboarding.html" class="new-page-button no-icon">
+                <p>Neste: Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
