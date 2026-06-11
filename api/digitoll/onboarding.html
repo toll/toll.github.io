@@ -40,26 +40,159 @@
             </ol>
         </nav>
 
-        <!-- PROTOTYPE / SKELETON – kun overskrifter + plassholdere.
-             Registreringssteg flyttet hit fra integrere.html, slik at
-             integrere.html holdes ren teknisk integrasjon. -->
-
         <h1 id="onboarding">Onboarding</h1>
-        <p><em>Plassholder: registreringsstegene før selve den tekniske integrasjonen –
-            innmelding hos Tolletaten, kundeforhold hos Digdir og oppsett av integrasjon.</em></p>
+        <p>
+            Etter at sertifikat er bestilt er neste steg onboarding hos Toll og Digdir (Maskinporten).
+        </p>
 
-        <h2 id="forutsetninger">Forutsetninger</h2>
-        <p><em>Plassholder: du har et gyldig sertifikat (se «Bestille sertifikat»).</em></p>
+        <h2 id="registrer-tolletaten">1. Registrer deg hos Tolletaten (alle)</h2>
+        <p>
+            Skjema for innmelding på Digitoll finner du her:
+            <a href="https://www.toll.no/no/bedrift/alt-om-digitoll/dette-er-digitoll/registrering"
+               target="_blank">Registrering: Digitoll-aktør, Tolletaten</a>.
+        </p>
+        <p>
+            Tolletaten gir tilgang til det/de scopene som trengs for
+            aktuell integrasjon, se <a href="#scopes-eu">oversikt under</a> TODO:fiks-lenke.
+        </p>
 
-        <h2 id="registrer-tolletaten">1. Registrer deg hos Tolletaten</h2>
-        <p><em>Plassholder: skjema for innmelding på Digitoll; Tolletaten tildeler scope.</em></p>
+        <p>
+            For utenlandske virksomheter kan du nå gå videre til <a href="integrere.html">Integrere</a>, da trengs ikke
+            oppsett i Maskinporten.
+        </p>
 
-        <h2 id="kunde-digdir">2. Bli kunde hos Digdir</h2>
-        <p><em>Plassholder: tilgang til Samarbeidsportalen via Digdir servicedesk.</em></p>
+        <h2 id="maskinporten-integrasjon">2. Sett opp Maskinporten-integrasjon</h2>
+        <p class="tips_box_normal">
+            <strong>Dette steget gjelder kun for norske virksomheter med norsk virksomhetssertifikat.</strong><br/>
+            Det er ikke nødvendig hvis du valgte <em>Utenlandsk virksomhet</em> i forrige steg.
+        </p>
 
-        <h2 id="lag-integrasjon">3. Lag en integrasjon hos Digdir</h2>
-        <p><em>Plassholder: opprett klientintegrasjon, legg til scope, sett integrasjonens
-            identifikator (iss), grant-type.</em></p>
+        <h3 id="kunde-digdir">2.1 Bli kunde hos Digdir</h3>
+        <p>
+            For å få tilgang til Samarbeidsportalen må virksomheten være kunde hos Digdir. Ta kontakt
+            med Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>.
+        </p>
+
+        <h3 id="lag-integrasjon">2.2 Lag en integrasjon hos Digdir</h3>
+        <p>
+            Opprett en klientintegrasjon i Samarbeidsportalen og koble den mot Tolletatens API
+            (scope).
+        </p>
+        <ul class="spaced-list">
+            <li>
+                <strong>PROD:</strong> logg inn på
+                <a href="https://sjolvbetjening.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                selvbetjening</a>.
+            </li>
+            <li>
+                <strong>TEST:</strong> logg inn på
+                <a href="https://sjolvbetjening.test.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                selvbetjening (test)</a>.
+            </li>
+        </ul>
+        <p>Når du oppretter integrasjonen:</p>
+        <ul class="spaced-list">
+            <li>Velg Difi-tjeneste <strong>Maskinporten</strong>.</li>
+            <li>
+                Legg til scopene du trenger (se <a href="integrere.html">Integrere</a> for oversikt).
+            </li>
+            <li>
+                <em>Integrasjonens identifikator:</em> dette er verdien som skal stå i
+                <code>iss</code>-feltet i JWT-grant-en du sender til Maskinporten (se
+                <a href="integrere.html">Integrere</a>).
+            </li>
+            <li>
+                <em>Navn på integrasjonen:</em> velg fritt. Det kan lønne seg med et navn som skiller
+                mellom ulike tjenester og API-er hos Tolletaten, siden vi har flere API-er.
+            </li>
+            <li>
+                <em>Grant-type:</em> bruk
+                <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>.
+            </li>
+        </ul>
+
+        <section class="image-border">
+            <div>
+                <h4 id="integrasjon-selvbetjening">2.2.1 Gå til selvbetjening av integrasjoner</h4>
+                <figure>
+                    <a href="../media/maskinporten/maskp-login.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Gå til selvbetjening"/>
+                    </a>
+                    <figcaption>Figur: Login på selvbetjening</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-virksomhet.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-virksomhet.png" alt="Velg virksomhet"/>
+                    </a>
+                    <figcaption>Figur: Velg din virksomhet</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-klient.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-klient.png" alt="Velg klient"/>
+                    </a>
+                    <figcaption>Figur: For deg som skal integrere en tjeneste, velg Klient</figcaption>
+                </figure>
+
+                <h4 id="ny-integrasjon">2.2.2 Ny integrasjon</h4>
+                <figure>
+                    <a href="../media/maskinporten/maskp-klienter-legg-til-ny.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.png"
+                             alt="Legg til ny integrasjon."/>
+                    </a>
+                    <figcaption>
+                        Figur: Her er en liste av dine klienter. For en
+                        ny klientintegrasjon, trykk Legg til ny.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-maskinporten.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-maskinporten.png" alt="Velg maskinporten"/>
+                    </a>
+                    <figcaption>Figur: Velg Maskinporten.</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-legg-til-scope.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-legg-til-scope.png"
+                             alt="Velg Legg til scope"/>
+                    </a>
+                    <figcaption>
+                        Figur: Etter å ha fylt ut selvvalgt navn og din
+                        beskrivelse, trykk på Legg til scope
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-scopes.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-scopes.png"
+                             alt="Velg scopene du trenger"/>
+                    </a>
+                    <figcaption>
+                        Figur: Velg scopene du trenger, du
+                        finner <a href="integrere.html">oversikt på Integrere</a>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-integrasjon.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-integrasjon.png"
+                             alt="Oversikt over integrasjonen"/>
+                    </a>
+                    <figcaption>
+                        Figur: Etter å ha trykket på opprett vil du få
+                        en oversikt over dine integrasjoner/klienter.
+                        Trykk på den du nettopp opprettet for å se
+                        detaljer og eventuelt redigere.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
 
         <br/>
 
