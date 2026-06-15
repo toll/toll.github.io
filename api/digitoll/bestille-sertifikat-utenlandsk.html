@@ -43,13 +43,12 @@
 
         <h1 id="utenlandsk">Bestille sertifikat – utenlandsk virksomhet</h1>
         <p>
-            Denne siden gjelder virksomheter uten norsk organisasjonsnummer. Har
-            virksomheten norsk organisasjonsnummer, se
-            <a href="bestille-sertifikat-norsk.html">Bestille sertifikat – norsk virksomhet</a>.
+            Denne siden gjelder virksomheter uten norsk organisasjonsnummer eller NUF uten norsk representant som kan
+            administrere integrasjonen via <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen</a>
+            (må logge inn med MinID).
         </p>
         <p>
-            En virksomhet uten norsk organisasjonsnummer kan bruke Maskinporten dersom
-            den har et eSeal-sertifikat som ligger på EUs «list of trusted
+            For disse virksomhetene kreves et eSeal-sertifikat som ligger på EUs «list of trusted
             lists» (EUTL).
         </p>
         <p>
@@ -75,7 +74,7 @@
             <li>
                 Privatnøkkelen kan holdes som <strong>soft token</strong>. Du leverer den
                 offentlige nøkkelen via en CSR, eller du mottar en <strong>.p12/.pfx-fil</strong>.
-                Nøkkelen trenger ikke ligge i dedikert maskinvare.
+                Nøkkelen trenger ikke å ligge i dedikert maskinvare.
             </li>
         </ul>
         <p>
@@ -148,6 +147,13 @@
                     <td><p>Norden og Baltikum: DK, EE, FI, IS, LV, LT, SE.</p></td>
                 </tr>
                 <tr>
+                    <td><p>Commfides</p></td>
+                    <td><p><a href="https://www.commfides.com/virksomhetssertifikat-bestilling/"
+                             target="_blank">Standard eSegl Virksomhetssertifikat</a></p></td>
+                    <td><p>&ndash;</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
                     <td><p>DigiCert</p></td>
                     <td><p><a href="https://docs.digicert.com/en/certcentral/manage-certificates/eu--eidas--products/order-your-eu-qualified-eseal-certificate.html"
                              target="_blank">EU Qualified eSeal</a></p></td>
@@ -180,6 +186,10 @@
                 </tr>
             </table>
         </div>
+        <p>
+            Hvis nøkkel skal genereres av Bestiller (via CSR) er dette et ekstra teknisk steg man kan lese om
+            under <a href="#lage-csr">Lage en CSR</a>.
+        </p>
         <p>
             Produktsider er ofte tvetydige, og et produkt markedsføres gjerne som «Qualified
             eSeal» selv om en advanced-variant finnes. Det tryggeste er å be utstederen
@@ -286,8 +296,7 @@ openssl req -in eseal.csr -noout -text
 
         <h2 id="begreper">Begreper</h2>
         <p>
-            Et raskt oppslag for begrepene som dukker opp hos utstederne. Flere er også forklart der
-            de brukes lenger opp på siden.
+            Et raskt oppslag for begrepene som dukker opp hos utstederne.
         </p>
         <dl class="spaced-list">
             <dt>eSeal</dt>
