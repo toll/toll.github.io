@@ -125,19 +125,103 @@
                target="_blank">European eSeals</a>, og følg guiden for europeiske virksomheter.
         </p>
         <p>
-            Den tekniske forskjellen ligger i <strong>hvordan klienten identifiseres</strong>: en
+            Den tekniske forskjellen mellom norske og utenlandske aktører
+            ligger i <strong>hvordan klienten identifiseres</strong>: en
             norsk aktør oppgir en registrert <code>client_id</code> i <code>iss</code>, mens en
-            utenlandsk aktør identifiseres utelukkende via eSeal-sertifikatet i <code>x5c</code>
+            utenlandsk aktør identifiseres via eSeal-sertifikatet i <code>x5c</code>
             (og <code>iss</code> ignoreres). Resten av JWT-grant-en er lik, bortsett fra at
             utenlandske aktører bruker <code>toll:eu/&hellip;</code>-scopene.
         </p>
         <p class="tips_box_normal">
-            <strong>TIPS:</strong><br/> Digdir har publisert et
-            <a href="https://github.com/difi/jwt-grant-generator" target="_blank">repository på
-            github (jwt-grant-generator)</a> som demonstrerer hvordan en kan hente ut access token
-            fra Digdirs tjenester, deriblant Maskinporten. Eksempelet gjelder norske virksomheter,
-            men kan tilpasses for utenlandske virksomheter.
+            <strong>TIPS:</strong><br/>
+            I tillegg til dokumentasjonen lenket til over har Digdir også publisert et repository på github
+            (<a href="https://github.com/difi/jwt-grant-generator" target="_blank">jwt-grant-generator</a>),
+            som demonstrerer hvordan en kan hente ut
+            access token fra Digdirs tjenester, deriblant Maskinporten.
+            Eksempelet gjelder norske virksomheter, men kan tilpasses for utenlandske virksomheter.
         </p>
+
+        <h3 id="jwt-grant-oppsett">Oppsett av JWT-grant (oppsummert)</h3>
+        <p>
+            Klienten lager en JWT-grant, signerer den med nøkkelen sin og POST-er den til
+            <code>/token</code>-endepunktet i Maskinporten. Tabellen viser noen av de viktigste feltene grant-en skal
+            inneholde, og hva forskjellene er for norske og utenlandske aktører.
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>Felt</th>
+                    <th>Norsk</th>
+                    <th>Utenlandsk (eSeal)</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>Header: <code>x5c</code></td>
+                    <td>Sertifikat brukt for å signere JWT-grant (base64-encoded)</td>
+                    <td>Sertifikatet (eSeal) som signerer JWT-grant-en, <strong>og hele sertifikatkjeden</strong> (base64-encoded)</td>
+                </tr>
+                <tr>
+                    <td><code>aud</code></td>
+                    <td><code>https://maskinporten.no/</code><br/>(test: <code>https://test.maskinporten.no/</code>)</td>
+                    <td>Samme</td>
+                </tr>
+                <tr>
+                    <td><code>iss</code></td>
+                    <td>Registrert <code>client_id</code> <br/>(se Samarbeidsportalen)</td>
+                    <td>Navn på virksomhet og/eller system <br/>(Påkrevd, men verdien ignoreres.)</td>
+                </tr>
+                <tr>
+                    <td><code>scope</code></td>
+                    <td><code>toll:&hellip;</code> <br/>(f.eks. <code>toll:movement/air</code>)</td>
+                    <td><code>toll:eu/&hellip;</code> <br/>(f.eks. <code>toll:eu/movement/air</code>)</td>
+                </tr>
+                <tr>
+                    <td><code>iat</code> / <code>exp</code></td>
+                    <td>Påkrevd. <code>exp</code> maks 120 sekunder etter <code>iat</code></td>
+                    <td>Samme</td>
+                </tr>
+                <tr>
+                    <td><code>jti</code></td>
+                    <td>Anbefalt, unik verdi</td>
+                    <td>Samme</td>
+                </tr>
+                <tr>
+                    <td><code>authorization_details</code></td>
+                    <td>Valgfri &ndash; kan utelates</td>
+                    <td>Samme</td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            Den signerte JWT-grant-en sendes som <code>assertion</code> i en form-encoded POST
+            til Maskinportens <code>/token</code>-endepunkt:
+        </p>
+
+        <h3>HTTP Request</h3>
+        <pre class="boxed-display">
+POST /token
+Host: maskinporten.no            (test: test.maskinporten.no)
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
+assertion=&lt;SIGNERT JWT-GRANT&gt;
+</pre>
+        <div class="tips_box_normal">
+            <strong>Tips (utenlandske aktører):</strong>
+            <ul class="spaced-list">
+                <li>
+                    <code>x5c</code> må være en array med <strong>hele sertifikatkjeden</strong>,
+                    ikke bare eSeal-et alene. Se Maskinportens egen signeringsnøkkel
+                    (<code>x5c</code>-claim) som eksempel.
+                </li>
+                <li>
+                    Bare scopes som er aktivert for europeiske virksomheter kan brukes. Du kan
+                    teste med <code>digdir:verksemd.eu</code> i alle miljøer, men det gir ikke
+                    tilgang til noe.
+                </li>
+            </ul>
+        </div>
 
         <h2 id="veksle-token">2. Veksle til et Toll-signert access token</h2>
         <p>Veksle Maskinportens access token til et Toll-signert access token.</p>
@@ -163,7 +247,7 @@ subject_token=&lt;MASKINPORTEN ACCESS TOKEN&gt;
 }
 </pre>
         <p class="tips_box_normal">
-            <strong>TIPS:</strong><br/>
+            <strong>Tips:</strong><br/>
             Et Toll-signert access token kan brukes i hele dets levetid, derfor anbefales det å
             mellomlagre disse når en kommuniserer med Tolletatens API-er. For en mer sømløs
             opplevelse anbefaler vi videre å veksle til et nytt Toll-token før (for eksempel ett
