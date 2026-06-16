@@ -180,12 +180,12 @@ blockquote {
     border: 1px solid var(--border-color-box);
 }
 
-.digitoll-integration .tips_box_normal {
+.maskinporten-integration .tips_box_normal {
     margin: 1.5rem 0;
 }
 
 /* Override the site-wide td:nth-child(3)/(4) centering for our tables */
-.digitoll-integration table td {
+.maskinporten-integration table td {
     text-align: left;
 }
 
