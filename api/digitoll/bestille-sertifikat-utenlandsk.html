@@ -48,8 +48,8 @@
             (må logge inn med MinID).
         </p>
         <p>
-            For disse virksomhetene kreves et eSeal-sertifikat som ligger på EUs «list of trusted
-            lists» (EUTL).
+            For disse virksomhetene kreves et eSeal-sertifikat som ligger på EUs
+            tillitslister (EUTL).
         </p>
         <p>
             Møter du ukjente begreper som eSeal, TSP, QSCD eller soft token, se
@@ -64,12 +64,13 @@
         </p>
         <ul class="spaced-list">
             <li>
-                Sertifikat kan brukes til å lage et <strong>advanced</strong> eSeal.
+                Sertifikatet kan brukes til å lage minimum et <strong>advanced</strong> eSeal.
             </li>
             <li>
-                Utstederen (CA) er en tilbyder av tillitstjenester (Trust Service Provider,
-                TSP) som står på EUs «list of trusted lists» (EUTL). Maskinporten stoler
-                automatisk på utstedere som ligger på denne listen.
+                <strong>CA-sertifikatet</strong> til utstederen er oppført som en aktiv
+                tillitstjeneste (trust service) i en av de nasjonale tillitslistene i
+                EU/EØS (EUTL). <strong>NB</strong>: En utsteder kan ha flere CA-sertifikater, og det er ikke
+                garantert at alle er oppført på EUTL. Dette må derfor verifiseres for det spesifikke produktet.
             </li>
             <li>
                 Privatnøkkelen kan holdes som <strong>soft token</strong>. Du leverer den
