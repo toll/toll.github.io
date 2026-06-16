@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order a certificate – Norwegian business – Maskinporten Integration Guide</title>
+    <meta name="description" content="Which certificate Norwegian businesses need and how to order it">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="bestille-sertifikat-norsk.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main class="maskinporten-integration">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration-EN.html">Maskinporten Integration Guide</a></li>
+                <li class="breadcrumb-item"><a href="bestille-sertifikat-EN.html">Order a certificate</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Norwegian business</li>
+            </ol>
+        </nav>
+
+        <h1 id="norsk">Order a certificate – Norwegian business</h1>
+        <p>
+            This page applies to businesses with a Norwegian organisation number in
+            Enhetsregisteret. If the business does not have a Norwegian organisation number, see
+            <a href="bestille-sertifikat-utenlandsk-EN.html">Order a certificate – foreign business</a>.
+        </p>
+
+        <h2 id="norsk-hvilket">Which certificate you need</h2>
+        <p>
+            Businesses with a Norwegian organisation number need an approved <strong>Norwegian</strong>
+            business certificate. Currently, Buypass and Commfides are the approved
+            issuers.
+        </p>
+        <p>
+            See Digdir's documentation on
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_virksomhetssertifikat"
+               target="_blank">business certificates (virksomhetssertifikat)</a> for more information.
+        </p>
+
+        <h2 id="norsk-leverandorer">Where to order</h2>
+        <p>You order the business certificate directly from one of the approved issuers:</p>
+        <ul class="spaced-list">
+            <li>
+                <a href="https://www.buypass.no/produkter/virksomhetssertifikat-esegl"
+                   target="_blank">Buypass – virksomhetssertifikat (eSegl)</a>
+            </li>
+            <li>
+                <a href="https://www.commfides.com/commfides-virksomhetssertifikat/"
+                   target="_blank">Commfides – virksomhetssertifikat</a>
+            </li>
+        </ul>
+
+        <h2 id="norsk-prosess">Ordering process</h2>
+        <p>The details vary somewhat between the issuers, but the process is largely the same:</p>
+        <ol class="spaced-list">
+            <li>
+                Fill in the order form at the issuer (Buypass or Commfides).
+            </li>
+            <li>
+                The order must be approved by a person with <strong>signing rights or
+                power of procuration (prokura)</strong> for the business (a role registered in
+                Brønnøysundregisteret).
+            </li>
+            <li>
+                The certificate is delivered electronically by email, usually as a
+                <strong>.p12 file</strong> (PKCS#12, a so-called soft token), while the password
+                is sent separately. You confirm receipt digitally.
+            </li>
+        </ol>
+        <p>
+            Delivery time is typically a few business days after the order is approved.
+        </p>
+        <p>
+            Note that the issuer delivers several certificates (for authentication, signing and
+            encryption). It is the <strong>authentication certificate</strong> that you use with
+            Maskinporten.
+        </p>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="onboarding-EN.html" class="new-page-button no-icon">
+                <p>Next: Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-the-norwegian-customs/contact-us/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

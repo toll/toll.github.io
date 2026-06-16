@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order a certificate – foreign business – Maskinporten Integration Guide</title>
+    <meta name="description" content="Which certificate foreign businesses need and how to order it">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="bestille-sertifikat-utenlandsk.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main class="maskinporten-integration">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration-EN.html">Maskinporten Integration Guide</a></li>
+                <li class="breadcrumb-item"><a href="bestille-sertifikat-EN.html">Order a certificate</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Foreign business</li>
+            </ol>
+        </nav>
+
+        <h1 id="utenlandsk">Order a certificate – foreign business</h1>
+        <p>
+            This page applies to businesses without a Norwegian organisation number, or a NUF
+            (Norwegian-registered foreign business) without a Norwegian representative who can
+            administer the integration via <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen</a>
+            (which requires logging in with MinID).
+        </p>
+        <p>
+            For these businesses, an eSeal certificate that is on the EU trusted lists (EUTL)
+            is required.
+        </p>
+        <p>
+            If you encounter unfamiliar terms such as eSeal, TSP, QSCD or soft token, see
+            <a href="#begreper">Terms</a> further down.
+        </p>
+
+        <h2 id="utenlandsk-hvilket">Which certificate you need</h2>
+        <p>
+            You need a business certificate that can create an <strong>advanced electronic
+            seal</strong> (eSeal, Advanced Electronic Seal/AdESeal) as defined by eIDAS.
+            Three requirements must be met:
+        </p>
+        <ul class="spaced-list">
+            <li>
+                The certificate can be used to create at least an <strong>advanced</strong> eSeal.
+            </li>
+            <li>
+                The issuer's <strong>CA certificate</strong> is listed as an active
+                trust service in one of the national trusted lists in the
+                EU (EUTL).<br/>
+                <strong>Note</strong>: an issuer can have several CA certificates, and it is not
+                guaranteed that all are listed on the EUTL. This must therefore be verified for the specific product.
+            </li>
+            <li>
+                The private key can be held as a <strong>soft token</strong>. You provide the
+                public key via a CSR, or you receive a <strong>.p12/.pfx file</strong>.
+                There is no requirement that the key must reside in dedicated hardware.
+            </li>
+        </ul>
+        <p>
+            The certificate must contain an <strong>organisation identifier</strong>
+            (<code>organizationIdentifier</code> in the certificate's Subject). This is the
+            value that Maskinporten (and Norwegian Customs) uses to identify your business.
+            The value itself typically comes from the information you provide in the order,
+            and is confirmed when the business is identified.
+        </p>
+        <p>
+            An <em>advanced</em> eSeal is sufficient for Maskinporten. A qualified eSeal
+            is also fine if the key is delivered as a soft token. See also <a href="#utenlandsk-ikke">What you should not
+            order</a>.
+        </p>
+        <p>
+            See also the <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html"
+                            target="_blank">source documentation</a> from Digdir on how European eSeals work with
+            Maskinporten.
+        </p>
+
+        <h2 id="utenlandsk-ikke">What you should not order</h2>
+        <p>It is easy to choose the wrong product. Here are a couple to avoid:</p>
+        <ul class="spaced-list">
+            <li>
+                <strong>eSignature or other personal certificate.</strong> These
+                identify a person. You need an eSeal, which identifies the
+                business (a legal person).
+            </li>
+            <li>
+                <strong>A qualified eSeal that requires a QSCD.</strong> A qualified eSeal
+                often forces the private key into a certified hardware device (HSM or
+                smart card), which rules out the soft token flow. What you must avoid is the
+                QSCD requirement, not qualified in itself: a qualified certificate is fine as long as
+                the key is delivered as a soft token.
+            </li>
+            <li>
+                <strong>TLS/SSL or code-signing certificate.</strong> The wrong type of
+                certificate for this purpose.
+            </li>
+        </ul>
+
+        <h2 id="utstedere">Issuers</h2>
+        <p>
+            eSeal certificates are available from many trust service providers in the EU.
+            The table below is a short list of issuers known to offer an
+            advanced eSeal with a soft token. The list is not exhaustive and is
+            not a recommendation from Norwegian Customs. If you need other options, you can search for
+            providers by country and service type in the EU's
+            <a href="https://eidas.ec.europa.eu/efda/tl-browser/" target="_blank">Trusted
+            List Browser</a> (the eIDAS dashboard). Offerings and product names change, so
+            always confirm with the issuer.
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>Issuer</th>
+                    <th>Product</th>
+                    <th>Key generated by</th>
+                    <th>Note</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td><p>Buypass</p></td>
+                    <td><p><a href="https://www.buypass.no/ec-order/?productId=430431"
+                             target="_blank">QC eSeal</a></p></td>
+                    <td><p>You (CSR) or issuer (.p12)</p></td>
+                    <td><p>Nordics and Baltics: DK, EE, FI, IS, LV, LT, SE.</p></td>
+                </tr>
+                <tr>
+                    <td><p>Commfides</p></td>
+                    <td><p><a href="https://www.commfides.com/virksomhetssertifikat-bestilling/"
+                             target="_blank">Standard eSegl Virksomhetssertifikat</a></p></td>
+                    <td><p>&ndash;</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>DigiCert</p></td>
+                    <td><p><a href="https://docs.digicert.com/en/certcentral/manage-certificates/eu--eidas--products/order-your-eu-qualified-eseal-certificate.html"
+                             target="_blank">EU Qualified eSeal</a></p></td>
+                    <td><p>You (CSR)</p></td>
+                    <td><p>Only via <a href="https://certcentral.digicert.eu/" target="_blank">European CertCentral</a>.</p></td>
+                </tr>
+                <tr>
+                    <td><p>GlobalTrust</p></td>
+                    <td><p><a href="https://order.globaltrust.eu/php/formservice.php?form=order_signature_en&amp;st=SEAL"
+                             target="_blank">GlobalTrust Advanced Seal</a></p></td>
+                    <td><p>You (CSR) or issuer (.p12)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>D-Trust</p></td>
+                    <td><p><a href="https://www.d-trust.net/en/solutions/seal-id"
+                             target="_blank">Seal ID</a></p></td>
+                    <td><p>You (CSR) or issuer (.p12)</p></td>
+                    <td><p>Ordered via
+                        <a href="https://www.d-trust.net/en/solutions/certificate-service-manager-csm"
+                           target="_blank">Certificate Service Manager (CSM)</a> or
+                        a reseller.</p></td>
+                </tr>
+                <tr>
+                    <td><p>Sectigo</p></td>
+                    <td><p><a href="https://www.sectigo.com/ssl-certificates-tls/eidas-sealing-certificates"
+                             target="_blank">eIDAS sealing certificate</a></p></td>
+                    <td><p>You (CSR)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            If the key is to be generated by you (via CSR), this is an extra technical step you can read about
+            under <a href="#lage-csr">Creating a CSR</a>.
+        </p>
+        <p>
+            Product pages are often ambiguous, and a product is frequently marketed as a “Qualified
+            eSeal” even when an advanced variant exists. The safest approach is to ask the issuer to
+            confirm in writing that you are getting a certificate for an <strong>advanced eSeal (without QSCD) for a
+            legal person</strong>, where the private key can be held as a soft token.
+        </p>
+
+        <h2 id="utenlandsk-prosess">Typical ordering process</h2>
+        <p>The details vary between the issuers, but the process is essentially as follows:</p>
+        <ol class="spaced-list">
+            <li>
+                <strong>Choose an issuer and product.</strong> See <a href="#utstedere">Issuers</a>,
+                and confirm with the issuer that the product meets the requirements
+                (<a href="#utenlandsk-hvilket">Which certificate you need</a>). See also <a href="#utenlandsk-ikke">What you should not order</a>.
+            </li>
+            <li>
+                <strong>Identification and verification of the business.</strong> The issuer must
+                verify the identity of the legal entity. Usually this requires a register extract from
+                the business register in the home country and a person who can represent the business
+                (with signing rights or power of attorney). In addition, an
+                identity check is often carried out by phone or video. This step usually
+                takes the longest, from a few days to several weeks.
+            </li>
+            <li>
+                <strong>Generate a key and CSR.</strong> If the issuer uses CSR-based
+                issuance, you generate the key pair and a CSR yourself (see
+                <a href="#lage-csr">Creating a CSR</a>). The CSR is included in the order in the next step.
+                Some issuers generate the key pair for you. In that case you do not need a CSR, but receive the
+                key from the issuer once the order has been processed.
+            </li>
+            <li>
+                <strong>Submit the order and pay.</strong> Submit the order or the
+                CSR via the issuer's portal, and complete payment.
+            </li>
+            <li>
+                <strong>Receive or retrieve the certificate and key.</strong> You obtain the certificate either by
+                downloading it (including the private key if you did not use a CSR), or by having it sent to an
+                address you provide in the order.
+            </li>
+            <li>
+                <strong>Continue with onboarding.</strong> Once you have the certificate, proceed
+                to <a href="onboarding-EN.html">Onboarding</a> to register and
+                start using the certificate with Maskinporten.
+            </li>
+        </ol>
+
+        <h2 id="lage-csr">Creating a CSR</h2>
+        <p>
+            A CSR (Certificate Signing Request) lets the issuer create a certificate without seeing
+            your private key. You generate a <strong>key pair</strong> locally (a private key
+            and a public key) and send the CSR to the issuer. The main purpose of the CSR is to
+            convey the <strong>public key</strong>. It also contains a subject with
+            information about the business, but the issuer normally sets these themselves based on
+            the order and the verification of the business. The values you put in the CSR yourself are therefore
+            mostly just a starting point.
+        </p>
+        <p>
+            The private key stays with you. This is the key that proves it is your business
+            authenticating with Maskinporten. Anyone with access to the private key can in
+            practice act on behalf of the business, so the file must be kept secret and looked after carefully.
+        </p>
+        <p>
+            The subject in the CSR consists of several fields. How carefully you must fill them in yourself varies
+            between issuers: some set the final values themselves based on the business verification,
+            while others require the CSR to match what they have registered. Follow the issuer's
+            instructions. In any case, it is useful to know what the fields mean. For a legal person, the
+            most common are:
+        </p>
+        <dl class="spaced-list">
+            <dt><code>O</code> (organization)</dt>
+            <dd>The registered name of the business.</dd>
+            <dt><code>organizationIdentifier</code></dt>
+            <dd>
+                The organisation identifier, in EU format. This is the value that Maskinporten
+                uses to identify your business (see
+                <a href="#utenlandsk-hvilket">Which certificate you need</a>).
+            </dd>
+            <dt><code>C</code> (country)</dt>
+            <dd>A two-letter country code, for example <code>SE</code> or <code>DE</code>.</dd>
+            <dt><code>CN</code> (common name)</dt>
+            <dd>A display name, often the same as <code>O</code>. Not all issuers use this.</dd>
+        </dl>
+        <p>
+            The example below uses OpenSSL. The key type, key length and subject fields should follow what
+            your issuer specifies. Use their values, not necessarily the ones shown here.
+        </p>
+        <pre class="boxed-display">
+# Generate a private key (keep this file secret).
+# RSA 3072 shown here; some issuers accept or require RSA 2048 or ECDSA P-256.
+openssl genrsa -out eseal.key 3072
+
+# Create the CSR from the key. Use the subject fields the issuer asks for.
+openssl req -new -key eseal.key -out eseal.csr \
+  -subj "/C=SE/O=Example Legal Entity AB/CN=Example Legal Entity AB"
+
+# Check the CSR before submitting it.
+openssl req -in eseal.csr -noout -text
+</pre>
+        <p>
+            Upload <code>eseal.csr</code> to the issuer. After issuance you receive the
+            certificate itself (<code>.cer</code>/<code>.pem</code>), which belongs together with
+            <code>eseal.key</code>.
+        </p>
+
+        <h2 id="begreper">Terms</h2>
+        <p>
+            A quick reference for the terms that come up with the issuers.
+        </p>
+        <dl class="spaced-list">
+            <dt>eSeal</dt>
+            <dd>
+                An electronic seal created by a business (legal person), as defined by eIDAS.
+                In contrast to an eSignature, which belongs to an individual. An
+                eSeal is the seal itself, not a certificate.
+            </dd>
+            <dt>eSeal certificate</dt>
+            <dd>
+                The certificate you order, used to create an eSeal. This is what you
+                actually need to authenticate the business with Maskinporten.
+            </dd>
+            <dt>Advanced vs. qualified</dt>
+            <dd>
+                An advanced eSeal is the minimum requirement. A qualified eSeal provides an even higher level of
+                security, but usually requires a QSCD, and should therefore be avoided here, unless the key can be
+                delivered as a soft token.
+            </dd>
+            <dt>TSP / QTSP</dt>
+            <dd>
+                A (qualified) Trust Service Provider. The issuer must be a TSP listed on the EUTL.
+            </dd>
+            <dt>QSCD</dt>
+            <dd>
+                A certified hardware device for the key (HSM or smart card). If a product requires a
+                QSCD, you cannot hold the key as a soft token, and the product is not suitable here.
+            </dd>
+            <dt>Soft token</dt>
+            <dd>
+                The private key resides in software (for example a <code>.p12</code> file), in
+                contrast to a hard token, where the key is bound to dedicated hardware
+                (QSCD/HSM). For this purpose you need a soft token.
+            </dd>
+            <dt>CSR</dt>
+            <dd>
+                Certificate Signing Request. The way you send the issuer the public key and
+                the information about the business, without revealing the private key (see
+                <a href="#lage-csr">Creating a CSR</a>).
+            </dd>
+        </dl>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="onboarding-EN.html" class="new-page-button no-icon">
+                <p>Next: Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-the-norwegian-customs/contact-us/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

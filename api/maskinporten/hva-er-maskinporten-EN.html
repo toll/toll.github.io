@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>What is Maskinporten? – Maskinporten Integration Guide</title>
+    <meta name="description" content="What Maskinporten is and what is required to use it">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="hva-er-maskinporten.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main class="maskinporten-integration">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration-EN.html">Maskinporten Integration Guide</a></li>
+                <li class="breadcrumb-item active" aria-current="page">What is Maskinporten?</li>
+            </ol>
+        </nav>
+
+        <h1 id="hva-er-maskinporten">What is Maskinporten?</h1>
+        <div>
+            <img class="img-right"
+                 src="../media/digdir-logo.png"
+                 alt="digdir-logo"/>
+            <p>
+                <strong>Maskinporten and Altinn</strong>
+                are national common components developed
+                and operated by the Norwegian Digitalisation
+                <strong>Agency (Digitaliseringsdirektoratet - Digdir).</strong>
+            </p>
+
+            <p>
+                Together, they aim to simplify the sharing and use of data across systems, for example by granting
+                businesses appropriate access to data offered by public entities via interfaces.
+                The solution guarantees identity between businesses and ensures authentication in
+                machine-to-machine communication. It enables systems to be connected and new services
+                to be developed efficiently.
+            </p>
+
+            <p>
+                To use <strong>Maskinporten</strong>, the business must either be registered in the Norwegian Entity
+                Registry with a <strong>Norwegian organisation number</strong>, or possess a business certificate
+                (virksomhetssertifikat) listed on the <strong>EU’s “list of trusted lists”</strong>.
+            </p>
+
+            <p>
+                Read more about how to [order a certificate], [onboarding] and [technical integration].
+            </p>
+
+        </div>
+
+        <h1 id="drift">Operations and monitoring</h1>
+        <p>
+            Maskinporten aims to maintain an uptime of 99.9% and, in
+            case of any deviations, it rarely experiences downtime
+            exceeding 5 minutes. Therefore, we recommend that our
+            clients implement a retry mechanism to <em>try
+            again</em> if messages are rejected without clear error
+            messages.
+        </p>
+        <p>We further recommend monitoring both planned and
+            unplanned operational disruptions:</p>
+        <ul>
+            <li><a href="https://status.digdir.no/history?filter=nthvr1xysxs7"
+                   target="_blank">Digdir Status - History</a>
+                at <a target="_blank" href="https://status.digdir.no/">https://status.digdir.no/</a></li>
+        </ul>
+        <p> It is also possible to verify if Maskinporten is up by using the links below:</p>
+        <ul>
+            <li><p><a href="https://status.digdir.no/history?filter=nthvr1xysxs7"
+                      class="uri" target="_blank">Digdir Status - History</a></p></li>
+            <li><p><a href="https://maskinporten.no/health"
+                      class="uri" target="_blank">https://maskinporten.no/health</a></p></li>
+        </ul>
+        <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">
+            Maskinporten has also created a troubleshooting page
+        </a>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="bestille-sertifikat-EN.html" class="new-page-button no-icon">
+                <p>Next: Order a certificate</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-the-norwegian-customs/contact-us/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

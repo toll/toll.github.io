@@ -24,8 +24,8 @@
 
     <a href="teknisk-integrasjon-EN.html" class="nav-language-button" role="navigation">
         <div class="lang_nav">
-            <span>EN</span>
-            <img class="flag-rounded" src="../../media/flag/ENG-flag.svg" alt="English">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
         </div>
     </a>
 </header>
@@ -104,7 +104,7 @@
                     <td><strong>toll:eu/goodsdeclaration/document.write</strong></td>
                 </tr>
                 <tr>
-                    <td>API for declaration data (ikke klar ennå)</td>
+                    <td>API for deklarasjonsdata (ikke klart ennå)</td>
                     <td><strong>toll:declaration.feed</strong></td>
                     <td>&ndash;</td>
                 </tr>
@@ -173,8 +173,8 @@
                 </tr>
                 <tr>
                     <td><code>scope</code></td>
-                    <td><code>toll:&hellip;</code> <br/>(f.eks. <code>toll:movement/air</code>)</td>
-                    <td><code>toll:eu/&hellip;</code> <br/>(f.eks. <code>toll:eu/movement/air</code>)</td>
+                    <td><code>toll:&hellip;</code> <br/>(f.eks. <code>toll:movement/road/v2</code>)</td>
+                    <td><code>toll:eu/&hellip;</code> <br/>(f.eks. <code>toll:eu/movement/road/v2</code>)</td>
                 </tr>
                 <tr>
                     <td><code>iat</code> / <code>exp</code></td>
@@ -218,7 +218,7 @@ assertion=&lt;SIGNERT JWT-GRANT&gt;
                 <li>
                     Bare scopes som er aktivert for europeiske virksomheter kan brukes. Du kan
                     teste med <code>digdir:verksemd.eu</code> i alle miljøer, men det gir ikke
-                    tilgang til noe.
+                    tilgang til noe (og kan ikke veksles til et Toll-token i steg 2).
                 </li>
             </ul>
         </div>
@@ -250,8 +250,8 @@ subject_token=&lt;MASKINPORTEN ACCESS TOKEN&gt;
             <strong>Tips:</strong><br/>
             Et Toll-signert access token kan brukes i hele dets levetid, derfor anbefales det å
             mellomlagre disse når en kommuniserer med Tolletatens API-er. For en mer sømløs
-            opplevelse anbefaler vi videre å veksle til et nytt Toll-token før (for eksempel ett
-            minutt før) levetiden til det foregående utgår.
+            opplevelse anbefaler vi videre å veksle til et nytt Toll-token før det foregående
+            utgår (for eksempel ett minutt før).
         </p>
 
         <h2 id="test-tilgang">3. Test tilgang til API-et</h2>

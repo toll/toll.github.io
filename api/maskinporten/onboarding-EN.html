@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Onboarding – Maskinporten Integration Guide</title>
+    <meta name="description" content="Registration with Norwegian Customs and Digdir, and setting up the integration">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="onboarding.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main class="maskinporten-integration">
+    <div class="align-self-start about-section" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration-EN.html">Maskinporten Integration Guide</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Onboarding</li>
+            </ol>
+        </nav>
+
+        <h1 id="onboarding">Onboarding</h1>
+        <p>
+            Once the certificate has been ordered, the next step is onboarding with Norwegian Customs and Digdir (Maskinporten).
+        </p>
+
+        <h2 id="registrer-tolletaten">1. Register with Norwegian Customs (all)</h2>
+        <p>
+            You can find the registration form for Digitoll here:
+            <a href="https://www.toll.no/en/corporate/digitoll/this-is-digitoll/registration-for-businesses---digitoll"
+               target="_blank">Registration: Digitoll-actor - Norwegian Customs</a>.
+        </p>
+        <p>
+            Norwegian Customs provides access to the scope(s) needed for the
+            relevant integration, see the <a href="teknisk-integrasjon-EN.html#scopes">overview of scopes on Technical integration</a>.
+        </p>
+
+        <p>
+            Foreign businesses can now proceed to <a href="teknisk-integrasjon-EN.html">Technical integration</a>, as
+            setup in Maskinporten is not needed.
+        </p>
+
+        <h2 id="maskinporten-integrasjon">2. Set up the Maskinporten integration</h2>
+        <p class="tips_box_normal">
+            <strong>This step applies only to Norwegian businesses with a Norwegian business certificate.</strong><br/>
+            It is not necessary if you chose <em>Foreign business</em> in the previous step.
+        </p>
+
+        <h3 id="kunde-digdir">2.1 Become a customer of Digdir</h3>
+        <p>
+            To get access to Samarbeidsportalen, the business must be a customer of Digdir. Contact
+            Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>.
+        </p>
+
+        <h3 id="lag-integrasjon">2.2 Create an integration with Digdir</h3>
+        <p>
+            Create a client integration in Samarbeidsportalen and connect it to Norwegian Customs' API
+            (scope).
+        </p>
+        <ul class="spaced-list">
+            <li>
+                <strong>PROD:</strong> log in to
+                <a href="https://sjolvbetjening.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                self-service</a>.
+            </li>
+            <li>
+                <strong>TEST:</strong> log in to
+                <a href="https://sjolvbetjening.test.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                self-service (test)</a>.
+            </li>
+        </ul>
+        <p>When you create the integration:</p>
+        <ul class="spaced-list">
+            <li>Select the Difi service <strong>Maskinporten</strong>.</li>
+            <li>
+                Add the scopes you need (see <a href="teknisk-integrasjon-EN.html">Technical integration</a> for an overview).
+            </li>
+            <li>
+                <em>The integration's identifier:</em> this is the value that goes in the
+                <code>iss</code> field of the JWT grant you send to Maskinporten (see
+                <a href="teknisk-integrasjon-EN.html">Technical integration</a>).
+            </li>
+            <li>
+                <em>Name of the integration:</em> choose freely. It can be worthwhile to use a name that
+                distinguishes between the different services and APIs at Norwegian Customs, since we have several APIs.
+            </li>
+            <li>
+                <em>Grant type:</em> use
+                <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>.
+            </li>
+        </ul>
+
+        <section class="image-border">
+            <div>
+                <h4 id="integrasjon-selvbetjening">2.2.1 Go to self-service for integrations</h4>
+                <figure>
+                    <a href="../media/maskinporten/maskp-login.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Go to self-service"/>
+                    </a>
+                    <figcaption>Figure: Logging in to self-service</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-virksomhet.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-virksomhet.png" alt="Select business"/>
+                    </a>
+                    <figcaption>Figure: Select your business</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-klient.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-klient.png" alt="Select client"/>
+                    </a>
+                    <figcaption>Figure: If you are integrating a service, select Client</figcaption>
+                </figure>
+
+                <h4 id="ny-integrasjon">2.2.2 New integration</h4>
+                <figure>
+                    <a href="../media/maskinporten/maskp-klienter-legg-til-ny.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.png"
+                             alt="Add new integration."/>
+                    </a>
+                    <figcaption>
+                        Figure: Here is a list of your clients. For a
+                        new client integration, click Add new.
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-maskinporten.png" target="_blank">
+                        <img class="image-size" src="../media/maskinporten/maskp-maskinporten.png" alt="Select Maskinporten"/>
+                    </a>
+                    <figcaption>Figure: Select Maskinporten.</figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-legg-til-scope.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-legg-til-scope.png"
+                             alt="Select Add scope"/>
+                    </a>
+                    <figcaption>
+                        Figure: After filling in your chosen name and
+                        description, click Add scope
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-scopes.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-scopes.png"
+                             alt="Select the scopes you need"/>
+                    </a>
+                    <figcaption>
+                        Figure: Select the scopes you need; you can
+                        find an <a href="teknisk-integrasjon-EN.html">overview on Technical integration</a>
+                    </figcaption>
+                </figure>
+
+                <figure>
+                    <a href="../media/maskinporten/maskp-integrasjon.png" target="_blank">
+                        <img class="image-size"
+                             src="../media/maskinporten/maskp-integrasjon.png"
+                             alt="Overview of the integration"/>
+                    </a>
+                    <figcaption>
+                        Figure: After clicking Create, you will get
+                        an overview of your integrations/clients.
+                        Click the one you just created to see
+                        details and edit if needed.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="teknisk-integrasjon-EN.html" class="new-page-button no-icon">
+                <p>Next: Technical integration</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-the-norwegian-customs/contact-us/" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>
