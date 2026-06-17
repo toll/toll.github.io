@@ -46,10 +46,10 @@
                  src="../media/digdir-logo.png"
                  alt="digdir-logo"/>
             <p>
-                <strong>Maskinporten and Altinn</strong>
+                Maskinporten and Altinn
                 are national common components developed
                 and operated by the Norwegian Digitalisation
-                <strong>Agency (Digitaliseringsdirektoratet - Digdir).</strong>
+                Agency (Digitaliseringsdirektoratet - Digdir).
             </p>
 
             <p>
@@ -61,15 +61,22 @@
             </p>
 
             <p>
-                To use <strong>Maskinporten</strong>, the business must either be registered in the Norwegian Entity
-                Registry with a <strong>Norwegian organisation number</strong>, or possess a business certificate
-                (virksomhetssertifikat) listed on the <strong>EU’s “list of trusted lists”</strong>.
+                Maskinporten is built on OAuth 2.0 and JWT-bearer grants. Authentication works by
+                your client creating a JWT grant that specifies which scopes it requests, signing it
+                with its key and sending it to Maskinporten. Maskinporten verifies the client's
+                identity and its access to the requested scopes, then returns a short-lived access
+                token.
             </p>
 
             <p>
-                Read more about how to <a href="bestille-sertifikat-EN.html">order a certificate</a>,
-                <a href="onboarding-EN.html">onboarding</a> and
-                <a href="teknisk-integrasjon-EN.html">technical integration</a>.
+                To use Maskinporten, the business must either be registered in the Norwegian Entity
+                Registry with a Norwegian organisation number, or have an eSeal certificate issued by
+                a CA on the EU trusted lists (EUTL).
+            </p>
+
+            <p>
+                For a more in-depth description, see Digdir's
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_overview.html" target="_blank">documentation on Maskinporten</a>.
             </p>
 
         </div>

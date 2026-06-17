@@ -62,17 +62,22 @@
             </p>
 
             <p>
-                En forutsetning for å benytte Maskinporten er at
-                organisasjonen enten er registrert i Enhetsregisteret
-                med norsk organisasjonsnummer eller at organisasjonen
-                har et virksomhetssertifikat som ligger på EU sin «list
-                of trusted lists».
+                Maskinporten er bygget på OAuth 2.0 og JWT-bearer grants. Autentiseringen foregår ved
+                at klienten din lager en JWT-grant som angir hvilke scopes den ber om tilgang til,
+                signerer den med nøkkelen sin og sender den til Maskinporten. Maskinporten verifiserer
+                klientens identitet og tilgang til de forespurte scopene, og returnerer et kortlevd
+                access token.
             </p>
 
             <p>
-                Les mer om hvordan <a href="bestille-sertifikat.html">anskaffe sertifikat</a>,
-                <a href="onboarding.html">onboarding</a> og
-                <a href="teknisk-integrasjon.html">teknisk integrasjon</a>.
+                En forutsetning for å benytte Maskinporten er at organisasjonen enten er registrert i
+                Enhetsregisteret med norsk organisasjonsnummer, eller har et eSeal-sertifikat utstedt
+                av en CA som ligger på EUs tillitslister (EUTL).
+            </p>
+
+            <p>
+                For en grundigere beskrivelse, se Digdirs
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_overview.html" target="_blank">dokumentasjon om Maskinporten</a>.
             </p>
 
         </div>
