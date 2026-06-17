@@ -42,7 +42,7 @@
 
         <h1 id="teknisk-integrasjon">Technical integration</h1>
         <p>
-            The final step is to develop the client integration itself. This is typically done by the system supplier.
+            The final step is to develop the client integration itself. This is typically done by the system provider.
             To call the Customs APIs you must
         </p>
         <ol>
@@ -139,6 +139,7 @@
             which demonstrates how to retrieve an
             access token from Digdir's services, including Maskinporten.
             The example applies to Norwegian businesses, but can be adapted for foreign businesses.
+            Note that its <code>x5c</code> must then be extended to the full certificate chain.
         </p>
 
         <h3 id="jwt-grant-oppsett">Setting up the JWT grant (summary)</h3>
@@ -186,11 +187,6 @@
                     <td>Recommended, unique value</td>
                     <td>Same</td>
                 </tr>
-                <tr>
-                    <td><code>authorization_details</code></td>
-                    <td>Optional &ndash; can be omitted</td>
-                    <td>Same</td>
-                </tr>
             </table>
         </div>
         <p>
@@ -222,6 +218,10 @@ assertion=&lt;SIGNED JWT GRANT&gt;
                 </li>
             </ul>
         </div>
+        <p>
+            If the token request fails, see Maskinporten's
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">troubleshooting page</a>.
+        </p>
 
         <h2 id="veksle-token">2. Exchange for a Customs-signed access token</h2>
         <p>Exchange Maskinporten's access token for a Customs-signed access token.</p>

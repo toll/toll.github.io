@@ -311,6 +311,12 @@ openssl req -in eseal.csr -noout -text
                 The certificate you order, used to create an eSeal. This is what you
                 actually need to authenticate the business with Maskinporten.
             </dd>
+            <dt>eIDAS</dt>
+            <dd>
+                The EU regulation on electronic identification and trust services. It defines
+                electronic seals (eSeals) and signatures, the assurance levels (advanced/qualified),
+                and the EU trusted-list framework.
+            </dd>
             <dt>Advanced vs. qualified</dt>
             <dd>
                 An advanced eSeal is the minimum requirement. A qualified eSeal provides an even higher level of
@@ -319,7 +325,24 @@ openssl req -in eseal.csr -noout -text
             </dd>
             <dt>TSP / QTSP</dt>
             <dd>
-                A (qualified) Trust Service Provider. The issuer must be a TSP listed on the EUTL.
+                A Trust Service Provider (TSP) is the organisation that issues your certificate; a
+                QTSP is a qualified TSP. The TSP operates the Certificate Authority (CA) that signs
+                your eSeal.
+            </dd>
+            <dt>CA / CA certificate</dt>
+            <dd>
+                Certificate Authority: the service within a TSP that issues and signs certificates.
+                On a trusted list, each service is identified by its CA certificate (its "service
+                digital identity"), so trust is determined by whether the specific
+                <strong>CA certificate</strong> is listed, not merely by whether the company is a
+                known provider.
+            </dd>
+            <dt>EUTL / LOTL</dt>
+            <dd>
+                EU Trusted Lists: the collection of the member states' national trusted lists, where
+                trust services and their issuing CA certificates are published. The central index of
+                these national lists is the LOTL (List of Trusted Lists), maintained by the European
+                Commission. Your issuer's CA certificate must appear here.
             </dd>
             <dt>QSCD</dt>
             <dd>
@@ -330,7 +353,8 @@ openssl req -in eseal.csr -noout -text
             <dd>
                 The private key resides in software (for example a <code>.p12</code> file), in
                 contrast to a hard token, where the key is bound to dedicated hardware
-                (QSCD/HSM). For this purpose you need a soft token.
+                (QSCD/HSM). For practical authentication with Maskinporten you need a soft token, since it
+                offers fast and unlimited signing.
             </dd>
             <dt>CSR</dt>
             <dd>

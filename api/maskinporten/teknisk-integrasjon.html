@@ -42,7 +42,7 @@
 
         <h1 id="teknisk-integrasjon">Teknisk integrasjon</h1>
         <p>
-            Siste steg er å utvikle selve klient-integrasjonen. Det gjøres typisk av systemleverandøren.
+            Siste steg er å utvikle selve klient-integrasjonen. Dette gjøres typisk av systemleverandøren.
             For å kalle Toll-API-ene må man
         </p>
         <ol>
@@ -139,6 +139,7 @@
             som demonstrerer hvordan en kan hente ut
             access token fra Digdirs tjenester, deriblant Maskinporten.
             Eksempelet gjelder norske virksomheter, men kan tilpasses for utenlandske virksomheter.
+            Merk at <code>x5c</code> da må utvides til hele sertifikatkjeden.
         </p>
 
         <h3 id="jwt-grant-oppsett">Oppsett av JWT-grant (oppsummert)</h3>
@@ -186,11 +187,6 @@
                     <td>Anbefalt, unik verdi</td>
                     <td>Samme</td>
                 </tr>
-                <tr>
-                    <td><code>authorization_details</code></td>
-                    <td>Valgfri &ndash; kan utelates</td>
-                    <td>Samme</td>
-                </tr>
             </table>
         </div>
         <p>
@@ -222,6 +218,10 @@ assertion=&lt;SIGNERT JWT-GRANT&gt;
                 </li>
             </ul>
         </div>
+        <p>
+            Får du feil når du henter token, se Maskinportens
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">feilsøkingsside</a>.
+        </p>
 
         <h2 id="veksle-token">2. Veksle til et Toll-signert access token</h2>
         <p>Veksle Maskinportens access token til et Toll-signert access token.</p>

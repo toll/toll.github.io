@@ -312,6 +312,12 @@ openssl req -in eseal.csr -noout -text
                 Sertifikatet du bestiller, og som brukes til å lage et eSeal. Det er dette du
                 faktisk trenger for å autentisere virksomheten mot Maskinporten.
             </dd>
+            <dt>eIDAS</dt>
+            <dd>
+                EU-forordningen om elektronisk identifikasjon og tillitstjenester. Den definerer
+                elektroniske segl (eSeal) og signaturer, sikkerhetsnivåene (advanced/qualified)
+                og rammeverket for EUs tillitslister.
+            </dd>
             <dt>Advanced vs. qualified</dt>
             <dd>
                 Et advanced eSeal er minstekravet. Et qualified eSeal gir en enda høyere sikkerhetsnivå, men krever som regel
@@ -319,8 +325,24 @@ openssl req -in eseal.csr -noout -text
             </dd>
             <dt>TSP / QTSP</dt>
             <dd>
-                En (kvalifisert) tilbyder av tillitstjenester (Trust Service Provider). Utstederen
-                må være en TSP som står på EUTL.
+                En tilbyder av tillitstjenester (Trust Service Provider, TSP) er organisasjonen som
+                utsteder sertifikatet ditt; en QTSP er en kvalifisert TSP. TSP-en drifter
+                sertifiseringsinstansen (CA) som signerer eSeal-et ditt.
+            </dd>
+            <dt>CA / CA-sertifikat</dt>
+            <dd>
+                Certificate Authority (sertifiseringsinstans): tjenesten hos en TSP som utsteder og
+                signerer sertifikater. På en tillitsliste identifiseres hver tjeneste med sitt
+                CA-sertifikat (tjenestens «service digital identity»), så tilliten avgjøres av om det
+                spesifikke <strong>CA-sertifikatet</strong> står på listen, ikke bare av om selskapet
+                er en kjent tilbyder.
+            </dd>
+            <dt>EUTL / LOTL</dt>
+            <dd>
+                EU Trusted Lists: samlingen av medlemslandenes nasjonale tillitslister, der
+                tillitstjenester og deres utstedende CA-sertifikater publiseres. Det sentrale registeret
+                over disse nasjonale listene er LOTL (List of Trusted Lists), som vedlikeholdes av
+                EU-kommisjonen. Utstederens CA-sertifikat må stå her.
             </dd>
             <dt>QSCD</dt>
             <dd>
@@ -331,7 +353,8 @@ openssl req -in eseal.csr -noout -text
             <dd>
                 Privatnøkkelen ligger i programvare (for eksempel en <code>.p12</code>-fil), i
                 motsetning til en hard token, der nøkkelen er bundet til dedikert maskinvare
-                (QSCD/HSM). For dette formålet trenger du soft token.
+                (QSCD/HSM). For praktisk autentisering mot Maskinporten trenger du et soft token, siden det
+                tilbyr rask og ubegrenset signering.
             </dd>
             <dt>CSR</dt>
             <dd>
