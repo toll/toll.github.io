@@ -253,29 +253,8 @@
             practice act on behalf of the business, so the file must be kept secret and looked after carefully.
         </p>
         <p>
-            The subject in the CSR consists of several fields. How carefully you must fill them in yourself varies
-            between issuers: some set the final values themselves based on the business verification,
-            while others require the CSR to match what they have registered. Follow the issuer's
-            instructions. In any case, it is useful to know what the fields mean. For a legal person, the
-            most common are:
-        </p>
-        <dl class="spaced-list">
-            <dt><code>O</code> (organization)</dt>
-            <dd>The registered name of the business.</dd>
-            <dt><code>organizationIdentifier</code></dt>
-            <dd>
-                The organisation identifier, in EU format. This is the value that Maskinporten
-                uses to identify your business (see
-                <a href="#utenlandsk-hvilket">Which certificate you need</a>).
-            </dd>
-            <dt><code>C</code> (country)</dt>
-            <dd>A two-letter country code, for example <code>SE</code> or <code>DE</code>.</dd>
-            <dt><code>CN</code> (common name)</dt>
-            <dd>A display name, often the same as <code>O</code>. Not all issuers use this.</dd>
-        </dl>
-        <p>
-            The example below uses OpenSSL. The key type, key length and subject fields should follow what
-            your issuer specifies. Use their values, not necessarily the ones shown here.
+            The example below shows how to create a CSR using OpenSSL, but many tools can be used for
+            this. Use the key type, key length and any other instructions your issuer specifies.
         </p>
         <pre class="boxed-display">
 # Generate a private key (keep this file secret).

@@ -254,29 +254,9 @@
             praksis opptre på vegne av virksomheten, så filen må holdes hemmelig og tas godt vare på.
         </p>
         <p>
-            Subject-et i CSR-en består av flere felt. Hvor nøye du må fylle dem ut selv, varierer
-            mellom utstedere: noen setter de endelige verdiene selv ut fra virksomhetskontrollen,
-            mens andre krever at CSR-en stemmer med det de har registrert. Følg derfor utstederens
-            instruksjoner. Uansett er det nyttig å vite hva feltene betyr. For en juridisk person er
-            de vanligste:
-        </p>
-        <dl class="spaced-list">
-            <dt><code>O</code> (organization)</dt>
-            <dd>Det registrerte navnet på virksomheten.</dd>
-            <dt><code>organizationIdentifier</code></dt>
-            <dd>
-                Organisasjonsidentifikatoren, på EU-format. Det er denne verdien Maskinporten
-                bruker til å identifisere virksomheten din (se
-                <a href="#utenlandsk-hvilket">Hvilket sertifikat du trenger</a>).
-            </dd>
-            <dt><code>C</code> (country)</dt>
-            <dd>Landkode på to bokstaver, for eksempel <code>SE</code> eller <code>DE</code>.</dd>
-            <dt><code>CN</code> (common name)</dt>
-            <dd>Et visningsnavn, ofte det samme som <code>O</code>. Ikke alle utstedere bruker dette.</dd>
-        </dl>
-        <p>
-            Eksempelet under bruker OpenSSL. Nøkkeltype, nøkkellengde og subject-felt skal følge det
-            utstederen din oppgir. Bruk verdiene fra dem, ikke nødvendigvis de som står her.
+            Eksempelet under viser hvordan du kan opprette en CSR med OpenSSL, men det finnes mange
+            verktøy som kan brukes til dette. Bruk nøkkeltype, nøkkellengde og andre instrukser som
+            utstederen din oppgir.
         </p>
         <pre class="boxed-display">
 # Generer en privatnøkkel (hold denne filen hemmelig).
