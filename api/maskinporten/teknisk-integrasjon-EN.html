@@ -253,6 +253,17 @@ subject_token=&lt;MASKINPORTEN ACCESS TOKEN&gt;
             experience, we further recommend exchanging for a new Customs token before the previous
             one expires (for example one minute before).
         </p>
+        <p>
+            <strong>Troubleshooting:</strong> an error such as
+            &ldquo;Not authorized to request scope toll:&hellip;&rdquo; usually means the scope has
+            not been granted to you. Check that:
+        </p>
+        <ul class="spaced-list">
+            <li>you are using the correct scope (Norwegian businesses use <code>toll:&hellip;</code>, foreign businesses <code>toll:eu/&hellip;</code>);</li>
+            <li>the business is registered with Digitoll (see <a href="onboarding-EN.html">Onboarding</a>);</li>
+            <li>the integration in Samarbeidsportalen is complete and includes the scope (Norwegian businesses);</li>
+            <li>if you are still unsure, confirm with Norwegian Customs which scopes you have been granted.</li>
+        </ul>
 
         <h2 id="test-tilgang">3. Test access to the API</h2>
         <p>This example applies to the road vehicle API.</p>

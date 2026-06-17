@@ -253,6 +253,17 @@ subject_token=&lt;MASKINPORTEN ACCESS TOKEN&gt;
             opplevelse anbefaler vi videre å veksle til et nytt Toll-token før det foregående
             utgår (for eksempel ett minutt før).
         </p>
+        <p>
+            <strong>Feilsøking:</strong> en feilmelding som
+            &laquo;Not authorized to request scope toll:&hellip;&raquo; betyr vanligvis at scopet
+            ikke er gitt til deg. Sjekk at:
+        </p>
+        <ul class="spaced-list">
+            <li>du bruker riktig scope (norske virksomheter bruker <code>toll:&hellip;</code>, utenlandske <code>toll:eu/&hellip;</code>);</li>
+            <li>virksomheten er registrert på Digitoll (se <a href="onboarding.html">Onboarding</a>);</li>
+            <li>integrasjonen i Samarbeidsportalen er komplett og har scopet (gjelder norske virksomheter);</li>
+            <li>er du fortsatt usikker, dobbeltsjekk med Tolletaten hvilke scopes du har fått tilgang til.</li>
+        </ul>
 
         <h2 id="test-tilgang">3. Test tilgang til API-et</h2>
         <p>Dette eksempelet gjelder for API-et for kjøretøy på vei.</p>
