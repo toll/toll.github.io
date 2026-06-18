@@ -47,7 +47,10 @@
         <p>
             Det er behov for å lage en funksjon som gjør det mulig å sende en ankomstmelding for veitransport 
             når virksomheten har <em>transporttillatelse</em> 
-            <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider">
+            <a 
+                href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider"
+                target="_blank"
+            >
                 (Transporttillatelse for ubemannede grenseoverganger - bedrift - Tolletaten).
             </a>
              Disse transportene grensepasserer på overganger der Tolletaten ikke er til stede.
@@ -68,7 +71,7 @@
 
         <p>
             I ankomstmeldingen angis den aktuelle transportens MRN, tidspunkt og tollsted for ankomst. 
-            API-dokumentasjon ligger her: <a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a> 
+            Se <a href="movement-arrival-api.html" target="_blank">API-dokumentasjon</a> 
         </p>
 
         <h2>Case-eksempel:</h2>
@@ -76,8 +79,7 @@
             <li>Fører eller førers representant sender inn ankomstmelding for transporten i forbindelse med at transporten grensepasserer.</li>
             <li>
                 Basert på at meldingen gir status = suksess, bør fører/førers representant hente innpasseringsstatusen for transporten. 
-                Her kan endepunktet entry/status/{mrn} (<a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a>) 
-                benyttes.
+                Her kan endepunktet entry/status/{mrn} benyttes. Se <a href="movement-arrival-api.html" target="_blank">API-dokumentasjon</a> 
 
                 <ul class="spaced-list">
                     <li>Dersom transporten får valid entry = true har varene fått overgang til valgt prosedyre og kan losses ved ankomst</li>
