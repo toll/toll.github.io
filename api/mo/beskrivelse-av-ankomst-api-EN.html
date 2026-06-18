@@ -40,22 +40,18 @@
             </ol>
         </nav>
 
-        <h1 id="funkbesk">The solution for notification and disclosure has an API for reporting arrival of transport</h1>
+        <h1 id="funkbesk">The solution for notification and disclosure includes an API for submitting arrival notifications for transport.</h1>
 
         <h2>Background:</h2>
 
         <p>
-            There is a need to create a function that makes it possible to send an arrival message for road transport
-            when the business has <em>transport authorization</em>
+            Companies with a transport permit for unattended road border crossings needs a way to send an arrival notification when crossing 
+            into Norway at crossings where Norwegian Customs is not present. Norwegian Customs has published an API to support this, however, 
+            the use of this API is not limited to road transport with transport permits. It is designed so it can be used for all modes of transport. 
+            Still, it must not be used without <em>specific authorization</em> from Norwegian Customs 
             <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider?requestedLang=en">
                 (Transport authorization for unmanned border crossings - business - Norwegian Customs).
             </a>
-             These transports cross the border at crossings where Norwegian Customs is not present.
-        </p>
-
-        <p>
-            The function is nevertheless not <em>limited</em> to road transports with transport authorization. 
-            It is designed to be used for all modes of transport. However, it should not be used without an agreement with Norwegian Customs.
         </p>
 
         <h2>Arrival API:</h2>
@@ -67,21 +63,20 @@
         </ul>
 
         <p>
-            In the arrival message, the MRN, time, and customs office for the arrival of the transport are specified. 
+            The arrival notification must include the MRN of the transport in question, as well as the time and customs office of arrival. 
             API documentation is available here: <a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a> 
         </p>
 
-        <h2>Case example:</h2>
+        <h2>Use case example:</h2>
         <ul class="spaced-list">
-            <li>The driver or the driver's representative submits an arrival message for the transport in connection with the transport crossing the border.</li>
+            <li>The driver or the drivers representative submits an arrival notification for the transport when the transport crosses the border.</li>
             <li>
-                Based on the message status = success, the driver/driver's representative should retrieve the entry status for the transport. 
-                The endpoint entry/status/{mrn} (<a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a>) 
-                can be used.
+                If the message returns a status = success, the driver/representative should retrieve the entry status for the transport. 
+                The endpoint entry/status/{mrn} (<a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a>) can be used for this. 
 
                 <ul class="spaced-list">
-                    <li>If the transport receives valid entry = true, the goods have transitioned to the selected procedure and can be unloaded upon arrival.</li>
-                    <li>If the transport receives valid entry = false, Norwegian Customs must be contacted before the goods can be unloaded.</li>
+                    <li>If the transport receives <strong>valid entry = true</strong>, the goods have been assigned to the selected procedure and may be unloaded upon arrival.</li>
+                    <li>If the transport receives <strong>valid entry = false</strong>, Norwegian Customs must be contacted before unloading the goods.</li>
                 </ul>
             </li>
         </ul>
