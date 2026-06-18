@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Description of Arrival API</title>
+    <meta name="description" content="Description of Arrival API in MO">
+    <meta name="author" content="Norwegian Customs">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index-EN.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Norwegian Customs" class="logo"/>
+    </a>
+
+    <a href="beskrivelse-av-koblings-api-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main class="funksjonell-beskrivelse">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index-EN.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning-EN.html">Notification and Disclosure</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Description of Arrival API</li>
+            </ol>
+        </nav>
+
+        <h1 id="funkbesk">The solution for notification and disclosure has an API for reporting arrival of transport</h1>
+
+        <h2>Background:</h2>
+
+        <p>
+            There is a need to create a function that makes it possible to send an arrival message for road transport
+            when the business has <em>transport authorization</em>
+            <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider?requestedLang=en">
+                (Transport authorization for unmanned border crossings - business - Norwegian Customs).
+            </a>
+             These transports cross the border at crossings where Norwegian Customs is not present.
+        </p>
+
+        <p>
+            The function is nevertheless not <em>limited</em> to road transports with transport authorization. 
+            It is designed to be used for all modes of transport. However, it should not be used without an agreement with Norwegian Customs.
+        </p>
+
+        <h2>Arrival API:</h2>
+
+        <p>Arrival messages follow a standard pattern:</p>
+        <ul class="spaced-list">
+            <li>Create (POST) - The business creates an arrival message and receives a request-id</li>
+            <li>Retrieve response (GET) - The business retrieves the validation status of the arrival message using the request-id</li>
+        </ul>
+
+        <p>
+            In the arrival message, the MRN, time, and customs office for the arrival of the transport are specified. 
+            API documentation is available here: <a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a> 
+        </p>
+
+        <h2>Case example:</h2>
+        <ul class="spaced-list">
+            <li>The driver or the driver's representative submits an arrival message for the transport in connection with the transport crossing the border.</li>
+            <li>
+                Based on the message status = success, the driver/driver's representative should retrieve the entry status for the transport. 
+                The endpoint entry/status/{mrn} (<a href="https://api-test.toll.no/api/movement/arrival/v1/swagger-ui/index.html#/">Swagger UI</a>) 
+                can be used.
+
+                <ul class="spaced-list">
+                    <li>If the transport receives valid entry = true, the goods have transitioned to the selected procedure and can be unloaded upon arrival.</li>
+                    <li>If the transport receives valid entry = false, Norwegian Customs must be contacted before the goods can be unloaded.</li>
+                </ul>
+            </li>
+        </ul>
+        
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/" class="footerLink">Norwegian Customs</a> 2026 |
+    <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Contact Us</a>
+</footer>
+
+</body>
+</html>
