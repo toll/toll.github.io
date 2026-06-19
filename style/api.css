@@ -421,7 +421,7 @@ p {
 }
 
 .content-box a {
-    color: var(--text-color-link);
+    color: white;
 }
 
 .content-box h2 {
