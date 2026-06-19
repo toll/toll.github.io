@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Onboarding – Integrasjonsguide Maskinporten</title>
+    <meta name="description" content="Registrering hos Tolletaten og Digdir, og oppsett av integrasjon">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="onboarding-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration.html">Integrasjonsguide Maskinporten</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Onboarding</li>
+            </ol>
+        </nav>
+
+        <h1 id="onboarding">Onboarding</h1>
+        <p>
+            Etter at sertifikat er bestilt er neste steg onboarding hos
+            Tolletaten og Digdir (Maskinporten) for virksomheten.
+        </p>
+        <h2 id="registrer-tolletaten">1. Registrer deg hos Tolletaten (alle)</h2>
+        <p>
+            Skjema for innmelding på Digitoll finner du her:
+            <a href="https://www.toll.no/no/bedrift/alt-om-digitoll/dette-er-digitoll/registrering"
+               target="_blank">Registrering: Digitoll-aktør, Tolletaten</a>.
+        </p>
+        <p>
+            Tolletaten gir tilgang til det/de scopene som trengs for
+            aktuell integrasjon, se <a href="teknisk-integrasjon.html#scopes">oversikt over scopes på Teknisk integrasjon</a>.
+        </p>
+
+        <p>
+            For utenlandske virksomheter kan du nå gå videre til <a href="teknisk-integrasjon.html">Teknisk integrasjon</a>, da trengs ikke
+            oppsett i Maskinporten.
+        </p>
+
+        <h2 id="maskinporten-integrasjon">2. Sett opp Maskinporten-integrasjon</h2>
+        <p class="tips_box_normal">
+            <strong>Dette steget gjelder kun for norske virksomheter med norsk virksomhetssertifikat.</strong><br/>
+            Det er ikke nødvendig hvis du valgte <em>Utenlandsk virksomhet</em> i forrige steg.
+        </p>
+
+        <h3 id="kunde-digdir">2.1 Bli kunde hos Digdir</h3>
+        <p>
+            For å få tilgang til Samarbeidsportalen må virksomheten være kunde hos Digdir. Ta kontakt
+            med Digdir via <a href="mailto:servicedesk@digdir.no">servicedesk@digdir.no</a>.
+        </p>
+
+        <h3 id="lag-integrasjon">2.2 Lag en integrasjon hos Digdir</h3>
+        <p>
+            Opprett en klientintegrasjon i Samarbeidsportalen og koble den mot Tolletatens API
+            (scope).
+        </p>
+        <ul class="spaced-list">
+            <li>
+                <strong>Produksjon:</strong> logg inn på
+                <a href="https://sjolvbetjening.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                selvbetjening</a>.
+            </li>
+            <li>
+                <strong>Test:</strong> logg inn på
+                <a href="https://sjolvbetjening.test.samarbeid.digdir.no" target="_blank">Samarbeidsportalen
+                selvbetjening (test)</a>.
+            </li>
+        </ul>
+        <p>Når du oppretter integrasjonen:</p>
+        <ul class="spaced-list">
+            <li>Velg Difi-tjeneste <strong>Maskinporten</strong>.</li>
+            <li>
+                Legg til scopene du trenger (se <a href="teknisk-integrasjon.html">Teknisk integrasjon</a> for oversikt).
+            </li>
+            <li>
+                <em>Integrasjonens identifikator:</em> dette er verdien som skal stå i
+                <code>iss</code>-feltet i JWT-grant-en du sender til Maskinporten (se
+                <a href="teknisk-integrasjon.html">Teknisk integrasjon</a>).
+            </li>
+            <li>
+                <em>Navn på integrasjonen:</em> velg fritt. Det kan lønne seg med et navn som skiller
+                mellom ulike tjenester og API-er hos Tolletaten, siden vi har flere API-er.
+            </li>
+            <li>
+                <em>Grant-type:</em> bruk
+                <code>urn:ietf:params:oauth:grant-type:jwt-bearer</code>.
+            </li>
+        </ul>
+
+        <section class="image-border">
+            <div>
+                <h4 id="integrasjon-selvbetjening">2.2.1 Gå til selvbetjening av integrasjoner</h4>
+                <ol class="spaced-list">
+                    <li>
+                        <p>Login på selvbetjening.</p>
+                        <a href="../media/maskinporten/maskp-login.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-login.png" alt="Gå til selvbetjening"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>Velg din virksomhet.</p>
+                        <a href="../media/maskinporten/maskp-virksomhet.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-virksomhet.png" alt="Velg virksomhet"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>For deg som skal integrere en tjeneste, velg Klient.</p>
+                        <a href="../media/maskinporten/maskp-klient.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-klient.png" alt="Velg klient"/>
+                        </a>
+                    </li>
+                </ol>
+
+                <h4 id="ny-integrasjon">2.2.2 Ny integrasjon</h4>
+                <ol class="spaced-list">
+                    <li>
+                        <p>Her er en liste av dine klienter. For en ny klientintegrasjon, trykk Legg til ny.</p>
+                        <a href="../media/maskinporten/maskp-klienter-legg-til-ny.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-klienter-legg-til-ny.png"
+                                 alt="Legg til ny integrasjon."/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>Velg Maskinporten.</p>
+                        <a href="../media/maskinporten/maskp-maskinporten.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-maskinporten.png" alt="Velg maskinporten"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>Etter å ha fylt ut selvvalgt navn og din beskrivelse, trykk på Legg til scope.</p>
+                        <a href="../media/maskinporten/maskp-legg-til-scope.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-legg-til-scope.png" alt="Velg Legg til scope"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>Velg scopene du trenger, du finner <a href="teknisk-integrasjon.html">oversikt på Teknisk integrasjon</a>.</p>
+                        <a href="../media/maskinporten/maskp-scopes.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-scopes.png" alt="Velg scopene du trenger"/>
+                        </a>
+                    </li>
+                    <li>
+                        <p>Etter å ha trykket på opprett vil du få en oversikt over dine integrasjoner/klienter.
+                           Trykk på den du nettopp opprettet for å se detaljer og eventuelt redigere.</p>
+                        <a href="../media/maskinporten/maskp-integrasjon.png" target="_blank">
+                            <img class="image-size" src="../media/maskinporten/maskp-integrasjon.png" alt="Oversikt over integrasjonen"/>
+                        </a>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="teknisk-integrasjon.html" class="new-page-button no-icon">
+                <p>Neste: Teknisk integrasjon</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

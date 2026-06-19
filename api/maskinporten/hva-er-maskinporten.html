@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Hva er Maskinporten? – Integrasjonsguide Maskinporten</title>
+    <meta name="description" content="Hva Maskinporten er og hva som kreves for å bruke den">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="hva-er-maskinporten-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration.html">Integrasjonsguide Maskinporten</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Hva er Maskinporten?</li>
+            </ol>
+        </nav>
+
+        <h1 id="hva-er-maskinporten">Hva er Maskinporten?</h1>
+        <div>
+            <img class="img-right"
+                 src="../media/digdir-logo.png"
+                 alt="digdir-logo"/>
+            <p>
+                Maskinporten og Altinn er nasjonale felleskomponenter
+                utviklet og driftet av Digitaliseringsdirektoratet som
+                sammen skal gjøre det enklere å dele og bruke data på
+                tvers av systemer for eksempel ved å gi virksomheter
+                riktig tilgang til data som offentlige virksomheter
+                tilbyr via grensesnitt.
+            </p>
+
+            <p>
+                Løsningen garanterer identitet mellom virksomheter og
+                sørger for autentisering ved kommunikasjon
+                maskin-til-maskin. Den gjør det mulig å binde sammen
+                systemer og utvikle nye tjenester på en effektiv måte.
+            </p>
+
+            <p>
+                Maskinporten er bygget på OAuth 2.0 og JWT-bearer grants. Autentiseringen foregår ved
+                at klienten din lager en JWT-grant som angir hvilke scopes den ber om tilgang til,
+                signerer den med nøkkelen sin og sender den til Maskinporten. Maskinporten verifiserer
+                klientens identitet og tilgang til de forespurte scopene, og returnerer et kortlevd
+                access token.
+            </p>
+
+            <p>
+                En forutsetning for å benytte Maskinporten er at organisasjonen enten er registrert i
+                Enhetsregisteret med norsk organisasjonsnummer, eller har et eSeal-sertifikat utstedt
+                av en CA som ligger på EUs tillitslister (EUTL).
+            </p>
+
+            <p>
+                For en grundigere beskrivelse, se Digdirs
+                <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_overordnet" target="_blank">dokumentasjon om Maskinporten</a>.
+            </p>
+
+        </div>
+
+        <h1 id="drift">Drift og overvåking</h1>
+        <p>
+            Maskinporten skal ha en oppetid på 99,9% og ved avvik har
+            den sjelden nedetid mer enn 5 minutter. Vi anbefaler derfor
+            at våre klienter implementerer en retry-mekanisme slik at
+            man <em>prøver på nytt</em> dersom meldinger blir avvist
+            uten forklarlige feilmeldinger.
+        </p>
+        <p>Vi anbefaler videre å følge med på planlagt og ikke-planlagt driftsavvik:</p>
+        <ul>
+            <li><a href="https://status.digdir.no/history?filter=nthvr1xysxs7" target="_blank">Digitaliseringsdirektoratet
+                Status - Historikk</a>
+                under <a href="https://status.digdir.no/"
+                target="_blank">https://status.digdir.no/</a></li>
+        </ul>
+        <p>Det er også mulig å verifisere om Maskinporten er oppe ved å
+        benytte linken under:</p>
+        <ul>
+            <li><p><a href="https://maskinporten.no/health"
+                      class="uri" target="_blank">https://maskinporten.no/health</a></p></li>
+        </ul>
+        <p>Maskinporten har også laget en
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking"
+               target="_blank">side med feilsøkingsforslag</a>.</p>
+
+        <br/>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

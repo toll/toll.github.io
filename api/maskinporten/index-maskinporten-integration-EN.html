@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maskinporten Integration Guide</title>
+    <meta name="description" content="Integration guide for Norwegian Customs' APIs – Maskinporten, certificate and integration">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="index-maskinporten-integration.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Maskinporten Integration Guide</li>
+            </ol>
+        </nav>
+
+        <h1 id="integrasjonsguide-maskinporten">Maskinporten Integration Guide</h1>
+        <p>
+            This guide helps you integrate with the Norwegian Customs APIs that use Maskinporten for authentication.
+        </p>
+        <p>
+            The guide is written for both Norwegian businesses (with a Norwegian
+            organisation number) and foreign businesses (without one).
+            The approach is mainly the same, but differs especially in what type of certificate is required.
+        </p>
+
+        <h2 id="slik-henger-det-sammen">How it fits together</h2>
+        <p>Setting up an integration can be split into three steps:</p>
+        <ol class="spaced-list">
+            <li>
+                <strong><a href="bestille-sertifikat-EN.html">Order a certificate</a></strong>
+                – obtain a certificate that identifies your business.
+            </li>
+            <li>
+                <strong><a href="onboarding-EN.html">Onboarding</a></strong>
+                – register with Norwegian Customs and Digdir, and create the integration.
+            </li>
+            <li>
+                <strong><a href="teknisk-integrasjon-EN.html">Technical integration</a></strong>
+                – get an access token from Maskinporten, exchange it for a Customs-signed
+                token, and call the Customs APIs.
+            </li>
+        </ol>
+        <p>
+            Two roles are involved in an integration: the business that owns the certificate and
+            holds the agreements (steps 1 and 2), and the system provider that develops the
+            integration itself (step 3).
+        </p>
+        <p>
+            If you are unsure what Maskinporten is, start with
+            <a href="hva-er-maskinporten-EN.html">What is Maskinporten?</a>
+        </p>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="bestille-sertifikat-EN.html" class="new-page-button no-icon">
+                <p>1. Order a certificate</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="onboarding-EN.html" class="new-page-button no-icon">
+                <p>2. Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="teknisk-integrasjon-EN.html" class="new-page-button no-icon">
+                <p>3. Technical integration</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="hva-er-maskinporten-EN.html" class="new-page-button no-icon">
+                <p>What is Maskinporten?</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-norwegian-customs/contact-us" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

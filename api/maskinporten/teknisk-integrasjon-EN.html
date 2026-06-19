@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Technical integration – Maskinporten Integration Guide</title>
+    <meta name="description" content="Register, connect to Maskinporten and call the Customs APIs">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="teknisk-integrasjon.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>EN</span>
+            <img class="flag-rounded" src="../../media/flag/EN-flag.svg" alt="Change language">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration-EN.html">Maskinporten Integration Guide</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Technical integration</li>
+            </ol>
+        </nav>
+
+        <h1 id="teknisk-integrasjon">Technical integration</h1>
+        <p>
+            The final step is to develop the client integration itself. This is typically done by the system provider.
+            To call the Customs APIs you must
+        </p>
+        <ol>
+            <li>Retrieve an access token from Maskinporten</li>
+            <li>Exchange the Maskinporten token for a Customs token</li>
+            <li>Call the Customs API with the Customs token</li>
+        </ol>
+
+        <p>
+            This requires that you have a valid certificate (from
+            <a href="bestille-sertifikat-EN.html">step 1</a>) and have completed the necessary onboarding in
+            <a href="onboarding-EN.html">step 2</a>.
+        </p>
+
+        <h2 id="scopes">Scopes</h2>
+        <p>
+            Which scope(s) you should use depends on the services you will use, and requires
+            that Norwegian Customs has granted you access to that scope. Norwegian businesses use the
+            <code>toll:&hellip;</code> scopes, foreign businesses the corresponding
+            <code>toll:eu/&hellip;</code> scopes.
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>API / service</th>
+                    <th>Scope (Norwegian)</th>
+                    <th>Scope (foreign)</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>movement-road-api-v2, movement-road-query-api-v2</td>
+                    <td><strong>toll:movement/road/v2</strong></td>
+                    <td><strong>toll:eu/movement/road/v2</strong></td>
+                </tr>
+                <tr>
+                    <td>movement-air-api, movement-air-query-api</td>
+                    <td><strong>toll:movement/air</strong></td>
+                    <td><strong>toll:eu/movement/air</strong></td>
+                </tr>
+                <tr>
+                    <td>movement-rail-api, movement-rail-query-api</td>
+                    <td><strong>toll:movement/rail</strong></td>
+                    <td><strong>toll:eu/movement/rail</strong></td>
+                </tr>
+                <tr>
+                    <td>movement-maritime-api, movement-maritime-query-api</td>
+                    <td><strong>toll:movement/maritime</strong></td>
+                    <td><strong>toll:eu/movement/maritime</strong></td>
+                </tr>
+                <tr>
+                    <td>movement/presentation, movement/routing</td>
+                    <td><strong>toll:movement/entry</strong></td>
+                    <td><strong>toll:eu/movement/entry</strong></td>
+                </tr>
+                <tr>
+                    <td>Document upload</td>
+                    <td><strong>toll:goodsdeclaration/document.write</strong></td>
+                    <td><strong>toll:eu/goodsdeclaration/document.write</strong></td>
+                </tr>
+                <tr>
+                    <td>API for declaration data (not yet ready)</td>
+                    <td><strong>toll:declaration.feed</strong></td>
+                    <td>&ndash;</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Read more about scopes in Maskinporten <a href="https://docs.digdir.no/docs/idporten/oidc/oidc_protocol_scope.html" target="_blank">here</a>.</p>
+
+        <h2 id="hent-token">1. Retrieve an access token from Maskinporten</h2>
+        <p>
+            <strong>Norwegian businesses:</strong> see Maskinporten's
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument"
+               target="_blank">documentation</a> on how to retrieve an access token.
+        </p>
+        <p>
+            <strong>Foreign businesses:</strong> see Maskinporten's documentation under
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html"
+               target="_blank">European eSeals</a>, and follow the guide for European businesses.
+        </p>
+        <p>
+            The technical difference between Norwegian and foreign businesses
+            lies in <strong>how the client is identified</strong>: a
+            Norwegian business provides a registered <code>client_id</code> in <code>iss</code>, while a
+            foreign business is identified via the eSeal certificate in <code>x5c</code>
+            (and <code>iss</code> is ignored). The rest of the JWT grant is the same, except that
+            foreign businesses use the <code>toll:eu/&hellip;</code> scopes.
+        </p>
+        <p class="tips_box_normal">
+            <strong>TIPS:</strong><br/>
+            In addition to the documentation linked above, Digdir has also published a repository on GitHub
+            (<a href="https://github.com/difi/jwt-grant-generator" target="_blank">jwt-grant-generator</a>),
+            which demonstrates how to retrieve an
+            access token from Digdir's services, including Maskinporten.
+            The example applies to Norwegian businesses, but can be adapted for foreign businesses.
+            Note that its <code>x5c</code> must then be extended to the full certificate chain.
+        </p>
+
+        <h3 id="jwt-grant-oppsett">Setting up the JWT grant (summary)</h3>
+        <p>
+            The client creates a JWT grant, signs it with its key and POSTs it to the
+            <code>/token</code> endpoint in Maskinporten. The table shows some of the most important fields the grant should
+            contain, and what the differences are for Norwegian and foreign businesses.
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Norwegian</th>
+                    <th>Foreign (eSeal)</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td>Header: <code>x5c</code></td>
+                    <td>Certificate used to sign the JWT grant (base64-encoded)</td>
+                    <td>The certificate (eSeal) that signs the JWT grant, <strong>and the entire certificate chain</strong> (base64-encoded)</td>
+                </tr>
+                <tr>
+                    <td><code>aud</code></td>
+                    <td><code>https://maskinporten.no/</code><br/>(test: <code>https://test.maskinporten.no/</code>)</td>
+                    <td>Same</td>
+                </tr>
+                <tr>
+                    <td><code>iss</code></td>
+                    <td>Registered <code>client_id</code> <br/>(see Samarbeidsportalen)</td>
+                    <td>Name of business and/or system <br/>(Required, but the value is ignored.)</td>
+                </tr>
+                <tr>
+                    <td><code>scope</code></td>
+                    <td><code>toll:&hellip;</code> <br/>(e.g. <code>toll:movement/road/v2</code>)</td>
+                    <td><code>toll:eu/&hellip;</code> <br/>(e.g. <code>toll:eu/movement/road/v2</code>)</td>
+                </tr>
+                <tr>
+                    <td><code>iat</code> / <code>exp</code></td>
+                    <td>Required. <code>exp</code> at most 120 seconds after <code>iat</code></td>
+                    <td>Same</td>
+                </tr>
+                <tr>
+                    <td><code>jti</code></td>
+                    <td>Recommended, unique value</td>
+                    <td>Same</td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            The signed JWT grant is sent as <code>assertion</code> in a form-encoded POST
+            to Maskinporten's <code>/token</code> endpoint:
+        </p>
+
+        <h3>HTTP Request</h3>
+        <pre class="boxed-display">
+POST /token
+Host: maskinporten.no            (test: test.maskinporten.no)
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&
+assertion=&lt;SIGNED JWT GRANT&gt;
+</pre>
+        <div class="tips_box_normal">
+            <strong>Tips (foreign businesses):</strong>
+            <ul class="spaced-list">
+                <li>
+                    <code>x5c</code> must be an array containing the <strong>entire certificate chain</strong>,
+                    not just the eSeal alone. See Maskinporten's own signing key
+                    (<code>x5c</code> claim) as an example.
+                </li>
+                <li>
+                    Only scopes activated for European businesses can be used. You can
+                    test with <code>digdir:verksemd.eu</code> in all environments, but it does not grant
+                    access to anything (and cannot be exchanged for a Customs token in step 2).
+                </li>
+            </ul>
+        </div>
+        <p>
+            If the token request fails, see Maskinporten's
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_feilsoking" target="_blank">troubleshooting page</a>.
+        </p>
+
+        <h2 id="veksle-token">2. Exchange for a Customs-signed access token</h2>
+        <p>Exchange Maskinporten's access token for a Customs-signed access token.</p>
+
+        <h3>HTTP Request</h3>
+        <pre class="boxed-display">
+POST /api/access/external/oauth/token
+Host: api.toll.no            (test: api-test.toll.no)
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=token-exchange&
+subject_token_type=access_token&
+subject_token=&lt;MASKINPORTEN ACCESS TOKEN&gt;
+</pre>
+
+        <h3>Example: HTTP Response</h3>
+        <pre class="boxed-display">
+{
+  "issued_token_type": "access_token",
+  "access_token": "&lt;TOLL ACCESS TOKEN HERE&gt;",
+  "token_type": "Bearer",
+  "expires_in": 970
+}
+</pre>
+        <p class="tips_box_normal">
+            <strong>Tips:</strong><br/>
+            A Customs-signed access token can be used for its entire lifetime, so it is recommended to
+            cache these when communicating with Norwegian Customs' APIs. For a smoother
+            experience, we further recommend exchanging for a new Customs token before the previous
+            one expires (for example one minute before).
+        </p>
+        <p>
+            <strong>Troubleshooting:</strong> an error such as
+            &ldquo;Not authorized to request scope toll:&hellip;&rdquo; usually means the scope has
+            not been granted to you. Check that:
+        </p>
+        <ul class="spaced-list">
+            <li>you are using the correct scope (Norwegian businesses use <code>toll:&hellip;</code>, foreign businesses <code>toll:eu/&hellip;</code>);</li>
+            <li>the business is registered with Digitoll (see <a href="onboarding-EN.html">Onboarding</a>);</li>
+            <li>the integration in Samarbeidsportalen is complete and includes the scope (Norwegian businesses);</li>
+            <li>if you are still unsure, confirm with Norwegian Customs which scopes you have been granted.</li>
+        </ul>
+
+        <h2 id="test-tilgang">3. Test access to the API</h2>
+        <p>This example applies to the road vehicle API.</p>
+
+        <h3>HTTP Request</h3>
+        <pre class="boxed-display">
+GET /api/movement/road/v2/test-auth
+Host: api.toll.no            (test: api-test.toll.no)
+Authorization: Bearer &lt;TOLL ACCESS TOKEN&gt;
+</pre>
+        <p>The expected result is <strong>200 OK</strong>.</p>
+
+        <br/>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/en/about-norwegian-customs/contact-us" class="footerLink">Contact us</a>
+</footer>
+
+</body>
+</html>

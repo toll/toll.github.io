@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Integrasjonsguide Maskinporten</title>
+    <meta name="description" content="Integrasjonsguide for Tolletatens API-er – Maskinporten, sertifikat og integrasjon">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="index-maskinporten-integration-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Integrasjonsguide Maskinporten</li>
+            </ol>
+        </nav>
+
+        <h1 id="integrasjonsguide-maskinporten">Integrasjonsguide Maskinporten</h1>
+        <p>
+            Denne guiden hjelper deg å integrere mot de API-er til Tolletaten som bruker Maskinporten for autentisering.
+        </p>
+        <p>
+            Guiden er skrevet for både norske virksomheter (med norsk
+            organisasjonsnummer) og utenlandske virksomheter (uten).
+            Fremgangsmåten er i hovedsak den samme, men skiller seg særlig ved
+            hvilken type sertifikat som kreves.
+        </p>
+
+        <h2 id="slik-henger-det-sammen">Slik henger det sammen</h2>
+        <p>En integrasjon settes opp i tre steg:</p>
+        <ol class="spaced-list">
+            <li>
+                <strong><a href="bestille-sertifikat.html">Bestille sertifikat</a></strong>
+                – skaff et sertifikat som identifiserer virksomheten din.
+            </li>
+            <li>
+                <strong><a href="onboarding.html">Onboarding</a></strong>
+                – registrer deg hos Tolletaten og Digdir, og opprett selve integrasjonen.
+            </li>
+            <li>
+                <strong><a href="teknisk-integrasjon.html">Teknisk integrasjon</a></strong>
+                – hent et access token fra Maskinporten, veksle det til et Toll-signert
+                token, og kall Toll-API-ene.
+            </li>
+        </ol>
+        <p>
+            To roller er involvert i en integrasjon: virksomheten som eier sertifikatet og inngår
+            avtalene (steg 1 og 2), og systemleverandøren som utvikler selve integrasjonen (steg 3).
+        </p>
+        <p>
+            Er du usikker på hva Maskinporten er, start med
+            <a href="hva-er-maskinporten.html">Hva er Maskinporten?</a>
+        </p>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="bestille-sertifikat.html" class="new-page-button no-icon">
+                <p>1. Bestille sertifikat</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="onboarding.html" class="new-page-button no-icon">
+                <p>2. Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="teknisk-integrasjon.html" class="new-page-button no-icon">
+                <p>3. Teknisk integrasjon</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+            <a href="hva-er-maskinporten.html" class="new-page-button no-icon">
+                <p>Hva er Maskinporten?</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>

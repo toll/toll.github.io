@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Bestille sertifikat – utenlandsk virksomhet – Integrasjonsguide Maskinporten</title>
+    <meta name="description" content="Hvilket sertifikat utenlandske virksomheter trenger og hvordan du bestiller det">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="bestille-sertifikat-utenlandsk-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
+        </div>
+    </a>
+</header>
+
+<main>
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="index-maskinporten-integration.html">Integrasjonsguide Maskinporten</a></li>
+                <li class="breadcrumb-item"><a href="bestille-sertifikat.html">Bestille sertifikat</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Utenlandsk virksomhet</li>
+            </ol>
+        </nav>
+
+        <h1 id="utenlandsk">Bestille sertifikat – utenlandsk virksomhet</h1>
+        <p>
+            Denne siden gjelder virksomheter uten norsk
+            organisasjonsnummer, eller NUF uten norsk representant, som
+            kan administrere integrasjonen
+            via <a href="https://samarbeid.digdir.no/"
+            target="_blank">Samarbeidsportalen</a> (må logge inn med
+            MinID).
+        </p>
+        <p>
+            For disse virksomhetene kreves et eSeal-sertifikat som er utstedt av en CA som ligger på
+            EUs tillitslister (EUTL).
+        </p>
+        <p>
+            Møter du ukjente begreper som eSeal, TSP, QSCD eller soft token, se
+            <a href="#begreper">Begreper</a> lenger ned.
+        </p>
+
+        <h2 id="utenlandsk-hvilket">Hvilket sertifikat du trenger</h2>
+        <p>
+            Du trenger et virksomhetssertifikat som kan lage et <strong>advanced elektronisk
+            segl</strong> (eSeal, Advanced Electronic Seal/AdESeal) slik eIDAS definerer det.
+            Tre krav må være oppfylt:
+        </p>
+        <ul class="spaced-list">
+            <li>
+                Sertifikatet kan brukes til å lage minimum et <strong>advanced</strong> eSeal.
+            </li>
+            <li>
+                <strong>CA-sertifikatet</strong> til utstederen er oppført som en aktiv
+                tillitstjeneste (trust service) i en av de nasjonale tillitslistene i
+                EU (EUTL).<br/>
+                <strong>NB</strong>: En utsteder kan ha flere CA-sertifikater, og det er ikke
+                garantert at alle er oppført på EUTL. Dette må derfor verifiseres for det spesifikke produktet.
+            </li>
+            <li>
+                Privatnøkkelen kan holdes som <strong>soft token</strong>. Du leverer den
+                offentlige nøkkelen via en CSR, eller du mottar en <strong>.p12/.pfx-fil</strong>.
+                Det er ikke et krav at nøkkelen må ligge i en dedikert maskinvare.
+            </li>
+        </ul>
+        <p>
+            Sertifikatet må inneholde en <strong>organisasjonsidentifikator</strong>
+            (<code>organizationIdentifier</code> i sertifikatets Subject). Det er denne
+            verdien Maskinporten (og Toll) bruker til å identifisere virksomheten din.
+            Selve verdien kommer typisk fra opplysningene du oppgir i bestillingen,
+            og bekreftes når virksomheten identifiseres.
+        </p>
+        <p>
+            Et <em>advanced</em> eSeal er tilstrekkelig for Maskinporten. Et qualified eSeal
+            er også greit hvis nøkkelen
+            leveres som soft token. Se også <a href="#utenlandsk-ikke">hva du ikke skal
+            bestille</a>.
+        </p>
+        <p>
+            Digdir har en egen beskrivelse av hvordan europeiske eSeal fungerer med
+            Maskinporten:
+            <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_european_eseals.html"
+               target="_blank">European eSeals</a>.
+        </p>
+
+        <h2 id="utenlandsk-ikke">Hva du ikke skal bestille</h2>
+        <p>Det er lett å velge feil produkt. Disse skal du unngå:</p>
+        <ul class="spaced-list">
+            <li>
+                <strong>eSignature eller annet personsertifikat.</strong> Disse
+                identifiserer en person. Du trenger et eSeal, som identifiserer
+                virksomheten (en juridisk person).
+            </li>
+            <li>
+                <strong>Et qualified eSeal som krever QSCD.</strong> Et qualified eSeal
+                tvinger ofte privatnøkkelen inn i en sertifisert maskinvareenhet (HSM eller
+                smartkort), og det utelukker soft token-flyten. Det du må unngå er kravet om
+                QSCD, ikke qualified i seg selv: et qualified-sertifikat er greit så lenge
+                nøkkelen leveres som soft token.
+            </li>
+            <li>
+                <strong>TLS/SSL- eller kodesigneringssertifikat.</strong> Feil type
+                sertifikat for dette formålet.
+            </li>
+        </ul>
+
+        <h2 id="utstedere">Utstedere</h2>
+        <p>
+            eSeal-sertifikater kan fås hos mange tilbydere av tillitstjenester i EU.
+            Tabellen under er en kort liste over utstedere som er kjent for å tilby et
+            advanced eSeal med soft token. Listen er ikke uttømmende og er
+            ingen anbefaling fra Tolletaten. Trenger du andre alternativer, kan du søke opp
+            tilbydere per land og tjenestetype i EUs
+            <a href="https://eidas.ec.europa.eu/efda/tl-browser/" target="_blank">Trusted
+            List Browser</a> (eIDAS-dashbordet). Tilbud og produktnavn endrer seg, så
+            bekreft alltid med utstederen.
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                <tr>
+                    <th>Utsteder</th>
+                    <th>Produkt</th>
+                    <th>Dekker</th>
+                    <th>Nøkkel genereres av</th>
+                    <th>Merknad</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td><p>Buypass</p></td>
+                    <td><p><a href="https://www.buypass.no/ec-order/?productId=430431"
+                             target="_blank">QC eSeal</a></p></td>
+                    <td><p>Norden og Baltikum</p></td>
+                    <td><p>Bestiller (CSR) eller utsteder (.p12)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>Commfides</p></td>
+                    <td><p><a href="https://www.commfides.com/virksomhetssertifikat-bestilling/"
+                             target="_blank">Standard eSegl Virksomhetssertifikat</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Utsteder (.p12)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>DigiCert</p></td>
+                    <td><p><a href="https://docs.digicert.com/en/certcentral/manage-certificates/eu--eidas--products/order-your-eu-qualified-eseal-certificate.html"
+                             target="_blank">EU Qualified eSeal</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Bestiller (CSR)</p></td>
+                    <td><p>Kun via <a href="https://certcentral.digicert.eu/" target="_blank">European CertCentral</a>.</p></td>
+                </tr>
+                <tr>
+                    <td><p>GlobalTrust</p></td>
+                    <td><p><a href="https://order.globaltrust.eu/php/formservice.php?form=order_signature_en&amp;st=SEAL"
+                             target="_blank">GlobalTrust Advanced Seal</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Bestiller (CSR) eller utsteder (.p12)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>D-Trust</p></td>
+                    <td><p><a href="https://www.d-trust.net/en/solutions/seal-id"
+                             target="_blank">Seal ID</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Bestiller (CSR) eller utsteder (.p12)</p></td>
+                    <td><p>Bestilles via
+                        <a href="https://www.d-trust.net/en/solutions/certificate-service-manager-csm"
+                           target="_blank">Certificate Service Manager (CSM)</a> eller
+                        forhandler.</p></td>
+                </tr>
+                <tr>
+                    <td><p>Sectigo</p></td>
+                    <td><p><a href="https://www.sectigo.com/ssl-certificates-tls/eidas-sealing-certificates"
+                             target="_blank">eIDAS sealing certificate</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Bestiller (CSR)</p></td>
+                    <td><p>&ndash;</p></td>
+                </tr>
+                <tr>
+                    <td><p>ADACOM</p></td>
+                    <td><p><a href="https://eshop.adacom.com/advanced-soft-electronic-seal-for-legal-person"
+                             target="_blank">Advanced (Soft) eSeal for Legal Person</a></p></td>
+                    <td><p>Europa</p></td>
+                    <td><p>Bestiller (CSR)</p></td>
+                    <td><p>Krever bekreftet signatur hos notarius publicus</p></td>
+                </tr>
+            </table>
+        </div>
+        <p>
+            Hvis nøkkel skal genereres av Bestiller (via CSR) er dette et ekstra teknisk steg man kan lese om
+            under <a href="#lage-csr">Lage en CSR</a>.
+        </p>
+        <p>
+            Produktsider er ofte tvetydige, og et produkt markedsføres gjerne som «Qualified
+            eSeal» selv om en advanced-variant finnes. Det tryggeste er å be utstederen
+            bekrefte skriftlig at du får et sertifikat for <strong>advanced eSeal (uten QSCD) for en
+            juridisk person</strong>, der privatnøkkelen kan holdes som soft token.
+        </p>
+
+        <h2 id="utenlandsk-prosess">Typisk bestillingsprosess</h2>
+        <p>Detaljene varierer mellom utstederne, men prosessen er i hovedsak slik:</p>
+        <ol class="spaced-list">
+            <li>
+                <strong>Velg utsteder og produkt.</strong> Se <a href="#utstedere">Utstedere</a>,
+                og bekreft med utstederen at produktet oppfyller kravene
+                (<a href="#utenlandsk-hvilket">Hvilket sertifikat du trenger</a>). Se også <a href="#utenlandsk-ikke">hva du ikke skal bestille</a>.
+            </li>
+            <li>
+                <strong>Identifisering og kontroll av virksomheten.</strong> Utstederen må
+                verifisere den juridiske enheten. Vanligvis kreves et registerutdrag fra
+                virksomhetsregisteret i hjemlandet og en person som kan representere virksomheten
+                (med signaturrett eller fullmakt). I tillegg gjennomføres ofte en
+                identitetskontroll på telefon eller video. Dette steget tar
+                vanligvis lengst tid, fra noen dager til flere uker.
+            </li>
+            <li>
+                <strong>Generer nøkkel og CSR.</strong> Hvis utstederen bruker CSR-basert
+                utstedelse, genererer du nøkkelparet og en CSR selv (se
+                <a href="#lage-csr">Lage en CSR</a>). CSR inkluderes i bestillingen i neste steg.
+                Noen utstedere genererer nøkkelparet for deg. Da trenger du ikke en CSR, men får
+                nøkkelen levert av utstederen når bestillingen er ferdig behandlet.
+            </li>
+            <li>
+                <strong>Send inn bestillingen og betal.</strong> Lever bestillingen eller
+                CSR-en via utstederens portal, og fullfør betaling.
+            </li>
+            <li>
+                <strong>Motta eller hent sertifikatet og nøkkelen.</strong> Du får sertifikatet enten ved å
+                laste det ned (inkludert privatnøkkel hvis du ikke brukte CSR), eller tilsendt til en
+                adresse du oppgir i bestillingen.
+            </li>
+            <li>
+                <strong>Fortsett med onboarding.</strong> Når du har sertifikatet, går du
+                videre til <a href="onboarding.html">Onboarding</a> for å registrere deg og
+                ta sertifikatet i bruk mot Maskinporten.
+            </li>
+        </ol>
+
+        <h2 id="lage-csr">Lage en CSR</h2>
+        <p>
+            En CSR (Certificate Signing Request) lar utstederen lage et sertifikat uten å se
+            privatnøkkelen din. Du genererer et <strong>nøkkelpar</strong> lokalt (en privatnøkkel
+            og en offentlig nøkkel) og sender CSR-en til utstederen. Hovedpoenget med CSR-en er å
+            formidle den <strong>offentlige nøkkelen</strong>. Den inneholder også et subject med
+            opplysninger om virksomheten, men disse setter utstederen normalt selv ut fra
+            bestillingen og kontrollen av virksomheten. Verdiene du selv legger i CSR-en er derfor
+            stort sett bare et utgangspunkt.
+        </p>
+        <p>
+            Privatnøkkelen blir hos deg. Det er denne nøkkelen som beviser at det er din virksomhet
+            som autentiserer seg mot Maskinporten. Den som har tilgang til privatnøkkelen, kan i
+            praksis opptre på vegne av virksomheten, så filen må holdes hemmelig og tas godt vare på.
+        </p>
+        <p>
+            Eksempelet under viser hvordan du kan opprette en CSR med OpenSSL, men det finnes mange
+            verktøy som kan brukes til dette. Bruk nøkkeltype, nøkkellengde og andre instrukser som
+            utstederen din oppgir.
+        </p>
+        <pre class="boxed-display">
+# Generer en privatnøkkel (hold denne filen hemmelig).
+# RSA 3072 vist her; noen utstedere godtar eller krever RSA 2048 eller ECDSA P-256.
+openssl genrsa -out eseal.key 3072
+
+# Lag CSR-en fra nøkkelen. Bruk subject-feltene utstederen ber om.
+openssl req -new -key eseal.key -out eseal.csr \
+  -subj "/C=SE/O=Example Legal Entity AB/CN=Example Legal Entity AB"
+
+# Kontroller CSR-en før du sender den inn.
+openssl req -in eseal.csr -noout -text
+</pre>
+        <p>
+            Last opp <code>eseal.csr</code> til utstederen. Etter utstedelse får du selve
+            sertifikatet (<code>.cer</code>/<code>.pem</code>), som hører sammen med
+            <code>eseal.key</code>.
+        </p>
+
+        <h2 id="begreper">Begreper</h2>
+        <p>
+            Et raskt oppslag for begrepene som dukker opp hos utstederne.
+        </p>
+        <dl class="spaced-list">
+            <dt>Advanced vs. qualified</dt>
+            <dd>
+                Et advanced eSeal er minstekravet. Et qualified eSeal gir en enda høyere sikkerhetsnivå, men krever som regel
+                en QSCD, og bør derfor unngås her, med mindre nøkkelen kan leveres som soft token.
+            </dd>
+            <dt>CA / CA-sertifikat</dt>
+            <dd>
+                Certificate Authority (sertifiseringsinstans): tjenesten hos en TSP som utsteder og
+                signerer sertifikater. På en tillitsliste identifiseres hver tjeneste med sitt
+                CA-sertifikat (tjenestens «service digital identity»), så tilliten avgjøres av om det
+                spesifikke <strong>CA-sertifikatet</strong> står på listen, ikke bare av om selskapet
+                er en kjent tilbyder.
+            </dd>
+            <dt>CSR</dt>
+            <dd>
+                Certificate Signing Request. Måten du sender utstederen den offentlige nøkkelen og
+                opplysningene om virksomheten på, uten å avsløre privatnøkkelen (se
+                <a href="#lage-csr">Lage en CSR</a>).
+            </dd>
+            <dt>eIDAS</dt>
+            <dd>
+                EU-forordningen om elektronisk identifikasjon og tillitstjenester. Den definerer
+                elektroniske segl (eSeal) og signaturer, sikkerhetsnivåene (advanced/qualified)
+                og rammeverket for EUs tillitslister.
+            </dd>
+            <dt>eSeal</dt>
+            <dd>
+                Et elektronisk segl som lages av en virksomhet (juridisk person), slik eIDAS
+                definerer det. I motsetning til en eSignature, som tilhører en enkeltperson. Et
+                eSeal er selve seglet, ikke et sertifikat.
+            </dd>
+            <dt>eSeal-sertifikat</dt>
+            <dd>
+                Sertifikatet du bestiller, og som brukes til å lage et eSeal. Det er dette du
+                faktisk trenger for å autentisere virksomheten mot Maskinporten.
+            </dd>
+            <dt>EUTL / LOTL</dt>
+            <dd>
+                EU Trusted Lists: samlingen av medlemslandenes nasjonale tillitslister, der
+                tillitstjenester og deres utstedende CA-sertifikater publiseres. Det sentrale registeret
+                over disse nasjonale listene er LOTL (List of Trusted Lists), som vedlikeholdes av
+                EU-kommisjonen. Utstederens CA-sertifikat må stå her.
+            </dd>
+            <dt>QSCD</dt>
+            <dd>
+                En sertifisert maskinvareenhet for privatnøkkelen (HSM eller smartkort). Krever et produkt
+                QSCD, kan du ikke holde nøkkelen som soft token, og produktet passer ikke her.
+            </dd>
+            <dt>Soft token</dt>
+            <dd>
+                Privatnøkkelen ligger i programvare (for eksempel en <code>.p12</code>-fil), i
+                motsetning til en hard token, der nøkkelen er bundet til dedikert maskinvare
+                (QSCD/HSM). For praktisk autentisering mot Maskinporten trenger du et soft token, siden det
+                tilbyr rask og ubegrenset signering.
+            </dd>
+            <dt>TSP / QTSP</dt>
+            <dd>
+                En tilbyder av tillitstjenester (Trust Service Provider, TSP) er organisasjonen som
+                utsteder sertifikatet ditt; en QTSP er en kvalifisert TSP. TSP-en drifter
+                sertifiseringsinstansen (CA) som signerer eSeal-et ditt.
+            </dd>
+        </dl>
+
+        <br/>
+
+        <div class="buttons-section">
+            <a href="onboarding.html" class="new-page-button no-icon">
+                <p>Neste: Onboarding</p>
+                <div>
+                    <img src="../../media/arrow-right.svg" alt="arrow-right">
+                </div>
+            </a>
+        </div>
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/">Tolletaten</a> 2026
+    | <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
