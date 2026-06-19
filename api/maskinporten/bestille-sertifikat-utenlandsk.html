@@ -30,8 +30,8 @@
     </a>
 </header>
 
-<main class="maskinporten-integration">
-    <div class="align-self-start about-section" role="main">
+<main>
+    <div class="align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
@@ -43,9 +43,12 @@
 
         <h1 id="utenlandsk">Bestille sertifikat – utenlandsk virksomhet</h1>
         <p>
-            Denne siden gjelder virksomheter uten norsk organisasjonsnummer eller NUF uten norsk representant som kan
-            administrere integrasjonen via <a href="https://samarbeid.digdir.no/" target="_blank">Samarbeidsportalen</a>
-            (må logge inn med MinID).
+            Denne siden gjelder virksomheter uten norsk
+            organisasjonsnummer, eller NUF uten norsk representant, som
+            kan administrere integrasjonen
+            via <a href="https://samarbeid.digdir.no/"
+            target="_blank">Samarbeidsportalen</a> (må logge inn med
+            MinID).
         </p>
         <p>
             For disse virksomhetene kreves et eSeal-sertifikat som er utstedt av en CA som ligger på
@@ -89,7 +92,7 @@
         <p>
             Et <em>advanced</em> eSeal er tilstrekkelig for Maskinporten. Et qualified eSeal
             er også greit hvis nøkkelen
-            leveres som soft token. Se også <a href="#utenlandsk-ikke">Hva du ikke skal
+            leveres som soft token. Se også <a href="#utenlandsk-ikke">hva du ikke skal
             bestille</a>.
         </p>
         <p>
@@ -205,7 +208,7 @@
             <li>
                 <strong>Velg utsteder og produkt.</strong> Se <a href="#utstedere">Utstedere</a>,
                 og bekreft med utstederen at produktet oppfyller kravene
-                (<a href="#utenlandsk-hvilket">Hvilket sertifikat du trenger</a>). Se også <a href="#utenlandsk-ikke">Hva du ikke skal bestille</a>.
+                (<a href="#utenlandsk-hvilket">Hvilket sertifikat du trenger</a>). Se også <a href="#utenlandsk-ikke">hva du ikke skal bestille</a>.
             </li>
             <li>
                 <strong>Identifisering og kontroll av virksomheten.</strong> Utstederen må
@@ -281,6 +284,31 @@ openssl req -in eseal.csr -noout -text
             Et raskt oppslag for begrepene som dukker opp hos utstederne.
         </p>
         <dl class="spaced-list">
+            <dt>Advanced vs. qualified</dt>
+            <dd>
+                Et advanced eSeal er minstekravet. Et qualified eSeal gir en enda høyere sikkerhetsnivå, men krever som regel
+                en QSCD, og bør derfor unngås her, med mindre nøkkelen kan leveres som soft token.
+            </dd>
+            <dt>CA / CA-sertifikat</dt>
+            <dd>
+                Certificate Authority (sertifiseringsinstans): tjenesten hos en TSP som utsteder og
+                signerer sertifikater. På en tillitsliste identifiseres hver tjeneste med sitt
+                CA-sertifikat (tjenestens «service digital identity»), så tilliten avgjøres av om det
+                spesifikke <strong>CA-sertifikatet</strong> står på listen, ikke bare av om selskapet
+                er en kjent tilbyder.
+            </dd>
+            <dt>CSR</dt>
+            <dd>
+                Certificate Signing Request. Måten du sender utstederen den offentlige nøkkelen og
+                opplysningene om virksomheten på, uten å avsløre privatnøkkelen (se
+                <a href="#lage-csr">Lage en CSR</a>).
+            </dd>
+            <dt>eIDAS</dt>
+            <dd>
+                EU-forordningen om elektronisk identifikasjon og tillitstjenester. Den definerer
+                elektroniske segl (eSeal) og signaturer, sikkerhetsnivåene (advanced/qualified)
+                og rammeverket for EUs tillitslister.
+            </dd>
             <dt>eSeal</dt>
             <dd>
                 Et elektronisk segl som lages av en virksomhet (juridisk person), slik eIDAS
@@ -291,31 +319,6 @@ openssl req -in eseal.csr -noout -text
             <dd>
                 Sertifikatet du bestiller, og som brukes til å lage et eSeal. Det er dette du
                 faktisk trenger for å autentisere virksomheten mot Maskinporten.
-            </dd>
-            <dt>eIDAS</dt>
-            <dd>
-                EU-forordningen om elektronisk identifikasjon og tillitstjenester. Den definerer
-                elektroniske segl (eSeal) og signaturer, sikkerhetsnivåene (advanced/qualified)
-                og rammeverket for EUs tillitslister.
-            </dd>
-            <dt>Advanced vs. qualified</dt>
-            <dd>
-                Et advanced eSeal er minstekravet. Et qualified eSeal gir en enda høyere sikkerhetsnivå, men krever som regel
-                en QSCD, og bør derfor unngås her, med mindre nøkkelen kan leveres som soft token.
-            </dd>
-            <dt>TSP / QTSP</dt>
-            <dd>
-                En tilbyder av tillitstjenester (Trust Service Provider, TSP) er organisasjonen som
-                utsteder sertifikatet ditt; en QTSP er en kvalifisert TSP. TSP-en drifter
-                sertifiseringsinstansen (CA) som signerer eSeal-et ditt.
-            </dd>
-            <dt>CA / CA-sertifikat</dt>
-            <dd>
-                Certificate Authority (sertifiseringsinstans): tjenesten hos en TSP som utsteder og
-                signerer sertifikater. På en tillitsliste identifiseres hver tjeneste med sitt
-                CA-sertifikat (tjenestens «service digital identity»), så tilliten avgjøres av om det
-                spesifikke <strong>CA-sertifikatet</strong> står på listen, ikke bare av om selskapet
-                er en kjent tilbyder.
             </dd>
             <dt>EUTL / LOTL</dt>
             <dd>
@@ -336,11 +339,11 @@ openssl req -in eseal.csr -noout -text
                 (QSCD/HSM). For praktisk autentisering mot Maskinporten trenger du et soft token, siden det
                 tilbyr rask og ubegrenset signering.
             </dd>
-            <dt>CSR</dt>
+            <dt>TSP / QTSP</dt>
             <dd>
-                Certificate Signing Request. Måten du sender utstederen den offentlige nøkkelen og
-                opplysningene om virksomheten på, uten å avsløre privatnøkkelen (se
-                <a href="#lage-csr">Lage en CSR</a>).
+                En tilbyder av tillitstjenester (Trust Service Provider, TSP) er organisasjonen som
+                utsteder sertifikatet ditt; en QTSP er en kvalifisert TSP. TSP-en drifter
+                sertifiseringsinstansen (CA) som signerer eSeal-et ditt.
             </dd>
         </dl>
 

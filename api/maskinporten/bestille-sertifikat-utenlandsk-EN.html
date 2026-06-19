@@ -30,8 +30,8 @@
     </a>
 </header>
 
-<main class="maskinporten-integration">
-    <div class="align-self-start about-section" role="main">
+<main>
+    <div class="align-self-start" role="main">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
@@ -279,6 +279,32 @@ openssl req -in eseal.csr -noout -text
             A quick reference for the terms that come up with the issuers.
         </p>
         <dl class="spaced-list">
+            <dt>Advanced vs. qualified</dt>
+            <dd>
+                An advanced eSeal is the minimum requirement. A qualified eSeal provides an even higher level of
+                security, but usually requires a QSCD, and should therefore be avoided here, unless the key can be
+                delivered as a soft token.
+            </dd>
+            <dt>CA / CA certificate</dt>
+            <dd>
+                Certificate Authority: the service within a TSP that issues and signs certificates.
+                On a trusted list, each service is identified by its CA certificate (its "service
+                digital identity"), so trust is determined by whether the specific
+                <strong>CA certificate</strong> is listed, not merely by whether the company is a
+                known provider.
+            </dd>
+            <dt>CSR</dt>
+            <dd>
+                Certificate Signing Request. The way you send the issuer the public key and
+                the information about the business, without revealing the private key (see
+                <a href="#lage-csr">Creating a CSR</a>).
+            </dd>
+            <dt>eIDAS</dt>
+            <dd>
+                The EU regulation on electronic identification and trust services. It defines
+                electronic seals (eSeals) and signatures, the assurance levels (advanced/qualified),
+                and the EU trusted-list framework.
+            </dd>
             <dt>eSeal</dt>
             <dd>
                 An electronic seal created by a business (legal person), as defined by eIDAS.
@@ -289,32 +315,6 @@ openssl req -in eseal.csr -noout -text
             <dd>
                 The certificate you order, used to create an eSeal. This is what you
                 actually need to authenticate the business with Maskinporten.
-            </dd>
-            <dt>eIDAS</dt>
-            <dd>
-                The EU regulation on electronic identification and trust services. It defines
-                electronic seals (eSeals) and signatures, the assurance levels (advanced/qualified),
-                and the EU trusted-list framework.
-            </dd>
-            <dt>Advanced vs. qualified</dt>
-            <dd>
-                An advanced eSeal is the minimum requirement. A qualified eSeal provides an even higher level of
-                security, but usually requires a QSCD, and should therefore be avoided here, unless the key can be
-                delivered as a soft token.
-            </dd>
-            <dt>TSP / QTSP</dt>
-            <dd>
-                A Trust Service Provider (TSP) is the organisation that issues your certificate; a
-                QTSP is a qualified TSP. The TSP operates the Certificate Authority (CA) that signs
-                your eSeal.
-            </dd>
-            <dt>CA / CA certificate</dt>
-            <dd>
-                Certificate Authority: the service within a TSP that issues and signs certificates.
-                On a trusted list, each service is identified by its CA certificate (its "service
-                digital identity"), so trust is determined by whether the specific
-                <strong>CA certificate</strong> is listed, not merely by whether the company is a
-                known provider.
             </dd>
             <dt>EUTL / LOTL</dt>
             <dd>
@@ -335,11 +335,11 @@ openssl req -in eseal.csr -noout -text
                 (QSCD/HSM). For practical authentication with Maskinporten you need a soft token, since it
                 offers fast and unlimited signing.
             </dd>
-            <dt>CSR</dt>
+            <dt>TSP / QTSP</dt>
             <dd>
-                Certificate Signing Request. The way you send the issuer the public key and
-                the information about the business, without revealing the private key (see
-                <a href="#lage-csr">Creating a CSR</a>).
+                A Trust Service Provider (TSP) is the organisation that issues your certificate; a
+                QTSP is a qualified TSP. The TSP operates the Certificate Authority (CA) that signs
+                your eSeal.
             </dd>
         </dl>
 
