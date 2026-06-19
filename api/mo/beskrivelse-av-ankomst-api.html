@@ -45,49 +45,63 @@
         <h2>Bakgrunn:</h2>
 
         <p>
-            Det er behov for å lage en funksjon som gjør det mulig å sende en ankomstmelding for veitransport 
-            når virksomheten har <em>transporttillatelse</em> 
-            <a 
-                href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider"
+            Det er behov for å lage en funksjon som gjør det mulig å
+            sende en ankomstmelding for veitransport når virksomheten
+            har <em>transporttillatelse</em>
+            <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider"
                 target="_blank"
             >
-                (Transporttillatelse for ubemannede grenseoverganger - bedrift - Tolletaten).
+                (Transporttillatelse for ubemannede grenseoverganger - bedrift &ndash; Tolletaten).
             </a>
-             Disse transportene grensepasserer på overganger der Tolletaten ikke er til stede.
+             Disse transportene grensepasserer på overganger der
+             Tolletaten ikke er til stede.
         </p>
 
         <p>
-            Funksjonen er likevel ikke <em>begrenset</em> til veitransporter med transporttillatelse. 
-            Den er laget slik at den kan brukes på alle transportmåter. Men den skal ikke brukes uten avtale med Tolletaten.
+            Funksjonen er likevel ikke <em>begrenset</em> til
+            veitransporter med transporttillatelse.  Den er laget slik
+            at den kan brukes på alle transportmåter. Men den skal ikke
+            brukes uten avtale med Tolletaten.
         </p>
 
         <h2>Ankomst-API:</h2>
 
         <p>Ankomstmeldinger følger standard mønster:</p>
         <ul class="spaced-list">
-            <li>Opprette (POST) - Virksomhet oppretter en ankomstmelding og mottar en request-id</li>
-            <li>Hente respons (GET) - Virksomhet henter valideringsstatus for ankomstmelding ved hjelp av request-id</li>
+            <li>Opprette (POST) &ndash; Virksomhet oppretter en ankomstmelding og mottar en request-id</li>
+            <li>Hente respons (GET) &ndash; Virksomhet henter valideringsstatus for ankomstmelding ved hjelp av request-id</li>
         </ul>
 
         <p>
-            I ankomstmeldingen angis den aktuelle transportens MRN, tidspunkt og tollsted for ankomst. 
-            Se <a href="movement-arrival-api.html" target="_blank">API-dokumentasjon</a> 
+            I ankomstmeldingen angis den aktuelle transportens MRN,
+            tidspunkt og tollsted for ankomst.
+            Se <a href="movement-arrival-api.html"
+            target="_blank">API-dokumentasjonen</a>.
         </p>
 
         <h2>Case-eksempel:</h2>
         <ul class="spaced-list">
-            <li>Fører eller førers representant sender inn ankomstmelding for transporten i forbindelse med at transporten grensepasserer.</li>
+            <li>Fører eller førers representant sender inn
+            ankomstmelding for transporten i forbindelse med at
+            transporten grensepasserer.</li>
             <li>
-                Basert på at meldingen gir status = suksess, bør fører/førers representant hente innpasseringsstatusen for transporten. 
-                Her kan endepunktet entry/status/{mrn} benyttes. Se <a href="movement-arrival-api.html" target="_blank">API-dokumentasjon</a> 
+                Basert på at meldingen gir status = suksess, bør
+                fører/førers representant hente innpasseringsstatusen
+                for transporten.  Her kan
+                endepunktet <code>entry/status/{mrn}</code>
+                benyttes. Se <a href="movement-arrival-api.html"
+                target="_blank">API-dokumentasjonen</a>.
 
                 <ul class="spaced-list">
-                    <li>Dersom transporten får valid entry = true har varene fått overgang til valgt prosedyre og kan losses ved ankomst</li>
-                    <li>Dersom transporten får valid entry = false, må Tolletaten kontaktes før varene losses.</li>
+                    <li>Dersom transporten får valid entry = true har
+                    varene fått overgang til valgt prosedyre og kan
+                    losses ved ankomst</li>
+                    <li>Dersom transporten får valid entry = false, må
+                    Tolletaten kontaktes før varene losses.</li>
                 </ul>
             </li>
         </ul>
-        
+
     </div>
 </main>
 

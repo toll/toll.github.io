@@ -40,20 +40,19 @@
             </ol>
         </nav>
 
-        <h1 id="funkbesk">The solution for notification and disclosure includes an API for submitting arrival notifications for transport.</h1>
+        <h1 id="funkbesk">The solution for notification and disclosure includes an API for submitting arrival notifications for transport</h1>
 
         <h2>Background:</h2>
 
         <p>
-            Companies with a transport permit for unattended road border crossings needs a way to send an arrival notification when crossing 
-            into Norway at crossings where Norwegian Customs is not present. Norwegian Customs has published an API to support this, however, 
-            the use of this API is not limited to road transport with transport permits. It is designed so it can be used for all modes of transport. 
-            Still, it must not be used without <em>specific authorization</em> from Norwegian Customs 
-            <a 
-                href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider?requestedLang=en"
+            Companies with a transport permit for unattended road border crossings needs a way to send an arrival notification when crossing
+            into Norway at crossings where Norwegian Customs is not present. Norwegian Customs has published an API to support this, however,
+            the use of this API is not limited to road transport with transport permits. It is designed so it can be used for all modes of transport.
+            Still, it must not be used without <em>specific authorization</em> from Norwegian Customs
+            <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider?requestedLang=en"
                 target="_blank"
             >
-                (Transport authorization for unmanned border crossings - business - Norwegian Customs).
+                (Transport authorization for unmanned border crossings &ndash; business - Norwegian Customs).
             </a>
         </p>
 
@@ -61,22 +60,22 @@
 
         <p>Arrival messages follow a standard pattern:</p>
         <ul class="spaced-list">
-            <li>Create (POST) - The business creates an arrival message and receives a request-id</li>
-            <li>Retrieve response (GET) - The business retrieves the validation status of the arrival message using the request-id</li>
+            <li>Create (POST) &ndash; The business creates an arrival message and receives a request-id</li>
+            <li>Retrieve response (GET) &ndash; The business retrieves the validation status of the arrival message using the request-id</li>
         </ul>
 
         <p>
-            The arrival notification must include the MRN of the transport in question, as well as the time and customs office of arrival. 
-            See the <a href="movement-arrival-api.html" target="_blank">API documentation</a> 
+            The arrival notification must include the MRN of the transport in question, as well as the time and customs office of arrival.
+            See the <a href="movement-arrival-api.html" target="_blank">API documentation</a>.
         </p>
 
         <h2>Use case example:</h2>
         <ul class="spaced-list">
             <li>The driver or the driver's representative submits an arrival notification for the transport when the transport crosses the border.</li>
             <li>
-                If the message returns a status = success, the driver/representative should retrieve the entry status for the transport. 
-                The endpoint entry/status/{mrn} can be used for this. 
-                See the <a href="movement-arrival-api.html" target="_blank">API documentation</a> 
+                If the message returns a status = success, the driver/representative should retrieve the entry status for the transport.
+                The endpoint <code>entry/status/{mrn}</code> can be used for this.
+                See the <a href="movement-arrival-api.html" target="_blank">API documentation</a>.
 
                 <ul class="spaced-list">
                     <li>If the transport receives <strong>valid entry = true</strong>, the goods have been assigned to the selected procedure and may be unloaded upon arrival.</li>
@@ -84,7 +83,7 @@
                 </ul>
             </li>
         </ul>
-        
+
     </div>
 </main>
 
