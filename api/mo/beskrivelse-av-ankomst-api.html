@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <title>Beskrivelse av ankomst-API i MO</title>
+    <meta name="description" content="Beskrivelse av ankomst-API i MO">
+    <meta name="author" content="Tolletaten">
+    <link rel="stylesheet" href="../../style/api.css">
+    <link rel="icon" href="../../media/toll-logo/favicon.ico"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="shortcut icon" href="../../media/toll-logo/logo32.png" type="image/png"/>
+    <link rel="apple-touch-icon" href="../../media/toll-logo/logo152.png"/>
+    <link rel="apple-touch-icon-precomposed" href="../../media/toll-logo/logo152.png"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF"/>
+    <meta name="msapplication-TileImage" content="../../media/toll-logo/logo152.png"/>
+</head>
+<body>
+
+<header>
+    <a href="../../index.html">
+        <img src="../../media/toll-logo/logo-toll.svg" alt="Tolletaten" class="logo"/>
+    </a>
+
+    <a href="beskrivelse-av-koblings-api-EN.html" class="nav-language-button" role="navigation">
+        <div class="lang_nav">
+            <span>NO</span>
+            <img class="flag-rounded" src="../../media/flag/NO-flag.svg" alt="Bytt språk">
+        </div>
+    </a>
+</header>
+
+<main class="funksjonell-beskrivelse">
+    <div class="align-self-start" role="main">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../../index.html">Hjem</a></li>
+                <li class="breadcrumb-item"><a href="melde-og-opplysning.html">Melde og opplysning</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Beskrivelse av ankomst-API</li>
+            </ol>
+        </nav>
+
+        <h1 id="funkbesk">Løsningen for melde- og opplysning har API for å melde ankomst for transport</h1>
+
+        <h2>Bakgrunn:</h2>
+
+        <p>
+            Det er behov for å lage en funksjon som gjør det mulig å
+            sende en ankomstmelding for veitransport når virksomheten
+            har <em>transporttillatelse</em>
+            <a href="https://www.toll.no/no/bedrift/transport-og-tollager/transporttillatelse-for-passering-over-ubetjente-grenseoverganger-eller-utenom-apningstider"
+                target="_blank"
+            >
+                (Transporttillatelse for ubemannede grenseoverganger - bedrift &ndash; Tolletaten).
+            </a>
+             Disse transportene grensepasserer på overganger der
+             Tolletaten ikke er til stede.
+        </p>
+
+        <p>
+            Funksjonen er likevel ikke <em>begrenset</em> til
+            veitransporter med transporttillatelse.  Den er laget slik
+            at den kan brukes på alle transportmåter. Men den skal ikke
+            brukes uten avtale med Tolletaten.
+        </p>
+
+        <h2>Ankomst-API:</h2>
+
+        <p>Ankomstmeldinger følger standard mønster:</p>
+        <ul class="spaced-list">
+            <li>Opprette (POST) &ndash; Virksomhet oppretter en ankomstmelding og mottar en request-id</li>
+            <li>Hente respons (GET) &ndash; Virksomhet henter valideringsstatus for ankomstmelding ved hjelp av request-id</li>
+        </ul>
+
+        <p>
+            I ankomstmeldingen angis den aktuelle transportens MRN,
+            tidspunkt og tollsted for ankomst.
+            Se <a href="movement-arrival-api.html"
+            target="_blank">API-dokumentasjonen</a>.
+        </p>
+
+        <h2>Case-eksempel:</h2>
+        <ul class="spaced-list">
+            <li>Fører eller førers representant sender inn
+            ankomstmelding for transporten i forbindelse med at
+            transporten grensepasserer.</li>
+            <li>
+                Basert på at meldingen gir status = suksess, bør
+                fører/førers representant hente innpasseringsstatusen
+                for transporten.  Her kan
+                endepunktet <code>entry/status/{mrn}</code>
+                benyttes. Se <a href="movement-arrival-api.html"
+                target="_blank">API-dokumentasjonen</a>.
+
+                <ul class="spaced-list">
+                    <li>Dersom transporten får valid entry = true har
+                    varene fått overgang til valgt prosedyre og kan
+                    losses ved ankomst</li>
+                    <li>Dersom transporten får valid entry = false, må
+                    Tolletaten kontaktes før varene losses.</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+</main>
+
+<footer role="contentinfo">
+    <a href="https://www.toll.no/" class="footerLink">Tolletaten</a> 2026 |
+    <a href="https://www.toll.no/no/om-tolletaten/kontakt-oss/" class="footerLink">Kontakt oss</a>
+</footer>
+
+</body>
+</html>
