@@ -1,3 +1,5 @@
 /.idea/
 *.bak
 /toll.github.io.iml
+__pycache__/
+*.py[cod]

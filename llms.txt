@@ -1,0 +1,107 @@
+# Norwegian Customs API documentation
+
+> Official Norwegian Customs documentation for public data and API services, with guides in Norwegian and English.
+
+This is a generated map of the HTML documentation. API behavior, schemas, authentication requirements, and URLs should be verified against the linked pages.
+
+## Start here
+
+- [Tolletatens data- og API-dokumentasjon](https://toll.github.io/): Norwegian.
+- [Norwegian Customs' data- and API-documentation](https://toll.github.io/index-EN.html): English.
+
+## Document upload
+
+- [API for opplasting av dokumenter](https://toll.github.io/api/document/document-api.html): Norwegian.
+- [API for uploading documents](https://toll.github.io/api/document/document-api-EN.html): English.
+
+## ICS2 consignments
+
+- [API for fremlegging og kontrolldirigering av ICS2-forsendelser](https://toll.github.io/api/ics2/ics2-forsendelser.html): Norwegian.
+- [API for presentation of goods and control direction of ICS2 consignments](https://toll.github.io/api/ics2/ics2-forsendelser-EN.html): English.
+
+## Maskinporten integration
+
+- [Bestille sertifikat – norsk virksomhet – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/bestille-sertifikat-norsk.html): Norwegian.
+- [Order a certificate – Norwegian business – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/bestille-sertifikat-norsk-EN.html): English.
+- [Bestille sertifikat – utenlandsk virksomhet – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/bestille-sertifikat-utenlandsk.html): Norwegian.
+- [Order a certificate – foreign business – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/bestille-sertifikat-utenlandsk-EN.html): English.
+- [Bestille sertifikat – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/bestille-sertifikat.html): Norwegian.
+- [Order a certificate – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/bestille-sertifikat-EN.html): English.
+- [Hva er Maskinporten? – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/hva-er-maskinporten.html): Norwegian.
+- [What is Maskinporten? – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/hva-er-maskinporten-EN.html): English.
+- [Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/index-maskinporten-integration.html): Norwegian.
+- [Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/index-maskinporten-integration-EN.html): English.
+- [Maskinporten](https://toll.github.io/api/maskinporten/maskinporten.html): Norwegian.
+- [Maskinporten](https://toll.github.io/api/maskinporten/maskinporten-EN.html): English.
+- [Onboarding – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/onboarding.html): Norwegian.
+- [Onboarding – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/onboarding-EN.html): English.
+- [Teknisk integrasjon – Integrasjonsguide Maskinporten](https://toll.github.io/api/maskinporten/teknisk-integrasjon.html): Norwegian.
+- [Technical integration – Maskinporten Integration Guide](https://toll.github.io/api/maskinporten/teknisk-integrasjon-EN.html): English.
+
+## Notification and disclosure guides
+
+- [Oversikt over valideringsfeil for API i MO](https://toll.github.io/api/mo/asynkrone-valideringsfeil.html): Norwegian.
+- [Overview of validation errors for API in MO](https://toll.github.io/api/mo/asynkrone-valideringsfeil-EN.html): English.
+- [Beskrivelse av ankomst-API i MO](https://toll.github.io/api/mo/beskrivelse-av-ankomst-api.html): Norwegian.
+- [Description of Arrival API](https://toll.github.io/api/mo/beskrivelse-av-ankomst-api-EN.html): English.
+- [Beskrivelse av koblings-API i MO](https://toll.github.io/api/mo/beskrivelse-av-koblings-api.html): Norwegian.
+- [Description of Relation API](https://toll.github.io/api/mo/beskrivelse-av-koblings-api-EN.html): English.
+- [Beskrivelse av spørre-API i MO](https://toll.github.io/api/mo/beskrivelse-av-sporre-api.html): Norwegian.
+- [Description of Query API](https://toll.github.io/api/mo/beskrivelse-av-sporre-api-EN.html): English.
+- [Fremlegging og kontrolldirigering](https://toll.github.io/api/mo/fremlegging-og-kontrolldirigering.html): Norwegian.
+- [Presentation and Control Routing](https://toll.github.io/api/mo/fremlegging-og-kontrolldirigering-EN.html): English.
+- [Funksjonell beskrivelse av tjenesten](https://toll.github.io/api/mo/funksjonell-beskrivelse-av-tjenesten.html): Norwegian.
+- [Functional Description of the Service](https://toll.github.io/api/mo/funksjonell-beskrivelse-av-tjenesten-EN.html): English.
+- [API for melde- og opplysning, sjø fra SafeSeaNet (SSNN)](https://toll.github.io/api/mo/hvordan-fylle-ut-safeSeaNet.html): Norwegian.
+- [API for Notification and Information, Maritime from SafeSeaNet (SSNN)](https://toll.github.io/api/mo/hvordan-fylle-ut-safeSeaNet-EN.html): English.
+- [Hvordan sende inn ulike deklarsjonsmeldinger](https://toll.github.io/api/mo/hvordan-sende-inn-meldinger.html): Norwegian.
+- [How to Submit Various Declaration Messages](https://toll.github.io/api/mo/hvordan-sende-inn-meldinger-EN.html): English.
+- [Informasjon og meldinger - Kystverket](https://toll.github.io/api/mo/informasjon-og-meldinger-kystverket.html): Norwegian.
+- [Information and Messages](https://toll.github.io/api/mo/informasjon-og-meldinger-kystverket-EN.html): English.
+- [Informasjon og meldinger](https://toll.github.io/api/mo/informasjon-og-meldinger.html): Norwegian.
+- [Information and Messages](https://toll.github.io/api/mo/informasjon-og-meldinger-EN.html): English.
+- [Kobling, oppdatering og sletting av meldinger](https://toll.github.io/api/mo/kobling-oppdatering-og-sletting.html): Norwegian.
+- [Linking, Updating and Deleting Messages](https://toll.github.io/api/mo/kobling-oppdatering-og-sletting-EN.html): English.
+- [Melde og opplysning](https://toll.github.io/api/mo/melde-og-opplysning.html): Norwegian.
+- [Notification and Disclosure](https://toll.github.io/api/mo/melde-og-opplysning-EN.html): English.
+- [Aktuelle eksempler - melding om forsendelse (House Consignment)](https://toll.github.io/api/mo/mo-eksempler.html): Norwegian.
+- [Examples – Notification of House Consignment](https://toll.github.io/api/mo/mo-eksempler-EN.html): English.
+- [Kodeverk i API for melde og opplysning](https://toll.github.io/api/mo/mo-kodeverk.html): Norwegian.
+- [Code lists in the API for notification and information](https://toll.github.io/api/mo/mo-kodeverk-EN.html): English.
+- [Fremlegging og kontrolldirigering – forklart med eksempler](https://toll.github.io/api/mo/mo-vei-fly-forklaring.html): Norwegian.
+- [Presentation and control routing – by example](https://toll.github.io/api/mo/mo-vei-fly-forklaring-EN.html): English.
+- [API for melde- og opplysning, fly](https://toll.github.io/api/mo/prosedyre-mo-fly.html): Norwegian.
+- [API for reporting and information, air](https://toll.github.io/api/mo/prosedyre-mo-fly-EN.html): English.
+- [API for melde og opplysning, sjø, kystverket (SSNN)](https://toll.github.io/api/mo/prosedyre-mo-sjo-kystverket.html): Norwegian.
+- [API for Notification and Information, Maritime, Norwegian Coastal Administration (SSNN)](https://toll.github.io/api/mo/prosedyre-mo-sjo-kystverket-EN.html): English.
+- [API for melde- og opplysning, sjø](https://toll.github.io/api/mo/prosedyre-mo-sjo.html): Norwegian.
+- [API for reporting and information, maritime](https://toll.github.io/api/mo/prosedyre-mo-sjo-EN.html): English.
+- [API for melde- og opplysning, tog](https://toll.github.io/api/mo/prosedyre-mo-tog.html): Norwegian.
+- [API for reporting and information, rail](https://toll.github.io/api/mo/prosedyre-mo-tog-EN.html): English.
+- [API for melde- og opplysning, kjøretøy på vei/ferge - versjon 2](https://toll.github.io/api/mo/prosedyre-mo-vei-ferge.html): Norwegian.
+- [API for reporting and information, vehicles on road/ferry - version 2](https://toll.github.io/api/mo/prosedyre-mo-vei-ferge-EN.html): English.
+- [Sentrale dataelementer og meldinger](https://toll.github.io/api/mo/sentrale-dataelementer-og-meldinger-ssnn.html): Norwegian.
+- [Central Data Elements and Messages](https://toll.github.io/api/mo/sentrale-dataelementer-og-meldinger-ssnn-EN.html): English.
+- [Informasjonsmodeller - Sentrale dataelementer og meldinger](https://toll.github.io/api/mo/sentrale-dataelementer.html): Norwegian.
+- [Information Models - Central Data Elements and Messages](https://toll.github.io/api/mo/sentrale-dataelementer-EN.html): English.
+- [Oversikt over valideringsfeil for API i Melding/opplysning](https://toll.github.io/api/mo/synkrone-valideringsfeil.html): Norwegian.
+- [Overview of Validation Errors for API in MO](https://toll.github.io/api/mo/synkrone-valideringsfeil-EN.html): English.
+- [Oversikt over valideringsfeil for API i MO](https://toll.github.io/api/mo/ufullstendig-dokumentasjon.html): Norwegian.
+- [Overview of validation errors for API in MO](https://toll.github.io/api/mo/ufullstendig-dokumentasjon-EN.html): English.
+
+## API references
+
+- [document-api](https://toll.github.io/api/document/document-api-link.html): English.
+- [Maritime SSNN api](https://toll.github.io/api/mo/maritime-ssnn-api.html): English.
+- [Maritime SSNN status api](https://toll.github.io/api/mo/maritime-ssnn-status-api.html): English.
+- [movement-air-api](https://toll.github.io/api/mo/movement-air-api.html): English.
+- [movement-air-query-api](https://toll.github.io/api/mo/movement-air-query-api.html): English.
+- [movement-arrival-api](https://toll.github.io/api/mo/movement-arrival-api.html): English.
+- [movement-maritime-api](https://toll.github.io/api/mo/movement-maritime-api.html): English.
+- [movement-maritime-query-api](https://toll.github.io/api/mo/movement-maritime-query-api.html): English.
+- [movement/presentation](https://toll.github.io/api/mo/movement-presentation-api.html): English.
+- [movement-rail-api](https://toll.github.io/api/mo/movement-rail-api.html): English.
+- [movement-rail-query-api](https://toll.github.io/api/mo/movement-rail-query-api.html): English.
+- [movement-road-api versjon 2](https://toll.github.io/api/mo/movement-road-api-v2.html): English.
+- [movement-road-query-api v.2](https://toll.github.io/api/mo/movement-road-query-api-v2.html): English.
+- [movement/routing](https://toll.github.io/api/mo/movement-routing-api.html): English.
