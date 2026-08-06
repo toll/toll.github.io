@@ -47,8 +47,8 @@
         </p>
 
         <p>
-            Tjenesten tilbyr en serie av hendelser, hvor én hendelse omhandler én varelinje med tilhørende deklarasjonsinfo.
-            Derfor kan konsumenter finne igjen mange liknende deklarasjonsdata på tvers av hendelser.
+            Tjenesten tilbyr en serie av hendelser, hvor én hendelse omhandler én varelinje med tilhørende informasjon fra deklarasjonen.
+            For en deklarasjon med flere varelinjer vil derfor samme deklarasjonsinformasjon gjentas i hver hendelse som gjelder varelinjene for denne deklarasjonen.
             Hendelser publiseres når etatens behandling er ferdig (typisk når varen er frigitt, men også når omberegninger/endringer er ferdigbehandlet), ikke underveis i behandlingen, dog ikke i sanntid.
             Det er også viktig å merke seg at tjenesten ikke omfatter
             <ul class="spaced-list">
@@ -91,7 +91,8 @@
         </p>
 
         <p>
-            Det er ditt ansvar som konsument å definere, hjemle og følge opp hvor gamle data du sitter på &mdash; Tolletaten vil ikke sende slettemeldinger på gamle data, siden konsumentenes hjemler kan være ulike.
+            Det er ditt ansvar som konsument å definere, hjemle og følge opp hvor gamle data du sitter på.
+            Tolletaten vil ikke sende slettemeldinger på gamle data, siden konsumentenes hjemler kan være ulike.
         </p>
 
         <h2>Utvalgsbegrensninger per konsument</h2>
@@ -167,14 +168,29 @@
         </p>
 
         <p>
-            <!-- Todo. Fortell. Hendelsesbasert. ITEM_ADDED, ITEM_REMOVED, in i scope / ut av scope, -->
             Se detaljert <strong><a href="declaration-item-feed-v1.html">API-dokumentasjon her</a></strong>.
         </p>
 
         <h2>JSON-schema</h2>
 
         <!--  Beskriv det eksterne jsonschema. Både meldingen i seg selv og også data-elementet. Referere til MO-kodeverk? -->
-        <p><i>Kommer senere her.</i></p>
+        <p>
+            Kort forklart vil en hendelse bestå av en konvoluttdel og en datadel.
+            Konvolutt-delen vil inneholde metainformasjon om hendelsen med bl.a. en hendelses-ID og et tidspunkt for når hendelsen ble opprettet.
+            Data-delen vil inneholde informasjon om den aktuelle varelinjen med tilhørende deklarasjonsinformasjon, hvor feltnavnene skal være på tilnærmet EUCDM-format.
+        </p>
+
+        <pre class="boxed-display"><code>{
+  &quot;metadata&quot;: {
+    &quot;eventId&quot;: &quot;aec5b761-fa41-456a-97c0-950800aab20e&quot;,
+    &quot;created&quot;: &quot;2026-01-19T17:29:10Z&quot;,
+    &quot;eventType&quot;: &quot;ITEM_ADDED&quot;
+  },
+  &quot;data&quot;: {
+  }
+}</code></pre>
+
+        <p><i>Lenke til schemaet kommer senere her.</i></p>
 
         <h2>Hendelsestype (eventType)</h2>
 
@@ -182,8 +198,11 @@
             Som klient må du anta at det kan tilkomme nye hendelser på en deklarasjon over tid.
             
             <ol class="spaced-list">
-                <li><code>ITEM_REMOVED</code> benyttes for varelinjer som er fjernet fra deklarasjon (eller fra ditt scope som klient), de kommer også før ITEM_ADDED for endrede varelinjer – disse inneholder hendelses-ID for varelinjen som er endret/fjernet, det forventes at du som klient har oppbevart ID</li>
-                <li><code>ITEM_ADDED</code> benyttes for nye og endrede varelinjer</li>
+                <li>
+                    <code>ITEM_REMOVED</code> benyttes for varelinjer som er fjernet fra deklarasjon (eller fra ditt scope som klient), de kommer også før ITEM_ADDED for endrede varelinjer.
+                    Denne hendelsen inneholder kun konvoluttdelen, med en hendelses-ID for varelinjen som er endret/fjernet, det forventes at du som klient har oppbevart ID.
+                </li>
+                <li><code>ITEM_ADDED</code> benyttes for nye og endrede varelinjer, og inneholder naturlig nok både konvolutt- og datadelen fordi innholdet er ny informasjon.</li>
             </ol>
         </p>
 
@@ -204,9 +223,9 @@
                     </p>
                 </li>
                 <li>
-                     <code>timestamp=YYYYMMDDTHHmmssZ</code>  Denne kan brukes i stedet for foregående dersom ID ikke er kjent, og angir tidsstempel for publisering, forekomster med tidsstempel >= denne verdien vil komme med i resultatet. 
-                     Merk:
-                     <p>
+                        <code>timestamp=YYYYMMDDTHHmmssZ</code>  Denne kan brukes i stedet for foregående dersom ID ikke er kjent, og angir tidsstempel for publisering, forekomster med tidsstempel >= denne verdien vil komme med i resultatet. 
+                        Merk:
+                        <p>
                         <ul class="spaced-list">
                             <li>avhengig av parameterverdi kan man risikere overlapp eller hull i forhold til tidligere kall</li>
                             <li>som nevnt er det en "aldersgrense" på eldste forekomst, det er altså ingen garanti for at det faktisk finnes data like gammel som gitt parameter</li>
@@ -223,11 +242,11 @@
         <p>
             <code>200 OK</code> &mdash; kallet er OK – dog kan det hende at datasettet som returneres er tomt, det kan skje dersom parametere er OK, 
             men det ikke finnes nye data iht inngitte parametere; merk også at det kan være flere data tilgjengelige enn det som er returnert i dette kallet, 
-            dersom antall hendelser er lik maksgrensen (enten gitt av tjenesten eller av parameter max) bør tjenesten kalles på nytt for å hente neste bolk, 
+            dersom antall hendelser er lik maksgrensen (enten gitt av tjenesten eller av parameter <code>max</code>) bør tjenesten kalles på nytt for å hente neste bolk, 
             dette signaleres altså ikke via returstatus
         </p>
         <p><code>401 Unauthorized</code> &mdash; benyttes dersom klienten ikke er autentisert riktig, dvs enten ikke har autentisert seg via Maskinporten, eller ikke har avtaler for å få utlevert data på denne tjenesten</p>
-        <p><code>404 Not found</code> &mdash; dersom en ukjent ID er angitt som parameter last</p>
+        <p><code>404 Not found</code> &mdash; dersom en ukjent ID er angitt som parameter <code>last</code></p>
 
         <h1 id="autentisering">Autentisering</h1>
 
@@ -248,11 +267,6 @@
         <p>
             Scopet som benyttes for dette API-et er <b>TBD</b>.
         </p>
-
-        <p>
-            <!-- Fortell også at Toll tillater kun at begrensede parter får tilgang til scopet (eller er det implisitt av Maskinporten?)? -->
-        </p>
-        
 
 </main>
 
