@@ -2163,6 +2163,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
+                        <p>Export and transit are the previous procedure and must be completed at the border crossing.</p>
+                    </td>
+                    <td>
+                        <p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
                         <p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                 </tr>
@@ -2172,12 +2176,16 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 19</th>
                     <th>Variant 20</th>
                     <th>Variant 21</th>
+                    <th>Variant 22</th>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
@@ -2204,6 +2212,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
                     </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
@@ -2219,6 +2230,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>EXP</p>
                     </td>
                     <td>
+                        <p>TRE</p>
+                    </td>
+                    <td>
                         <p>TRA</p>
                     </td>
                 </tr>
@@ -2231,6 +2245,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
                     </td>
                     <td>
                         <p>true</p>
@@ -2253,6 +2270,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
@@ -2266,6 +2286,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>-</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
                         <p>&lt;must have value&gt;</p>
@@ -2287,6 +2310,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>must be = N820</p>
                     </td>
+                    <td>
+                        <p>må være = N820</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
@@ -2299,6 +2325,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2317,6 +2346,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
@@ -2332,6 +2364,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-green);'>
@@ -2339,7 +2374,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><strong>-</strong></p>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -2356,7 +2394,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
                         <p>&lt;must have value&gt;</p>
@@ -2373,7 +2414,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
+                    </td>
+                    <td>
+                        <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
                     </td>
                     <td>
                         <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
@@ -2393,9 +2437,15 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                             <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
                         </p>
                     </td>
-                    <td style='background:#D5DCE4;'></td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
