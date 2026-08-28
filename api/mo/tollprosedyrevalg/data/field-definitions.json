@@ -1,0 +1,88 @@
+{
+  "groups": [
+    {
+      "key": "importProcedure",
+      "label": "importProcedure",
+      "color": "procedure-blue",
+      "headerNoteType": "constant",
+      "rows": [
+        {
+          "key": "importProcedure",
+          "label": "importProcedure",
+          "valueType": "rawCode",
+          "kodeverk": [{ "anchor": "importprocedure", "defaultText": "ImportProcedure" }]
+        },
+        {
+          "key": "outgoingProcedure",
+          "label": "outgoingProcedure",
+          "valueType": "rawCode",
+          "kodeverk": [{ "anchor": "outgoingprocedure", "defaultText": "OutgoingProcedure" }]
+        },
+        {
+          "key": "hasOutgoingProcedure",
+          "label": "hasOutgoingProcedure",
+          "valueType": "rawBoolean",
+          "kodeverk": []
+        }
+      ]
+    },
+    {
+      "key": "previousDocuments",
+      "label": "previousDocuments",
+      "color": "procedure-red",
+      "headerNoteType": "enum:previousDocsHeaderNote",
+      "rows": [
+        { "key": "referenceNumber", "label": "referenceNumber", "valueType": "requiredFlag", "kodeverk": [] },
+        {
+          "key": "typeOfReference",
+          "label": "typeOfReference",
+          "valueType": "codeOrNone",
+          "template": "typeOfReferenceTemplate",
+          "kodeverk": [
+            { "anchor": "cl228", "defaultText": "CL228" },
+            { "anchor": "additionalpreviousdocumenttype", "defaultText": "AdditionalPreviousDocumentType" }
+          ]
+        },
+        { "key": "declarantNumber", "label": "declarantNumber", "valueType": "requiredFlag", "kodeverk": [] },
+        { "key": "declarationDate", "label": "declarationDate", "valueType": "requiredFlag", "kodeverk": [] },
+        { "key": "sequenceNumber", "label": "sequenceNumber", "valueType": "requiredFlag", "kodeverk": [] }
+      ]
+    },
+    {
+      "key": "exportFromEU",
+      "label": "exportFromEU",
+      "color": "procedure-green",
+      "headerNoteType": "enum:exportHeaderNote",
+      "rows": [
+        { "key": "exportId", "label": "exportId", "valueType": "requiredFlag", "kodeverk": [] },
+        {
+          "key": "typeOfExport",
+          "label": "typeOfExport",
+          "valueType": "codeListOrNone",
+          "template": "typeOfExportTemplate",
+          "kodeverk": [
+            {
+              "anchor": "tb_eksporttype",
+              "defaultText": "TB_Eksporttype",
+              "localeText": { "nb": "TB_Eksporttype", "en": "TB_ExportType" }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "validationMessages",
+      "label": null,
+      "labelFrom": "validationMessagesIntro",
+      "color": "validation-grey",
+      "isMultiValue": true,
+      "rows": [
+        {
+          "key": "incompleteDocumentationReason",
+          "label": null,
+          "kodeverk": [{ "anchor": "incompletedocumentationreason", "defaultText": "IncompleteDocumentationReason" }]
+        }
+      ]
+    }
+  ]
+}

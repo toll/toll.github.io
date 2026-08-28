@@ -1,0 +1,61 @@
+{
+  "code": "nb",
+  "hrefSuffix": "",
+  "ui": {
+    "fieldColumnHeader": "Felt",
+    "codeListColumnHeader": "Kodeverk",
+    "descriptionHeader": "Beskrivelse av tollprosedyre og prosedyre fram til grensen",
+    "importProcedureHeaderNote": "må fylles ut",
+    "validationMessagesIntro": "Mulige valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da at den manglende informasjonen er innlevert senest ved ankomst til grensen."
+  },
+  "templates": {
+    "requiredPlaceholder": "<må ha verdi>",
+    "notApplicable": "-",
+    "typeOfReferenceTemplate": "må være = {code}",
+    "typeOfExportTemplate": "må være en av [{codes}]",
+    "previousDocsHeaderNote": {
+      "NONE": "-",
+      "ONE_OF": "liste må ha ett innslag av type:",
+      "AND_ONE_OF": "OG liste må ha ett innslag av type:"
+    },
+    "exportHeaderNote": {
+      "NONE": "-",
+      "AT_LEAST_ONE_OF": "liste må ha MINST ett innslag av type:"
+    }
+  },
+  "variantDescriptions": {
+    "1": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "2": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "3": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "4": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "19": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "20": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "21": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "22": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ]
+  },
+  "kodeverkTextOverrides": {}
+}

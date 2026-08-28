@@ -1,0 +1,45 @@
+{
+  "code": "en",
+  "hrefSuffix": "-EN",
+  "ui": {
+    "fieldColumnHeader": "Field",
+    "codeListColumnHeader": "Code list",
+    "descriptionHeader": "Description of customs procedure and procedure up to the border",
+    "importProcedureHeaderNote": "must be filled out",
+    "validationMessagesIntro": "Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border."
+  },
+  "templates": {
+    "requiredPlaceholder": "<must have value>",
+    "notApplicable": "-",
+    "typeOfReferenceTemplate": "must be = {code}",
+    "typeOfExportTemplate": "must be one of [{codes}]",
+    "previousDocsHeaderNote": {
+      "NONE": "-",
+      "ONE_OF": "list must have one entry of type:",
+      "AND_ONE_OF": "AND list must have one entry of type:"
+    },
+    "exportHeaderNote": {
+      "NONE": "-",
+      "AT_LEAST_ONE_OF": "list must have AT LEAST one entry of type:"
+    }
+  },
+  "variantDescriptions": {
+    "1": [
+      "A declaration for release for free circulation has been submitted in advance.",
+      "Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)"
+    ],
+    "2": [
+      "A declaration for release for free circulation has been submitted in advance.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing"
+    ],
+    "3": [
+      "A declaration for release for free circulation has been submitted in advance.",
+      "Export and transit are the previous procedures and must be completed at the border crossing."
+    ],
+    "4": [
+      "A declaration for release for free circulation has been submitted in advance.",
+      "Transit is the previous procedure and must be completed at the border crossing."
+    ]
+  },
+  "kodeverkTextOverrides": {}
+}
