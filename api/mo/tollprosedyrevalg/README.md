@@ -77,6 +77,41 @@ each field's value:
   array of codes is a *shared* list in one cell; a nested array (array of
   arrays) is a *per-sub-column* list.
 
+## Group applicability (fields that only exist for some variants)
+
+Some field groups only apply to a subset of variants — e.g. `goodsItem`
+(VOEC-specific fields: `value`, `numberOfItems`, `harmonizedSystemSubheadingCode`,
+`vatIdentificationNumber`) only applies to variants 7–10. A group is
+considered to apply to a variant if that variant's `values` defines at
+least one of the group's real fields. Where it doesn't apply, the group's
+header and any of its fields render as `-` automatically — you don't need
+to add placeholder values to every other variant.
+
+A row can also be `"kind": "subheader"` instead of having a `valueType`:
+it's a bold in-group caption (used by `goodsItem` for its nested
+sub-sections) rather than a real per-variant value. It shows the same
+"must be filled out" label as the group's own header, or `-` if the group
+doesn't apply to that variant.
+
+## Description paragraphs with links or classes
+
+A `variantDescriptions` entry is usually an array of plain strings
+(rendered as `<p>text</p>`). Where the source has a styled or linked
+paragraph (e.g. the "Digitoll med godsnummer" transitional notice in
+variants 23–26), use an object instead:
+
+```json
+{ "class": "link-color", "html": "Overgangsordning fram til 01.03.2027, se <a href=\"...\">Digitoll med godsnummer - Tolletaten</a>" }
+```
+
+## Current variant/language coverage
+
+All 33 variants (1–33) are defined in `variants.json` with canonical
+values. `variantDescriptions` in `nb.json` covers all 33; `en.json`
+currently only covers 1–4 (the only ones translated so far) — requesting
+`--lang en` for any other variant fails with a clear error rather than
+guessing a translation.
+
 ## Adding a new field/row
 
 1. Add it to the relevant group in `field-definitions.json` — key, label,

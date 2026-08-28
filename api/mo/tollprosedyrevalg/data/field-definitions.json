@@ -71,6 +71,21 @@
       ]
     },
     {
+      "key": "goodsItem",
+      "label": "goodsItem",
+      "color": "procedure-yellow",
+      "headerNoteType": "constant",
+      "rows": [
+        { "key": "itemAmountInvoicedVOEC", "label": "itemAmountInvoicedVOEC", "kind": "subheader" },
+        { "key": "value", "label": "value", "valueType": "requiredFlag", "kodeverk": [] },
+        { "key": "numberOfItems", "label": "numberOfItems", "valueType": "requiredFlag", "kodeverk": [] },
+        { "key": "commodityCodeVOEC", "label": "commodityCodeVOEC", "kind": "subheader" },
+        { "key": "harmonizedSystemSubheadingCode", "label": "harmonizedSystemSubheadingCode", "valueType": "requiredFlag", "kodeverk": [] },
+        { "key": "additionalFiscalReferences", "label": "additionalFiscalReferences", "kind": "subheader" },
+        { "key": "vatIdentificationNumber", "label": "vatIdentificationNumber", "valueType": "requiredFlag", "kodeverk": [] }
+      ]
+    },
+    {
       "key": "validationMessages",
       "label": null,
       "labelFrom": "validationMessagesIntro",

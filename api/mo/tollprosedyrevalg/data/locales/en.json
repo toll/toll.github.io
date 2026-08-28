@@ -5,7 +5,7 @@
     "fieldColumnHeader": "Field",
     "codeListColumnHeader": "Code list",
     "descriptionHeader": "Description of customs procedure and procedure up to the border",
-    "importProcedureHeaderNote": "must be filled out",
+    "mustFillOutLabel": "must be filled out",
     "validationMessagesIntro": "Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border."
   },
   "templates": {
