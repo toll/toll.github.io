@@ -39,6 +39,123 @@
     "4": [
       "A declaration for release for free circulation has been submitted in advance.",
       "Transit is the previous procedure and must be completed at the border crossing."
+    ],
+    "5": [
+      "Transit has started in another country. Completion of the transit must be performed upon unloading. At the border crossing, only the border crossing should be registered in NCTS"
+    ],
+    "6": [
+      "Transit should start at the border.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing"
+    ],
+    "7": [
+      "VOEC shipments.",
+      "Another customs authority has cleared the previous procedure, or the value is below the threshold for export requirements."
+    ],
+    "8": [
+      "VOEC shipments.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing."
+    ],
+    "9": [
+      "VOEC shipments.",
+      "Export and transit are the previous procedures and must be completed at the border crossing."
+    ],
+    "10": [
+      "VOEC shipments.",
+      "VOEC shipment arriving with transit that must be completed at the border."
+    ],
+    "11": [
+      "A declaration for warehouse entry has been submitted in advance.",
+      "Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)"
+    ],
+    "12": [
+      "A declaration for warehouse entry has been submitted in advance.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing"
+    ],
+    "13": [
+      "A declaration for warehouse entry has been submitted in advance.",
+      "Export and transit are the previous procedures and must be completed at the border crossing."
+    ],
+    "14": [
+      "A declaration for warehouse entry has been submitted in advance.",
+      "Transit is the previous procedure and must be completed at the border crossing."
+    ],
+    "15": [
+      "Shipment to be collectively cleared after border crossing.",
+      "Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)"
+    ],
+    "16": [
+      "Shipment to be collectively cleared after border crossing.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing"
+    ],
+    "17": [
+      "Shipment to be collectively cleared after border crossing.",
+      "Export and transit are the previous procedures and must be completed at the border crossing."
+    ],
+    "18": [
+      "Shipment to be collectively cleared after border crossing.",
+      "Transit is the previous procedure and must be completed at the border crossing."
+    ],
+    "19": [
+      "Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic Regulations.",
+      "Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)"
+    ],
+    "20": [
+      "Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic Regulations.",
+      "EU/Swedish export is the previous procedure and must be cleared at the border crossing"
+    ],
+    "23": [
+      "Shipment to be goods registered at the border crossing.",
+      {
+        "class": "link-color",
+        "html": "Transitional arrangement until 01.03.2027, see <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll with goods number - Norwegian Customs</a> (in Norwegian)"
+      }
+    ],
+    "24": [
+      "Shipment to be goods registered at the border crossing.",
+      {
+        "class": "link-color",
+        "html": "Transitional arrangement until 01.03.2027, see <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll with goods number - Norwegian Customs</a> (in Norwegian)"
+      },
+      "Export is the previous procedure and must be cleared at the border crossing."
+    ],
+    "25": [
+      "Shipment to be goods registered at the border crossing.",
+      {
+        "class": "link-color",
+        "html": "Transitional arrangement until 01.03.2027, see <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll with goods number - Norwegian Customs</a>"
+      },
+      "Transit and EU export are the previous procedures and must be completed at the border crossing."
+    ],
+    "26": [
+      "Shipment to be goods registered at the border crossing.",
+      {
+        "class": "link-color",
+        "html": "Transitional arrangement until 01.03.2027, see <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll with goods number - Norwegian Customs</a>"
+      },
+      "Transit is the previous procedure and must be completed at the border crossing."
+    ],
+    "27": ["ATA-Carnet"],
+    "28": ["TIR-Carnet"],
+    "29": ["NATO Formular 302"],
+    "30": [
+      "Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse",
+      "(Measure 7)",
+      "No preceding procedure"
+    ],
+    "31": [
+      "Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse",
+      "(Measure 7)",
+      "Export is the preceding procedure and shall be cleared at border crossing."
+    ],
+    "32": [
+      "Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse",
+      "(Measure 7)",
+      "Transit is the preceding procedure and shall be concluded at border crossing."
+    ],
+    "33": [
+      "Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse",
+      "(Measure 7)",
+      "Transit and export are preceding procedures and shall be concluded at border crossing."
     ]
   },
   "kodeverkTextOverrides": {}
