@@ -1,0 +1,171 @@
+{
+  "code": "nb",
+  "hrefSuffix": "",
+  "ui": {
+    "fieldColumnHeader": "Felt",
+    "codeListColumnHeader": "Kodeverk",
+    "descriptionHeader": "Beskrivelse av tollprosedyre og prosedyre fram til grensen",
+    "mustFillOutLabel": "må fylles ut",
+    "validationMessagesIntro": "Mulige valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da at den manglende informasjonen er innlevert senest ved ankomst til grensen."
+  },
+  "templates": {
+    "requiredPlaceholder": "&lt;må ha verdi&gt;",
+    "notApplicable": "-",
+    "typeOfReferenceTemplate": "må være = {code}",
+    "typeOfExportTemplate": "må være en av [{codes}]",
+    "previousDocsHeaderNote": {
+      "NONE": "-",
+      "ONE_OF": "liste må ha ett innslag av type:",
+      "AND_ONE_OF": "OG liste må ha ett innslag av type:"
+    },
+    "exportHeaderNote": {
+      "NONE": "-",
+      "AT_LEAST_ONE_OF": "liste må ha MINST ett innslag av type:"
+    }
+  },
+  "variantDescriptions": {
+    "1": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "2": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "3": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "4": [
+      "Det er på forhånd levert deklarasjon for overgang til fri disponering.",
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "5": [
+      "Transittering er startet opp i annet land. Fullføring av transitteringen skal utføres ved lossing.",
+      "Ved grensepassering skal det kun registreres grensepassering i NCTS"
+    ],
+    "6": [
+      "Transittering skal startes opp på grensen.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "7": [
+      "VOEC-forsendelser.",
+      "Annen tollmyndighet har klarert foregående prosedyre, eller verdi under verdigrensen for krav om eksport."
+    ],
+    "8": [
+      "VOEC-forsendelse.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "9": [
+      "VOEC-forsendelse.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "10": [
+      "VOEC-forsendelse.",
+      "VOEC-forsendelse som kommer med transittering som skal fullføres på grensen"
+    ],
+    "11": [
+      "Det er på forhånd levert deklarasjon for innlegg på tollager.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "12": [
+      "Det er på forhånd levert deklarasjon for innlegg på tollager.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "13": [
+      "Det er på forhånd levert deklarasjon for innlegg på tollager.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "14": [
+      "Det er på forhånd levert deklarasjon for innlegg på tollager.",
+      "ETransittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "15": [
+      "Forsendelse som skal samlefortolles etter grensepassering.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "16": [
+      "Forsendelse som skal samlefortolles etter grensepassering.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "17": [
+      "Forsendelse som skal samlefortolles etter grensepassering.",
+      "Eksport og transittering er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "18": [
+      "Forsendelse som skal samlefortolles etter grensepassering.",
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "19": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Annen tollmyndighet har klarert foregående prosedyre (f.eks. dansk toll før ferge til Larvik)"
+    ],
+    "20": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "EU/svensk-eksport er foregående prosedyre og skal klareres ved grensepassering"
+    ],
+    "21": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Eksport og transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "22": [
+      "Forsendelse som ikke har deklarasjonsplikt etter § 4-1-25/29 i vareførselsforskriften.",
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "23": [
+      "Forsendelse som skal godsregistreres ved grensepassering.",
+      {
+        "class": "link-color",
+        "html": "Overgangsordning fram til 01.03.2027, se <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll med godsnummer - Tolletaten</a>"
+      }
+    ],
+    "24": [
+      "Forsendelse som skal godsregistreres ved grensepassering.",
+      {
+        "class": "link-color",
+        "html": "Overgangsordning fram til 01.03.2027, se <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll med godsnummer - Tolletaten</a>"
+      },
+      "Eksport er foregående prosedyre og skal klareres ved grensepassering."
+    ],
+    "25": [
+      "Forsendelse som skal godsregistreres ved grensepassering.",
+      {
+        "class": "link-color",
+        "html": "Overgangsordning fram til 01.03.2027, se <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll med godsnummer - Tolletaten</a>"
+      },
+      "Transittering og EU-eksport er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "26": [
+      "Forsendelse som skal godsregistreres ved grensepassering.",
+      {
+        "class": "link-color",
+        "html": "Overgangsordning fram til 01.03.2027, se <a href=\"https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer\">Digitoll med godsnummer - Tolletaten</a>"
+      },
+      "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
+    ],
+    "27": ["ATA-Carnet"],
+    "28": ["TIR-Carnet"],
+    "29": ["NATO Formular 302"],
+    "30": [
+      "Forsendelse med referanse til Tvinn-deklarasjon. Kan brukes uavhengig av om deklarasjonen er overgang til fri disposisjon eller innlegg på tollager",
+      "(Tiltak 7)",
+      "Ingen forutgående prosedyre"
+    ],
+    "31": [
+      "Forsendelse med referanse til Tvinn-deklarasjon. Kan brukes uavhengig av om deklarasjonen er overgang til fri disposisjon eller innlegg på tollager",
+      "(Tiltak 7)",
+      "Eksport er foregående prosedyre og skal klareres ved grensepassering."
+    ],
+    "32": [
+      "Forsendelse med referanse til Tvinn-deklarasjon. Kan brukes uavhengig av om deklarasjonen er overgang til fri disposisjon eller innlegg på tollager",
+      "(Tiltak 7)",
+      "Transittering er foregående prosedyre og skal avsluttes ved grensepassering."
+    ],
+    "33": [
+      "Forsendelse med referanse til Tvinn-deklarasjon. Kan brukes uavhengig av om deklarasjonen er overgang til fri disposisjon eller innlegg på tollager",
+      "(Tiltak 7)",
+      "Transittering og eksport er foregående prosedyre og skal avsluttes ved grensepassering."
+    ]
+  },
+  "kodeverkTextOverrides": {}
+}
