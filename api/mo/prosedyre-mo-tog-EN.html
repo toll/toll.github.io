@@ -117,8 +117,29 @@ GET https://&lt;env&gt;/api/movement/rail/status/v1/house-consignment/validation
     <br/>
     <br/>
 
+    <div class="content-box">
+        <h2>Import procedure</h2>
+        <nav>
+            <ul class="spaced-list">
+                <li><a href="#immediate-release-import">IMMEDIATE_RELEASE_IMPORT</a></li>
+                <li><a href="#transit">TRANSIT_IMPORT</a></li>
+                <li><a href="#transit">TRANSIT_RELEASE</a></li>
+                <li><a href="#immediate-release-voec">IMMEDIATE_RELEASE_VOEC</a></li>
+                <li><a href="#warehouse-release">WAREHOUSE_RELEASE</a></li>
+                <li><a href="#collective-release">COLLECTIVE_RELEASE</a></li>
+                <li><a href="#documents-not-obliged-release">DOCUMENTS_NOT_OBLIGED_RELEASE</a></li>
+                <li><a href="#ata-carnet-tir-carnet">ATA_CARNET</a></li>
+                <li><a href="#ata-carnet-tir-carnet">TIR_CARNET</a></li>
+                <li><a href="#customs-declaration">CUSTOMS_DECLARATION</a></li>
+            </ul>
+        </nav>
+    </div>
+        
+    <br/>
+    <br/>
+
     <div class="table-responsive-container">
-        <h3>IMMEDIATE_RELEASE_IMPORT (Transition to free circulation at border crossing)</h3>
+        <h3 id="immediate-release-import">IMMEDIATE_RELEASE_IMPORT (Transition to free circulation at border crossing)</h3>
 
 <!--
 #     # ######  ### 
@@ -367,7 +388,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>
+        <h3 id="transit">
             TRANSIT_IMPORT / TRANSIT_RELEASE
             <br/>
             (Transit to be completed at unloading/transit to be started at the border)
@@ -553,7 +574,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>IMMEDIATE_RELEASE_VOEC (VOEC shipments released at border crossing)</h3>
+        <h3 id="immediate-release-voec">IMMEDIATE_RELEASE_VOEC (VOEC shipments released at border crossing)</h3>
 
 <!--
 #     # ######  ### 
@@ -894,7 +915,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>WAREHOUSE_RELEASE (Entry into customs warehouse and goods that are driven directly)</h3>
+        <h3 id="warehouse-release">WAREHOUSE_RELEASE (Entry into customs warehouse and goods that are driven directly)</h3>
         <h3>
             Note: This code is to be used <em>before</em> a border
             crossing customs warehouse entry declaration has been
@@ -1084,7 +1105,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>COLLECTIVE_RELEASE (Goods to be cleared collectively)</h3>
+        <h3 id="collective-release">COLLECTIVE_RELEASE (Goods to be cleared collectively)</h3>
 
 <!--
 #     # ######  ### 
@@ -1267,7 +1288,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h4>DOCUMENTS_NOT_OBLIGED_RELEASE</h4>
+        <h3 id="documents-not-obliged-release">DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
 
 <!--
 #     # ######  ### 
@@ -1451,7 +1472,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>ATA_CARNET / TIR_CARNET</h3>
+        <h3 id="ata-carnet-tir-carnet">ATA_CARNET / TIR_CARNET</h3>
 
 <!--
 #     # ######  ### 
@@ -1679,7 +1700,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>CUSTOMS_DECLARATION (Customs Declaration)</h3>
+        <h3 id="customs-declaration">CUSTOMS_DECLARATION (Customs Declaration)</h3>
 
 <!--
 #     # ######  ### 
