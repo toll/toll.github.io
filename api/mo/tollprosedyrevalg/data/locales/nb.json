@@ -9,7 +9,7 @@
     "validationMessagesIntro": "Mulige valideringsmeldinger dersom informasjonen ikke er komplett. Vi forutsetter da at den manglende informasjonen er innlevert senest ved ankomst til grensen."
   },
   "templates": {
-    "requiredPlaceholder": "<må ha verdi>",
+    "requiredPlaceholder": "&lt;må ha verdi&gt;",
     "notApplicable": "-",
     "typeOfReferenceTemplate": "må være = {code}",
     "typeOfExportTemplate": "må være en av [{codes}]",
@@ -41,7 +41,8 @@
       "Transittering er foregående prosedyre og skal fullføres ved grensepassering."
     ],
     "5": [
-      "Transittering er startet opp i annet land. Fullføring av transitteringen skal utføres ved lossing. Ved grensepassering skal det kun registreres grensepassering i NCTS"
+      "Transittering er startet opp i annet land. Fullføring av transitteringen skal utføres ved lossing.",
+      "Ved grensepassering skal det kun registreres grensepassering i NCTS"
     ],
     "6": [
       "Transittering skal startes opp på grensen.",
