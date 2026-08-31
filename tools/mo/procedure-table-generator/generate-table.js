@@ -366,7 +366,19 @@ function renderTable(variantIds, groups, locale) {
     }
   }
 
-  return `<div class="table-responsive">\n            <table class="procedure-table">\n${rows.join('\n')}\n            </table>\n        </div>\n`;
+  return `<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
+<div class="table-responsive">\n            <table class="procedure-table">\n${rows.join('\n')}\n            </table>\n        </div>\n`;
 }
 
 function main() {

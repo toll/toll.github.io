@@ -118,6 +118,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
     <div class="table-responsive-container">
         <h3>IMMEDIATE_RELEASE_IMPORT (Transition to free circulation at border crossing)</h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -125,27 +137,20 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>A declaration for release for free circulation has been submitted in advance.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
-                            the
-                            ferry to Larvik)</p>
+<p>A declaration for release for free circulation has been submitted in advance.</p>
+<p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
                     </td>
                     <td>
-                        <p>A declaration for release for free circulation has been submitted in advance.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
-                            crossing</p>
+<p>A declaration for release for free circulation has been submitted in advance.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
                     </td>
                     <td colspan='2'>
-                        <p>A declaration for release for free circulation has been submitted in advance.</p>
-                        <p>Export and transit are the previous procedures and must be completed at the border
-                            crossing.</p>
+<p>A declaration for release for free circulation has been submitted in advance.</p>
+<p>Export and transit are the previous procedures and must be completed at the border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>A declaration for release for free
-                            circulation has been submitted in
-                            advance.</p>
-                        <p>Transit is the previous procedure and
-                            must be completed at the border crossing.</p>
+<p>A declaration for release for free circulation has been submitted in advance.</p>
+<p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                 </tr>
                 <tr>
@@ -238,7 +243,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>list must have one entry of type:</strong></p>
                     </td>
@@ -289,9 +294,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>must be = CUDE</p>
@@ -391,12 +394,12 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-procedure-green)'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -405,7 +408,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                 </tr>
                 <tr>
@@ -450,21 +453,17 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that
-                            the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>
-                            <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
-                            INCOMPLETE_EXP_DOCUMENTATION</p>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                     </td>
                     <td colspan='2' style='background:#D5DCE4;'>
                         <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
@@ -472,8 +471,8 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                     <td colspan='2' style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
-                            INCOMPLETE_TRA_DOCUMENTATION</p>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                 </tr>
             </table>
@@ -487,6 +486,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
             (Transit to be completed at unloading/transit to be started at the border)
         </h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -494,14 +505,11 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>Transit has started in another country. Completion of the transit must be performed upon
-                            unloading. At the border crossing, only the border crossing should be registered in
-                            NCTS</p>
+<p>Transit has started in another country. Completion of the transit must be performed upon unloading. At the border crossing, only the border crossing should be registered in NCTS</p>
                     </td>
                     <td>
-                        <p>Transit should start at the border.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
-                            crossing</p>
+<p>Transit should start at the border.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
                     </td>
                 </tr>
                 <tr>
@@ -595,9 +603,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>must be = N820</p>
@@ -654,7 +660,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -690,14 +696,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that
-                            the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>
-                            <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
@@ -713,6 +715,19 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
         <p>&nbsp;</p>
 
         <h3>IMMEDIATE_RELEASE_VOEC (VOEC shipments released at border crossing)</h3>
+
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -720,27 +735,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>VOEC shipments.</p>
-                        <p>Another customs authority has cleared the previous procedure, or the value is below the
-                            threshold for export requirements.</p>
+<p>VOEC shipments.</p>
+<p>Another customs authority has cleared the previous procedure, or the value is below the threshold for export requirements.</p>
                     </td>
                     <td>
-                        <p>VOEC shipments.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border crossing.</p>
+<p>VOEC shipments.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing.</p>
                     </td>
                     <td>
-                        <p>VOEC shipments.</p>
-                        <p>Export and transit are the previous procedures and must be completed at the border
-                            crossing.</p>
+<p>VOEC shipments.</p>
+<p>Export and transit are the previous procedures and must be completed at the border crossing.</p>
                     </td>
                     <td>
-                        <p>VOEC shipments.</p>
-                        <p>VOEC shipment arriving with transit that must be completed at the border.</p>
+<p>VOEC shipments.</p>
+<p>VOEC shipment arriving with transit that must be completed at the border.</p>
                     </td>
                 </tr>
                 <tr>
-                    <th>Felt</th>
-                    <th>Kodeverk</th>
+                    <th>Field</th>
+                    <th>Code list</th>
                     <th>Variant 7</th>
                     <th>Variant 8</th>
                     <th>Variant 9</th>
@@ -769,8 +782,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>importProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
                         <p>IMMEDIATE_RELEASE_VOEC</p>
@@ -790,8 +802,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>outgoingProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -869,10 +880,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a
-                                href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -903,7 +911,6 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-
                     <td>
                         <p>-</p>
                     </td>
@@ -954,7 +961,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -963,7 +970,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                 </tr>
                 <tr>
@@ -980,7 +987,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
                         <p>-</p>
@@ -991,8 +998,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfExport</p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -1001,7 +1007,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
                     </td>
                     <td>
                         <p>-</p>
@@ -1011,9 +1017,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>goodsItem</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-yellow);'>
-                        <p>-</p>
-                    </td>
+                    <td style='background:var(--background-color-procedure-yellow);'></td>
                     <td style='background:var(--background-color-procedure-yellow);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
@@ -1169,16 +1173,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>
-                            Possible validation messages if the information is not complete.
-                            We assume that the missing information is submitted no later than upon arrival at the
-                            border.
-                        </strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_VOEC_DOCUMENTATION</p>
@@ -1202,14 +1200,25 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <p>&nbsp;</p>
 
-        <h3>WAREHOUSE_RELEASE (Entry into customs warehouse)</h3>
+        <h3>WAREHOUSE_RELEASE (Entry into customs warehouse and goods that are driven directly)</h3>
         <h3>
             Note: This code should be used when a customs warehouse entry declaration has been submitted before the border crossing.
             <br/>
             Until 01.03.2027 it can also be used for goods that are driven directly.
         </h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
 
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1217,71 +1226,39 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
-                            the
-                            ferry to Larvik)</p>
+<p>A declaration for warehouse entry has been submitted in advance.</p>
+<p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
                     </td>
                     <td>
-                        <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
-                            crossing</p>
+<p>A declaration for warehouse entry has been submitted in advance.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
                     </td>
                     <td colspan='2'>
-                        <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>Export and transit are the previous procedures and must be completed at the border
-                            crossing.</p>
+<p>A declaration for warehouse entry has been submitted in advance.</p>
+<p>Export and transit are the previous procedures and must be completed at the border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>A declaration for warehouse entry has been submitted in advance.</p>
-                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+<p>A declaration for warehouse entry has been submitted in advance.</p>
+<p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                     <td>
-                        <p>Shipment to be goods registered at the border crossing.</p>
-                        <p class="link-color">
-                            Transitional arrangement until 01.03.2027, see
-                            <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll
-                            with goods number - Norwegian Customs</a>
-                            (in Norwegian)
-                        </p>
+<p>Shipment to be goods registered at the border crossing.</p>
+<p class="link-color">Transitional arrangement until 01.03.2027, see <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll with goods number - Norwegian Customs</a> (in Norwegian)</p>
                     </td>
                     <td>
-                        <p>Shipment to be goods registered at the border crossing.</p>
-                        <p class="link-color">
-                            Transitional arrangement until
-                            01.03.2027, see
-                            <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll
-                            with goods number - Norwegian Customs</a>
-                            (in Norwegian)
-                        </p>
-
-                        <p>Export is the previous procedure and must be cleared at the border crossing.</p>
+<p>Shipment to be goods registered at the border crossing.</p>
+<p class="link-color">Transitional arrangement until 01.03.2027, see <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll with goods number - Norwegian Customs</a> (in Norwegian)</p>
+<p>Export is the previous procedure and must be cleared at the border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>Shipment to be goods registered at the border crossing.</p>
-                        <p class="link-color">
-                            Transitional arrangement until
-                            01.03.2027, see
-                            <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">
-                                Digitoll
-                                with goods number - Norwegian Customs
-                            </a>
-                        </p>
-
-                        <p>Transit and EU export are the previous procedures and must be completed at the border crossing.</p>
+<p>Shipment to be goods registered at the border crossing.</p>
+<p class="link-color">Transitional arrangement until 01.03.2027, see <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll with goods number - Norwegian Customs</a></p>
+<p>Transit and EU export are the previous procedures and must be completed at the border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>Shipment to be goods registered at the border crossing.</p>
-                        <p class="link-color">
-                            Transitional arrangement until
-                            01.03.2027, see
-                            <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">
-                                Digitoll
-                                with goods number - Norwegian Customs
-                            </a>
-                        </p>
-
-                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+<p>Shipment to be goods registered at the border crossing.</p>
+<p class="link-color">Transitional arrangement until 01.03.2027, see <a href="https://www.toll.no/no/bedrift/nyheter-for-naeringslivet/digitoll-med-godsnummer">Digitoll with goods number - Norwegian Customs</a></p>
+<p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                 </tr>
                 <tr>
@@ -1513,9 +1490,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>must be = CUDE</p>
@@ -1539,13 +1514,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>must be = GONU</p>
                     </td>
                     <td>
-                        <p>must be = N820</p>
-                    </td>
-                    <td>
-                        <p>must be = N820</p>
+                        <p>must be = GONU</p>
                     </td>
                     <td>
                         <p>must be = GONU</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
                     </td>
                     <td>
                         <p>must be = GONU</p>
@@ -1692,7 +1667,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -1710,7 +1685,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -1782,14 +1757,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that
-                            the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>
-                            <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_DOCUMENTATION</p>
@@ -1831,6 +1802,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>COLLECTIVE_RELEASE (Goods to be cleared collectively)</h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -1838,24 +1821,20 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
-                            the
-                            ferry to Larvik)</p>
+<p>Shipment to be collectively cleared after border crossing.</p>
+<p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
                     </td>
                     <td>
-                        <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
-                            crossing</p>
+<p>Shipment to be collectively cleared after border crossing.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
                     </td>
                     <td>
-                        <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>Export and transit are the previous procedures and must be completed at the border
-                            crossing.</p>
+<p>Shipment to be collectively cleared after border crossing.</p>
+<p>Export and transit are the previous procedures and must be completed at the border crossing.</p>
                     </td>
                     <td>
-                        <p>Shipment to be collectively cleared after border crossing.</p>
-                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+<p>Shipment to be collectively cleared after border crossing.</p>
+<p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                 </tr>
                 <tr>
@@ -1987,14 +1966,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>must be = N820</p>
                     </td>
@@ -2012,7 +1991,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2030,7 +2011,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2048,7 +2031,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2116,16 +2101,14 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that
-                            the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>
-                            <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
-                    <td style='background:#D5DCE4;'></td>
+                    <td style='background:#D5DCE4;'>
+                        
+                    </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                     </td>
@@ -2144,6 +2127,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>DOCUMENTS_NOT_OBLIGED_RELEASE</h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -2151,24 +2146,20 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods
-                            Traffic
-                            Regulations.</p>
-                        <p>Another customs authority has cleared the previous procedure (e.g., Danish customs before
-                            the
-                            ferry to Larvik)</p>
+<p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
+<p>Another customs authority has cleared the previous procedure (e.g., Danish customs before the ferry to Larvik)</p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods
-                            Traffic
-                            Regulations.</p>
-                        <p>EU/Swedish export is the previous procedure and must be cleared at the border
-                            crossing</p>
+<p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
+<p>EU/Swedish export is the previous procedure and must be cleared at the border crossing</p>
                     </td>
                     <td>
-                        <p>Shipment that is not subject to declaration obligation under § 4-1-29 of the Goods Traffic
-                            Regulations.</p>
-                        <p>Transit is the previous procedure and must be completed at the border crossing.</p>
+<p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
+<p>Export and transit are the previous procedure and must be completed at the border crossing.</p>
+                    </td>
+                    <td>
+<p>Shipment that is not subject to declaration obligation under § 4-1-25/29 of the Goods Traffic Regulations.</p>
+<p>Transit is the previous procedure and must be completed at the border crossing.</p>
                     </td>
                 </tr>
                 <tr>
@@ -2177,12 +2168,16 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <th>Variant 19</th>
                     <th>Variant 20</th>
                     <th>Variant 21</th>
+                    <th>Variant 22</th>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>importProcedure</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'></td>
+                    <td style='background:var(--background-color-procedure-blue);'>
+                        <p><strong>must be filled out</strong></p>
+                    </td>
                     <td style='background:var(--background-color-procedure-blue);'>
                         <p><strong>must be filled out</strong></p>
                     </td>
@@ -2209,6 +2204,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
                     </td>
+                    <td>
+                        <p>DOCUMENTS_NOT_OBLIGED_RELEASE</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-blue);'>
@@ -2224,6 +2222,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>EXP</p>
                     </td>
                     <td>
+                        <p>TRE</p>
+                    </td>
+                    <td>
                         <p>TRA</p>
                     </td>
                 </tr>
@@ -2236,6 +2237,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td>
                         <p>false</p>
+                    </td>
+                    <td>
+                        <p>true</p>
                     </td>
                     <td>
                         <p>true</p>
@@ -2258,6 +2262,9 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
+                    <td style='background:var(--background-color-procedure-red);'>
+                        <p><strong>AND list must have one entry of type:</strong></p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
@@ -2275,20 +2282,26 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>&lt;must have value&gt;</p>
                     </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-red);'>
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>must be = N820</p>
+                    </td>
                     <td>
                         <p>must be = N820</p>
                     </td>
@@ -2303,7 +2316,12 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2318,7 +2336,12 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2333,7 +2356,12 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td>
                         <p>-</p>
                     </td>
-                    <td></td>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
+                        <p>-</p>
+                    </td>
                     <td>
                         <p>-</p>
                     </td>
@@ -2344,7 +2372,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><strong>-</strong></p>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
+                    </td>
+                    <td style='background:var(--background-color-procedure-green);'>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>list must have AT LEAST one entry of type:</strong></p>
@@ -2361,7 +2392,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>-</p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>&lt;must have value&gt;</p>
+                    </td>
+                    <td>
+                        <p>&lt;must have value&gt;</p>
                     </td>
                     <td>
                         <p>&lt;must have value&gt;</p>
@@ -2378,7 +2412,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
                     </td>
                     <td>
-                        <p>-</p>
+                        <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
+                    </td>
+                    <td>
+                        <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
                     </td>
                     <td>
                         <p>must be one of [AES_EXPORT, EUEIR_EXPORT, EIDR_EXPORT]</p>
@@ -2389,18 +2426,20 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that
-                            the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>
-                            <a href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
-                    <td style='background:#D5DCE4;'></td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                    </td>
+                    <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
@@ -2413,6 +2452,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>ATA_CARNET / TIR_CARNET / NATO_FORM_302</h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -2420,18 +2471,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>ATA-Carnet</p>
+<p>ATA-Carnet</p>
                     </td>
                     <td>
-                        <p>TIR-Carnet</p>
+<p>TIR-Carnet</p>
                     </td>
                     <td>
-                        <p>NATO Formular 302</p>
+<p>NATO Formular 302</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Field</th>
-                    <th>Code List</th>
+                    <th>Code list</th>
                     <th>Variant 27</th>
                     <th>Variant 28</th>
                     <th>Variant 29</th>
@@ -2456,8 +2507,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>importProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
                         <p>ATA_CARNET</p>
@@ -2474,8 +2524,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>outgoingProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -2541,10 +2590,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a
-                                href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>must be = N955</p>
@@ -2613,27 +2659,29 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p>exportId</p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'>
+                    <td>
                         <p>-</p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'>
+                    <td>
+                        <p>-</p>
+                    </td>
+                    <td>
                         <p>-</p>
                     </td>
                 </tr>
@@ -2642,8 +2690,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfExport</p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -2657,13 +2704,10 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible validation messages if the information is not complete. We assume that the
-                            missing information is submitted no later than upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
                         <p>INCOMPLETE_DOCUMENTATION</p>
@@ -2682,6 +2726,18 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
 
         <h3>CUSTOMS_DECLARATION (Customs Declaration)</h3>
 
+<!--
+#     # ######  ### 
+##    # #     # ### 
+# #   # #     # ### 
+#  #  # ######   #  
+#   # # #     #     
+#    ## #     # ### 
+#     # ######  ### 
+
+Tabellen under er generert - skal IKKE redigeres for hånd
+Bruk procedure-table-generator ved oppdatering
+-->
         <div class="table-responsive">
             <table class="procedure-table">
                 <tr>
@@ -2689,28 +2745,24 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p><strong>Description of customs procedure and procedure up to the border</strong></p>
                     </td>
                     <td>
-                        <p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is
-                            release for free circulation or entry into customs warehouse</p>
-                        <p>(Measure 7)</p>
-                        <p>No preceding procedure</p>
+<p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse</p>
+<p>(Measure 7)</p>
+<p>No preceding procedure</p>
                     </td>
                     <td>
-                        <p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is
-                            release for free circulation or entry into customs warehouse</p>
-                        <p>(Measure 7)</p>
-                        <p>Export is the preceding procedure and shall be cleared at border crossing.</p>
+<p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse</p>
+<p>(Measure 7)</p>
+<p>Export is the preceding procedure and shall be cleared at border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is
-                            release for free circulation or entry into customs warehouse</p>
-                        <p>(Measure 7)</p>
-                        <p>Transit is the preceding procedure and shall be concluded at border crossing.</p>
+<p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse</p>
+<p>(Measure 7)</p>
+<p>Transit is the preceding procedure and shall be concluded at border crossing.</p>
                     </td>
                     <td colspan='2'>
-                        <p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is
-                            release for free circulation or entry into customs warehouse</p>
-                        <p>(Measure 7)</p>
-                        <p>Transit and export are preceding procedures and shall be concluded at border crossing.</p>
+<p>Shipment with reference to Tvinn declaration. Can be used regardless of whether the declaration is release for free circulation or entry into customs warehouse</p>
+<p>(Measure 7)</p>
+<p>Transit and export are preceding procedures and shall be concluded at border crossing.</p>
                     </td>
                 </tr>
                 <tr>
@@ -2727,16 +2779,16 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'></td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>must be filled in</strong></p>
+                        <p><strong>must be filled out</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>must be filled in</strong></p>
+                        <p><strong>must be filled out</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>must be filled in</strong></p>
+                        <p><strong>must be filled out</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-blue);'>
-                        <p><strong>must be filled in</strong></p>
+                        <p><strong>must be filled out</strong></p>
                     </td>
                 </tr>
                 <tr>
@@ -2744,8 +2796,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>importProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#importprocedure">ImportProcedure</a></p>
                     </td>
                     <td>
                         <p>CUSTOMS_DECLARATION</p>
@@ -2765,8 +2816,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>outgoingProcedure</p>
                     </td>
                     <td style='background:var(--background-color-procedure-blue);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
+                        <p><a href="mo-kodeverk-EN.html#outgoingprocedure">OutgoingProcedure</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -2805,30 +2855,24 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td style='background:var(--background-color-procedure-red);'>
                         <p><strong>previousDocuments</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-red)'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-red);'></td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>list must have one entry
-                            of type:</strong></p>
+                        <p><strong>list must have one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>list must have one entry
-                            of type:</strong></p>
+                        <p><strong>list must have one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>list must have one entry
-                            of type:</strong></p>
+                        <p><strong>list must have one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>AND list must have one
-                            entry of type:</strong></p>
+                        <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>list must have one entry
-                            of type:</strong></p>
+                        <p><strong>list must have one entry of type:</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p><strong>AND list must have one
-                            entry of type:</strong></p>
+                        <p><strong>AND list must have one entry of type:</strong></p>
                     </td>
                 </tr>
                 <tr>
@@ -2862,10 +2906,7 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                         <p>typeOfReference</p>
                     </td>
                     <td style='background:var(--background-color-procedure-red);'>
-                        <p title=""><a
-                                href="mo-kodeverk-EN.html#cl228">CL228</a>, <a
-                                href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#cl228">CL228</a>, <a href="mo-kodeverk-EN.html#additionalpreviousdocumenttype">AdditionalPreviousDocumentType</a></p>
                     </td>
                     <td>
                         <p>must be = CUDE</p>
@@ -2965,24 +3006,22 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     </td>
                 </tr>
                 <tr>
-                    <td style='background:var(--background-color-procedure-green)'>
+                    <td style='background:var(--background-color-procedure-green);'>
                         <p><strong>exportFromEU</strong></p>
                     </td>
-                    <td style='background:var(--background-color-procedure-green);'>&nbsp;</td>
+                    <td style='background:var(--background-color-procedure-green);'></td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><strong>list must have AT LEAST one
-                            entry of type:</strong></p>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                        <p>-</p>
+                        <p><strong>-</strong></p>
                     </td>
                     <td colspan='2' style='background:var(--background-color-procedure-green);'>
-                    <p><strong>list must have AT LEAST one
-                        entry of type:</strong></p>
-                </td>
+                        <p><strong>list must have AT LEAST one entry of type:</strong></p>
+                    </td>
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-green);'>
@@ -3003,15 +3042,13 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                     <td colspan='2'>
                         <p>&lt;must have value&gt;</p>
                     </td>
-
                 </tr>
                 <tr>
                     <td style='background:var(--background-color-procedure-green);'>
                         <p>typeOfExport</p>
                     </td>
                     <td style='background:var(--background-color-procedure-green);'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#tb_eksporttype">TB_Eksporttype</a></p>
+                        <p><a href="mo-kodeverk-EN.html#tb_eksporttype">TB_ExportType</a></p>
                     </td>
                     <td>
                         <p>-</p>
@@ -3028,27 +3065,27 @@ GET https://&lt;env&gt;/api/movement/road/status/v2/house-consignment/validation
                 </tr>
                 <tr>
                     <td style='background:#D5DCE4;'>
-                        <p><strong>Possible
-                            validation messages if the information is incomplete. We assume that
-                            the missing information will be submitted at the latest upon arrival at the border.</strong></p>
+                        <p><strong>Possible validation messages if the information is not complete. We assume that the missing information is submitted no later than upon arrival at the border.</strong></p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p><a
-                                href="mo-kodeverk-EN.html#incompleteDocumentationReason">IncompleteDocumentationReason</a>
-                        </p>
+                        <p><a href="mo-kodeverk-EN.html#incompletedocumentationreason">IncompleteDocumentationReason</a></p>
                     </td>
                     <td style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
                         <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
                     </td>
                     <td style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
-                            INCOMPLETE_EXP_DOCUMENTATION</p>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                     </td>
                     <td colspan='2' style='background:#D5DCE4;'>
-                        <p>INCOMPLETE_CUDE_DOCUMENTATION<br>
-                            INCOMPLETE_TRA_DOCUMENTATION</p>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
+                        <p>INCOMPLETE_TRA_DOCUMENTATION</p>
                     </td>
                     <td colspan='2' style='background:#D5DCE4;'>
+                        <p>INCOMPLETE_DOCUMENTATION</p>
                         <p>INCOMPLETE_CUDE_DOCUMENTATION</p>
                         <p>INCOMPLETE_EXP_DOCUMENTATION</p>
                         <p>INCOMPLETE_TRA_DOCUMENTATION</p>
