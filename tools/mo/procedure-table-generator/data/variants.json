@@ -645,7 +645,7 @@
       "sequenceNumber": true,
       "exportId": false,
       "typeOfExport": null,
-      "incompleteDocumentationReason": ["INCOMPLETE_DOCUMENTATION"]
+      "incompleteDocumentationReason": ["INCOMPLETE_DOCUMENTATION", "INCOMPLETE_CUDE_DOCUMENTATION"]
     },
     "headerNotes": {
       "previousDocuments": "ONE_OF",
@@ -665,7 +665,11 @@
       "sequenceNumber": true,
       "exportId": true,
       "typeOfExport": ["AES_EXPORT", "EUEIR_EXPORT", "EIDR_EXPORT"],
-      "incompleteDocumentationReason": ["INCOMPLETE_DOCUMENTATION", "INCOMPLETE_EXP_DOCUMENTATION"]
+      "incompleteDocumentationReason": [
+        "INCOMPLETE_DOCUMENTATION",
+        "INCOMPLETE_CUDE_DOCUMENTATION",
+        "INCOMPLETE_EXP_DOCUMENTATION"
+      ]
     },
     "headerNotes": {
       "previousDocuments": "ONE_OF",
@@ -685,7 +689,11 @@
       "sequenceNumber": [true, false],
       "exportId": false,
       "typeOfExport": null,
-      "incompleteDocumentationReason": ["INCOMPLETE_DOCUMENTATION", "INCOMPLETE_TRA_DOCUMENTATION"]
+      "incompleteDocumentationReason": [
+        "INCOMPLETE_DOCUMENTATION",
+        "INCOMPLETE_CUDE_DOCUMENTATION",
+        "INCOMPLETE_TRA_DOCUMENTATION"
+      ]
     },
     "headerNotes": {
       "previousDocuments": ["ONE_OF", "AND_ONE_OF"],
@@ -707,6 +715,7 @@
       "typeOfExport": ["AES_EXPORT", "EUEIR_EXPORT", "EIDR_EXPORT"],
       "incompleteDocumentationReason": [
         "INCOMPLETE_DOCUMENTATION",
+        "INCOMPLETE_CUDE_DOCUMENTATION",
         "INCOMPLETE_EXP_DOCUMENTATION",
         "INCOMPLETE_TRA_DOCUMENTATION"
       ]
