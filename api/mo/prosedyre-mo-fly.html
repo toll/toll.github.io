@@ -118,8 +118,27 @@ GET https://&lt;env&gt;/api/movement/air/status/v1/house-consignment/validation-
     <br/>
     <br/>
 
+    <div class="content-box">
+        <h2>Importprosedyre</h2>
+        <nav>
+            <ul class="spaced-list">
+                <li><a href="#immediate-release-import">IMMEDIATE_RELEASE_IMPORT</a></li>
+                <li><a href="#immediate-release-voec">IMMEDIATE_RELEASE_VOEC</a></li>
+                <li><a href="#warehouse-release">WAREHOUSE_RELEASE</a></li>
+                <li><a href="#collective-release">COLLECTIVE_RELEASE</a></li>
+                <li><a href="#documents-not-obliged-release">DOCUMENTS_NOT_OBLIGED_RELEASE</a></li>
+                <li><a href="#ata-carnet-tir-carnet">ATA_CARNET</a></li>
+                <li><a href="#ata-carnet-tir-carnet">TIR_CARNET</a></li>
+                <li><a href="#customs-declaration">CUSTOMS_DECLARATION</a></li>
+            </ul>
+        </nav>
+    </div>
+        
+    <br/>
+    <br/>
+
     <div class="table-responsive-container">
-        <h3>IMMEDIATE_RELEASE_IMPORT (Overgang til fri disponering ved grensepassering)</h3>
+        <h3 id="immediate-release-import">IMMEDIATE_RELEASE_IMPORT (Overgang til fri disponering ved grensepassering)</h3>
 
 <!--
 #     # ######  ### 
@@ -302,7 +321,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>IMMEDIATE_RELEASE_VOEC (VOEC sendinger som frigis ved grensepassering)</h3>
+        <h3 id="immediate-release-voec">IMMEDIATE_RELEASE_VOEC (VOEC sendinger som frigis ved grensepassering)</h3>
 
 <!--
 #     # ######  ### 
@@ -571,7 +590,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>WAREHOUSE_RELEASE (Innlegg på tollager og godsregistering)</h3>
+        <h3 id="warehouse-release">WAREHOUSE_RELEASE (Innlegg på tollager og godsregistering)</h3>
         <h3>
             NB! Denne koden skal brukes FØR det er levert en grensepassering innlegg på tollager deklarasjon.
             <br/>
@@ -759,7 +778,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>COLLECTIVE_RELEASE (Varer som skal samlefortolles)</h3>
+        <h3 id="collective-release">COLLECTIVE_RELEASE (Varer som skal samlefortolles)</h3>
 
 <!--
 #     # ######  ### 
@@ -942,7 +961,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>DOCUMENTS_NOT_OBLIGED_RELEASE (Ikke-deklarasjonspliktige dokumenter)</h3>
+        <h3 id="documents-not-obliged-release">DOCUMENTS_NOT_OBLIGED_RELEASE (Ikke-deklarasjonspliktige dokumenter)</h3>
 
 <!--
 #     # ######  ### 
@@ -1125,7 +1144,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>ATA_CARNET / TIR_CARNET</h3>
+        <h3 id="ata-carnet-tir-carnet">ATA_CARNET / TIR_CARNET</h3>
 
 <!--
 #     # ######  ### 
@@ -1353,7 +1372,7 @@ Bruk procedure-table-generator ved oppdatering
 
         <p>&nbsp;</p>
 
-        <h3>CUSTOMS_DECLARATION (Tolldeklarering)</h3>
+        <h3 id="customs-declaration">CUSTOMS_DECLARATION (Tolldeklarering)</h3>
 
 <!--
 #     # ######  ### 
