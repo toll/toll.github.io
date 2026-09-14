@@ -66,13 +66,13 @@
             while processing is still ongoing.
             We do not publish in real time.
             It is also important to note that the service does not include
-            <ul class="spaced-list">
-                <li>transport information from the Digitoll/MO solutions</li>
-                <li>data from solutions associated with operators on the
-                continental shelf or Svalbard, where import/export is
-                not declared through the Tvinn system</li>
-            </ul>
         </p>
+        <ul class="spaced-list">
+            <li>transport information from the Digitoll/MO solutions</li>
+            <li>data from solutions associated with operators on the
+            continental shelf or Svalbard, where import/export is
+            not declared through the Tvinn system</li>
+        </ul>
 
         <h1 id="interfacedescription">Interface description</h1>
 
@@ -178,7 +178,6 @@
                         connection with such changes.
                     </li>
                 </ul>
-                </p>
             </li>
         </ul>
 
@@ -188,18 +187,18 @@
             Corrections of customs declarations occur regularly.
             In such cases, we will send out
 
-            <ol class="spaced-list">
-                <li>
-                    deletion events for goods items that have been
-                    removed from or changed in the declaration (in
-                    practice, this will often be all goods items in a
-                    declaration, since there is not necessarily any link
-                    at the goods item level between the old and the new
-                    declaration),
-                </li>
-                <li>possible subsequent added events for goods items that are new or changed</li>
-            </ol>
         </p>
+        <ol class="spaced-list">
+            <li>
+                deletion events for goods items that have been
+                removed from or changed in the declaration (in
+                practice, this will often be all goods items in a
+                declaration, since there is not necessarily any link
+                at the goods item level between the old and the new
+                declaration),
+            </li>
+            <li>possible subsequent added events for goods items that are new or changed</li>
+        </ol>
 
         <p>
             In both cases, we will refer back to the previous and the
@@ -231,20 +230,18 @@
 
         <p>
             The service is based on REST over HTTPS and is available at:
-            <pre class="boxed-display">GET https://&lt;env&gt;/api/declaration/declaration-item-feed/v1/</pre>
-
-            <ul class="spaced-list">
-                <li>
-                    <b>&lt;env&gt;</b> is replaced by
-                    <p>
-                        <ul class="spaced-list">
-                            <li>api.toll.no for production</li>
-                            <li>api-test.toll.no for playground (test environment)</li>
-                        </ul>
-                    </p>
-                </li>
-            </ul>
         </p>
+        <pre class="boxed-display">GET https://&lt;env&gt;/api/declaration/declaration-item-feed/v1/</pre>
+
+        <ul class="spaced-list">
+            <li>
+                <b>&lt;env&gt;</b> is replaced by
+                <ul class="spaced-list">
+                    <li>api.toll.no for production</li>
+                    <li>api-test.toll.no for playground (test environment)</li>
+                </ul>
+            </li>
+        </ul>
 
         <p>
             See the detailed <strong><a href="declaration-item-feed-v1.html">API documentation here</a></strong>.
@@ -281,6 +278,7 @@
         <p>
             As a client, you must assume that new events may be added to
             a declaration over time.
+        </p>
 
             <ol class="spaced-list">
                 <li>
@@ -296,60 +294,55 @@
                 goods items, and contains <i>both</i> the envelope and
                 data part because the content is new information.</li>
             </ol>
-        </p>
 
         <h2>Parameters</h2>
 
         <p>
             We provide a set of parameters that are standard for APIs of
             this type:
-
-            <ol class="spaced-list">
-                <li>
-                    <code>last=ID</code> specifies the ID of the latest
-                    occurrence the consumer has read, the marker; the
-                    returned dataset will continue after this.  Note:
-                    <p>
-                        <ul class="spaced-list">
-                            <li>the specified occurrence will not be
-                            included in the dataset</li>
-                            <li>there is no guarantee that IDs in calls
-                            form a monotonically increasing sequence
-                            without gaps. On the contrary, you must
-                            assume that they do not. We use UUIDs</li>
-                            <li>if no event with the specified ID
-                            exists, status 404 (Not found) is
-                            returned</li>
-                        </ul>
-                    </p>
-                </li>
-                <li>
-                        <code>timestamp=YYYYMMDDTHHmmssZ</code> This may
-                        be used instead of the previous parameter if the
-                        ID is not known, and specifies the publication
-                        timestamp. Occurrences with a timestamp &gt;=
-                        this value will be included in the result.
-                        Note:
-                        <p>
-                        <ul class="spaced-list">
-                            <li>depending on the parameter value, there
-                            may be overlap or gaps compared with
-                            previous calls</li>
-                            <li>as mentioned, there is an "age limit"
-                            for the oldest occurrence, meaning there is
-                            no guarantee that data as old as the
-                            supplied parameter actually exists</li>
-                        </ul>
-                    </p>
-                </li>
-                <li><code>skip=N</code> to skip N occurrences that would
-                otherwise have been included in the selection; included
-                mostly for compatibility with lookup services</li>
-                <li><code>max=N</code> to request a maximum number of
-                occurrences that is less than or equal to (not greater
-                than), the maximum number for this service</li>
-            </ol>
         </p>
+
+        <ol class="spaced-list">
+            <li>
+                <code>last=ID</code> specifies the ID of the latest
+                occurrence the consumer has read, the marker; the
+                returned dataset will continue after this.  Note:
+                <ul class="spaced-list">
+                    <li>the specified occurrence will not be
+                    included in the dataset</li>
+                    <li>there is no guarantee that IDs in calls
+                    form a monotonically increasing sequence
+                    without gaps. On the contrary, you must
+                    assume that they do not. We use UUIDs</li>
+                    <li>if no event with the specified ID
+                    exists, status 404 (Not found) is
+                    returned</li>
+                </ul>
+            </li>
+            <li>
+                <code>timestamp=YYYYMMDDTHHmmssZ</code> This may
+                be used instead of the previous parameter if the
+                ID is not known, and specifies the publication
+                timestamp. Occurrences with a timestamp &gt;=
+                this value will be included in the result.
+                Note:
+                <ul class="spaced-list">
+                    <li>depending on the parameter value, there
+                    may be overlap or gaps compared with
+                    previous calls</li>
+                    <li>as mentioned, there is an "age limit"
+                    for the oldest occurrence, meaning there is
+                    no guarantee that data as old as the
+                    supplied parameter actually exists</li>
+                </ul>
+            </li>
+            <li><code>skip=N</code> to skip N occurrences that would
+            otherwise have been included in the selection; included
+            mostly for compatibility with lookup services</li>
+            <li><code>max=N</code> to request a maximum number of
+            occurrences that is less than or equal to (not greater
+            than), the maximum number for this service</li>
+        </ol>
 
         <h2>Return values</h2>
 
@@ -393,7 +386,7 @@
             The scope used for this API is <b>toll:declaration.feed</b>.
         </p>
 
-
+    </div>
 </main>
 
 <footer role="contentinfo">

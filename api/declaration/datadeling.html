@@ -66,13 +66,13 @@
             omberegninger/endringer er ferdigbehandlet), ikke underveis
             i behandlingen, og ikke i sanntid.
             Det er også viktig å merke seg at tjenesten per nå ikke omfatter
-            <ul class="spaced-list">
-                <li>transportinformasjon fra Digitoll/MO-løsningene</li>
-                <li>data fra løsninger tilknyttet operatører på
-                kontinentalsokkelen eller Svalbard (som ikke deklarer
-                innførsel/utførsel via Tvinn-systemet)</li>
-            </ul>
         </p>
+        <ul class="spaced-list">
+            <li>transportinformasjon fra Digitoll/MO-løsningene</li>
+            <li>data fra løsninger tilknyttet operatører på
+            kontinentalsokkelen eller Svalbard (som ikke deklarer
+            innførsel/utførsel via Tvinn-systemet)</li>
+        </ul>
 
         <h1 id="grensesnittbeskrivelse">Grensesnittbeskrivelse</h1>
 
@@ -158,7 +158,6 @@
                 hvilke varelinjer du får, normalt basert på varenummer
                 &mdash; på samme måte klienttilpasset basert på avtaler
                 og hjemler
-                <p>
                 <ul class="spaced-list">
                     <li>
                         merk at det er avtalene som gjelder på
@@ -176,7 +175,6 @@
                       endringer
                     </li>
                 </ul>
-                </p>
             </li>
         </ul>
 
@@ -186,21 +184,21 @@
             Det skjer jevnlig at det kommer korreksjoner og
             omberegninger på tolldeklarasjoner.  I slike tilfeller vil
             vi sende ut
-
-            <ol class="spaced-list">
-                <li>
-                    slettehendelser på varelinjer som er fjernet eller
-                    endret på deklarasjonen (i praksis vil dette ofte
-                    være alle varelinjene på en deklarasjon, siden det
-                    ikke er noen nødvendig kobling på varelinjenivå
-                    mellom gammel og ny deklarasjon),
-                </li>
-                <li>
-                  eventuelt etterfølgende opprettelseshendelser for
-                  varelinjer som er nye eller endret
-                </li>
-            </ol>
         </p>
+
+        <ol class="spaced-list">
+            <li>
+                slettehendelser på varelinjer som er fjernet eller
+                endret på deklarasjonen (i praksis vil dette ofte
+                være alle varelinjene på en deklarasjon, siden det
+                ikke er noen nødvendig kobling på varelinjenivå
+                mellom gammel og ny deklarasjon),
+            </li>
+            <li>
+              eventuelt etterfølgende opprettelseshendelser for
+              varelinjer som er nye eller endret
+            </li>
+        </ol>
 
         <p>
             I begge tilfeller vil vi peke tilbake på foregående og
@@ -236,20 +234,18 @@
 
         <p>
           Tjenesten er basert på REST over HTTPS og er tilgjengelig på:
-          <pre class="boxed-display">GET https://&lt;env&gt;/api/declaration/declaration-item-feed/v1/</pre>
-
-          <ul class="spaced-list">
-            <li>
-              <b>&lt;env&gt;</b> byttes ut med
-              <p>
-                <ul class="spaced-list">
-                  <li>api.toll.no for produksjon</li>
-                  <li>api-test.toll.no for playground (testmiljø)</li>
-                </ul>
-              </p>
-            </li>
-          </ul>
         </p>
+      <pre class="boxed-display">GET https://&lt;env&gt;/api/declaration/declaration-item-feed/v1/</pre>
+
+      <ul class="spaced-list">
+        <li>
+          <b>&lt;env&gt;</b> byttes ut med
+        <ul class="spaced-list">
+          <li>api.toll.no for produksjon</li>
+          <li>api-test.toll.no for playground (testmiljø)</li>
+        </ul>
+        </li>
+      </ul>
 
         <p>
           Se detaljert <strong><a href="declaration-item-feed-v1.html">API-dokumentasjon her</a></strong>.
@@ -285,71 +281,67 @@
         <p>
             Som klient må du anta at det kan tilkomme nye hendelsestyper på
             en deklarasjon over tid.
-
-            <ol class="spaced-list">
-                <li>
-                    <code>ITEM_REMOVED</code> benyttes for varelinjer
-                    som er fjernet fra deklarasjon (eller fra ditt scope
-                    som klient), de kommer også før ITEM_ADDED for
-                    endrede varelinjer.
-                    Denne hendelsen inneholder kun konvoluttdelen, med
-                    en hendelses-ID for varelinjen som er
-                    endret/fjernet, det forventes at du som klient har
-                    oppbevart ID.
-                </li>
-                <li>
-                  <code>ITEM_ADDED</code> benyttes for nye og endrede
-                  varelinjer, og inneholder naturlig nok både konvolutt-
-                  og datadelen fordi innholdet er ny informasjon.
-                </li>
-            </ol>
         </p>
+
+        <ol class="spaced-list">
+            <li>
+                <code>ITEM_REMOVED</code> benyttes for varelinjer
+                som er fjernet fra deklarasjon (eller fra ditt scope
+                som klient), de kommer også før ITEM_ADDED for
+                endrede varelinjer.
+                Denne hendelsen inneholder kun konvoluttdelen, med
+                en hendelses-ID for varelinjen som er
+                endret/fjernet, det forventes at du som klient har
+                oppbevart ID.
+            </li>
+            <li>
+              <code>ITEM_ADDED</code> benyttes for nye og endrede
+              varelinjer, og inneholder naturlig nok både konvolutt-
+              og datadelen fordi innholdet er ny informasjon.
+            </li>
+        </ol>
 
         <h2>Parametre</h2>
 
         <p>
             Vi har et sett av parametere som er standard for slike API-er:
-
-            <ol class="spaced-list">
-                <li>
-                    <code>last=ID</code> angir ID for den siste
-                    forekomsten konsumenten har sett (markøren) &ndash;
-                    returnert datasett vil fortsette etter denne; merk:
-                    <p>
-                        <ul class="spaced-list">
-                          <li>den angitte forekomsten vil ikke være med
-                          i datasettet</li>
-                          <li>det er ingen garanti for at ID-er i kall
-                          er en monotont voksende serie uten hull, tvert
-                          om må det antas at det ikke er det &ndash; vi
-                          bruker UUID-er</li>
-                          <li>dersom ingen forekomst med angitt ID
-                          finnes, returneres status 404 (Not found)</li>
-                        </ul>
-                    </p>
-                </li>
-                <li>
-                  <code>timestamp=YYYYMMDDTHHmmssZ</code> &ndash; denne
-                  kan brukes i stedet for foregående dersom ID
-                  ikke er kjent, og angir tidsstempel for
-                  publisering, forekomster med tidsstempel &gt;=
-                  denne verdien vil komme med i resultatet.
-                  Merk:
-                  <p>
-                    <ul class="spaced-list">
-                      <li>avhengig av parameterverdi kan man risikere overlapp eller hull i forhold til tidligere kall</li>
-                      <li>som nevnt er det en "aldersgrense" på eldste forekomst, det er altså ingen garanti for at det faktisk finnes data like gammel som gitt parameter</li>
-                    </ul>
-                    </p>
-                </li>
-                <li><code>skip=N</code> for å hoppe over N forekomster
-                som ellers ville vært med i utvalget &ndash; mest med av
-                hensyn til kompatibilitet med oppslagstjenester</li>
-                <li><code>max=N</code> for å be om et maks antall
-                forekomster som er mindre eller lik (ikke større enn)
-                maks antall for denne tjenesten</li>
-            </ol>
         </p>
+
+        <ol class="spaced-list">
+            <li>
+                <code>last=ID</code> angir ID for den siste
+                forekomsten konsumenten har sett (markøren) &ndash;
+                returnert datasett vil fortsette etter denne; merk:
+                <ul class="spaced-list">
+                  <li>den angitte forekomsten vil ikke være med
+                  i datasettet</li>
+                  <li>det er ingen garanti for at ID-er i kall
+                  er en monotont voksende serie uten hull, tvert
+                  om må det antas at det ikke er det &ndash; vi
+                  bruker UUID-er</li>
+                  <li>dersom ingen forekomst med angitt ID
+                  finnes, returneres status 404 (Not found)</li>
+                </ul>
+            </li>
+            <li>
+              <code>timestamp=YYYYMMDDTHHmmssZ</code> &ndash; denne
+              kan brukes i stedet for foregående dersom ID
+              ikke er kjent, og angir tidsstempel for
+              publisering, forekomster med tidsstempel &gt;=
+              denne verdien vil komme med i resultatet.
+              Merk:
+                <ul class="spaced-list">
+                  <li>avhengig av parameterverdi kan man risikere overlapp eller hull i forhold til tidligere kall</li>
+                  <li>som nevnt er det en "aldersgrense" på eldste forekomst, det er altså ingen garanti for at det faktisk finnes data like gammel som gitt parameter</li>
+                </ul>
+            </li>
+            <li><code>skip=N</code> for å hoppe over N forekomster
+            som ellers ville vært med i utvalget &ndash; mest med av
+            hensyn til kompatibilitet med oppslagstjenester</li>
+            <li><code>max=N</code> for å be om et maks antall
+            forekomster som er mindre eller lik (ikke større enn)
+            maks antall for denne tjenesten</li>
+        </ol>
 
         <h2>Returverdier</h2>
 
@@ -393,7 +385,7 @@
         <p>
             Scopet som benyttes for dette API-et er <b>toll:declaration.feed</b>.
         </p>
-
+    </div>
 </main>
 
 <footer role="contentinfo">
