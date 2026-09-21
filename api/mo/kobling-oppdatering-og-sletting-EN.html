@@ -56,11 +56,6 @@
                     to a master consignment is provided, which consists
                     of the master waybill number
                     (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
-                    For the link to be correct, the carrier's identifier
-                    must be the same in the master consignment message
-                    (<code>carrier.IdentificationNumber</code>) and the
-                    transport message
-                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
                 <h4>Linking between Transport and House Consignment &ndash; without using Master Consignment</h4>
@@ -70,16 +65,7 @@
                     to a house consignment message is provided, which
                     consists of the waybill number
                     (<code>transportDocumentHouseLevel.documentNumber +
-                    transportDocumentHouseLevel.type</code>). For the
-                    link to be correct, the carrier's identifier must be
-                    the same in the house consignment message
-                    (<code>tranportLevel.carrierIdentificationNumber</code>)
-                    and the transport message
-                    (<code>carrier.IdentificationNumber</code>).<br/>
-                    In the house consignment message, a flag must be set
-                    to indicate that this is a consignment linked
-                    directly to a transport: <code>"directConsignment":
-                    true</code>.
+                    transportDocumentHouseLevel.type</code>).
                 </p>
 
                 <h4>Linking between House Consignment and Master Consignment</h4>
@@ -90,12 +76,7 @@
                     message is provided, which consists of the master
                     waybill number
                     (<code>transportDocumentMasterLevel.documentNumber +
-                    transportDocumentMasterlevel.type</code>). For the
-                    link to be correct, the carrier's identifier must be
-                    the same in the house consignment message
-                    (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
-                    and the master consignment message
-                    (<code>carrier.IdentificationNumber</code>).
+                    transportDocumentMasterlevel.type</code>).
                 </p>
 
                 <h4>Linking between House Consignment and Master Consignment for consignments covered by UPU
