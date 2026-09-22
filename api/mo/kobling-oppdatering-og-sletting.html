@@ -56,31 +56,16 @@
                     oppgis nøkkelen til en hovedforsendelse, som består
                     av hovedfraktbrevnummer
                     (<code>transportDocumentMasterLevel.documentNumber+transportDocumentMasterLevel.type</code>).
-                    For at koblingen skal bli korrekt må transportørens
-                    identifikator være den samme i melding om
-                    hovedforsendelse
-                    (<code>carrier.IdentificationNumber</code>) og
-                    melding om transport
-                    (<code>carrier.IdentificationNumber</code>).
                 </p>
 
-                <h4>Kobling mellom transport og forsendelse (house consignment) &ndash; uten bruk av hovedforsendelse</h4>
+                <h4>Kobling mellom transport og forsendelse (house consignment) – uten bruk av hovedforsendelse</h4>
                 <p>
                     Melding om transport inneholder en liste av nøkler
                     til melding om forsendelser. I den listen oppgis
                     nøkkelen til en melding om forsendelse, som består
                     av fraktbrevnummer
                     (<code>transportDocumentHouseLevel.documentNumber +
-                    transportDocumentHouseLevel.type</code>). For at
-                    koblingen skal bli korrekt må transportørens
-                    identifikator være den samme i melding om
-                    forsendelse
-                    (<code>tranportLevel.carrierIdentificationNumber</code>)
-                    og melding om transport
-                    (<code>carrier.IdentificationNumber</code>).<br/> I
-                    melding om forsendelse må et flagg settes for at
-                    dette er en forsendelse som kobles direkte til en
-                    transport: <code>"directConsignment": true</code>.
+                    transportDocumentHouseLevel.type</code>).
                 </p>
 
                 <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment)</h4>
@@ -90,13 +75,7 @@
                     oppgis nøkkelen til en melding om hovedforsendelse,
                     som består av hovedfraktbrevnummer
                     (<code>transportDocumentMasterLevel.documentNumber +
-                    transportDocumentMasterlevel.type</code>). For at
-                    koblingen skal bli korrekt må transportørens
-                    identifikator være den samme i melding om
-                    forsendelse
-                    (<code>consignemntMasterLevel.carrierIdentificationNumber</code>)
-                    og melding om hovedforsendelse
-                    (<code>carrier.IdentificationNumber</code>).
+                    transportDocumentMasterlevel.type</code>).
                 </p>
 
                 <h4>Kobling mellom forsendelse (house consignment) og hovedforsendelse (master consignment) for forsendelser som er post dekket av UPU-konvensjoner</h4>
