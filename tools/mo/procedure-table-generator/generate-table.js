@@ -54,8 +54,8 @@
  * PER-SUB-COLUMN list.
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 const fieldDefs = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'data', 'field-definitions.json'), 'utf8'),
@@ -87,7 +87,7 @@ function parseArgs(argv) {
 
 function selectVariants(ids, locale) {
   const allIds = Object.keys(variantData);
-  const chosen = ids && ids.length ? ids : allIds;
+  const chosen = ids?.length ? ids : allIds;
   const missing = chosen.filter((id) => !variantData[id]);
   if (missing.length) {
     throw new Error(`Unknown variant id(s): ${missing.join(', ')}`);
@@ -104,7 +104,7 @@ function selectVariants(ids, locale) {
 
 function selectGroups(keys) {
   const allKeys = fieldDefs.groups.map((g) => g.key);
-  const chosen = keys && keys.length ? keys : allKeys;
+  const chosen = keys?.length ? keys : allKeys;
   const missing = chosen.filter((k) => !allKeys.includes(k));
   if (missing.length) {
     throw new Error(
@@ -115,10 +115,10 @@ function selectGroups(keys) {
 }
 
 function kodeverkLinks(links, locale) {
-  if (!links || !links.length) return locale.templates.notApplicable;
+  if (!links?.length) return locale.templates.notApplicable;
   return links
     .map((l) => {
-      const text = (l.localeText && l.localeText[locale.code]) || l.defaultText;
+      const text = l.localeText?.[locale.code] || l.defaultText;
       const href = `mo-kodeverk${locale.hrefSuffix}.html#${l.anchor}`;
       return `<a href="${href}">${text}</a>`;
     })
