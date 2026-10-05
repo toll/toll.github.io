@@ -235,21 +235,26 @@
         <p>
           Tjenesten er basert på REST over HTTPS og er tilgjengelig på:
         </p>
-      <pre class="boxed-display">GET https://&lt;env&gt;/api/goodsdeclaration/goodsitem/v1/</pre>
+        <pre class="boxed-display">GET https://&lt;env&gt;/api/goodsdeclaration/goodsitem/v1/</pre>
 
-      <ul class="spaced-list">
-        <li>
-          <b>&lt;env&gt;</b> byttes ut med
         <ul class="spaced-list">
-          <li>api.toll.no for produksjon</li>
-          <li>api-test.toll.no for playground (testmiljø)</li>
+            <li>
+                <b>&lt;env&gt;</b> byttes ut med
+                <ul class="spaced-list">
+                    <li>api.toll.no for produksjon</li>
+                    <li>api-test.toll.no for playground (testmiljø)</li>
+                </ul>
+            </li>
         </ul>
-        </li>
-      </ul>
 
         <p>
           Se detaljert <strong><a href="goodsdeclaration-goodsitem-stream-v1.html">API-dokumentasjon her</a></strong>.
         </p>
+
+        <p>
+            Eksempel:
+        </p>
+        <pre class="boxed-display">GET https://api-test.toll.no/api/goodsdeclaration/goodsitem/v1/stream?...</pre>
 
         <h2>JSON-schema</h2>
 
