@@ -231,7 +231,7 @@
         <p>
             The service is based on REST over HTTPS and is available at:
         </p>
-        <pre class="boxed-display">GET https://&lt;env&gt;/api/declaration/declaration-item-feed/v1/</pre>
+        <pre class="boxed-display">GET https://&lt;env&gt;/api/goodsdeclaration/goodsitem/v1/</pre>
 
         <ul class="spaced-list">
             <li>
@@ -244,8 +244,13 @@
         </ul>
 
         <p>
-            See the detailed <strong><a href="declaration-item-feed-v1.html">API documentation here</a></strong>.
+            See the detailed <strong><a href="goodsdeclaration-goodsitem-stream-v1.html">API documentation here</a></strong>.
         </p>
+
+        <p>
+            Example:
+        </p>
+        <pre class="boxed-display">GET https://api-test.toll.no/api/goodsdeclaration/goodsitem/v1/stream?...</pre>
 
         <h2>JSON schema</h2>
 
@@ -388,7 +393,7 @@
             <li>Operations and monitoring/troubleshooting.</li>
         </ul>
         <p>
-            The scope used for this API is <b>toll:declaration.feed</b>.
+            The scope used for this API is <b>toll:goodsdeclaration/goodsitem.stream</b>.
         </p>
 
     </div>
