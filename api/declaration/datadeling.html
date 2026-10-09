@@ -178,34 +178,35 @@
             </li>
         </ul>
 
-        <h2>Omberegning, korreksjoner</h2>
+        <h2>Endringsmelding (omberegning), korreksjoner</h2>
 
         <p>
-            Det skjer jevnlig at det kommer korreksjoner og
-            omberegninger på tolldeklarasjoner.  I slike tilfeller vil
-            vi sende ut
+            Det skjer jevnlig at det kommer endringsmeldinger (tidligere 
+            kalt omberegninger), det vil si korreksjoner på ferdigbehandlede 
+            tolldeklarasjoner. I slike tilfeller vil vi sende ut
         </p>
 
         <ol class="spaced-list">
             <li>
-                slettehendelser på varelinjer som er fjernet eller
-                endret på deklarasjonen (i praksis vil dette ofte
-                være alle varelinjene på en deklarasjon, siden det
-                ikke er noen nødvendig kobling på varelinjenivå
-                mellom gammel og ny deklarasjon),
+                slettehendelser for alle varelinjer på gammel deklarasjon
             </li>
             <li>
-              eventuelt etterfølgende opprettelseshendelser for
-              varelinjer som er nye eller endret
+                etterfølgende opprettelseshendelser for alle varelinjer 
+                på ny deklarasjon
             </li>
         </ol>
 
         <p>
-            I begge tilfeller vil vi peke tilbake på foregående og
+            I begge tilfeller vil det kun bli sendt hendelser for de 
+            varelinjene som er innenfor ditt utvalg.
+        </p>
+        <p>
+            Slettehendelsene vil peke tilbake på hendelsen den sletter.
+            Opprettelseshendelsene vil peke tilbake på foregående og
             opprinnelig deklarasjon (dersom det er flere endringer på en
             deklarasjon over tid, kan disse to være forskjellige).
             En eller begge av disse kan være ukjente for deg som klient,
-            det kan jo være at disse tidligere versjonene ikke hadde
+            det kan jo være at disse tidligere deklarasjonene ikke hadde
             varelinjer som var innenfor ditt utvalg.
             Merk at det kan skje at det kan komme "endringer" som munner
             ut i samme nå-tilstand som før-tilstand &mdash; dette kan
@@ -213,6 +214,39 @@
             inngår i ditt datasett (eller for den del i noen av
             klientens datasett), men som likevel trigger ny publisering
             og nye ID-er.
+        </p>
+
+        <h2>Nye versjoner</h2>
+
+        <p>
+            Det kan i noen spesielle tilfeller skje at det blir sendt 
+            en ny versjon av en deklarasjon som har blitt sendt før og som
+            ikke er helt ferdigbehandlet enda. I slike tilfeller vil vi i 
+            likhet med for endringsmeldinger (omberegninger) sende ut
+        </p>
+
+        <ol class="spaced-list">
+            <li>
+                slettehendelser for alle varelinjer i gammel versjon av
+                deklarasjonen
+            </li>
+            <li>
+                etterfølgende opprettelseshendelser for alle varelinjer
+                i ny versjon av deklarasjonen
+            </li>
+        </ol>
+
+        <p>
+            I begge tilfeller gjelder det også her at det kun vil bli sendt 
+            hendelser for de varelinjene som er innenfor ditt utvalg.
+        </p>
+        <p>
+            Slettehendelsene vil peke tilbake på hendelsen den sletter.
+            Opprettelseshendelsene vil derimot ikke ha noen referanse til
+            forrige versjon av deklarasjon. Merk at også for nye versjoner
+            kan det skje at det kan komme "endringer" som munner
+            ut i samme nå-tilstand som før-tilstand som nevnt for
+            endringsmeldinger i forrige avsnitt.
         </p>
 
         <h2>Tekniske detaljer</h2>
@@ -304,7 +338,57 @@
               varelinjer, og inneholder naturlig nok både konvolutt-
               og datadelen fordi innholdet er ny informasjon.
             </li>
+            <li>
+              <code>ITEM_ADDED_NO_HISTORY</code> benyttes for nye og endrede
+              varelinjer for en deklarasjon som har en historikk som strekker seg
+              lengre tilbake enn det datadelingsløsningen kjenner til (se
+              kommentar under). I likhet med <code>ITEM_ADDED</code> inneholder 
+              den både konvolutt- og datadel.
+            </li>
         </ol>
+        <h3>Mer om <code>ITEM_ADDED_NO_HISTORY</code></h3>
+
+        <p>
+            <code>ITEM_ADDED_NO_HISTORY</code> er en event-type som indikerer en 
+            ny hendelse hvor datadelingsløsningen ikke har kjennskap til tidligere 
+            historikk knyttet til deklarasjonen. Dette i motsetning til hendelser 
+            av typen <code>ITEM_ADDED</code> hvor tidligere historikk er kjent. 
+        </p>
+        <p>
+            <code>ITEM_ADDED_NO_HISTORY</code> vil kunne forekomme i en av følgende tilfeller
+        </p>
+        <ol class="spaced-list">
+            <li>
+                Hendelsen gjelder en endringsmelding (tidligere kalt omberegning) 
+                for en deklarasjon som er eldre enn historikken i datadelingsløsningen
+            </li>
+            <li>
+                Hendelsen gjelder en ny versjon av en deklarasjon som er eldre 
+                enn historikken i datadelingsløsningen
+            </li>
+        </ol>
+        <p>
+            Normalt skal det for endringsmeldinger og nye deklarasjonsversjoner 
+            leveres <code>ITEM_REMOVED</code>-hendelser knyttet til deklarasjonen 
+            eller versjonen som blir erstattet. Dette for å hindre at samme 
+            deklarasjonsinformasjon skal telle flere ganger i datagrunnlaget. 
+            Slike hendelser blir derimot ikke generert for hendelser av type 
+            <code>ITEM_ADDED_NO_HISTORY</code> siden datadelingsløsningen da ikke 
+            har kjennskap til hvilke hendelser som skal erstattes.
+        </p>
+        <p>
+            Forskjellen mellom hendelser med event-type <code>ITEM_ADDED</code> og 
+            <code>ITEM_ADDED_NO_HISTORY</code> er altså at førstnevnte vil generere 
+            nødvendige slettehendelser av typen ITEM_REMOVED, mens sistnevnte ikke 
+            vil det. Konsumentene av datadelingsløsningen må dermed vurdere om 
+            hendelser av typen <code></code>ITEM_ADDED_NO_HISTORY</code> skal tas 
+            med i datagrunnlaget deres eller ikke. 
+        </p>
+
+        <p>
+            Etter som tiden går og historikken i datadelingsløsningen blir lengre, 
+            vil det imidlertid bli færre og færre hendelser av denne typen.
+        </p>
 
         <h2>Parametre</h2>
 
