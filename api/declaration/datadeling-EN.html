@@ -185,28 +185,30 @@
 
         <p>
             Corrections of customs declarations occur regularly.
-            In such cases, we will send out
+            In such cases, we will publish
 
         </p>
         <ol class="spaced-list">
             <li>
-                deletion events for goods items that have been
-                removed from or changed in the declaration (in
-                practice, this will often be all goods items in a
-                declaration, since there is not necessarily any link
-                at the goods item level between the old and the new
-                declaration),
+                removed-events for all goods items in the previous declaration,
             </li>
-            <li>possible subsequent added events for goods items that are new or changed</li>
+            <li>
+                subsequent added-events for all goods items in the declaration
+            </li>
         </ol>
 
         <p>
-            In both cases, we will refer back to the previous and the
+            In both cases, events will only be published for the goods items
+            that fall within your scope.
+        </p>
+        <p>
+            The removed-events will reference the event being removed.
+            Ihe added-events will reference both the previous and the
             original declaration (if there have been several changes to
             a declaration over time, these two may be different).  One
             or both of these may be unknown to you as a client, as those
             earlier versions may not have contained goods items that
-            were within your selection.  Note that "changes" may occur
+            were within your scope.  Note that "changes" may occur
             which result in the same "now" state as "previous" state;
             this can happen if changes are made to information that is
             not included in your dataset (or, for that matter, in any of
@@ -214,6 +216,39 @@
             publication and new IDs.
         </p>
 
+        <h2>New Versions</h2>
+
+        <p>
+            In certain special cases, a new version of a previously published 
+            declaration that has not yet been fully processed, may be created. 
+            In such cases, we will publish
+        </p>
+
+        <ol class="spaced-list">
+            <li>
+                removed-events for all goods items in the previous version of
+                the declaration,
+            </li>
+            <li>
+                subsequent added-events for all goods items in the new
+                version of the declaration
+            </li>
+        </ol>
+
+        <p>
+            As for corrections, events will only be published for the goods items 
+            that fall within your scope.
+        </p>
+
+        <p>
+            The removed-events will reference the event being deleted.
+            The added-events, however, will not contain any reference to
+            the previous version of the declaration. As with
+            corrections described in the previous section, "changes"
+            may also occur for new versions that result in the same current
+            state as the previous state.
+        </p>
+        
         <h2>Technical details</h2>
 
         <p>A maximum of 1,000 events is returned per call. As a
@@ -294,21 +329,65 @@
             a declaration over time.
         </p>
 
-            <ol class="spaced-list">
-                <li>
-                    <code>ITEM_REMOVED</code> is used for goods items
-                    that have been removed from the declaration, or from
-                    your scope as a client. They are also sent before
-                    ITEM_ADDED for changed goods items.  This event
-                    contains only the envelope part, with an ID pointing
-                    to the goods item that has been changed/removed. You
-                    as the client are expected to have stored the ID.
-                </li>
-                <li><code>ITEM_ADDED</code> is used for new and changed
+        <ol class="spaced-list">
+            <li>
+                <code>ITEM_REMOVED</code> is used for goods items
+                that have been removed from the declaration, or from
+                your scope as a client. These events also precede 
+                <code>ITEM_ADDED</code> events for modified goods items. 
+                This event contains only the envelope part, with an 
+                ID pointing to the goods item that has been changed/removed. 
+                You as the client are expected to have stored the ID.
+            </li>
+            <li>
+                <code>ITEM_ADDED</code> is used for new and modified
                 goods items, and contains <i>both</i> the envelope and
-                data part because the content is new information.</li>
-            </ol>
+                data part because the content is new information.
+            </li>
+            <li>
+                <code>ITEM_ADDED_NO_HISTORY</code> is used for new and modified
+                goods items belonging to a declaration whose history extends
+                further back than what is known to the data sharing service
+                (see explanation below). Like <code>ITEM_ADDED</code>, it
+                contains both the envelope section and the data section.
+            </li>
+        </ol>
+        <p>
+            <code>ITEM_ADDED_NO_HISTORY</code> may occur in one of the following
+            situations:
+        </p>
 
+        <ol class="spaced-list">
+            <li>
+                The event relates to a correction of a declaration that is older
+                than the history available in the data sharing service.
+            </li>
+            <li>
+                The event relates to a new version of a declaration that is
+                older than the history available in the data sharing service.
+            </li>
+        </ol>
+
+        <p>
+            Under normal circumstances, corrections and new
+            declaration versions will generate <code>ITEM_REMOVED</code> events 
+            for the declaration or declaration version
+            being replaced. This prevents the same declaration information from
+            being counted multiple times in the underlying dataset.
+            However, such removal events will not be generated for
+            <code>ITEM_ADDED_NO_HISTORY</code> events because the data sharing
+            service has no knowledge of which previous events to remove.
+            Clients of the data sharing service must therefore determine
+            whether events of type <code>ITEM_ADDED_NO_HISTORY</code> should be
+            included in their datasets or not.
+        </p>
+
+        <p>
+            As time passes and the historical coverage of the data sharing
+            service increases, the number of events of this type will gradually
+            decrease.
+        </p>
+        
         <h2>Parameters</h2>
 
         <p>
