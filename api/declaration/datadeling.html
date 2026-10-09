@@ -352,14 +352,6 @@
               den både konvolutt- og datadel.
             </li>
         </ol>
-        <h3>Mer om <code>ITEM_ADDED_NO_HISTORY</code></h3>
-
-        <p>
-            <code>ITEM_ADDED_NO_HISTORY</code> er en event-type som indikerer en 
-            ny hendelse hvor datadelingsløsningen ikke har kjennskap til tidligere 
-            historikk knyttet til deklarasjonen. Dette i motsetning til hendelser 
-            av typen <code>ITEM_ADDED</code> hvor tidligere historikk er kjent. 
-        </p>
         <p>
             <code>ITEM_ADDED_NO_HISTORY</code> vil kunne forekomme i en av følgende tilfeller
         </p>
@@ -380,17 +372,11 @@
             deklarasjonsinformasjon skal telle flere ganger i datagrunnlaget. 
             Slike hendelser blir derimot ikke generert for hendelser av type 
             <code>ITEM_ADDED_NO_HISTORY</code> siden datadelingsløsningen da ikke 
-            har kjennskap til hvilke hendelser som skal erstattes.
-        </p>
-        <p>
-            Forskjellen mellom hendelser med event-type <code>ITEM_ADDED</code> og 
-            <code>ITEM_ADDED_NO_HISTORY</code> er altså at førstnevnte vil generere 
-            nødvendige slettehendelser av typen ITEM_REMOVED, mens sistnevnte ikke 
-            vil det. Konsumentene av datadelingsløsningen må dermed vurdere om 
+            har kjennskap til hvilke hendelser som skal erstattes. 
+            Konsumentene av datadelingsløsningen må dermed vurdere om 
             hendelser av typen <code></code>ITEM_ADDED_NO_HISTORY</code> skal tas 
             med i datagrunnlaget deres eller ikke. 
         </p>
-
         <p>
             Etter som tiden går og historikken i datadelingsløsningen blir lengre, 
             vil det imidlertid bli færre og færre hendelser av denne typen.
