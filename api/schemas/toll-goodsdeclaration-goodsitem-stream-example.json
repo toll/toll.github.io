@@ -1,0 +1,108 @@
+{
+  "metadata": {
+    "eventId": "6bf01659-f9c2-46c9-8cb3-3fce713ca349",
+    "created": "2024-06-14T07:10:10Z",
+    "eventType": "ITEM_ADDED",
+    "source": "tvinn",
+    "version": "0.10"
+  },
+  "data": {
+    "GoodsItem":
+    {
+      "DeclarationIdentification": "123456789-20240612-123456-01",
+      "GoodsItemNumber": 1,
+
+      "Declaration": {
+        "DeclarationDate": "2024-06-12",
+        "DateOfAcceptance": "2024-06-13",
+        "DeclarationDirection": "I",
+        "DeclarationType": "IM",
+        "DeclarationCategory": "OD",
+
+        "AdditionalReferences": [
+          {
+            "ReferenceNumber": "446001-000030001",
+            "Type": "1LSN"
+          }
+        ],
+
+        "Parties": {
+          "Representative": {
+            "Name": "Customs Broker AS",
+            "IdentificationNumber": "NO123456789",
+            "IdentificationType": "LEGAL_PERSON",
+            "Status": 2
+          },
+          "Importer": {
+            "Name": "Importer AS",
+            "IdentificationNumber": "NO987654321",
+            "IdentificationType": "LEGAL_PERSON"
+          }
+        },
+
+        "Consignment": {
+          "Consignor": {
+            "Name": "Exporter GmbH",
+            "Address": {
+              "StreetAndNumber": "Industriestrasse 10, DE Hamburg"
+            }
+          },
+          "Consignee": {
+            "Name": "Importer AS"
+          },
+          "ContainerIndicator": 1,
+          "CustomsOfficeHandlingDeclaration": {
+            "ReferenceNumber": "NO446001"
+          },
+          "CountryOfDispatch": "DE",
+          "CountryOfDestination": "NO",
+          "DeliveryTerms": {
+            "IncotermCode": "DAP",
+            "Location": "Oslo"
+          },
+          "Transport": {
+            "ModeOfTransport" : 1,
+            "ActiveBorderTransportMeans": {
+              "Nationality": "DE"
+            }
+          }
+        }
+      },
+
+      "CommodityCode": {
+        "HarmonizedSystemSubheadingCode": "847130",
+        "CombinedNomenclatureCode": "00",
+        "TARICCode": "10"
+      },
+
+      "CountryOfOrigin": "CN",
+
+      "StatisticalValue": 150000.50,
+      "GrossMass": 1200,
+      "NetMass": 1100,
+      "SupplementaryUnit": 15,
+
+      "Procedure": {
+        "RequestedProcedure": "40"
+      },
+
+      "DutiesAndTaxes": [
+        {
+          "TaxType": "1TL",
+          "PayableTaxAmount": 37500.13
+        },
+        {
+          "TaxType": "2MV",
+          "PayableTaxAmount": 5000.00
+        }
+      ],
+
+      "AdditionalInformation": [
+        {
+          "Code": "NUND",
+          "Text": "Unntaksdokument 112234"
+        }
+      ]
+    }
+  }
+}

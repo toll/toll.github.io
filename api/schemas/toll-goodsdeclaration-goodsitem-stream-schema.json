@@ -1,0 +1,545 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Norwegian Customs declaration item data stream specification",
+  "description": "Norwegian Customs schema for sharing declaration data at the goods item level",
+  "type": "object",
+  "$id": "toll-goodsdeclaration-goodsitem-stream",
+  "$defs": {
+    "UUID": {
+      "type": "string",
+      "description": "Unique identifier for an event in UUID v4 format",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "examples": [
+        "6bf01659-f9c2-46c9-8cb3-3fce713ca349"
+      ]
+    },
+    "Party": {
+      "type": "object",
+      "description": "Exporter or importer (company or individual) in the declaration. [EUCDM: 13 01 / 13 04] [SAD 2 / 8]",
+      "required": ["Name", "IdentificationNumber", "IdentificationType"],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "Name of the party. [EUCDM: 13 01 016 000 / 13 04 016 000] [SAD 2 / 8]"
+        },
+        "IdentificationNumber": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}[A-Za-z0-9]{0,15}$",
+          "description": "Identification number (e.g. EORI). National numbers prefixed by country code NO. [EUCDM: 13 01 017 000 / 13 04 017 000] [SAD 2 / 8]"
+        },
+        "IdentificationType": {
+          "type": "string",
+          "description": "Type of identification (national extension, not part of EUCDM or SAD).",
+          "oneOf": [
+            { "const": "LEGAL_PERSON", "description": "Organization number." },
+            { "const": "NATURAL_PERSON", "description": "National identity number or D-number." },
+            { "const": "TOLL_REGISTERED", "description": "Customs identity number." }
+          ]
+        }
+      }
+    },
+    "RepresentativeParty": {
+      "type": "object",
+      "description": "Actor representing the declaration. [EUCDM: 13 06] [SAD 14]",
+      "required": ["Name", "IdentificationNumber", "IdentificationType", "Status"],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "Name of the party. [EUCDM: 13 06 016 000] [SAD 14]"
+        },
+        "IdentificationNumber": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}[A-Za-z0-9]{0,15}$",
+          "description": "Identification number (e.g. EORI). National numbers prefixed by country code NO. [EUCDM: 13 06 017 000] [SAD 14]"
+        },
+        "IdentificationType": {
+          "type": "string",
+          "description": "Type of identification (national extension, not part of EUCDM or SAD).",
+          "oneOf": [
+            { "const": "LEGAL_PERSON", "description": "Organization number." },
+            { "const": "NATURAL_PERSON", "description": "National identity number or D-number." },
+            { "const": "TOLL_REGISTERED", "description": "Customs identity number." }
+          ]
+        },
+        "Status": {
+          "type": "integer",
+          "description": "Direct and indirect representation. [EUCDM: 13 06 030 000].",
+          "oneOf": [
+            {
+              "const": 2,
+              "description": "Direct representation"
+            },
+            {
+              "const": 3,
+              "description": "Indirect representation"
+            }
+          ]
+        }
+      }
+    },
+    "ConsignmentParty": {
+      "type": "object",
+      "description": "Name and address of consignment party (consignor or consignee) [EUCDM: 13 02 / 13 03] [SAD 2 / 8]",
+      "required": ["Name"],
+      "properties": {
+        "Name": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "Name of consignment party. [EUCDM: 13 02 016 000 / 13 03 016 000] [SAD 2 / 8]"
+        },
+        "Address": {
+          "type": "object",
+          "required": [
+            "StreetAndNumber"
+          ],
+          "properties": {
+            "StreetAndNumber": {
+              "type": "string",
+              "maxLength": 70,
+              "description": "Complete address, foreign or domestic. [EUCDM: 13 02 018 019 / 13 03 018 019] [SAD 2 / 8]"
+            }
+          }
+        }
+      }
+    },
+    "CustomsOffice": {
+      "type": "object",
+      "description": "Customs office involved in the declaration. [Closest EUCDM: 17 01 / 17 07]",
+      "required": ["ReferenceNumber"],
+      "properties": {
+        "ReferenceNumber": {
+          "type": "string",
+          "minLength": 6,
+          "maxLength": 8,
+          "pattern":"^[A-Z]{2}[0-9]{4,6}$",
+          "description": "Reference number of customs office. [Closest EUCDM: 17 01 001 000 / 17 07 001 000] [SAD A / SAD 29]"
+        }
+      }
+    },
+    "BorderTransportMeans": {
+      "type": "object",
+      "description": "Means of active or passive transport at the border. [EUCDM: 19 08 / 19 09]",
+      "required": [
+        "Nationality"
+      ],
+      "properties": {
+        "Nationality": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "Nationality of transport. [EUCDM: 19 08 062 000 / 19 09 062 000] [SAD: 21]"
+        }
+      }
+    }
+  },
+
+  "required": ["metadata"],
+  "properties": {
+    "metadata": {
+      "description": "Metadata for this event",
+      "type": "object",
+      "required": [
+        "eventId",
+        "created",
+        "eventType",
+        "source",
+        "version"
+      ],
+      "properties": {
+        "eventId": {
+          "$ref": "#/$defs/UUID",
+          "description": "Unique identifier for this event"
+        },
+        "relatedEventId": {
+          "$ref": "#/$defs/UUID",
+          "description": "Unique identifier for related event when relevant. For example, for identifying the event adding an item to be removed."
+        },
+        "created": {
+          "description": "ISO 8601 UTC timestamp when this event was created",
+          "type": "string",
+          "format": "date-time",
+          "examples": [
+            "2024-10-03T07:19:10Z"
+          ]
+        },
+        "eventType": {
+          "type": "string",
+          "description": "Event type, typically used in business logic by consumer",
+          "enum": [
+            "ITEM_ADDED",
+            "ITEM_REMOVED",
+            "ITEM_ADDED_NO_HISTORY"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "description": "The name of the source of this event, typically the name of the producer application - may be changed over time",
+          "examples": [
+            "tvinn"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "description": "Schema-version, used for securing compatibility",
+          "const": "0.10"
+        }
+      }
+    },
+    "data": {
+      "type": "object",
+      "description": "Declaration and goods data related to the event. The format is EUCDM-based.",
+      "required": ["GoodsItem"],
+      "properties": {
+
+        "GoodsItem": {
+          "type": "object",
+          "description": "Exactly one goods item per goods shipment in this format.",
+          "required": [
+            "DeclarationIdentification",
+            "GoodsItemNumber",
+            "Declaration",
+            "CommodityCode",
+            "CountryOfOrigin",
+            "StatisticalValue",
+            "GrossMass",
+            "NetMass",
+            "Procedure"
+          ],
+
+          "properties": {
+
+            "DeclarationIdentification": {
+              "type": "string",
+              "description": "Unique declaration identifier (national extension, not part of EUCDM).",
+              "pattern": "^[1-9][0-9]{0,10}-[0-9]{8}-[1-9][0-9]{0,5}-[0-9]{2}$",
+              "examples": ["12345678901-20240612-123456-01"]
+            },
+
+            "GoodsItemNumber": {
+              "type": "integer",
+              "description": "Sequential goods item number in declaration. [EUCDM: 11 03 001 000] [SAD: 32]"
+            },
+
+            "Declaration": {
+              "type": "object",
+              "description": "Customs declaration describing the movement of goods.",
+              "required": [
+                "DeclarationDate",
+                "DateOfAcceptance",
+                "DeclarationDirection",
+                "DeclarationCategory",
+                "Parties",
+                "Consignment"
+              ],
+
+              "properties": {
+
+                "DeclarationDate": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Date when the declaration was registered. [EUCDM: 15 06 001 000] [SAD: A]"
+                },
+
+                "DateOfAcceptance": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Date when the declaration was processed and accepted. [EUCDM: 15 09 001 000]"
+                },
+
+                "DeclarationDirection": {
+                  "type": "string",
+                  "description": "Direction of goods, i.e. import into or export out from Norway. Not part of EUCDM or SAD.",
+                  "oneOf": [
+                    { "const": "I", "description": "Import into Norway." },
+                    { "const": "O", "description": "Export out from Norway." }
+                  ]
+                },
+
+                "DeclarationType": {
+                  "type": "string",
+                  "description": "Declaration type (import/export). [EUCDM: 11 01 001 000] [SAD: 1]",
+                  "oneOf": [
+                    { "const": "IM", "description": "Import of goods into EEA (European economic area) from outside EEA." },
+                    { "const": "EX", "description": "Export of goods from EEA (European economic area) to outside EEA." }
+                  ]
+                },
+
+                "DeclarationCategory": {
+                  "type": "string",
+                  "description": "Category indicating the intention of the declaration. Not part of EUCDM.",
+                  "oneOf": [
+                    { "const": "CO", "description": "Correction (endringsmelding). A new declaration meant to replace a previous declaration." },
+                    { "const": "OD", "description": "Ordinary declaration."},
+                    { "const": "SD", "description": "Supplementary declaration with new duties and taxes issued by the Customs Authorities due to discrepancies discovered in a previous declaration." }
+                  ]
+                },
+
+                "AdditionalReferences": {
+                  "type": "array",
+                  "description": "Additional references. [EUCDM: 12 04]",
+                  "items": {
+                    "type": "object",
+                    "required": ["ReferenceNumber", "Type"],
+                    "properties": {
+                      "ReferenceNumber": {
+                        "type": "string",
+                        "maxLength": 70,
+                        "description": "Reference value. [EUCDM: 12 04 001 000]"
+                      },
+                      "Type": {
+                        "type": "string",
+                        "description": "Reference type code. Codes are defined by Norwegian Customs. [EUCDM: 12 04 002 000]",
+                        "oneOf": [
+                          { "const": "1LSN", "description": "Location and sequence number (ekspedisjons- og løpenummer) for declaration which have been processed and accepted." },
+                          { "const": "2CPD", "description": "Declarationid for previous declaration if the current declaration is a correction (endringsmelding)." },
+                          { "const": "2CPL", "description": "Location and sequence number (ekspedisjons- og løpenummer) for previous declaration if the current declaration is a correction (endringsmelding)." },
+                          { "const": "2COD", "description": "Declarationid for original declaration if the current declaration is a correction (endringsmelding)." },
+                          { "const": "2COL", "description": "Location and sequence number (ekspedisjons- og løpenummer) for original declaration if the current declaration is a correction (endringsmelding)." }
+                        ]
+                      }
+                    }
+                  }
+                },
+
+                "Parties": {
+                  "type": "object",
+                  "description": "Parties involved in the declaration. [EUCDM: 13 06 / 13 04 / 13 01] [SAD 14 / 8 / 2]",
+                  "required": ["Representative"],
+                  "properties": {
+                    "Representative": {
+                      "$ref": "#/$defs/RepresentativeParty",
+                      "description": "Customs representative. [EUCDM: 13 06] [SAD: 14]"
+                    },
+                    "Importer": {
+                      "$ref": "#/$defs/Party",
+                      "description": "Importer (goods recipient). [EUCDM: 13 04] [SAD: 8]"
+                    },
+                    "Exporter": {
+                      "$ref": "#/$defs/Party",
+                      "description": "Exporter (goods sender). [EUCDM: 13 01] [SAD: 2]"
+                    }
+                  }
+                },
+
+                "Consignment": {
+                  "type": "object",
+                  "description": "Consignment details.",
+                  "required": [
+                    "Consignor",
+                    "Consignee",
+                    "ContainerIndicator",
+                    "CountryOfDispatch",
+                    "CountryOfDestination",
+                    "DeliveryTerms",
+                    "Transport"
+                  ],
+                  "properties": {
+
+                    "Consignor": {
+                      "$ref": "#/$defs/ConsignmentParty",
+                      "description": "Party dispatching goods. [EUCDM: 13 02] [SAD: 2]"
+                    },
+
+                    "Consignee": {
+                      "$ref": "#/$defs/ConsignmentParty",
+                      "description": "Party receiving goods. [EUCDM: 13 03] [SAD: 8]"
+                    },
+
+                    "ContainerIndicator": {
+                      "type": "integer",
+                      "description": "Indicates container usage. [EUCDM: 19 01 001 000] [SAD: 19]",
+                      "oneOf": [
+                        { "const": 0, "description":"Is not container" },
+                        { "const": 1, "description":"Is container" }
+                      ]
+                    },
+
+                    "CustomsOfficeHandlingDeclaration": {
+                      "$ref": "#/$defs/CustomsOffice",
+                      "description": "Customs office receiving and handling the customs declaration. [Closest EUCDM: 17 07 001 000] [SAD: A]"
+                    },
+
+                    "CustomsOfficeHandlingExit": {
+                      "$ref": "#/$defs/CustomsOffice",
+                      "description": "Customs office handling the exit for exports. [Closest EUCDM: 17 01 001 000] [SAD: 29]"
+                    },
+
+                    "CountryOfDispatch": {
+                      "type": "string",
+                      "pattern": "^[A-Z]{2}$",
+                      "description": "Country of dispatch for imports. [EUCDM: 16 06 001 000] [SAD: 15A]"
+                    },
+
+                    "CountryOfDestination": {
+                      "type": "string",
+                      "pattern": "^[A-Z]{2}$",
+                      "description": "Country of destination for exports. [EUCDM: 16 03 001 000] [SAD: 17A]"
+                    },
+
+                    "DeliveryTerms": {
+                      "type": "object",
+                      "description": "Delivery terms. [EUCDM: 14 01] [SAD: 20]",
+                      "required": ["IncotermCode"],
+                      "properties": {
+                        "IncotermCode": {
+                          "type": "string",
+                          "pattern": "^[A-Z]{3}$",
+                          "description": "Delivery terms according to Incoterms. [EUCDM: 14 01 035 000] [SAD: 20]"
+                        },
+                        "Location": {
+                          "type": "string",
+                          "maxLength": 35,
+                          "description": "Name of location where delivery occurs. [EUCDM: 14 01 037 000] [SAD: 20]"
+                        }
+                      }
+                    },
+
+                    "Transport": {
+                      "type": "object",
+                      "description": "Transport information for the declaration",
+                      "required": [ "ModeOfTransport" ],
+                      "properties": {
+
+                        "ModeOfTransport": {
+                          "type": "integer",
+                          "description": "Mode of transport at the border. [EUCDM: 19 03 001 000] [SAD: 25]"
+                        },
+
+                        "ActiveBorderTransportMeans": {
+                          "$ref": "#/$defs/BorderTransportMeans",
+                          "description": "Active means of transport at the border. [EUCDM: 19 08]"
+                        },
+
+                        "PassiveBorderTransportMeans": {
+                          "$ref": "#/$defs/BorderTransportMeans",
+                          "description": "Passive means of transport at the border. [EUCDM: 19 09]"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "CommodityCode": {
+              "type": "object",
+              "description": "Commodity classification. [EUCDM: 18 09] [SAD: 33]",
+              "required": ["HarmonizedSystemSubheadingCode", "CombinedNomenclatureCode"],
+              "properties": {
+                "HarmonizedSystemSubheadingCode": {
+                  "type": "string",
+                  "pattern": "^[0-9]{6}$",
+                  "description": "Commodity classification - harmonized part. [EUCDM: 18 09 056 000] [SAD: 33]"
+                },
+                "CombinedNomenclatureCode": {
+                  "type": "string",
+                  "pattern": "^[0-9]{2}$",
+                  "description": "Commodity classification - combined part. [EUCDM: 18 09 057 000] [SAD: 33]"
+                },
+                "TARICCode": {
+                  "type": "string",
+                  "pattern": "^[0-9]{2}$",
+                  "description": "Main TARIC measure code that identifies a specific EU customs measure, for example CBAM. [EUCDM: 18 09 058 000]"
+                }
+              }
+            },
+
+            "CountryOfOrigin": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$",
+              "description": "Country of origin for imports and exports. [EUCDM: 16 08 001 000] [SAD: 34A]"
+            },
+
+            "RegionOfDispatch": {
+              "type": "string",
+              "maxLength": 9,
+              "description": "Region of dispatch or production, for exports. [EUCDM: 16 10 001 000] [SAD: 34B]"
+            },
+
+            "StatisticalValue": {
+              "type": "number",
+              "description": "Statistical value in NOK. [EUCDM: 99 06 001 000] [SAD: 46]"
+            },
+
+            "GrossMass": {
+              "type": "number",
+              "description": "Gross mass in kilograms. [EUCDM: 18 04 001 000] [SAD: 35]"
+            },
+
+            "NetMass": {
+              "type": "number",
+              "description": "Net mass in kilograms. [EUCDM: 18 01 001 000] [SAD: 38]"
+            },
+
+            "SupplementaryUnit": {
+              "type": "number",
+              "description": "Quantity in supplementary unit, when applicable. [EUCDM: 18 02 001 000] [SAD: 41]"
+            },
+
+            "Procedure": {
+              "type": "object",
+              "description": "Customs procedure. [EUCDM: 11 09] [SAD: 37]",
+              "required": ["RequestedProcedure"],
+              "properties": {
+                "RequestedProcedure": {
+                  "type": "string",
+                  "pattern": "^[0-9]{2}$",
+                  "description": "Requested customs procedure. [EUCDM: 11 09 001 000] [SAD: 37]"
+                },
+                "PreviousProcedure": {
+                  "type": "string",
+                  "pattern": "^[0-9]{2}$",
+                  "description": "Previous customs procedure. [EUCDM: 11 09 002 000] [SAD: 37]"
+                }
+              }
+            },
+
+            "DutiesAndTaxes": {
+              "type": "array",
+              "description": "Duties and taxes. [EUCDM: 14 03] [SAD: 47]",
+              "items": {
+                "type": "object",
+                "required": ["TaxType", "PayableTaxAmount"],
+                "properties": {
+
+                  "TaxType": {
+                    "type": "string",
+                    "pattern": "^[0-9]{1}[A-Z0-9]{2}$",
+                    "description": "Type of duty or tax. [EUCDM: 14 03 039 000] [SAD 47]"
+                  },
+
+                  "PayableTaxAmount": {
+                    "type": "number",
+                    "description": "Calculated tax amount. [EUCDM: 14 03 042 000] [SAD 47]"
+                  }
+                }
+              }
+            },
+
+            "AdditionalInformation": {
+              "type": "array",
+              "description": "Additional information like licences and sertificates for goods item. [EUCDM: 12 02] [SAD 44]",
+              "items": {
+                "type": "object",
+                "required": ["Code", "Text"],
+                "properties": {
+                  "Code": {
+                    "type": "string",
+                    "maxLength": 5,
+                    "pattern": "^[A-Z]{1}[A-Z0-9]{2,4}$",
+                    "description": "Type of additional information. [EUCDM: 12 02 008 000] [SAD 44]"
+                  },
+                  "Text": {
+                    "type": "string",
+                    "maxLength": 512,
+                    "description": "Reference type code. [EUCDM: 12 02 009 000] [SAD 44]"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
