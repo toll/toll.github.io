@@ -4,7 +4,7 @@
     "created": "2024-06-14T07:10:10Z",
     "eventType": "ITEM_ADDED",
     "source": "tvinn",
-    "version": "0.10"
+    "version": "0.11"
   },
   "data": {
     "GoodsItem":
@@ -14,6 +14,7 @@
 
       "Declaration": {
         "DeclarationDate": "2024-06-12",
+        "RegulatoryReferenceDate": "2024-06-12",
         "DateOfAcceptance": "2024-06-13",
         "DeclarationDirection": "I",
         "DeclarationType": "IM",
@@ -71,7 +72,8 @@
 
       "CommodityCode": {
         "HarmonizedSystemSubheadingCode": "847130",
-        "CombinedNomenclatureCode": "00",
+        "CombinedNomenclatureCode": "13",
+        "NationalAdditionalCode": "01",
         "TARICCode": "10"
       },
 
@@ -101,6 +103,10 @@
         {
           "Code": "NUND",
           "Text": "Unntaksdokument 112234"
+        },
+        {
+          "Code": "CCN",
+          "Text": "847130011310"
         }
       ]
     }
