@@ -182,7 +182,7 @@
         "version": {
           "type": "string",
           "description": "Schema-version, used for securing compatibility",
-          "const": "0.10"
+          "const": "0.11"
         }
       }
     },
@@ -226,6 +226,7 @@
               "description": "Customs declaration describing the movement of goods.",
               "required": [
                 "DeclarationDate",
+                "RegulatoryReferenceDate",
                 "DateOfAcceptance",
                 "DeclarationDirection",
                 "DeclarationCategory",
@@ -241,6 +242,12 @@
                   "description": "Date when the declaration was registered. [EUCDM: 15 06 001 000] [SAD: A]"
                 },
 
+                "RegulatoryReferenceDate": {
+                  "type": "string",
+                  "format": "date",
+                  "description": "Date used to determine the regulatory rules, duties, and taxes applicable to the declaration (national extension, not part of EUCDM or SAD)."
+                },
+
                 "DateOfAcceptance": {
                   "type": "string",
                   "format": "date",
@@ -249,7 +256,7 @@
 
                 "DeclarationDirection": {
                   "type": "string",
-                  "description": "Direction of goods, i.e. import into or export out from Norway. Not part of EUCDM or SAD.",
+                  "description": "Direction of goods, i.e. import into or export out from Norway (national extension, not part of EUCDM or SAD).",
                   "oneOf": [
                     { "const": "I", "description": "Import into Norway." },
                     { "const": "O", "description": "Export out from Norway." }
@@ -423,8 +430,8 @@
             },
             "CommodityCode": {
               "type": "object",
-              "description": "Commodity classification. [EUCDM: 18 09] [SAD: 33]",
-              "required": ["HarmonizedSystemSubheadingCode", "CombinedNomenclatureCode"],
+              "description": "Commodity classification. [EUCDM: 18 09] [SAD: 33/44]",
+              "required": ["HarmonizedSystemSubheadingCode", "NationalAdditionalCode"],
               "properties": {
                 "HarmonizedSystemSubheadingCode": {
                   "type": "string",
@@ -434,12 +441,17 @@
                 "CombinedNomenclatureCode": {
                   "type": "string",
                   "pattern": "^[0-9]{2}$",
-                  "description": "Commodity classification - combined part. [EUCDM: 18 09 057 000] [SAD: 33]"
+                  "description": "Commodity classification - combined part when European CN-number is specified. [EUCDM: 18 09 057 000] [SAD: 44]"
+                },
+                "NationalAdditionalCode": {
+                  "type": "string",
+                  "pattern": "^[0-9]{2}$",
+                  "description": "Commodity classification - digit 7-8 from Norwegian commodity code. [EUCDM: 18 09 060 000] [SAD: 33]"
                 },
                 "TARICCode": {
                   "type": "string",
                   "pattern": "^[0-9]{2}$",
-                  "description": "Main TARIC measure code that identifies a specific EU customs measure, for example CBAM. [EUCDM: 18 09 058 000]"
+                  "description": "Main TARIC measure code that identifies a specific EU customs measure, for example CBAM. [EUCDM: 18 09 058 000] [SAD 44]"
                 }
               }
             },
