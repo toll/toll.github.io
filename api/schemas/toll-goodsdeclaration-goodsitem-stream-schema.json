@@ -182,7 +182,7 @@
         "version": {
           "type": "string",
           "description": "Schema-version, used for securing compatibility",
-          "const": "0.11"
+          "const": "1"
         }
       }
     },
