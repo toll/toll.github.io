@@ -84,13 +84,13 @@
             i hvert kall.
             Det legges ikke opp til long polling eller tilsvarende
             utvidelser, vi antar at jevnlige kall til tjenesten vil være
-            et enkelt og velfungerende for denne type tjeneste.
+            enkelt og velfungerende for denne type tjeneste.
         </p>
 
         <p>
             Som klient velger du i utgangspunktet selv hvor ofte du
             kaller tjenesten (innenfor gitte rammer),
-            du oppgir normalt ID for den siste forekomsten du kjenner
+            du oppgir normalt ID for den siste hendelsen du kjenner
             til (heretter kalt "markør"), og vil få data nyere enn
             markøren.
             Siden det er en begrensning på antall hendelser som
@@ -108,10 +108,10 @@
 
         <p>
             Tjenesten vil sitte på historiske data over en
-            periode/tidsvindu, et bestemt antall måneder.
+            periode/tidsvindu, p.t. 12 måneder.
             Hvor mange måneder kan endre seg i fremtiden.
             Merk også at det vil være ulike hendelsestyper, hvor noen
-            kan ta data ut av totalen &mdash; det er forventet at du som
+            kan ta data ut av totalen &ndash; det er forventet at du som
             klient holder orden på dette.
             Det er ikke meningen at dette skal benyttes som en
             oppslagstjeneste, normalmønsteret skal være at du som klient
@@ -149,23 +149,22 @@
 
         <ul class="spaced-list">
             <li>
-                hvilke <em>datafelter</em> vi deler med deg som klient &mdash;
+                hvilke <em>datafelter</em> vi deler med deg som klient &ndash;
                 dette kan være færre enn den totalen som ligger i
                 dataskjemaet, og kommer an på samarbeidsavtaler og
                 hjemler
             </li>
             <li>
                 hvilke varelinjer du får, normalt basert på varenummer
-                &mdash; på samme måte klienttilpasset basert på avtaler
+                &ndash; på samme måte klienttilpasset basert på avtaler
                 og hjemler
                 <ul class="spaced-list">
                     <li>
                         merk at det er avtalene som gjelder på
-                        publiseringstidspunktet som gjelder,
-                        normalt vil ikke utvidelser gis tilbakevirkende
-                        kraft, og dersom du som klient får snevrere
-                        hjemler,
-                        er det ditt ansvar å kaste data du allerede har
+                        publiseringstidspunktet som gjelder, normalt vil
+                        ikke utvidelser gis tilbakevirkende kraft, og
+                        dersom du som klient får snevrere hjemler, er
+                        det ditt ansvar å kaste data du allerede har
                         mottatt, eller som ligger som hendelser
                         publisert før endringen trådte i kraft
                     </li>
@@ -181,8 +180,8 @@
         <h2>Endringsmelding (omberegning), korreksjoner</h2>
 
         <p>
-            Det skjer jevnlig at det kommer endringsmeldinger (tidligere 
-            kalt omberegninger), det vil si korreksjoner på ferdigbehandlede 
+            Det skjer jevnlig at det kommer endringsmeldinger (tidligere
+            kalt omberegninger), det vil si korreksjoner på ferdigbehandlede
             tolldeklarasjoner. I slike tilfeller vil vi sende ut
         </p>
 
@@ -191,13 +190,13 @@
                 slettehendelser for alle varelinjer på gammel deklarasjon
             </li>
             <li>
-                etterfølgende opprettelseshendelser for alle varelinjer 
+                etterfølgende opprettelseshendelser for alle varelinjer
                 på ny deklarasjon
             </li>
         </ol>
 
         <p>
-            I begge tilfeller vil det kun bli sendt hendelser for de 
+            I begge tilfeller vil det kun bli sendt hendelser for de
             varelinjene som er innenfor ditt utvalg.
         </p>
         <p>
@@ -219,9 +218,9 @@
         <h2>Nye versjoner</h2>
 
         <p>
-            Det kan i noen spesielle tilfeller skje at det blir sendt 
+            Det kan i noen spesielle tilfeller skje at det blir sendt
             en ny versjon av en deklarasjon som har blitt sendt før og som
-            ikke er helt ferdigbehandlet enda. I slike tilfeller vil vi i 
+            ikke er helt ferdigbehandlet enda. I slike tilfeller vil vi i
             likhet med for endringsmeldinger (omberegninger) sende ut
         </p>
 
@@ -237,7 +236,7 @@
         </ol>
 
         <p>
-            I begge tilfeller gjelder det også her at det kun vil bli sendt 
+            I begge tilfeller gjelder det også her at det kun vil bli sendt
             hendelser for de varelinjene som er innenfor ditt utvalg.
         </p>
         <p>
@@ -318,7 +317,7 @@
           target="_blank">toll-goodsdeclaration-goodsitem-stream-schema.json</a>,
           med en eksempelfil her: <a href="../schemas/toll-goodsdeclaration-goodsitem-stream-example.json"
                                      target="_blank">toll-goodsdeclaration-goodsitem-stream-example.json</a>,
-          <br/>denne adressen kan bli forandret.
+          disse adressene kan bli forandret.
         </p>
 
         <h2>Hendelsestype (eventType)</h2>
@@ -348,7 +347,7 @@
               <code>ITEM_ADDED_NO_HISTORY</code> benyttes for nye og endrede
               varelinjer for en deklarasjon som har en historikk som strekker seg
               lengre tilbake enn det datadelingsløsningen kjenner til (se
-              kommentar under). I likhet med <code>ITEM_ADDED</code> inneholder 
+              kommentar under). I likhet med <code>ITEM_ADDED</code> inneholder
               den både konvolutt- og datadel.
             </li>
         </ol>
@@ -357,28 +356,28 @@
         </p>
         <ol class="spaced-list">
             <li>
-                Hendelsen gjelder en endringsmelding (tidligere kalt omberegning) 
+                Hendelsen gjelder en endringsmelding (tidligere kalt omberegning)
                 for en deklarasjon som er eldre enn historikken i datadelingsløsningen
             </li>
             <li>
-                Hendelsen gjelder en ny versjon av en deklarasjon som er eldre 
+                Hendelsen gjelder en ny versjon av en deklarasjon som er eldre
                 enn historikken i datadelingsløsningen
             </li>
         </ol>
         <p>
-            Normalt skal det for endringsmeldinger og nye deklarasjonsversjoner 
-            leveres <code>ITEM_REMOVED</code>-hendelser knyttet til deklarasjonen 
-            eller versjonen som blir erstattet. Dette for å hindre at samme 
-            deklarasjonsinformasjon skal telle flere ganger i datagrunnlaget. 
-            Slike hendelser blir derimot ikke generert for hendelser av type 
-            <code>ITEM_ADDED_NO_HISTORY</code> siden datadelingsløsningen da ikke 
-            har kjennskap til hvilke hendelser som skal erstattes. 
-            Konsumentene av datadelingsløsningen må dermed vurdere om 
-            hendelser av typen <code></code>ITEM_ADDED_NO_HISTORY</code> skal tas 
-            med i datagrunnlaget deres eller ikke. 
+            Normalt skal det for endringsmeldinger og nye deklarasjonsversjoner
+            leveres <code>ITEM_REMOVED</code>-hendelser knyttet til deklarasjonen
+            eller versjonen som blir erstattet. Dette for å hindre at samme
+            deklarasjonsinformasjon skal telle flere ganger i datagrunnlaget.
+            Slike hendelser blir derimot ikke generert for hendelser av type
+            <code>ITEM_ADDED_NO_HISTORY</code> siden datadelingsløsningen da ikke
+            har kjennskap til hvilke hendelser som skal erstattes.
+            Konsumentene av datadelingsløsningen må dermed vurdere om
+            hendelser av typen <code></code>ITEM_ADDED_NO_HISTORY</code> skal tas
+            med i datagrunnlaget deres eller ikke.
         </p>
         <p>
-            Etter som tiden går og historikken i datadelingsløsningen blir lengre, 
+            Etter som tiden går og historikken i datadelingsløsningen blir lengre,
             vil det imidlertid bli færre og færre hendelser av denne typen.
         </p>
 
@@ -391,36 +390,36 @@
         <ol class="spaced-list">
             <li>
                 <code>last=ID</code> angir ID for den siste
-                forekomsten konsumenten har sett (markøren) &ndash;
+                hendelsen konsumenten har sett (markøren) &ndash;
                 returnert datasett vil fortsette etter denne; merk:
                 <ul class="spaced-list">
-                  <li>den angitte forekomsten vil ikke være med
+                  <li>den angitte hendelsen vil ikke være med
                   i datasettet</li>
                   <li>det er ingen garanti for at ID-er i kall
                   er en monotont voksende serie uten hull, tvert
                   om må det antas at det ikke er det &ndash; vi
                   bruker UUID-er</li>
-                  <li>dersom ingen forekomst med angitt ID
-                  finnes, returneres status 404 (Not found)</li>
+                  <li>dersom ingen hendelse med angitt ID
+                    finnes, returneres status 404 (Not found)</li>
                 </ul>
             </li>
             <li>
               <code>timestamp=YYYYMMDDTHHmmssZ</code> &ndash; denne
               kan brukes i stedet for foregående dersom ID
               ikke er kjent, og angir tidsstempel for
-              publisering, forekomster med tidsstempel &gt;=
+              publisering, hendelser med tidsstempel &gt;=
               denne verdien vil komme med i resultatet.
               Merk:
                 <ul class="spaced-list">
                   <li>avhengig av parameterverdi kan man risikere overlapp eller hull i forhold til tidligere kall</li>
-                  <li>som nevnt er det en "aldersgrense" på eldste forekomst, det er altså ingen garanti for at det faktisk finnes data like gammel som gitt parameter</li>
+                  <li>som nevnt er det en "aldersgrense" på eldste hendelse, det er altså ingen garanti for at det faktisk finnes data like gammel som gitt parameter</li>
                 </ul>
             </li>
-            <li><code>skip=N</code> for å hoppe over N forekomster
+            <li><code>skip=N</code> for å hoppe over N hendelser
             som ellers ville vært med i utvalget &ndash; mest med av
             hensyn til kompatibilitet med oppslagstjenester</li>
             <li><code>max=N</code> for å be om et maks antall
-            forekomster som er mindre eller lik (ikke større enn)
+            hendelser som er mindre eller lik (ikke større enn)
             maks antall for denne tjenesten</li>
         </ol>
 
@@ -432,22 +431,33 @@
         <h2>Returverdier</h2>
 
         <p>
-          <code>200 OK</code> &mdash; kallet er OK &ndash; dog kan det
-          hende at datasettet som returneres er tomt, det kan skje
-          dersom parametere er OK, men det ikke finnes nye data iht
-          inngitte parametere; merk også at det kan være flere data
-          tilgjengelige enn det som er returnert i dette kallet,
-          dersom antall hendelser er lik maksgrensen (enten gitt av
-          tjenesten eller av parameter <code>max</code>) bør tjenesten
-          kalles på nytt for å hente neste bolk, dette signaleres altså
-          ikke via returstatus
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200"><code>200
+          OK</code></a> &mdash; kallet er OK &ndash; dog kan det hende
+          at datasettet som returneres er tomt, det kan skje dersom
+          parametere er OK, men det ikke finnes nye data iht inngitte
+          parametere; merk også at det kan være flere data tilgjengelige
+          enn det som er returnert i dette kallet, dersom antall
+          hendelser er lik maksgrensen (enten gitt av tjenesten eller av
+          parameter <code>max</code>) bør tjenesten kalles på nytt for å
+          hente neste bolk, dette signaleres altså ikke via returstatus
         </p>
-        <p><code>401 Unauthorized</code> &mdash; benyttes dersom
-        klienten ikke er autentisert riktig, dvs enten ikke har
-        autentisert seg via Maskinporten, eller ikke har avtaler for å
-        få utlevert data på denne tjenesten</p>
-        <p><code>404 Not found</code> &mdash; dersom en ukjent ID er
-        angitt som parameter <code>last</code></p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"><code>401
+          Unauthorized</code></a> &mdash; benyttes dersom klienten ikke
+          er autentisert riktig, dvs enten ikke har autentisert seg via
+          Maskinporten, eller ikke har avtaler for å få utlevert data på
+          denne tjenesten
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"><code>404
+          Not found</code></a> &mdash; dersom en ukjent ID er angitt som
+          parameter <code>last</code>
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"><code>503
+          Service not available</code></a> &mdash; dersom tjenesten er
+          midlertidig nede, vent litt og prøv igjen
+        </p>
 
         <h1 id="autentisering">Autentisering</h1>
 

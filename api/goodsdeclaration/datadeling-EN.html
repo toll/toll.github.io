@@ -39,7 +39,7 @@
             </ol>
         </nav>
 
-        <h1 id="abouttheservice">About the service</h1>
+        <h1 id="omtjenesten">About the service</h1>
 
         <p>
             The data sharing service is a retrieval service for declaration data.
@@ -74,7 +74,7 @@
             not declared through the Tvinn system</li>
         </ul>
 
-        <h1 id="interfacedescription">Interface description</h1>
+        <h1 id="grensesnittbeskrivelse">Interface description</h1>
 
         <h2>General information about the event-based service</h2>
 
@@ -89,7 +89,7 @@
         <p>
             As a client, you generally decide yourself how often to call
             the service, within the specified limits.
-            You normally provide the ID of the latest occurrence you
+            You normally provide the ID of the latest event you
             read (referred to as the "marker"), and will receive data
             newer than the marker.
             Since there is a limit to the number of events returned per
@@ -108,7 +108,8 @@
         </p>
 
         <p>
-            The service will retain historical data for a certain number of months.
+            The service will retain historical data for a certain number
+            of months, currently 12.
             The number of months may change in the future.
             Please also note that there will be different event types,
             some of which may remove data from the total; you as the
@@ -219,8 +220,8 @@
         <h2>New Versions</h2>
 
         <p>
-            In certain special cases, a new version of a previously published 
-            declaration that has not yet been fully processed, may be created. 
+            In certain special cases, a new version of a previously published
+            declaration that has not yet been fully processed, may be created.
             In such cases, we will publish
         </p>
 
@@ -236,7 +237,7 @@
         </ol>
 
         <p>
-            As for corrections, events will only be published for the goods items 
+            As for corrections, events will only be published for the goods items
             that fall within your scope.
         </p>
 
@@ -248,7 +249,7 @@
             may also occur for new versions that result in the same current
             state as the previous state.
         </p>
-        
+
         <h2>Technical details</h2>
 
         <p>A maximum of 1,000 events is returned per call. As a
@@ -294,7 +295,7 @@
             In short, an event consists of an envelope part and a data part.
             The envelope part contains metadata about the event,
             including an event ID and the time when the event was
-            created. 
+            created.
             The data part contains information about the relevant goods
             item together with associated declaration information, in
             which the field names follows the EUCDM standard as close as
@@ -319,7 +320,7 @@
           with an example
           in: <a href="../schemas/toll-goodsdeclaration-goodsitem-stream-example.json"
           target="_blank">toll-goodsdeclaration-goodsitem-stream-example.json</a>,
-          <br/>these URLs may change.
+          these URLs may change.
         </p>
 
         <h2>Event type</h2>
@@ -333,10 +334,10 @@
             <li>
                 <code>ITEM_REMOVED</code> is used for goods items
                 that have been removed from the declaration, or from
-                your scope as a client. These events also precede 
-                <code>ITEM_ADDED</code> events for modified goods items. 
-                This event contains only the envelope part, with an 
-                ID pointing to the goods item that has been changed/removed. 
+                your scope as a client. These events also precede
+                <code>ITEM_ADDED</code> events for modified goods items.
+                This event contains only the envelope part, with an
+                ID pointing to the goods item that has been changed/removed.
                 You as the client are expected to have stored the ID.
             </li>
             <li>
@@ -370,7 +371,7 @@
 
         <p>
             Under normal circumstances, corrections and new
-            declaration versions will generate <code>ITEM_REMOVED</code> events 
+            declaration versions will generate <code>ITEM_REMOVED</code> events
             for the declaration or declaration version
             being replaced. This prevents the same declaration information from
             being counted multiple times in the underlying dataset.
@@ -387,7 +388,7 @@
             service increases, the number of events of this type will gradually
             decrease.
         </p>
-        
+
         <h2>Parameters</h2>
 
         <p>
@@ -398,10 +399,10 @@
         <ol class="spaced-list">
             <li>
                 <code>last=ID</code> specifies the ID of the latest
-                occurrence the consumer has read, the marker; the
+                event the consumer has read, the marker; the
                 returned dataset will continue after this.  Note:
                 <ul class="spaced-list">
-                    <li>the specified occurrence will not be
+                    <li>the specified event will not be
                     included in the dataset</li>
                     <li>there is no guarantee that IDs in calls
                     form a monotonically increasing sequence
@@ -416,7 +417,7 @@
                 <code>timestamp=YYYYMMDDTHHmmssZ</code> This may
                 be used instead of the previous parameter if the
                 ID is not known, and specifies the publication
-                timestamp. Occurrences with a timestamp &gt;=
+                timestamp. Events with a timestamp &gt;=
                 this value will be included in the result.
                 Note:
                 <ul class="spaced-list">
@@ -424,16 +425,16 @@
                     may be overlap or gaps compared with
                     previous calls</li>
                     <li>as mentioned, there is an "age limit"
-                    for the oldest occurrence, meaning there is
+                    for the oldest event, meaning there is
                     no guarantee that data as old as the
                     supplied parameter actually exists</li>
                 </ul>
             </li>
-            <li><code>skip=N</code> to skip N occurrences that would
+            <li><code>skip=N</code> to skip N events that would
             otherwise have been included in the selection; included
             mostly for compatibility with lookup services</li>
             <li><code>max=N</code> to request a maximum number of
-            occurrences that is less than or equal to (not greater
+            events that is less than or equal to (not greater
             than), the maximum number for this service</li>
         </ol>
 
@@ -445,25 +446,37 @@
         <h2>Return values</h2>
 
         <p>
-            <code>200 OK</code> &mdash; the call is OK.  However, the
-            returned dataset can be empty, which can happen if the
-            parameters are OK but there is no new data according to the
-            submitted parameters.  Also note that more data may be
-            available than what is returned in this call; if the number
-            of returned events equals the maximum limit (either set by
-            the service or by the <code>max</code> parameter), the
-            service should be called again to retrieve the next batch.
-            This is not explicitly signalled through the return status.
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/200"><code>200
+          OK</code></a> &mdash; the call is OK.  However, the returned
+          dataset can be empty, which can happen if the parameters are
+          OK but there is no new data according to the submitted
+          parameters.  Also note that more data may be available than
+          what is returned in this call; if the number of returned
+          events equals the maximum limit (either set by the service or
+          by the <code>max</code> parameter), the service should be
+          called again to retrieve the next batch.  This is not
+          explicitly signalled through the return status.
         </p>
-        <p><code>401 Unauthorized</code> &mdash; used if the client is
-        not correctly authenticated, meaning either that it has not
-        authenticated through Maskinporten, or that it does not have
-        agreements permitting data to be disclosed through this
-        service</p>
-        <p><code>404 Not found</code> &mdash; if an unknown ID is
-        provided as the <code>last</code> parameter</p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401"><code>401
+          Unauthorized</code></a> &mdash; used if the client is not
+          correctly authenticated, meaning either that it has not
+          authenticated through Maskinporten, or that it does not have
+          agreements permitting data to be disclosed through this
+          service
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404"><code>404
+          Not found</code></a> &mdash; if an unknown ID is
+          provided as the <code>last</code> parameter
+        </p>
+        <p>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/503"><code>503
+          Service not available</code></a> &mdash; if the service is
+          temporary unavailable, retry after a while
+        </p>
 
-        <h1 id="authentication">Authentication</h1>
+        <h1 id="autentisering">Authentication</h1>
 
         <p>
             Our APIs use Maskinporten for identity and access management.
